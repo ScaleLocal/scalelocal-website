@@ -71,15 +71,26 @@
     }
 
     .nav-logo {
-      flex-shrink: 0;
+      text-decoration: none;
       display: flex;
       align-items: center;
-      text-decoration: none;
+      flex-shrink: 0;
     }
 
-    .nav-logo svg {
-      height: 48px;
-      width: auto;
+    .logo-scale {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .logo-local {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: #2E75B6;
+      line-height: 1;
     }
 
     .nav-links {
@@ -558,10 +569,6 @@
         height: 72px;
       }
 
-      .nav-logo svg {
-        height: 56px;
-      }
-
       #hero {
         padding-top: 72px;
       }
@@ -691,12 +698,8 @@
 
   <header class="site-nav" id="site-nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="160" height="40">
-          <text x="10" y="55" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="52px">
-            <tspan fill="#FFFFFF" font-weight="bold">Scale</tspan><tspan fill="#2E75B6" font-weight="normal">Local</tspan>
-          </text>
-        </svg>
+      <a href="#" class="nav-logo">
+        <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
       </a>
       <nav class="nav-links">
         <a href="#services">Services</a>
