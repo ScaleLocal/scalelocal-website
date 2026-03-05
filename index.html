@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleLocal | Local Digital Marketing Agency | MA &amp; NH</title>
+  <meta name="description" content="ScaleLocal helps local businesses across Massachusetts and New Hampshire get found on Google, generate real leads, and grow — backed by a written results guarantee. Website live in 48 hours.">
+  <link rel="canonical" href="https://scalelocal.net">
+  <meta property="og:title" content="ScaleLocal | Local Digital Marketing Agency | MA &amp; NH">
+  <meta property="og:description" content="ScaleLocal helps local businesses across Massachusetts and New Hampshire get found on Google, generate real leads, and grow — backed by a written results guarantee. Website live in 48 hours.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://scalelocal.net">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ScaleLocal | Local Digital Marketing Agency | MA &amp; NH">
+  <meta name="twitter:description" content="ScaleLocal helps local businesses across Massachusetts and New Hampshire get found on Google, generate real leads, and grow — backed by a written results guarantee. Website live in 48 hours.">
+  <!-- GTM-HEAD-PLACEHOLDER -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #1a1a2e;
+      overflow-x: hidden;
+    }
+
+    body.menu-open {
+      overflow: hidden;
+    }
+
+    .site-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: #1a2e4a;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .site-nav.scrolled {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .nav-logo svg {
+      height: 48px;
+      width: auto;
+    }
+
+    .nav-links {
+      display: none;
+      list-style: none;
+    }
+
+    .nav-cta-desktop {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 1px;
+      transition: 0.3s ease;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: #1a2e4a;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      padding: 80px 24px 32px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 16px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-menu nav {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .mobile-menu a {
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    .mobile-menu .mobile-cta {
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2ecc71;
+      color: #1a2e4a;
+      height: 56px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    #hero {
+      min-height: 100dvh;
+      background: #1a2e4a;
+      padding-top: 60px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, #1f3554 0%, #1a2e4a 70%);
+      pointer-events: none;
+    }
+
+    .hero-arc {
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid rgba(46, 204, 113, 0.06);
+      pointer-events: none;
+    }
+
+    .hero-arc--lg {
+      width: 700px;
+      height: 700px;
+      top: -200px;
+      right: -200px;
+    }
+
+    .hero-arc--sm {
+      width: 450px;
+      height: 450px;
+      top: -80px;
+      right: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      color: #2ecc71;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      letter-spacing: 0.2em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .hero-headline-accent {
+      display: block;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #2E75B6;
+      line-height: 1.1;
+      margin-top: 12px;
+    }
+
+    .hero-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      color: #a8b8cc;
+      font-weight: 400;
+      line-height: 1.6;
+      margin-top: 24px;
+    }
+
+    .hero-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: #6b7a8d;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2ecc71;
+      color: #1a2e4a;
+      height: 56px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      color: #fff;
+      height: 56px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: #fff;
+    }
+
+    .trust-row {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 16px;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .trust-check {
+      color: #2ecc71;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+
+    .trust-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #8a9bb0;
+      line-height: 1.4;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .scroll-indicator a {
+      display: block;
+      text-decoration: none;
+      animation: scrollPulse 2s ease infinite;
+    }
+
+    .scroll-indicator svg {
+      width: 24px;
+      height: 24px;
+      stroke: #2ecc71;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      50% {
+        transform: translateY(8px);
+        opacity: 0.6;
+      }
+    }
+
+    #authority-bar {
+      background: #162338;
+      padding: 48px 0;
+    }
+
+    .authority-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+      text-align: center;
+    }
+
+    .authority-label {
+      color: #2ecc71;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      letter-spacing: 0.22em;
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+
+    .industry-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 40px;
+      row-gap: 6px;
+      column-gap: 16px;
+    }
+
+    .industry-item {
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: #4a5a6e;
+      letter-spacing: 0.1em;
+    }
+
+    .industry-sep {
+      display: none;
+    }
+
+    .stats-row {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+    }
+
+    .stat-label {
+      color: #2ecc71;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin: 6px 0;
+    }
+
+    .stat-desc {
+      color: #6b7a8d;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+    }
+
+    .authority-bottom {
+      margin-top: 32px;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-style: italic;
+      color: #6b7a8d;
+      line-height: 1.7;
+    }
+
+    #contact {
+      display: none;
+    }
+
+    .contact-form {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .contact-form label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #1a2e4a;
+      margin-bottom: 6px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      color: #1a1a2e;
+      transition: border-color 0.2s;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #2ecc71;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .form-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2ecc71;
+      color: #1a2e4a;
+      height: 56px;
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.0625rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .form-submit:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .form-confirmation {
+      display: none;
+      border-left: 4px solid #2ecc71;
+      background: #fff;
+      color: #1a2e4a;
+      padding: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      border-radius: 0 8px 8px 0;
+    }
+
+    @media (min-width: 768px) {
+      .site-nav {
+        height: 72px;
+      }
+
+      .nav-logo svg {
+        height: 56px;
+      }
+
+      #hero {
+        padding-top: 72px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: color 0.2s ease;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #2E75B6;
+      }
+
+      .nav-cta-desktop {
+        display: inline-flex;
+        align-items: center;
+        background: #2ecc71;
+        color: #1a2e4a;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.875rem;
+        font-weight: 700;
+        padding: 10px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+      }
+
+      .nav-cta-desktop:hover {
+        filter: brightness(1.1);
+        box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+      }
+
+      .hamburger {
+        display: none;
+      }
+
+      .hero-headline {
+        font-size: 3.5rem;
+      }
+
+      .hero-headline-accent {
+        font-size: 3.15rem;
+      }
+
+      .hero-sub {
+        font-size: 1.25rem;
+      }
+
+      .hero-buttons {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: auto;
+        min-width: 240px;
+        padding: 0 32px;
+        height: 52px;
+      }
+
+      .trust-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        justify-content: center;
+      }
+
+      #authority-bar {
+        padding: 64px 0;
+      }
+
+      .industry-row {
+        margin-bottom: 56px;
+      }
+
+      .industry-sep {
+        display: block;
+        color: #4a5a6e;
+      }
+
+      .stats-row {
+        flex-direction: row;
+        justify-content: center;
+        gap: 64px;
+      }
+
+      .stat-item {
+        flex: 1;
+        position: relative;
+      }
+
+      .stat-item:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: -32px;
+        top: 10%;
+        height: 80%;
+        width: 1px;
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .stat-number {
+        font-size: 3.25rem;
+      }
+
+      .authority-bottom {
+        margin-top: 48px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- GTM-BODY-PLACEHOLDER -->
+
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="168" height="56">
+          <text x="20" y="70" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="64px">
+            <tspan fill="#FFFFFF" font-weight="bold">Scale</tspan><tspan fill="#2E75B6" font-weight="normal">Local</tspan>
+          </text>
+        </svg>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#guarantee">Guarantee</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="nav-cta-desktop">Get Free Snapshot &rarr;</a>
+      <button class="hamburger" aria-label="Open menu" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" aria-label="Close menu" id="mobile-menu-close">&times;</button>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#guarantee">Guarantee</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="mobile-cta">Get Free Snapshot &rarr;</a>
+    </nav>
+  </div>
+
+  <main>
+    <section id="hero">
+      <div class="hero-arc hero-arc--lg"></div>
+      <div class="hero-arc hero-arc--sm"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow">Serving Massachusetts &amp; New Hampshire</p>
+        <h1 class="hero-headline">
+          Right now, someone in your town is searching for exactly what you offer.
+          <span class="hero-headline-accent">Are they finding you — or your competitor?</span>
+        </h1>
+        <p class="hero-sub">Most local businesses lose customers every single day — not because they're not good at what they do, but because someone else showed up first on Google. ScaleLocal changes that. We build your presence, generate real leads, and put a written performance guarantee behind every dollar you invest.</p>
+        <p class="hero-body">Tewksbury-based. Serving MA and NH.<br>Website live in 48 hours. Results in 60 days — or we work free.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">Get My Free Digital Snapshot &rarr;</a>
+          <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Website Live in 48 Hours</span></div>
+          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Written Results Guarantee</span></div>
+          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">$0 Setup on 6-Month Plans</span></div>
+          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Named Account Manager</span></div>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <a href="#authority-bar">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </a>
+      </div>
+    </section>
+
+    <section id="authority-bar">
+      <div class="authority-inner">
+        <p class="authority-label">Trusted by local businesses across Massachusetts &amp; New Hampshire</p>
+        <div class="industry-row">
+          <span class="industry-item">HVAC &amp; Plumbing</span><span class="industry-sep">|</span>
+          <span class="industry-item">Dental &amp; Medical</span><span class="industry-sep">|</span>
+          <span class="industry-item">Contractors &amp; Trades</span><span class="industry-sep">|</span>
+          <span class="industry-item">Auto Services</span><span class="industry-sep">|</span>
+          <span class="industry-item">Restaurants &amp; Hospitality</span><span class="industry-sep">|</span>
+          <span class="industry-item">Legal &amp; Financial</span><span class="industry-sep">|</span>
+          <span class="industry-item">Salons &amp; Wellness</span><span class="industry-sep">|</span>
+          <span class="industry-item">Home Services</span>
+        </div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-number">48 hrs</div>
+            <div class="stat-label">Average Delivery</div>
+            <div class="stat-desc">Website live from brief to launch</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">3&ndash;5x</div>
+            <div class="stat-label">Typical Lead Growth</div>
+            <div class="stat-desc">Compared to before ScaleLocal</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">$0</div>
+            <div class="stat-label">Setup Fee</div>
+            <div class="stat-desc">On any 6-month plan</div>
+          </div>
+        </div>
+        <p class="authority-bottom">Every ScaleLocal client receives a named account manager, a live performance dashboard, and a written performance guarantee. Not a courtesy — a contractual obligation.</p>
+      </div>
+    </section>
+  </main>
+
+  <section id="contact" style="display:none;">
+    <div class="contact-form-wrap">
+      <form id="contact-form" class="contact-form">
+        <label for="cf-first-name">First Name</label>
+        <input type="text" id="cf-first-name" name="first_name" required>
+
+        <label for="cf-business">Business Name</label>
+        <input type="text" id="cf-business" name="business_name" required>
+
+        <label for="cf-town">Town</label>
+        <input type="text" id="cf-town" name="town" required placeholder="Your town, MA or NH">
+
+        <label for="cf-phone">Phone</label>
+        <input type="tel" id="cf-phone" name="phone" required>
+
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" required>
+
+        <label for="cf-challenge">What's your biggest challenge right now?</label>
+        <textarea id="cf-challenge" name="challenge" rows="3" placeholder="Not showing up on Google, need more reviews, outdated website, losing customers to competitors..."></textarea>
+
+        <button type="submit" class="form-submit">Get My Free Digital Snapshot &rarr;</button>
+      </form>
+      <div class="form-confirmation" id="form-confirmation">
+        You're in. Alex from ScaleLocal will review your business personally and be in touch within 1 business hour. We'll start with a complimentary Digital Presence Snapshot — a clear picture of exactly where you stand online compared to your top local competitors. No pitch. No obligation. Just honest data.
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "ScaleLocal",
+    "url": "https://scalelocal.net",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Tewksbury",
+      "addressRegion": "MA"
+    },
+    "areaServed": ["Massachusetts", "New Hampshire"]
+  }
+  </script>
+
+  <svg id="logo-monogram" xmlns="http://www.w3.org/2000/svg" viewBox="330 100 60 60" width="40" height="40" style="display:none;">
+    <rect x="330" y="100" width="60" height="60" stroke="#1B2A4A" stroke-width="4" fill="none"/>
+    <path d="M 353,115 C 343,115 343,130 353,130 S 363,145 353,145 M 348,125 L 348,150 L 368,150" stroke="#1B2A4A" stroke-width="6" stroke-linecap="butt" fill="none"/>
+  </svg>
+
+  <script>
+    (function() {
+      var nav = document.getElementById('site-nav');
+      var hamburger = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var mobileClose = document.getElementById('mobile-menu-close');
+      var mobileLinks = mobileMenu.querySelectorAll('a');
+      var contactForm = document.getElementById('contact-form');
+      var confirmation = document.getElementById('form-confirmation');
+
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 80) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      });
+
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.add('open');
+        document.body.classList.add('menu-open');
+      });
+
+      mobileClose.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      });
+
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        contactForm.style.display = 'none';
+        confirmation.style.display = 'block';
+      });
+    })();
+  </script>
+</body>
+</html>
