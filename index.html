@@ -335,20 +335,21 @@
 
     .trust-item {
       display: flex;
+      flex-direction: row;
       align-items: flex-start;
       gap: 8px;
     }
 
-    .trust-check {
+    .trust-item .check {
       color: #2ecc71;
-      font-family: 'Inter', sans-serif;
       font-size: 0.875rem;
       font-weight: 600;
       flex-shrink: 0;
       line-height: 1.4;
+      margin-top: 1px;
     }
 
-    .trust-text {
+    .trust-item .trust-text {
       font-family: 'Inter', sans-serif;
       font-size: 0.875rem;
       color: #8a9bb0;
@@ -691,8 +692,8 @@
   <header class="site-nav" id="site-nav">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" width="168" height="56">
-          <text x="20" y="70" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="64px">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" width="160" height="40">
+          <text x="10" y="55" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="52px">
             <tspan fill="#FFFFFF" font-weight="bold">Scale</tspan><tspan fill="#2E75B6" font-weight="normal">Local</tspan>
           </text>
         </svg>
@@ -742,10 +743,10 @@
           <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
         </div>
         <div class="trust-row">
-          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Website Live in 48 Hours</span></div>
-          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Written Results Guarantee</span></div>
-          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">$0 Setup on 6-Month Plans</span></div>
-          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Named Account Manager</span></div>
+          <div class="trust-item"><span class="check">&#10003;</span><span class="trust-text">Website Live in 48 Hours</span></div>
+          <div class="trust-item"><span class="check">&#10003;</span><span class="trust-text">Written Results Guarantee</span></div>
+          <div class="trust-item"><span class="check">&#10003;</span><span class="trust-text">$0 Setup on 6-Month Plans</span></div>
+          <div class="trust-item"><span class="check">&#10003;</span><span class="trust-text">Named Account Manager</span></div>
         </div>
       </div>
       <div class="scroll-indicator">
