@@ -42,126 +42,138 @@
       overflow: hidden;
     }
 
-    nav,
-    header,
-    .nav-container,
-    .navbar {
-      overflow: visible !important;
-    }
-
-    .site-nav {
+    /* ========== NAV ========== */
+    #main-nav {
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 60px;
-      background: #1a2e4a;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      right: 0;
       z-index: 1000;
-      display: flex;
-      align-items: center;
-      transition: box-shadow 0.3s ease;
+      background: #1a2e4a;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-
-    .site-nav.scrolled {
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    #main-nav.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.4);
     }
-
     .nav-inner {
-      width: 100%;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 24px;
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      overflow: visible;
+      padding: 0 24px;
+      height: 64px;
+      max-width: 1140px;
+      margin: 0 auto;
+      box-sizing: border-box;
     }
-
     .nav-logo {
       text-decoration: none;
       display: flex;
+      flex-direction: row;
       align-items: center;
       flex-shrink: 0;
-      overflow: visible !important;
-      white-space: nowrap !important;
-      min-width: fit-content !important;
+      white-space: nowrap;
     }
-
     .logo-scale {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       font-size: 22px;
       color: #ffffff;
       line-height: 1;
-      white-space: nowrap !important;
-      overflow: visible !important;
     }
-
     .logo-local {
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
       font-size: 22px;
       color: #2E75B6;
       line-height: 1;
-      white-space: nowrap !important;
-      overflow: visible !important;
     }
-
     .nav-links {
-      display: none;
-      list-style: none;
-    }
-
-    .nav-cta-desktop {
-      display: none;
-    }
-
-    .hamburger {
       display: flex;
-      flex-direction: column;
-      gap: 5px;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #2E75B6; }
+    .nav-cta {
+      background: #2ecc71;
+      color: #1a2e4a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: filter 0.2s;
+    }
+    .nav-cta:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 12px rgba(46,204,113,0.3);
+    }
+    .hamburger {
       background: none;
       border: none;
       cursor: pointer;
       padding: 8px;
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: #fff;
-      border-radius: 1px;
-      transition: 0.3s ease;
-    }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100%;
-      background: #1a2e4a;
-      z-index: 1001;
       display: flex;
       flex-direction: column;
-      padding: 80px 24px 32px;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
+      gap: 5px;
     }
-
-    .mobile-menu.open {
-      transform: translateX(0);
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #ffffff;
     }
-
-    .mobile-menu-close {
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #1a2e4a;
+      z-index: 1001;
+      padding: 80px 32px 32px;
+      gap: 24px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .mobile-cta {
+      background: #2ecc71 !important;
+      color: #1a2e4a !important;
+      font-weight: 700 !important;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: auto;
+    }
+    .mobile-close {
       position: absolute;
-      top: 16px;
+      top: 20px;
       right: 24px;
       background: none;
       border: none;
-      color: #fff;
+      color: #ffffff;
       font-size: 28px;
       cursor: pointer;
       width: 48px;
@@ -171,45 +183,20 @@
       justify-content: center;
     }
 
-    .mobile-menu nav {
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; }
+
+    @media (min-width: 768px) {
+      .nav-inner { height: 72px; }
+      .desktop-only { display: flex; }
+      .mobile-only { display: none; }
     }
 
-    .mobile-menu a {
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 500;
-      min-height: 48px;
-      display: flex;
-      align-items: center;
-    }
-
-    .mobile-menu .mobile-cta {
-      margin-top: auto;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: #2ecc71;
-      color: #1a2e4a;
-      height: 56px;
-      width: 100%;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.0625rem;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
+    /* ========== HERO ========== */
     #hero {
       min-height: 100dvh;
       background: #1a2e4a;
-      padding-top: 60px;
+      padding-top: 64px;
       position: relative;
       overflow: hidden;
       display: flex;
@@ -413,6 +400,7 @@
       }
     }
 
+    /* ========== AUTHORITY BAR ========== */
     #authority-bar {
       background: #162338;
       padding: 48px 0;
@@ -503,6 +491,7 @@
       line-height: 1.7;
     }
 
+    /* ========== CONTACT (hidden until built) ========== */
     #contact {
       display: none;
     }
@@ -579,57 +568,10 @@
       border-radius: 0 8px 8px 0;
     }
 
+    /* ========== DESKTOP BREAKPOINT ========== */
     @media (min-width: 768px) {
-      .site-nav {
-        height: 72px;
-      }
-
       #hero {
         padding-top: 72px;
-      }
-
-      .nav-links {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-      }
-
-      .nav-links a {
-        color: #fff;
-        text-decoration: none;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 500;
-        transition: color 0.2s ease;
-      }
-
-      .nav-links a:hover,
-      .nav-links a.active {
-        color: #2E75B6;
-      }
-
-      .nav-cta-desktop {
-        display: inline-flex;
-        align-items: center;
-        background: #2ecc71;
-        color: #1a2e4a;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 0.875rem;
-        font-weight: 700;
-        padding: 10px 16px;
-        border-radius: 6px;
-        text-decoration: none;
-        transition: all 0.2s ease;
-        flex-shrink: 0;
-      }
-
-      .nav-cta-desktop:hover {
-        filter: brightness(1.1);
-        box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
-      }
-
-      .hamburger {
-        display: none;
       }
 
       .hero-headline {
@@ -711,38 +653,33 @@
 <body>
   <!-- GTM-BODY-PLACEHOLDER -->
 
-  <header class="site-nav" id="site-nav">
+  <header id="main-nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="/" class="nav-logo">
         <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
       </a>
-      <nav class="nav-links">
+      <nav class="nav-links desktop-only">
         <a href="#services">Services</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#pricing">Pricing</a>
         <a href="#guarantee">Guarantee</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="nav-cta-desktop">Get Free Snapshot &rarr;</a>
-      <button class="hamburger" aria-label="Open menu" id="hamburger-btn">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="#contact" class="nav-cta desktop-only">Get Free Snapshot &rarr;</a>
+      <button class="hamburger mobile-only" aria-label="Open menu" id="hamburger-btn">
+        <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
-
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" aria-label="Close menu" id="mobile-menu-close">&times;</button>
-    <nav>
+    <div class="mobile-menu" id="mobile-menu">
+      <button class="mobile-close" aria-label="Close menu" id="mobile-menu-close">&times;</button>
       <a href="#services">Services</a>
       <a href="#how-it-works">How It Works</a>
       <a href="#pricing">Pricing</a>
       <a href="#guarantee">Guarantee</a>
       <a href="#contact">Contact</a>
       <a href="#contact" class="mobile-cta">Get Free Snapshot &rarr;</a>
-    </nav>
-  </div>
+    </div>
+  </header>
 
   <main>
     <section id="hero">
@@ -752,10 +689,10 @@
         <p class="hero-eyebrow">Serving Massachusetts &amp; New Hampshire</p>
         <h1 class="hero-headline">
           Right now, someone in your town is searching for exactly what you offer.
-          <span class="hero-headline-accent">Are they finding you — or your competitor?</span>
+          <span class="hero-headline-accent">Are they finding you &mdash; or your competitor?</span>
         </h1>
-        <p class="hero-sub">Most local businesses lose customers every single day — not because they're not good at what they do, but because someone else showed up first on Google. ScaleLocal changes that. We build your presence, generate real leads, and put a written performance guarantee behind every dollar you invest.</p>
-        <p class="hero-body">Tewksbury-based. Serving MA and NH.<br>Website live in 48 hours. Results in 60 days — or we work free.</p>
+        <p class="hero-sub">Most local businesses lose customers every single day &mdash; not because they're not good at what they do, but because someone else showed up first on Google. ScaleLocal changes that. We build your presence, generate real leads, and put a written performance guarantee behind every dollar you invest.</p>
+        <p class="hero-body">Tewksbury-based. Serving MA and NH.<br>Website live in 48 hours. Results in 60 days &mdash; or we work free.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn-primary">Get My Free Digital Snapshot &rarr;</a>
           <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
@@ -804,7 +741,7 @@
             <div class="stat-desc">On any 6-month plan</div>
           </div>
         </div>
-        <p class="authority-bottom">Every ScaleLocal client receives a named account manager, a live performance dashboard, and a written performance guarantee. Not a courtesy — a contractual obligation.</p>
+        <p class="authority-bottom">Every ScaleLocal client receives a named account manager, a live performance dashboard, and a written performance guarantee. Not a courtesy &mdash; a contractual obligation.</p>
       </div>
     </section>
   </main>
@@ -833,7 +770,7 @@
         <button type="submit" class="form-submit">Get My Free Digital Snapshot &rarr;</button>
       </form>
       <div class="form-confirmation" id="form-confirmation">
-        You're in. Alex from ScaleLocal will review your business personally and be in touch within 1 business hour. We'll start with a complimentary Digital Presence Snapshot — a clear picture of exactly where you stand online compared to your top local competitors. No pitch. No obligation. Just honest data.
+        You're in. Alex from ScaleLocal will review your business personally and be in touch within 1 business hour. We'll start with a complimentary Digital Presence Snapshot &mdash; a clear picture of exactly where you stand online compared to your top local competitors. No pitch. No obligation. Just honest data.
       </div>
     </div>
   </section>
@@ -860,7 +797,7 @@
 
   <script>
     (function() {
-      var nav = document.getElementById('site-nav');
+      var nav = document.getElementById('main-nav');
       var hamburger = document.getElementById('hamburger-btn');
       var mobileMenu = document.getElementById('mobile-menu');
       var mobileClose = document.getElementById('mobile-menu-close');
