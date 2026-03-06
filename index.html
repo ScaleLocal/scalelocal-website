@@ -71,15 +71,26 @@
     }
 
     .nav-logo {
-      flex-shrink: 0;
+      text-decoration: none;
       display: flex;
       align-items: center;
-      text-decoration: none;
+      flex-shrink: 0;
     }
 
-    .nav-logo svg {
-      height: 48px;
-      width: auto;
+    .logo-scale {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: #ffffff;
+      line-height: 1;
+    }
+
+    .logo-local {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+      color: #2E75B6;
+      line-height: 1;
     }
 
     .nav-links {
@@ -884,10 +895,6 @@
         height: 72px;
       }
 
-      .nav-logo svg {
-        height: 56px;
-      }
-
       #hero {
         padding-top: 72px;
       }
@@ -1060,14 +1067,8 @@
 
   <header class="site-nav" id="site-nav">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 180" width="168" height="72">
-          <text x="20" y="80" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="64px">
-            <tspan fill="#FFFFFF" font-weight="bold">Scale</tspan><tspan fill="#2E75B6" font-weight="normal">Local</tspan>
-          </text>
-          <rect x="330" y="100" width="60" height="60" stroke="#FFFFFF" stroke-width="4" fill="none"/>
-          <path d="M 353,115 C 343,115 343,130 353,130 S 363,145 353,145 M 348,125 L 348,150 L 368,150" stroke="#FFFFFF" stroke-width="6" stroke-linecap="butt" fill="none"/>
-        </svg>
+      <a href="#" class="nav-logo">
+        <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
       </a>
       <nav class="nav-links">
         <a href="#services">Services</a>
@@ -1105,10 +1106,10 @@
         <p class="hero-eyebrow">Serving Massachusetts &amp; New Hampshire</p>
         <h1 class="hero-headline">
           Right now, someone in your town is searching for exactly what you offer.
-          <span class="hero-headline-accent">Are they finding you &#8212; or your competitor?</span>
+          <span class="hero-headline-accent">Are they finding you — or your competitor?</span>
         </h1>
-        <p class="hero-sub">Most local businesses lose customers every single day &#8212; not because they&#8217;re not good at what they do, but because someone else showed up first on Google. ScaleLocal changes that. We build your presence, generate real leads, and put a written performance guarantee behind every dollar you invest.</p>
-        <p class="hero-body">Tewksbury-based. Serving MA and NH.<br>Website live in 48 hours. Results in 60 days &#8212; or we work free.</p>
+        <p class="hero-sub">Most local businesses lose customers every single day — not because they're not good at what they do, but because someone else showed up first on Google. ScaleLocal changes that. We build your presence, generate real leads, and put a written performance guarantee behind every dollar you invest.</p>
+        <p class="hero-body">Tewksbury-based. Serving MA and NH.<br>Website live in 48 hours. Results in 60 days — or we work free.</p>
         <div class="hero-buttons">
           <a href="#contact" class="btn-primary">Get My Free Digital Snapshot &rarr;</a>
           <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
@@ -1147,7 +1148,7 @@
             <div class="stat-desc">Website live from brief to launch</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">3&#8211;5x</div>
+            <div class="stat-number">3&ndash;5x</div>
             <div class="stat-label">Typical Lead Growth</div>
             <div class="stat-desc">Compared to before ScaleLocal</div>
           </div>
@@ -1157,15 +1158,15 @@
             <div class="stat-desc">On any 6-month plan</div>
           </div>
         </div>
-        <p class="authority-bottom">Every ScaleLocal client receives a named account manager, a live performance dashboard, and a written performance guarantee. Not a courtesy &#8212; a contractual obligation.</p>
+        <p class="authority-bottom">Every ScaleLocal client receives a named account manager, a live performance dashboard, and a written performance guarantee. Not a courtesy — a contractual obligation.</p>
       </div>
     </section>
 
     <section id="problem">
       <div class="problem-inner">
         <p class="section-label">THE PROBLEM</p>
-        <h2 class="problem-headline">Every day you&#8217;re not on page one,<br>someone else is getting your customers.</h2>
-        <p class="problem-sub">It&#8217;s not about having a website. It&#8217;s about being found. Most local businesses have both a website and a problem &#8212; their competitors show up first.</p>
+        <h2 class="problem-headline">Every day you&rsquo;re not on page one,<br>someone else is getting your customers.</h2>
+        <p class="problem-sub">It&rsquo;s not about having a website. It&rsquo;s about being found. Most local businesses have both a website and a problem &mdash; their competitors show up first.</p>
         <div class="problem-divider"></div>
         <div class="pain-cards">
           <div class="pain-card">
@@ -1175,7 +1176,7 @@
               </svg>
             </div>
             <h3 class="pain-card-title">Your competitor ranks #1. You rank nowhere.</h3>
-            <p class="pain-card-body">When someone in Tewksbury searches &#8216;plumber near me&#8217; or &#8216;best dentist in Lowell,&#8217; the top three results get 75% of the clicks. If you&#8217;re not there, you don&#8217;t exist &#8212; regardless of how good you are.</p>
+            <p class="pain-card-body">When someone in Tewksbury searches &lsquo;plumber near me&rsquo; or &lsquo;best dentist in Lowell,&rsquo; the top three results get 75% of the clicks. If you&rsquo;re not there, you don&rsquo;t exist &mdash; regardless of how good you are.</p>
           </div>
           <div class="pain-card">
             <div class="pain-icon">
@@ -1184,7 +1185,7 @@
               </svg>
             </div>
             <h3 class="pain-card-title">Your reviews are costing you jobs.</h3>
-            <p class="pain-card-body">88% of consumers trust online reviews as much as a personal recommendation. A competitor with 4.8 stars and 200 reviews will win the call over a 4.1 with 12 &#8212; every single time. Reviews don&#8217;t manage themselves.</p>
+            <p class="pain-card-body">88% of consumers trust online reviews as much as a personal recommendation. A competitor with 4.8 stars and 200 reviews will win the call over a 4.1 with 12 &mdash; every single time. Reviews don&rsquo;t manage themselves.</p>
           </div>
           <div class="pain-card">
             <div class="pain-icon">
@@ -1193,12 +1194,12 @@
               </svg>
             </div>
             <h3 class="pain-card-title">Your website works against you.</h3>
-            <p class="pain-card-body">A slow, outdated, or mobile-unfriendly site doesn&#8217;t just fail to convert &#8212; it actively sends visitors to someone else. Google ranks it lower. Customers distrust it. You lose the lead before they ever call.</p>
+            <p class="pain-card-body">A slow, outdated, or mobile-unfriendly site doesn&rsquo;t just fail to convert &mdash; it actively sends visitors to someone else. Google ranks it lower. Customers distrust it. You lose the lead before they ever call.</p>
           </div>
         </div>
         <div class="problem-bottom-box">
-          <p class="problem-bottom-line1">The businesses winning in your town right now<br>aren&#8217;t necessarily better than you.</p>
-          <p class="problem-bottom-line2">They just have better visibility. That&#8217;s fixable.<br>And it doesn&#8217;t take six months.</p>
+          <p class="problem-bottom-line1">The businesses winning in your town right now<br>aren&rsquo;t necessarily better than you.</p>
+          <p class="problem-bottom-line2">They just have better visibility. That&rsquo;s fixable.<br>And it doesn&rsquo;t take six months.</p>
         </div>
         <div class="problem-cta-wrap">
           <a href="#growth-system" class="problem-cta">See How ScaleLocal Fixes This &rarr;</a>
@@ -1210,7 +1211,7 @@
       <div class="gs-inner">
         <p class="section-label">THE SCALELOCAL GROWTH SYSTEM</p>
         <h2 class="gs-headline">A proven 4-stage system built<br>for local businesses in MA and NH.</h2>
-        <p class="gs-sub">Not a bundle of tools. Not a one-size-fits-all package. A deliberate sequence &#8212; each stage builds on the last, compounding your results every month.</p>
+        <p class="gs-sub">Not a bundle of tools. Not a one-size-fits-all package. A deliberate sequence &mdash; each stage builds on the last, compounding your results every month.</p>
         <div class="stage-cards">
           <div class="stage-card stage-card--foundation">
             <p class="stage-number" style="color:#2ecc71;">STAGE 1</p>
@@ -1244,7 +1245,7 @@
             <p class="stage-subtitle">Paid reach. AI search. Unstoppable pipeline.</p>
             <ul class="stage-deliverables">
               <li>Google Ads and/or Meta Ads managed campaigns</li>
-              <li>ScaleLocal AI Visibility &#8212; optimized for ChatGPT, Gemini, and Perplexity results</li>
+              <li>ScaleLocal AI Visibility &mdash; optimized for ChatGPT, Gemini, and Perplexity results</li>
               <li>Retargeting campaigns for website visitors</li>
               <li>Monthly content strategy targeting local search intent</li>
               <li>Landing page optimization for conversion</li>
@@ -1254,9 +1255,9 @@
           <div class="stage-card stage-card--retention">
             <p class="stage-number" style="color:#9b59b6;">STAGE 4</p>
             <h3 class="stage-title">Retention</h3>
-            <p class="stage-subtitle">You always know exactly what we&#8217;re doing.</p>
+            <p class="stage-subtitle">You always know exactly what we&rsquo;re doing.</p>
             <ul class="stage-deliverables">
-              <li>Live ScaleLocal Dashboard &#8212; real-time lead tracking</li>
+              <li>Live ScaleLocal Dashboard &mdash; real-time lead tracking</li>
               <li>Named account manager, direct line, no ticket system</li>
               <li>Monthly performance report with plain-English summary</li>
               <li>Quarterly strategy review and goal recalibration</li>
@@ -1268,7 +1269,7 @@
         <div class="gs-bottom-bar">
           <div class="gs-bottom-text">
             <p class="gs-bottom-headline">Every tier starts at Stage 1.</p>
-            <p class="gs-bottom-desc">Foundation and Retention are included in every plan &#8212; no matter which tier you choose. Momentum and Authority clients get all four stages running simultaneously.</p>
+            <p class="gs-bottom-desc">Foundation and Retention are included in every plan &mdash; no matter which tier you choose. Growth and Authority clients get all four stages running simultaneously.</p>
           </div>
           <a href="#pricing" class="gs-bottom-cta">See Plans &amp; Pricing &rarr;</a>
         </div>
@@ -1294,13 +1295,13 @@
         <label for="cf-email">Email</label>
         <input type="email" id="cf-email" name="email" required>
 
-        <label for="cf-challenge">What&#8217;s your biggest challenge right now?</label>
+        <label for="cf-challenge">What's your biggest challenge right now?</label>
         <textarea id="cf-challenge" name="challenge" rows="3" placeholder="Not showing up on Google, need more reviews, outdated website, losing customers to competitors..."></textarea>
 
         <button type="submit" class="form-submit">Get My Free Digital Snapshot &rarr;</button>
       </form>
       <div class="form-confirmation" id="form-confirmation">
-        You&#8217;re in. Alex from ScaleLocal will review your business personally and be in touch within 1 business hour. We&#8217;ll start with a complimentary Digital Presence Snapshot &#8212; a clear picture of exactly where you stand online compared to your top local competitors. No pitch. No obligation. Just honest data.
+        You're in. Alex from ScaleLocal will review your business personally and be in touch within 1 business hour. We'll start with a complimentary Digital Presence Snapshot — a clear picture of exactly where you stand online compared to your top local competitors. No pitch. No obligation. Just honest data.
       </div>
     </div>
   </section>
