@@ -814,6 +814,478 @@
       box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
     }
 
+    /* ========== SERVICES SECTION ========== */
+    #services {
+      background: #ffffff;
+      padding: 64px 0;
+    }
+
+    .services-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .services-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #1a2e4a;
+      font-size: 1.625rem;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .services-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      color: #6b7a8d;
+      text-align: center;
+      max-width: 600px;
+      margin: 16px auto 0;
+      line-height: 1.6;
+    }
+
+    .service-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      margin-top: 64px;
+    }
+
+    .service-card {
+      border-radius: 16px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+
+    .service-card--standard {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 16px rgba(26, 46, 74, 0.06);
+    }
+
+    .service-card--standard:hover {
+      box-shadow: 0 8px 32px rgba(26, 46, 74, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .service-card--featured {
+      background: #1a2e4a;
+      border: 2px solid #2ecc71;
+      box-shadow: 0 8px 40px rgba(26, 46, 74, 0.2);
+    }
+
+    .most-popular-badge {
+      display: inline-block;
+      background: #2ecc71;
+      color: #1a2e4a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      align-self: flex-start;
+    }
+
+    .service-tier-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .service-card-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    .service-card--standard .service-card-title {
+      color: #1a2e4a;
+    }
+
+    .service-card--featured .service-card-title {
+      color: #ffffff;
+    }
+
+    .service-tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    .service-card--standard .service-tagline {
+      color: #6b7a8d;
+    }
+
+    .service-card--featured .service-tagline {
+      color: #a8b8cc;
+    }
+
+    .service-price-block {
+      margin-top: 24px;
+      margin-bottom: 24px;
+    }
+
+    .service-price-setup {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #2ecc71;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .service-price-amount {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .service-card--standard .service-price-amount {
+      color: #1a2e4a;
+    }
+
+    .service-card--featured .service-price-amount {
+      color: #ffffff;
+    }
+
+    .service-price-period {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      vertical-align: middle;
+    }
+
+    .service-card--standard .service-price-period {
+      color: #6b7a8d;
+    }
+
+    .service-card--featured .service-price-period {
+      color: #a8b8cc;
+    }
+
+    .service-price-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      display: block;
+      margin-top: 4px;
+    }
+
+    .service-card--standard .service-price-note {
+      color: #6b7a8d;
+    }
+
+    .service-card--featured .service-price-note {
+      color: #a8b8cc;
+    }
+
+    .service-divider--light {
+      border: none;
+      height: 1px;
+      background: #e2e8f0;
+      margin: 24px 0;
+    }
+
+    .service-divider--dark {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.12);
+      margin: 24px 0;
+    }
+
+    .service-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .service-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .service-feature-check {
+      color: #2ecc71;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .service-feature-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      line-height: 1.4;
+    }
+
+    .service-card--standard .service-feature-text {
+      color: #1a2e4a;
+    }
+
+    .service-card--featured .service-feature-text {
+      color: #ffffff;
+    }
+
+    .service-guarantee {
+      margin-top: 20px;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #2ecc71;
+      line-height: 1.4;
+    }
+
+    .service-guarantee--light {
+      background: rgba(46, 204, 113, 0.08);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+    }
+
+    .service-guarantee--dark {
+      background: rgba(46, 204, 113, 0.1);
+      border: 1px solid rgba(46, 204, 113, 0.3);
+    }
+
+    .service-cta-wrap {
+      margin-top: auto;
+      padding-top: 32px;
+    }
+
+    .service-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #2ecc71;
+      color: #1a2e4a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      width: 100%;
+      height: 52px;
+      border-radius: 8px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .service-cta:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+    }
+
+    .services-footer-note {
+      margin-top: 32px;
+      text-align: center;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #6b7a8d;
+      line-height: 1.6;
+    }
+
+    /* ========== PRICING SECTION ========== */
+    #pricing {
+      background: #f0f4f8;
+      padding: 64px 0;
+    }
+
+    .pricing-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .pricing-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #1a2e4a;
+      font-size: 1.625rem;
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .pricing-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.125rem;
+      color: #6b7a8d;
+      text-align: center;
+      max-width: 600px;
+      margin: 16px auto 0;
+      line-height: 1.6;
+      margin-bottom: 56px;
+    }
+
+    .roi-calculator {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(26, 46, 74, 0.08);
+      padding: 32px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .roi-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #1a2e4a;
+      font-size: 1.125rem;
+      margin-bottom: 32px;
+      text-align: center;
+    }
+
+    .roi-input-group {
+      margin-bottom: 24px;
+    }
+
+    .roi-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #1a2e4a;
+      font-weight: 600;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .roi-input,
+    .roi-select {
+      width: 100%;
+      height: 52px;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 0 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #1a2e4a;
+      outline: none;
+      background: #ffffff;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .roi-input:focus,
+    .roi-select:focus {
+      border-color: #2E75B6;
+      box-shadow: 0 0 0 3px rgba(46, 117, 182, 0.1);
+    }
+
+    .roi-select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7a8d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+
+    .roi-results {
+      display: none;
+      margin-top: 40px;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .roi-results.visible {
+      display: grid;
+    }
+
+    .roi-result-card {
+      background: #f0f4f8;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .roi-tier-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #6b7a8d;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .roi-monthly-cost {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #1a2e4a;
+      font-size: 1.375rem;
+    }
+
+    .roi-breakeven {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    .roi-return {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #6b7a8d;
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .pricing-anchor {
+      margin-top: 40px;
+      text-align: center;
+      max-width: 560px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-anchor-lines {
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #6b7a8d;
+      line-height: 1.8;
+    }
+
+    .pricing-cta-wrap {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .pricing-cta {
+      display: inline-block;
+      background: #2ecc71;
+      color: #1a2e4a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.0625rem;
+      padding: 18px 40px;
+      border-radius: 8px;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .pricing-cta:hover {
+      filter: brightness(1.1);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+    }
+
     #contact {
       display: none;
     }
@@ -1059,6 +1531,44 @@
         padding: 40px 48px;
         text-align: left;
       }
+
+      #services {
+        padding: 96px 0;
+      }
+
+      .services-headline {
+        font-size: 2.5rem;
+      }
+
+      .service-cards {
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: stretch;
+      }
+
+      .service-card {
+        padding: 40px;
+      }
+
+      .service-card--featured {
+        transform: scale(1.03);
+      }
+
+      #pricing {
+        padding: 96px 0;
+      }
+
+      .pricing-headline {
+        font-size: 2.5rem;
+      }
+
+      .roi-calculator {
+        padding: 48px;
+      }
+
+      .roi-results.visible {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 24px;
+      }
     }
   </style>
 </head>
@@ -1275,6 +1785,150 @@
         </div>
       </div>
     </section>
+
+    <section id="services">
+      <div class="services-inner">
+        <p class="section-label">OUR SYSTEMS</p>
+        <h2 class="services-headline">Three systems. One goal.<br>More customers finding you first.</h2>
+        <p class="services-sub">Every plan includes a named account manager, a live dashboard, and a written performance guarantee. Pick the level that matches where you are &mdash; and where you want to be.</p>
+        <div class="service-cards">
+          <div class="service-card service-card--standard">
+            <p class="service-tier-label">FOUNDATION SYSTEM</p>
+            <h3 class="service-card-title">Foundation</h3>
+            <p class="service-tagline">Get found. Get reviewed. Get calls.</p>
+            <div class="service-price-block">
+              <span class="service-price-setup">$0 setup</span>
+              <span class="service-price-amount">$497</span><span class="service-price-period">/mo</span>
+              <span class="service-price-note">on 6-month agreement</span>
+            </div>
+            <hr class="service-divider--light">
+            <ul class="service-features">
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Professional website live in 48 hours</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Google Business Profile fully optimized</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ReviewLocal smart review funnel</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Chat on your website</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Tracking (call + lead tracking)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Dashboard &mdash; live reporting</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Named account manager</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Monthly performance report</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Minimum 3 new leads/month &mdash; or we work for free</span></li>
+            </ul>
+            <div class="service-guarantee service-guarantee--light">Minimum 3 leads/month guaranteed by day 60.<br>No ad spend required.</div>
+            <div class="service-cta-wrap">
+              <a href="#contact" class="service-cta">Start with Foundation &rarr;</a>
+            </div>
+          </div>
+          <div class="service-card service-card--featured">
+            <span class="most-popular-badge">MOST POPULAR</span>
+            <p class="service-tier-label">MOMENTUM SYSTEM</p>
+            <h3 class="service-card-title">Momentum</h3>
+            <p class="service-tagline">Dominate your local market.</p>
+            <div class="service-price-block">
+              <span class="service-price-setup">$0 setup</span>
+              <span class="service-price-amount">$997</span><span class="service-price-period">/mo</span>
+              <span class="service-price-note">on 6-month agreement</span>
+            </div>
+            <hr class="service-divider--dark">
+            <ul class="service-features">
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Everything in Foundation</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Google Maps / map pack ranking campaign</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ReviewLocal included (saves $99/mo)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Lead Ads (Google Guaranteed badge)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Citation building &mdash; 50+ directories</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">1 managed ad platform (Google or Meta)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal AI Visibility (ChatGPT/Gemini/Perplexity)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Booking &mdash; appointment scheduling</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Minimum 8 new leads/month &mdash; or we work for free*</span></li>
+            </ul>
+            <div class="service-guarantee service-guarantee--dark">Minimum 8 leads/month guaranteed by day 90.*<br>*Requires $500/mo minimum ad spend.</div>
+            <div class="service-cta-wrap">
+              <a href="#contact" class="service-cta">Start with Momentum &rarr;</a>
+            </div>
+          </div>
+          <div class="service-card service-card--standard">
+            <p class="service-tier-label">AUTHORITY SYSTEM</p>
+            <h3 class="service-card-title">Authority</h3>
+            <p class="service-tagline">Total market dominance.</p>
+            <div class="service-price-block">
+              <span class="service-price-setup">$0 setup</span>
+              <span class="service-price-amount">$1,997</span><span class="service-price-period">/mo</span>
+              <span class="service-price-note">on 6-month agreement</span>
+            </div>
+            <hr class="service-divider--light">
+            <ul class="service-features">
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Everything in Momentum</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Both ad platforms (Google + Meta)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Receptionist &mdash; AI answers calls &amp; texts 24/7</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal AI Visibility &mdash; full implementation</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Weekly GBP posts + active review response</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Quarterly strategy session with Matt directly</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Priority support &mdash; 4-hour response SLA</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Minimum 20 new leads/month &mdash; or we work for free*</span></li>
+            </ul>
+            <div class="service-guarantee service-guarantee--light">Minimum 20 leads/month guaranteed by day 90.*<br>*Requires $1,000/mo minimum ad spend.</div>
+            <div class="service-cta-wrap">
+              <a href="#contact" class="service-cta">Start with Authority &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <p class="services-footer-note">All plans are 6-month agreements. Month-to-month available with $497 setup fee. Ad spend (Google/Meta) billed directly &mdash; never marked up by ScaleLocal. Cancel after 6 months with 30 days notice.</p>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="pricing-inner">
+        <p class="section-label">THE MATH</p>
+        <h2 class="pricing-headline">What&rsquo;s one new customer worth<br>to your business?</h2>
+        <p class="pricing-sub">Most ScaleLocal clients break even within their first two weeks. Use the calculator below to see your own numbers.</p>
+        <div class="roi-calculator">
+          <p class="roi-title">Your ROI Estimator</p>
+          <div class="roi-input-group">
+            <label class="roi-label" for="avg-value">Average value of one new customer ($)</label>
+            <input class="roi-input" type="number" id="avg-value" placeholder="e.g. 2000" min="100">
+          </div>
+          <div class="roi-input-group">
+            <label class="roi-label" for="industry-select">Your industry (helps us estimate lead volume)</label>
+            <select class="roi-select" id="industry-select">
+              <option value="">Select your industry</option>
+              <option value="hvac">HVAC / Plumbing / Electrical ($300&ndash;$2,000/job)</option>
+              <option value="dental">Dental / Medical / MedSpa ($500&ndash;$5,000+ LTV)</option>
+              <option value="roofing">Roofing / Contractors / Remodelers ($5,000&ndash;$50,000/job)</option>
+              <option value="auto">Auto Repair / Collision (high repeat)</option>
+              <option value="legal">Legal / Financial ($1,000&ndash;$100,000+ per client)</option>
+              <option value="restaurants">Restaurants / Catering (volume-based)</option>
+              <option value="salons">Salons / Wellness / Fitness (recurring bookings)</option>
+              <option value="other">Other local business</option>
+            </select>
+          </div>
+          <div class="roi-results" id="roi-results">
+            <div class="roi-result-card">
+              <p class="roi-tier-name">FOUNDATION</p>
+              <p class="roi-monthly-cost">$497/mo</p>
+              <p class="roi-breakeven" id="roi-foundation-breakeven"></p>
+              <p class="roi-return" id="roi-foundation-return"></p>
+            </div>
+            <div class="roi-result-card">
+              <p class="roi-tier-name">MOMENTUM</p>
+              <p class="roi-monthly-cost">$997/mo</p>
+              <p class="roi-breakeven" id="roi-momentum-breakeven"></p>
+              <p class="roi-return" id="roi-momentum-return"></p>
+            </div>
+            <div class="roi-result-card">
+              <p class="roi-tier-name">AUTHORITY</p>
+              <p class="roi-monthly-cost">$1,997/mo</p>
+              <p class="roi-breakeven" id="roi-authority-breakeven"></p>
+              <p class="roi-return" id="roi-authority-return"></p>
+            </div>
+          </div>
+        </div>
+        <div class="pricing-anchor">
+          <p class="pricing-anchor-lines">If it&rsquo;s $500 &mdash; Foundation pays for itself with one new client per month.<br>If it&rsquo;s $2,000 &mdash; Momentum pays for itself before week two.<br>If it&rsquo;s $5,000 &mdash; Authority pays back 2.5x in its first month.</p>
+        </div>
+        <div class="pricing-cta-wrap">
+          <a href="#contact" class="pricing-cta">Get Started &mdash; It&rsquo;s $0 to Set Up &rarr;</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <section id="contact" style="display:none;">
@@ -1366,6 +2020,41 @@
         contactForm.style.display = 'none';
         confirmation.style.display = 'block';
       });
+
+      var avgValueInput = document.getElementById('avg-value');
+      var roiResults = document.getElementById('roi-results');
+
+      function formatWithCommas(num) {
+        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+      }
+
+      function updateROI() {
+        var value = parseFloat(avgValueInput.value);
+        if (!value || value < 100) {
+          roiResults.classList.remove('visible');
+          return;
+        }
+
+        roiResults.classList.add('visible');
+
+        var tiers = [
+          { cost: 497, leads: 3, beId: 'roi-foundation-breakeven', roiId: 'roi-foundation-return' },
+          { cost: 997, leads: 8, beId: 'roi-momentum-breakeven', roiId: 'roi-momentum-return' },
+          { cost: 1997, leads: 20, beId: 'roi-authority-breakeven', roiId: 'roi-authority-return' }
+        ];
+
+        tiers.forEach(function(tier) {
+          var breakEven = Math.ceil(tier.cost / value);
+          var monthlyROI = (tier.leads * value) - tier.cost;
+          var beEl = document.getElementById(tier.beId);
+          var roiEl = document.getElementById(tier.roiId);
+
+          beEl.textContent = 'Pays off with just ' + breakEven + ' new customer' + (breakEven !== 1 ? 's' : '') + '/mo';
+          roiEl.textContent = 'Potential monthly return: ' + (monthlyROI >= 0 ? '+' : '') + '$' + formatWithCommas(monthlyROI);
+        });
+      }
+
+      avgValueInput.addEventListener('input', updateROI);
     })();
   </script>
 </body>
