@@ -1837,9 +1837,10 @@
       box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
     }
 
-    #contact {
-      display: none;
-    }
+#contact {
+  background: #f0f4f8;
+  padding: 64px 0;
+}
 
     .contact-form {
       max-width: 520px;
@@ -2726,9 +2727,496 @@
         </div>
       </div>
     </section>
-  </main>
+</main>
+<style>
+/* Founder Section Styles */
+#founder {
+  background: #ffffff;
+  padding: 96px 24px;
+}
 
-  <section id="contact" style="display:none;">
+#founder .founder-container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+#founder .section-label {
+  color: #2ecc71;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#founder .founder-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #1a2e4a;
+  font-size: 32px;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+#founder .founder-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+}
+
+#founder .video-column {
+  width: 100%;
+}
+
+#founder .video-placeholder {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a2e4a;
+  padding-top: 56.25%;
+  box-shadow: 0 8px 40px rgba(26, 46, 74, 0.2);
+}
+
+#founder .video-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#founder .play-button {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #2ecc71;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+#founder .play-button:hover {
+  transform: scale(1.05);
+}
+
+#founder .play-icon {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 0 12px 22px;
+  border-color: transparent transparent transparent #ffffff;
+  margin-left: 4px;
+}
+
+#founder .video-caption {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #a8b8cc;
+  text-align: center;
+}
+
+#founder .video-overlay-label {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+#founder .copy-column {
+  width: 100%;
+}
+
+#founder .founder-intro {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #6b7a8d;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+#founder .founder-body {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #4a5a6e;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+#founder .signature-block {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 8px;
+}
+
+#founder .avatar-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1a2e4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+#founder .avatar-initials {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+#founder .signature-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1a2e4a;
+  font-size: 16px;
+}
+
+#founder .signature-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #6b7a8d;
+  margin-top: 2px;
+}
+
+/* FAQ Section Styles */
+#faq {
+  background: #f0f4f8;
+  padding: 96px 24px;
+}
+
+#faq .faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#faq .section-label {
+  color: #2ecc71;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+#faq .faq-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #1a2e4a;
+  font-size: 32px;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+#faq .faq-subheadline {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #6b7a8d;
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 64px;
+  line-height: 1.6;
+}
+
+#faq .accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+#faq .accordion-item {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#faq .accordion-item:last-child {
+  border-bottom: none;
+}
+
+#faq .accordion-question {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  user-select: none;
+}
+
+#faq .question-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1a2e4a;
+  font-size: 17px;
+  line-height: 1.4;
+  padding-right: 16px;
+}
+
+#faq .accordion-toggle {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #2ecc71;
+  font-size: 22px;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+
+#faq .accordion-answer {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  color: #6b7a8d;
+  line-height: 1.7;
+  padding-bottom: 24px;
+  padding-right: 32px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+#faq .accordion-answer.active {
+  max-height: 1000px;
+}
+
+#faq .faq-bottom-cta {
+  text-align: center;
+  margin-top: 64px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#faq .cta-line-1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #1a2e4a;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+#faq .cta-line-2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  color: #6b7a8d;
+  margin-bottom: 32px;
+}
+
+#faq .cta-button {
+  background: #2ecc71;
+  color: #1a2e4a;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 17px;
+  padding: 18px 40px;
+  border-radius: 8px;
+  display: inline-block;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+#faq .cta-button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.35);
+}
+
+@media (min-width: 768px) {
+  #founder {
+    padding: 96px 24px;
+  }
+  
+  #founder .founder-headline {
+    font-size: 42px;
+  }
+  
+  #founder .founder-grid {
+    flex-direction: row;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  #founder .video-column,
+  #founder .copy-column {
+    width: 50%;
+  }
+  
+  #faq {
+    padding: 96px 24px;
+  }
+  
+  #faq .faq-headline {
+    font-size: 42px;
+  }
+}
+</style>
+
+<section id="founder">
+  <div class="founder-container">
+    <div class="section-label">THE FOUNDER</div>
+    <h2 class="founder-headline">You'll work with Matt directly.<br>Not an account coordinator.<br>Not a ticket system.</h2>
+    
+    <div class="founder-grid">
+      <div class="video-column">
+        <div class="video-placeholder">
+          <div class="video-content">
+            <div class="play-button">
+              <div class="play-icon"></div>
+            </div>
+            <div class="video-caption">Matt — Founder, ScaleLocal</div>
+          </div>
+          <div class="video-overlay-label">Watch: Why I started ScaleLocal (3 min)</div>
+        </div>
+      </div>
+      
+      <div class="copy-column">
+        <p class="founder-intro">I started ScaleLocal because I kept seeing the same thing — good local businesses losing customers to competitors who just showed up better online. Not because they were better. Because they were more visible.</p>
+        
+        <p class="founder-body">I've spent years building the exact system that fixes that. Not a bundle of tools you manage yourself — a done-for-you engine with a named person behind it. Me, or someone I've trained and trust, on your account every single month.</p>
+        
+        <p class="founder-body">ScaleLocal is intentionally small. We don't take on more clients than we can serve at the level I'd want if I were the client. Every account gets the same thing: real work, real results, and a written guarantee that puts my money on the line if we don't deliver.</p>
+        
+        <div class="signature-block">
+          <div class="avatar-circle">
+            <div class="avatar-initials">M</div>
+          </div>
+          <div>
+            <div class="signature-name">Matt</div>
+            <div class="signature-title">Founder, ScaleLocal — Tewksbury, MA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="faq-container">
+    <div class="section-label">COMMON QUESTIONS</div>
+    <h2 class="faq-headline">Everything you want to know<br>before you reach out.</h2>
+    <p class="faq-subheadline">If something isn't answered here, ask us directly — we'll give you a straight answer.</p>
+    
+    <div class="accordion">
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">How long before I start seeing results?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">Most clients see their first inbound leads within two weeks of launch. The Foundation System guarantee is 3 leads per month by day 60 — no ad spend required. Momentum and Authority clients typically see results faster because paid channels activate alongside organic. The 60 and 90-day ramp periods are built into your contract as the measurement window, but in practice most accounts move faster than that.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">What if you don't hit the guaranteed numbers?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">We keep working for free until we do. That's not a talking point — it's written into your service agreement. If we miss your monthly lead minimum within the ramp period, your billing pauses and we continue full service at no charge until we hit the target. We've never had to invoke it, but the fact that it's in your contract tells you everything about our confidence in the system.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">Do I need to have an ad budget?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">Not for Foundation. The Foundation System generates leads entirely through organic channels — your website, Google Business Profile, local SEO, and reviews. No ad spend required. Momentum and Authority include managed paid campaigns, and those guarantees require a minimum ad budget ($500/mo and $1,000/mo respectively) because paid performance is directly tied to spend. Ad dollars are billed directly to your account — we never mark them up.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">What's the commitment? Can I cancel?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">All plans are 6-month agreements. After 6 months you can cancel with 30 days notice. Month-to-month is available with a one-time $497 setup fee. The 6-month commitment exists because local SEO and map pack ranking take time to compound — we need the runway to deliver on the guarantee. We don't lock you in beyond that.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">How is ScaleLocal different from other local marketing agencies?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">Three things most agencies won't do: publish their pricing, put a written lead guarantee in the contract, and give you a live dashboard instead of a monthly PDF. We also don't have account coordinators — you work with Matt or someone he's personally trained. We're intentionally small because the quality of work drops the moment an agency takes on more clients than it can actually serve.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">What types of businesses do you work with?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">Any local service business where a new customer has real dollar value — HVAC, plumbing, electrical, dental, medical, roofing, contracting, auto repair, legal, financial services, salons, fitness. We work across Massachusetts and New Hampshire. If you're a local business that depends on people finding you online, ScaleLocal was built for you.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">What does the onboarding process look like?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">Day 1 you get your free Digital Presence Snapshot. Matt reviews it personally and walks you through the right plan. Once you're signed, your website is live within 48 hours. Every tool in your system — tracking, dashboard, booking, review funnel — is configured and tested before we consider you launched. Your named account manager is on your account from day one, not week four.</div>
+      </div>
+      
+      <div class="accordion-item">
+        <div class="accordion-question">
+          <div class="question-text">What happens after the 6-month agreement ends?</div>
+          <div class="accordion-toggle">+</div>
+        </div>
+        <div class="accordion-answer">You keep everything — your website, your rankings, your reviews, your dashboard access. If you continue with ScaleLocal, we move to a month-to-month agreement with 30 days notice to cancel. Most clients stay because the system keeps compounding. The leads don't stop when the contract ends — and neither do we, as long as you want us.</div>
+      </div>
+    </div>
+    
+    <div class="faq-bottom-cta">
+      <div class="cta-line-1">Still have a question?</div>
+      <div class="cta-line-2">Fill out the form below and Alex will get back to you within 1 business hour.</div>
+      <a href="#contact" class="cta-button">Get My Free Snapshot →</a>
+    </div>
+  </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionItems = document.querySelectorAll('#faq .accordion-item');
+  
+  accordionItems.forEach(item => {
+    const question = item.querySelector('.accordion-question');
+    const answer = item.querySelector('.accordion-answer');
+    const toggle = item.querySelector('.accordion-toggle');
+    
+    question.addEventListener('click', () => {
+      const isActive = answer.classList.contains('active');
+      
+      accordionItems.forEach(otherItem => {
+        const otherAnswer = otherItem.querySelector('.accordion-answer');
+        const otherToggle = otherItem.querySelector('.accordion-toggle');
+        otherAnswer.classList.remove('active');
+        otherToggle.textContent = '+';
+      });
+      
+      if (!isActive) {
+        answer.classList.add('active');
+        toggle.textContent = '×';
+      }
+    });
+  });
+});
+</script>
+  <section id="contact">
     <div class="contact-form-wrap">
       <form id="contact-form" class="contact-form">
         <label for="cf-first-name">First Name</label>
