@@ -42,6 +42,13 @@
       overflow: hidden;
     }
 
+    nav,
+    header,
+    .nav-container,
+    .navbar {
+      overflow: visible !important;
+    }
+
     .site-nav {
       position: fixed;
       top: 0;
@@ -68,6 +75,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      overflow: visible;
     }
 
     .nav-logo {
@@ -75,6 +83,9 @@
       display: flex;
       align-items: center;
       flex-shrink: 0;
+      overflow: visible !important;
+      white-space: nowrap !important;
+      min-width: fit-content !important;
     }
 
     .logo-scale {
@@ -83,6 +94,8 @@
       font-size: 22px;
       color: #ffffff;
       line-height: 1;
+      white-space: nowrap !important;
+      overflow: visible !important;
     }
 
     .logo-local {
@@ -91,6 +104,8 @@
       font-size: 22px;
       color: #2E75B6;
       line-height: 1;
+      white-space: nowrap !important;
+      overflow: visible !important;
     }
 
     .nav-links {
