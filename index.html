@@ -3069,7 +3069,162 @@
   }
 }
 </style>
-
+<style>
+/* ========== CONTACT SECTION HEADER ========== */
+.contact-header {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 48px;
+}
+.contact-section-label {
+  color: #2ecc71;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.contact-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  color: #1a2e4a;
+  font-size: 1.625rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.contact-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.0625rem;
+  color: #6b7a8d;
+  line-height: 1.6;
+}
+/* ========== FOOTER ========== */
+.site-footer {
+  background: #1a2e4a;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.footer-top {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 64px 0 48px;
+}
+.footer-logo {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.footer-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9375rem;
+  color: #6b7a8d;
+  line-height: 1.6;
+  max-width: 320px;
+  margin-bottom: 12px;
+}
+.footer-location {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: #4a5a6e;
+}
+.footer-nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.footer-nav-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+}
+.footer-nav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-nav-col a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #6b7a8d;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-nav-col a:hover {
+  color: #2ecc71;
+}
+.footer-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 32px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.footer-trust-item {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: #2ecc71;
+  font-weight: 600;
+}
+.footer-legal {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px 0;
+  text-align: center;
+}
+.footer-legal p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #4a5a6e;
+  line-height: 1.6;
+}
+.footer-legal-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+.footer-legal-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  color: #4a5a6e;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-legal-links a:hover {
+  color: #2ecc71;
+}
+@media (min-width: 768px) {
+  .contact-headline {
+    font-size: 2.5rem;
+  }
+  .footer-top {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-brand {
+    max-width: 340px;
+  }
+  .footer-legal {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+</style>
 <section id="founder">
   <div class="founder-container">
     <div class="section-label">THE FOUNDER</div>
@@ -3300,10 +3455,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-      contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        contactForm.style.display = 'none';
-        confirmation.style.display = 'block';
+     contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  var webhookUrl = ''; // GHL_WEBHOOK — paste your webhook URL here when ready
+  if (webhookUrl) {
+    var data = {};
+    new FormData(contactForm).forEach(function(v, k) { data[k] = v; });
+    fetch(webhookUrl, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    }).catch(function() {});
+  }
+  contactForm.style.display = 'none';
+  confirmation.style.display = 'block';
+});
       });
 
       var avgValueInput = document.getElementById('avg-value');
@@ -3342,5 +3508,49 @@ document.addEventListener('DOMContentLoaded', function() {
       avgValueInput.addEventListener('input', updateROI);
     })();
   </script>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
+        </a>
+        <p class="footer-tagline">Local digital marketing for businesses across Massachusetts and New Hampshire — backed by a written performance guarantee.</p>
+        <p class="footer-location">&#128205; Tewksbury, MA &mdash; Serving MA &amp; NH</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">Quick Links</p>
+          <a href="#services">Services</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#guarantee">Guarantee</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">Our Systems</p>
+          <a href="#services">Foundation &mdash; $497/mo</a>
+          <a href="#services">Momentum &mdash; $997/mo</a>
+          <a href="#services">Authority &mdash; $1,997/mo</a>
+          <a href="#contact">Free Snapshot &rarr;</a>
+        </div>
+      </nav>
+    </div>
+    <div class="footer-trust">
+      <span class="footer-trust-item">&#10003; Website live in 48 hours</span>
+      <span class="footer-trust-item">&#10003; Written results guarantee</span>
+      <span class="footer-trust-item">&#10003; $0 setup on 6-month plans</span>
+      <span class="footer-trust-item">&#10003; Named account manager</span>
+    </div>
+    <div class="footer-legal">
+      <p>&copy; 2025 ScaleLocal. All rights reserved. Tewksbury, MA. Serving Massachusetts &amp; New Hampshire.</p>
+      <div class="footer-legal-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
 </body>
 </html>
