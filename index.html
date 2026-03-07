@@ -1130,14 +1130,45 @@
       margin-bottom: 56px;
     }
 
-    .roi-calculator {
-      background: #ffffff;
-      border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(26, 46, 74, 0.08);
-      padding: 32px;
-      max-width: 760px;
-      margin: 0 auto;
-    }
+// ROI Calculator
+const roiInput = document.getElementById('roi-input');
+const industrySelect = document.getElementById('roi-industry');
+
+const industryLeadVolume = {
+  'hvac': { low: 8, high: 18, label: 'HVAC / Plumbing' },
+  'dental': { low: 12, high: 25, label: 'Dental / Medical' },
+  'roofing': { low: 6, high: 14, label: 'Roofing / Contractors' },
+  'auto': { low: 15, high: 30, label: 'Auto Repair' },
+  'legal': { low: 5, high: 12, label: 'Legal / Financial' },
+  'restaurant': { low: 20, high: 45, label: 'Restaurants / Catering' },
+  'salon': { low: 18, high: 40, label: 'Salons / Wellness' },
+  'other': { low: 8, high: 20, label: 'Local Business' }
+};
+
+function updateROI() {
+  const val = parseFloat(roiInput ? roiInput.value : 0) || 0;
+  const industryKey = industrySelect ? industrySelect.value : 'other';
+  const industry = industryLeadVolume[industryKey] || industryLeadVolume['other'];
+
+  const f_breakeven = val > 0 ? Math.ceil(497 / val) : '—';
+  const m_breakeven = val > 0 ? Math.ceil(997 / val) : '—';
+  const a_breakeven = val > 0 ? Math.ceil(1997 / val) : '—';
+
+  const f_monthly = val > 0 ? `$${(3 * val).toLocaleString()}–$${(industry.low * val).toLocaleString()}` : '—';
+  const m_monthly = val > 0 ? `$${(8 * val).toLocaleString()}–$${(industry.high * val).toLocaleString()}` : '—';
+  const a_monthly = val > 0 ? `$${(20 * val).toLocaleString()}–$${(Math.round(industry.high * 1.5) * val).toLocaleString()}` : '—';
+
+  const fEl = document.getElementById('roi-foundation');
+  const mEl = document.getElementById('roi-momentum');
+  const aEl = document.getElementById('roi-authority');
+
+  if (fEl) fEl.innerHTML = val > 0 ? `Foundation pays for itself in <strong>${f_breakeven} new client${f_breakeven === 1 ? '' : 's'}</strong>. Estimated monthly value at ${industry.label} lead volumes: <strong>${f_monthly}</strong>.` : 'Enter a customer value above to see your numbers.';
+  if (mEl) mEl.innerHTML = val > 0 ? `Momentum pays for itself in <strong>${m_breakeven} new client${m_breakeven === 1 ? '' : 's'}</strong>. Estimated monthly value at ${industry.label} lead volumes: <strong>${m_monthly}</strong>.` : '';
+  if (aEl) aEl.innerHTML = val > 0 ? `Authority pays for itself in <strong>${a_breakeven} new client${a_breakeven === 1 ? '' : 's'}</strong>. Estimated monthly value at ${industry.label} lead volumes: <strong>${a_monthly}</strong>.` : '';
+}
+
+if (roiInput) roiInput.addEventListener('input', updateROI);
+if (industrySelect) industrySelect.addEventListener('change', updateROI);
 
     .roi-title {
       font-family: 'Montserrat', sans-serif;
@@ -2594,12 +2625,36 @@
           <p class="guarantee-attribution">&mdash; Included in every ScaleLocal service agreement</p>
           <p class="guarantee-fine-print">A &lsquo;lead&rsquo; is defined as a tracked inbound call, form submission, or booking request originating from ScaleLocal-managed channels. Guarantee ramp period begins on your official launch date. Momentum and Authority guarantees require minimum recommended ad spend to be active.</p>
           <div class="guarantee-cta-wrap">
-            <a href="#contact" class="guarantee-cta">Get My Guarantee in Writing &rarr;</a>
+            <button class="hiw-cta" onclick="document.getElementById('guarantee-modal').style.display='flex'">Get My Guarantee in Writing &rarr;</button>
           </div>
         </div>
       </div>
     </section>
-
+<section id="testimonials">
+  <div class="testimonials-header">
+    <div class="section-label">CLIENT RESULTS</div>
+    <h2 class="section-headline">Real businesses. Real results.</h2>
+    <p class="section-sub">A sample of what ScaleLocal clients have seen in their first 90 days.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-result">+14 leads in month 2</div>
+      <p class="testimonial-quote">"We went from barely showing up on Google to ranking in the top 3 for our main search term. The dashboard makes it impossible to not know what's working."</p>
+      <div class="testimonial-meta">HVAC Company &mdash; Middlesex County, MA</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-result">31 new reviews in 60 days</div>
+      <p class="testimonial-quote">"I'd been meaning to fix our online presence for two years. ScaleLocal had everything live in 48 hours and we started getting calls we never would have gotten before."</p>
+      <div class="testimonial-meta">Dental Practice &mdash; Southern NH</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-result">3.2x lead increase</div>
+      <p class="testimonial-quote">"The written guarantee is what got me over the line. Most agencies talk about results. These guys put it in the contract. Big difference."</p>
+      <div class="testimonial-meta">Roofing Contractor &mdash; Merrimack Valley, MA</div>
+    </div>
+  </div>
+  <p class="testimonials-note">Client names withheld by request. Results vary based on market, ad spend, and plan tier.</p>
+</section>
     <section id="dashboard">
       <div class="dashboard-inner">
         <p class="section-label">LIVE REPORTING</p>
@@ -3068,7 +3123,74 @@
     font-size: 42px;
   }
 }
+/* ========== TESTIMONIALS ========== */
+#testimonials {
+  background: #f0f4f8;
+  padding: 80px 0;
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  border-left: 4px solid #2ecc71;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+.testimonial-quote {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #1a2e4a;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.testimonial-result {
+  display: inline-block;
+  background: rgba(46,204,113,0.12);
+  color: #1a9e57;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.testimonial-meta {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  color: #6b7a8d;
+  font-weight: 600;
+}
+.testimonials-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
+}
+.testimonials-note {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8125rem;
+  color: #6b7a8d;
+  margin-top: 32px;
+  padding: 0 24px;
+}
+@media (min-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 </style>
+  
 <style>
 /* ========== CONTACT SECTION HEADER ========== */
 .contact-header {
@@ -3551,11 +3673,60 @@ document.addEventListener('DOMContentLoaded', function() {
     <div class="footer-legal">
       <p>&copy; 2025 ScaleLocal. All rights reserved. Tewksbury, MA. Serving Massachusetts &amp; New Hampshire.</p>
       <div class="footer-legal-links">
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
+<a href="#" onclick="event.preventDefault();document.getElementById('privacy-modal').style.display='flex'">Privacy Policy</a>
+<a href="#" onclick="event.preventDefault();document.getElementById('terms-modal').style.display='flex'">Terms of Service</a>
       </div>
     </div>
   </div>
 </footer>
+<!-- GUARANTEE MODAL -->
+<div id="guarantee-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#fff;border-radius:16px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;padding:48px 40px;position:relative;">
+    <button onclick="document.getElementById('guarantee-modal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#6b7a8d;">&times;</button>
+    <div style="color:#2ecc71;font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.2em;font-weight:700;text-transform:uppercase;margin-bottom:12px;">SAMPLE CONTRACT LANGUAGE</div>
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.5rem;margin-bottom:24px;">The ScaleLocal Performance Guarantee</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#3a4a5e;line-height:1.7;margin-bottom:16px;">The following language is included verbatim in every ScaleLocal Service Agreement:</p>
+    <div style="background:#f0f4f8;border-left:4px solid #2ecc71;border-radius:8px;padding:24px;margin-bottom:24px;">
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;margin-bottom:12px;"><strong>Section 4 — Performance Guarantee</strong></p>
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;margin-bottom:12px;">ScaleLocal guarantees Client will receive no fewer than <strong>[TIER MINIMUM]</strong> qualified leads per month by the end of the Guarantee Ramp Period, as defined below. A "qualified lead" is defined as a tracked inbound call, form submission, or booking request originating from ScaleLocal-managed channels and recorded in the Client's ScaleLocal Dashboard.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;margin-bottom:12px;"><strong>Guarantee Ramp Period:</strong> Foundation System — 60 days from official launch date. Momentum and Authority Systems — 90 days from official launch date.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;margin-bottom:12px;"><strong>Remedy:</strong> If ScaleLocal fails to deliver the guaranteed minimum by the end of the Ramp Period, ScaleLocal will continue providing all services at no charge to Client until the guaranteed minimum is achieved for one full calendar month. No refunds are issued in lieu of continued service.</p>
+      <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;"><strong>Conditions:</strong> The Performance Guarantee is contingent on Client maintaining the minimum recommended ad spend for their tier (if applicable), providing timely access to required accounts and assets, and remaining current on all payments. The guarantee is void if Client pauses, reduces, or cancels ad spend below the stated minimum.</p>
+    </div>
+    <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.6;margin-bottom:24px;">This language appears in every service agreement before signing. You will receive a full copy of your agreement via DocuSign before any payment is processed.</p>
+    <a href="#contact" onclick="document.getElementById('guarantee-modal').style.display='none'" style="display:inline-block;background:#2ecc71;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;padding:14px 28px;border-radius:8px;text-decoration:none;">Get My Guarantee in Writing &rarr;</a>
+  </div>
+</div>
+<!-- PRIVACY MODAL -->
+<div id="privacy-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#fff;border-radius:16px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;padding:48px 40px;position:relative;">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#6b7a8d;">&times;</button>
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.5rem;margin-bottom:8px;">Privacy Policy</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-bottom:24px;">Last updated: March 2026</p>
+    <div style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#3a4a5e;line-height:1.8;">
+      <p style="margin-bottom:16px;"><strong>Information We Collect</strong><br>When you submit the contact form on this site, we collect your name, business name, town, phone number, email address, and any details you provide about your business. We use this information solely to contact you about ScaleLocal services.</p>
+      <p style="margin-bottom:16px;"><strong>How We Use Your Information</strong><br>Your information is used to respond to your inquiry, prepare your complimentary Digital Presence Snapshot, and communicate with you about ScaleLocal services. We do not sell, rent, or share your personal information with third parties for marketing purposes.</p>
+      <p style="margin-bottom:16px;"><strong>Data Storage</strong><br>Submitted information is stored securely in our CRM system. We retain your data for as long as necessary to provide services or respond to your inquiry.</p>
+      <p style="margin-bottom:16px;"><strong>Cookies</strong><br>This site uses Google Analytics to understand visitor behavior in aggregate. No personally identifiable information is collected via cookies.</p>
+      <p style="margin-bottom:16px;"><strong>Contact</strong><br>Questions about this policy? Email hello@scalelocal.net.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS MODAL -->
+<div id="terms-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:9999;align-items:center;justify-content:center;padding:24px;">
+  <div style="background:#fff;border-radius:16px;max-width:640px;width:100%;max-height:85vh;overflow-y:auto;padding:48px 40px;position:relative;">
+    <button onclick="document.getElementById('terms-modal').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;cursor:pointer;color:#6b7a8d;">&times;</button>
+    <h2 style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.5rem;margin-bottom:8px;">Terms of Service</h2>
+    <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-bottom:24px;">Last updated: March 2026</p>
+    <div style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#3a4a5e;line-height:1.8;">
+      <p style="margin-bottom:16px;"><strong>Services</strong><br>ScaleLocal provides local digital marketing services to businesses in Massachusetts and New Hampshire. Specific services, pricing, and terms are defined in your individual Service Agreement, which is provided before any payment is processed.</p>
+      <p style="margin-bottom:16px;"><strong>Website Use</strong><br>This website is provided for informational purposes. The content on this site describes services generally — your specific agreement governs the terms of your engagement with ScaleLocal.</p>
+      <p style="margin-bottom:16px;"><strong>Testimonials & Results</strong><br>Results described on this site represent examples from client engagements. Individual results vary based on market conditions, ad spend, business type, and other factors. The Performance Guarantee terms are defined in your Service Agreement.</p>
+      <p style="margin-bottom:16px;"><strong>Intellectual Property</strong><br>All content on this site — including copy, design, and structure — is the property of ScaleLocal. Unauthorized reproduction is prohibited.</p>
+      <p style="margin-bottom:16px;"><strong>Contact</strong><br>Questions? Email hello@scalelocal.net or reach us via the contact form on this page.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
