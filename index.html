@@ -3468,25 +3468,22 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const accordionItems = document.querySelectorAll('#faq .accordion-item');
-
   accordionItems.forEach(function(item) {
     var question = item.querySelector('.accordion-question');
     var answer = item.querySelector('.accordion-answer');
     var toggle = item.querySelector('.accordion-toggle');
     if (!question || !answer) return;
-    answer.style.display = 'none';
     question.style.cursor = 'pointer';
-
     question.addEventListener('click', function() {
-      var isOpen = answer.style.display === 'block';
+      var isActive = answer.classList.contains('active');
       accordionItems.forEach(function(i) {
         var a = i.querySelector('.accordion-answer');
         var t = i.querySelector('.accordion-toggle');
-        if (a) a.style.display = 'none';
+        if (a) a.classList.remove('active');
         if (t) t.textContent = '+';
       });
-      if (!isOpen) {
-        answer.style.display = 'block';
+      if (!isActive) {
+        answer.classList.add('active');
         if (toggle) toggle.textContent = '×';
       }
     });
