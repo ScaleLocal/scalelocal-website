@@ -2240,7 +2240,7 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
         <a href="#guarantee">Guarantee</a>
         <a href="#contact">Contact</a>
       </nav>
-      <a href="#contact" class="nav-cta-desktop">Get Free Snapshot &rarr;</a>
+      <a href="#contact" class="nav-cta-desktop">Get a Free Digital Presence Snapshot &rarr;</a>
       <button class="hamburger" aria-label="Open menu" id="hamburger-btn">
         <span></span>
         <span></span>
@@ -2257,7 +2257,7 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
       <a href="#pricing">Pricing</a>
       <a href="#guarantee">Guarantee</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="mobile-cta">Get Free Snapshot &rarr;</a>
+      <a href="#contact" class="mobile-cta">Get A Free Digital Presence Snapshot &rarr;</a>
     </nav>
   </div>
 
@@ -2513,7 +2513,7 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Receptionist &mdash; AI answers calls &amp; texts 24/7</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal AI Visibility &mdash; full implementation</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Weekly GBP posts + active review response</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Quarterly strategy session with Matt directly</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Quarterly Strategy Report — data-driven growth recommendations delivered to your inbox</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Priority support &mdash; 4-hour response SLA</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Minimum 20 new leads/month &mdash; or we work for free*</span></li>
             </ul>
@@ -2758,7 +2758,7 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
         <div class="hiw-steps">
           <div class="hiw-step">
             <div class="hiw-step-circle">1</div>
-            <h3 class="hiw-step-title">Get Your Free Snapshot</h3>
+            <h3 class="hiw-step-title">Get Your Free Digital Presence Snapshot</h3>
             <p class="hiw-step-body">Request your complimentary Digital Presence Snapshot. We audit your Google visibility, review score, website speed, and top 3 competitors. You get a clear picture of exactly where you stand &mdash; no pitch, no obligation.</p>
             <span class="hiw-timeline-pill">DAY 1 &mdash; FREE</span>
           </div>
@@ -2778,7 +2778,7 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
         <div class="hiw-bottom">
           <p class="hiw-bottom-line1">Ready to see where you stand?</p>
           <p class="hiw-bottom-line2">Your Digital Presence Snapshot is free, takes 24 hours, and comes with zero obligation.</p>
-          <a href="#contact" class="hiw-cta">Get My Free Snapshot &rarr;</a>
+          <a href="#contact" class="hiw-cta">Get My Free Digital Presence Snapshot &rarr;</a>
         </div>
       </div>
     </section>
@@ -3461,36 +3461,37 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
     <div class="faq-bottom-cta">
       <div class="cta-line-1">Still have a question?</div>
       <div class="cta-line-2">Fill out the form below and your account manager will get back to you within 1 business hour.</div>
-      <a href="#contact" class="cta-button">Get My Free Snapshot →</a>
+      <a href="#contact" class="cta-button">Get My Free Digital Presence Snapshot →</a>
     </div>
   </div>
 </section>
-
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const accordionItems = document.querySelectorAll('#faq .accordion-item');
-  
-  accordionItems.forEach(item => {
-    const question = item.querySelector('.accordion-question');
-    const answer = item.querySelector('.accordion-answer');
-    const toggle = item.querySelector('.accordion-toggle');
-    
-    question.addEventListener('click', () => {
-      const isActive = answer.classList.contains('active');
-      
-      accordionItems.forEach(otherItem => {
-        const otherAnswer = otherItem.querySelector('.accordion-answer');
-        const otherToggle = otherItem.querySelector('.accordion-toggle');
-        otherAnswer.classList.remove('active');
-        otherToggle.textContent = '+';
+
+  accordionItems.forEach(function(item) {
+    var question = item.querySelector('.accordion-question');
+    var answer = item.querySelector('.accordion-answer');
+    var toggle = item.querySelector('.accordion-toggle');
+    if (!question || !answer) return;
+    answer.style.display = 'none';
+    question.style.cursor = 'pointer';
+
+    question.addEventListener('click', function() {
+      var isOpen = answer.style.display === 'block';
+      accordionItems.forEach(function(i) {
+        var a = i.querySelector('.accordion-answer');
+        var t = i.querySelector('.accordion-toggle');
+        if (a) a.style.display = 'none';
+        if (t) t.textContent = '+';
       });
-      
-      if (!isActive) {
-        answer.classList.add('active');
-        toggle.textContent = '×';
+      if (!isOpen) {
+        answer.style.display = 'block';
+        if (toggle) toggle.textContent = '×';
       }
     });
   });
+});
 </script>
   <section id="contact">
   <div class="contact-header">
@@ -3659,7 +3660,7 @@ document.addEventListener('DOMContentLoaded', function() {
           <a href="#services">Foundation &mdash; $497/mo</a>
           <a href="#services">Momentum &mdash; $997/mo</a>
           <a href="#services">Authority &mdash; $1,997/mo</a>
-          <a href="#contact">Free Snapshot &rarr;</a>
+          <a href="#contact">Free Digital Presence Snapshot &rarr;</a>
         </div>
       </nav>
     </div>
@@ -3693,7 +3694,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <p style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.8;"><strong>Conditions:</strong> The Performance Guarantee is contingent on Client maintaining the minimum recommended ad spend for their tier (if applicable), providing timely access to required accounts and assets, and remaining current on all payments. The guarantee is void if Client pauses, reduces, or cancels ad spend below the stated minimum.</p>
     </div>
     <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.6;margin-bottom:24px;">This language appears in every service agreement before signing. You will receive a full copy of your agreement via DocuSign before any payment is processed.</p>
-    <a href="#contact" onclick="document.getElementById('guarantee-modal').style.display='none'" style="display:inline-block;background:#2ecc71;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;padding:14px 28px;border-radius:8px;text-decoration:none;">Get My Guarantee in Writing &rarr;</a>
+    <a href="#contact" onclick="document.getElementById('guarantee-modal').style.display='none'" style="display:inline-block;background:#2ecc71;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;padding:14px 28px;border-radius:8px;text-decoration:none;">I'm Ready — Start With My Free Digital Presence Snapshot &rarr;&rarr;</a>
   </div>
 </div>
 <!-- PRIVACY MODAL -->
