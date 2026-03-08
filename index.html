@@ -3044,13 +3044,12 @@ if (industrySelect) industrySelect.addEventListener('change', updateROI);
   line-height: 1.7;
   padding-bottom: 24px;
   padding-right: 32px;
-  max-height: 0;
+  max-height: 0 !important;
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
-
 #faq .accordion-answer.active {
-  max-height: 1000px;
+  max-height: 1000px !important;
 }
 
 #faq .faq-bottom-cta {
