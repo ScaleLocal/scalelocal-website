@@ -3476,13 +3476,10 @@ document.addEventListener('DOMContentLoaded', function() {
     question.style.cursor = 'pointer';
     question.addEventListener('click', function() {
       var isActive = answer.classList.contains('active');
-      accordionItems.forEach(function(i) {
-        var a = i.querySelector('.accordion-answer');
-        var t = i.querySelector('.accordion-toggle');
-        if (a) a.classList.remove('active');
-        if (t) t.textContent = '+';
-      });
-      if (!isActive) {
+      if (isActive) {
+        answer.classList.remove('active');
+        if (toggle) toggle.textContent = '+';
+      } else {
         answer.classList.add('active');
         if (toggle) toggle.textContent = '×';
       }
