@@ -1928,6 +1928,51 @@
       border-radius: 0 8px 8px 0;
     }
 
+    .form-confirmation--audit {
+      border-left: 4px solid #f39c12;
+      background: #fffbf2;
+      text-align: center;
+      padding: 32px 24px;
+      border-radius: 12px;
+    }
+    .confirmation-audit-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f39c12, #e67e22);
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+    .confirmation-audit-headline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #1a2e4a;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .confirmation-audit-body {
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: #4a5568;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .confirmation-audit-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #9aa5b4;
+      line-height: 1.6;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #f0e8d8;
+    }
+
     @media (min-width: 768px) {
       .site-nav {
         height: 72px;
@@ -3787,6 +3832,13 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="form-confirmation" id="form-confirmation">
         You&rsquo;re in. Your account manager will review your business personally and be in touch within 1 business hour. Your free Digital Presence Snapshot &mdash; a clear picture of exactly where you stand online compared to your top local competitors &mdash; is on its way within 2 hours during business hours. No commitment required.
       </div>
+      <div class="form-confirmation form-confirmation--audit" id="form-confirmation-audit">
+        <div class="confirmation-audit-badge">Deep Audit Confirmed</div>
+        <p class="confirmation-audit-headline">Outstanding choice.</p>
+        <p class="confirmation-audit-body">The information you&rsquo;re about to receive could be the difference between staying where you are and ranking at the top of local search &mdash; with new leads coming in before the end of the month.</p>
+        <p class="confirmation-audit-body">Your personal account manager is already on it. Your full ScaleLocal Deep Audit &mdash; including a complete competitor breakdown, keyword gap analysis, AI search visibility check, and a 30-day action plan sequenced by impact &mdash; will be in your inbox within 2 business hours.</p>
+        <p class="confirmation-audit-note">Your $97 is credited toward your first month if you sign with ScaleLocal within 14 days. We&rsquo;ll include the details when we deliver your audit.</p>
+      </div>
     </div>
   </section>
 
@@ -3866,11 +3918,20 @@ document.addEventListener('DOMContentLoaded', function() {
   upsellModal.classList.add('open');
   document.body.style.overflow = 'hidden';
 
+  var auditConfirmation = document.getElementById('form-confirmation-audit');
+
   function closeModalAndConfirm() {
     upsellModal.classList.remove('open');
     document.body.style.overflow = '';
     contactForm.style.display = 'none';
     confirmation.style.display = 'block';
+  }
+
+  function closeModalAndConfirmAudit() {
+    upsellModal.classList.remove('open');
+    document.body.style.overflow = '';
+    contactForm.style.display = 'none';
+    auditConfirmation.style.display = 'block';
   }
 
   function closeModalOnly() {
@@ -3896,8 +3957,10 @@ document.addEventListener('DOMContentLoaded', function() {
   upsellYes.addEventListener('click', function(e) {
     // STRIPE_CHECKOUT_LINK — when /checkout is live, replace this block
     // with: window.location.href = 'YOUR_STRIPE_LINK';
+    // Once Stripe is wired, move closeModalAndConfirmAudit() into the
+    // Stripe success callback so it only fires after payment is confirmed.
     e.preventDefault();
-    closeModalAndConfirm();
+    closeModalAndConfirmAudit();
   });
 });
 
@@ -3985,24 +4048,26 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="audit-upsell-modal" role="dialog" aria-modal="true" aria-labelledby="upsell-headline">
   <div class="upsell-modal-box">
     <button class="upsell-close-btn" id="upsell-close-btn" aria-label="Close">&times;</button>
-    <div class="upsell-badge">One-Time Offer</div>
-    <h2 class="upsell-headline" id="upsell-headline">Want the full picture before we send your snapshot?</h2>
-    <p class="upsell-sub">Your free snapshot gives you the headline numbers. The ScaleLocal Deep Audit goes all the way in &mdash; and gives you a roadmap you can act on whether you work with us or not.</p>
+    <div class="upsell-badge">One-Time Offer — Before We Send Your Snapshot</div>
+    <h2 class="upsell-headline" id="upsell-headline">Want the answers, not just the score?</h2>
+    <p class="upsell-sub">Your free snapshot tells you <em>what&rsquo;s happening</em>. The Deep Audit tells you <em>exactly why</em> &mdash; and gives you a 30-day plan to fix it before your competitors notice.</p>
     <div class="upsell-includes">
-      <div class="upsell-includes-title">The Deep Audit includes:</div>
+      <div class="upsell-includes-title">The Deep Audit includes everything your snapshot doesn&rsquo;t:</div>
       <ul class="upsell-includes-list">
-        <li>Full Google Business Profile teardown with specific fix list</li>
-        <li>Head-to-head competitor breakdown &mdash; why they rank above you and how to overtake them</li>
-        <li>30-day action plan with prioritized, plain-English recommendations</li>
-        <li>Personal Loom video walkthrough from your account manager</li>
-        <li>$97 credited toward your first month if you sign with ScaleLocal</li>
+        <li>Full GBP teardown &mdash; every gap, every fix, priority-ordered</li>
+        <li>Competitor breakdown &mdash; exactly what they&rsquo;re doing that you&rsquo;re not</li>
+        <li>Keyword gaps your competitors rank for that you&rsquo;re invisible on</li>
+        <li>Review velocity projection &mdash; where you&rsquo;ll be in 90 days vs the competition</li>
+        <li>AI search visibility check &mdash; do you show up when someone asks ChatGPT?</li>
+        <li>30-day action plan, sequenced by impact &mdash; highest-leverage fixes first</li>
+        <li>A specific ScaleLocal recommendation built around your actual numbers</li>
       </ul>
     </div>
     <div class="upsell-price-block">
       <div class="upsell-price">$97</div>
-      <div class="upsell-price-note">One-time &mdash; delivered within 48 hours &mdash; credited if you sign</div>
+      <div class="upsell-price-note">One-time &bull; Delivered within 2 business hours &bull; Credited toward your first month if you sign</div>
     </div>
-    <a href="#contact" class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; I want the full Deep Audit &rarr;</a>
+    <a href="#snapshot" class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; I want the full Deep Audit &rarr;</a>
     <!-- STRIPE_CHECKOUT_LINK — replace href above with Stripe payment link when /checkout is live -->
     <button class="upsell-no-btn" id="upsell-no-btn">No thanks &mdash; just send my free snapshot</button>
   </div>
