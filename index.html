@@ -3248,9 +3248,11 @@
   inset: 0;
   background: rgba(15, 30, 50, 0.78);
   z-index: 9999;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 24px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 #audit-upsell-modal.open {
   display: flex;
@@ -3264,6 +3266,27 @@
   position: relative;
   box-shadow: 0 24px 80px rgba(0,0,0,0.22);
   text-align: center;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: auto;
+}
+.upsell-close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #9aa5b4;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+.upsell-close-btn:hover {
+  color: #1a2e4a;
 }
 .upsell-badge {
   display: inline-block;
@@ -3383,14 +3406,30 @@
   color: #6b7a8d;
 }
 @media (max-width: 600px) {
+  #audit-upsell-modal {
+    padding: 16px;
+    align-items: flex-start;
+  }
   .upsell-modal-box {
-    padding: 36px 24px 28px;
+    padding: 44px 20px 24px;
+    margin: 0 auto;
+    max-height: none;
   }
   .upsell-headline {
-    font-size: 22px;
+    font-size: 20px;
   }
   .upsell-price {
     font-size: 36px;
+  }
+  .upsell-sub {
+    font-size: 14px;
+  }
+  .upsell-includes-list li {
+    font-size: 13px;
+  }
+  .upsell-yes-btn {
+    font-size: 15px;
+    padding: 16px 20px;
   }
 }
 
@@ -3823,6 +3862,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var upsellModal = document.getElementById('audit-upsell-modal');
   var upsellYes = document.getElementById('upsell-yes-btn');
   var upsellNo = document.getElementById('upsell-no-btn');
+  var upsellClose = document.getElementById('upsell-close-btn');
   upsellModal.classList.add('open');
   document.body.style.overflow = 'hidden';
 
@@ -3833,8 +3873,24 @@ document.addEventListener('DOMContentLoaded', function() {
     confirmation.style.display = 'block';
   }
 
+  function closeModalOnly() {
+    upsellModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   upsellNo.addEventListener('click', function() {
     closeModalAndConfirm();
+  });
+
+  upsellClose.addEventListener('click', function() {
+    closeModalOnly();
+  });
+
+  // Close on overlay tap (not on box tap)
+  upsellModal.addEventListener('click', function(e) {
+    if (e.target === upsellModal) {
+      closeModalOnly();
+    }
   });
 
   upsellYes.addEventListener('click', function(e) {
@@ -3928,6 +3984,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <!-- $97 DEEP AUDIT UPSELL MODAL -->
 <div id="audit-upsell-modal" role="dialog" aria-modal="true" aria-labelledby="upsell-headline">
   <div class="upsell-modal-box">
+    <button class="upsell-close-btn" id="upsell-close-btn" aria-label="Close">&times;</button>
     <div class="upsell-badge">One-Time Offer</div>
     <h2 class="upsell-headline" id="upsell-headline">Want the full picture before we send your snapshot?</h2>
     <p class="upsell-sub">Your free snapshot gives you the headline numbers. The ScaleLocal Deep Audit goes all the way in &mdash; and gives you a roadmap you can act on whether you work with us or not.</p>
