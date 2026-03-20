@@ -2494,7 +2494,7 @@
             </ul>
             <div class="service-guarantee service-guarantee--light">Minimum 3 leads/month guaranteed by day 60. No ad spend required.</div>
             <div class="service-cta-wrap">
-              <a href="#snapshot" class="service-cta">Start with Foundation &rarr;</a>
+              <a href="/menu#foundation" class="service-cta">Start with Foundation &rarr;</a>
             </div>
           </div>
           <div class="service-card service-card--featured">
@@ -2522,7 +2522,7 @@
             </ul>
             <div class="service-guarantee service-guarantee--dark">Minimum 8 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="service-cta-wrap">
-              <a href="#snapshot" class="service-cta">Start with Momentum &rarr;</a>
+              <a href="/menu#momentum" class="service-cta">Start with Momentum &rarr;</a>
             </div>
           </div>
           <div class="service-card service-card--standard">
@@ -2548,7 +2548,7 @@
             </ul>
             <div class="service-guarantee service-guarantee--light">Minimum 20 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="service-cta-wrap">
-              <a href="#snapshot" class="service-cta">Start with Authority &rarr;</a>
+              <a href="/menu#authority" class="service-cta">Start with Authority &rarr;</a>
             </div>
           </div>
         </div>
@@ -3789,14 +3789,14 @@ document.addEventListener('DOMContentLoaded', function() {
     <a href="sms:6173948707" class="contact-reach-item">
       <div class="contact-reach-icon contact-reach-icon--sms">💬</div>
       <div class="contact-reach-text">
-        <span class="contact-reach-label">Text Matt directly &mdash; 617.394.8707</span>
-        <span class="contact-reach-detail">I respond same day, typically within the hour</span>
+        <span class="contact-reach-label">Text us directly &mdash; 617.394.8707</span>
+        <span class="contact-reach-detail">We respond same day, typically within the hour</span>
       </div>
     </a>
-    <a href="/cdn-cgi/l/email-protection#573a362323172434363b323b3834363b79393223" class="contact-reach-item">
+    <a href="mailto:hello@scalelocal.net" class="contact-reach-item">
       <div class="contact-reach-icon contact-reach-icon--email">✉️</div>
       <div class="contact-reach-text">
-        <span class="contact-reach-label"><span class="__cf_email__" data-cfemail="cba6aabfbf8bb8a8aaa7aea7a4a8aaa7e5a5aebf">[email&#160;protected]</span></span>
+        <span class="contact-reach-label">hello@scalelocal.net</span>
         <span class="contact-reach-detail">Email works too &mdash; same response window</span>
       </div>
     </a>
@@ -3848,7 +3848,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </section>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
+  <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -3904,76 +3904,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-     // ===== UPSELL MODAL LOGIC (outside form handler) =====
-  var upsellModal = document.getElementById('audit-upsell-modal');
-  var upsellYes = document.getElementById('upsell-yes-btn');
-  var upsellNo = document.getElementById('upsell-no-btn');
-  var upsellCloseBtn = document.getElementById('upsell-close-btn');
-  var auditConfirmation = document.getElementById('form-confirmation-audit');
-
-  function closeModalAndConfirm() {
-    upsellModal.classList.remove('open');
-    document.body.style.overflow = '';
-    contactForm.style.display = 'none';
-    confirmation.style.display = 'block';
-  }
-
-  function closeModalAndConfirmAudit() {
-    upsellModal.classList.remove('open');
-    document.body.style.overflow = '';
-    contactForm.style.display = 'none';
-    auditConfirmation.style.display = 'block';
-  }
-
-  function closeModalOnly() {
-    upsellModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  upsellNo.onclick = function() {
-    closeModalAndConfirm();
-  };
-
-  upsellCloseBtn.onclick = function() {
-    closeModalOnly();
-  };
-
-  upsellModal.onclick = function(e) {
-    if (e.target === upsellModal) {
-      closeModalOnly();
-    }
-  };
-
-  upsellYes.onclick = function(e) {
-    e.preventDefault();
-    window.open('https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00', '_blank');
-    closeModalAndConfirmAudit();
-  };
-
-  // ===== FORM SUBMIT HANDLER =====
-  contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Submit to GHL form endpoint
-    var formData = new FormData(contactForm);
-    var ghlData = new FormData();
-    ghlData.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-    ghlData.append('location_id', '');
-    ghlData.append('first_name', formData.get('first_name') || '');
-    ghlData.append('phone', formData.get('phone') || '');
-    ghlData.append('email', formData.get('email') || '');
-    ghlData.append('business_name', formData.get('business_name') || '');
-    ghlData.append('town', formData.get('town') || '');
-    ghlData.append('challenge', formData.get('challenge') || '');
-    fetch('https://services.leadconnectorhq.com/funnels/submit', {
-      method: 'POST',
-      body: ghlData,
-      mode: 'no-cors'
-    }).catch(function() {});
-    // Show upsell modal
-    upsellModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-
+      // ===== ROI CALCULATOR =====
       var avgValueInput = document.getElementById('avg-value');
       var roiResults = document.getElementById('roi-results');
 
@@ -3987,28 +3918,105 @@ document.addEventListener('DOMContentLoaded', function() {
           roiResults.classList.remove('visible');
           return;
         }
-
         roiResults.classList.add('visible');
-
         var tiers = [
           { cost: 497, leads: 3, beId: 'roi-foundation-breakeven', roiId: 'roi-foundation-return' },
           { cost: 1297, leads: 8, beId: 'roi-momentum-breakeven', roiId: 'roi-momentum-return' },
           { cost: 1997, leads: 20, beId: 'roi-authority-breakeven', roiId: 'roi-authority-return' }
         ];
-
         tiers.forEach(function(tier) {
           var breakEven = Math.ceil(tier.cost / value);
           var monthlyROI = (tier.leads * value) - tier.cost;
           var beEl = document.getElementById(tier.beId);
           var roiEl = document.getElementById(tier.roiId);
-
           beEl.textContent = 'Pays off with just ' + breakEven + ' new customer' + (breakEven !== 1 ? 's' : '') + '/mo';
           roiEl.textContent = 'Potential monthly return: ' + (monthlyROI >= 0 ? '+' : '') + '$' + formatWithCommas(monthlyROI);
         });
       }
-
       avgValueInput.addEventListener('input', updateROI);
     })();
+
+    // ===== UPSELL MODAL + FORM — runs after full DOM is ready =====
+    document.addEventListener('DOMContentLoaded', function() {
+      var contactForm = document.getElementById('contact-form');
+      var confirmation = document.getElementById('form-confirmation');
+      var auditConfirmation = document.getElementById('form-confirmation-audit');
+      var upsellModal = document.getElementById('audit-upsell-modal');
+      var upsellYes = document.getElementById('upsell-yes-btn');
+      var upsellNo = document.getElementById('upsell-no-btn');
+      var upsellCloseBtn = document.getElementById('upsell-close-btn');
+
+      if (!upsellModal || !upsellYes || !upsellNo || !upsellCloseBtn || !contactForm) return;
+
+      function showFreeConfirmation() {
+        upsellModal.classList.remove('open');
+        document.body.style.overflow = '';
+        contactForm.style.display = 'none';
+        confirmation.style.display = 'block';
+        confirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      function showAuditConfirmation() {
+        upsellModal.classList.remove('open');
+        document.body.style.overflow = '';
+        contactForm.style.display = 'none';
+        auditConfirmation.style.display = 'block';
+        auditConfirmation.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      // "No thanks" = free snapshot confirmation
+      upsellNo.onclick = function(e) {
+        e.preventDefault();
+        showFreeConfirmation();
+      };
+
+      // X close = same as no thanks — they still get the free snapshot
+      upsellCloseBtn.onclick = function(e) {
+        e.preventDefault();
+        showFreeConfirmation();
+      };
+
+      // Clicking overlay background = same as no thanks
+      upsellModal.onclick = function(e) {
+        if (e.target === upsellModal) {
+          showFreeConfirmation();
+        }
+      };
+
+      // "Yes — Upgrade" = open Stripe in new tab + show audit confirmation
+      upsellYes.onclick = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.open('https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00', '_blank');
+        showAuditConfirmation();
+      };
+
+      // ===== FORM SUBMIT =====
+      contactForm.onsubmit = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        // Submit to GHL
+        var formData = new FormData(contactForm);
+        var ghlData = new FormData();
+        ghlData.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+        ghlData.append('location_id', '');
+        ghlData.append('first_name', formData.get('first_name') || '');
+        ghlData.append('phone', formData.get('phone') || '');
+        ghlData.append('email', formData.get('email') || '');
+        ghlData.append('business_name', formData.get('business_name') || '');
+        ghlData.append('town', formData.get('town') || '');
+        ghlData.append('challenge', formData.get('challenge') || '');
+        fetch('https://services.leadconnectorhq.com/funnels/submit', {
+          method: 'POST',
+          body: ghlData,
+          mode: 'no-cors'
+        }).catch(function() {});
+        // Show upsell modal
+        upsellModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        return false;
+      };
+    });
   </script>
   <footer class="site-footer">
   <div class="footer-inner">
@@ -4058,26 +4066,27 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="audit-upsell-modal" role="dialog" aria-modal="true" aria-labelledby="upsell-headline">
   <div class="upsell-modal-box">
     <button class="upsell-close-btn" id="upsell-close-btn" aria-label="Close">&times;</button>
-    <div class="upsell-badge">One-Time Offer — Before We Send Your Snapshot</div>
+    <div class="upsell-badge">Before We Send Your Snapshot</div>
     <h2 class="upsell-headline" id="upsell-headline">Want the answers, not just the score?</h2>
-    <p class="upsell-sub">Your free snapshot tells you <em>what&rsquo;s happening</em>. The Deep Audit tells you <em>exactly why</em> &mdash; and gives you a 30-day plan to fix it before your competitors notice.</p>
+    <p class="upsell-sub">Your free snapshot tells you <em>what&rsquo;s happening</em>. The ScaleLocal Deep Audit tells you <em>exactly why</em> &mdash; and hands you a 30-day action plan to fix it before your competitors notice.</p>
     <div class="upsell-includes">
-      <div class="upsell-includes-title">The Deep Audit includes everything your snapshot doesn&rsquo;t:</div>
+      <div class="upsell-includes-title">The Deep Audit includes everything your free snapshot doesn&rsquo;t:</div>
       <ul class="upsell-includes-list">
-        <li>Full GBP teardown &mdash; every gap, every fix, priority-ordered</li>
+        <li>Full Google Business Profile teardown &mdash; every gap, every fix, priority-ordered</li>
         <li>Competitor breakdown &mdash; exactly what they&rsquo;re doing that you&rsquo;re not</li>
         <li>Keyword gaps your competitors rank for that you&rsquo;re invisible on</li>
-        <li>Review velocity projection &mdash; where you&rsquo;ll be in 90 days vs the competition</li>
-        <li>AI search visibility check &mdash; do you show up when someone asks ChatGPT?</li>
+        <li>Review velocity projection &mdash; where you&rsquo;ll be in 90 days vs. the competition</li>
+        <li>AI search visibility check &mdash; do you show up when someone asks ChatGPT or Gemini?</li>
         <li>30-day action plan, sequenced by impact &mdash; highest-leverage fixes first</li>
-        <li>A specific ScaleLocal recommendation built around your actual numbers</li>
+        <li>A specific ScaleLocal recommendation built around your actual data</li>
       </ul>
     </div>
     <div class="upsell-price-block">
+      <div style="margin-bottom:6px;"><span style="font-family:'Inter',sans-serif;font-size:14px;color:#9aa5b4;text-decoration:line-through;">$249</span> <span style="font-family:'Inter',sans-serif;font-size:13px;color:#6b7a8d;">&mdash; 61% off today</span></div>
       <div class="upsell-price">$97</div>
-      <div class="upsell-price-note">One-time &bull; Delivered within 2 business hours &bull; Credited toward your first month if you sign</div>
+      <div class="upsell-price-note">One-time &bull; $249 value &bull; Delivered within 2 business hours &bull; Credited toward your first month if you sign</div>
     </div>
-    <a href="#snapshot" class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; I want the full Deep Audit &rarr;</a>
+    <button class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; Upgrade to the Full Deep Audit ($97) &rarr;</button>
     <button class="upsell-no-btn" id="upsell-no-btn">No thanks &mdash; just send my free snapshot</button>
   </div>
 </div>
