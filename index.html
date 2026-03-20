@@ -3904,32 +3904,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       });
 
-     contactForm.addEventListener('submit', function(e) {
-  e.preventDefault();
-  // Submit to GHL form endpoint
-  var formData = new FormData(contactForm);
-  var ghlData = new FormData();
-  ghlData.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-  ghlData.append('location_id', '');
-  ghlData.append('first_name', formData.get('first_name') || '');
-  ghlData.append('phone', formData.get('phone') || '');
-  ghlData.append('email', formData.get('email') || '');
-  ghlData.append('business_name', formData.get('business_name') || '');
-  ghlData.append('town', formData.get('town') || '');
-  ghlData.append('challenge', formData.get('challenge') || '');
-  fetch('https://services.leadconnectorhq.com/funnels/submit', {
-    method: 'POST',
-    body: ghlData,
-    mode: 'no-cors'
-  }).catch(function() {});
-  // Show upsell modal instead of confirmation directly
+     // ===== UPSELL MODAL LOGIC (outside form handler) =====
   var upsellModal = document.getElementById('audit-upsell-modal');
   var upsellYes = document.getElementById('upsell-yes-btn');
   var upsellNo = document.getElementById('upsell-no-btn');
-  var upsellClose = document.getElementById('upsell-close-btn');
-  upsellModal.classList.add('open');
-  document.body.style.overflow = 'hidden';
-
+  var upsellCloseBtn = document.getElementById('upsell-close-btn');
   var auditConfirmation = document.getElementById('form-confirmation-audit');
 
   function closeModalAndConfirm() {
@@ -3951,26 +3930,49 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = '';
   }
 
-  upsellNo.addEventListener('click', function() {
+  upsellNo.onclick = function() {
     closeModalAndConfirm();
-  });
+  };
 
-  upsellClose.addEventListener('click', function() {
+  upsellCloseBtn.onclick = function() {
     closeModalOnly();
-  });
+  };
 
-  // Close on overlay tap (not on box tap)
-  upsellModal.addEventListener('click', function(e) {
+  upsellModal.onclick = function(e) {
     if (e.target === upsellModal) {
       closeModalOnly();
     }
-  });
+  };
 
-  upsellYes.addEventListener('click', function(e) {
+  upsellYes.onclick = function(e) {
     e.preventDefault();
-    window.location.href = 'https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00';
+    window.open('https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00', '_blank');
+    closeModalAndConfirmAudit();
+  };
+
+  // ===== FORM SUBMIT HANDLER =====
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Submit to GHL form endpoint
+    var formData = new FormData(contactForm);
+    var ghlData = new FormData();
+    ghlData.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+    ghlData.append('location_id', '');
+    ghlData.append('first_name', formData.get('first_name') || '');
+    ghlData.append('phone', formData.get('phone') || '');
+    ghlData.append('email', formData.get('email') || '');
+    ghlData.append('business_name', formData.get('business_name') || '');
+    ghlData.append('town', formData.get('town') || '');
+    ghlData.append('challenge', formData.get('challenge') || '');
+    fetch('https://services.leadconnectorhq.com/funnels/submit', {
+      method: 'POST',
+      body: ghlData,
+      mode: 'no-cors'
+    }).catch(function() {});
+    // Show upsell modal
+    upsellModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
   });
-});
 
       var avgValueInput = document.getElementById('avg-value');
       var roiResults = document.getElementById('roi-results');
@@ -4076,4 +4078,8 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="upsell-price-note">One-time &bull; Delivered within 2 business hours &bull; Credited toward your first month if you sign</div>
     </div>
     <a href="#snapshot" class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; I want the full Deep Audit &rarr;</a>
- 
+    <button class="upsell-no-btn" id="upsell-no-btn">No thanks &mdash; just send my free snapshot</button>
+  </div>
+</div>
+</body>
+</html>
