@@ -2671,6 +2671,7 @@
             <div class="mock-dot mock-dot--yellow"></div>
             <div class="mock-dot mock-dot--green"></div>
             <div class="mock-url-bar">dashboard.scalelocal.net</div>
+            <span style="font-family:'Inter',sans-serif;font-size:0.625rem;color:#6b7a8d;text-transform:uppercase;letter-spacing:0.1em;margin-left:auto;">Sample Client Data — Anonymized</span>
           </div>
           <div class="mock-dashboard-content">
             <div class="mock-stat-tiles">
@@ -3051,7 +3052,9 @@
   padding-right: 32px;
   max-height: 0;
   overflow: hidden;
+  -webkit-transition: max-height 0.35s ease, padding-bottom 0.35s ease;
   transition: max-height 0.35s ease, padding-bottom 0.35s ease;
+  will-change: max-height, padding-bottom;
 }
 
 #faq .accordion-answer.active {
@@ -3748,28 +3751,31 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  const accordionItems = document.querySelectorAll('#faq .accordion-item');
+  var accordionItems = document.querySelectorAll('#faq .accordion-item');
   
-  accordionItems.forEach(item => {
-    const question = item.querySelector('.accordion-question');
-    const answer = item.querySelector('.accordion-answer');
-    const toggle = item.querySelector('.accordion-toggle');
+  accordionItems.forEach(function(item) {
+    var question = item.querySelector('.accordion-question');
+    var answer = item.querySelector('.accordion-answer');
+    var toggle = item.querySelector('.accordion-toggle');
     
-    question.addEventListener('click', () => {
-      const isActive = answer.classList.contains('active');
+    function handleToggle(e) {
+      e.preventDefault();
+      var isActive = answer.classList.contains('active');
       
-      accordionItems.forEach(otherItem => {
-        const otherAnswer = otherItem.querySelector('.accordion-answer');
-        const otherToggle = otherItem.querySelector('.accordion-toggle');
+      accordionItems.forEach(function(otherItem) {
+        var otherAnswer = otherItem.querySelector('.accordion-answer');
+        var otherToggle = otherItem.querySelector('.accordion-toggle');
         otherAnswer.classList.remove('active');
         otherToggle.textContent = '+';
       });
       
       if (!isActive) {
         answer.classList.add('active');
-        toggle.textContent = '×';
+        toggle.textContent = '\u00d7';
       }
-    });
+    }
+    
+    question.addEventListener('click', handleToggle);
   });
 });
 </script>
@@ -3787,10 +3793,10 @@ document.addEventListener('DOMContentLoaded', function() {
         <span class="contact-reach-detail">I respond same day, typically within the hour</span>
       </div>
     </a>
-    <a href="mailto:matt@scalelocal.net" class="contact-reach-item">
+    <a href="/cdn-cgi/l/email-protection#573a362323172434363b323b3834363b79393223" class="contact-reach-item">
       <div class="contact-reach-icon contact-reach-icon--email">✉️</div>
       <div class="contact-reach-text">
-        <span class="contact-reach-label">matt@scalelocal.net</span>
+        <span class="contact-reach-label"><span class="__cf_email__" data-cfemail="cba6aabfbf8bb8a8aaa7aea7a4a8aaa7e5a5aebf">[email&#160;protected]</span></span>
         <span class="contact-reach-detail">Email works too &mdash; same response window</span>
       </div>
     </a>
@@ -3842,7 +3848,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
   </section>
 
-  <script type="application/ld+json">
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -3900,16 +3906,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
      contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  var webhookUrl = ''; // GHL_WEBHOOK — paste your webhook URL here when ready
-  if (webhookUrl) {
-    var data = {};
-    new FormData(contactForm).forEach(function(v, k) { data[k] = v; });
-    fetch(webhookUrl, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    }).catch(function() {});
-  }
+  // Submit to GHL form endpoint
+  var formData = new FormData(contactForm);
+  var ghlData = new FormData();
+  ghlData.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+  ghlData.append('location_id', '');
+  ghlData.append('first_name', formData.get('first_name') || '');
+  ghlData.append('phone', formData.get('phone') || '');
+  ghlData.append('email', formData.get('email') || '');
+  ghlData.append('business_name', formData.get('business_name') || '');
+  ghlData.append('town', formData.get('town') || '');
+  ghlData.append('challenge', formData.get('challenge') || '');
+  fetch('https://services.leadconnectorhq.com/funnels/submit', {
+    method: 'POST',
+    body: ghlData,
+    mode: 'no-cors'
+  }).catch(function() {});
   // Show upsell modal instead of confirmation directly
   var upsellModal = document.getElementById('audit-upsell-modal');
   var upsellYes = document.getElementById('upsell-yes-btn');
@@ -3955,12 +3967,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   upsellYes.addEventListener('click', function(e) {
-    // STRIPE_CHECKOUT_LINK — when /checkout is live, replace this block
-    // with: window.location.href = 'YOUR_STRIPE_LINK';
-    // Once Stripe is wired, move closeModalAndConfirmAudit() into the
-    // Stripe success callback so it only fires after payment is confirmed.
     e.preventDefault();
-    closeModalAndConfirmAudit();
+    window.location.href = 'https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00';
   });
 });
 
@@ -4068,9 +4076,4 @@ document.addEventListener('DOMContentLoaded', function() {
       <div class="upsell-price-note">One-time &bull; Delivered within 2 business hours &bull; Credited toward your first month if you sign</div>
     </div>
     <a href="#snapshot" class="upsell-yes-btn" id="upsell-yes-btn">Yes &mdash; I want the full Deep Audit &rarr;</a>
-    <!-- STRIPE_CHECKOUT_LINK — replace href above with Stripe payment link when /checkout is live -->
-    <button class="upsell-no-btn" id="upsell-no-btn">No thanks &mdash; just send my free snapshot</button>
-  </div>
-</div>
-</body>
-</html>
+ 
