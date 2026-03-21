@@ -61,6 +61,13 @@
   document.addEventListener('DOMContentLoaded', function() {
     var startData = {};
     try { startData = JSON.parse(sessionStorage.getItem('sl_start') || '{}'); } catch(e) {}
+
+    // GATE: If no start data, redirect to /start first
+    if (!startData.first_name || !startData.business_name) {
+      window.location.href = '/start?return=quiz';
+      return;
+    }
+
     var firstName = startData.first_name || '';
     var businessName = startData.business_name || '';
     var industry = startData.industry || '';

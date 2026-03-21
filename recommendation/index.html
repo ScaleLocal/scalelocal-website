@@ -57,7 +57,14 @@
   document.addEventListener('DOMContentLoaded', function() {
     var quizData = {};
     try { quizData = JSON.parse(sessionStorage.getItem('sl_quiz') || '{}'); } catch(e) {}
-    var tier = quizData.recommendation || new URLSearchParams(window.location.search).get('tier') || 'foundation';
+
+    // GATE: If no quiz data, redirect to /start first
+    if (!quizData.recommendation || !quizData.first_name) {
+      window.location.href = '/start?return=quiz';
+      return;
+    }
+
+    var tier = quizData.recommendation || 'foundation';
     var fn = quizData.first_name || '';
     var bn = quizData.business_name || 'your business';
     var q2text = quizData.q2_answer_text || 'several calls';
@@ -65,11 +72,11 @@
     var q4text = quizData.q4_answer_text || 'no formal follow-up process';
     var aiFlag = quizData.ai_flag || 'off';
 
-    // Recommendation copy blocks (from Memory / Website Build Spec)
+    // Recommendation copy blocks
     var copyBlocks = {
-      foundation: "Hey " + fn + " \u2014 based on what you told us, you're in a better position than most businesses we talk to.\n\nYou're answering your calls, you have some follow-up in place, and you have capacity for growth. What you need right now isn't more infrastructure \u2014 you need to make sure customers can actually find you when they search Google.\n\nThat's exactly what Foundation is built for. We'll get your Google presence dialed in, your reviews compounding, and make sure every lead that finds you converts \u2014 with a written guarantee of 3 new leads per month by day 60 or we work free.\n\nNo setup fee. $497/mo on a 6-month agreement.",
-      momentum: "Hey " + fn + " \u2014 here's what you told us about " + bn + ".\n\nYou're missing roughly " + q2text + ". That's about " + q2weekly + " calls a week going unanswered. " + q4text + " \u2014 which means those leads aren't being followed up with either.\n\nThat's not a small problem. That's revenue leaving every single week \u2014 going to whoever answers their phone.\n\nMomentum is built for exactly this. We get you in the map pack, we run paid ads that bring in calls you're not seeing today, and we put a follow-up system in place that works even when you're heads down on a job. 8 guaranteed leads per month or we work free.\n\n$1,297/mo on a 6-month agreement. No setup fee.",
-      authority: "Hey " + fn + " \u2014 let's be honest about what's happening at " + bn + ".\n\nYou're missing " + q2text + " \u2014 roughly " + q2weekly + " calls a week. You're not sure where you show up on Google. And " + q4text + ".\n\nThat's three separate problems compounding on each other. Foundation or Momentum alone won't fix this \u2014 you need the full stack.\n\nAuthority covers everything \u2014 your Google presence, paid ads across Google and Meta, a follow-up system that runs automatically, and an AI receptionist that answers every call before it ever hits voicemail. 24/7. It qualifies the caller, books the appointment, and sends you a summary while you sleep.\n\n20 guaranteed leads per month. $1,997/mo plus a one-time $997 setup fee that covers your full AI receptionist build. 6-month agreement."
+      foundation: "Hey " + fn + " \u2014 based on what you told us, you're in a better position than most businesses we talk to.\n\nYou're answering your calls, you have some follow-up in place, and you have capacity for growth. What you need right now isn't more infrastructure \u2014 you need to make sure customers can actually find you when they search Google.\n\nThat's exactly what Foundation is built for. We'll get your Google presence dialed in, your reviews compounding, and make sure every lead that finds you converts \u2014 with a written guarantee of 3 new leads per month by day 60 or we work free.\n\n$497/mo. No base setup fee on a 6-month or 12-month commitment.",
+      momentum: "Hey " + fn + " \u2014 here's what you told us about " + bn + ".\n\nYou told us you're missing " + q2text + " calls a day \u2014 that's potentially " + q2weekly + " calls a week going unanswered. And your follow-up process? " + q4text + " \u2014 which means those leads aren't being followed up with either.\n\nThat's not a small problem. That's revenue leaving every single week \u2014 going to whoever answers their phone.\n\nMomentum is built for exactly this. We get you in the map pack, we run paid ads that bring in calls you're not seeing today, and we put a follow-up system in place that works even when you're heads down on a job. 8 guaranteed leads per month or we work free.\n\n$1,297/mo. No base setup fee on a 6-month or 12-month commitment.",
+      authority: "Hey " + fn + " \u2014 let's be honest about what's happening at " + bn + ".\n\nYou told us you're missing " + q2text + " calls a day \u2014 that's roughly " + q2weekly + " calls a week going unanswered. You're not sure where you show up on Google. And your follow-up? " + q4text + ".\n\nThat's three separate problems compounding on each other. Foundation or Momentum alone won't fix this \u2014 you need the full stack.\n\nAuthority covers everything \u2014 your Google presence, paid ads across Google and Meta, and a follow-up system that runs automatically. You can also add the ScaleLocal AI Receptionist, which answers every call before it ever hits voicemail \u2014 24/7. It qualifies the caller, books the appointment, and sends you a summary while you sleep.\n\n20 guaranteed leads per month. $1,997/mo. Base setup fees waived on a 6-month or 12-month commitment. AI Receptionist is a $997 one-time setup if you choose to add it."
     };
 
     var planData = {
