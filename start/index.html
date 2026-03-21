@@ -147,13 +147,8 @@
       ghl.append('business_name',data.business_name||'');
       ghl.append('industry',data.industry||'');
       fetch('https://services.leadconnectorhq.com/funnels/submit',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
-      // Redirect — check if we came from a gated page
-      var returnTo = new URLSearchParams(window.location.search).get('return');
-      if (returnTo === 'quiz') {
-        window.location.href = '/quiz?track=' + track;
-      } else {
-        window.location.href = '/quiz?track=' + track;
-      }
+      // Redirect to quiz
+      window.location.href = '/quiz?track=' + track;
       return false;
     };
   });
