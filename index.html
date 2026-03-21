@@ -3908,7 +3908,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // ===== ROI CALCULATOR =====
       var avgValueInput = document.getElementById('avg-value');
+      var industrySelect = document.getElementById('industry-select');
       var roiResults = document.getElementById('roi-results');
+
+      // Industry close rates (lead → paying customer) based on realistic local service data
+      var industryData = {
+        hvac:        { close: 0.35, label: 'HVAC/Plumbing/Electrical' },
+        dental:      { close: 0.40, label: 'Dental/Medical/MedSpa' },
+        roofing:     { close: 0.25, label: 'Roofing/Contractors' },
+        auto:        { close: 0.45, label: 'Auto Repair' },
+        legal:       { close: 0.20, label: 'Legal/Financial' },
+        restaurants: { close: 0.50, label: 'Restaurants/Catering' },
+        salons:      { close: 0.55, label: 'Salons/Wellness' },
+        other:       { close: 0.30, label: 'Local Business' }
+      };
 
       function formatWithCommas(num) {
         return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
@@ -3916,26 +3929,30 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function updateROI() {
         var value = parseFloat(avgValueInput.value);
-        if (!value || value < 100) {
+        var ind = industrySelect.value;
+        if (!value || value < 100 || !ind) {
           roiResults.classList.remove('visible');
           return;
         }
         roiResults.classList.add('visible');
+        var closeRate = industryData[ind] ? industryData[ind].close : 0.30;
         var tiers = [
           { cost: 497, leads: 3, beId: 'roi-foundation-breakeven', roiId: 'roi-foundation-return' },
           { cost: 1297, leads: 8, beId: 'roi-momentum-breakeven', roiId: 'roi-momentum-return' },
           { cost: 1997, leads: 20, beId: 'roi-authority-breakeven', roiId: 'roi-authority-return' }
         ];
         tiers.forEach(function(tier) {
-          var breakEven = Math.ceil(tier.cost / value);
-          var monthlyROI = (tier.leads * value) - tier.cost;
+          var closedClients = Math.round(tier.leads * closeRate * 10) / 10;
+          var monthlyRevenue = Math.round(closedClients * value);
+          var monthlyROI = monthlyRevenue - tier.cost;
           var beEl = document.getElementById(tier.beId);
           var roiEl = document.getElementById(tier.roiId);
-          beEl.textContent = 'Pays off with just ' + breakEven + ' new customer' + (breakEven !== 1 ? 's' : '') + '/mo';
-          roiEl.textContent = 'Potential monthly return: ' + (monthlyROI >= 0 ? '+' : '') + '$' + formatWithCommas(monthlyROI);
+          beEl.textContent = tier.leads + ' leads/mo \u00d7 ' + Math.round(closeRate * 100) + '% close rate = ~' + closedClients + ' new customers';
+          roiEl.textContent = 'Est. monthly return: ' + (monthlyROI >= 0 ? '+' : '') + '$' + formatWithCommas(monthlyROI) + ' (\u2191$' + formatWithCommas(monthlyRevenue) + ' revenue \u2212 $' + formatWithCommas(tier.cost) + ' cost)';
         });
       }
       avgValueInput.addEventListener('input', updateROI);
+      industrySelect.addEventListener('change', updateROI);
     })();
 
     // ===== UPSELL MODAL + FORM — runs after full DOM is ready =====
