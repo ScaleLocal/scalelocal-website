@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleLocal | Find Your Plan in 60 Seconds</title>
+  <meta name="description" content="Answer 5 quick questions and see exactly what ScaleLocal would build for your business, what we'd guarantee, and what it costs. No phone call. No obligation.">
+  <link rel="canonical" href="https://scalelocal.net/start">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#f0f4f8;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .topbar{width:100%;background:#1a2e4a;padding:16px 24px;text-align:center}
+    .topbar a{text-decoration:none;display:inline-flex;align-items:center}
+    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .start-wrap{width:100%;max-width:560px;padding:48px 24px 64px;margin:0 auto}
+    .start-header{text-align:center;margin-bottom:40px}
+    .start-eyebrow{color:#2ecc71;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.22em;font-weight:600;margin-bottom:12px}
+    .start-headline{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.15;margin-bottom:16px}
+    .start-sub{font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;line-height:1.6}
+    @media(min-width:768px){.start-headline{font-size:2.25rem}}
+    .form-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(26,46,74,0.08);border:1px solid #e2e8f0}
+    @media(min-width:768px){.form-card{padding:40px}}
+    .field{margin-bottom:20px}
+    .field:last-of-type{margin-bottom:28px}
+    .field label{display:block;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:6px}
+    .field input,.field select{width:100%;height:48px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none;background:#fff;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none}
+    .field input:focus,.field select:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    .field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7a8d' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px;cursor:pointer}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .submit-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.0625rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s}
+    .submit-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .trust-row{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:24px}
+    .trust-item{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:6px}
+    .trust-check{color:#2ecc71;font-weight:700;font-size:0.8125rem}
+    .secure-note{text-align:center;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:16px}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a href="/"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a></header>
+  <div class="start-wrap">
+    <div class="start-header">
+      <p class="start-eyebrow">60-SECOND ASSESSMENT</p>
+      <h1 class="start-headline">Find out which ScaleLocal plan fits your business.</h1>
+      <p class="start-sub">Answer 5 quick questions and we&rsquo;ll show you exactly what we&rsquo;d build for you, what we&rsquo;d guarantee, and what it costs. No phone call. No obligation.</p>
+    </div>
+    <form class="form-card" id="start-form">
+      <div class="field-row">
+        <div class="field">
+          <label for="sf-fname">First Name</label>
+          <input type="text" id="sf-fname" name="first_name" required>
+        </div>
+        <div class="field">
+          <label for="sf-lname">Last Name</label>
+          <input type="text" id="sf-lname" name="last_name" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="sf-business">Business Name</label>
+        <input type="text" id="sf-business" name="business_name" required>
+      </div>
+      <div class="field">
+        <label for="sf-industry">Industry</label>
+        <select id="sf-industry" name="industry" required>
+          <option value="">Select your industry</option>
+          <optgroup label="Trades">
+            <option value="hvac">HVAC / Heating &amp; Cooling</option>
+            <option value="plumbing">Plumbing</option>
+            <option value="electrical">Electrical</option>
+            <option value="roofing">Roofing</option>
+            <option value="contractor">General Contractor / Remodeling</option>
+            <option value="landscaping">Lawn Care / Landscaping</option>
+            <option value="pest">Pest Control</option>
+            <option value="painting">Painting</option>
+            <option value="cleaning">Cleaning Services</option>
+            <option value="auto">Auto Repair / Collision</option>
+          </optgroup>
+          <optgroup label="Professional Services">
+            <option value="legal">Law Firm / Attorney</option>
+            <option value="cpa">CPA / Accounting</option>
+            <option value="financial">Financial Advisor / Insurance</option>
+            <option value="realestate">Real Estate</option>
+            <option value="consulting">Consulting</option>
+          </optgroup>
+          <optgroup label="Medical / Health">
+            <option value="dental">Dental</option>
+            <option value="chiro">Chiropractic</option>
+            <option value="medspa">Med Spa / Aesthetics</option>
+            <option value="vet">Veterinary</option>
+          </optgroup>
+          <optgroup label="Other">
+            <option value="restaurant">Restaurant / Food Service</option>
+            <option value="salon">Salon / Barbershop</option>
+            <option value="fitness">Fitness / Gym</option>
+            <option value="retail">Retail</option>
+            <option value="other">Other</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="field">
+        <label for="sf-phone">Phone Number</label>
+        <input type="tel" id="sf-phone" name="phone" required>
+      </div>
+      <div class="field">
+        <label for="sf-email">Email Address</label>
+        <input type="email" id="sf-email" name="email" required>
+      </div>
+      <button type="submit" class="submit-btn">See My Recommendation &rarr;</button>
+      <div class="trust-row">
+        <span class="trust-item"><span class="trust-check">&#10003;</span> No phone call required</span>
+        <span class="trust-item"><span class="trust-check">&#10003;</span> Takes 60 seconds</span>
+        <span class="trust-item"><span class="trust-check">&#10003;</span> Zero obligation</span>
+      </div>
+      <p class="secure-note">&#128274; Your information is private and never shared.</p>
+    </form>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var form = document.getElementById('start-form');
+    form.onsubmit = function(e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      var data = {};
+      fd.forEach(function(v,k){data[k]=v;});
+      // Store in sessionStorage for /quiz to read
+      sessionStorage.setItem('sl_start', JSON.stringify(data));
+      // Determine quiz track
+      var ind = data.industry || '';
+      var trades = ['hvac','plumbing','electrical','roofing','contractor','landscaping','pest','painting','cleaning','auto'];
+      var professional = ['legal','cpa','financial','realestate','consulting'];
+      var medical = ['dental','chiro','medspa','vet'];
+      var track = 'generic';
+      if (trades.indexOf(ind) > -1) track = 'trades';
+      else if (professional.indexOf(ind) > -1) track = 'professional';
+      else if (medical.indexOf(ind) > -1) track = 'medical';
+      // Submit to GHL
+      var ghl = new FormData();
+      ghl.append('formId','tfnHv9TG6B8I6gf6Varo');
+      ghl.append('first_name',data.first_name||'');
+      ghl.append('last_name',data.last_name||'');
+      ghl.append('phone',data.phone||'');
+      ghl.append('email',data.email||'');
+      ghl.append('business_name',data.business_name||'');
+      ghl.append('industry',data.industry||'');
+      fetch('https://services.leadconnectorhq.com/funnels/submit',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
+      // Redirect to quiz
+      window.location.href = '/quiz?track=' + track;
+      return false;
+    };
+  });
+  </script>
+</body>
+</html>

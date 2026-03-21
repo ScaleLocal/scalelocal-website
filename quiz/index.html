@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleLocal | Your Business Assessment</title>
+  <meta name="description" content="Answer 5 quick questions and get a personalized ScaleLocal recommendation for your business.">
+  <link rel="canonical" href="https://scalelocal.net/quiz">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#f0f4f8;min-height:100vh}
+    .topbar{width:100%;background:#1a2e4a;padding:16px 24px;text-align:center}
+    .topbar a{text-decoration:none}
+    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .quiz-wrap{max-width:640px;margin:0 auto;padding:40px 24px 64px}
+    .progress-bar-wrap{margin-bottom:32px}
+    .progress-label{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;font-weight:600;margin-bottom:8px;text-align:center}
+    .progress-track{height:6px;background:#e2e8f0;border-radius:3px;overflow:hidden}
+    .progress-fill{height:100%;background:#2ecc71;border-radius:3px;transition:width 0.4s ease;width:0%}
+    .quiz-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(26,46,74,0.08);border:1px solid #e2e8f0;min-height:360px;display:flex;flex-direction:column}
+    @media(min-width:768px){.quiz-card{padding:48px}}
+    .q-greeting{font-family:'Inter',sans-serif;font-size:0.875rem;color:#2ecc71;font-weight:600;margin-bottom:8px}
+    .q-text{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.25rem;line-height:1.3;margin-bottom:28px}
+    @media(min-width:768px){.q-text{font-size:1.5rem}}
+    .q-options{display:flex;flex-direction:column;gap:12px;flex:1}
+    .q-option{background:#f0f4f8;border:2px solid #e2e8f0;border-radius:12px;padding:16px 20px;cursor:pointer;transition:all 0.2s;display:flex;align-items:flex-start;gap:14px}
+    .q-option:hover{border-color:#2E75B6;background:#f7fafc}
+    .q-option.selected{border-color:#2ecc71;background:#f0faf4}
+    .q-option-radio{width:22px;height:22px;border-radius:50%;border:2px solid #d0d5dd;flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center;transition:all 0.2s}
+    .q-option.selected .q-option-radio{border-color:#2ecc71}
+    .q-option.selected .q-option-radio::after{content:'';width:12px;height:12px;border-radius:50%;background:#2ecc71}
+    .q-option-label{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.4}
+    .q-nav{display:flex;justify-content:space-between;align-items:center;margin-top:28px;gap:16px}
+    .q-back{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;cursor:pointer;padding:8px 0;transition:color 0.2s}
+    .q-back:hover{color:#1a2e4a}
+    .q-back.hidden{visibility:hidden}
+    .q-next{display:flex;align-items:center;justify-content:center;height:48px;padding:0 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-left:auto}
+    .q-next:hover:not(:disabled){filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 4px 16px rgba(46,204,113,0.3)}
+    .q-next:disabled{opacity:0.4;cursor:not-allowed}
+    .optional-wrap{margin-top:20px}
+    .optional-label{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;font-weight:500;margin-bottom:6px;display:block}
+    .optional-textarea{width:100%;border:1.5px solid #e2e8f0;border-radius:8px;padding:12px 14px;font-family:'Inter',sans-serif;font-size:0.875rem;color:#1a2e4a;outline:none;resize:vertical;min-height:80px;transition:border-color 0.2s}
+    .optional-textarea:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a href="/"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a></header>
+  <div class="quiz-wrap">
+    <div class="progress-bar-wrap">
+      <p class="progress-label" id="progress-label">Question 1 of 5</p>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+    <div class="quiz-card" id="quiz-card"></div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var startData = {};
+    try { startData = JSON.parse(sessionStorage.getItem('sl_start') || '{}'); } catch(e) {}
+    var firstName = startData.first_name || '';
+    var businessName = startData.business_name || '';
+    var industry = startData.industry || '';
+    var params = new URLSearchParams(window.location.search);
+    var track = params.get('track') || 'generic';
+
+    // Track-specific question copy
+    var questions = {
+      trades: [
+        {q:"On a typical weekday, how available are you to personally answer calls when you're out on a job?",a:["I answer everything \u2014 I always step away to take calls","I answer most calls but miss some when I'm busy on a job","I miss a lot \u2014 I'm usually hands-on and can't stop","Almost all calls go to voicemail when I'm working"]},
+        {q:"On a busy day, roughly how many calls or voicemails do you think go unanswered?",a:["None \u2014 I get to all of them","1 to 3","4 to 10","More than 10 \u2014 it's genuinely a problem"]},
+        {q:"When someone searches for your service in your city right now \u2014 do you know where your business shows up on Google?",a:["Yes \u2014 I'm at the top, in the map pack","I show up somewhere but I'm not sure where","I don't think I show up much at all","I have no idea \u2014 I've honestly never looked"]},
+        {q:"After you finish a job \u2014 what happens with that customer?",a:["They're automatically in a system that follows up and asks for a review","We follow up manually when we remember","We don't really have a follow-up process \u2014 they call us if they need us again","Nothing \u2014 the job is done and that's it"]},
+        {q:"If your phone rang 20 more times next month \u2014 would your business be ready for it?",a:["Absolutely \u2014 bring it on, we have capacity","Probably \u2014 we'd find a way to handle it","It'd be tough \u2014 we're already pretty stretched","No \u2014 honestly we're already missing work we can't keep up with"]}
+      ],
+      professional: [
+        {q:"On a typical weekday, how available are you to personally answer calls and messages during business hours?",a:["I answer everything \u2014 calls, emails, texts","I get to most of them but some slip through","I'm often in meetings or with clients and miss calls","Most calls go unanswered until I have a break"]},
+        {q:"On a busy day, how many potential client calls or consultation requests do you estimate you miss?",a:["None \u2014 I follow up on everything","1 to 3","4 to 8","More than 8 \u2014 new clients are slipping through regularly"]},
+        {q:"When someone searches for your service in your city right now \u2014 do you know where your business shows up on Google?",a:["Yes \u2014 I'm at the top, in the map pack","I show up somewhere but I'm not sure where","I don't think I show up much at all","I have no idea \u2014 I've honestly never looked"]},
+        {q:"After you wrap up with a client \u2014 what's your follow-up process?",a:["Automated \u2014 they're in a system that stays in touch","We follow up manually when we have time","We wait for them to reach back out","There isn't really a process \u2014 the engagement ends and that's it"]},
+        {q:"If your phone rang 20 more times next month \u2014 would your business be ready for it?",a:["Absolutely \u2014 bring it on, we have capacity","Probably \u2014 we'd find a way to handle it","It'd be tough \u2014 we're already pretty stretched","No \u2014 honestly we're already missing work we can't keep up with"]}
+      ],
+      medical: [
+        {q:"On a typical weekday, how well does your front desk or team cover incoming calls and appointment requests?",a:["Everything gets answered \u2014 we're fully staffed","Most calls are covered but we miss some during busy periods","We miss a fair amount \u2014 especially during peak hours","After-hours and overflow calls almost always go to voicemail"]},
+        {q:"On a busy day, how many patient calls or appointment requests do you think go unanswered?",a:["None \u2014 the front desk catches everything","1 to 3","4 to 10","More than 10 \u2014 patients are leaving voicemails we don't always get back to"]},
+        {q:"When someone searches for your service in your city right now \u2014 do you know where your business shows up on Google?",a:["Yes \u2014 I'm at the top, in the map pack","I show up somewhere but I'm not sure where","I don't think I show up much at all","I have no idea \u2014 I've honestly never looked"]},
+        {q:"After a patient's appointment \u2014 how do you stay in touch with them?",a:["Automated reminders and follow-ups through our practice software","We reach out manually for recalls and check-ins","We send reminders when we remember \u2014 it's inconsistent","Patients schedule their next appointment on their own when they're ready"]},
+        {q:"If your phone rang 20 more times next month \u2014 would your business be ready for it?",a:["Absolutely \u2014 bring it on, we have capacity","Probably \u2014 we'd find a way to handle it","It'd be tough \u2014 we're already pretty stretched","No \u2014 honestly we're already missing work we can't keep up with"]}
+      ],
+      generic: [
+        {q:"On a typical weekday, how available are you to answer incoming calls and messages?",a:["I answer everything \u2014 always reachable","I get to most of them but miss some","I miss a lot \u2014 I'm usually busy with other things","Most calls go to voicemail"]},
+        {q:"On a busy day, roughly how many calls or messages do you think go unanswered?",a:["None \u2014 I get to all of them","1 to 3","4 to 10","More than 10"]},
+        {q:"When someone searches for your service in your city right now \u2014 do you know where your business shows up on Google?",a:["Yes \u2014 I'm at the top, in the map pack","I show up somewhere but I'm not sure where","I don't think I show up much at all","I have no idea \u2014 I've honestly never looked"]},
+        {q:"After a customer or client interaction \u2014 what's your follow-up process?",a:["Automated \u2014 they're in a system that stays in touch","We follow up manually when we remember","We don't really have a process","Nothing formal \u2014 they reach back out when they need us"]},
+        {q:"If your phone rang 20 more times next month \u2014 would your business be ready for it?",a:["Absolutely \u2014 bring it on, we have capacity","Probably \u2014 we'd find a way to handle it","It'd be tough \u2014 we're already pretty stretched","No \u2014 honestly we're already missing work we can't keep up with"]}
+      ]
+    };
+
+    var qs = questions[track] || questions.generic;
+    var current = 0;
+    var answers = [null,null,null,null,null];
+    var optionalNote = '';
+
+    function render() {
+      var card = document.getElementById('quiz-card');
+      var isLast = (current === 4);
+      var pct = ((current + 1) / 5 * 100);
+      document.getElementById('progress-label').textContent = 'Question ' + (current + 1) + ' of 5';
+      document.getElementById('progress-fill').style.width = pct + '%';
+
+      var html = '';
+      if (firstName) html += '<p class="q-greeting">Hey ' + firstName + ' \u2014</p>';
+      html += '<p class="q-text">' + qs[current].q + '</p>';
+      html += '<div class="q-options">';
+      qs[current].a.forEach(function(opt, i) {
+        var sel = answers[current] === i ? ' selected' : '';
+        html += '<div class="q-option' + sel + '" data-idx="' + i + '"><div class="q-option-radio"></div><span class="q-option-label">' + opt + '</span></div>';
+      });
+      html += '</div>';
+
+      if (isLast) {
+        html += '<div class="optional-wrap"><label class="optional-label">Anything else you want us to know? (optional)</label><textarea class="optional-textarea" id="optional-note" placeholder="Anything at all \u2014 we\'ll keep it in your file.">' + optionalNote + '</textarea></div>';
+      }
+
+      html += '<div class="q-nav">';
+      html += '<button class="q-back' + (current === 0 ? ' hidden' : '') + '" id="q-back">&larr; Back</button>';
+      html += '<button class="q-next" id="q-next" ' + (answers[current] === null ? 'disabled' : '') + '>' + (isLast ? 'See My Recommendation \u2192' : 'Next \u2192') + '</button>';
+      html += '</div>';
+
+      card.innerHTML = html;
+
+      // Bind option clicks
+      card.querySelectorAll('.q-option').forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          answers[current] = parseInt(this.dataset.idx);
+          render();
+        });
+      });
+
+      // Bind back
+      var backBtn = document.getElementById('q-back');
+      if (backBtn) backBtn.addEventListener('click', function() { if (current > 0) { current--; render(); } });
+
+      // Bind next
+      var nextBtn = document.getElementById('q-next');
+      if (nextBtn) nextBtn.addEventListener('click', function() {
+        if (answers[current] === null) return;
+        if (isLast) {
+          var noteEl = document.getElementById('optional-note');
+          if (noteEl) optionalNote = noteEl.value;
+          submitQuiz();
+        } else {
+          current++;
+          render();
+          window.scrollTo({top:0,behavior:'smooth'});
+        }
+      });
+
+      // Save optional note on change
+      if (isLast) {
+        var noteEl = document.getElementById('optional-note');
+        if (noteEl) noteEl.addEventListener('input', function() { optionalNote = this.value; });
+      }
+    }
+
+    function submitQuiz() {
+      var totalScore = answers.reduce(function(sum, a) { return sum + a; }, 0);
+      var recommendation = totalScore <= 4 ? 'foundation' : totalScore <= 9 ? 'momentum' : 'authority';
+      // AI Receptionist flag
+      var q1 = answers[0], q2 = answers[1];
+      var aiFlag = 'off';
+      if (q1 >= 2 && q2 >= 2) aiFlag = 'urgent';
+      else if ((q1 === 1 && q2 >= 2) || (q1 >= 2 && q2 === 1)) aiFlag = 'suggested';
+
+      // Human-readable answer texts for recommendation page
+      var q2Texts = ['None','1 to 3','4 to 10','More than 10'];
+      var q4Texts = qs[3].a;
+
+      var quizData = {
+        track: track,
+        scores: answers,
+        total: totalScore,
+        recommendation: recommendation,
+        ai_flag: aiFlag,
+        q2_answer_text: q2Texts[answers[1]] || '',
+        q2_weekly: [0, 2, 7, 15][answers[1]] * 5,
+        q4_answer_text: q4Texts[answers[3]] || '',
+        optional_note: optionalNote,
+        first_name: firstName,
+        business_name: businessName,
+        industry: industry
+      };
+      sessionStorage.setItem('sl_quiz', JSON.stringify(quizData));
+      window.location.href = '/recommendation?tier=' + recommendation;
+    }
+
+    render();
+  });
+  </script>
+</body>
+</html>

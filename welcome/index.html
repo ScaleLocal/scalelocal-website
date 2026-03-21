@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleLocal | Welcome Aboard</title>
+  <meta name="description" content="You're in. Here's what happens next with your ScaleLocal account.">
+  <link rel="canonical" href="https://scalelocal.net/welcome">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#1a2e4a;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .topbar{width:100%;padding:16px 24px;text-align:center}
+    .topbar a{text-decoration:none}
+    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .welcome-wrap{max-width:620px;margin:0 auto;padding:32px 24px 64px;text-align:center}
+    .welcome-icon{width:80px;height:80px;border-radius:50%;background:#2ecc71;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;font-size:36px;color:#fff;box-shadow:0 8px 32px rgba(46,204,113,0.3)}
+    .welcome-headline{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:2rem;line-height:1.15;margin-bottom:8px}
+    @media(min-width:768px){.welcome-headline{font-size:2.5rem}}
+    .welcome-subline{font-family:'Montserrat',sans-serif;font-weight:600;color:#2ecc71;font-size:1.125rem;margin-bottom:32px}
+    .welcome-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.2);text-align:left;margin-bottom:32px}
+    @media(min-width:768px){.welcome-card{padding:48px}}
+    .welcome-intro{font-family:'Inter',sans-serif;font-size:1rem;color:#4a5a6e;line-height:1.7;margin-bottom:28px}
+    .timeline{display:flex;flex-direction:column;gap:0}
+    .timeline-item{display:flex;gap:20px;position:relative;padding-bottom:28px}
+    .timeline-item:last-child{padding-bottom:0}
+    .timeline-item:not(:last-child)::after{content:'';position:absolute;left:19px;top:40px;bottom:0;width:2px;background:#e2e8f0}
+    .timeline-dot{width:40px;height:40px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:0.875rem;color:#fff;position:relative;z-index:1}
+    .timeline-dot--green{background:#2ecc71}
+    .timeline-dot--blue{background:#2E75B6}
+    .timeline-dot--navy{background:#1a2e4a}
+    .timeline-content{flex:1;padding-top:4px}
+    .timeline-time{font-family:'Inter',sans-serif;font-size:0.75rem;color:#2ecc71;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px}
+    .timeline-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1rem;margin-bottom:4px}
+    .timeline-body{font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.5}
+    .welcome-am{background:#f0f4f8;border-radius:12px;padding:20px 24px;display:flex;align-items:center;gap:16px;margin-top:28px}
+    .welcome-am-avatar{width:48px;height:48px;border-radius:50%;background:#1a2e4a;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .welcome-am-initials{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:16px}
+    .welcome-am-name{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.9375rem}
+    .welcome-am-role{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d}
+    .welcome-footer{font-family:'Inter',sans-serif;font-size:0.875rem;color:#a8b8cc;line-height:1.6;max-width:480px;margin:0 auto}
+    .welcome-footer a{color:#2ecc71;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a href="/"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a></header>
+  <div class="welcome-wrap">
+    <div class="welcome-icon">&#10003;</div>
+    <h1 class="welcome-headline" id="w-headline">You&rsquo;re in.</h1>
+    <p class="welcome-subline" id="w-subline">Welcome to ScaleLocal.</p>
+
+    <div class="welcome-card">
+      <p class="welcome-intro" id="w-intro">Here&rsquo;s exactly what happens next &mdash; no guessing, no waiting around wondering.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--green">1</div>
+          <div class="timeline-content">
+            <p class="timeline-time">Within 1 business day</p>
+            <p class="timeline-title">Your account manager reaches out</p>
+            <p class="timeline-body" id="w-step1">You&rsquo;ll receive a welcome email with a short onboarding questionnaire. Takes about 5 minutes to complete. The faster we get it back, the faster your system goes live.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--blue">2</div>
+          <div class="timeline-content">
+            <p class="timeline-time">Within 48 hours</p>
+            <p class="timeline-title">Your website is live</p>
+            <p class="timeline-body">Your professional website goes live on your domain. Google Business Profile optimization begins. Call tracking and lead source reporting activated.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--blue">3</div>
+          <div class="timeline-content">
+            <p class="timeline-time">By end of week 1</p>
+            <p class="timeline-title">Your growth engine turns on</p>
+            <p class="timeline-body">Review request system active. First reactivation campaign scheduled against your existing database. Your ScaleLocal Dashboard is live and tracking every lead in real time.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--navy">&#10003;</div>
+          <div class="timeline-content">
+            <p class="timeline-time">Ongoing</p>
+            <p class="timeline-title">Your guarantee is active</p>
+            <p class="timeline-body" id="w-guarantee">Your written performance guarantee starts the clock. Every lead tracked. Every result reported. If we miss your number &mdash; we work for free until we hit it.</p>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-am" id="w-am">
+        <div class="welcome-am-avatar"><span class="welcome-am-initials" id="w-am-initials">SL</span></div>
+        <div>
+          <p class="welcome-am-name" id="w-am-name">Your Account Manager</p>
+          <p class="welcome-am-role">ScaleLocal &mdash; reply to any email and it comes directly to our team</p>
+        </div>
+      </div>
+    </div>
+    <p class="welcome-footer">Questions? Text us at <a href="sms:6173948707">617.394.8707</a> or email <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>. We&rsquo;ll be in touch soon.</p>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    var fn = params.get('name') || '';
+    var bn = params.get('company') || '';
+    var plan = params.get('plan') || '';
+    var am = params.get('am') || '';
+
+    if (fn) {
+      var first = fn.split(' ')[0];
+      document.getElementById('w-headline').textContent = "You're in, " + first + ".";
+    }
+    if (bn) {
+      document.getElementById('w-subline').textContent = bn + ' is now a ScaleLocal client.';
+    }
+    if (am) {
+      var amName = am.charAt(0).toUpperCase() + am.slice(1);
+      document.getElementById('w-am-name').textContent = amName + ' \u2014 Your Account Manager';
+      document.getElementById('w-am-initials').textContent = amName.charAt(0);
+    }
+
+    // Plan-specific guarantee text
+    var guarantees = {
+      foundation: 'Minimum 3 new leads per month guaranteed by day 60. No ad spend required.',
+      momentum: 'Minimum 8 new leads per month guaranteed by day 90. Ad spend included.',
+      authority: 'Minimum 20 new leads per month guaranteed by day 90. Ad spend included. AI Receptionist live within 72 hours.'
+    };
+    if (plan && guarantees[plan]) {
+      document.getElementById('w-guarantee').textContent = guarantees[plan] + ' If we miss your number \u2014 we work for free until we hit it.';
+    }
+  });
+  </script>
+</body>
+</html>

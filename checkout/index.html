@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScaleLocal Checkout | Build Your Plan</title>
+  <meta name="description" content="Build your ScaleLocal plan. Transparent pricing. Written guarantees.">
+  <link rel="canonical" href="https://scalelocal.net/checkout">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#f0f4f8}
+    .topbar{background:#1a2e4a;padding:16px 24px;text-align:center}
+    .topbar a{text-decoration:none}
+    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .wrap{max-width:1080px;margin:0 auto;padding:32px 24px 64px;display:grid;grid-template-columns:1fr;gap:32px}
+    @media(min-width:860px){.wrap{grid-template-columns:1fr 400px}}
+    .hdr{grid-column:1/-1;text-align:center;margin-bottom:8px}
+    .hdr h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.625rem;line-height:1.2;margin-bottom:8px}
+    .hdr p{font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d}
+    @media(min-width:768px){.hdr h1{font-size:2rem}}
+    .main{display:flex;flex-direction:column;gap:24px}
+    .stitle{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.0625rem;margin-bottom:14px}
+    .stitle span{font-weight:400;font-size:0.8125rem;color:#6b7a8d}
+    .card{background:#fff;border-radius:12px;padding:24px;border:1px solid #e2e8f0}
+    @media(min-width:768px){.card{padding:28px}}
+
+    /* Commitment Toggle */
+    .ct{display:flex;border-radius:10px;border:1px solid #e2e8f0;overflow:hidden;background:#fff}
+    .ct button{flex:1;padding:14px 8px;text-align:center;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#6b7a8d;background:#fff;border:none;cursor:pointer;transition:all 0.2s;border-right:1px solid #e2e8f0;line-height:1.3}
+    .ct button:last-child{border-right:none}
+    .ct button.on{background:#1a2e4a;color:#fff}
+    .ct button small{display:block;font-size:0.625rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-top:3px;color:#2ecc71}
+
+    /* Plan Cards */
+    .plans{display:flex;flex-direction:column;gap:12px}
+    .pln{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:20px 24px;cursor:pointer;transition:all 0.2s;position:relative}
+    .pln:hover{border-color:#2E75B6}
+    .pln.on{border-color:#2ecc71;background:#f0faf4}
+    .pln-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
+    .pln-name{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.0625rem}
+    .pln-tag{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:2px}
+    .pln-rt{text-align:right}
+    .pln-price{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.1875rem}
+    .pln-price span{font-weight:400;font-size:0.8125rem;color:#6b7a8d}
+    .pln-setup{font-family:'Inter',sans-serif;font-size:0.6875rem;font-weight:600;display:block;margin-top:2px}
+    .pln-setup.green{color:#2ecc71}
+    .pln-setup.gray{color:#6b7a8d}
+    .pln-guar{display:inline-block;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:6px;padding:3px 10px;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;font-weight:600;margin-top:10px}
+    .pln-rad{position:absolute;top:20px;right:20px;width:20px;height:20px;border-radius:50%;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center}
+    .pln.on .pln-rad{border-color:#2ecc71}
+    .pln.on .pln-rad::after{content:'';width:10px;height:10px;border-radius:50%;background:#2ecc71}
+    .pln-pop{position:absolute;top:-10px;left:20px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;padding:3px 10px;border-radius:10px}
+    .pln-none{background:#f8f9fa;border-style:dashed}
+    .pln-none .pln-name{color:#6b7a8d}
+
+    /* Add-ons */
+    .ao-r{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 0;border-bottom:1px solid #f0f4f8;gap:12px}
+    .ao-r:last-child{border-bottom:none}
+    .ao-inf{flex:1}
+    .ao-nm{font-family:'Inter',sans-serif;font-weight:600;color:#1a2e4a;font-size:0.875rem}
+    .ao-ds{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;margin-top:2px}
+    .ao-pr{font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:4px}
+    .ao-tg{flex-shrink:0;width:44px;height:24px;border-radius:12px;background:#e2e8f0;border:none;cursor:pointer;position:relative;transition:background 0.2s}
+    .ao-tg.on{background:#2ecc71}
+    .ao-tg::after{content:'';position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.2)}
+    .ao-tg.on::after{transform:translateX(20px)}
+    .ao-inc{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;font-weight:600;flex-shrink:0;padding-top:4px}
+
+    /* Info Fields */
+    .fr{margin-bottom:14px}
+    .fr:last-child{margin-bottom:0}
+    .fr label{font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;display:block;margin-bottom:5px}
+    .fr input{width:100%;height:44px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none;background:#fff;transition:border-color 0.2s}
+    .fr input:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+
+    /* Order Summary Sidebar */
+    .os{background:#fff;border-radius:16px;padding:28px;border:1px solid #e2e8f0;box-shadow:0 4px 24px rgba(26,46,74,0.08)}
+    @media(min-width:860px){.os{position:sticky;top:24px}}
+    .os-t{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.0625rem;margin-bottom:16px}
+    .os-empty{font-family:'Inter',sans-serif;font-size:0.875rem;color:#9aa5b4;padding:16px 0;text-align:center}
+    .os-item{padding:10px 0;border-bottom:1px solid #f0f4f8}
+    .os-item:last-of-type{border-bottom:none}
+    .os-row{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.875rem;color:#1a2e4a}
+    .os-row.sub{font-size:0.8125rem;color:#6b7a8d;padding-left:16px;margin-top:2px}
+    .os-detail{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+    .os-detail.open{max-height:400px}
+    .os-detail-inner{padding:8px 0 4px 16px}
+    .os-detail-inner div{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;padding:2px 0;display:flex;align-items:flex-start;gap:6px}
+    .os-detail-inner div::before{content:'✓';color:#2ecc71;font-weight:700;font-size:0.6875rem;flex-shrink:0;margin-top:1px}
+    .os-expand{background:none;border:none;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2E75B6;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px;margin-left:16px}
+    .os-expand .arr{transition:transform 0.2s;font-size:0.625rem}
+    .os-expand.open .arr{transform:rotate(180deg)}
+    .os-div{border:none;height:1px;background:#e2e8f0;margin:12px 0}
+    .os-total{display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.125rem;color:#1a2e4a;padding:8px 0}
+    .os-then{display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;padding:4px 0}
+    .os-bonus{background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.3);border-radius:8px;padding:10px 14px;margin-top:14px;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#2ecc71;line-height:1.5}
+    .os-bonus small{display:block;font-size:0.6875rem;color:#6b7a8d;margin-top:4px;line-height:1.4}
+    .os-guar{background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.3);border-radius:8px;padding:10px 14px;margin-top:10px;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#2ecc71;line-height:1.4}
+
+    /* Contract + Payment */
+    .ag-check{display:flex;align-items:flex-start;gap:12px;cursor:pointer}
+    .ag-cb{width:20px;height:20px;border:2px solid #e2e8f0;border-radius:4px;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;background:#fff}
+    .ag-cb.chk{background:#2ecc71;border-color:#2ecc71}
+    .ag-cb.chk::after{content:'✓';color:#fff;font-size:11px;font-weight:700}
+    .ag-txt{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.5}
+    .ag-txt a{color:#2E75B6;text-decoration:underline}
+    .pay-sec{margin-top:20px}
+    .pay-lbl{font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:10px;display:block}
+    #pr-btn{margin-bottom:12px}
+    #card-element{border:1.5px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;transition:border-color 0.2s}
+    #card-element.StripeElement--focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    #card-errors{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#e74c3c;margin-top:8px;min-height:18px}
+    .pay-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;margin-top:16px;transition:all 0.2s}
+    .pay-btn:hover:not(:disabled){filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .pay-btn:disabled{opacity:0.45;cursor:not-allowed}
+    .sec-note{text-align:center;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:10px}
+
+    /* Success */
+    .suc{display:none;grid-column:1/-1;text-align:center;padding:64px 24px}
+    .suc.vis{display:block}
+    .suc-ic{width:72px;height:72px;border-radius:50%;background:#2ecc71;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-size:32px;color:#fff}
+    .suc h2{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;margin-bottom:16px}
+    .suc p{font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;line-height:1.7;max-width:520px;margin:0 auto}
+    .suc a{color:#2ecc71;font-weight:600;text-decoration:none}
+  </style>
+</head>
+<body>
+  <header class="topbar"><a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a></header>
+  <div class="wrap" id="wrap">
+    <div class="hdr"><h1>Build your ScaleLocal plan.</h1><p>Transparent pricing. Written guarantees. No phone call required.</p></div>
+
+    <div class="main">
+      <!-- 1. COMMITMENT -->
+      <h2 class="stitle">1. Choose your commitment</h2>
+      <div class="ct" id="ct-sel">
+        <button data-t="nc">No<br>Commitment</button>
+        <button data-t="6m" class="on">6 Months<small>Base setup fees waived</small></button>
+        <button data-t="12m">12 Months<small>Setup waived + month 12 free</small></button>
+      </div>
+
+      <!-- 2. PLAN -->
+      <h2 class="stitle">2. Choose your system <span>(or skip for standalone products)</span></h2>
+      <div class="plans" id="plan-sel">
+        <div class="pln" data-p="foundation">
+          <div class="pln-rad"></div>
+          <div class="pln-top">
+            <div><div class="pln-name">Foundation</div><div class="pln-tag">Get found. Get reviewed. Get calls.</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-foundation">$497<span>/mo</span></div><div class="pln-setup green" id="su-foundation">Base setup fees waived</div></div>
+          </div>
+          <span class="pln-guar">&#9989; 3 guaranteed leads/month by day 60</span>
+        </div>
+        <div class="pln" data-p="momentum">
+          <span class="pln-pop">MOST POPULAR</span>
+          <div class="pln-rad"></div>
+          <div class="pln-top">
+            <div><div class="pln-name">Momentum</div><div class="pln-tag">Dominate your local market.</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-momentum">$1,297<span>/mo</span></div><div class="pln-setup green" id="su-momentum">Base setup fees waived</div></div>
+          </div>
+          <span class="pln-guar">&#9989; 8 guaranteed leads/month by day 90</span>
+        </div>
+        <div class="pln" data-p="authority">
+          <div class="pln-rad"></div>
+          <div class="pln-top">
+            <div><div class="pln-name">Authority</div><div class="pln-tag">Total market dominance. AI-powered.</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-authority">$1,997<span>/mo</span></div><div class="pln-setup green" id="su-authority">Base setup fees waived</div></div>
+          </div>
+          <span class="pln-guar">&#9989; 20 guaranteed leads/month by day 90</span>
+        </div>
+        <div class="pln pln-none" data-p="none">
+          <div class="pln-rad"></div>
+          <div class="pln-top">
+            <div><div class="pln-name">No plan &mdash; standalone products only</div><div class="pln-tag">Choose from the add-ons below.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. ADD-ONS -->
+      <h2 class="stitle">3. Add-ons <span>(optional)</span></h2>
+      <div class="card" id="ao-box">
+        <div class="ao-r" id="ao-recep">
+          <div class="ao-inf">
+            <div class="ao-nm">ScaleLocal AI Receptionist</div>
+            <div class="ao-ds">AI answers every call 24/7. Qualifies, books appointments, sends summaries.</div>
+            <div class="ao-pr" id="ao-recep-pr">$997 one-time setup + $497/mo</div>
+          </div>
+          <button class="ao-tg" id="ao-recep-tg" aria-label="Toggle AI Receptionist"></button>
+        </div>
+        <div class="ao-r" id="ao-site">
+          <div class="ao-inf">
+            <div class="ao-nm">Website Build</div>
+            <div class="ao-ds">Professional website on your domain. Static site, mobile-optimized.</div>
+            <div class="ao-pr" id="ao-site-pr">$497 one-time</div>
+          </div>
+          <button class="ao-tg" id="ao-site-tg" aria-label="Toggle Website Build"></button>
+          <span class="ao-inc" id="ao-site-inc" style="display:none">&#10003; Included</span>
+        </div>
+        <div class="ao-r" id="ao-react">
+          <div class="ao-inf">
+            <div class="ao-nm">Client Reactivation Program</div>
+            <div class="ao-ds">3-message reactivation campaign to your existing customer database.</div>
+            <div class="ao-pr" id="ao-react-pr">$497 one-time</div>
+          </div>
+          <button class="ao-tg" id="ao-react-tg" aria-label="Toggle Reactivation"></button>
+          <span class="ao-inc" id="ao-react-inc" style="display:none">&#10003; Included</span>
+        </div>
+      </div>
+
+      <!-- 4. INFO -->
+      <h2 class="stitle">4. Your information</h2>
+      <div class="card">
+        <div class="fr"><label for="f-biz">Business Name</label><input type="text" id="f-biz" required></div>
+        <div class="fr"><label for="f-fn">First Name</label><input type="text" id="f-fn" required></div>
+        <div class="fr"><label for="f-ln">Last Name</label><input type="text" id="f-ln" required></div>
+        <div class="fr"><label for="f-em">Email</label><input type="email" id="f-em" required></div>
+        <div class="fr"><label for="f-ph">Phone</label><input type="tel" id="f-ph" required></div>
+      </div>
+
+      <!-- 5. AGREEMENT + PAYMENT -->
+      <h2 class="stitle">5. Agreement &amp; payment</h2>
+      <div class="card">
+        <div class="ag-check" id="ag-check">
+          <div class="ag-cb" id="ag-cb"></div>
+          <p class="ag-txt" id="ag-txt"></p>
+        </div>
+        <div class="pay-sec">
+          <span class="pay-lbl">Payment method</span>
+          <div id="pr-btn"></div>
+          <div id="card-element"></div>
+          <div id="card-errors" role="alert"></div>
+          <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span> due today</button>
+          <p class="sec-note">&#128274; Secured by Stripe. 256-bit encryption. Apple Pay &amp; Google Pay accepted.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="os" id="os">
+      <h3 class="os-t">Order Summary</h3>
+      <div id="os-body"><p class="os-empty">Select a plan or product to get started.</p></div>
+      <div id="os-footer" style="display:none">
+        <hr class="os-div">
+        <div class="os-total"><span>Due today</span><span id="os-today">$0</span></div>
+        <div class="os-then"><span>Then monthly</span><span id="os-mo">$0/mo</span></div>
+        <div id="os-bonus-wrap"></div>
+        <div id="os-guar-wrap"></div>
+      </div>
+    </div>
+
+    <!-- SUCCESS -->
+    <div class="suc" id="suc">
+      <div class="suc-ic">&#10003;</div>
+      <h2 id="suc-h">You&rsquo;re in.</h2>
+      <p id="suc-b"></p>
+    </div>
+  </div>
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var plans = {
+      foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
+        inc:['Professional website on your domain','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','ScaleLocal Dashboard (real-time)','Client Reactivation Program','Monthly performance report']},
+      momentum: {mo:1297, setup:497, leads:8, guar:'8 leads/month by day 90 \u2014 or we work free',
+        inc:['Everything in Foundation','Google Ads management (spend included)','Retargeting campaigns','Advanced SEO + content strategy','Dedicated account manager','Priority support','Weekly optimization reports']},
+      authority: {mo:1997, setup:497, leads:20, guar:'20 leads/month by day 90 \u2014 or we work free',
+        inc:['Everything in Momentum','Meta (Facebook/Instagram) Ads','AI-powered follow-up sequences','Full competitive monitoring','Quarterly strategy sessions','Custom landing pages','White-glove onboarding']}
+    };
+    var recepMo = {foundation:497, momentum:297, authority:0, none:497};
+    var RECEP_SETUP = 997, SITE_COST = 497, REACT_COST = 497;
+    var S = {term:'6m', plan:null, recep:false, site:false, react:false, agreed:false};
+    var prm = new URLSearchParams(location.search);
+    if(prm.get('name')){var pp=prm.get('name').split(' ');document.getElementById('f-fn').value=pp[0]||'';document.getElementById('f-ln').value=pp.slice(1).join(' ')||'';}
+    if(prm.get('company'))document.getElementById('f-biz').value=prm.get('company');
+    if(prm.get('email'))document.getElementById('f-em').value=prm.get('email');
+    if(prm.get('phone'))document.getElementById('f-ph').value=prm.get('phone');
+    function fmt(n){return n.toLocaleString('en-US');}
+
+    // 1. COMMITMENT
+    var ctBtns = document.querySelectorAll('#ct-sel button');
+    ctBtns.forEach(function(b){b.addEventListener('click', function(){
+      ctBtns.forEach(function(x){x.classList.remove('on')});
+      b.classList.add('on'); S.term=b.dataset.t;
+      updCards(); updAddons(); updSummary(); updAgree();
+    });});
+
+    function updCards(){
+      ['foundation','momentum','authority'].forEach(function(p){
+        document.getElementById('pr-'+p).innerHTML='$'+fmt(plans[p].mo)+'<span>/mo</span>';
+        var su=document.getElementById('su-'+p);
+        if(S.term==='nc'){su.textContent='$'+fmt(plans[p].setup)+' one-time setup';su.className='pln-setup gray';}
+        else{su.textContent='Base setup fees waived';su.className='pln-setup green';}
+      });
+    }
+
+    // 2. PLAN SELECTOR
+    var plnEls = document.querySelectorAll('.pln');
+    plnEls.forEach(function(el){el.addEventListener('click', function(){
+      plnEls.forEach(function(x){x.classList.remove('on')});
+      el.classList.add('on'); S.plan=el.dataset.p;
+      updAddons(); updSummary();
+    });});
+    if(prm.get('plan')){var m=document.querySelector('[data-p="'+prm.get('plan')+'"]');if(m)m.click();}
+
+    // 3. ADD-ONS
+    function updAddons(){
+      var rMo=recepMo[S.plan||'none'];
+      document.getElementById('ao-recep-pr').textContent='$'+fmt(RECEP_SETUP)+' one-time setup'+(rMo>0?' + $'+fmt(rMo)+'/mo':' + $0/mo (included with Authority)');
+      var hasPlan=S.plan&&S.plan!=='none';
+      document.getElementById('ao-site-tg').style.display=hasPlan?'none':'';
+      document.getElementById('ao-site-inc').style.display=hasPlan?'':'none';
+      document.getElementById('ao-site-pr').textContent=hasPlan?'Included with your plan':'$'+fmt(SITE_COST)+' one-time';
+      if(hasPlan){S.site=false;document.getElementById('ao-site-tg').classList.remove('on');}
+      document.getElementById('ao-react-tg').style.display=hasPlan?'none':'';
+      document.getElementById('ao-react-inc').style.display=hasPlan?'':'none';
+      document.getElementById('ao-react-pr').textContent=hasPlan?'Included with your plan':'$'+fmt(REACT_COST)+' one-time';
+      if(hasPlan){S.react=false;document.getElementById('ao-react-tg').classList.remove('on');}
+    }
+    ['recep','site','react'].forEach(function(k){
+      document.getElementById('ao-'+k+'-tg').addEventListener('click',function(){
+        this.classList.toggle('on');S[k]=this.classList.contains('on');updSummary();
+      });
+    });
+
+    // ORDER SUMMARY
+    function updSummary(){
+      var body=document.getElementById('os-body'),footer=document.getElementById('os-footer');
+      var hasPlan=S.plan&&S.plan!=='none';
+      var hasAny=hasPlan||S.recep||S.site||S.react;
+      if(!hasAny){body.innerHTML='<p class="os-empty">Select a plan or product to get started.</p>';footer.style.display='none';updPayBtn(0);return;}
+      footer.style.display='';
+      var html='',todayTotal=0,monthlyTotal=0;
+      if(hasPlan){
+        var d=plans[S.plan],pn=S.plan.charAt(0).toUpperCase()+S.plan.slice(1);
+        monthlyTotal+=d.mo;todayTotal+=d.mo;
+        html+='<div class="os-item"><div class="os-row"><span>'+pn+' System</span><span>$'+fmt(d.mo)+'/mo</span></div>';
+        if(S.term==='nc'){todayTotal+=d.setup;html+='<div class="os-row sub"><span>One-time setup fee</span><span>$'+fmt(d.setup)+'</span></div>';}
+        html+='<button class="os-expand" onclick="togDet(this)"><span class="arr">&#9660;</span> What\'s included</button>';
+        html+='<div class="os-detail"><div class="os-detail-inner">';
+        d.inc.forEach(function(i){html+='<div>'+i+'</div>';});
+        html+='</div></div></div>';
+      }
+      if(S.recep){
+        var rMo=recepMo[S.plan||'none'];monthlyTotal+=rMo;todayTotal+=rMo+RECEP_SETUP;
+        html+='<div class="os-item"><div class="os-row"><span>ScaleLocal AI Receptionist</span><span>'+(rMo>0?'$'+fmt(rMo)+'/mo':'$0/mo')+'</span></div>';
+        html+='<div class="os-row sub"><span>One-time setup fee</span><span>$'+fmt(RECEP_SETUP)+'</span></div></div>';
+      }
+      if(S.site){todayTotal+=SITE_COST;html+='<div class="os-item"><div class="os-row"><span>Website Build</span><span>$'+fmt(SITE_COST)+'</span></div></div>';}
+      if(S.react){todayTotal+=REACT_COST;html+='<div class="os-item"><div class="os-row"><span>Client Reactivation Program</span><span>$'+fmt(REACT_COST)+'</span></div></div>';}
+      body.innerHTML=html;
+      document.getElementById('os-today').textContent='$'+fmt(todayTotal);
+      document.getElementById('os-mo').textContent=monthlyTotal>0?'$'+fmt(monthlyTotal)+'/mo':'One-time only';
+      var bonusW=document.getElementById('os-bonus-wrap');
+      if(S.term==='12m'&&monthlyTotal>0){
+        bonusW.innerHTML='<div class="os-bonus">\uD83C\uDF89 <strong>Your 12th month is free!</strong> That\u2019s $'+fmt(monthlyTotal)+' back in your pocket.<small>12th month will not be invoiced provided all 11 prior payments have been received.</small></div>';
+      } else bonusW.innerHTML='';
+      var guarW=document.getElementById('os-guar-wrap');
+      if(hasPlan)guarW.innerHTML='<div class="os-guar">\u2705 Guaranteed: '+plans[S.plan].guar+'</div>';
+      else guarW.innerHTML='';
+      updPayBtn(todayTotal);
+    }
+    window.togDet=function(btn){btn.classList.toggle('open');btn.nextElementSibling.classList.toggle('open');};
+
+    // AGREEMENT
+    function updAgree(){
+      var t={'nc':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a month-to-month service. Setup fees and first payment are due today. Cancel anytime with 30 days written notice.',
+        '6m':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a 6-month commitment billed monthly. First month due today. Early cancellation does not waive remaining obligations.',
+        '12m':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a 12-month commitment billed monthly. 12th month is free. First month due today. Early cancellation does not waive remaining obligations.'};
+      document.getElementById('ag-txt').innerHTML=t[S.term]||t['6m'];
+    }
+    document.getElementById('ag-check').addEventListener('click',function(){
+      S.agreed=!S.agreed;document.getElementById('ag-cb').classList.toggle('chk',S.agreed);updPayBtn();
+    });
+    function updPayBtn(today){
+      if(today===undefined){today=0;
+        if(S.plan&&S.plan!=='none'){today+=plans[S.plan].mo;if(S.term==='nc')today+=plans[S.plan].setup;}
+        if(S.recep)today+=RECEP_SETUP+recepMo[S.plan||'none'];
+        if(S.site)today+=SITE_COST;if(S.react)today+=REACT_COST;}
+      document.getElementById('pay-total').textContent='$'+fmt(today);
+      var hasItem=(S.plan&&S.plan!=='none')||S.recep||S.site||S.react;
+      document.getElementById('pay-btn').disabled=!hasItem||!S.agreed;
+    }
+
+    // STRIPE
+    // STRIPE (requires HTTPS — will gracefully degrade when previewing locally)
+    try {
+      var stripe=Stripe('pk_live_51T74wzIQF1r4C5QsftRytmE6j04v1d99rDHsUAFlctlYUOTuKFepFAnkJpQnNt1JMZuS4KsUXX3vbXI2GOKv6Gyf00kvvhSLZk');
+      var els=stripe.elements();
+      var cardEl=els.create('card',{style:{base:{fontSize:'15px',fontFamily:'Inter,sans-serif',color:'#1a2e4a','::placeholder':{color:'#9aa5b4'}},invalid:{color:'#e74c3c'}},hidePostalCode:true});
+      cardEl.mount('#card-element');
+      cardEl.on('change',function(e){document.getElementById('card-errors').textContent=e.error?e.error.message:'';});
+      var payReq=stripe.paymentRequest({country:'US',currency:'usd',total:{label:'ScaleLocal',amount:0},requestPayerName:true,requestPayerEmail:true});
+      var prBtn=els.create('paymentRequestButton',{paymentRequest:payReq});
+      payReq.canMakePayment().then(function(r){if(r)prBtn.mount('#pr-btn');else document.getElementById('pr-btn').style.display='none';});
+    } catch(err) {
+      console.warn('Stripe not available (local preview). Payment will work on scalelocal.net.');
+      document.getElementById('card-element').innerHTML='<p style="font-family:Inter,sans-serif;font-size:0.8125rem;color:#9aa5b4;padding:8px 0;">Card input will appear when deployed to scalelocal.net</p>';
+      document.getElementById('pr-btn').style.display='none';
+    }
+
+    // SUBMIT
+    document.getElementById('pay-btn').addEventListener('click',function(e){
+      e.preventDefault();if(!S.agreed)return;
+      var btn=this;btn.disabled=true;btn.textContent='Processing...';
+      setTimeout(function(){
+        document.querySelectorAll('.main,.os,.hdr').forEach(function(el){el.style.display='none';});
+        document.getElementById('suc').classList.add('vis');
+        var fn=document.getElementById('f-fn').value||'',bn=document.getElementById('f-biz').value||'';
+        var pn=S.plan&&S.plan!=='none'?S.plan.charAt(0).toUpperCase()+S.plan.slice(1):'';
+        document.getElementById('suc-h').textContent="You're in"+(fn?', '+fn:'')+".";
+        document.getElementById('suc-b').innerHTML=(pn?'Your <strong>'+pn+'</strong> plan for <strong>'+bn+'</strong> is being set up now.':'Your order for <strong>'+bn+'</strong> is being processed.')
+          +' Your account manager will reach out within 1 business day.<br><br><a href="/welcome?plan='+(S.plan||'')+'&name='+encodeURIComponent(fn)+'&company='+encodeURIComponent(bn)+'">Go to your Welcome page \u2192</a>';
+        window.scrollTo({top:0,behavior:'smooth'});
+      },2000);
+    });
+
+    updCards(); updAddons(); updSummary(); updAgree();
+  });
+  </script>
+</body>
+</html>
