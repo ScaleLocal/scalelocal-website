@@ -2745,7 +2745,7 @@
             </div>
           </div>
           <p class="roi-disclosure" id="roi-disclosure">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
-          <button type="button" id="roi-calc-btn" style="display:block;margin:12px auto 0;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">See My Numbers &rarr;</button>
+          <button type="button" id="roi-calc-btn" onclick="window.roiCalc()" style="display:block;margin:12px auto 0;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;">See My Numbers &rarr;</button>
           <div class="roi-payoff" id="roi-payoff" style="display:none;">
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
             <p class="roi-payoff-sub" id="roi-payoff-sub"></p>
@@ -4150,105 +4150,95 @@ document.addEventListener('DOMContentLoaded', function() {
       });
 
 // ===== ROI CALCULATOR =====
-      var avgValueInput = document.getElementById('avg-value');
-      var closeRateSelect = document.getElementById('close-rate');
-      var roiPayoff = document.getElementById('roi-payoff');
+      window._roiRevealed = false;
 
-      function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+      function _fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
-      function updateROI() {
-        var val = parseFloat(avgValueInput.value);
-        var crVal = parseInt(closeRateSelect.value);
-        if (!val || val < 100) { roiPayoff.style.display = 'none'; document.getElementById('roi-low-ltv').style.display = 'none'; return; }
-        
+      window.roiCalc = function() {
+        var ltv = document.getElementById('avg-value');
+        var crSel = document.getElementById('close-rate');
+        var payoff = document.getElementById('roi-payoff');
+        var lowBox = document.getElementById('roi-low-ltv');
+        var disc = document.getElementById('roi-disclosure');
+        var btn = document.getElementById('roi-calc-btn');
+
+        var val = parseFloat(ltv.value);
+        var crVal = parseInt(crSel.value);
+        if (!val || val < 100) {
+          payoff.style.display = 'none';
+          if (lowBox) lowBox.style.display = 'none';
+          return;
+        }
+
         var CR = crVal / 10;
         var tiers = [
-          { cost: 497, leads: 3, label: 'Foundation', mId: 'roi-f-math', eId: 'roi-f-eq', rId: 'roi-f-result', pId: 'roi-f-roi' },
-          { cost: 1297, leads: 8, label: 'Momentum', mId: 'roi-m-math', eId: 'roi-m-eq', rId: 'roi-m-result', pId: 'roi-m-roi' },
-          { cost: 1997, leads: 20, label: 'Authority', mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result', pId: 'roi-a-roi' }
+          { cost:497, leads:3, label:'Foundation', m:'roi-f-math', e:'roi-f-eq', r:'roi-f-result', p:'roi-f-roi' },
+          { cost:1297, leads:8, label:'Momentum', m:'roi-m-math', e:'roi-m-eq', r:'roi-m-result', p:'roi-m-roi' },
+          { cost:1997, leads:20, label:'Authority', m:'roi-a-math', e:'roi-a-eq', r:'roi-a-result', p:'roi-a-roi' }
         ];
 
-        document.getElementById('roi-disclosure').textContent = 'Based on your numbers: $' + fmt(Math.round(val)) + ' per customer, closing ' + crVal + ' out of every 10 leads.';
+        disc.textContent = 'Based on your numbers: $' + _fmt(Math.round(val)) + ' per customer, closing ' + crVal + ' out of every 10 leads.';
 
         var allLoss = true;
-        var tierResults = [];
-        tiers.forEach(function(t) {
+        var res = [];
+        for (var i = 0; i < tiers.length; i++) {
+          var t = tiers[i];
           var closed = Math.round(t.leads * CR * 10) / 10;
           var rev = Math.round(closed * val);
           var profit = rev - t.cost;
           var roiPct = Math.round((profit / t.cost) * 100);
-          var beClients = Math.ceil(t.cost / val);
+          var be = Math.ceil(t.cost / val);
           if (profit >= 0) allLoss = false;
-          tierResults.push({ tier: t, closed: closed, rev: rev, profit: profit, roiPct: roiPct, beClients: beClients });
-        });
+          res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
+        }
 
-        var headline = document.getElementById('roi-payoff-headline');
-        var subline = document.getElementById('roi-payoff-sub');
+        document.getElementById('roi-payoff-headline').innerHTML = 'At <span class="roi-green">$' + _fmt(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like with our lead guarantee.';
+        document.getElementById('roi-payoff-sub').textContent = 'Closing ' + crVal + ' out of every 10 inbound leads.';
 
-        headline.innerHTML = 'At <span class="roi-green">$' + fmt(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like with our lead guarantee.';
-        subline.textContent = 'Closing ' + crVal + ' out of every 10 inbound leads.';
-
-        tierResults.forEach(function(r) {
-          var t = r.tier;
-          document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads \u00d7 ' + (CR * 100) + '% close rate = ~' + r.closed + ' est. customers';
-          document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + fmt(r.rev) + ' est. revenue \u2212 $' + fmt(t.cost) + ' cost';
-          
+        for (var j = 0; j < res.length; j++) {
+          var r = res[j];
+          document.getElementById(r.t.m).textContent = r.t.leads + ' guaranteed leads \u00d7 ' + (CR*100) + '% close rate = ~' + r.closed + ' est. customers';
+          document.getElementById(r.t.e).textContent = '$' + _fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + _fmt(r.rev) + ' est. revenue \u2212 $' + _fmt(r.t.cost) + ' cost';
           if (r.profit > 0 && r.roiPct >= 50) {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + fmt(r.profit) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + _fmt(r.profit) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.t.label + ' lead guarantee';
           } else if (r.profit >= -50 && r.profit <= 0) {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#e67e22">-$' + fmt(Math.abs(r.profit)) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = '<span style="color:#e67e22">Tight margin \u2014 one extra close per month flips this positive. You know your numbers best.</span>';
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">-$' + _fmt(Math.abs(r.profit)) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Tight margin \u2014 one extra close flips this positive. You know your numbers best.</span>';
           } else if (r.profit > 0 && r.roiPct < 50) {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#e67e22">+$' + fmt(r.profit) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = '<span style="color:#e67e22">Positive but tight. If your close rate or LTV is even slightly higher, this tier shines.</span>';
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">+$' + _fmt(r.profit) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Positive but tight. Slightly higher close rate or LTV makes this tier shine.</span>';
           } else {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + fmt(Math.abs(r.profit)) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = '<span style="color:#6b7a8d">You\u2019d need ~' + r.beClients + ' customers/mo to break even at this tier</span>';
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + _fmt(Math.abs(r.profit)) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">You\u2019d need ~' + r.be + ' customers/mo to break even</span>';
           }
-        });
+        }
 
-        var lowLtv = document.getElementById('roi-low-ltv');
-        if (allLoss) {
+        if (allLoss && lowBox) {
           var beHtml = '';
-          tierResults.forEach(function(r) {
-            var beLeads = Math.ceil(r.beClients / CR);
-            beHtml += '<strong style="color:#e67e22">' + r.tier.label + ':</strong> ~' + r.beClients + ' customers/mo (~' + beLeads + ' leads at ' + (CR * 100) + '% close)<br>';
-          });
-          document.getElementById('roi-low-honest').textContent = 'At $' + fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10, our monthly plans may not be the most efficient investment right now.';
+          for (var k = 0; k < res.length; k++) {
+            var beLeads = Math.ceil(res[k].be / CR);
+            beHtml += '<strong style="color:#e67e22">' + res[k].t.label + ':</strong> ~' + res[k].be + ' customers/mo (~' + beLeads + ' leads at ' + (CR*100) + '% close)<br>';
+          }
+          document.getElementById('roi-low-honest').textContent = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10, our monthly plans may not be the most efficient investment right now.';
           document.getElementById('roi-low-be').innerHTML = beHtml;
-          lowLtv.style.display = 'block';
-        } else {
-          lowLtv.style.display = 'none';
+          lowBox.style.display = 'block';
+        } else if (lowBox) {
+          lowBox.style.display = 'none';
         }
 
-        roiPayoff.style.display = 'block';
-      }
-      var roiRevealed = false;
-      var closeRateTouched = false;
-      var roiCalcBtn = document.getElementById('roi-calc-btn');
+        payoff.style.display = 'block';
+        window._roiRevealed = true;
+        btn.style.display = 'none';
+      };
 
-      closeRateSelect.addEventListener('change', function() {
-        closeRateTouched = true;
-        var val = parseFloat(avgValueInput.value);
-        if (val && val >= 100) {
-          updateROI();
-          roiRevealed = true;
-          roiCalcBtn.style.display = 'none';
-        }
-      });
+      document.getElementById('close-rate').onchange = function() {
+        if (parseFloat(document.getElementById('avg-value').value) >= 100) window.roiCalc();
+      };
+      document.getElementById('avg-value').oninput = function() {
+        if (window._roiRevealed) window.roiCalc();
+      };
 
-      avgValueInput.addEventListener('input', function() {
-        if (roiRevealed) {
-          updateROI();
-        }
-      });
-
-      roiCalcBtn.addEventListener('click', function() {
-        updateROI();
-        roiRevealed = true;
-        roiCalcBtn.style.display = 'none';
-      });
     })();
 
     // ===== UPSELL MODAL + FORM — runs after full DOM is ready =====
