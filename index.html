@@ -1162,17 +1162,19 @@
       margin: 0 auto;
     }
 
-    .roi-input-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    @media (max-width: 600px) {
-      .roi-input-row { grid-template-columns: 1fr; }
+    .roi-single-input {
+      max-width: 420px;
+      margin: 0 auto;
     }
 
-    .roi-input-group {
-      margin-bottom: 0;
+    .roi-disclosure {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: #9aa5b4;
+      margin-top: 10px;
+      line-height: 1.5;
+      text-align: center;
+      font-style: italic;
     }
 
     .roi-label {
@@ -2633,26 +2635,10 @@
         <h2 class="pricing-headline">What&rsquo;s one new customer worth<br>to your business?</h2>
         <p class="pricing-sub">Most ScaleLocal clients break even within their first two weeks. Type your number below and see for yourself.</p>
         <div class="roi-calculator">
-          <div class="roi-input-row">
-            <div class="roi-input-group">
-              <label class="roi-label" for="avg-value">Avg. lifetime value of one customer ($)</label>
-              <input class="roi-input" type="number" id="avg-value" placeholder="e.g. 2000" min="100">
-            </div>
-            <div class="roi-input-group">
-              <label class="roi-label" for="industry-select">Your industry</label>
-              <select class="roi-select" id="industry-select">
-                <option value="">Select</option>
-                <option value="hvac">HVAC / Plumbing / Electrical</option>
-                <option value="dental">Dental / Medical</option>
-                <option value="roofing">Roofing / Contractors</option>
-                <option value="auto">Auto Repair</option>
-                <option value="legal">Legal / Financial / CPA</option>
-                <option value="insurance">Insurance</option>
-                <option value="restaurants">Restaurants</option>
-                <option value="salons">Salons / Wellness</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
+          <div class="roi-single-input">
+            <label class="roi-label" for="avg-value">What&rsquo;s one new customer worth to your business? ($)</label>
+            <input class="roi-input" type="number" id="avg-value" placeholder="e.g. 2000" min="100">
+            <p class="roi-disclosure">Estimates below assume a 30% close rate on inbound leads &mdash; the average across all local service industries.</p>
           </div>
           <div class="roi-payoff" id="roi-payoff" style="display:none;">
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
@@ -4033,41 +4019,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
       // ===== ROI CALCULATOR =====
       var avgValueInput = document.getElementById('avg-value');
-      var industrySelect = document.getElementById('industry-select');
       var roiPayoff = document.getElementById('roi-payoff');
-
-      var industryData = {
-        hvac:        { close: 0.35 },
-        dental:      { close: 0.40 },
-        roofing:     { close: 0.25 },
-        auto:        { close: 0.45 },
-        legal:       { close: 0.20 },
-        insurance:   { close: 0.30 },
-        restaurants: { close: 0.50 },
-        salons:      { close: 0.55 },
-        other:       { close: 0.30 }
-      };
+      var CR = 0.30;
 
       function fmt(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
 
       function updateROI() {
         var val = parseFloat(avgValueInput.value);
-        var ind = industrySelect.value;
-        if (!val || val < 100 || !ind) { roiPayoff.style.display = 'none'; return; }
+        if (!val || val < 100) { roiPayoff.style.display = 'none'; return; }
         
-        var cr = industryData[ind] ? industryData[ind].close : 0.30;
         var tiers = [
           { cost: 497, leads: 3, label: 'Foundation', mId: 'roi-f-math', eId: 'roi-f-eq', rId: 'roi-f-result', pId: 'roi-f-roi' },
           { cost: 1297, leads: 8, label: 'Momentum', mId: 'roi-m-math', eId: 'roi-m-eq', rId: 'roi-m-result', pId: 'roi-m-roi' },
           { cost: 1997, leads: 20, label: 'Authority', mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result', pId: 'roi-a-roi' }
         ];
 
-        // Calculate Foundation (simplest tier) for the headline
-        var fClients = Math.round(tiers[0].leads * cr * 10) / 10;
-        var fRev = Math.round(fClients * val);
         var clientsNeeded = Math.ceil(tiers[0].cost / val);
 
-        // Big headline
         var headline = document.getElementById('roi-payoff-headline');
         if (clientsNeeded <= 1) {
           headline.innerHTML = 'You only need <span class="roi-green">one new customer</span> to cover your entire monthly cost.';
@@ -4077,26 +4045,23 @@ document.addEventListener('DOMContentLoaded', function() {
           headline.innerHTML = '<span class="roi-green">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
         }
 
-        // Sub line
         document.getElementById('roi-payoff-sub').textContent = 
           'At $' + fmt(Math.round(val)) + ' per customer, everything after that is pure profit.';
 
-        // Tier cards
         tiers.forEach(function(t) {
-          var closed = Math.round(t.leads * cr * 10) / 10;
+          var closed = Math.round(t.leads * CR * 10) / 10;
           var rev = Math.round(closed * val);
           var profit = rev - t.cost;
           var roiPct = Math.round((profit / t.cost) * 100);
-          document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads × ' + Math.round(cr * 100) + '% close rate = ~' + closed + ' new customers';
-          document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV × ' + closed + ' customers = $' + fmt(rev) + ' revenue − $' + fmt(t.cost) + ' cost';
-          document.getElementById(t.rId).innerHTML = 'Avg. net gain: <strong>+$' + fmt(profit) + '/mo</strong>';
-          document.getElementById(t.pId).innerHTML = 'Minimum Expected ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads \u00d7 30% avg. close rate = ~' + closed + ' est. customers';
+          document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV \u00d7 ' + closed + ' customers = $' + fmt(rev) + ' est. revenue \u2212 $' + fmt(t.cost) + ' cost';
+          document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong>+$' + fmt(profit) + '/mo</strong>';
+          document.getElementById(t.pId).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
         });
 
         roiPayoff.style.display = 'block';
       }
       avgValueInput.addEventListener('input', updateROI);
-      industrySelect.addEventListener('change', updateROI);
     })();
 
     // ===== UPSELL MODAL + FORM — runs after full DOM is ready =====
