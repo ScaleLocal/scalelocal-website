@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /checkout
 Disallow: /welcome
+Disallow: /free-website
 
 Sitemap: https://scalelocal.net/sitemap.xml
