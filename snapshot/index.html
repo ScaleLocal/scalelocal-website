@@ -7,14 +7,15 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <title>ScaleLocal | Free Digital Presence Snapshot</title>
-  <meta name="description" content="Free SEO audit for local businesses. See how your business ranks on Google, check your reviews, website speed, and digital presence vs. competitors. Free digital presence snapshot — no email required to see results.">
+  <title>Free Digital Presence Snapshot for Your Business | ScaleLocal</title>
+  <meta name="description" content="Free SEO audit for local businesses in MA, NH, and RI. We analyze your Google ranking, reviews, website speed, and digital presence vs. your top competitors — and send you a personalized report. No cost. No obligation.">
   <link rel="canonical" href="https://scalelocal.net/snapshot">
-    <meta property="og:type" content="website">
+  <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScaleLocal">
+  <meta property="og:title" content="Free Digital Presence Snapshot | ScaleLocal">
+  <meta property="og:description" content="We analyze your Google ranking, reviews, website speed, and digital presence vs. your competitors — free.">
   <meta property="og:image" content="https://scalelocal.net/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://scalelocal.net/snapshot">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://scalelocal.net/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,185 +24,202 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#1a2e4a;min-height:100vh}
-    .topbar{width:100%;padding:16px 24px;text-align:center}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#1a2e4a;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .topbar{width:100%;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;max-width:1200px}
     .topbar a{text-decoration:none}
-    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
-    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
-    .snap-wrap{max-width:560px;margin:0 auto;padding:20px 24px 64px}
-    .snap-header{text-align:center;margin-bottom:40px}
-    .snap-eyebrow{color:#2ecc71;text-transform:uppercase;font-family:'Inter',sans-serif;font-size:0.6875rem;letter-spacing:0.22em;font-weight:600;margin-bottom:12px}
-    .snap-headline{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.75rem;line-height:1.15;margin-bottom:16px}
-    @media(min-width:768px){.snap-headline{font-size:2.25rem}}
-    .snap-sub{font-family:'Inter',sans-serif;font-size:1rem;color:#a8b8cc;line-height:1.6}
-    .snap-form{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.2)}
-    @media(min-width:768px){.snap-form{padding:40px}}
-    .snap-field{margin-bottom:20px}
-    .snap-field:last-of-type{margin-bottom:28px}
-    .snap-field label{display:block;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:6px}
-    .snap-field input{width:100%;height:48px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none;transition:border-color 0.2s,box-shadow 0.2s}
-    .snap-field input:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
-    .snap-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.0625rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s}
-    .snap-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
-    .snap-trust{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:20px}
-    .snap-trust-item{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:6px}
-    .snap-trust-check{color:#2ecc71;font-weight:700}
-
-    /* Loading state */
-    .snap-loading{display:none;text-align:center;padding:48px 24px}
-    .snap-loading.visible{display:block}
-    .loading-step{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;margin-bottom:12px;opacity:0;transform:translateY(8px);transition:all 0.4s ease}
-    .loading-step.show{opacity:1;transform:translateY(0)}
-    .loading-step .check{color:#2ecc71;margin-right:8px}
-    .loading-step .spinner{display:inline-block;width:14px;height:14px;border:2px solid #2E75B6;border-top-color:transparent;border-radius:50%;animation:spin 0.8s linear infinite;margin-right:8px;vertical-align:middle}
-    @keyframes spin{to{transform:rotate(360deg)}}
-
-    /* Results */
-    .snap-results{display:none;margin-top:32px}
-    .snap-results.visible{display:block}
-    .score-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.2);text-align:center;margin-bottom:32px}
-    .score-label{font-family:'Inter',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.15em;color:#6b7a8d;font-weight:600;margin-bottom:8px}
-    .score-number{font-family:'Montserrat',sans-serif;font-weight:800;font-size:4rem;line-height:1}
-    .score-out-of{font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:16px}
-    .score-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px;text-align:left}
-    .score-item{background:#f0f4f8;border-radius:8px;padding:14px}
-    .score-item-label{font-family:'Inter',sans-serif;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.1em;color:#6b7a8d;margin-bottom:4px}
-    .score-item-value{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.125rem}
-    .results-next{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.2);text-align:center}
-    .results-next p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#4a5a6e;line-height:1.6;margin-bottom:20px}
-    .results-next strong{color:#1a2e4a}
-    .results-cta{display:inline-flex;align-items:center;justify-content:center;height:52px;padding:0 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border-radius:8px;text-decoration:none;transition:all 0.2s}
-    .results-cta:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .topbar-link{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#a8b8cc;text-decoration:none}
+    .topbar-link:hover{color:#fff}
+    .wrap{max-width:520px;width:100%;margin:0 auto;padding:20px 24px 64px}
+    .header{text-align:center;margin-bottom:36px}
+    .ey{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.22em;font-weight:600;margin-bottom:12px}
+    h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.75rem;line-height:1.15;margin-bottom:16px}
+    @media(min-width:768px){h1{font-size:2.25rem}}
+    .sub{font-family:'Inter',sans-serif;font-size:1rem;color:#a8b8cc;line-height:1.7}
+    .card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.25)}
+    @media(min-width:768px){.card{padding:40px}}
+    .field{margin-bottom:18px}
+    .field label{display:block;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:6px}
+    .field input,.field select{width:100%;height:48px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none;transition:border-color 0.2s,box-shadow 0.2s;background:#fff}
+    .field input:focus,.field select:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    .field input::placeholder{color:#9aa5b4}
+    .field select{-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7a8d' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.0625rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;margin-top:8px}
+    .btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;box-shadow:none}
+    .trust{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:16px}
+    .trust span{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:6px}
+    .trust .ck{color:#2ecc71;font-weight:700}
+    .what{margin-top:32px}
+    .what h3{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1rem;margin-bottom:16px;text-align:center}
+    .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:480px){.what-grid{grid-template-columns:1fr}}
+    .what-item{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:14px 16px;display:flex;align-items:flex-start;gap:10px}
+    .what-ck{color:#2ecc71;font-weight:700;font-size:1rem;flex-shrink:0;margin-top:1px}
+    .what-text{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#a8b8cc;line-height:1.4}
+    .confirm{display:none;text-align:center;padding:40px 24px}
+    .confirm.vis{display:block}
+    .confirm-icon{width:64px;height:64px;background:#2ecc71;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:#1a2e4a;font-weight:700}
+    .confirm h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1.5rem;margin-bottom:12px}
+    .confirm p{font-family:'Inter',sans-serif;font-size:1rem;color:#a8b8cc;line-height:1.7;margin-bottom:12px}
+    .confirm .hl{color:#2ecc71;font-weight:600}
+    .err{font-family:'Inter',sans-serif;font-size:0.75rem;color:#e74c3c;margin-top:4px;display:none}
   </style>
 </head>
 <body>
-  <header class="topbar"><a href="/"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a></header>
-  <div class="snap-wrap">
-    <div class="snap-header">
-      <p class="snap-eyebrow">FREE DIGITAL PRESENCE SNAPSHOT</p>
-      <h1 class="snap-headline">See exactly where your business stands on Google.</h1>
-      <p class="snap-sub">Enter your business name below. We&rsquo;ll check your Google ranking, reviews, website speed, and how you stack up against your top 3 local competitors. Free. Takes under 5 minutes.</p>
+  <header class="topbar">
+    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
+    <a href="/menu" class="topbar-link">See Plans &amp; Pricing</a>
+  </header>
+
+  <div class="wrap">
+    <div class="header">
+      <p class="ey">FREE &mdash; NO OBLIGATION</p>
+      <h1>See exactly where your business stands on Google.</h1>
+      <p class="sub">We&rsquo;ll analyze your Google ranking, reviews, website speed, and digital presence compared to your top local competitors &mdash; and send you a personalized report within 1 business day.</p>
     </div>
 
-    <form class="snap-form" id="snap-form">
-      <div class="snap-field">
-        <label for="snap-biz">Business Name</label>
-        <input type="text" id="snap-biz" name="business_name" required placeholder="e.g. Joe's Plumbing">
+    <form class="card" id="snap-form">
+      <div class="field">
+        <label for="biz">Business Name</label>
+        <input type="text" id="biz" name="business_name" required placeholder="e.g. Joe's Plumbing">
       </div>
-      <div class="snap-field">
-        <label for="snap-city">City / Town</label>
-        <input type="text" id="snap-city" name="town" required placeholder="e.g. Tewksbury, MA">
+      <div class="row">
+        <div class="field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" required placeholder="First">
+        </div>
+        <div class="field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" required placeholder="Last">
+        </div>
       </div>
-      <div class="snap-field">
-        <label for="snap-phone">Phone</label>
-        <input type="tel" id="snap-phone" name="phone" required placeholder="(555) 555-5555">
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="you@yourbusiness.com">
+        <p class="err" id="email-err">Please enter a valid email address.</p>
       </div>
-      <button type="submit" class="snap-btn">Check My Presence &rarr;</button>
-      <div class="snap-trust">
-        <span class="snap-trust-item"><span class="snap-trust-check">&#10003;</span> 100% free</span>
-        <span class="snap-trust-item"><span class="snap-trust-check">&#10003;</span> Results in under 5 minutes</span>
-        <span class="snap-trust-item"><span class="snap-trust-check">&#10003;</span> No commitment</span>
+      <div class="field">
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555">
+        <p class="err" id="phone-err">Please enter a valid phone number.</p>
+      </div>
+      <div class="field">
+        <label for="city">City / Town</label>
+        <input type="text" id="city" name="city" required placeholder="e.g. Tewksbury, MA">
+      </div>
+      <div class="field">
+        <label for="industry">Industry</label>
+        <select id="industry" name="industry" required>
+          <option value="" disabled selected>Select your industry</option>
+          <option value="HVAC / Plumbing / Electrical">HVAC / Plumbing / Electrical</option>
+          <option value="Roofing / Contractors / Remodeling">Roofing / Contractors / Remodeling</option>
+          <option value="Dental / Medical">Dental / Medical</option>
+          <option value="Law Firm">Law Firm</option>
+          <option value="CPA / Accounting">CPA / Accounting</option>
+          <option value="Wealth Management / Financial">Wealth Management / Financial</option>
+          <option value="Insurance Agency">Insurance Agency</option>
+          <option value="Auto Repair / Auto Body">Auto Repair / Auto Body</option>
+          <option value="Restaurant / Food Service">Restaurant / Food Service</option>
+          <option value="Salon / Spa / Wellness">Salon / Spa / Wellness</option>
+          <option value="Real Estate">Real Estate</option>
+          <option value="Other Local Business">Other Local Business</option>
+        </select>
+      </div>
+      <button type="submit" class="btn" id="snap-btn">Send My Free Snapshot &rarr;</button>
+      <div class="trust">
+        <span><span class="ck">&#10003;</span> 100% free</span>
+        <span><span class="ck">&#10003;</span> No credit card</span>
+        <span><span class="ck">&#10003;</span> Report in 1 business day</span>
       </div>
     </form>
 
-    <div class="snap-loading" id="snap-loading">
-      <div class="loading-step" id="ls-1"><span class="spinner"></span> Checking your Google ranking...</div>
-      <div class="loading-step" id="ls-2"><span class="spinner"></span> Pulling your reviews...</div>
-      <div class="loading-step" id="ls-3"><span class="spinner"></span> Analyzing your website...</div>
-      <div class="loading-step" id="ls-4"><span class="spinner"></span> Comparing against top 3 competitors...</div>
-      <div class="loading-step" id="ls-5"><span class="spinner"></span> Building your snapshot...</div>
+    <div class="what">
+      <h3>What&rsquo;s in your snapshot</h3>
+      <div class="what-grid">
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Google ranking for your top services in your area</span></div>
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Review count and rating vs. your top 3 competitors</span></div>
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Website speed and mobile performance score</span></div>
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Google Business Profile completeness check</span></div>
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Citation and directory listing audit</span></div>
+        <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text">Personalized action plan with priority recommendations</span></div>
+      </div>
     </div>
 
-    <div class="snap-results" id="snap-results">
-      <div class="score-card">
-        <p class="score-label">YOUR PRESENCE SCORE</p>
-        <p class="score-number" id="score-number" style="color:#f39c12;">--</p>
-        <p class="score-out-of">out of 100</p>
-        <div class="score-grid">
-          <div class="score-item">
-            <p class="score-item-label">MAP PACK</p>
-            <p class="score-item-value" id="si-map">--</p>
-          </div>
-          <div class="score-item">
-            <p class="score-item-label">REVIEWS</p>
-            <p class="score-item-value" id="si-reviews">--</p>
-          </div>
-          <div class="score-item">
-            <p class="score-item-label">WEBSITE SPEED</p>
-            <p class="score-item-value" id="si-speed">--</p>
-          </div>
-          <div class="score-item">
-            <p class="score-item-label">GBP COMPLETE</p>
-            <p class="score-item-value" id="si-gbp">--</p>
-          </div>
-        </div>
-      </div>
-      <div class="results-next">
-        <p><strong>Your full snapshot is on its way to your inbox</strong> &mdash; including a specific breakdown of what to fix first and how you compare to your top local competitors.</p>
-        <p>Want to see what we&rsquo;d build for <strong id="results-biz">your business</strong>?</p>
-        <a href="/start" class="results-cta">Take the 60-Second Assessment &rarr;</a>
-      </div>
+    <div class="confirm" id="snap-confirm">
+      <div class="confirm-icon">&#10003;</div>
+      <h2>Your snapshot is on the way.</h2>
+      <p>We&rsquo;re analyzing your digital presence right now. You&rsquo;ll receive your personalized report at <span class="hl" id="confirm-email"></span> within 1 business day.</p>
+      <p>Keep an eye on your inbox &mdash; your snapshot will include your Google ranking, reviews, website performance, and a personalized action plan.</p>
+      <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
     </div>
   </div>
+
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('snap-form');
-    var loading = document.getElementById('snap-loading');
-    var results = document.getElementById('snap-results');
+    var btn = document.getElementById('snap-btn');
+    var emailErr = document.getElementById('email-err');
+    var phoneErr = document.getElementById('phone-err');
+
+    function validateEmail(e) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+    }
+    function validatePhone(p) {
+      return p.replace(/\D/g,'').length >= 7;
+    }
+
+    document.getElementById('phone').addEventListener('input', function() {
+      var d = this.value.replace(/\D/g,'');
+      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
+    });
 
     form.onsubmit = function(e) {
       e.preventDefault();
-      var bizName = document.getElementById('snap-biz').value;
-      var city = document.getElementById('snap-city').value;
-      var phone = document.getElementById('snap-phone').value;
+      emailErr.style.display = 'none';
+      phoneErr.style.display = 'none';
 
-      // Submit to GHL
+      var email = document.getElementById('email').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+
+      if (!validateEmail(email)) { emailErr.style.display = 'block'; document.getElementById('email').focus(); return false; }
+      if (!validatePhone(phone)) { phoneErr.style.display = 'block'; document.getElementById('phone').focus(); return false; }
+
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
       var ghl = new FormData();
-      ghl.append('formId','tfnHv9TG6B8I6gf6Varo');
-      ghl.append('business_name', bizName);
-      ghl.append('town', city);
+      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
+      ghl.append('first_name', document.getElementById('fname').value.trim());
+      ghl.append('last_name', document.getElementById('lname').value.trim());
+      ghl.append('email', email);
       ghl.append('phone', phone);
-      fetch('https://services.leadconnectorhq.com/funnels/submit',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
+      ghl.append('companyName', document.getElementById('biz').value.trim());
+      ghl.append('city', document.getElementById('city').value.trim());
+      ghl.append('source', 'snapshot');
 
-      // Hide form, show loading
-      form.style.display = 'none';
-      loading.classList.add('visible');
-
-      // Animated loading steps
-      var steps = ['ls-1','ls-2','ls-3','ls-4','ls-5'];
-      steps.forEach(function(id, i) {
-        setTimeout(function() {
-          var el = document.getElementById(id);
-          el.classList.add('show');
-          if (i > 0) {
-            var prev = document.getElementById(steps[i-1]);
-            prev.innerHTML = '<span class="check">&#10003;</span>' + prev.textContent.replace(/^[^\s]+\s/, '');
-          }
-        }, (i + 1) * 1500);
+      fetch('https://services.leadconnectorhq.com/funnels/submit', {
+        method: 'POST',
+        body: ghl,
+        mode: 'no-cors'
+      }).then(function() {
+        form.style.display = 'none';
+        document.querySelector('.what').style.display = 'none';
+        document.getElementById('confirm-email').textContent = email;
+        document.getElementById('snap-confirm').classList.add('vis');
+        window.scrollTo({top: 0, behavior: 'smooth'});
+      }).catch(function() {
+        form.style.display = 'none';
+        document.querySelector('.what').style.display = 'none';
+        document.getElementById('confirm-email').textContent = email;
+        document.getElementById('snap-confirm').classList.add('vis');
+        window.scrollTo({top: 0, behavior: 'smooth'});
       });
-
-      // Show results after animation
-      setTimeout(function() {
-        var last = document.getElementById('ls-5');
-        last.innerHTML = '<span class="check">&#10003;</span> Snapshot ready!';
-        loading.classList.remove('visible');
-        results.classList.add('visible');
-        document.getElementById('results-biz').textContent = bizName;
-
-        // Simulated scores (in production, these come from actual API data)
-        // For now, show a realistic range that makes them want the full audit
-        var score = Math.floor(Math.random() * 30) + 25; // 25-55 range
-        var scoreEl = document.getElementById('score-number');
-        scoreEl.textContent = score;
-        scoreEl.style.color = score < 40 ? '#e74c3c' : score < 70 ? '#f39c12' : '#2ecc71';
-
-        document.getElementById('si-map').textContent = score < 40 ? 'Not in top 10' : 'Position #' + (Math.floor(Math.random() * 7) + 4);
-        document.getElementById('si-reviews').textContent = Math.floor(Math.random() * 20) + 3 + ' reviews';
-        document.getElementById('si-speed').textContent = Math.floor(Math.random() * 40) + 20 + '/100';
-        document.getElementById('si-gbp').textContent = Math.floor(Math.random() * 3) + 4 + '/8 items';
-
-        results.scrollIntoView({behavior:'smooth',block:'start'});
-      }, 8500);
 
       return false;
     };
