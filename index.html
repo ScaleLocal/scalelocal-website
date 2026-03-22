@@ -1423,45 +1423,50 @@
       line-height: 1.4;
     }
 
+    .roi-tier-link {
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .roi-tier-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(26, 46, 74, 0.12);
+    }
+    .roi-tier-link-note {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      color: #2E75B6;
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
     .roi-rec {
       margin-top: 24px;
     }
     .roi-rec-inner {
-      background: linear-gradient(135deg, #1a2e4a 0%, #2a4a6a 100%);
+      background: #f0f4f8;
       border-radius: 12px;
       padding: 24px 28px;
       text-align: center;
+      border: 1px solid #e2e8f0;
     }
     .roi-rec-label {
       font-family: 'Inter', sans-serif;
       font-size: 0.625rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: #2ecc71;
+      color: #1a2e4a;
       font-weight: 600;
       margin-bottom: 8px;
     }
     .roi-rec-text {
       font-family: 'Inter', sans-serif;
       font-size: 0.9375rem;
-      color: #ffffff;
+      color: #1a2e4a;
       line-height: 1.6;
-      margin-bottom: 16px;
     }
     .roi-rec-text strong { color: #2ecc71; }
-    .roi-rec-btn {
-      display: inline-block;
-      background: #2ecc71;
-      color: #1a2e4a;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.875rem;
-      padding: 12px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    .roi-rec-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
     .pricing-anchor {
       margin-top: 40px;
@@ -2790,37 +2795,36 @@
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
             <p class="roi-payoff-sub" id="roi-payoff-sub"></p>
             <div class="roi-tiers-row" id="roi-tiers-row">
-              <div class="roi-tier-card">
+              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link">
                 <p class="roi-tc-label">FOUNDATION</p>
                 <p class="roi-tc-cost">$497<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-f-math"></p>
                 <p class="roi-tc-equation" id="roi-f-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-f-result"></p>
                 <p class="roi-tc-pct" id="roi-f-roi"></p>
-              </div>
-              <div class="roi-tier-card roi-tier-card--highlight">
+              </a>
+              <a href="/checkout?plan=momentum" class="roi-tier-card roi-tier-card--highlight roi-tier-link">
                 <p class="roi-tc-label">MOMENTUM</p>
                 <p class="roi-tc-cost">$1,297<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-m-math"></p>
                 <p class="roi-tc-equation" id="roi-m-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-m-result"></p>
                 <p class="roi-tc-pct" id="roi-m-roi"></p>
-              </div>
-              <div class="roi-tier-card">
+              </a>
+              <a href="/checkout?plan=authority" class="roi-tier-card roi-tier-link">
                 <p class="roi-tc-label">AUTHORITY</p>
                 <p class="roi-tc-cost">$1,997<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-a-math"></p>
                 <p class="roi-tc-equation" id="roi-a-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-a-result"></p>
                 <p class="roi-tc-pct" id="roi-a-roi"></p>
-              </div>
+              </a>
             </div>
           </div>
           <div class="roi-rec" id="roi-rec" style="display:none;">
             <div class="roi-rec-inner">
-              <p class="roi-rec-label">OUR RECOMMENDATION</p>
+              <p class="roi-rec-label">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
               <p class="roi-rec-text" id="roi-rec-text"></p>
-              <a id="roi-rec-cta" href="/snapshot" class="roi-rec-btn">Get Started &rarr;</a>
             </div>
           </div>
           </div>
@@ -4246,15 +4250,16 @@ document.addEventListener('DOMContentLoaded', function() {
           var r = res[j];
           document.getElementById(r.t.m).textContent = r.t.leads + ' guaranteed leads \u00d7 ' + (CR*100) + '% close rate = ~' + r.closed + ' est. customers';
           document.getElementById(r.t.e).textContent = '$' + _fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + _fmt(r.rev) + ' est. revenue \u2212 $' + _fmt(r.t.cost) + ' cost';
+          var clickHint = '<span style="display:block;font-family:Inter,sans-serif;font-size:0.6875rem;color:#2E75B6;margin-top:10px;font-weight:600;">See what\u2019s included \u2192</span>';
           if (r.profit > 0 && r.roiPct >= 50) {
             document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + _fmt(r.profit) + '/mo</strong>';
-            document.getElementById(r.t.p).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.t.label + ' lead guarantee';
+            document.getElementById(r.t.p).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.t.label + ' lead guarantee' + clickHint;
           } else if (r.profit >= -50 && r.profit <= 0) {
             document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">-$' + _fmt(Math.abs(r.profit)) + '/mo</strong>';
-            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Tight margin \u2014 one extra close flips this positive. You know your numbers best.</span>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Tight margin \u2014 one extra close flips this positive. You know your numbers best.</span>' + clickHint;
           } else if (r.profit > 0 && r.roiPct < 50) {
             document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">+$' + _fmt(r.profit) + '/mo</strong>';
-            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Positive but tight. Slightly higher close rate or LTV makes this tier shine.</span>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Positive but tight. Slightly higher close rate or LTV makes this tier shine.</span>' + clickHint;
           } else {
             document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + _fmt(Math.abs(r.profit)) + '/mo</strong>';
             document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">You\u2019d need ~' + r.be + ' customers/mo to break even</span>';
@@ -4274,32 +4279,26 @@ document.addEventListener('DOMContentLoaded', function() {
           lowBox.style.display = 'none';
         }
 
-        // Recommendation logic
+        // Summary logic
         var recEl = document.getElementById('roi-rec');
         var recText = document.getElementById('roi-rec-text');
-        var recCta = document.getElementById('roi-rec-cta');
         if (recEl && recText) {
-          // Find the most profitable tier
-          var bestTier = null;
-          var bestProfit = -Infinity;
-          for (var b = 0; b < res.length; b++) {
-            if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; }
-          }
-          // Count profitable tiers
+          var bestTier = null; var bestProfit = -Infinity;
+          for (var b = 0; b < res.length; b++) { if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; } }
           var profitCount = 0;
-          for (var p = 0; p < res.length; p++) { if (res[p].profit > 0) profitCount++; }
+          var profitNames = [];
+          for (var p = 0; p < res.length; p++) { if (res[p].profit > 0) { profitCount++; profitNames.push(res[p].t.label); } }
 
           if (allLoss) {
             recEl.style.display = 'none';
-          } else if (profitCount === 1) {
-            recText.innerHTML = 'Based on your numbers, <strong>' + bestTier.t.label + '</strong> is the tier where the math works \u2014 delivering an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> in net gain. The other tiers would need a higher customer value or close rate to be profitable.';
-            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
-            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+          } else if (profitCount === 3) {
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, all three systems are net positive with our guaranteed lead minimums. <strong>' + bestTier.t.label + '</strong> delivers the strongest return at <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>, but ' + profitNames[0] + ' and ' + profitNames[1] + ' are also in the green. Click any tier above to see what\u2019s included.';
             recEl.style.display = 'block';
-          } else if (bestTier.profit > 0) {
-            recText.innerHTML = 'Based on your numbers, <strong>' + bestTier.t.label + '</strong> delivers the highest return \u2014 an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> in net gain with our ' + bestTier.t.leads + '-lead guarantee. All profitable tiers are shown in green above.';
-            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
-            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+          } else if (profitCount === 2) {
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + profitNames[0] + '</strong> and <strong>' + profitNames[1] + '</strong> are both net positive with our guaranteed lead minimums. ' + bestTier.t.label + ' leads with <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click either tier above to see what\u2019s included.';
+            recEl.style.display = 'block';
+          } else if (profitCount === 1) {
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + bestTier.t.label + '</strong> is the tier where the numbers work \u2014 delivering an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> with our ' + bestTier.t.leads + '-lead guarantee. The other tiers would need a higher customer value or close rate to break even. Click ' + bestTier.t.label + ' above to see what\u2019s included.';
             recEl.style.display = 'block';
           } else {
             recEl.style.display = 'none';
