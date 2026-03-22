@@ -1318,6 +1318,21 @@
       color: #2ecc71;
     }
 
+    .roi-tc-pct {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6875rem;
+      color: #1a2e4a;
+      margin-top: 10px;
+      padding: 8px 10px;
+      background: rgba(46, 204, 113, 0.08);
+      border-radius: 6px;
+      line-height: 1.4;
+    }
+    .roi-tc-pct strong {
+      color: #2ecc71;
+      font-size: 0.8125rem;
+    }
+
     .pricing-anchor {
       margin-top: 40px;
       text-align: center;
@@ -2649,6 +2664,7 @@
                 <p class="roi-tc-math" id="roi-f-math"></p>
                 <p class="roi-tc-equation" id="roi-f-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-f-result"></p>
+                <p class="roi-tc-pct" id="roi-f-roi"></p>
               </div>
               <div class="roi-tier-card roi-tier-card--highlight">
                 <p class="roi-tc-label">MOMENTUM</p>
@@ -2656,6 +2672,7 @@
                 <p class="roi-tc-math" id="roi-m-math"></p>
                 <p class="roi-tc-equation" id="roi-m-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-m-result"></p>
+                <p class="roi-tc-pct" id="roi-m-roi"></p>
               </div>
               <div class="roi-tier-card">
                 <p class="roi-tc-label">AUTHORITY</p>
@@ -2663,6 +2680,7 @@
                 <p class="roi-tc-math" id="roi-a-math"></p>
                 <p class="roi-tc-equation" id="roi-a-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-a-result"></p>
+                <p class="roi-tc-pct" id="roi-a-roi"></p>
               </div>
             </div>
           </div>
@@ -4039,9 +4057,9 @@ document.addEventListener('DOMContentLoaded', function() {
         
         var cr = industryData[ind] ? industryData[ind].close : 0.30;
         var tiers = [
-          { cost: 497, leads: 3, mId: 'roi-f-math', eId: 'roi-f-eq', rId: 'roi-f-result' },
-          { cost: 1297, leads: 8, mId: 'roi-m-math', eId: 'roi-m-eq', rId: 'roi-m-result' },
-          { cost: 1997, leads: 20, mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result' }
+          { cost: 497, leads: 3, label: 'Foundation', mId: 'roi-f-math', eId: 'roi-f-eq', rId: 'roi-f-result', pId: 'roi-f-roi' },
+          { cost: 1297, leads: 8, label: 'Momentum', mId: 'roi-m-math', eId: 'roi-m-eq', rId: 'roi-m-result', pId: 'roi-m-roi' },
+          { cost: 1997, leads: 20, label: 'Authority', mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result', pId: 'roi-a-roi' }
         ];
 
         // Calculate Foundation (simplest tier) for the headline
@@ -4068,9 +4086,11 @@ document.addEventListener('DOMContentLoaded', function() {
           var closed = Math.round(t.leads * cr * 10) / 10;
           var rev = Math.round(closed * val);
           var profit = rev - t.cost;
+          var roiPct = Math.round((profit / t.cost) * 100);
           document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads × ' + Math.round(cr * 100) + '% close rate = ~' + closed + ' new customers';
           document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV × ' + closed + ' customers = $' + fmt(rev) + ' revenue − $' + fmt(t.cost) + ' cost';
           document.getElementById(t.rId).innerHTML = 'Avg. net gain: <strong>+$' + fmt(profit) + '/mo</strong>';
+          document.getElementById(t.pId).innerHTML = 'Minimum Expected ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
         });
 
         roiPayoff.style.display = 'block';
