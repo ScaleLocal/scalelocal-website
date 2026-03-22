@@ -1335,6 +1335,87 @@
       font-size: 0.8125rem;
     }
 
+    .roi-low-ltv-inner {
+      margin-top: 28px;
+      padding: 28px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .roi-low-ltv-honest {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #1a2e4a;
+      font-size: 1rem;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .roi-low-ltv-but {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #6b7a8d;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .roi-low-breakeven {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: #1a2e4a;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .roi-low-breakeven strong { color: #e67e22; }
+    .roi-low-ltv-redirect {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: #6b7a8d;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #fed7aa;
+    }
+    .roi-low-products {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 600px) { .roi-low-products { grid-template-columns: 1fr; } }
+    .roi-low-product {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px;
+      text-decoration: none;
+      text-align: center;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      display: block;
+    }
+    .roi-low-product:hover { border-color: #2ecc71; box-shadow: 0 4px 12px rgba(46,204,113,0.15); }
+    .roi-low-product-name {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #1a2e4a;
+      font-size: 0.875rem;
+      margin-bottom: 4px;
+    }
+    .roi-low-product-price {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: #2ecc71;
+      font-size: 0.8125rem;
+      margin-bottom: 6px;
+    }
+    .roi-low-product-desc {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      color: #6b7a8d;
+      line-height: 1.4;
+    }
+
     .pricing-anchor {
       margin-top: 40px;
       text-align: center;
@@ -2667,6 +2748,32 @@
                 <p class="roi-tc-equation" id="roi-a-eq"></p>
                 <p class="roi-tc-result roi-tc-result--green" id="roi-a-result"></p>
                 <p class="roi-tc-pct" id="roi-a-roi"></p>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="roi-low-ltv" id="roi-low-ltv" style="display:none;">
+            <div class="roi-low-ltv-inner">
+              <p class="roi-low-ltv-honest" id="roi-low-honest"></p>
+              <p class="roi-low-ltv-but">That said &mdash; if you close customers at a higher rate than 30%, the math shifts fast. But based on our lead guarantees alone, here&rsquo;s what you&rsquo;d need to break even:</p>
+              <div class="roi-low-breakeven" id="roi-low-be"></div>
+              <p class="roi-low-ltv-redirect">We&rsquo;d rather be upfront about that than take your money. But we do have standalone services that deliver value at any customer lifetime value:</p>
+              <div class="roi-low-products">
+                <a href="/websites" class="roi-low-product">
+                  <span class="roi-low-product-name">Professional Website</span>
+                  <span class="roi-low-product-price">$497 one-time</span>
+                  <span class="roi-low-product-desc">Mobile-optimized site live in 48 hours. No monthly fees.</span>
+                </a>
+                <a href="/menu" class="roi-low-product">
+                  <span class="roi-low-product-name">AI Chat Assistant</span>
+                  <span class="roi-low-product-price">Included in all plans</span>
+                  <span class="roi-low-product-desc">A talking website that captures leads 24/7 while you sleep.</span>
+                </a>
+                <a href="/menu" class="roi-low-product">
+                  <span class="roi-low-product-name">AI Receptionist</span>
+                  <span class="roi-low-product-price">$997 setup</span>
+                  <span class="roi-low-product-desc">Never miss a call again. AI answers in your business name 24/7.</span>
+                </a>
               </div>
             </div>
           </div>
@@ -4034,50 +4141,54 @@ document.addEventListener('DOMContentLoaded', function() {
           { cost: 1997, leads: 20, label: 'Authority', mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result', pId: 'roi-a-roi' }
         ];
 
-        // Calculate Foundation estimated revenue to determine headline
-        var fClosed = Math.round(tiers[0].leads * CR * 10) / 10;
-        var fRev = Math.round(fClosed * val);
-        var fProfit = fRev - tiers[0].cost;
-
-        var headline = document.getElementById('roi-payoff-headline');
-        var subline = document.getElementById('roi-payoff-sub');
-
-        if (fProfit > 0 && fClosed >= 1) {
-          // LTV is high enough that Foundation is profitable
-          var clientsNeeded = Math.ceil(tiers[0].cost / val);
-          if (clientsNeeded <= 1) {
-            headline.innerHTML = 'You only need <span class="roi-green">one new customer</span> to cover your entire monthly cost.';
-          } else if (clientsNeeded <= 2) {
-            headline.innerHTML = 'Just <span class="roi-green">two new customers</span> and your marketing pays for itself.';
-          } else {
-            headline.innerHTML = 'Just <span class="roi-green">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
-          }
-          subline.textContent = 'At $' + fmt(Math.round(val)) + ' per customer, everything above that is pure profit.';
-        } else if (fProfit > 0) {
-          // Profitable but less than 1 full customer
-          headline.innerHTML = 'Even at <span class="roi-green">$' + fmt(Math.round(val)) + ' per customer</span>, Foundation still generates a positive return.';
-          subline.textContent = 'And the higher tiers deliver significantly more.';
-        } else {
-          // LTV too low for Foundation to be profitable — be honest, point to volume
-          headline.innerHTML = 'At $' + fmt(Math.round(val)) + ' per customer, <span class="roi-green">Momentum and Authority</span> are where the math works.';
-          subline.textContent = 'Higher lead volume at scale turns modest customer values into real profit.';
-        }
-
+        // Calculate all tiers first to determine messaging
+        var allLoss = true;
+        var anyProfit = false;
+        var tierResults = [];
         tiers.forEach(function(t) {
           var closed = Math.round(t.leads * CR * 10) / 10;
           var rev = Math.round(closed * val);
           var profit = rev - t.cost;
           var roiPct = Math.round((profit / t.cost) * 100);
-          document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads \u00d7 30% avg. close rate = ~' + closed + ' est. customers';
-          document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV \u00d7 ' + closed + ' customers = $' + fmt(rev) + ' est. revenue \u2212 $' + fmt(t.cost) + ' cost';
-          if (profit >= 0) {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + fmt(profit) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          var beClients = Math.ceil(t.cost / val);
+          if (profit >= 0) { allLoss = false; anyProfit = true; }
+          tierResults.push({ tier: t, closed: closed, rev: rev, profit: profit, roiPct: roiPct, beClients: beClients });
+        });
+
+        var headline = document.getElementById('roi-payoff-headline');
+        var subline = document.getElementById('roi-payoff-sub');
+        var lowLtv = document.getElementById('roi-low-ltv');
+
+        // Headline — always honest, based on actual math
+        headline.innerHTML = 'At <span class="roi-green">$' + fmt(Math.round(val)) + '</span> per customer, here&rsquo;s what the math looks like with our lead guarantee.';
+        subline.textContent = 'Based on a 30% average close rate on inbound leads across all local service industries.';
+
+        // Render tier cards
+        tierResults.forEach(function(r) {
+          document.getElementById(r.tier.mId).textContent = r.tier.leads + ' guaranteed leads \u00d7 30% avg. close rate = ~' + r.closed + ' est. customers';
+          document.getElementById(r.tier.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + fmt(r.rev) + ' est. revenue \u2212 $' + fmt(r.tier.cost) + ' cost';
+          if (r.profit >= 0) {
+            document.getElementById(r.tier.rId).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + fmt(r.profit) + '/mo</strong>';
+            document.getElementById(r.tier.pId).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.tier.label + ' lead guarantee';
           } else {
-            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + fmt(Math.abs(profit)) + '/mo</strong>';
-            document.getElementById(t.pId).innerHTML = '<span style="color:#6b7a8d">Higher customer LTV needed for positive ROI at this tier</span>';
+            document.getElementById(r.tier.rId).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + fmt(Math.abs(r.profit)) + '/mo</strong>';
+            document.getElementById(r.tier.pId).innerHTML = '<span style="color:#6b7a8d">You\u2019d need ~' + r.beClients + ' customers/mo to break even at this tier</span>';
           }
         });
+
+        // Show/hide low-LTV redirect
+        if (allLoss) {
+          var beHtml = '';
+          tierResults.forEach(function(r) {
+            var beLeads = Math.ceil(r.beClients / CR);
+            beHtml += '<strong>' + r.tier.label + ':</strong> ~' + r.beClients + ' customers/mo (~' + beLeads + ' leads at 30% close)<br>';
+          });
+          document.getElementById('roi-low-honest').textContent = 'At $' + fmt(Math.round(val)) + ' per customer, our monthly plans may not be the most efficient investment for your business right now.';
+          document.getElementById('roi-low-be').innerHTML = beHtml;
+          lowLtv.style.display = 'block';
+        } else {
+          lowLtv.style.display = 'none';
+        }
 
         roiPayoff.style.display = 'block';
       }
