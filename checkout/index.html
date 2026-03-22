@@ -377,9 +377,9 @@
 
     // AGREEMENT
     function updAgree(){
-      var t={'nc':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a month-to-month service. Setup fees and first payment are due today. Cancel anytime with 30 days written notice.',
-        '6m':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a 6-month commitment billed monthly. First month due today. Early cancellation does not waive remaining obligations.',
-        '12m':'I agree to the <a href="#" target="_blank">ScaleLocal Service Agreement</a>. This is a 12-month commitment billed monthly. 12th month is free. First month due today. Early cancellation does not waive remaining obligations.'};
+      var t={'nc':'I agree to the <a href="/service-agreement.pdf" target="_blank">ScaleLocal Service Agreement</a>. This is a month-to-month service. Setup fees and first payment are due today. Cancel anytime with 30 days written notice.',
+        '6m':'I agree to the <a href="/service-agreement.pdf" target="_blank">ScaleLocal Service Agreement</a>. This is a 6-month commitment billed monthly. First month due today. Early cancellation does not waive remaining obligations.',
+        '12m':'I agree to the <a href="/service-agreement.pdf" target="_blank">ScaleLocal Service Agreement</a>. This is a 12-month commitment billed monthly. 12th month is free. First month due today. Early cancellation does not waive remaining obligations.'};
       document.getElementById('ag-txt').innerHTML=t[S.term]||t['6m'];
     }
     document.getElementById('ag-check').addEventListener('click',function(){
