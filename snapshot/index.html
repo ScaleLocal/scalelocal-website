@@ -148,12 +148,8 @@
       </div>
     </div>
 
-    <div class="confirm" id="snap-confirm">
-      <div class="confirm-icon">&#10003;</div>
-      <h2>Your snapshot is on the way.</h2>
-      <p>We&rsquo;re analyzing your digital presence right now. You&rsquo;ll receive your personalized report at <span class="hl" id="confirm-email"></span> within 1 business day.</p>
-      <p>Keep an eye on your inbox &mdash; your snapshot will include your Google ranking, reviews, website performance, and a personalized action plan.</p>
-      <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
+    <div class="confirm" id="snap-confirm" style="display:none;text-align:center;padding:40px 24px;">
+      <p style="color:#a8b8cc;font-family:'Inter',sans-serif;">Redirecting...</p>
     </div>
   </div>
 
@@ -192,6 +188,7 @@
       btn.disabled = true;
       btn.textContent = 'Sending...';
 
+      // Collect form data for GHL
       var ghl = new FormData();
       ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
       ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
@@ -203,22 +200,22 @@
       ghl.append('city', document.getElementById('city').value.trim());
       ghl.append('source', 'snapshot');
 
+      // Submit to GHL
       fetch('https://services.leadconnectorhq.com/funnels/submit', {
         method: 'POST',
         body: ghl,
         mode: 'no-cors'
-      }).then(function() {
-        form.style.display = 'none';
-        document.querySelector('.what').style.display = 'none';
-        document.getElementById('confirm-email').textContent = email;
-        document.getElementById('snap-confirm').classList.add('vis');
-        window.scrollTo({top: 0, behavior: 'smooth'});
-      }).catch(function() {
-        form.style.display = 'none';
-        document.querySelector('.what').style.display = 'none';
-        document.getElementById('confirm-email').textContent = email;
-        document.getElementById('snap-confirm').classList.add('vis');
-        window.scrollTo({top: 0, behavior: 'smooth'});
+      }).finally(function() {
+        // Build redirect URL with encoded params for the upsell page
+        var params = new URLSearchParams();
+        params.set('fn', document.getElementById('fname').value.trim());
+        params.set('ln', document.getElementById('lname').value.trim());
+        params.set('e', email);
+        params.set('p', phone);
+        params.set('b', document.getElementById('biz').value.trim());
+        params.set('c', document.getElementById('city').value.trim());
+        params.set('i', document.getElementById('industry').value);
+        window.location.href = '/snapshot/upgrade/?' + params.toString();
       });
 
       return false;

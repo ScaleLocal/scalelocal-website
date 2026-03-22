@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>Upgrade Your Snapshot | ScaleLocal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#1a2e4a;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+    .topbar{width:100%;padding:16px 24px;text-align:center}
+    .topbar a{text-decoration:none}
+    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .wrap{max-width:600px;width:100%;margin:0 auto;padding:20px 24px 64px}
+
+    /* Progress indicator */
+    .progress{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:32px}
+    .step{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem}
+    .step.done{background:#2ecc71;color:#1a2e4a}
+    .step.active{background:#fff;color:#1a2e4a}
+    .step-line{width:40px;height:2px;background:rgba(255,255,255,0.2)}
+    .step-line.done{background:#2ecc71}
+    .step-label{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;text-align:center;margin-top:4px}
+
+    .header{text-align:center;margin-bottom:32px}
+    .greeting{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#2ecc71;font-weight:600;margin-bottom:8px}
+    h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.625rem;line-height:1.2;margin-bottom:14px}
+    @media(min-width:768px){h1{font-size:2rem}}
+    .sub{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.7}
+
+    /* Comparison */
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:28px}
+    @media(max-width:520px){.compare{grid-template-columns:1fr}}
+
+    .col-free,.col-deep{border-radius:14px;padding:24px;position:relative}
+    .col-free{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1)}
+    .col-deep{background:#fff;box-shadow:0 8px 40px rgba(0,0,0,0.25)}
+
+    .col-tag{font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:10px}
+    .col-free .col-tag{color:#6b7a8d}
+    .col-deep .col-tag{color:#2ecc71}
+
+    .col-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:4px}
+    .col-free .col-title{color:#fff}
+    .col-deep .col-title{color:#1a2e4a}
+
+    .col-price{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.375rem;margin-bottom:14px}
+    .col-free .col-price{color:#6b7a8d}
+    .col-deep .col-price{color:#1a2e4a}
+    .col-deep .col-price span{font-size:0.8125rem;font-weight:400;color:#6b7a8d}
+
+    .col-list{list-style:none;padding:0;margin:0}
+    .col-list li{font-family:'Inter',sans-serif;font-size:0.8125rem;padding:5px 0;display:flex;align-items:flex-start;gap:8px;line-height:1.4}
+    .col-free .col-list li{color:#a8b8cc}
+    .col-deep .col-list li{color:#4a5a6e}
+    .ck{flex-shrink:0;font-weight:700;margin-top:1px}
+    .col-free .ck{color:#6b7a8d}
+    .col-deep .ck{color:#2ecc71}
+    .col-free .x{color:#e74c3c;flex-shrink:0;font-weight:700;margin-top:1px}
+
+    .badge{position:absolute;top:-10px;right:16px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.1em;padding:4px 12px;border-radius:20px}
+
+    /* Buttons */
+    .btn-deep{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.0625rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;text-decoration:none;margin-bottom:14px}
+    .btn-deep:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .btn-skip{display:block;width:100%;text-align:center;font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;text-decoration:none;padding:12px;cursor:pointer;border:none;background:none;transition:color 0.2s}
+    .btn-skip:hover{color:#a8b8cc}
+
+    .guarantee{text-align:center;margin-top:20px;padding:16px;background:rgba(255,255,255,0.04);border-radius:10px;border:1px solid rgba(255,255,255,0.08)}
+    .guarantee p{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;line-height:1.5}
+    .guarantee strong{color:#a8b8cc}
+
+    /* Confirmation states */
+    .confirm{display:none;text-align:center;padding:40px 0}
+    .confirm.vis{display:block}
+    .confirm-icon{width:64px;height:64px;background:#2ecc71;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;color:#1a2e4a;font-weight:700}
+    .confirm h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1.5rem;margin-bottom:12px}
+    .confirm p{font-family:'Inter',sans-serif;font-size:1rem;color:#a8b8cc;line-height:1.7;margin-bottom:12px}
+    .confirm .hl{color:#2ecc71;font-weight:600}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
+  </header>
+
+  <div class="wrap">
+    <!-- Progress -->
+    <div class="progress">
+      <div>
+        <div class="step done">&#10003;</div>
+        <p class="step-label">Info</p>
+      </div>
+      <div class="step-line done"></div>
+      <div>
+        <div class="step active">2</div>
+        <p class="step-label">Choose</p>
+      </div>
+      <div class="step-line"></div>
+      <div>
+        <div class="step" style="background:rgba(255,255,255,0.1);color:#6b7a8d">3</div>
+        <p class="step-label">Done</p>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div id="upsell-content">
+      <div class="header">
+        <p class="greeting" id="greeting">Great — we've got your info!</p>
+        <h1>Before we run your free snapshot, there&rsquo;s something you should know.</h1>
+        <p class="sub">The free snapshot covers the basics. But the <strong style="color:#fff;">Deep Audit</strong> uncovers the stuff your competitors don&rsquo;t want you to see &mdash; and gives you an exact action plan to overtake them.</p>
+      </div>
+
+      <!-- Comparison columns -->
+      <div class="compare">
+        <div class="col-free">
+          <p class="col-tag">Included free</p>
+          <p class="col-title">Basic Snapshot</p>
+          <p class="col-price">$0</p>
+          <ul class="col-list">
+            <li><span class="ck">&#10003;</span> Google ranking overview</li>
+            <li><span class="ck">&#10003;</span> Review count vs. competitors</li>
+            <li><span class="ck">&#10003;</span> Website speed score</li>
+            <li><span class="ck">&#10003;</span> GBP completeness check</li>
+            <li><span class="x">&times;</span> No competitor deep-dive</li>
+            <li><span class="x">&times;</span> No keyword gap analysis</li>
+            <li><span class="x">&times;</span> No ad spend intelligence</li>
+            <li><span class="x">&times;</span> No custom action plan</li>
+            <li><span class="x">&times;</span> No 1-on-1 strategy call</li>
+          </ul>
+        </div>
+        <div class="col-deep">
+          <div class="badge">Recommended</div>
+          <p class="col-tag">One-time</p>
+          <p class="col-title">Deep Audit</p>
+          <p class="col-price">$97 <span>one-time</span></p>
+          <ul class="col-list">
+            <li><span class="ck">&#10003;</span> Everything in the free snapshot</li>
+            <li><span class="ck">&#10003;</span> Full competitor breakdown (top 5)</li>
+            <li><span class="ck">&#10003;</span> Keyword gap analysis — what they rank for that you don&rsquo;t</li>
+            <li><span class="ck">&#10003;</span> Ad spend intelligence — are competitors running Google/Meta ads?</li>
+            <li><span class="ck">&#10003;</span> Citation audit across 50+ directories</li>
+            <li><span class="ck">&#10003;</span> AI search visibility check — do ChatGPT/Gemini recommend you?</li>
+            <li><span class="ck">&#10003;</span> Custom 90-day action plan with prioritized steps</li>
+            <li><span class="ck">&#10003;</span> 30-minute 1-on-1 strategy call with Matt</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CTA buttons -->
+      <a href="#" class="btn-deep" id="btn-upgrade">Yes &mdash; Get My Deep Audit ($97) &rarr;</a>
+      <button class="btn-skip" id="btn-skip">No thanks, just send me the free snapshot</button>
+
+      <div class="guarantee">
+        <p><strong>100% satisfaction guarantee.</strong> If you don&rsquo;t find the Deep Audit valuable, we&rsquo;ll refund your $97. No questions. No hassle.</p>
+      </div>
+    </div>
+
+    <!-- Confirmation: paid -->
+    <div class="confirm" id="confirm-paid">
+      <div class="confirm-icon">&#10003;</div>
+      <h2>Your Deep Audit is in progress.</h2>
+      <p>We&rsquo;re running a comprehensive analysis of your business right now. You&rsquo;ll receive your full Deep Audit report at <span class="hl" id="paid-email"></span> within 1 business day.</p>
+      <p>Matt will also reach out to schedule your 30-minute strategy call.</p>
+      <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
+    </div>
+
+    <!-- Confirmation: free -->
+    <div class="confirm" id="confirm-free">
+      <div class="confirm-icon">&#10003;</div>
+      <h2>Your free snapshot is on the way.</h2>
+      <p>We&rsquo;re analyzing your digital presence right now. You&rsquo;ll receive your report at <span class="hl" id="free-email"></span> within 1 business day.</p>
+      <p>Keep an eye on your inbox &mdash; your snapshot will include your Google ranking, reviews, website performance, and recommendations.</p>
+      <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Read params from URL
+    var params = new URLSearchParams(window.location.search);
+    var fn = params.get('fn') || '';
+    var ln = params.get('ln') || '';
+    var email = params.get('e') || '';
+    var phone = params.get('p') || '';
+    var biz = params.get('b') || '';
+    var city = params.get('c') || '';
+    var industry = params.get('i') || '';
+
+    // Redirect to /snapshot if no data (direct link / cold visit)
+    if (!email || !fn) {
+      window.location.href = '/snapshot';
+      return;
+    }
+
+    // Personalize greeting
+    document.getElementById('greeting').textContent = 'Great, ' + fn + ' — we\'ve got your info!';
+
+    // $97 Deep Audit button — links to Stripe payment link with prefilled email
+    var stripeUrl = 'https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00';
+    // Append prefilled_email param for Stripe Checkout
+    var upgradeUrl = stripeUrl + '?prefilled_email=' + encodeURIComponent(email);
+    document.getElementById('btn-upgrade').href = upgradeUrl;
+
+    // Skip button — show free confirmation
+    document.getElementById('btn-skip').addEventListener('click', function() {
+      document.getElementById('upsell-content').style.display = 'none';
+      document.getElementById('free-email').textContent = email;
+      document.getElementById('confirm-free').classList.add('vis');
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    // Check if returning from Stripe success
+    if (window.location.hash === '#success' || params.get('paid') === '1') {
+      document.getElementById('upsell-content').style.display = 'none';
+      document.getElementById('paid-email').textContent = email;
+      document.getElementById('confirm-paid').classList.add('vis');
+    }
+  });
+  </script>
+</body>
+</html>
