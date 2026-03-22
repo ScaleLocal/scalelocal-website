@@ -4034,19 +4034,34 @@ document.addEventListener('DOMContentLoaded', function() {
           { cost: 1997, leads: 20, label: 'Authority', mId: 'roi-a-math', eId: 'roi-a-eq', rId: 'roi-a-result', pId: 'roi-a-roi' }
         ];
 
-        var clientsNeeded = Math.ceil(tiers[0].cost / val);
+        // Calculate Foundation estimated revenue to determine headline
+        var fClosed = Math.round(tiers[0].leads * CR * 10) / 10;
+        var fRev = Math.round(fClosed * val);
+        var fProfit = fRev - tiers[0].cost;
 
         var headline = document.getElementById('roi-payoff-headline');
-        if (clientsNeeded <= 1) {
-          headline.innerHTML = 'You only need <span class="roi-green">one new customer</span> to cover your entire monthly cost.';
-        } else if (clientsNeeded <= 2) {
-          headline.innerHTML = 'Just <span class="roi-green">two new customers</span> and your marketing pays for itself.';
-        } else {
-          headline.innerHTML = '<span class="roi-green">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
-        }
+        var subline = document.getElementById('roi-payoff-sub');
 
-        document.getElementById('roi-payoff-sub').textContent = 
-          'At $' + fmt(Math.round(val)) + ' per customer, everything after that is pure profit.';
+        if (fProfit > 0 && fClosed >= 1) {
+          // LTV is high enough that Foundation is profitable
+          var clientsNeeded = Math.ceil(tiers[0].cost / val);
+          if (clientsNeeded <= 1) {
+            headline.innerHTML = 'You only need <span class="roi-green">one new customer</span> to cover your entire monthly cost.';
+          } else if (clientsNeeded <= 2) {
+            headline.innerHTML = 'Just <span class="roi-green">two new customers</span> and your marketing pays for itself.';
+          } else {
+            headline.innerHTML = 'Just <span class="roi-green">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
+          }
+          subline.textContent = 'At $' + fmt(Math.round(val)) + ' per customer, everything above that is pure profit.';
+        } else if (fProfit > 0) {
+          // Profitable but less than 1 full customer
+          headline.innerHTML = 'Even at <span class="roi-green">$' + fmt(Math.round(val)) + ' per customer</span>, Foundation still generates a positive return.';
+          subline.textContent = 'And the higher tiers deliver significantly more.';
+        } else {
+          // LTV too low for Foundation to be profitable — be honest, point to volume
+          headline.innerHTML = 'At $' + fmt(Math.round(val)) + ' per customer, <span class="roi-green">Momentum and Authority</span> are where the math works.';
+          subline.textContent = 'Higher lead volume at scale turns modest customer values into real profit.';
+        }
 
         tiers.forEach(function(t) {
           var closed = Math.round(t.leads * CR * 10) / 10;
@@ -4055,8 +4070,13 @@ document.addEventListener('DOMContentLoaded', function() {
           var roiPct = Math.round((profit / t.cost) * 100);
           document.getElementById(t.mId).textContent = t.leads + ' guaranteed leads \u00d7 30% avg. close rate = ~' + closed + ' est. customers';
           document.getElementById(t.eId).textContent = '$' + fmt(Math.round(val)) + ' LTV \u00d7 ' + closed + ' customers = $' + fmt(rev) + ' est. revenue \u2212 $' + fmt(t.cost) + ' cost';
-          document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong>+$' + fmt(profit) + '/mo</strong>';
-          document.getElementById(t.pId).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          if (profit >= 0) {
+            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + fmt(profit) + '/mo</strong>';
+            document.getElementById(t.pId).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          } else {
+            document.getElementById(t.rId).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + fmt(Math.abs(profit)) + '/mo</strong>';
+            document.getElementById(t.pId).innerHTML = '<span style="color:#6b7a8d">Higher customer LTV needed for positive ROI at this tier</span>';
+          }
         });
 
         roiPayoff.style.display = 'block';

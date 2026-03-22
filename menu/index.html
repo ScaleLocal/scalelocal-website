@@ -541,16 +541,30 @@
           { cost: 1997, leads: 20, label: 'Authority', m: 'roi-a-math2', e: 'roi-a-eq2', r: 'roi-a-result2', p: 'roi-a-roi2' }
         ];
 
-        var clientsNeeded = Math.ceil(tiers[0].cost / v);
+        var fClosed = Math.round(tiers[0].leads * CR * 10) / 10;
+        var fRev = Math.round(fClosed * v);
+        var fProfit = fRev - tiers[0].cost;
+
         var hl = document.getElementById('roi-headline-text');
-        if (clientsNeeded <= 1) {
-          hl.innerHTML = 'You only need <span style="color:#2ecc71">one new customer</span> to cover your entire monthly cost.';
-        } else if (clientsNeeded <= 2) {
-          hl.innerHTML = 'Just <span style="color:#2ecc71">two new customers</span> and your marketing pays for itself.';
+        var sl = document.getElementById('roi-sub-text');
+
+        if (fProfit > 0 && fClosed >= 1) {
+          var clientsNeeded = Math.ceil(tiers[0].cost / v);
+          if (clientsNeeded <= 1) {
+            hl.innerHTML = 'You only need <span style="color:#2ecc71">one new customer</span> to cover your entire monthly cost.';
+          } else if (clientsNeeded <= 2) {
+            hl.innerHTML = 'Just <span style="color:#2ecc71">two new customers</span> and your marketing pays for itself.';
+          } else {
+            hl.innerHTML = 'Just <span style="color:#2ecc71">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
+          }
+          sl.textContent = 'At $' + fmt(Math.round(v)) + ' per customer, everything above that is pure profit.';
+        } else if (fProfit > 0) {
+          hl.innerHTML = 'Even at <span style="color:#2ecc71">$' + fmt(Math.round(v)) + ' per customer</span>, Foundation still generates a positive return.';
+          sl.textContent = 'And the higher tiers deliver significantly more.';
         } else {
-          hl.innerHTML = '<span style="color:#2ecc71">' + clientsNeeded + ' new customers</span> and your marketing pays for itself.';
+          hl.innerHTML = 'At $' + fmt(Math.round(v)) + ' per customer, <span style="color:#2ecc71">Momentum and Authority</span> are where the math works.';
+          sl.textContent = 'Higher lead volume at scale turns modest customer values into real profit.';
         }
-        document.getElementById('roi-sub-text').textContent = 'At $' + fmt(Math.round(v)) + ' per customer, everything after that is pure profit.';
 
         tiers.forEach(function(t) {
           var closed = Math.round(t.leads * CR * 10) / 10;
@@ -559,8 +573,13 @@
           var roiPct = Math.round((profit / t.cost) * 100);
           document.getElementById(t.m).textContent = t.leads + ' guaranteed leads \u00d7 30% avg. close rate = ~' + closed + ' est. customers';
           document.getElementById(t.e).textContent = '$' + fmt(Math.round(v)) + ' LTV \u00d7 ' + closed + ' customers = $' + fmt(rev) + ' est. revenue \u2212 $' + fmt(t.cost) + ' cost';
-          document.getElementById(t.r).innerHTML = 'Est. net gain: <strong>+$' + fmt(profit) + '/mo</strong>';
-          document.getElementById(t.p).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          if (profit >= 0) {
+            document.getElementById(t.r).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + fmt(profit) + '/mo</strong>';
+            document.getElementById(t.p).innerHTML = 'Estimated ROI: <strong>' + roiPct + '%</strong> with ' + t.label + ' lead guarantee';
+          } else {
+            document.getElementById(t.r).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + fmt(Math.abs(profit)) + '/mo</strong>';
+            document.getElementById(t.p).innerHTML = '<span style="color:#6b7a8d">Higher customer LTV needed for positive ROI at this tier</span>';
+          }
         });
 
         payoff.style.display = 'block';
