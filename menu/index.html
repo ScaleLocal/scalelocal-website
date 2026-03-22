@@ -162,7 +162,7 @@
     .roi-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
     .roi-headline { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1a2e4a; font-size: 1.625rem; line-height: 1.1; text-align: center; margin-bottom: 16px; }
     .roi-sub { font-family: 'Inter', sans-serif; font-size: 1.125rem; color: #6b7a8d; text-align: center; margin-bottom: 48px; line-height: 1.6; }
-    @media (min-width: 768px) { .roi-section { padding: 96px 0; } .roi-headline { font-size: 2.5rem; } .roi-input-row2 { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 768px) { .roi-section { padding: 96px 0; } .roi-headline { font-size: 2.5rem; } .roi-input-row2 { grid-template-columns: 1fr 1fr; } .roi-tiers-grid { grid-template-columns: 1fr 1fr 1fr; } }
     .roi-calc { background: #f0f4f8; border-radius: 16px; padding: 32px; }
     @media (min-width: 768px) { .roi-calc { padding: 48px; } }
     .roi-label { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #1a2e4a; font-weight: 600; display: block; margin-bottom: 8px; }
@@ -436,7 +436,7 @@
           <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
             <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
             <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:28px;"></p>
-            <div class="roi-results visible" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+            <div class="roi-results visible roi-tiers-grid" style="display:grid;gap:12px;">
               <div class="roi-result-card">
                 <p class="roi-tier-name">FOUNDATION</p>
                 <p class="roi-monthly">$497<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
@@ -461,6 +461,13 @@
                 <p id="roi-a-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
                 <p id="roi-a-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
               </div>
+            </div>
+          </div>
+          <div id="roi-rec2" style="display:none;margin-top:24px;">
+            <div style="background:linear-gradient(135deg,#1a2e4a 0%,#2a4a6a 100%);border-radius:12px;padding:24px 28px;text-align:center;">
+              <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#2ecc71;font-weight:600;margin-bottom:8px;">OUR RECOMMENDATION</p>
+              <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#fff;line-height:1.6;margin-bottom:16px;"></p>
+              <a id="roi-rec-cta2" href="/snapshot" style="display:inline-block;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.875rem;padding:12px 28px;border-radius:8px;text-decoration:none;">Get Started &rarr;</a>
             </div>
           </div>
           </div>
@@ -644,6 +651,32 @@
           lowBox.style.display = 'block';
         } else if (lowBox) {
           lowBox.style.display = 'none';
+        }
+
+        // Recommendation logic
+        var recEl = document.getElementById('roi-rec2');
+        var recTxt = document.getElementById('roi-rec-text2');
+        var recCta = document.getElementById('roi-rec-cta2');
+        if (recEl && recTxt) {
+          var bestTier = null; var bestProfit = -Infinity;
+          for (var b = 0; b < res.length; b++) { if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; } }
+          var profitCount = 0;
+          for (var p = 0; p < res.length; p++) { if (res[p].profit > 0) profitCount++; }
+          if (allLoss) {
+            recEl.style.display = 'none';
+          } else if (profitCount === 1) {
+            recTxt.innerHTML = 'Based on your numbers, <strong style="color:#2ecc71">' + bestTier.t.label + '</strong> is the tier where the math works \u2014 delivering an estimated <strong style="color:#2ecc71">+$' + _fmt2(bestTier.profit) + '/mo</strong> in net gain. The other tiers would need a higher customer value or close rate to be profitable.';
+            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
+            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+            recEl.style.display = 'block';
+          } else if (bestTier.profit > 0) {
+            recTxt.innerHTML = 'Based on your numbers, <strong style="color:#2ecc71">' + bestTier.t.label + '</strong> delivers the highest return \u2014 an estimated <strong style="color:#2ecc71">+$' + _fmt2(bestTier.profit) + '/mo</strong> in net gain with our ' + bestTier.t.leads + '-lead guarantee. All profitable tiers are shown in green above.';
+            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
+            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+            recEl.style.display = 'block';
+          } else {
+            recEl.style.display = 'none';
+          }
         }
 
         payoff.style.display = 'block';

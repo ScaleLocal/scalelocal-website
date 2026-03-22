@@ -1257,7 +1257,7 @@
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
       .roi-tiers-row { grid-template-columns: 1fr; }
     }
 
@@ -1422,6 +1422,46 @@
       color: #6b7a8d;
       line-height: 1.4;
     }
+
+    .roi-rec {
+      margin-top: 24px;
+    }
+    .roi-rec-inner {
+      background: linear-gradient(135deg, #1a2e4a 0%, #2a4a6a 100%);
+      border-radius: 12px;
+      padding: 24px 28px;
+      text-align: center;
+    }
+    .roi-rec-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #2ecc71;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .roi-rec-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9375rem;
+      color: #ffffff;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .roi-rec-text strong { color: #2ecc71; }
+    .roi-rec-btn {
+      display: inline-block;
+      background: #2ecc71;
+      color: #1a2e4a;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.875rem;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .roi-rec-btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
 
     .pricing-anchor {
       margin-top: 40px;
@@ -2774,6 +2814,13 @@
                 <p class="roi-tc-result roi-tc-result--green" id="roi-a-result"></p>
                 <p class="roi-tc-pct" id="roi-a-roi"></p>
               </div>
+            </div>
+          </div>
+          <div class="roi-rec" id="roi-rec" style="display:none;">
+            <div class="roi-rec-inner">
+              <p class="roi-rec-label">OUR RECOMMENDATION</p>
+              <p class="roi-rec-text" id="roi-rec-text"></p>
+              <a id="roi-rec-cta" href="/snapshot" class="roi-rec-btn">Get Started &rarr;</a>
             </div>
           </div>
           </div>
@@ -4225,6 +4272,38 @@ document.addEventListener('DOMContentLoaded', function() {
           lowBox.style.display = 'block';
         } else if (lowBox) {
           lowBox.style.display = 'none';
+        }
+
+        // Recommendation logic
+        var recEl = document.getElementById('roi-rec');
+        var recText = document.getElementById('roi-rec-text');
+        var recCta = document.getElementById('roi-rec-cta');
+        if (recEl && recText) {
+          // Find the most profitable tier
+          var bestTier = null;
+          var bestProfit = -Infinity;
+          for (var b = 0; b < res.length; b++) {
+            if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; }
+          }
+          // Count profitable tiers
+          var profitCount = 0;
+          for (var p = 0; p < res.length; p++) { if (res[p].profit > 0) profitCount++; }
+
+          if (allLoss) {
+            recEl.style.display = 'none';
+          } else if (profitCount === 1) {
+            recText.innerHTML = 'Based on your numbers, <strong>' + bestTier.t.label + '</strong> is the tier where the math works \u2014 delivering an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> in net gain. The other tiers would need a higher customer value or close rate to be profitable.';
+            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
+            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+            recEl.style.display = 'block';
+          } else if (bestTier.profit > 0) {
+            recText.innerHTML = 'Based on your numbers, <strong>' + bestTier.t.label + '</strong> delivers the highest return \u2014 an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> in net gain with our ' + bestTier.t.leads + '-lead guarantee. All profitable tiers are shown in green above.';
+            recCta.href = '/checkout?plan=' + bestTier.t.label.toLowerCase();
+            recCta.textContent = 'Start with ' + bestTier.t.label + ' \u2192';
+            recEl.style.display = 'block';
+          } else {
+            recEl.style.display = 'none';
+          }
         }
 
         payoff.style.display = 'block';
