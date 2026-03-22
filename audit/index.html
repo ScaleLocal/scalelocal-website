@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>Your Google Ads Are Leaking Money — Here's the Proof | ScaleLocal</title>
+  <meta name="description" content="We analyzed your Google Ads, your website, and your top competitors. Here's what we found — and what a 20% improvement in ROI would mean for your business.">
+  <link rel="canonical" href="https://scalelocal.net/audit">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ScaleLocal">
+  <meta property="og:title" content="Your Google Ads Are Leaking Money — Here's the Proof">
+  <meta property="og:description" content="We analyzed your ads, your website, and your competitors. Here's what a 20% ROI improvement looks like.">
+  <meta property="og:image" content="https://scalelocal.net/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://scalelocal.net/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#0f1f33}
+    .topbar{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
+    .topbar a{text-decoration:none}
+    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .topbar-link{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#a8b8cc;text-decoration:none}
+
+    /* Hero */
+    .hero{padding:48px 24px 56px;text-align:center;max-width:760px;margin:0 auto}
+    .hero-ey{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#e74c3c;text-transform:uppercase;letter-spacing:0.22em;font-weight:600;margin-bottom:14px}
+    .hero h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.875rem;line-height:1.15;margin-bottom:18px}
+    @media(min-width:768px){.hero h1{font-size:2.5rem}}
+    .hero .sub{font-family:'Inter',sans-serif;font-size:1.0625rem;color:#a8b8cc;line-height:1.7;max-width:600px;margin:0 auto}
+    .hero .biz-name{color:#2ecc71;font-weight:700}
+
+    /* Findings */
+    .findings{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .finding-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:28px;margin-bottom:16px}
+    .finding-header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .finding-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;flex-shrink:0}
+    .icon-red{background:rgba(231,76,60,0.15);color:#e74c3c}
+    .icon-yellow{background:rgba(241,196,15,0.15);color:#f1c40f}
+    .icon-green{background:rgba(46,204,113,0.15);color:#2ecc71}
+    .finding-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1rem}
+    .finding-body{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.7}
+    .finding-body strong{color:#fff}
+    .finding-stat{display:inline-block;background:rgba(231,76,60,0.1);color:#e74c3c;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;padding:3px 10px;border-radius:4px;margin-top:8px}
+    .finding-stat.warn{background:rgba(241,196,15,0.1);color:#f1c40f}
+    .finding-stat.good{background:rgba(46,204,113,0.1);color:#2ecc71}
+
+    /* ROI section */
+    .roi{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .roi-card{background:linear-gradient(135deg,#1a2e4a 0%,#0f1f33 100%);border:1px solid rgba(46,204,113,0.2);border-radius:16px;padding:36px;text-align:center}
+    .roi-card h2{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.375rem;margin-bottom:12px}
+    .roi-card .roi-number{font-family:'Montserrat',sans-serif;font-weight:800;font-size:2.5rem;color:#2ecc71;margin:16px 0 8px}
+    .roi-card .roi-label{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;margin-bottom:20px}
+    .roi-card .roi-math{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.6}
+
+    /* What we do */
+    .what{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .what h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1.25rem;text-align:center;margin-bottom:24px}
+    .what-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    @media(max-width:520px){.what-grid{grid-template-columns:1fr}}
+    .what-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:18px;display:flex;align-items:flex-start;gap:10px}
+    .what-ck{color:#2ecc71;font-weight:700;flex-shrink:0;margin-top:2px}
+    .what-text{font-family:'Inter',sans-serif;font-size:0.875rem;color:#a8b8cc;line-height:1.5}
+    .what-text strong{color:#fff}
+
+    /* CTA */
+    .cta-section{max-width:720px;margin:0 auto;padding:0 24px 64px}
+    .cta-card{background:#fff;border-radius:16px;padding:36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+    .cta-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.375rem;margin-bottom:12px}
+    .cta-card p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#4a5a6e;margin-bottom:24px;line-height:1.7}
+    .cta-form{display:grid;gap:12px;max-width:400px;margin:0 auto}
+    .cta-form input{width:100%;height:48px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none}
+    .cta-form input:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    .cta-form input::placeholder{color:#9aa5b4}
+    .cta-btn{display:flex;align-items:center;justify-content:center;width:100%;height:52px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s}
+    .cta-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .cta-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+    .cta-trust{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin-top:14px}
+    .cta-trust span{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d}
+    .cta-trust .ck{color:#2ecc71;font-weight:700}
+
+    /* Confirmation */
+    .confirm{display:none;padding:36px;text-align:center}
+    .confirm.vis{display:block}
+    .confirm h3{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.25rem;margin-bottom:10px}
+    .confirm p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#4a5a6e;line-height:1.6}
+    .confirm .hl{color:#2ecc71;font-weight:600}
+
+    /* Fortune 100 feel */
+    .trust-bar{max-width:720px;margin:0 auto;padding:0 24px 48px;text-align:center}
+    .trust-bar p{font-family:'Inter',sans-serif;font-size:0.75rem;color:#4a5568;line-height:1.6}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
+    <a href="/menu" class="topbar-link">See Plans</a>
+  </header>
+
+  <section class="hero">
+    <p class="hero-ey">COMPETITIVE INTELLIGENCE REPORT</p>
+    <h1 id="hero-h1">Your Google Ads are running. But are they performing?</h1>
+    <p class="sub" id="hero-sub">We analyzed the ad campaigns, website, and competitive landscape for businesses like yours. Here&rsquo;s what a 20% improvement in ROI would look like &mdash; and exactly how to get there.</p>
+  </section>
+
+  <section class="findings" id="findings-section">
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon icon-red">!</div>
+        <span class="finding-title">Website speed is costing you leads</span>
+      </div>
+      <p class="finding-body">Most local business websites load in <strong>4&ndash;6 seconds</strong> on mobile. Google&rsquo;s data shows that every second above 3 costs you 7% in conversions. If you&rsquo;re spending $5,000/month on ads driving traffic to a slow site, you&rsquo;re losing <strong>$350&ndash;$1,050/month</strong> in leads that click but leave before the page loads.</p>
+      <span class="finding-stat">High impact &mdash; fixable in 48 hours</span>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon icon-red">!</div>
+        <span class="finding-title">No after-hours lead capture</span>
+      </div>
+      <p class="finding-body">40% of local service searches happen after 5pm. If your website has no live chat, no AI assistant, and your phone goes to voicemail &mdash; every one of those visitors clicks back to Google and calls your competitor. That&rsquo;s <strong>potentially 30&ndash;40% of your ad spend wasted</strong> on traffic that can&rsquo;t convert outside business hours.</p>
+      <span class="finding-stat">Critical gap &mdash; most competitors also missing this</span>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon icon-yellow">&#9888;</div>
+        <span class="finding-title">Review gap creates trust deficit</span>
+      </div>
+      <p class="finding-body">When a prospect sees your ad and clicks through, the next thing they do is check your Google reviews. If your top competitor has <strong>150+ reviews at 4.8 stars</strong> and you have 30 at 4.3, you lose the comparison &mdash; even if your ad brought them in first. Reviews are the hidden conversion factor most ad managers ignore.</p>
+      <span class="finding-stat warn">Medium impact &mdash; takes 90 days to close the gap</span>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon icon-yellow">&#9888;</div>
+        <span class="finding-title">SEO could replace a portion of your ad spend</span>
+      </div>
+      <p class="finding-body">Businesses ranking in the Google map pack for their core services get <strong>free, high-intent leads every day</strong> — the same leads you&rsquo;re currently paying $25&ndash;$75 per click for through ads. A proper local SEO foundation doesn&rsquo;t replace ads &mdash; it <strong>reduces your dependence on them</strong> over time, improving your blended cost per lead.</p>
+      <span class="finding-stat warn">Long-term play &mdash; compounds monthly</span>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-header">
+        <div class="finding-icon icon-green">&#10003;</div>
+        <span class="finding-title">AI search is an untapped channel</span>
+      </div>
+      <p class="finding-body">When potential customers ask ChatGPT, Google Gemini, or Perplexity to recommend a service provider in your area, <strong>your competitors probably aren&rsquo;t showing up either</strong>. This is a first-mover advantage window. The businesses that invest in AI search visibility now will dominate this channel before anyone else realizes it matters.</p>
+      <span class="finding-stat good">Blue ocean &mdash; almost zero competition</span>
+    </div>
+  </section>
+
+  <section class="roi">
+    <div class="roi-card">
+      <h2>What does 20% better look like?</h2>
+      <div class="roi-number" id="roi-number">$2,000+/mo</div>
+      <p class="roi-label">in additional revenue from the same ad spend</p>
+      <p class="roi-math">Based on a $5,000/month ad budget with a typical 15% conversion improvement from website speed optimization, after-hours lead capture, and review velocity. Your actual numbers may be higher.</p>
+    </div>
+  </section>
+
+  <section class="what">
+    <h2>What ScaleLocal does differently</h2>
+    <div class="what-grid">
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Website rebuilt in 48 hours</strong> &mdash; fast, mobile-first, conversion-optimized</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>AI assistant on your site 24/7</strong> &mdash; captures leads when your team can&rsquo;t</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Review engine on autopilot</strong> &mdash; close the gap with your top competitor</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Local SEO foundation</strong> &mdash; reduce ad dependence over time</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>AI search visibility</strong> &mdash; get recommended by ChatGPT and Gemini</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Written performance guarantee</strong> &mdash; measurable leads or we work free</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Personal account manager</strong> &mdash; direct line, not a ticket system</span></div>
+      <div class="what-item"><span class="what-ck">&#10003;</span><span class="what-text"><strong>Fortune 100 execution</strong> &mdash; with the personal feel of a local partner</span></div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-card">
+      <h2>Let&rsquo;s look at your numbers together.</h2>
+      <p>Book a 15-minute call. No pitch deck. No pressure. Just your data, your competitors, and what a 20% improvement would mean for your business.</p>
+      <form class="cta-form" id="audit-form">
+        <input type="text" id="a-name" name="name" required placeholder="Your name">
+        <input type="email" id="a-email" name="email" required placeholder="Email">
+        <input type="tel" id="a-phone" name="phone" required placeholder="Phone">
+        <input type="text" id="a-biz" name="business" placeholder="Business name (optional)">
+        <button type="submit" class="cta-btn" id="a-btn">Book My Strategy Call &rarr;</button>
+      </form>
+      <div class="cta-trust">
+        <span><span class="ck">&#10003;</span> 15 minutes</span>
+        <span><span class="ck">&#10003;</span> No obligation</span>
+        <span><span class="ck">&#10003;</span> Your data, not a sales pitch</span>
+      </div>
+      <div class="confirm" id="a-confirm">
+        <h3>You&rsquo;re on the list.</h3>
+        <p>Matt will reach out within 1 business day to schedule your strategy call. In the meantime, keep an eye on your inbox &mdash; we&rsquo;ll send a preview of your competitive analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <p>ScaleLocal &middot; Tewksbury, MA &middot; Serving Massachusetts, New Hampshire &amp; Rhode Island<br>Every engagement is backed by a written performance guarantee.</p>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var params = new URLSearchParams(window.location.search);
+    var biz = params.get('biz');
+    var industry = params.get('industry');
+    var city = params.get('city');
+
+    // Personalize if URL params present (from CoWork outreach email)
+    if (biz) {
+      document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + decodeURIComponent(biz) + '</span> — your Google Ads are running. But are they performing?';
+      document.getElementById('hero-sub').innerHTML = 'We analyzed the ad campaigns, website, and competitive landscape for ' + decodeURIComponent(biz) + (city ? ' in ' + decodeURIComponent(city) : '') + '. Here\u2019s what we found \u2014 and what a 20% improvement in ROI would look like.';
+      if (biz) document.getElementById('a-biz').value = decodeURIComponent(biz);
+    }
+
+    // Phone formatting
+    document.getElementById('a-phone').addEventListener('input', function() {
+      var d = this.value.replace(/\D/g,'');
+      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
+    });
+
+    // Form submit
+    document.getElementById('audit-form').onsubmit = function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('a-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var ghl = new FormData();
+      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
+      ghl.append('first_name', document.getElementById('a-name').value.trim().split(' ')[0]);
+      ghl.append('last_name', document.getElementById('a-name').value.trim().split(' ').slice(1).join(' '));
+      ghl.append('email', document.getElementById('a-email').value.trim());
+      ghl.append('phone', document.getElementById('a-phone').value.trim());
+      ghl.append('companyName', document.getElementById('a-biz').value.trim());
+      ghl.append('source', 'audit');
+
+      fetch('https://services.leadconnectorhq.com/funnels/submit', {
+        method: 'POST', body: ghl, mode: 'no-cors'
+      }).finally(function() {
+        document.getElementById('audit-form').style.display = 'none';
+        document.querySelector('.cta-trust').style.display = 'none';
+        document.getElementById('a-confirm').classList.add('vis');
+      });
+      return false;
+    };
+  });
+  </script>
+</body>
+</html>
