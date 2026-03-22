@@ -162,7 +162,7 @@
     .roi-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
     .roi-headline { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1a2e4a; font-size: 1.625rem; line-height: 1.1; text-align: center; margin-bottom: 16px; }
     .roi-sub { font-family: 'Inter', sans-serif; font-size: 1.125rem; color: #6b7a8d; text-align: center; margin-bottom: 48px; line-height: 1.6; }
-    @media (min-width: 768px) { .roi-section { padding: 96px 0; } .roi-headline { font-size: 2.5rem; } }
+    @media (min-width: 768px) { .roi-section { padding: 96px 0; } .roi-headline { font-size: 2.5rem; } .roi-input-row2 { grid-template-columns: 1fr 1fr; } }
     .roi-calc { background: #f0f4f8; border-radius: 16px; padding: 32px; }
     @media (min-width: 768px) { .roi-calc { padding: 48px; } }
     .roi-label { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #1a2e4a; font-weight: 600; display: block; margin-bottom: 8px; }
@@ -410,7 +410,7 @@
         <h2 class="roi-headline">What&rsquo;s one new customer<br>worth to your business?</h2>
         <p class="roi-sub">Most ScaleLocal clients break even within their first two weeks. Type your number and see for yourself.</p>
         <div class="roi-calc">
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px;">
+          <div class="roi-input-row2" style="display:grid;gap:16px;margin-bottom:8px;">
             <div>
               <label class="roi-label" for="avg-val">What&rsquo;s one new customer worth? ($)</label>
               <input class="roi-input" type="number" id="avg-val" placeholder="e.g. 2000" min="100">
