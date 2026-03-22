@@ -432,6 +432,7 @@
             </div>
           </div>
           <p id="roi-disclosure2" style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9aa5b4;margin-bottom:20px;text-align:center;font-style:italic;">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
+          <button type="button" id="roi-calc-btn2" style="display:block;margin:0 auto 16px;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;">Calculate My ROI &rarr;</button>
           <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
             <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
             <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:28px;"></p>
@@ -641,6 +642,7 @@ var input = document.getElementById('avg-val');
       }
       input.addEventListener('input', calc);
       closeRateSelect2.addEventListener('change', calc);
+      document.getElementById('roi-calc-btn2').addEventListener('click', calc);
     })();
   </script>
 </body>

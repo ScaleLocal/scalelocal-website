@@ -2745,6 +2745,7 @@
             </div>
           </div>
           <p class="roi-disclosure" id="roi-disclosure">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
+          <button type="button" id="roi-calc-btn" style="display:block;margin:12px auto 0;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;" onmouseover="this.style.filter='brightness(1.1)'" onmouseout="this.style.filter='none'">Calculate My ROI &rarr;</button>
           <div class="roi-payoff" id="roi-payoff" style="display:none;">
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
             <p class="roi-payoff-sub" id="roi-payoff-sub"></p>
@@ -4225,6 +4226,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       avgValueInput.addEventListener('input', updateROI);
       closeRateSelect.addEventListener('change', updateROI);
+      document.getElementById('roi-calc-btn').addEventListener('click', updateROI);
     })();
 
     // ===== UPSELL MODAL + FORM — runs after full DOM is ready =====
