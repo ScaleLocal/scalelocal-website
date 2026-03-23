@@ -240,9 +240,144 @@
       <div class="menu-hero-content">
         <p class="section-label">PLANS &amp; PRICING</p>
         <h1>Everything ScaleLocal offers.<br>Transparent pricing. Written guarantees. No hidden fees.</h1>
-        <p>Pick the system that fits where your business is right now. Every plan includes a personal account manager, a live dashboard, and a written performance guarantee. Not sure which one? Take the 60-second assessment and we&rsquo;ll recommend one for you.</p>
+        <p>Before you look at pricing, let&rsquo;s see what the numbers look like for your business. Enter your customer value below and we&rsquo;ll show you exactly what each system could deliver.</p>
       </div>
     </section>
+
+
+    <!-- ROI CALCULATOR -->
+    <section class="roi-section">
+      <div class="roi-inner">
+        <p class="section-label">THE MATH</p>
+        <h2 class="roi-headline">What&rsquo;s one new customer<br>worth to your business?</h2>
+        <p class="roi-sub">Most ScaleLocal clients break even within their first two weeks. Type your number and see for yourself.</p>
+        <div class="roi-calc">
+          <div class="roi-input-row2" style="display:grid;gap:16px;margin-bottom:8px;">
+            <div>
+              <label class="roi-label" for="avg-val">Avg. lifetime value of a single new customer ($)</label>
+              <input class="roi-input" type="number" id="avg-val" placeholder="e.g. 2000" min="100">
+            </div>
+            <div>
+              <label class="roi-label" for="close-rate2">Out of every 10 leads, how many become customers?</label>
+              <select class="roi-input" id="close-rate2" style="-webkit-appearance:none;appearance:none;cursor:pointer;">
+                <option value="1">1 out of 10 (10%)</option>
+                <option value="2">2 out of 10 (20%)</option>
+                <option value="3" selected>3 out of 10 (30%) &mdash; industry avg.</option>
+                <option value="4">4 out of 10 (40%)</option>
+                <option value="5">5 out of 10 (50%)</option>
+                <option value="6">6 out of 10 (60%)</option>
+                <option value="7">7 out of 10 (70%)</option>
+                <option value="8">8 out of 10 (80%)</option>
+                <option value="9">9 out of 10 (90%)</option>
+                <option value="10">10 out of 10 (100%)</option>
+              </select>
+            </div>
+          </div>
+          <p id="roi-disclosure2" style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9aa5b4;margin-bottom:20px;text-align:center;font-style:italic;">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
+          <button type="button" id="roi-calc-btn2" onclick="window.roiCalc2()" style="display:block;margin:0 auto 16px;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;">See My Numbers &rarr;</button>
+          <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
+            <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
+            <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:16px;"></p>
+            <div id="roi-rec2" style="display:none;margin-bottom:24px;">
+              <div style="background:#f0f4f8;border-radius:12px;padding:24px 28px;text-align:center;border:1px solid #e2e8f0;">
+                <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a2e4a;font-weight:600;margin-bottom:8px;">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
+                <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.6;"></p>
+              </div>
+            </div>
+            <div class="roi-results visible roi-tiers-grid" style="display:grid;gap:12px;">
+              <a href="/checkout?plan=foundation" id="roi-card2-foundation" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">FOUNDATION</p>
+                <p class="roi-monthly">$497<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-f-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-f-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-f-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-f-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=momentum" id="roi-card2-momentum" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">MOMENTUM</p>
+                <p class="roi-monthly">$1,297<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-m-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-m-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-m-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-m-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=authority" id="roi-card2-authority" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">AUTHORITY</p>
+                <p class="roi-monthly">$1,997<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-a-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-a-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-a-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-a-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+            </div>
+          </div>
+          </div>
+          <div id="roi-low-ltv2" style="display:none;">
+            <div style="margin-top:28px;padding:28px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;text-align:center;">
+              <p id="roi-low-honest2" style="font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1rem;margin-bottom:12px;line-height:1.4;"></p>
+              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:16px;">That said &mdash; if you close customers at a higher rate than 30%, the math shifts fast. But based on our lead guarantees alone, here&rsquo;s what you&rsquo;d need to break even:</p>
+              <div id="roi-low-be2" style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#1a2e4a;line-height:1.8;margin-bottom:20px;"></div>
+              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:20px;padding-top:20px;border-top:1px solid #fed7aa;">We&rsquo;d rather be upfront about that than take your money. But we do have standalone services that deliver value at any customer lifetime value:</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+                <a href="/websites" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">Professional Website</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$497 one-time</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Mobile-optimized site live in 48 hours.</span>
+                </a>
+                <a href="/menu" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Chat Assistant</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">Included in all plans</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">A talking website that captures leads 24/7.</span>
+                </a>
+                <a href="/menu" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Receptionist</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$997 setup</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Never miss a call. AI answers 24/7.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUARANTEE -->
+    <section class="guarantee-section">
+      <div class="guarantee-inner">
+        <p class="section-label">THE GUARANTEE</p>
+        <h2 class="guarantee-headline">Written into your contract.<br>Not a talking point &mdash; a legal commitment.</h2>
+        <div class="guarantee-grid">
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--green"></div>
+            <p class="guar-tier guar-tier--green">FOUNDATION</p>
+            <p class="guar-number">3</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 60. No ad spend required.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--blue"></div>
+            <p class="guar-tier guar-tier--blue">MOMENTUM</p>
+            <p class="guar-number">8</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--purple"></div>
+            <p class="guar-tier guar-tier--purple">AUTHORITY</p>
+            <p class="guar-number">20</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
     <!-- PLAN CARDS -->
     <section class="plans-section">
@@ -366,138 +501,6 @@
       </div>
     </section>
 
-    <!-- GUARANTEE -->
-    <section class="guarantee-section">
-      <div class="guarantee-inner">
-        <p class="section-label">THE GUARANTEE</p>
-        <h2 class="guarantee-headline">Written into your contract.<br>Not a talking point &mdash; a legal commitment.</h2>
-        <div class="guarantee-grid">
-          <div class="guar-card">
-            <div class="guar-accent guar-accent--green"></div>
-            <p class="guar-tier guar-tier--green">FOUNDATION</p>
-            <p class="guar-number">3</p>
-            <p class="guar-unit">new leads / month</p>
-            <p class="guar-ramp">Guaranteed by day 60. No ad spend required.</p>
-            <hr class="guar-divider">
-            <p class="guar-free">Or we work for free until we do.</p>
-          </div>
-          <div class="guar-card">
-            <div class="guar-accent guar-accent--blue"></div>
-            <p class="guar-tier guar-tier--blue">MOMENTUM</p>
-            <p class="guar-number">8</p>
-            <p class="guar-unit">new leads / month</p>
-            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
-            <hr class="guar-divider">
-            <p class="guar-free">Or we work for free until we do.</p>
-          </div>
-          <div class="guar-card">
-            <div class="guar-accent guar-accent--purple"></div>
-            <p class="guar-tier guar-tier--purple">AUTHORITY</p>
-            <p class="guar-number">20</p>
-            <p class="guar-unit">new leads / month</p>
-            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
-            <hr class="guar-divider">
-            <p class="guar-free">Or we work for free until we do.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROI CALCULATOR -->
-    <section class="roi-section">
-      <div class="roi-inner">
-        <p class="section-label">THE MATH</p>
-        <h2 class="roi-headline">What&rsquo;s one new customer<br>worth to your business?</h2>
-        <p class="roi-sub">Most ScaleLocal clients break even within their first two weeks. Type your number and see for yourself.</p>
-        <div class="roi-calc">
-          <div class="roi-input-row2" style="display:grid;gap:16px;margin-bottom:8px;">
-            <div>
-              <label class="roi-label" for="avg-val">Avg. lifetime value of a single new customer ($)</label>
-              <input class="roi-input" type="number" id="avg-val" placeholder="e.g. 2000" min="100">
-            </div>
-            <div>
-              <label class="roi-label" for="close-rate2">Out of every 10 leads, how many become customers?</label>
-              <select class="roi-input" id="close-rate2" style="-webkit-appearance:none;appearance:none;cursor:pointer;">
-                <option value="1">1 out of 10 (10%)</option>
-                <option value="2">2 out of 10 (20%)</option>
-                <option value="3" selected>3 out of 10 (30%) &mdash; industry avg.</option>
-                <option value="4">4 out of 10 (40%)</option>
-                <option value="5">5 out of 10 (50%)</option>
-                <option value="6">6 out of 10 (60%)</option>
-                <option value="7">7 out of 10 (70%)</option>
-                <option value="8">8 out of 10 (80%)</option>
-                <option value="9">9 out of 10 (90%)</option>
-                <option value="10">10 out of 10 (100%)</option>
-              </select>
-            </div>
-          </div>
-          <p id="roi-disclosure2" style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9aa5b4;margin-bottom:20px;text-align:center;font-style:italic;">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
-          <button type="button" id="roi-calc-btn2" onclick="window.roiCalc2()" style="display:block;margin:0 auto 16px;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;">See My Numbers &rarr;</button>
-          <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
-            <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
-            <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:16px;"></p>
-            <div id="roi-rec2" style="display:none;margin-bottom:24px;">
-              <div style="background:#f0f4f8;border-radius:12px;padding:24px 28px;text-align:center;border:1px solid #e2e8f0;">
-                <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a2e4a;font-weight:600;margin-bottom:8px;">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
-                <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.6;"></p>
-              </div>
-            </div>
-            <div class="roi-results visible roi-tiers-grid" style="display:grid;gap:12px;">
-              <a href="/checkout?plan=foundation" id="roi-card2-foundation" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-                <p class="roi-tier-name">FOUNDATION</p>
-                <p class="roi-monthly">$497<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
-                <p class="roi-breakeven" id="roi-f-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
-                <p id="roi-f-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
-                <p id="roi-f-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
-                <p id="roi-f-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
-              </a>
-              <a href="/checkout?plan=momentum" id="roi-card2-momentum" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-                <p class="roi-tier-name">MOMENTUM</p>
-                <p class="roi-monthly">$1,297<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
-                <p class="roi-breakeven" id="roi-m-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
-                <p id="roi-m-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
-                <p id="roi-m-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
-                <p id="roi-m-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
-              </a>
-              <a href="/checkout?plan=authority" id="roi-card2-authority" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-                <p class="roi-tier-name">AUTHORITY</p>
-                <p class="roi-monthly">$1,997<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
-                <p class="roi-breakeven" id="roi-a-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
-                <p id="roi-a-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
-                <p id="roi-a-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
-                <p id="roi-a-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
-              </a>
-            </div>
-          </div>
-          </div>
-          <div id="roi-low-ltv2" style="display:none;">
-            <div style="margin-top:28px;padding:28px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;text-align:center;">
-              <p id="roi-low-honest2" style="font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1rem;margin-bottom:12px;line-height:1.4;"></p>
-              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:16px;">That said &mdash; if you close customers at a higher rate than 30%, the math shifts fast. But based on our lead guarantees alone, here&rsquo;s what you&rsquo;d need to break even:</p>
-              <div id="roi-low-be2" style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#1a2e4a;line-height:1.8;margin-bottom:20px;"></div>
-              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:20px;padding-top:20px;border-top:1px solid #fed7aa;">We&rsquo;d rather be upfront about that than take your money. But we do have standalone services that deliver value at any customer lifetime value:</p>
-              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
-                <a href="/websites" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">Professional Website</span>
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$497 one-time</span>
-                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Mobile-optimized site live in 48 hours.</span>
-                </a>
-                <a href="/menu" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Chat Assistant</span>
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">Included in all plans</span>
-                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">A talking website that captures leads 24/7.</span>
-                </a>
-                <a href="/menu" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Receptionist</span>
-                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$997 setup</span>
-                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Never miss a call. AI answers 24/7.</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
     <section class="cta-banner">
       <h2>Ready to start?</h2>
       <p>Your Digital Audit is free, takes under 5 minutes, and comes with zero obligation. See exactly where you stand before committing to anything.</p>
