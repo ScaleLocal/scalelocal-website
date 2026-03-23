@@ -2794,8 +2794,14 @@
           <div class="roi-payoff" id="roi-payoff" style="display:none;">
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
             <p class="roi-payoff-sub" id="roi-payoff-sub"></p>
+            <div class="roi-rec" id="roi-rec" style="display:none;">
+              <div class="roi-rec-inner">
+                <p class="roi-rec-label">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
+                <p class="roi-rec-text" id="roi-rec-text"></p>
+              </div>
+            </div>
             <div class="roi-tiers-row" id="roi-tiers-row">
-              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link">
+              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link" id="roi-card-foundation">
                 <p class="roi-tc-label">FOUNDATION</p>
                 <p class="roi-tc-cost">$497<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-f-math"></p>
@@ -2803,7 +2809,7 @@
                 <p class="roi-tc-result roi-tc-result--green" id="roi-f-result"></p>
                 <p class="roi-tc-pct" id="roi-f-roi"></p>
               </a>
-              <a href="/checkout?plan=momentum" class="roi-tier-card roi-tier-card--highlight roi-tier-link">
+              <a href="/checkout?plan=momentum" class="roi-tier-card roi-tier-link" id="roi-card-momentum">
                 <p class="roi-tc-label">MOMENTUM</p>
                 <p class="roi-tc-cost">$1,297<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-m-math"></p>
@@ -2811,7 +2817,7 @@
                 <p class="roi-tc-result roi-tc-result--green" id="roi-m-result"></p>
                 <p class="roi-tc-pct" id="roi-m-roi"></p>
               </a>
-              <a href="/checkout?plan=authority" class="roi-tier-card roi-tier-link">
+              <a href="/checkout?plan=authority" class="roi-tier-card roi-tier-link" id="roi-card-authority">
                 <p class="roi-tc-label">AUTHORITY</p>
                 <p class="roi-tc-cost">$1,997<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-a-math"></p>
@@ -2819,12 +2825,6 @@
                 <p class="roi-tc-result roi-tc-result--green" id="roi-a-result"></p>
                 <p class="roi-tc-pct" id="roi-a-roi"></p>
               </a>
-            </div>
-          </div>
-          <div class="roi-rec" id="roi-rec" style="display:none;">
-            <div class="roi-rec-inner">
-              <p class="roi-rec-label">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
-              <p class="roi-rec-text" id="roi-rec-text"></p>
             </div>
           </div>
           </div>
@@ -4302,6 +4302,27 @@ document.addEventListener('DOMContentLoaded', function() {
             recEl.style.display = 'block';
           } else {
             recEl.style.display = 'none';
+          }
+        }
+
+        // Dynamic highlight — blue border on the most profitable tier
+        var cardIds = ['roi-card-foundation', 'roi-card-momentum', 'roi-card-authority'];
+        var tierLabels = ['Foundation', 'Momentum', 'Authority'];
+        for (var h = 0; h < cardIds.length; h++) {
+          var card = document.getElementById(cardIds[h]);
+          if (card) {
+            card.style.border = '2px solid transparent';
+            card.style.background = '#f0f4f8';
+          }
+        }
+        if (bestTier && bestTier.profit > 0) {
+          var bestIdx = tierLabels.indexOf(bestTier.t.label);
+          if (bestIdx >= 0) {
+            var bestCard = document.getElementById(cardIds[bestIdx]);
+            if (bestCard) {
+              bestCard.style.border = '2px solid #2E75B6';
+              bestCard.style.background = '#f0f7ff';
+            }
           }
         }
 

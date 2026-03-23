@@ -435,9 +435,15 @@
           <button type="button" id="roi-calc-btn2" onclick="window.roiCalc2()" style="display:block;margin:0 auto 16px;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;">See My Numbers &rarr;</button>
           <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
             <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
-            <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:28px;"></p>
+            <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:16px;"></p>
+            <div id="roi-rec2" style="display:none;margin-bottom:24px;">
+              <div style="background:#f0f4f8;border-radius:12px;padding:24px 28px;text-align:center;border:1px solid #e2e8f0;">
+                <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a2e4a;font-weight:600;margin-bottom:8px;">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
+                <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.6;"></p>
+              </div>
+            </div>
             <div class="roi-results visible roi-tiers-grid" style="display:grid;gap:12px;">
-              <a href="/checkout?plan=foundation" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+              <a href="/checkout?plan=foundation" id="roi-card2-foundation" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <p class="roi-tier-name">FOUNDATION</p>
                 <p class="roi-monthly">$497<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
                 <p class="roi-breakeven" id="roi-f-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
@@ -445,7 +451,7 @@
                 <p id="roi-f-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
                 <p id="roi-f-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
               </a>
-              <a href="/checkout?plan=momentum" class="roi-result-card" style="text-decoration:none;cursor:pointer;border:2px solid #2E75B6;background:#f0f7ff;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+              <a href="/checkout?plan=momentum" id="roi-card2-momentum" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <p class="roi-tier-name">MOMENTUM</p>
                 <p class="roi-monthly">$1,297<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
                 <p class="roi-breakeven" id="roi-m-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
@@ -453,7 +459,7 @@
                 <p id="roi-m-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
                 <p id="roi-m-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
               </a>
-              <a href="/checkout?plan=authority" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+              <a href="/checkout?plan=authority" id="roi-card2-authority" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <p class="roi-tier-name">AUTHORITY</p>
                 <p class="roi-monthly">$1,997<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
                 <p class="roi-breakeven" id="roi-a-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
@@ -461,12 +467,6 @@
                 <p id="roi-a-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
                 <p id="roi-a-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
               </a>
-            </div>
-          </div>
-          <div id="roi-rec2" style="display:none;margin-top:24px;">
-            <div style="background:#f0f4f8;border-radius:12px;padding:24px 28px;text-align:center;border:1px solid #e2e8f0;">
-              <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a2e4a;font-weight:600;margin-bottom:8px;">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
-              <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.6;"></p>
             </div>
           </div>
           </div>
@@ -674,6 +674,21 @@
             recEl.style.display = 'block';
           } else {
             recEl.style.display = 'none';
+          }
+        }
+
+        // Dynamic highlight — blue border on the most profitable tier
+        var cardIds2 = ['roi-card2-foundation', 'roi-card2-momentum', 'roi-card2-authority'];
+        var tierLabels2 = ['Foundation', 'Momentum', 'Authority'];
+        for (var h = 0; h < cardIds2.length; h++) {
+          var card = document.getElementById(cardIds2[h]);
+          if (card) { card.style.border = '2px solid transparent'; card.style.background = '#fff'; }
+        }
+        if (bestTier && bestTier.profit > 0) {
+          var bestIdx2 = tierLabels2.indexOf(bestTier.t.label);
+          if (bestIdx2 >= 0) {
+            var bestCard2 = document.getElementById(cardIds2[bestIdx2]);
+            if (bestCard2) { bestCard2.style.border = '2px solid #2E75B6'; bestCard2.style.background = '#f0f7ff'; }
           }
         }
 
