@@ -50,7 +50,7 @@
 
     /* Plan Cards */
     .plans{display:flex;flex-direction:column;gap:12px}
-    .pln{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:20px 24px;cursor:pointer;transition:all 0.2s;position:relative}
+    .pln{background:#fff;border:2px solid #e2e8f0;border-radius:12px;padding:20px 48px 20px 24px;cursor:pointer;transition:all 0.2s;position:relative}
     .pln:hover{border-color:#2E75B6}
     .pln.on{border-color:#2ecc71;background:#f0faf4}
     .pln-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px}
@@ -63,7 +63,7 @@
     .pln-setup.green{color:#2ecc71}
     .pln-setup.gray{color:#6b7a8d}
     .pln-guar{display:inline-block;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);border-radius:6px;padding:3px 10px;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;font-weight:600;margin-top:10px}
-    .pln-rad{position:absolute;top:20px;right:20px;width:20px;height:20px;border-radius:50%;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center}
+    .pln-rad{position:absolute;top:50%;right:16px;width:20px;height:20px;border-radius:50%;border:2px solid #e2e8f0;display:flex;align-items:center;justify-content:center;transform:translateY(-50%)}
     .pln.on .pln-rad{border-color:#2ecc71}
     .pln.on .pln-rad::after{content:'';width:10px;height:10px;border-radius:50%;background:#2ecc71}
     .pln-pop{position:absolute;top:-10px;left:20px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.6rem;text-transform:uppercase;letter-spacing:0.1em;padding:3px 10px;border-radius:10px}
@@ -162,7 +162,7 @@
           <div class="pln-rad"></div>
           <div class="pln-top">
             <div><div class="pln-name">Starter</div><div class="pln-tag">A real website that works for you.</div></div>
-            <div class="pln-rt"><div class="pln-price" id="pr-starter">$249<span>/mo</span></div><div class="pln-setup green" id="su-starter">$0 setup &bull; Month-to-month</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-starter">$249<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived &bull; Month-to-month</div></div>
           </div>
         </div>
         <div class="pln" data-p="foundation">
@@ -280,7 +280,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var plans = {
-      starter: {mo:249, setup:0, leads:0, guar:'', m2mOnly:true,
+      starter: {mo:249, setup:249, leads:0, guar:'', m2mOnly:true,
         inc:['Professional website, live and hosted','ScaleLocal Chat \u2014 AI chat assistant 24/7','ScaleLocal Dashboard (website traffic + chat)','1 content update per month','SSL, mobile optimization, speed monitoring']},
       foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
         inc:['Everything in Starter','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','Full ScaleLocal Dashboard','Citation building (50+ directories)','Named account manager','Client Reactivation Program']},
@@ -308,16 +308,20 @@
     });});
 
     function updCards(){
-      // Starter is always M2M — no setup, no commitment effect
-      document.getElementById('pr-starter').innerHTML='$249<span>/mo</span>';
-      document.getElementById('su-starter').textContent='$0 setup \u2022 Month-to-month';
-      document.getElementById('su-starter').className='pln-setup green';
-      ['foundation','momentum','authority'].forEach(function(p){
+      ['starter','foundation','momentum','authority'].forEach(function(p){
         document.getElementById('pr-'+p).innerHTML='$'+fmt(plans[p].mo)+'<span>/mo</span>';
         var su=document.getElementById('su-'+p);
-        if(S.term==='nc'){su.textContent='$'+fmt(plans[p].setup)+' one-time setup';su.className='pln-setup gray';}
-        else{su.textContent='Base setup fees waived';su.className='pln-setup green';}
+        if(S.term==='nc'){
+          if(plans[p].setup>0){su.textContent='$'+fmt(plans[p].setup)+' one-time setup';su.className='pln-setup gray';}
+          else{su.textContent='$0 setup';su.className='pln-setup green';}
+        } else {
+          su.textContent='Setup fee waived';su.className='pln-setup green';
+        }
       });
+      // Starter always shows M2M note
+      var suS=document.getElementById('su-starter');
+      if(S.term==='nc'){suS.textContent='$'+fmt(plans.starter.setup)+' one-time setup \u2022 Month-to-month';}
+      else{suS.textContent='Setup fee waived \u2022 Month-to-month';}
     }
 
     // 2. PLAN SELECTOR

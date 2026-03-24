@@ -869,6 +869,38 @@
       transition: all 0.25s ease;
     }
 
+    .service-card--starter {
+      background: #f8fafb;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 12px rgba(26,46,74,0.04);
+    }
+    .service-card--starter:hover {
+      box-shadow: 0 6px 24px rgba(26,46,74,0.1);
+      transform: translateY(-2px);
+    }
+    .service-card--starter .service-card-title { color: #4a5a6e; }
+    .service-card--starter .service-tagline { color: #6b7a8d; }
+    .service-card--starter .service-price-amount { color: #1a2e4a; }
+    .service-card--starter .service-price-period { color: #6b7a8d; }
+    .service-card--starter .service-feature-text { color: #1a2e4a; }
+    .service-card--starter .service-upgrade-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: #2E75B6;
+      font-weight: 600;
+      margin-top: 16px;
+      padding: 10px 14px;
+      background: rgba(46,117,182,0.06);
+      border: 1px solid rgba(46,117,182,0.15);
+      border-radius: 8px;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .service-card--starter .service-cta {
+      background: #2E75B6;
+      color: #fff;
+    }
+
     .service-card--standard {
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -2361,8 +2393,14 @@
       }
 
       .service-cards {
-        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
         align-items: stretch;
+      }
+
+      @media (min-width: 1080px) {
+        .service-cards {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
       }
 
       .service-card {
@@ -2822,9 +2860,30 @@
     <section id="services">
       <div class="services-inner">
         <p class="section-label">OUR SYSTEMS</p>
-        <h2 class="services-headline">Three systems. One goal.<br>More customers finding you first.</h2>
-        <p class="services-sub">Every plan includes a personal account manager, a live dashboard, and a written performance guarantee. Billed monthly &mdash; no lump sum, ever.</p>
+        <h2 class="services-headline">Four systems. One goal.<br>More customers finding you first.</h2>
+        <p class="services-sub">Starting at $249/mo. Every plan includes a live dashboard, AI chat assistant, and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
         <div class="service-cards">
+          <div class="service-card service-card--starter">
+            <p class="service-tier-label">STARTER</p>
+            <h3 class="service-card-title">Starter</h3>
+            <p class="service-tagline">A real website that actually works for you.</p>
+            <div class="service-price-block">
+              <span class="service-price-amount">$249</span><span class="service-price-period">/mo</span>
+              <span class="service-price-note" style="color:#2ecc71;display:block;margin-top:4px;">$0 setup &bull; Month-to-month &bull; Cancel anytime</span>
+            </div>
+            <hr class="service-divider--light">
+            <ul class="service-features">
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Professional 5-page website, live and hosted</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Chat &mdash; AI chat assistant 24/7</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Dashboard (traffic + chat data)</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">1 content update per month</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">SSL, mobile optimization, speed monitoring</span></li>
+            </ul>
+            <div class="service-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
+            <div class="service-cta-wrap">
+              <a href="/checkout?plan=starter" class="service-cta" style="background:#2E75B6;color:#fff;">Get Started &rarr;</a>
+            </div>
+          </div>
           <div class="service-card service-card--standard">
             <p class="service-tier-label">FOUNDATION SYSTEM</p>
             <h3 class="service-card-title">Foundation</h3>
@@ -2897,7 +2956,7 @@
             </div>
           </div>
         </div>
-        <p class="services-footer-note">All plans available month-to-month, 6-month, or 12-month. 6-month commitment waives the setup fee. 12-month commitment waives the setup fee and your 12th month is on us.</p>
+        <p class="services-footer-note">Starter is month-to-month. Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. 6-month and 12-month commitments waive setup fees. 12-month gets your 12th month free.</p>
       </div>
     </section>
 
@@ -4435,6 +4494,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="footer-nav-col">
           <p class="footer-nav-heading">Our Systems</p>
+          <a href="/checkout?plan=starter">Starter &mdash; $249/mo</a>
           <a href="/menu">Foundation &mdash; $497/mo</a>
           <a href="/menu">Momentum &mdash; $1,297/mo</a>
           <a href="/menu">Authority &mdash; $1,997/mo</a>
