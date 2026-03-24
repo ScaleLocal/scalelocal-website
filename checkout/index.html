@@ -158,6 +158,13 @@
       <!-- 2. PLAN -->
       <h2 class="stitle">2. Choose your system <span>(or skip for standalone products)</span></h2>
       <div class="plans" id="plan-sel">
+        <div class="pln" data-p="starter">
+          <div class="pln-rad"></div>
+          <div class="pln-top">
+            <div><div class="pln-name">Starter</div><div class="pln-tag">A real website that works for you.</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-starter">$249<span>/mo</span></div><div class="pln-setup green" id="su-starter">$0 setup &bull; Month-to-month</div></div>
+          </div>
+        </div>
         <div class="pln" data-p="foundation">
           <div class="pln-rad"></div>
           <div class="pln-top">
@@ -273,14 +280,16 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var plans = {
+      starter: {mo:249, setup:0, leads:0, guar:'', m2mOnly:true,
+        inc:['Professional website, live and hosted','ScaleLocal Chat \u2014 AI chat assistant 24/7','ScaleLocal Dashboard (website traffic + chat)','1 content update per month','SSL, mobile optimization, speed monitoring']},
       foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
-        inc:['Professional website on your domain','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','ScaleLocal Dashboard (real-time)','Client Reactivation Program','Monthly performance report']},
+        inc:['Everything in Starter','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','Full ScaleLocal Dashboard','Citation building (50+ directories)','Named account manager','Client Reactivation Program']},
       momentum: {mo:1297, setup:497, leads:8, guar:'8 leads/month by day 90 \u2014 or we work free',
         inc:['Everything in Foundation','Google Ads management (spend included)','Retargeting campaigns','Advanced SEO + content strategy','Dedicated account manager','Priority support','Weekly optimization reports']},
       authority: {mo:1997, setup:497, leads:15, guar:'15 leads/month by day 90 \u2014 or we work free',
         inc:['Everything in Momentum','Meta (Facebook/Instagram) Ads','AI-powered follow-up sequences','Full competitive monitoring','Quarterly strategy sessions','Custom landing pages','White-glove onboarding']}
     };
-    var recepMo = {foundation:497, momentum:297, authority:0, none:497};
+    var recepMo = {starter:497, foundation:497, momentum:297, authority:0, none:497};
     var RECEP_SETUP = 997, SITE_COST = 497, REACT_COST = 497;
     var S = {term:'6m', plan:null, recep:false, site:false, react:false, agreed:false};
     var prm = new URLSearchParams(location.search);
@@ -299,6 +308,10 @@
     });});
 
     function updCards(){
+      // Starter is always M2M — no setup, no commitment effect
+      document.getElementById('pr-starter').innerHTML='$249<span>/mo</span>';
+      document.getElementById('su-starter').textContent='$0 setup \u2022 Month-to-month';
+      document.getElementById('su-starter').className='pln-setup green';
       ['foundation','momentum','authority'].forEach(function(p){
         document.getElementById('pr-'+p).innerHTML='$'+fmt(plans[p].mo)+'<span>/mo</span>';
         var su=document.getElementById('su-'+p);
@@ -312,7 +325,7 @@
     plnEls.forEach(function(el){el.addEventListener('click', function(){
       plnEls.forEach(function(x){x.classList.remove('on')});
       el.classList.add('on'); S.plan=el.dataset.p;
-      updAddons(); updSummary();
+      updAddons(); updSummary(); updAgree();
     });});
     if(prm.get('plan')){var m=document.querySelector('[data-p="'+prm.get('plan')+'"]');if(m)m.click();}
 
@@ -321,14 +334,17 @@
       var rMo=recepMo[S.plan||'none'];
       document.getElementById('ao-recep-pr').textContent='$'+fmt(RECEP_SETUP)+' one-time setup'+(rMo>0?' + $'+fmt(rMo)+'/mo':' + $0/mo (included with Authority)');
       var hasPlan=S.plan&&S.plan!=='none';
+      var hasFullPlan=hasPlan&&S.plan!=='starter'; // Foundation+ includes website + reactivation
+      // Website: included with ANY plan (including Starter)
       document.getElementById('ao-site-tg').style.display=hasPlan?'none':'';
       document.getElementById('ao-site-inc').style.display=hasPlan?'':'none';
       document.getElementById('ao-site-pr').textContent=hasPlan?'Included with your plan':'$'+fmt(SITE_COST)+' one-time';
       if(hasPlan){S.site=false;document.getElementById('ao-site-tg').classList.remove('on');}
-      document.getElementById('ao-react-tg').style.display=hasPlan?'none':'';
-      document.getElementById('ao-react-inc').style.display=hasPlan?'':'none';
-      document.getElementById('ao-react-pr').textContent=hasPlan?'Included with your plan':'$'+fmt(REACT_COST)+' one-time';
-      if(hasPlan){S.react=false;document.getElementById('ao-react-tg').classList.remove('on');}
+      // Reactivation: included with Foundation+ only, not Starter
+      document.getElementById('ao-react-tg').style.display=hasFullPlan?'none':'';
+      document.getElementById('ao-react-inc').style.display=hasFullPlan?'':'none';
+      document.getElementById('ao-react-pr').textContent=hasFullPlan?'Included with your plan':'$'+fmt(REACT_COST)+' one-time';
+      if(hasFullPlan){S.react=false;document.getElementById('ao-react-tg').classList.remove('on');}
     }
     ['recep','site','react'].forEach(function(k){
       document.getElementById('ao-'+k+'-tg').addEventListener('click',function(){
@@ -346,9 +362,10 @@
       var html='',todayTotal=0,monthlyTotal=0;
       if(hasPlan){
         var d=plans[S.plan],pn=S.plan.charAt(0).toUpperCase()+S.plan.slice(1);
+        var effectiveTerm = d.m2mOnly ? 'nc' : S.term; // Starter forces M2M
         monthlyTotal+=d.mo;todayTotal+=d.mo;
         html+='<div class="os-item"><div class="os-row"><span>'+pn+' System</span><span>$'+fmt(d.mo)+'/mo</span></div>';
-        if(S.term==='nc'){todayTotal+=d.setup;html+='<div class="os-row sub"><span>One-time setup fee</span><span>$'+fmt(d.setup)+'</span></div>';}
+        if(effectiveTerm==='nc'&&d.setup>0){todayTotal+=d.setup;html+='<div class="os-row sub"><span>One-time setup fee</span><span>$'+fmt(d.setup)+'</span></div>';}
         html+='<button class="os-expand" onclick="togDet(this)"><span class="arr">&#9660;</span> What\'s included</button>';
         html+='<div class="os-detail"><div class="os-detail-inner">';
         d.inc.forEach(function(i){html+='<div>'+i+'</div>';});
@@ -365,11 +382,12 @@
       document.getElementById('os-today').textContent='$'+fmt(todayTotal);
       document.getElementById('os-mo').textContent=monthlyTotal>0?'$'+fmt(monthlyTotal)+'/mo':'One-time only';
       var bonusW=document.getElementById('os-bonus-wrap');
-      if(S.term==='12m'&&monthlyTotal>0){
+      var effectiveTermBonus = (S.plan && plans[S.plan] && plans[S.plan].m2mOnly) ? 'nc' : S.term;
+      if(effectiveTermBonus==='12m'&&monthlyTotal>0){
         bonusW.innerHTML='<div class="os-bonus">\uD83C\uDF89 <strong>Your 12th month is free!</strong> That\u2019s $'+fmt(monthlyTotal)+' back in your pocket.<small>12th month will not be invoiced provided all 11 prior payments have been received.</small></div>';
       } else bonusW.innerHTML='';
       var guarW=document.getElementById('os-guar-wrap');
-      if(hasPlan)guarW.innerHTML='<div class="os-guar">\u2705 Guaranteed: '+plans[S.plan].guar+'</div>';
+      if(hasPlan&&plans[S.plan].guar)guarW.innerHTML='<div class="os-guar">\u2705 Guaranteed: '+plans[S.plan].guar+'</div>';
       else guarW.innerHTML='';
       updPayBtn(todayTotal);
     }
@@ -380,14 +398,19 @@
       var t={'nc':'This is a month-to-month service. Setup fees and first payment are due today. Cancel anytime with 30 days written notice.',
         '6m':'This is a 6-month commitment billed monthly. Setup fee waived. First month due today. Early termination requires one additional month\u2019s payment.',
         '12m':'This is a 12-month commitment billed monthly. Setup fee waived. 12th month is free. First month due today. Early termination requires one additional month\u2019s payment.'};
-      document.getElementById('ag-txt').innerHTML='I have read, understood, and agree to the <a href="/terms" target="_blank" style="color:#2E75B6;text-decoration:underline;">Terms of Service</a> and <a href="/privacy" target="_blank" style="color:#2E75B6;text-decoration:underline;">Privacy Policy</a>. ' + (t[S.term]||t['6m']);
+      var effectiveTerm = (S.plan && plans[S.plan] && plans[S.plan].m2mOnly) ? 'nc' : S.term;
+      document.getElementById('ag-txt').innerHTML='I have read, understood, and agree to the <a href="/terms" target="_blank" style="color:#2E75B6;text-decoration:underline;">Terms of Service</a> and <a href="/privacy" target="_blank" style="color:#2E75B6;text-decoration:underline;">Privacy Policy</a>. ' + (t[effectiveTerm]||t['6m']);
     }
     document.getElementById('ag-check').addEventListener('click',function(){
       S.agreed=!S.agreed;document.getElementById('ag-cb').classList.toggle('chk',S.agreed);updPayBtn();
     });
     function updPayBtn(today){
       if(today===undefined){today=0;
-        if(S.plan&&S.plan!=='none'){today+=plans[S.plan].mo;if(S.term==='nc')today+=plans[S.plan].setup;}
+        if(S.plan&&S.plan!=='none'){
+          today+=plans[S.plan].mo;
+          var effTerm = plans[S.plan].m2mOnly ? 'nc' : S.term;
+          if(effTerm==='nc'&&plans[S.plan].setup>0)today+=plans[S.plan].setup;
+        }
         if(S.recep)today+=RECEP_SETUP+recepMo[S.plan||'none'];
         if(S.site)today+=SITE_COST;if(S.react)today+=REACT_COST;}
       document.getElementById('pay-total').textContent='$'+fmt(today);
