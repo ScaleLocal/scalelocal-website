@@ -190,15 +190,14 @@
 
       // Collect form data for GHL
       var ghl = new FormData();
-      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
       ghl.append('first_name', document.getElementById('fname').value.trim());
       ghl.append('last_name', document.getElementById('lname').value.trim());
       ghl.append('email', email);
       ghl.append('phone', phone);
-      ghl.append('companyName', document.getElementById('biz').value.trim());
-      ghl.append('city', document.getElementById('city').value.trim());
-      ghl.append('source', 'snapshot');
+      ghl.append('et8z6pAHVJeqzicYrANS', document.getElementById('biz').value.trim());
+      ghl.append('LOuC5F0wEafotTTsp5x5', document.getElementById('city').value.trim());
+      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
 
       // Submit to GHL via widget form endpoint
       fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
