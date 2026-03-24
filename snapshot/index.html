@@ -83,6 +83,35 @@
       ></iframe>
     </div>
     <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+    <script>
+    // Listen for GHL form submission — redirect parent page to upgrade
+    var formLoaded = false;
+    
+    // Give the iframe 3 seconds to fully load before watching for changes
+    setTimeout(function() { formLoaded = true; }, 3000);
+
+    window.addEventListener('message', function(event) {
+      if (!formLoaded) return;
+      var data = event.data;
+      // Handle object messages
+      if (data && typeof data === 'object') {
+        if (data.type === 'form:submit' || data.formSubmitted) {
+          window.location.href = '/snapshot/upgrade/';
+          return;
+        }
+      }
+      // Handle string messages
+      if (typeof data === 'string') {
+        try {
+          var parsed = JSON.parse(data);
+          if (parsed.type === 'form:submit' || parsed.formSubmitted || parsed.action === 'formSubmit') {
+            window.location.href = '/snapshot/upgrade/';
+            return;
+          }
+        } catch(e) {}
+      }
+    });
+    </script>
 
     <div class="trust">
       <span><span class="ck">&#10003;</span> 100% free</span>
