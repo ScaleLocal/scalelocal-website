@@ -37,8 +37,20 @@
     h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.75rem;line-height:1.15;margin-bottom:16px}
     @media(min-width:768px){h1{font-size:2.25rem}}
     .sub{font-family:'Inter',sans-serif;font-size:1rem;color:#a8b8cc;line-height:1.7}
-    .form-wrap{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,0.25)}
-    .form-wrap iframe{width:100%;min-height:820px;border:none;display:block}
+    .form-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 8px 40px rgba(0,0,0,0.25)}
+    @media(min-width:768px){.form-card{padding:40px}}
+    .field{margin-bottom:18px}
+    .field:last-of-type{margin-bottom:24px}
+    .field label{display:block;font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:6px}
+    .field input,.field select{width:100%;height:48px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none;background:#fff;transition:border-color 0.2s,box-shadow 0.2s;-webkit-appearance:none;appearance:none}
+    .field select{background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2712%27 height=%2712%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27%236b7a8d%27 stroke-width=%272.5%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3E%3Cpolyline points=%276 9 12 15 18 9%27%3E%3C/polyline%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;cursor:pointer}
+    .field input:focus,.field select:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    .field input::placeholder{color:#9aa5b4}
+    .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media(max-width:480px){.field-row{grid-template-columns:1fr}}
+    .submit-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.0625rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s}
+    .submit-btn:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;filter:none}
     .trust{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;margin-top:16px}
     .trust span{font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:6px}
     .trust .ck{color:#2ecc71;font-weight:700}
@@ -64,54 +76,68 @@
       <p class="sub">We&rsquo;ll analyze your Google ranking, reviews, website speed, and digital presence &mdash; and send you a personalized report within 1 business day.</p>
     </div>
 
-    <div class="form-wrap">
-      <iframe
-        src="https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo"
-        id="inline-tfnHv9TG6B8I6gf6Varo"
-        data-layout="{'id':'INLINE'}"
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
-        data-form-name="Website Snapshot Request"
-        data-height="820"
-        data-layout-iframe-id="inline-tfnHv9TG6B8I6gf6Varo"
-        data-form-id="tfnHv9TG6B8I6gf6Varo"
-        title="Website Snapshot Request"
-      ></iframe>
-    </div>
-    <script src="https://link.msgsndr.com/js/form_embed.js"></script>
-    <script>
-    // Listen for GHL form submission — redirect parent page to upgrade
-    var formLoaded = false;
-    
-    // Give the iframe 3 seconds to fully load before watching for changes
-    setTimeout(function() { formLoaded = true; }, 3000);
-
-    window.addEventListener('message', function(event) {
-      if (!formLoaded) return;
-      var data = event.data;
-      // Handle object messages
-      if (data && typeof data === 'object') {
-        if (data.type === 'form:submit' || data.formSubmitted) {
-          window.location.href = '/snapshot/upgrade/';
-          return;
-        }
-      }
-      // Handle string messages
-      if (typeof data === 'string') {
-        try {
-          var parsed = JSON.parse(data);
-          if (parsed.type === 'form:submit' || parsed.formSubmitted || parsed.action === 'formSubmit') {
-            window.location.href = '/snapshot/upgrade/';
-            return;
-          }
-        } catch(e) {}
-      }
-    });
-    </script>
+    <form class="form-card" id="snapshot-form">
+      <div class="field">
+        <label for="s-biz">Business Name</label>
+        <input type="text" id="s-biz" name="business_name" required placeholder="e.g. Joe's Plumbing">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="s-fn">First Name</label>
+          <input type="text" id="s-fn" name="first_name" required placeholder="First name">
+        </div>
+        <div class="field">
+          <label for="s-ln">Last Name</label>
+          <input type="text" id="s-ln" name="last_name" required placeholder="Last name">
+        </div>
+      </div>
+      <div class="field">
+        <label for="s-email">Email</label>
+        <input type="email" id="s-email" name="email" required placeholder="you@yourbusiness.com">
+      </div>
+      <div class="field">
+        <label for="s-phone">Phone</label>
+        <input type="tel" id="s-phone" name="phone" required placeholder="(555) 555-5555">
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="s-city">City / Town</label>
+          <input type="text" id="s-city" name="city" required placeholder="e.g. Tewksbury">
+        </div>
+        <div class="field">
+          <label for="s-industry">Industry</label>
+          <select id="s-industry" name="industry">
+            <option value="">Select your industry</option>
+            <option value="HVAC">HVAC</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Electrical">Electrical</option>
+            <option value="Roofing">Roofing</option>
+            <option value="General Contractor">General Contractor</option>
+            <option value="Landscaping">Landscaping</option>
+            <option value="Painting">Painting</option>
+            <option value="Cleaning">Cleaning</option>
+            <option value="Pest Control">Pest Control</option>
+            <option value="Auto Repair">Auto Repair</option>
+            <option value="Dental">Dental</option>
+            <option value="Chiropractic">Chiropractic</option>
+            <option value="Medical">Medical / Med Spa</option>
+            <option value="Veterinary">Veterinary</option>
+            <option value="Legal">Legal / Law Firm</option>
+            <option value="CPA">CPA / Accounting</option>
+            <option value="Financial Advisor">Financial Advisor</option>
+            <option value="Insurance">Insurance</option>
+            <option value="Real Estate">Real Estate</option>
+            <option value="Restaurant">Restaurant / Food Service</option>
+            <option value="Salon">Salon / Barbershop / Spa</option>
+            <option value="Fitness">Gym / Fitness / Yoga</option>
+            <option value="Photography">Photography</option>
+            <option value="Retail">Retail / Boutique</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" id="s-btn">Get My Free Digital Audit &rarr;</button>
+    </form>
 
     <div class="trust">
       <span><span class="ck">&#10003;</span> 100% free</span>
@@ -131,5 +157,80 @@
       </div>
     </div>
   </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Phone formatting
+    document.getElementById('s-phone').addEventListener('input', function() {
+      var d = this.value.replace(/\D/g, '');
+      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
+    });
+
+    // Pre-fill from URL params (from CoWork outreach links)
+    var prm = new URLSearchParams(window.location.search);
+    if (prm.get('biz')) document.getElementById('s-biz').value = decodeURIComponent(prm.get('biz'));
+    if (prm.get('city')) document.getElementById('s-city').value = decodeURIComponent(prm.get('city'));
+    if (prm.get('name')) {
+      var parts = decodeURIComponent(prm.get('name')).split(' ');
+      document.getElementById('s-fn').value = parts[0] || '';
+      document.getElementById('s-ln').value = parts.slice(1).join(' ') || '';
+    }
+    if (prm.get('email')) document.getElementById('s-email').value = decodeURIComponent(prm.get('email'));
+    if (prm.get('phone')) document.getElementById('s-phone').value = decodeURIComponent(prm.get('phone'));
+
+    // Form submission — Option B: native form + GHL fetch + redirect to upsell
+    document.getElementById('snapshot-form').onsubmit = function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('s-btn');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+
+      var fn = document.getElementById('s-fn').value.trim();
+      var ln = document.getElementById('s-ln').value.trim();
+      var email = document.getElementById('s-email').value.trim();
+      var phone = document.getElementById('s-phone').value.trim();
+      var biz = document.getElementById('s-biz').value.trim();
+      var city = document.getElementById('s-city').value.trim();
+      var industry = document.getElementById('s-industry').value;
+
+      // Submit to GHL in the background
+      var ghl = new FormData();
+      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
+      ghl.append('first_name', fn);
+      ghl.append('last_name', ln);
+      ghl.append('email', email);
+      ghl.append('phone', phone);
+      ghl.append('companyName', biz);
+      ghl.append('city', city);
+      ghl.append('source', 'snapshot');
+
+      // Build redirect URL (matches /snapshot/upgrade param expectations)
+      var redirectUrl = '/snapshot/upgrade/?fn=' + encodeURIComponent(fn)
+        + '&ln=' + encodeURIComponent(ln)
+        + '&e=' + encodeURIComponent(email)
+        + '&p=' + encodeURIComponent(phone)
+        + '&b=' + encodeURIComponent(biz)
+        + '&c=' + encodeURIComponent(city)
+        + '&i=' + encodeURIComponent(industry);
+
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
+        method: 'POST',
+        body: ghl,
+        mode: 'no-cors'
+      }).then(function() {
+        window.location.href = redirectUrl;
+      }).catch(function() {
+        // no-cors won't actually reject on HTTP errors
+        // redirect anyway — contact was likely still created
+        window.location.href = redirectUrl;
+      });
+
+      return false;
+    };
+  });
+  </script>
 </body>
 </html>
