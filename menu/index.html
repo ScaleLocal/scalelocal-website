@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <title>ScaleLocal Plans &amp; Pricing | Transparent Pricing, Written Guarantees</title>
-  <meta name="description" content="Local marketing pricing for small businesses. ScaleLocal plans: Foundation $497/mo, Momentum $1,297/mo, Authority $1,997/mo. Transparent local SEO pricing with written lead guarantees. No hidden fees. See what's included.">
+  <meta name="description" content="Local marketing pricing for small businesses. ScaleLocal plans: Starter $249/mo, Foundation $497/mo, Momentum $1,297/mo, Authority $1,997/mo. Transparent local SEO pricing with written lead guarantees. No hidden fees. See what's included.">
   <link rel="canonical" href="https://scalelocal.net/menu">
   <meta property="og:title" content="ScaleLocal Plans & Pricing | Transparent Pricing, Written Guarantees">
   <meta property="og:description" content="Local marketing pricing for small businesses. Transparent local SEO pricing with written lead guarantees. No hidden fees.">
@@ -72,9 +72,15 @@
     .plans-section { background: #f0f4f8; padding: 64px 0; }
     .plans-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
     .plan-cards { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; }
-    @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr 1fr 1fr; align-items: stretch; } .plans-section { padding: 96px 0; } }
+    @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr 1fr; align-items: stretch; } .plans-section { padding: 96px 0; } }
+    @media (min-width: 1080px) { .plan-cards { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
     .plan-card { border-radius: 16px; padding: 32px; display: flex; flex-direction: column; transition: all 0.25s ease; }
+    .plan-card--starter { background: #f8fafb; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(26,46,74,0.04); }
+    .plan-card--starter:hover { box-shadow: 0 6px 24px rgba(26,46,74,0.1); transform: translateY(-2px); }
+    .plan-card--starter .plan-name { color: #4a5a6e; }
+    .plan-card--starter .plan-price { color: #1a2e4a; }
+    .plan-card--starter .plan-upgrade-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2E75B6; font-weight: 600; margin-top: 16px; padding: 10px 14px; background: rgba(46,117,182,0.06); border: 1px solid rgba(46,117,182,0.15); border-radius: 8px; line-height: 1.4; text-align: center; }
     .plan-card--standard { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
     .plan-card--standard:hover { box-shadow: 0 8px 32px rgba(26,46,74,0.12); transform: translateY(-2px); }
     .plan-card--featured { background: #1a2e4a; border: 2px solid #2ecc71; box-shadow: 0 8px 40px rgba(26,46,74,0.2); }
@@ -384,6 +390,29 @@
       <div class="plans-inner">
         <div class="plan-cards">
 
+          <!-- STARTER -->
+          <div class="plan-card plan-card--starter">
+            <p class="plan-tier">STARTER</p>
+            <h3 class="plan-name">Starter</h3>
+            <p class="plan-tagline">A real website that actually works for you.</p>
+            <div class="plan-price-block">
+              <span class="plan-price">$249</span><span class="plan-period">/mo</span>
+              <span class="plan-note" style="color:#2ecc71;">$0 setup &bull; Month-to-month &bull; Cancel anytime</span>
+            </div>
+            <hr class="plan-divider--light">
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional 5-page website, live and hosted</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Chat &mdash; AI chat assistant on your site 24/7</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard &mdash; website traffic + chat conversations</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">1 content update per month</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">SSL, mobile optimization, speed monitoring</span></li>
+            </ul>
+            <div class="plan-card--starter plan-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
+            <div class="plan-cta-wrap">
+              <a href="/checkout?plan=starter" class="plan-cta" style="background:#2E75B6;color:#fff;">Get Started &rarr;</a>
+            </div>
+          </div>
+
           <!-- FOUNDATION -->
           <div class="plan-card plan-card--standard">
             <p class="plan-tier">FOUNDATION SYSTEM</p>
@@ -463,7 +492,7 @@
             </div>
           </div>
         </div>
-        <p class="plans-footer-note">All plans available month-to-month, 6-month, or 12-month. Longer commitments unlock waived setup fees and bonus months. Full details at checkout.</p>
+        <p class="plans-footer-note">Starter is month-to-month. Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. Longer commitments unlock waived setup fees and bonus months. Full details at checkout.</p>
       </div>
     </section>
 
@@ -528,6 +557,7 @@
           </div>
           <div class="footer-nav-col">
             <p class="footer-nav-heading">Our Systems</p>
+            <a href="/checkout?plan=starter">Starter &mdash; $249/mo</a>
             <a href="/menu">Foundation &mdash; $497/mo</a>
             <a href="/menu">Momentum &mdash; $1,297/mo</a>
             <a href="/menu">Authority &mdash; $1,997/mo</a>
