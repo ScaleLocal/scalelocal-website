@@ -200,8 +200,8 @@
       ghl.append('city', document.getElementById('city').value.trim());
       ghl.append('source', 'snapshot');
 
-      // Submit to GHL
-      fetch('https://services.leadconnectorhq.com/funnels/submit', {
+      // Submit to GHL via widget form endpoint
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
         method: 'POST',
         body: ghl,
         mode: 'no-cors'

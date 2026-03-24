@@ -157,7 +157,7 @@
       ghl.append('email',data.email||'');
       ghl.append('business_name',data.business_name||'');
       ghl.append('industry',data.industry||'');
-      fetch('https://services.leadconnectorhq.com/funnels/submit',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
       // Redirect to quiz
       window.location.href = '/quiz?track=' + track;
       return false;

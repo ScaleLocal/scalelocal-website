@@ -110,7 +110,7 @@
       ghl.append('phone', document.getElementById('fw-phone').value);
       ghl.append('email', document.getElementById('fw-email').value);
       ghl.append('source', 'free-website');
-      fetch('https://services.leadconnectorhq.com/funnels/submit',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
       form.style.display = 'none';
       document.querySelector('.fw-why').style.display = 'none';
       document.getElementById('fw-confirm').classList.add('vis');

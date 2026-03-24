@@ -246,7 +246,7 @@
       ghl.append('companyName', document.getElementById('a-biz').value.trim());
       ghl.append('source', 'audit');
 
-      fetch('https://services.leadconnectorhq.com/funnels/submit', {
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
         method: 'POST', body: ghl, mode: 'no-cors'
       }).finally(function() {
         document.getElementById('audit-form').style.display = 'none';
