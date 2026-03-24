@@ -133,8 +133,8 @@
             <li><span class="x">&times;</span> No competitor deep-dive</li>
             <li><span class="x">&times;</span> No keyword gap analysis</li>
             <li><span class="x">&times;</span> No ad spend intelligence</li>
-            <li><span class="x">&times;</span> No custom action plan</li>
-            <li><span class="x">&times;</span> No 1-on-1 strategy call</li>
+            <li><span class="x">&times;</span> No prioritized action checklist</li>
+            
           </ul>
         </div>
         <div class="col-deep">
@@ -144,13 +144,13 @@
           <p class="col-price">$97 <span>one-time</span></p>
           <ul class="col-list">
             <li><span class="ck">&#10003;</span> Everything in the free digital audit</li>
-            <li><span class="ck">&#10003;</span> Full competitor breakdown (top 5)</li>
+            <li><span class="ck">&#10003;</span> Competitor breakdown (up to 5 in your market)</li>
             <li><span class="ck">&#10003;</span> Keyword gap analysis — what they rank for that you don&rsquo;t</li>
             <li><span class="ck">&#10003;</span> Ad spend intelligence — are competitors running Google/Meta ads?</li>
             <li><span class="ck">&#10003;</span> Citation audit across 50+ directories</li>
             <li><span class="ck">&#10003;</span> AI search visibility check — do ChatGPT/Gemini recommend you?</li>
-            <li><span class="ck">&#10003;</span> Custom 90-day action plan with prioritized steps</li>
-            <li><span class="ck">&#10003;</span> 30-minute 1-on-1 strategy call with Matt</li>
+            <li><span class="ck">&#10003;</span> Prioritized action checklist &mdash; the specific fixes that will move the needle fastest</li>
+            
           </ul>
         </div>
       </div>
@@ -159,25 +159,23 @@
       <a href="#" class="btn-deep" id="btn-upgrade">Yes &mdash; Get My Deep Audit ($97) &rarr;</a>
       <button class="btn-skip" id="btn-skip">No thanks, just send me the free digital audit</button>
 
-      <div class="guarantee">
-        <p><strong>100% satisfaction guarantee.</strong> If you don&rsquo;t find the Deep Audit valuable, we&rsquo;ll refund your $97. No questions. No hassle.</p>
-      </div>
+
     </div>
 
     <!-- Confirmation: paid -->
     <div class="confirm" id="confirm-paid">
       <div class="confirm-icon">&#10003;</div>
-      <h2>Your Deep Audit is in progress.</h2>
+      <h2 id="paid-heading">Your Deep Audit is in progress.</h2>
       <p>We&rsquo;re running a comprehensive analysis of your business right now. You&rsquo;ll receive your full Deep Audit report at <span class="hl" id="paid-email"></span> within 1 business day.</p>
-      <p>Matt will also reach out to schedule your 30-minute strategy call.</p>
+      
       <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
     </div>
 
     <!-- Confirmation: free -->
     <div class="confirm" id="confirm-free">
       <div class="confirm-icon">&#10003;</div>
-      <h2>Your free digital audit is on the way.</h2>
-      <p>We&rsquo;re analyzing your digital presence right now. You&rsquo;ll receive your report at <span class="hl" id="free-email"></span> within 1 business day.</p>
+      <h2 id="free-heading">Your free digital audit is on the way.</h2>
+      <p id="free-body">We&rsquo;re analyzing your digital presence right now. You&rsquo;ll receive your report at <span class="hl" id="free-email"></span> within 1 business day.</p>
       <p>Keep an eye on your inbox &mdash; your snapshot will include your Google ranking, reviews, website performance, and recommendations.</p>
       <p style="margin-top:24px;color:#6b7a8d;font-size:0.875rem;">While you wait, <a href="/blog" style="color:#2ecc71;">check out our blog</a> for tips on growing your local business.</p>
     </div>
@@ -202,7 +200,7 @@
     }
 
     // Personalize greeting
-    document.getElementById('greeting').textContent = 'Great, ' + fn + ' — we\'ve got your info!';
+    document.getElementById('greeting').textContent = 'Great, ' + cfn + ' — we\'ve got your info!';
 
     // $97 Deep Audit button — links to Stripe payment link with prefilled email
     var stripeUrl = 'https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00';
@@ -211,10 +209,24 @@
     document.getElementById('btn-upgrade').href = upgradeUrl;
 
     // Skip button — show free confirmation
+    function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
+    var cfn = capFirst(fn);
+
+    function showDoneProgress() {
+      var steps = document.querySelectorAll('.step');
+      var lines = document.querySelectorAll('.step-line');
+      steps.forEach(function(s) { s.classList.add('done'); s.classList.remove('active'); s.innerHTML = '&#10003;'; });
+      lines.forEach(function(l) { l.classList.add('done'); });
+      var labels = document.querySelectorAll('.step-label');
+      if (labels[2]) labels[2].textContent = 'Complete';
+    }
+
     document.getElementById('btn-skip').addEventListener('click', function() {
       document.getElementById('upsell-content').style.display = 'none';
       document.getElementById('free-email').textContent = email;
+      document.getElementById('free-heading').textContent = cfn + ', your free digital audit is on the way.';
       document.getElementById('confirm-free').classList.add('vis');
+      showDoneProgress();
       window.scrollTo({top: 0, behavior: 'smooth'});
     });
 
@@ -222,7 +234,9 @@
     if (window.location.hash === '#success' || params.get('paid') === '1') {
       document.getElementById('upsell-content').style.display = 'none';
       document.getElementById('paid-email').textContent = email;
+      document.getElementById('paid-heading').textContent = cfn + ', your Deep Audit is in progress.';
       document.getElementById('confirm-paid').classList.add('vis');
+      showDoneProgress();
     }
   });
   </script>
