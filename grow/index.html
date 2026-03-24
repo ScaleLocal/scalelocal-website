@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>You're Doing a Lot Right — Here's What's Missing | ScaleLocal</title>
+  <meta name="description" content="Your business has a website, customers, and momentum. But invisible gaps in your Google presence, reviews, and lead capture are sending potential customers to competitors. Here's what to fix — and what it's worth.">
+  <link rel="canonical" href="https://scalelocal.net/grow">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ScaleLocal">
+  <meta property="og:title" content="You're Doing a Lot Right — Here's What's Missing">
+  <meta property="og:description" content="Your business has a website and customers. But invisible gaps are sending leads to competitors. Here's what to fix.">
+  <meta property="og:image" content="https://scalelocal.net/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://scalelocal.net/og-image.png">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#0f1f33}
+
+    /* Topbar — minimal, funnel page pattern */
+    .topbar{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
+    .topbar a{text-decoration:none}
+    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .topbar-link{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#a8b8cc;text-decoration:none;transition:color 0.2s}
+    .topbar-link:hover{color:#fff}
+
+    /* Hero */
+    .hero{padding:48px 24px 40px;text-align:center;max-width:760px;margin:0 auto}
+    .hero-ey{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.22em;font-weight:600;margin-bottom:14px}
+    .hero h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.875rem;line-height:1.15;margin-bottom:18px}
+    .hero .sub{font-family:'Inter',sans-serif;font-size:1.0625rem;color:#a8b8cc;line-height:1.7;max-width:620px;margin:0 auto}
+    .hero .biz-name{color:#2ecc71;font-weight:700}
+    @media(min-width:768px){.hero h1{font-size:2.5rem}}
+
+    /* What's working section */
+    .working{max-width:720px;margin:0 auto;padding:0 24px 40px}
+    .section-label{font-family:'Inter',sans-serif;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.18em;font-weight:600;text-align:center;margin-bottom:20px;padding:6px 16px;border-radius:20px;display:inline-block}
+    .section-label-wrap{text-align:center;margin-bottom:20px}
+    .label-green{color:#2ecc71;background:rgba(46,204,113,0.1)}
+    .label-amber{color:#f1c40f;background:rgba(241,196,15,0.1)}
+    .label-red{color:#e74c3c;background:rgba(231,76,60,0.1)}
+    .section-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1.25rem;text-align:center;margin-bottom:24px}
+
+    .check-list{list-style:none;display:grid;gap:12px}
+    .check-item{background:rgba(46,204,113,0.06);border:1px solid rgba(46,204,113,0.15);border-radius:12px;padding:18px 20px;display:flex;align-items:flex-start;gap:12px}
+    .check-icon{color:#2ecc71;font-weight:700;font-size:1.125rem;flex-shrink:0;margin-top:1px}
+    .check-text{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.6}
+    .check-text strong{color:#fff}
+
+    /* Gap cards */
+    .gaps{max-width:720px;margin:0 auto;padding:0 24px 40px}
+    .gap-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:28px;margin-bottom:14px;position:relative;overflow:hidden}
+    .gap-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;border-radius:4px 0 0 4px}
+    .gap-card.critical::before{background:#e74c3c}
+    .gap-card.warning::before{background:#f1c40f}
+    .gap-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .gap-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+    .gap-icon.red{background:rgba(231,76,60,0.15);color:#e74c3c}
+    .gap-icon.amber{background:rgba(241,196,15,0.15);color:#f1c40f}
+    .gap-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:0.9375rem}
+    .gap-body{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.7;padding-left:44px}
+    .gap-body strong{color:#fff}
+    .gap-cost{display:inline-block;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;padding:3px 10px;border-radius:4px;margin-top:10px;margin-left:44px}
+    .cost-red{background:rgba(231,76,60,0.1);color:#e74c3c}
+    .cost-amber{background:rgba(241,196,15,0.1);color:#f1c40f}
+
+    /* Revenue math */
+    .revenue{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .rev-card{background:linear-gradient(135deg,#1a2e4a 0%,#0f1f33 100%);border:1px solid rgba(46,117,182,0.25);border-radius:16px;padding:36px;text-align:center}
+    .rev-card h2{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.25rem;margin-bottom:16px}
+    .rev-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+    @media(max-width:520px){.rev-row{grid-template-columns:1fr}}
+    .rev-stat{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:20px}
+    .rev-stat .num{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.75rem;margin-bottom:4px}
+    .num-red{color:#e74c3c}
+    .num-green{color:#2ecc71}
+    .rev-stat .label{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.4}
+    .rev-bottom{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.7}
+    .rev-bottom strong{color:#fff}
+
+    /* Momentum pitch */
+    .pitch{max-width:720px;margin:0 auto;padding:0 24px 40px}
+    .pitch-card{background:rgba(255,255,255,0.04);border:1px solid rgba(46,117,182,0.2);border-radius:16px;padding:32px}
+    .pitch-badge{font-family:'Inter',sans-serif;font-size:0.6875rem;text-transform:uppercase;letter-spacing:0.18em;font-weight:600;color:#2E75B6;margin-bottom:12px}
+    .pitch-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1.25rem;margin-bottom:16px}
+    .pitch-features{list-style:none;display:grid;gap:10px;margin-bottom:24px}
+    .pitch-feat{display:flex;align-items:flex-start;gap:10px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.5}
+    .pitch-feat strong{color:#fff}
+    .pitch-ck{color:#2ecc71;font-weight:700;flex-shrink:0;margin-top:2px}
+    .pitch-guarantee{background:rgba(46,204,113,0.08);border:1px solid rgba(46,204,113,0.15);border-radius:10px;padding:16px;text-align:center;margin-bottom:20px}
+    .pitch-guarantee p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#a8b8cc;line-height:1.6}
+    .pitch-guarantee strong{color:#2ecc71}
+    .pitch-price{text-align:center;margin-bottom:8px}
+    .pitch-price .amount{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.75rem}
+    .pitch-price .period{font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d}
+    .pitch-price .setup{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:2px}
+
+    /* CTA */
+    .cta-section{max-width:720px;margin:0 auto;padding:0 24px 48px}
+    .cta-card{background:#fff;border-radius:16px;padding:36px;text-align:center;box-shadow:0 8px 40px rgba(0,0,0,0.3)}
+    .cta-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.375rem;margin-bottom:12px}
+    .cta-card>p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#4a5a6e;margin-bottom:24px;line-height:1.7}
+    .cta-options{display:grid;gap:12px;max-width:420px;margin:0 auto 20px}
+    .cta-primary{display:flex;align-items:center;justify-content:center;width:100%;height:52px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;text-decoration:none;transition:all 0.2s}
+    .cta-primary:hover{filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
+    .cta-secondary{display:flex;align-items:center;justify-content:center;width:100%;height:48px;background:transparent;color:#2E75B6;font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.9375rem;border:1.5px solid #e2e8f0;border-radius:8px;cursor:pointer;text-decoration:none;transition:all 0.2s}
+    .cta-secondary:hover{border-color:#2E75B6;background:rgba(46,117,182,0.04)}
+    .cta-trust{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin-top:14px}
+    .cta-trust span{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d}
+    .cta-trust .ck{color:#2ecc71;font-weight:700}
+
+    /* Alt path form */
+    .alt-form{display:none;margin-top:20px;border-top:1px solid #e2e8f0;padding-top:20px}
+    .alt-form.vis{display:block}
+    .alt-form p{font-family:'Inter',sans-serif;font-size:0.875rem;color:#4a5a6e;margin-bottom:14px}
+    .alt-fields{display:grid;gap:10px;max-width:400px;margin:0 auto}
+    .alt-fields input{width:100%;height:46px;border:1.5px solid #e2e8f0;border-radius:8px;padding:0 14px;font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;outline:none}
+    .alt-fields input:focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
+    .alt-fields input::placeholder{color:#9aa5b4}
+    .alt-submit{display:flex;align-items:center;justify-content:center;width:100%;max-width:400px;height:48px;background:#2E75B6;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;margin:12px auto 0;transition:all 0.2s}
+    .alt-submit:hover{filter:brightness(1.1);transform:translateY(-1px)}
+    .alt-submit:disabled{opacity:0.6;cursor:not-allowed;transform:none}
+
+    /* Confirmation */
+    .confirm{display:none;padding:32px;text-align:center}
+    .confirm.vis{display:block}
+    .confirm h3{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.25rem;margin-bottom:10px}
+    .confirm p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#4a5a6e;line-height:1.6}
+    .confirm .hl{color:#2ecc71;font-weight:600}
+
+    /* Footer bar */
+    .trust-bar{max-width:720px;margin:0 auto;padding:0 24px 48px;text-align:center}
+    .trust-bar p{font-family:'Inter',sans-serif;font-size:0.75rem;color:#4a5568;line-height:1.6}
+
+    /* Fade-in animation */
+    .fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease}
+    .fade-up.vis{opacity:1;transform:translateY(0)}
+  </style>
+</head>
+<body>
+  <!-- Minimal topbar — funnel page, no full nav -->
+  <header class="topbar">
+    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
+    <a href="/menu" class="topbar-link">See Plans &rarr;</a>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero fade-up">
+    <p class="hero-ey">GROWTH ANALYSIS</p>
+    <h1 id="hero-h1">You&rsquo;re doing a lot right.<br>Here&rsquo;s what&rsquo;s costing you customers.</h1>
+    <p class="sub" id="hero-sub">Your business already has customers, a website, and some online presence. But there are invisible gaps between where you are and where your competitors are winning &mdash; and those gaps are quietly sending leads to someone else.</p>
+  </section>
+
+  <!-- ===== WHAT'S WORKING ===== -->
+  <section class="working fade-up">
+    <div class="section-label-wrap">
+      <span class="section-label label-green">What you&rsquo;re doing right</span>
+    </div>
+    <ul class="check-list">
+      <li class="check-item">
+        <span class="check-icon">&#10003;</span>
+        <span class="check-text"><strong>You have a website</strong> &mdash; that puts you ahead of ~35% of local businesses that still don&rsquo;t have one at all</span>
+      </li>
+      <li class="check-item">
+        <span class="check-icon">&#10003;</span>
+        <span class="check-text"><strong>You have real customers</strong> &mdash; people know your name, and word of mouth is already working</span>
+      </li>
+      <li class="check-item">
+        <span class="check-icon">&#10003;</span>
+        <span class="check-text"><strong>You show up on Google</strong> &mdash; you&rsquo;ve got a Google Business Profile and some reviews</span>
+      </li>
+      <li class="check-item">
+        <span class="check-icon">&#10003;</span>
+        <span class="check-text"><strong>You&rsquo;re still here</strong> &mdash; most businesses fail in the first 3 years. Yours hasn&rsquo;t. The hard part is done.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- ===== THE GAPS ===== -->
+  <section class="gaps fade-up">
+    <div class="section-label-wrap">
+      <span class="section-label label-amber">What&rsquo;s quietly costing you</span>
+    </div>
+    <p class="section-title">These are the gaps your competitors are already filling.</p>
+
+    <div class="gap-card critical">
+      <div class="gap-header">
+        <div class="gap-icon red">1</div>
+        <span class="gap-title">Missed calls = missed revenue</span>
+      </div>
+      <p class="gap-body">62% of calls to local businesses go unanswered. Every missed call is a customer who calls the next business on Google instead. If your average job is worth $500 and you miss just <strong>3 calls a week</strong>, that&rsquo;s $6,000/month walking away.</p>
+      <span class="gap-cost cost-red">Estimated cost: $3,000&ndash;$8,000/month in lost revenue</span>
+    </div>
+
+    <div class="gap-card critical">
+      <div class="gap-header">
+        <div class="gap-icon red">2</div>
+        <span class="gap-title">Your website isn&rsquo;t converting visitors into calls</span>
+      </div>
+      <p class="gap-body">Most local business websites are digital brochures &mdash; they look fine but don&rsquo;t <strong>do</strong> anything. No chat, no instant booking, no clear call-to-action above the fold. Visitors land, look around, and leave. The average local site converts <strong>under 3%</strong> of visitors into leads. A conversion-optimized site hits 8&ndash;18%.</p>
+      <span class="gap-cost cost-red">Estimated cost: 60&ndash;80% of your website traffic wasted</span>
+    </div>
+
+    <div class="gap-card warning">
+      <div class="gap-header">
+        <div class="gap-icon amber">3</div>
+        <span class="gap-title">Your reviews aren&rsquo;t growing fast enough</span>
+      </div>
+      <p class="gap-body">Google&rsquo;s algorithm rewards <strong>review velocity</strong> &mdash; not just the total count. If your top competitor is getting 5 new reviews a month and you&rsquo;re getting 1, you&rsquo;re losing ground on the map pack every single week. Most businesses don&rsquo;t have a system to ask for reviews automatically after every job.</p>
+      <span class="gap-cost cost-amber">Impact: Losing map pack position month over month</span>
+    </div>
+
+    <div class="gap-card warning">
+      <div class="gap-header">
+        <div class="gap-icon amber">4</div>
+        <span class="gap-title">No one&rsquo;s actively managing your Google presence</span>
+      </div>
+      <p class="gap-body">Google Business Profile posts, Q&amp;A responses, photo updates, category optimization &mdash; these are the signals that tell Google you&rsquo;re active and relevant. If your profile hasn&rsquo;t been touched in months, <strong>Google is slowly demoting you</strong> in favor of competitors who are actively managing theirs.</p>
+      <span class="gap-cost cost-amber">Impact: Declining visibility in local search results</span>
+    </div>
+
+    <div class="gap-card warning">
+      <div class="gap-header">
+        <div class="gap-icon amber">5</div>
+        <span class="gap-title">You&rsquo;re invisible to AI search</span>
+      </div>
+      <p class="gap-body">When a potential customer asks ChatGPT, Google Gemini, or Perplexity for a recommendation in your area, <strong>you probably don&rsquo;t show up</strong>. Most of your competitors don&rsquo;t either &mdash; yet. The businesses that invest in AI search visibility now will own this channel before anyone else realizes it matters.</p>
+      <span class="gap-cost cost-amber">Opportunity cost: First-mover advantage window closing</span>
+    </div>
+  </section>
+
+  <!-- ===== THE REVENUE MATH ===== -->
+  <section class="revenue fade-up">
+    <div class="rev-card">
+      <h2>What these gaps are actually costing you</h2>
+      <div class="rev-row">
+        <div class="rev-stat">
+          <div class="num num-red">$5K&ndash;$15K</div>
+          <div class="label">Estimated monthly revenue lost to missed calls, slow website, and weak Google presence</div>
+        </div>
+        <div class="rev-stat">
+          <div class="num num-green">$1,297</div>
+          <div class="label">Monthly cost to fix all of it &mdash; with a written guarantee of 8 new leads/month minimum</div>
+        </div>
+      </div>
+      <p class="rev-bottom">The math is simple: if your average customer is worth <strong>$500+</strong>, you need <strong>3 new customers per month</strong> to cover the investment. We guarantee a minimum of <strong>8 new leads</strong>. You&rsquo;re ahead from month one.</p>
+    </div>
+  </section>
+
+  <!-- ===== MOMENTUM PITCH ===== -->
+  <section class="pitch fade-up">
+    <div class="pitch-card">
+      <p class="pitch-badge">RECOMMENDED FOR ESTABLISHED BUSINESSES</p>
+      <h2>The ScaleLocal Momentum System</h2>
+      <ul class="pitch-features">
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Professional website rebuilt in 48 hours</strong> &mdash; fast, mobile-first, built to convert</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Google Guaranteed badge</strong> &mdash; your business appears above all other ads and the map pack</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Google Ads or Meta Ads managed</strong> &mdash; ad spend included, optimized for your lead guarantee</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Automated review system</strong> &mdash; close the review gap with your competitors on autopilot</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>AI search visibility</strong> &mdash; get recommended by ChatGPT, Gemini, and Perplexity</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>AI chat assistant on your website 24/7</strong> &mdash; captures leads even when you&rsquo;re closed</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Full lead tracking dashboard</strong> &mdash; see every lead, every source, every cost per acquisition</span></li>
+        <li class="pitch-feat"><span class="pitch-ck">&#10003;</span><span><strong>Personal account manager</strong> &mdash; direct contact, not a ticket system</span></li>
+      </ul>
+      <div class="pitch-guarantee">
+        <p><strong>Written guarantee: minimum 8 new leads per month by month 3 &mdash; or we work for free until you hit it.</strong><br>No other agency in your area offers that in writing.</p>
+      </div>
+      <div class="pitch-price">
+        <span class="amount">$1,297</span><span class="period">/month</span>
+        <div class="setup">$0 setup on 6-month commitment &middot; $0 setup on 12-month</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section fade-up">
+    <div class="cta-card">
+      <h2>Two ways to see what we can do for you.</h2>
+      <p>Pick the one that fits where you are right now. No commitment either way.</p>
+      <div class="cta-options" id="cta-options">
+        <a href="/snapshot" class="cta-primary" id="btn-audit">Get My Free Digital Audit &rarr;</a>
+        <button class="cta-secondary" id="btn-call">I&rsquo;d rather talk to someone</button>
+      </div>
+      <div class="cta-trust" id="cta-trust">
+        <span><span class="ck">&#10003;</span> Free, no obligation</span>
+        <span><span class="ck">&#10003;</span> Results in your inbox within 24 hours</span>
+        <span><span class="ck">&#10003;</span> No sales pitch unless you want one</span>
+      </div>
+
+      <!-- Alt path: call request form (shows when "I'd rather talk" clicked) -->
+      <div class="alt-form" id="alt-form">
+        <p>We&rsquo;ll reach out within 1 business day to schedule a 15-minute call. Your data, your competitors, your numbers.</p>
+        <form class="alt-fields" id="grow-form">
+          <input type="text" id="g-name" name="name" required placeholder="Your name">
+          <input type="email" id="g-email" name="email" required placeholder="Email">
+          <input type="tel" id="g-phone" name="phone" required placeholder="Phone">
+          <input type="text" id="g-biz" name="business" placeholder="Business name">
+          <button type="submit" class="alt-submit" id="g-btn">Request a Call &rarr;</button>
+        </form>
+      </div>
+
+      <!-- Confirmation -->
+      <div class="confirm" id="g-confirm">
+        <h3>You&rsquo;re on the list.</h3>
+        <p>Matt will reach out within <span class="hl">1 business day</span> to schedule your call. No pitch deck, no pressure &mdash; just your numbers and what the math looks like for your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <p>ScaleLocal &middot; Tewksbury, MA &middot; Serving Massachusetts, New Hampshire &amp; Rhode Island<br>Every engagement is backed by a written performance guarantee.<br><a href="/terms" style="color:#4a5568;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#4a5568;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // ===== URL PARAM PERSONALIZATION =====
+    var params = new URLSearchParams(window.location.search);
+    var biz = params.get('biz');
+    var city = params.get('city');
+    var industry = params.get('industry');
+
+    if (biz) {
+      var b = decodeURIComponent(biz);
+      document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + b + '</span> is doing a lot right.<br>Here\u2019s what\u2019s costing you customers.';
+      document.getElementById('hero-sub').innerHTML = 'We took a look at ' + b + '\u2019s online presence' + (city ? ' in ' + decodeURIComponent(city) : '') + '. You\u2019ve got a website, real customers, and some Google visibility. But there are gaps between where you are and where you could be \u2014 and those gaps are quietly sending leads to competitors.';
+      document.getElementById('g-biz').value = b;
+      // Personalize the audit CTA URL
+      var auditLink = document.getElementById('btn-audit');
+      var auditUrl = '/snapshot';
+      if (biz || city) {
+        auditUrl += '?';
+        if (biz) auditUrl += 'biz=' + encodeURIComponent(b);
+        if (biz && city) auditUrl += '&';
+        if (city) auditUrl += 'city=' + encodeURIComponent(decodeURIComponent(city));
+      }
+      auditLink.href = auditUrl;
+    }
+
+    // ===== FADE-IN ON SCROLL =====
+    var fades = document.querySelectorAll('.fade-up');
+    function checkFade() {
+      for (var i = 0; i < fades.length; i++) {
+        var rect = fades[i].getBoundingClientRect();
+        if (rect.top < window.innerHeight - 60) {
+          fades[i].classList.add('vis');
+        }
+      }
+    }
+    checkFade();
+    window.addEventListener('scroll', checkFade, { passive: true });
+
+    // ===== "I'd rather talk" toggle =====
+    document.getElementById('btn-call').onclick = function() {
+      document.getElementById('alt-form').classList.add('vis');
+      document.getElementById('cta-options').style.display = 'none';
+      document.getElementById('cta-trust').style.display = 'none';
+      document.getElementById('g-name').focus();
+    };
+
+    // ===== Phone formatting =====
+    document.getElementById('g-phone').addEventListener('input', function() {
+      var d = this.value.replace(/\D/g, '');
+      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
+    });
+
+    // ===== Form submit =====
+    document.getElementById('grow-form').onsubmit = function(e) {
+      e.preventDefault();
+      var btn = document.getElementById('g-btn');
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+
+      var ghl = new FormData();
+      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
+      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
+      ghl.append('first_name', document.getElementById('g-name').value.trim().split(' ')[0]);
+      ghl.append('last_name', document.getElementById('g-name').value.trim().split(' ').slice(1).join(' '));
+      ghl.append('email', document.getElementById('g-email').value.trim());
+      ghl.append('phone', document.getElementById('g-phone').value.trim());
+      ghl.append('companyName', document.getElementById('g-biz').value.trim());
+      ghl.append('source', 'grow');
+
+      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
+        method: 'POST', body: ghl, mode: 'no-cors'
+      }).finally(function() {
+        document.getElementById('grow-form').style.display = 'none';
+        document.querySelector('#alt-form p').style.display = 'none';
+        document.getElementById('g-confirm').classList.add('vis');
+      });
+      return false;
+    };
+  });
+  </script>
+</body>
+</html>

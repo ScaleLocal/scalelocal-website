@@ -3,5 +3,6 @@ Allow: /
 Disallow: /checkout
 Disallow: /welcome
 Disallow: /free-website
+Disallow: /grow
 
 Sitemap: https://scalelocal.net/sitemap.xml
