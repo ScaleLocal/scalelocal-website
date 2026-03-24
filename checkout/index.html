@@ -251,6 +251,10 @@
           <div id="pr-btn"></div>
           <div id="card-element"></div>
           <div id="card-errors" role="alert"></div>
+          <div id="pay-summary" style="margin-top:16px;padding:14px;background:#f0f4f8;border-radius:8px;display:none;">
+            <div style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.125rem;color:#1a2e4a;"><span>Due today</span><span id="pay-summary-total">$0</span></div>
+            <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:4px;"><span>Then monthly</span><span id="pay-summary-mo">$0/mo</span></div>
+          </div>
           <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span> due today</button>
           <p class="sec-note">&#128274; Secured by Stripe. 256-bit encryption. Apple Pay &amp; Google Pay accepted.</p>
         </div>
@@ -420,6 +424,18 @@
       document.getElementById('pay-total').textContent='$'+fmt(today);
       var hasItem=(S.plan&&S.plan!=='none')||S.recep||S.site||S.react;
       document.getElementById('pay-btn').disabled=!hasItem||!S.agreed;
+      // Update inline summary above pay button
+      var paySummary=document.getElementById('pay-summary');
+      if(hasItem&&today>0){
+        paySummary.style.display='block';
+        document.getElementById('pay-summary-total').textContent='$'+fmt(today);
+        var mo=0;
+        if(S.plan&&S.plan!=='none')mo+=plans[S.plan].mo;
+        if(S.recep)mo+=recepMo[S.plan||'none'];
+        document.getElementById('pay-summary-mo').textContent=mo>0?'$'+fmt(mo)+'/mo':'One-time only';
+      } else {
+        paySummary.style.display='none';
+      }
     }
 
     // STRIPE
