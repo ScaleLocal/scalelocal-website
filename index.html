@@ -1283,11 +1283,11 @@
 
     .roi-tiers-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
-    @media (max-width: 768px) {
-      .roi-tiers-row { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .roi-tiers-row { grid-template-columns: 1fr 1fr 1fr 1fr; }
     }
 
     .roi-tier-card {
@@ -2714,7 +2714,7 @@
           <div class="roi-two-inputs">
             <div class="roi-input-col">
               <label class="roi-label" for="avg-value">Avg. lifetime value of a single new customer ($)</label>
-              <input class="roi-input" type="number" id="avg-value" placeholder="e.g. 2000" min="100">
+              <input class="roi-input" type="number" id="avg-value" placeholder="e.g. 2000" min="1">
             </div>
             <div class="roi-input-col">
               <label class="roi-label" for="close-rate">Out of every 10 leads, how many become customers?</label>
@@ -2744,7 +2744,15 @@
               </div>
             </div>
             <div class="roi-tiers-row" id="roi-tiers-row">
-              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link" id="roi-card-foundation">
+              <a href="/checkout?plan=starter" class="roi-tier-card roi-tier-link" id="roi-card-starter" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tc-label">STARTER</p>
+                <p class="roi-tc-cost">$249<span>/mo</span></p>
+                <p class="roi-tc-math" id="roi-s-math" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-s-eq" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-s-result" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-s-roi" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link" id="roi-card-foundation">>
                 <p class="roi-tc-label">FOUNDATION</p>
                 <p class="roi-tc-cost">$497<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-f-math"></p>
@@ -4263,7 +4271,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var val = parseFloat(ltv.value);
         var crVal = parseInt(crSel.value);
-        if (!val || val < 100) {
+        if (!val || val < 1) {
           payoff.style.display = 'none';
           if (lowBox) lowBox.style.display = 'none';
           return;
@@ -4271,6 +4279,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var CR = crVal / 10;
         var tiers = [
+          { cost:249, leads:0, label:'Starter', m:'roi-s-math', e:'roi-s-eq', r:'roi-s-result', p:'roi-s-roi', noGuarantee:true },
           { cost:497, leads:3, label:'Foundation', m:'roi-f-math', e:'roi-f-eq', r:'roi-f-result', p:'roi-f-roi' },
           { cost:1297, leads:8, label:'Momentum', m:'roi-m-math', e:'roi-m-eq', r:'roi-m-result', p:'roi-m-roi' },
           { cost:1997, leads:15, label:'Authority', m:'roi-a-math', e:'roi-a-eq', r:'roi-a-result', p:'roi-a-roi' }
@@ -4282,23 +4291,45 @@ document.addEventListener('DOMContentLoaded', function() {
         var res = [];
         for (var i = 0; i < tiers.length; i++) {
           var t = tiers[i];
-          var closed = Math.round(t.leads * CR * 10) / 10;
-          var rev = Math.round(closed * val);
-          var profit = rev - t.cost;
-          var roiPct = Math.round((profit / t.cost) * 100);
-          var be = Math.ceil(t.cost / val);
-          if (profit >= 0) allLoss = false;
-          res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
+          if (t.noGuarantee) {
+            // Starter has no lead guarantee — show breakeven math only
+            var be = Math.ceil(t.cost / val);
+            var beLeads = CR > 0 ? Math.ceil(be / CR) : 999;
+            res.push({ t:t, closed:0, rev:0, profit:-t.cost, roiPct:-100, be:be, beLeads:beLeads, isStarter:true });
+          } else {
+            var closed = Math.round(t.leads * CR * 10) / 10;
+            var rev = Math.round(closed * val);
+            var profit = rev - t.cost;
+            var roiPct = Math.round((profit / t.cost) * 100);
+            var be = Math.ceil(t.cost / val);
+            if (profit >= 0) allLoss = false;
+            res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
+          }
         }
 
-        document.getElementById('roi-payoff-headline').innerHTML = 'At <span class="roi-green">$' + _fmt(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like with our lead guarantee.';
+        document.getElementById('roi-payoff-headline').innerHTML = 'At <span class="roi-green">$' + _fmt(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like.';
         document.getElementById('roi-payoff-sub').textContent = 'Closing ' + crVal + ' out of every 10 inbound leads.';
 
         for (var j = 0; j < res.length; j++) {
           var r = res[j];
+          var clickHint = '<span style="display:block;font-family:Inter,sans-serif;font-size:0.6875rem;color:#2E75B6;margin-top:10px;font-weight:600;">See what\u2019s included \u2192</span>';
+
+          if (r.isStarter) {
+            // Starter — no lead guarantee, show breakeven customers needed
+            document.getElementById(r.t.m).textContent = 'No lead guarantee \u2014 website + AI chat + dashboard';
+            document.getElementById(r.t.e).textContent = 'At $' + _fmt(Math.round(val)) + '/customer, you need ~' + r.be + ' customers/mo to cover $249/mo';
+            if (val >= 249) {
+              document.getElementById(r.t.r).innerHTML = '<strong style="color:#2ecc71">Pays for itself with ' + r.be + ' customer' + (r.be > 1 ? 's' : '') + '/mo</strong>';
+              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest risk entry point \u2014 no commitment required</span>' + clickHint;
+            } else {
+              document.getElementById(r.t.r).innerHTML = '<strong style="color:#6b7a8d">' + r.be + ' customers/mo to break even</strong>';
+              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest cost option at $8/day</span>' + clickHint;
+            }
+            continue;
+          }
+
           document.getElementById(r.t.m).textContent = r.t.leads + ' guaranteed leads \u00d7 ' + (CR*100) + '% close rate = ~' + r.closed + ' est. customers';
           document.getElementById(r.t.e).textContent = '$' + _fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + _fmt(r.rev) + ' est. revenue \u2212 $' + _fmt(r.t.cost) + ' cost';
-          var clickHint = '<span style="display:block;font-family:Inter,sans-serif;font-size:0.6875rem;color:#2E75B6;margin-top:10px;font-weight:600;">See what\u2019s included \u2192</span>';
           if (r.profit > 0 && r.roiPct >= 50) {
             document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + _fmt(r.profit) + '/mo</strong>';
             document.getElementById(r.t.p).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.t.label + ' lead guarantee' + clickHint;
@@ -4314,64 +4345,62 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
 
+        // Low-LTV box — only show if ALL guaranteed tiers are losses
         if (allLoss && lowBox) {
           var beHtml = '';
           for (var k = 0; k < res.length; k++) {
-            var beLeads = Math.ceil(res[k].be / CR);
+            if (res[k].isStarter) continue;
+            var beLeads = CR > 0 ? Math.ceil(res[k].be / CR) : 999;
             beHtml += '<strong style="color:#e67e22">' + res[k].t.label + ':</strong> ~' + res[k].be + ' customers/mo (~' + beLeads + ' leads at ' + (CR*100) + '% close)<br>';
           }
-          document.getElementById('roi-low-honest').textContent = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10, our monthly plans may not be the most efficient investment right now.';
+          document.getElementById('roi-low-honest').textContent = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10, our guaranteed plans may not be the most efficient investment right now.';
           document.getElementById('roi-low-be').innerHTML = beHtml;
           lowBox.style.display = 'block';
         } else if (lowBox) {
           lowBox.style.display = 'none';
         }
 
-        // Summary logic
+        // Summary logic — only considers guaranteed tiers (not Starter)
         var recEl = document.getElementById('roi-rec');
         var recText = document.getElementById('roi-rec-text');
         if (recEl && recText) {
           var bestTier = null; var bestProfit = -Infinity;
-          for (var b = 0; b < res.length; b++) { if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; } }
-          var profitCount = 0;
-          var profitNames = [];
-          for (var p = 0; p < res.length; p++) { if (res[p].profit > 0) { profitCount++; profitNames.push(res[p].t.label); } }
+          var profitCount = 0; var profitNames = [];
+          for (var b = 1; b < res.length; b++) { // skip index 0 (Starter)
+            if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; }
+            if (res[b].profit > 0) { profitCount++; profitNames.push(res[b].t.label); }
+          }
 
           if (allLoss) {
-            recEl.style.display = 'none';
+            recText.innerHTML = 'At this customer value, <strong>Starter at $249/mo</strong> is the best way to get started \u2014 a professional website with an AI chat assistant, no commitment, and you only need ' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
+            recEl.style.display = 'block';
           } else if (profitCount === 3) {
-            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, all three systems are net positive with our guaranteed lead minimums. <strong>' + bestTier.t.label + '</strong> delivers the strongest return at <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>, but ' + profitNames[0] + ' and ' + profitNames[1] + ' are also in the green. Click any tier above to see what\u2019s included.';
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, all three guaranteed systems are net positive. <strong>' + bestTier.t.label + '</strong> delivers the strongest return at <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click any tier above to see what\u2019s included.';
             recEl.style.display = 'block';
           } else if (profitCount === 2) {
-            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + profitNames[0] + '</strong> and <strong>' + profitNames[1] + '</strong> are both net positive with our guaranteed lead minimums. ' + bestTier.t.label + ' leads with <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click either tier above to see what\u2019s included.';
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + profitNames[0] + '</strong> and <strong>' + profitNames[1] + '</strong> are both net positive. ' + bestTier.t.label + ' leads with <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click either tier above to see what\u2019s included.';
             recEl.style.display = 'block';
           } else if (profitCount === 1) {
-            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + bestTier.t.label + '</strong> is the tier where the numbers work \u2014 delivering an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> with our ' + bestTier.t.leads + '-lead guarantee. The other tiers would need a higher customer value or close rate to break even. Click ' + bestTier.t.label + ' above to see what\u2019s included.';
+            recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, <strong>' + bestTier.t.label + '</strong> is the tier where the numbers work \u2014 delivering an estimated <strong>+$' + _fmt(bestTier.profit) + '/mo</strong> with our ' + bestTier.t.leads + '-lead guarantee. Click ' + bestTier.t.label + ' above to see what\u2019s included.';
             recEl.style.display = 'block';
           } else {
             recEl.style.display = 'none';
           }
         }
 
-        // Dynamic highlight — blue border on the most profitable tier
-        var cardIds = ['roi-card-foundation', 'roi-card-momentum', 'roi-card-authority'];
-        var tierLabels = ['Foundation', 'Momentum', 'Authority'];
+        // Dynamic highlight — blue border on the most profitable guaranteed tier
+        var cardIds = ['roi-card-starter', 'roi-card-foundation', 'roi-card-momentum', 'roi-card-authority'];
         for (var h = 0; h < cardIds.length; h++) {
           var card = document.getElementById(cardIds[h]);
-          if (card) {
-            card.style.border = '2px solid transparent';
-            card.style.background = '#f0f4f8';
-          }
+          if (card) { card.style.border = '2px solid transparent'; card.style.background = '#f0f4f8'; }
         }
         if (bestTier && bestTier.profit > 0) {
-          var bestIdx = tierLabels.indexOf(bestTier.t.label);
-          if (bestIdx >= 0) {
-            var bestCard = document.getElementById(cardIds[bestIdx]);
-            if (bestCard) {
-              bestCard.style.border = '2px solid #2E75B6';
-              bestCard.style.background = '#f0f7ff';
-            }
-          }
+          var bestCard = document.getElementById('roi-card-' + bestTier.t.label.toLowerCase());
+          if (bestCard) { bestCard.style.border = '2px solid #2E75B6'; bestCard.style.background = '#f0f7ff'; }
+        } else if (allLoss) {
+          // Highlight Starter when all guaranteed tiers are losses
+          var starterCard = document.getElementById('roi-card-starter');
+          if (starterCard) { starterCard.style.border = '2px solid #2E75B6'; starterCard.style.background = '#f0f7ff'; }
         }
 
         payoff.style.display = 'block';
@@ -4380,7 +4409,7 @@ document.addEventListener('DOMContentLoaded', function() {
       };
 
       document.getElementById('close-rate').onchange = function() {
-        if (parseFloat(document.getElementById('avg-value').value) >= 100) window.roiCalc();
+        if (parseFloat(document.getElementById('avg-value').value) >= 1) window.roiCalc();
       };
       document.getElementById('avg-value').oninput = function() {
         if (window._roiRevealed) window.roiCalc();
