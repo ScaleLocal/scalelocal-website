@@ -76,11 +76,11 @@
     @media (min-width: 1080px) { .plan-cards { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
     .plan-card { border-radius: 16px; padding: 32px; display: flex; flex-direction: column; transition: all 0.25s ease; }
-    .plan-card--starter { background: #f8fafb; border: 1px solid #e2e8f0; box-shadow: 0 2px 12px rgba(26,46,74,0.04); }
-    .plan-card--starter:hover { box-shadow: 0 6px 24px rgba(26,46,74,0.1); transform: translateY(-2px); }
-    .plan-card--starter .plan-name { color: #4a5a6e; }
+    .plan-card--starter { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
+    .plan-card--starter:hover { box-shadow: 0 8px 32px rgba(26,46,74,0.12); transform: translateY(-2px); }
+    .plan-card--starter .plan-name { color: #1a2e4a; }
     .plan-card--starter .plan-price { color: #1a2e4a; }
-    .plan-card--starter .plan-upgrade-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2E75B6; font-weight: 600; margin-top: 16px; padding: 10px 14px; background: rgba(46,117,182,0.06); border: 1px solid rgba(46,117,182,0.15); border-radius: 8px; line-height: 1.4; text-align: center; }
+    .plan-upgrade-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2E75B6; font-weight: 600; margin-top: 16px; padding: 10px 14px; background: rgba(46,117,182,0.06); border: 1px solid rgba(46,117,182,0.15); border-radius: 8px; line-height: 1.4; text-align: center; }
     .plan-card--standard { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
     .plan-card--standard:hover { box-shadow: 0 8px 32px rgba(26,46,74,0.12); transform: translateY(-2px); }
     .plan-card--featured { background: #1a2e4a; border: 2px solid #2ecc71; box-shadow: 0 8px 40px rgba(26,46,74,0.2); }
@@ -402,14 +402,14 @@
             <hr class="plan-divider--light">
             <ul class="plan-features">
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional 5-page website, live and hosted</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Chat &mdash; AI chat assistant on your site 24/7</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard &mdash; website traffic + chat conversations</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Chat &mdash; AI chat assistant 24/7</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard (traffic + chat data)</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">1 content update per month</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">SSL, mobile optimization, speed monitoring</span></li>
             </ul>
-            <div class="plan-card--starter plan-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
+            <div class="plan-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
             <div class="plan-cta-wrap">
-              <a href="/checkout?plan=starter" class="plan-cta" style="background:#2E75B6;color:#fff;">Get Started &rarr;</a>
+              <a href="/checkout?plan=starter" class="plan-cta">Get Started &rarr;</a>
             </div>
           </div>
 
@@ -423,21 +423,19 @@
             </div>
             <hr class="plan-divider--light">
             <ul class="plan-features">
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional 5-page website live in 48 hours</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Business Profile fully optimized + monthly posts</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Automated review request system (ReviewLocal)</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard &mdash; real-time lead tracking</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional website live in 48 hours</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Business Profile fully optimized</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ReviewLocal smart review funnel</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Chat on your website</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Tracking &mdash; call + lead source reporting</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Booking &mdash; online appointment scheduling</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Citation building across 50+ directories</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Database reactivation campaign at onboarding</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Personal account manager &mdash; direct contact, no tickets</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Tracking (call + lead tracking)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard &mdash; live reporting</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Personal account manager</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Monthly performance report</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Minimum 3 new leads/month &mdash; or we work for free</span></li>
             </ul>
-            <div class="plan-guarantee plan-guarantee--light">&#9989; Guaranteed: minimum 3 new leads/month by day 60 &mdash; or we work for free.</div>
+            <div class="plan-guarantee plan-guarantee--light">Minimum 3 leads/month guaranteed by day 60. No ad spend required.</div>
             <div class="plan-cta-wrap">
-              <a href="/checkout?plan=foundation" class="plan-cta">Build My Foundation Plan &rarr;</a>
+              <a href="/checkout?plan=foundation" class="plan-cta">Start with Foundation &rarr;</a>
             </div>
           </div>
 
@@ -446,24 +444,25 @@
             <span class="plan-badge">MOST POPULAR</span>
             <p class="plan-tier">MOMENTUM SYSTEM</p>
             <h3 class="plan-name">Momentum</h3>
-            <p class="plan-tagline">Dominate your local market with paid + organic.</p>
+            <p class="plan-tagline">Dominate your local market.</p>
             <div class="plan-price-block">
               <span class="plan-price">$1,297</span><span class="plan-period">/mo</span>
             </div>
             <hr class="plan-divider--dark">
             <ul class="plan-features">
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text"><em>Everything in Foundation, plus:</em></span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Guaranteed badge (ScaleLocal Lead Ads)</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">1 managed ad platform (Google or Meta) &mdash; ad spend included</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Everything in Foundation</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Maps / map pack ranking campaign</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Review response management &mdash; every review answered in 24hrs</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal AI Visibility &mdash; ChatGPT, Gemini, Perplexity optimization</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Full lead source attribution dashboard</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Weekly GBP posts + active profile management</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ReviewLocal included (saves $99/mo)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Lead Ads (Google Guaranteed badge)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Citation building &mdash; 50+ directories</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">1 managed ad platform (Google or Meta)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal AI Visibility (ChatGPT/Gemini/Perplexity)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Booking &mdash; appointment scheduling</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Minimum 8 new leads/month &mdash; or we work for free</span></li>
             </ul>
-            <div class="plan-guarantee plan-guarantee--dark">&#9989; Guaranteed: minimum 8 new leads/month by day 90 &mdash; or we work for free.</div>
+            <div class="plan-guarantee plan-guarantee--dark">Minimum 8 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="plan-cta-wrap">
-              <a href="/checkout?plan=momentum" class="plan-cta">Build My Momentum Plan &rarr;</a>
+              <a href="/checkout?plan=momentum" class="plan-cta">Start with Momentum &rarr;</a>
             </div>
           </div>
 
@@ -471,28 +470,28 @@
           <div class="plan-card plan-card--standard">
             <p class="plan-tier">AUTHORITY SYSTEM</p>
             <h3 class="plan-name">Authority</h3>
-            <p class="plan-tagline">Total market dominance. AI-powered. Never miss a lead.</p>
+            <p class="plan-tagline">Total market dominance.</p>
             <div class="plan-price-block">
               <span class="plan-price">$1,997</span><span class="plan-period">/mo</span>
             </div>
             <hr class="plan-divider--light">
             <ul class="plan-features">
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text"><em>Everything in Momentum, plus:</em></span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Everything in Momentum</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Both ad platforms (Google + Meta)</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal AI Receptionist included &mdash; answers calls, texts, chat 24/7 (only pay the setup fee)</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Both Google Ads AND Meta Ads managed simultaneously</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Retargeting campaigns for website visitors who didn&rsquo;t call</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Monthly blog post targeting local search intent</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">8-page website + monthly content updates</span></li>
-              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Quarterly Strategy Report &mdash; Matt&rsquo;s personal analysis</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal AI Visibility &mdash; full implementation</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Weekly GBP posts + active review response</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Quarterly Strategy Report &mdash; Matt&rsquo;s personal analysis delivered to your inbox</span></li>
               <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Priority support &mdash; 4-hour response SLA</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Minimum 15 new leads/month &mdash; or we work for free</span></li>
             </ul>
-            <div class="plan-guarantee plan-guarantee--light">&#9989; Guaranteed: minimum 15 new leads/month by day 90 &mdash; or we work for free.</div>
+            <div class="plan-guarantee plan-guarantee--light">Minimum 15 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="plan-cta-wrap">
-              <a href="/checkout?plan=authority" class="plan-cta">Build My Authority Plan &rarr;</a>
+              <a href="/checkout?plan=authority" class="plan-cta">Start with Authority &rarr;</a>
             </div>
           </div>
         </div>
-        <p class="plans-footer-note">Starter is month-to-month. Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. Longer commitments unlock waived setup fees and bonus months. Full details at checkout.</p>
+        <p class="plans-footer-note">Starter is month-to-month. Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. 6-month and 12-month commitments waive setup fees. 12-month gets your 12th month free.</p>
       </div>
     </section>
 

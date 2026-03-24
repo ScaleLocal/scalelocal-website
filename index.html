@@ -870,20 +870,21 @@
     }
 
     .service-card--starter {
-      background: #f8fafb;
+      background: #fff;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 2px 12px rgba(26,46,74,0.04);
+      box-shadow: 0 2px 16px rgba(26,46,74,0.06);
     }
     .service-card--starter:hover {
-      box-shadow: 0 6px 24px rgba(26,46,74,0.1);
+      box-shadow: 0 8px 32px rgba(26,46,74,0.12);
       transform: translateY(-2px);
     }
-    .service-card--starter .service-card-title { color: #4a5a6e; }
+    .service-card--starter .service-card-title { color: #1a2e4a; }
     .service-card--starter .service-tagline { color: #6b7a8d; }
     .service-card--starter .service-price-amount { color: #1a2e4a; }
     .service-card--starter .service-price-period { color: #6b7a8d; }
     .service-card--starter .service-feature-text { color: #1a2e4a; }
-    .service-card--starter .service-upgrade-note {
+    .service-card--starter .service-upgrade-note,
+    .service-upgrade-note {
       font-family: 'Inter', sans-serif;
       font-size: 0.75rem;
       color: #2E75B6;
@@ -895,10 +896,6 @@
       border-radius: 8px;
       line-height: 1.4;
       text-align: center;
-    }
-    .service-card--starter .service-cta {
-      background: #2E75B6;
-      color: #fff;
     }
 
     .service-card--standard {
@@ -2881,7 +2878,7 @@
             </ul>
             <div class="service-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
             <div class="service-cta-wrap">
-              <a href="/checkout?plan=starter" class="service-cta" style="background:#2E75B6;color:#fff;">Get Started &rarr;</a>
+              <a href="/checkout?plan=starter" class="service-cta">Get Started &rarr;</a>
             </div>
           </div>
           <div class="service-card service-card--standard">
