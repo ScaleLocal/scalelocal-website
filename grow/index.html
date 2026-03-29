@@ -6,12 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <title>You're Doing a Lot Right — Here's What's Missing | ScaleLocal</title>
-  <meta name="description" content="Your business has a website, customers, and momentum. But invisible gaps in your Google presence, reviews, and lead capture are sending potential customers to competitors. Here's what to fix — and what it's worth.">
+  <title>You're Doing a Lot Right â Here's What's Missing | ScaleLocal</title>
+  <meta name="description" content="Your business has a website, customers, and momentum. But invisible gaps in your Google presence, reviews, and lead capture are sending potential customers to competitors. Here's what to fix â and what it's worth.">
   <link rel="canonical" href="https://scalelocal.net/grow">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScaleLocal">
-  <meta property="og:title" content="You're Doing a Lot Right — Here's What's Missing">
+  <meta property="og:title" content="You're Doing a Lot Right â Here's What's Missing">
   <meta property="og:description" content="Your business has a website and customers. But invisible gaps are sending leads to competitors. Here's what to fix.">
   <meta property="og:image" content="https://scalelocal.net/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -25,7 +25,7 @@
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.6;color:#1a1a2e;background:#0f1f33}
 
-    /* Topbar — minimal, funnel page pattern */
+    /* Topbar â minimal, funnel page pattern */
     .topbar{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto}
     .topbar a{text-decoration:none}
     .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
@@ -147,7 +147,7 @@
   </style>
 </head>
 <body>
-  <!-- Minimal topbar — funnel page, no full nav -->
+  <!-- Minimal topbar â funnel page, no full nav -->
   <header class="topbar">
     <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
     <a href="/menu" class="topbar-link">See Plans &rarr;</a>
@@ -321,86 +321,73 @@
   </div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // ===== URL PARAM PERSONALIZATION =====
-    var params = new URLSearchParams(window.location.search);
-    var biz = params.get('biz');
-    var city = params.get('city');
-    var industry = params.get('industry');
-
-    if (biz) {
-      var b = decodeURIComponent(biz);
-      document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + b + '</span> is doing a lot right.<br>Here\u2019s what\u2019s costing you customers.';
-      document.getElementById('hero-sub').innerHTML = 'We took a look at ' + b + '\u2019s online presence' + (city ? ' in ' + decodeURIComponent(city) : '') + '. You\u2019ve got a website, real customers, and some Google visibility. But there are gaps between where you are and where you could be \u2014 and those gaps are quietly sending leads to competitors.';
-      document.getElementById('g-biz').value = b;
-      // Personalize the audit CTA URL
-      var auditLink = document.getElementById('btn-audit');
-      var auditUrl = '/snapshot';
-      if (biz || city) {
-        auditUrl += '?';
-        if (biz) auditUrl += 'biz=' + encodeURIComponent(b);
-        if (biz && city) auditUrl += '&';
-        if (city) auditUrl += 'city=' + encodeURIComponent(decodeURIComponent(city));
-      }
-      auditLink.href = auditUrl;
+document.addEventListener('DOMContentLoaded', function() {
+  var params = new URLSearchParams(window.location.search);
+  var biz = params.get('biz');
+  var city = params.get('city');
+  var industry = params.get('industry');
+  if (biz) {
+    var b = decodeURIComponent(biz);
+    document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + b + '</span> is doing a lot right.<br>Here’s what’s costing you customers.';
+    document.getElementById('hero-sub').innerHTML = 'We took a look at ' + b + '’s online presence' + (city ? ' in ' + decodeURIComponent(city) : '') + '. You’ve got a website, real customers, and some Google visibility. But there are gaps between where you are and where you could be — and those gaps are quietly sending leads to competitors.';
+    document.getElementById('g-biz').value = b;
+    var auditLink = document.getElementById('btn-audit');
+    var auditUrl = '/snapshot';
+    if (biz || city) {
+      auditUrl += '?';
+      if (biz) auditUrl += 'biz=' + encodeURIComponent(b);
+      if (biz && city) auditUrl += '&';
+      if (city) auditUrl += 'city=' + encodeURIComponent(decodeURIComponent(city));
     }
-
-    // ===== FADE-IN ON SCROLL =====
-    var fades = document.querySelectorAll('.fade-up');
-    function checkFade() {
-      for (var i = 0; i < fades.length; i++) {
-        var rect = fades[i].getBoundingClientRect();
-        if (rect.top < window.innerHeight - 60) {
-          fades[i].classList.add('vis');
-        }
-      }
+    auditLink.href = auditUrl;
+  }
+  var fades = document.querySelectorAll('.fade-up');
+  function checkFade() {
+    for (var i = 0; i < fades.length; i++) {
+      var rect = fades[i].getBoundingClientRect();
+      if (rect.top < window.innerHeight - 60) { fades[i].classList.add('vis'); }
     }
-    checkFade();
-    window.addEventListener('scroll', checkFade, { passive: true });
-
-    // ===== "I'd rather talk" toggle =====
-    document.getElementById('btn-call').onclick = function() {
-      document.getElementById('alt-form').classList.add('vis');
-      document.getElementById('cta-options').style.display = 'none';
-      document.getElementById('cta-trust').style.display = 'none';
-      document.getElementById('g-name').focus();
-    };
-
-    // ===== Phone formatting =====
-    document.getElementById('g-phone').addEventListener('input', function() {
-      var d = this.value.replace(/\D/g, '');
-      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
-      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
-      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
-    });
-
-    // ===== Form submit =====
-    document.getElementById('grow-form').onsubmit = function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('g-btn');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      var ghl = new FormData();
-      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
-      ghl.append('first_name', document.getElementById('g-name').value.trim().split(' ')[0]);
-      ghl.append('last_name', document.getElementById('g-name').value.trim().split(' ').slice(1).join(' '));
-      ghl.append('email', document.getElementById('g-email').value.trim());
-      ghl.append('phone', document.getElementById('g-phone').value.trim());
-      ghl.append('companyName', document.getElementById('g-biz').value.trim());
-      ghl.append('source', 'grow');
-
-      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
-        method: 'POST', body: ghl, mode: 'no-cors'
-      }).finally(function() {
-        document.getElementById('grow-form').style.display = 'none';
-        document.querySelector('#alt-form p').style.display = 'none';
-        document.getElementById('g-confirm').classList.add('vis');
-      });
-      return false;
-    };
+  }
+  checkFade();
+  window.addEventListener('scroll', checkFade, { passive: true });
+  document.getElementById('btn-call').onclick = function() {
+    document.getElementById('alt-form').classList.add('vis');
+    document.getElementById('cta-options').style.display = 'none';
+    document.getElementById('cta-trust').style.display = 'none';
+    document.getElementById('g-name').focus();
+  };
+  document.getElementById('g-phone').addEventListener('input', function() {
+    var d = this.value.replace(/\D/g, '');
+    if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+    else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+    else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
   });
-  </script>
+  document.getElementById('grow-form').onsubmit = function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('g-btn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var name = document.getElementById('g-name').value.trim();
+    var nameParts = name.split(' ');
+    var payload = {
+      first_name: nameParts[0],
+      last_name: nameParts.slice(1).join(' '),
+      email: document.getElementById('g-email').value.trim(),
+      phone: document.getElementById('g-phone').value.trim(),
+      business_name: document.getElementById('g-biz').value.trim(),
+      source: 'grow'
+    };
+    fetch('/api/submit-snapshot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).finally(function() {
+      document.getElementById('grow-form').style.display = 'none';
+      document.querySelector('#alt-form p').style.display = 'none';
+      document.getElementById('g-confirm').classList.add('vis');
+    });
+    return false;
+  };
+});
+</script>
 </body>
 </html>
