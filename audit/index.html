@@ -6,12 +6,12 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <title>Your Google Ads Are Leaking Money — Here's the Proof | ScaleLocal</title>
-  <meta name="description" content="We analyzed your Google Ads, your website, and your top competitors. Here's what we found — and what a 20% improvement in ROI would mean for your business.">
+  <title>Your Google Ads Are Leaking Money â Here's the Proof | ScaleLocal</title>
+  <meta name="description" content="We analyzed your Google Ads, your website, and your top competitors. Here's what we found â and what a 20% improvement in ROI would mean for your business.">
   <link rel="canonical" href="https://scalelocal.net/audit">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScaleLocal">
-  <meta property="og:title" content="Your Google Ads Are Leaking Money — Here's the Proof">
+  <meta property="og:title" content="Your Google Ads Are Leaking Money â Here's the Proof">
   <meta property="og:description" content="We analyzed your ads, your website, and your competitors. Here's what a 20% ROI improvement looks like.">
   <meta property="og:image" content="https://scalelocal.net/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -143,7 +143,7 @@
         <div class="finding-icon icon-yellow">&#9888;</div>
         <span class="finding-title">SEO could replace a portion of your ad spend</span>
       </div>
-      <p class="finding-body">Businesses ranking in the Google map pack for their core services get <strong>free, high-intent leads every day</strong> — the same leads you&rsquo;re currently paying $25&ndash;$75 per click for through ads. A proper local SEO foundation doesn&rsquo;t replace ads &mdash; it <strong>reduces your dependence on them</strong> over time, improving your blended cost per lead.</p>
+      <p class="finding-body">Businesses ranking in the Google map pack for their core services get <strong>free, high-intent leads every day</strong> â the same leads you&rsquo;re currently paying $25&ndash;$75 per click for through ads. A proper local SEO foundation doesn&rsquo;t replace ads &mdash; it <strong>reduces your dependence on them</strong> over time, improving your blended cost per lead.</p>
       <span class="finding-stat warn">Long-term play &mdash; compounds monthly</span>
     </div>
 
@@ -208,54 +208,48 @@
   </div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var params = new URLSearchParams(window.location.search);
-    var biz = params.get('biz');
-    var industry = params.get('industry');
-    var city = params.get('city');
-
-    // Personalize if URL params present (from CoWork outreach email)
-    if (biz) {
-      document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + decodeURIComponent(biz) + '</span> — your Google Ads are running. But are they performing?';
-      document.getElementById('hero-sub').innerHTML = 'We analyzed the ad campaigns, website, and competitive landscape for ' + decodeURIComponent(biz) + (city ? ' in ' + decodeURIComponent(city) : '') + '. Here\u2019s what we found \u2014 and what a 20% improvement in ROI would look like.';
-      if (biz) document.getElementById('a-biz').value = decodeURIComponent(biz);
-    }
-
-    // Phone formatting
-    document.getElementById('a-phone').addEventListener('input', function() {
-      var d = this.value.replace(/\D/g,'');
-      if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
-      else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
-      else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
-    });
-
-    // Form submit
-    document.getElementById('audit-form').onsubmit = function(e) {
-      e.preventDefault();
-      var btn = document.getElementById('a-btn');
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-
-      var ghl = new FormData();
-      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
-      ghl.append('first_name', document.getElementById('a-name').value.trim().split(' ')[0]);
-      ghl.append('last_name', document.getElementById('a-name').value.trim().split(' ').slice(1).join(' '));
-      ghl.append('email', document.getElementById('a-email').value.trim());
-      ghl.append('phone', document.getElementById('a-phone').value.trim());
-      ghl.append('companyName', document.getElementById('a-biz').value.trim());
-      ghl.append('source', 'audit');
-
-      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
-        method: 'POST', body: ghl, mode: 'no-cors'
-      }).finally(function() {
-        document.getElementById('audit-form').style.display = 'none';
-        document.querySelector('.cta-trust').style.display = 'none';
-        document.getElementById('a-confirm').classList.add('vis');
-      });
-      return false;
-    };
+document.addEventListener('DOMContentLoaded', function() {
+  var params = new URLSearchParams(window.location.search);
+  var biz = params.get('biz');
+  var industry = params.get('industry');
+  var city = params.get('city');
+  if (biz) {
+    document.getElementById('hero-h1').innerHTML = '<span style="color:#2ecc71">' + decodeURIComponent(biz) + '</span> — your Google Ads are running. But are they performing?';
+    document.getElementById('hero-sub').innerHTML = 'We analyzed the ad campaigns, website, and competitive landscape for ' + decodeURIComponent(biz) + (city ? ' in ' + decodeURIComponent(city) : '') + '. Here’s what we found — and what a 20% improvement in ROI would look like.';
+    document.getElementById('a-biz').value = decodeURIComponent(biz);
+  }
+  document.getElementById('a-phone').addEventListener('input', function() {
+    var d = this.value.replace(/\D/g,'');
+    if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+    else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+    else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
   });
-  </script>
+  document.getElementById('audit-form').onsubmit = function(e) {
+    e.preventDefault();
+    var btn = document.getElementById('a-btn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var name = document.getElementById('a-name').value.trim();
+    var nameParts = name.split(' ');
+    var payload = {
+      first_name: nameParts[0],
+      last_name: nameParts.slice(1).join(' '),
+      email: document.getElementById('a-email').value.trim(),
+      phone: document.getElementById('a-phone').value.trim(),
+      business_name: document.getElementById('a-biz').value.trim(),
+      source: 'audit'
+    };
+    fetch('/api/submit-snapshot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).finally(function() {
+      document.getElementById('audit-form').style.display = 'none';
+      document.querySelector('.cta-trust').style.display = 'none';
+      document.getElementById('a-confirm').classList.add('vis');
+    });
+    return false;
+  };
+});
+</script>
 </body>
 </html>
