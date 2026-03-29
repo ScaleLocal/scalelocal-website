@@ -199,8 +199,11 @@
       return;
     }
 
+    function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
+    var cfn = fn ? capFirst(fn) : '';
     // Personalize greeting
-    document.getElementById('greeting').textContent = 'Great, ' + cfn + ' — we\'ve got your info!';
+    document.getElementById('greeting').textContent = cfn ? 'Great, ' + cfn + ' — we\'ve got your info!' : 'Great — we\'ve got your info!';
+    // greeting set below after cfn is defined
 
     // $97 Deep Audit button — links to Stripe payment link with prefilled email
     var stripeUrl = 'https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00';
@@ -209,8 +212,6 @@
     document.getElementById('btn-upgrade').href = upgradeUrl;
 
     // Skip button — show free confirmation
-    function capFirst(s) { return s.charAt(0).toUpperCase() + s.slice(1).toLowerCase(); }
-    var cfn = capFirst(fn);
 
     function showDoneProgress() {
       var steps = document.querySelectorAll('.step');
