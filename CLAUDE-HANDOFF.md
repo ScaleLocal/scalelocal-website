@@ -1,12 +1,41 @@
 # ScaleLocal — Claude Handoff Document
-Updated: March 29, 2026 — ALL TASKS COMPLETE ✅
+Last Updated: March 29, 2026 — ALL SETUP COMPLETE
+
+---
+
+## HOW TO START A NEW CLAUDE SESSION
+Paste this entire document at the start of a new chat and say:
+"Continue from the ScaleLocal handoff doc. The task today is [whatever you need]."
+Claude will have full context and can pick up immediately.
+
+---
+
+## OPEN TASK LIST
+
+### Matt Must Do Manually (Before Next Session)
+- [ ] Accept GHL invitation at alex@scalelocal.net (set password, log in)
+- [ ] Accept GHL invitation at olivia@scalelocal.net (set password, log in)
+- [ ] Delete test contacts from GHL Contacts:
+  - Sarah Connor (sarah.connor.greenthumb@example.com)
+  - Payload Capture (payload.capture.ghl@example.com)
+  - Capture Test (capture.test.payload@...)
+  - Matt Yassen test contact (MattYassen@yahoo.com)
+- [ ] Check yahoo inbox (MattYassen@yahoo.com) — confirm Snapshot Delivery Sequence emails arriving from alex@hi.scalelocal.net
+
+### Future / Next Claude Session
+- [ ] Cold email list upload — when ready for outreach, load prospect list and enroll in sequences (Tue-Thu 9-11AM only, DNC check first)
+- [ ] Buy tracking phone numbers via Phone System for call tracking per campaign
+- [ ] Set up Google review request automation (post job-completion trigger)
+- [ ] Configure ScaleLocal Chat (chatbot) for website
+- [ ] Set up ScaleLocal Booking (calendar) for prospect calls
 
 ---
 
 ## PROJECT OVERVIEW
-- **Product:** ScaleLocal — white-label local business marketing SaaS built on GHL
-- **Website:** https://scalelocal.net (hosted on Vercel, DNS at Netlify)
+- **Product:** ScaleLocal — white-label local business marketing platform (built on GHL)
+- **Website:** https://scalelocal.net
 - **GitHub Repo:** https://github.com/ScaleLocal/scalelocal-website
+- **GitHub PAT:** Stored in Matt's 1Password / provided at session start — do not hardcode here
 - **GHL Sub-account:** ScaleLocal | Location ID: cbDr5Xe384SCZnhPMvuZ
 - **GHL Login:** matt@scalelocal.net
 - **Business Phone:** 978.662.7580
@@ -15,14 +44,14 @@ Updated: March 29, 2026 — ALL TASKS COMPLETE ✅
 
 ## CRITICAL BRAND RULES (NEVER VIOLATE)
 - NEVER mention GHL, Bolt.new, or any underlying platform to clients — ScaleLocal IS the product
-- Named persona: **Alex from ScaleLocal** for all prospect-facing emails
+- Named personas: **Alex** and **Olivia** from ScaleLocal — all prospect-facing communication
 - From Email: alex@hi.scalelocal.net | Reply-to: alex@scalelocal.net
-- **$69 audit upgrade offer lives ONLY in Email 3 of Snapshot Delivery Sequence** — never on website, never in cold outreach
-- Cold email window: Tuesday–Thursday, 9–11AM local only
-- DNC check before every sequence load
+- **$69 audit upgrade offer lives ONLY in Email 3 of Snapshot Delivery Sequence** — never on website, never in cold outreach, nowhere else
+- Cold email window: Tuesday-Thursday, 9-11AM local only
+- DNC check before every sequence load — no exceptions
 - NEVER send Stripe payment links directly — prepare only, flag Matt
 - NEVER send GHL contracts/proposals without Matt's review
-- Matt must enter his own personal cell number — never enter it for him
+- NEVER enter Matt's personal cell — he must enter it himself
 
 ### GHL Brand Name Substitutions
 | GHL Term | ScaleLocal Term |
@@ -35,122 +64,120 @@ Updated: March 29, 2026 — ALL TASKS COMPLETE ✅
 
 ---
 
-## GHL CONFIGURATION — COMPLETE ✅
+## GHL CONFIGURATION — COMPLETE
 
-### Pipelines (both built)
-1. **ScaleLocal Sales Pipeline** — 9 stages
-2. **AI Website Agent Pipeline** — 4 stages
-
-### Workflows (all Published ✅)
-| Workflow | Trigger | Status |
+### Staff / Team Members
+| Name | Email | Role |
 |---|---|---|
-| New Lead Notification + Assignment | Contact Created | Published |
-| Source Auto-Tagger | Contact Created | Published |
-| Snapshot | Contact Tag: snapshot-lead | Published |
-| Snapshot Delivery Sequence | Contact Tag: snapshot-lead | Published |
-| Free Website Delivery Sequence | Contact Tag: free-website-lead | Published |
-| Stripe Payment Handler | Contact Tag: deep-audit-paid | Published |
+| Alex ScaleLocal | alex@scalelocal.net | ACCOUNT-ADMIN |
+| Olivia ScaleLocal | olivia@scalelocal.net | ACCOUNT-ADMIN |
 
-### Snapshot Delivery Sequence Detail
-- Email 1: "Your free digital snapshot for {{contact.company_name}} is ready, {{contact.first_name}}"
-- Wait: 2 days
-- Email 2: "Did you get a chance to look at your snapshot, {{contact.first_name}}?"
-- Wait: 3 days
-- Email 3: "Last note on your snapshot + a special offer, {{contact.first_name}}"
-  - **THIS IS THE ONLY PLACE THE $69 AUDIT OFFER APPEARS**
+### Lead Assignment
+- Workflow: New Lead Notification + Assignment
+- Method: Round-robin, equally split between Alex and Olivia
+- Only applies to unassigned contacts
+- Follow-up task auto-assigned to Contact's Assigned User
 
-### Stripe Payment Handler Detail
-Trigger: tag `deep-audit-paid` →
-1. Add tag: `authority-client`
-2. Create/Update Opportunity → ScaleLocal Sales Pipeline → Booked stage → $69
-3. Send Email: "You're confirmed — your $69 website audit is booked, {{contact.first_name}}"
-4. Internal alert to matt@scalelocal.net: "🔔 New $69 Audit Payment..."
+### Pipelines
+1. ScaleLocal Sales Pipeline — 9 stages
+2. AI Website Agent Pipeline — 4 stages
 
-### Free Website Delivery Sequence Detail
-- Email 1 → Wait 2 days → Email 2 → Wait 3 days → Email 3 → Wait 4 days → Email 4
+### Workflows (all Published)
+| Workflow | Trigger | Notes |
+|---|---|---|
+| New Lead Notification + Assignment | Contact Created | Round-robin Alex/Olivia, notify, task, create opportunity |
+| Source Auto-Tagger | Contact Created | Tags by source path |
+| Snapshot | Contact Tag: snapshot-lead | Snapshot delivery |
+| Snapshot Delivery Sequence | Contact Tag: snapshot-lead | 3 emails — $69 offer in Email 3 only |
+| Free Website Delivery Sequence | Contact Tag: free-website-lead | 4 emails |
+| Stripe Payment Handler | Contact Tag: deep-audit-paid | Confirms payment, notifies Matt |
+
+### Snapshot Delivery Sequence
+- Email 1: Snapshot ready
+- Wait 2 days
+- Email 2: Did you get a chance to look?
+- Wait 3 days
+- Email 3: Last note + $69 one-time upgrade offer (ONLY place this appears)
+
+### Stripe Payment Handler
+Trigger: tag deep-audit-paid
+1. Add tag: authority-client
+2. Create opportunity in ScaleLocal Sales Pipeline, Booked stage, $69
+3. Email contact confirmation
+4. Internal alert to matt@scalelocal.net
 
 ### Phone / Call Forwarding
 - Business number: 978.662.7580
 - Forwarding timeout: 20 seconds
-- External cell: Matt entered manually ✅
-
-### Matt Must Still Do
-- Set up staff member profile so tasks can be auto-assigned
-- Delete test contacts from GHL Contacts: Sarah Connor, Payload Capture, Capture Test, and MattYassen@yahoo.com test contacts
-- Verify email sequences send correctly from alex@hi.scalelocal.net (check for first sequence triggered on test submissions)
+- External cell: Matt entered manually
 
 ---
 
-## WEBSITE — scalelocal.net — FULLY WORKING ✅
+## WEBSITE — scalelocal.net — FULLY WORKING
 
 ### Infrastructure
-- **Hosting:** Vercel project: scalelocal-website (matts-projects-ec31e28f)
-- **Vercel URL:** vercel.com/matts-projects-ec31e28f/scalelocal-website
-- **DNS:** Netlify DNS panel (domain registered/managed at Netlify)
-  - A record: scalelocal.net → 216.198.79.1 (Vercel)
-  - CNAME: www → 95de4b6ba3a5ed29.vercel-dns-017.com (Vercel)
-  - NOTE: Two NETLIFY-type records were deleted (were overriding the A/CNAME). Do NOT re-add them.
-- **Domain:** Both scalelocal.net and www.scalelocal.net → Valid Configuration ✅
+- Hosting: Vercel — project scalelocal-website (matts-projects-ec31e28f)
+- DNS: Netlify DNS panel
+  - A record: scalelocal.net -> 216.198.79.1
+  - CNAME: www -> 95de4b6ba3a5ed29.vercel-dns-017.com
+  - WARNING: Do NOT re-add NETLIFY-type records — deleted March 29, caused conflicts
+- Auto-deploys on every push to GitHub main branch
 
-### GHL API Token (CRITICAL)
-- **Token type:** Location-level Private Integration (sub-account level)
-- **Integration name:** "Coworker" in ScaleLocal sub-account Settings → Private Integrations
-- **Vercel env var:** GHL_API_KEY (set in Vercel project settings)
-- **Active token:** pit-f074b258-6b35-4d69-b928-6cfc73dc7144 (rotated March 29, 2026)
-- **Old token:** pit-0580...08e4 (expires ~7 days after rotation)
-- **IMPORTANT:** Must use SUB-ACCOUNT level token, NOT agency-level. Agency PIT tokens return 401 "not authorized for this scope" on contacts API.
-- Scopes required: contacts.write ✅
+### GHL API Token
+- Type: Sub-account (location-level) Private Integration — NOT agency-level
+- Integration name: "Coworker" in ScaleLocal sub-account Settings -> Private Integrations
+- Vercel env var: GHL_API_KEY
+- Current token set: March 29, 2026 (valid; old token expires ~7 days after rotation)
+- WARNING: Agency-level tokens return 401 on contacts API — must use sub-account token
 
 ### Serverless Function: api/submit-snapshot.js
-- Receives POST with JSON: {first_name, last_name, email, phone, business_name, city, industry, source}
-- Routes by `source` field:
-  - snapshot → tag: snapshot-lead, source: "Website Snapshot Request"
-  - audit → tag: audit-lead, source: "Website Audit Request"
-  - grow → tag: grow-lead, source: "Website Grow Request"
-  - free-website → tag: free-website-lead, source: "Website Free-Website Request"
-- POSTs to: POST https://services.leadconnectorhq.com/contacts/
-- Auth: Bearer {GHL_API_KEY}
-- Version: 2021-07-28
-- Always returns 200 to client (never blocks UX flow)
+Creates GHL contacts from all website form submissions. Routes by source field:
+| source value | GHL Tag | GHL Source Label |
+|---|---|---|
+| snapshot | snapshot-lead | Website Snapshot Request |
+| audit | audit-lead | Website Audit Request |
+| grow | grow-lead | Website Grow Request |
+| free-website | free-website-lead | Website Free-Website Request |
 
-### Forms — All 4 Fixed and Tested ✅
-| Page | Form Source | Tag | Confirmation | Tested |
-|---|---|---|---|---|
-| /snapshot | snapshot | snapshot-lead | Redirect to /snapshot/upgrade/ | ✅ |
-| /audit | audit | audit-lead | Inline "You're on the list" | ✅ |
-| /grow | grow | grow-lead | Inline "You're on the list" | ✅ |
-| /free-website | free-website | free-website-lead | Inline "You're in" | ✅ |
+### Forms — All Fixed and Tested
+| Page | Confirmation UX |
+|---|---|
+| /snapshot | Redirect to /snapshot/upgrade/ with prefilled URL params |
+| /audit | Inline confirmation: "You're on the list" |
+| /grow | Inline confirmation after "I'd rather talk" toggle |
+| /free-website | Inline confirmation: "You're in" |
 
 ### Upgrade Page (/snapshot/upgrade/)
-- Shows upsell: Basic Snapshot ($0) vs Deep Audit ($97 one-time)
-- $97 is the PUBLIC website price — separate from the $69 email-only offer
+- Shows upsell: Basic Snapshot (free) vs Deep Audit ($97)
+- $97 is the PUBLIC website price — completely separate from the $69 email-only offer
 - Stripe link: https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00
-- "No thanks" button shows free confirmation inline (no page reload)
-
-### GitHub Commits (March 29, 2026)
-| Commit SHA | Description |
-|---|---|
-| 1549c67 | Add Vercel serverless function for GHL snapshot form submission |
-| 698d110 | Add vercel.json config |
-| 3a5f918 | Fix snapshot form: POST to Vercel /api/submit-snapshot |
-| dbfdcc9 | Fix upgrade page: hoist capFirst/cfn before greeting assignment |
-| 1c7254a | Fix: add source-based tagging for audit, grow, free-website pages |
-| 0c5cf86 | Fix: audit page - use /api/submit-snapshot |
-| 8ed9944 | Fix: grow page - use /api/submit-snapshot |
-| a27cf1d | Fix: free-website page - use /api/submit-snapshot |
 
 ---
 
 ## PRICING REFERENCE
-- **$0** — Basic Free Snapshot (delivered by Snapshot Delivery Sequence)
-- **$97** — Deep Audit (public website price on /snapshot/upgrade page)
-- **$69** — Deep Audit one-time offer (EMAIL ONLY — Email 3 of Snapshot Delivery Sequence)
-- **$1,297/mo** — ScaleLocal Momentum System (on /grow page)
-- **$497** — Keep the free website if you love it (on /free-website page)
+| Price | What | Where it appears |
+|---|---|---|
+| $0 | Basic Snapshot | Delivered via Snapshot Delivery Sequence |
+| $97 | Deep Audit | Public price on /snapshot/upgrade page |
+| $69 | Deep Audit one-time offer | Email 3 of Snapshot Delivery Sequence ONLY |
+| $1,297/mo | ScaleLocal Momentum System | /grow page |
+| $497 | Keep the free website | /free-website page |
 
 ---
 
-## HOW TO START A NEW CLAUDE SESSION
-Paste this entire document at the start of the new chat and say:
-"Continue from the ScaleLocal handoff doc. The immediate task is [whatever is next]."
-Claude will have full context and can pick up immediately.
+## KEY TECHNICAL REFERENCE
+
+### GHL Contacts API
+- Endpoint: POST https://services.leadconnectorhq.com/contacts/
+- Auth header: Authorization: Bearer {GHL_API_KEY}
+- Version header: 2021-07-28
+- Location ID: cbDr5Xe384SCZnhPMvuZ
+
+### Token Rotation (if GHL_API_KEY expires)
+1. GHL -> sub-account -> Settings -> Private Integrations -> Coworker -> rotate token
+2. Vercel -> project -> Settings -> Environment Variables -> update GHL_API_KEY
+3. Redeploy (or any push to main triggers auto-deploy)
+
+### Vercel Project
+- URL: vercel.com/matts-projects-ec31e28f/scalelocal-website
+- Deployments tab shows full history and live status
