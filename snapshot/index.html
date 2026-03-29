@@ -180,57 +180,49 @@
     if (prm.get('email')) document.getElementById('s-email').value = decodeURIComponent(prm.get('email'));
     if (prm.get('phone')) document.getElementById('s-phone').value = decodeURIComponent(prm.get('phone'));
 
-    // Form submission — Option B: native form + GHL fetch + redirect to upsell
+    // Form submission — POST to Vercel API function, then redirect to upsell page
     document.getElementById('snapshot-form').onsubmit = function(e) {
       e.preventDefault();
       var btn = document.getElementById('s-btn');
       btn.disabled = true;
       btn.textContent = 'Submitting...';
 
-      var fn = document.getElementById('s-fn').value.trim();
-      var ln = document.getElementById('s-ln').value.trim();
-      var email = document.getElementById('s-email').value.trim();
-      var phone = document.getElementById('s-phone').value.trim();
-      var biz = document.getElementById('s-biz').value.trim();
-      var city = document.getElementById('s-city').value.trim();
+      var fn       = document.getElementById('s-fn').value.trim();
+      var ln       = document.getElementById('s-ln').value.trim();
+      var email    = document.getElementById('s-email').value.trim();
+      var phone    = document.getElementById('s-phone').value.trim();
+      var biz      = document.getElementById('s-biz').value.trim();
+      var city     = document.getElementById('s-city').value.trim();
       var industry = document.getElementById('s-industry').value;
 
-      // Submit to GHL in the background
-      var ghl = new FormData();
-      ghl.append('formId', 'tfnHv9TG6B8I6gf6Varo');
-      ghl.append('location_id', 'cbDr5Xe384SCZnhPMvuZ');
-      ghl.append('first_name', fn);
-      ghl.append('last_name', ln);
-      ghl.append('email', email);
-      ghl.append('phone', phone);
-      ghl.append('companyName', biz);
-      ghl.append('city', city);
-      ghl.append('source', 'snapshot');
-
-      // Build redirect URL (matches /snapshot/upgrade param expectations)
       var redirectUrl = '/snapshot/upgrade/?fn=' + encodeURIComponent(fn)
         + '&ln=' + encodeURIComponent(ln)
-        + '&e=' + encodeURIComponent(email)
-        + '&p=' + encodeURIComponent(phone)
-        + '&b=' + encodeURIComponent(biz)
-        + '&c=' + encodeURIComponent(city)
-        + '&i=' + encodeURIComponent(industry);
+        + '&e='  + encodeURIComponent(email)
+        + '&p='  + encodeURIComponent(phone)
+        + '&b='  + encodeURIComponent(biz)
+        + '&c='  + encodeURIComponent(city)
+        + '&i='  + encodeURIComponent(industry);
 
-      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo', {
+      // POST to our Vercel serverless function — it handles GHL server-side
+      fetch('/api/submit-snapshot', {
         method: 'POST',
-        body: ghl,
-        mode: 'no-cors'
-      }).then(function() {
-        window.location.href = redirectUrl;
-      }).catch(function() {
-        // no-cors won't actually reject on HTTP errors
-        // redirect anyway — contact was likely still created
-        window.location.href = redirectUrl;
-      });
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name:    fn,
+          last_name:     ln,
+          email:         email,
+          phone:         phone,
+          business_name: biz,
+          city:          city,
+          industry:      industry
+        })
+      })
+      .then(function() { window.location.href = redirectUrl; })
+      .catch(function() { window.location.href = redirectUrl; });
 
       return false;
     };
   });
-  </script>
+</script>
 </body>
 </html>
