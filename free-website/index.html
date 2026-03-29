@@ -8,7 +8,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <title>ScaleLocal | We&rsquo;d Like to Build You a Free Website</title>
-  <meta name="description" content="ScaleLocal would like to build your business a professional website — on us. No catch. No obligation. See if you qualify.">
+  <meta name="description" content="ScaleLocal would like to build your business a professional website â on us. No catch. No obligation. See if you qualify.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -99,25 +99,42 @@
   </div>
 
   <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var form = document.getElementById('fw-form');
-    form.onsubmit = function(e) {
-      e.preventDefault();
-      var ghl = new FormData();
-      ghl.append('formId','tfnHv9TG6B8I6gf6Varo');
-      ghl.append('business_name', document.getElementById('fw-biz').value);
-      ghl.append('first_name', document.getElementById('fw-name').value);
-      ghl.append('phone', document.getElementById('fw-phone').value);
-      ghl.append('email', document.getElementById('fw-email').value);
-      ghl.append('source', 'free-website');
-      fetch('https://api.leadconnectorhq.com/widget/form/tfnHv9TG6B8I6gf6Varo',{method:'POST',body:ghl,mode:'no-cors'}).catch(function(){});
+document.addEventListener('DOMContentLoaded', function() {
+  var form = document.getElementById('fw-form');
+  // Phone formatting
+  document.getElementById('fw-phone').addEventListener('input', function() {
+    var d = this.value.replace(/\D/g, '');
+    if (d.length <= 3) { this.value = d.length ? '(' + d : ''; }
+    else if (d.length <= 6) { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3); }
+    else { this.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10); }
+  });
+  form.onsubmit = function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('.fw-btn');
+    btn.disabled = true; btn.textContent = 'Sending...';
+    var name = document.getElementById('fw-name').value.trim();
+    var nameParts = name.split(' ');
+    var payload = {
+      first_name: nameParts[0],
+      last_name: nameParts.slice(1).join(' '),
+      email: document.getElementById('fw-email').value.trim(),
+      phone: document.getElementById('fw-phone').value.trim(),
+      business_name: document.getElementById('fw-biz').value.trim(),
+      source: 'free-website'
+    };
+    fetch('/api/submit-snapshot', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).finally(function() {
       form.style.display = 'none';
       document.querySelector('.fw-why').style.display = 'none';
       document.getElementById('fw-confirm').classList.add('vis');
-      window.scrollTo({top:0,behavior:'smooth'});
-      return false;
-    };
-  });
-  </script>
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    return false;
+  };
+});
+</script>
 </body>
 </html>
