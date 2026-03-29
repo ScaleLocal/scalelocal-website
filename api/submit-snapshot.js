@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // CORS — allow scalelocal.net
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -13,48 +12,37 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  const FORM_ID = 'tfnHv9TG6B8I6gf6Varo';
+  const GHL_API_KEY = process.env.GHL_API_KEY;
   const GHL_LOCATION_ID = 'cbDr5Xe384SCZnhPMvuZ';
 
   try {
-    // Submit via GHL form survey endpoint (no auth required)
-    const formPayload = {
-      formId: FORM_ID,
-      locationId: GHL_LOCATION_ID,
-      name: first_name + ' ' + (last_name || ''),
-      email: email,
-      phone: phone || '',
-      field_lkdTq3JXTWcuK9JtIkqK: business_name || '',
-      city: city || '',
-      industry_6g0rbqdq: industry || '',
-      formData: {
-        first_name: first_name,
-        last_name: last_name || '',
-        email: email,
-        phone: phone || '',
-        business_name: business_name || '',
-        city: city || '',
-        industry: industry || ''
-      }
-    };
-
-    const ghlRes = await fetch('https://backend.leadconnectorhq.com/forms/form-survey-event', {
+    const ghlRes = await fetch('https://services.leadconnectorhq.com/contacts/', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
-        'Referer': 'https://scalelocal.net/snapshot'
+        'Authorization': 'Bearer ' + GHL_API_KEY,
+        'Version': '2021-07-28',
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(formPayload)
+      body: JSON.stringify({
+        locationId: GHL_LOCATION_ID,
+        firstName: first_name,
+        lastName: last_name || '',
+        email: email,
+        phone: phone || '',
+        companyName: business_name || '',
+        city: city || '',
+        source: 'Website Snapshot Request',
+        tags: ['snapshot-lead']
+      })
     });
 
-    const ghlText = await ghlRes.text();
-    console.log('GHL form response:', ghlRes.status, ghlText);
+    const ghlData = await ghlRes.json();
+    console.log('GHL contacts response:', ghlRes.status, JSON.stringify(ghlData).substring(0, 200));
 
     if (!ghlRes.ok) {
-      console.error('GHL form error:', ghlRes.status, ghlText);
+      console.error('GHL contacts error:', ghlRes.status, JSON.stringify(ghlData));
     }
 
-    // Always return success to client — don't block the upsell redirect
     return res.status(200).json({ ok: true });
 
   } catch (err) {
