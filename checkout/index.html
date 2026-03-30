@@ -271,7 +271,7 @@
       <div id="os-footer" style="display:none">
         <hr class="os-div">
         <div class="os-total"><span>Due today</span><span id="os-today">$0</span></div>
-        <div class="os-then"><span>Then monthly</span><span id="os-mo">$0/mo</span></div>
+        <div class="os-then" id="os-then-row"><span>Then monthly</span><span id="os-mo">$0/mo</span></div>
         <div id="os-bonus-wrap"></div>
         <div id="os-guar-wrap"></div>
       </div>
@@ -393,6 +393,7 @@
       body.innerHTML=html;
       document.getElementById('os-today').textContent='$'+fmt(todayTotal);
       document.getElementById('os-mo').textContent=monthlyTotal>0?'$'+fmt(monthlyTotal)+'/mo':'One-time only';
+      document.getElementById('os-then-row').style.display=monthlyTotal>0?'':'none';
       var bonusW=document.getElementById('os-bonus-wrap');
       var effectiveTermBonus = (S.plan && plans[S.plan] && plans[S.plan].m2mOnly) ? 'nc' : S.term;
       if(effectiveTermBonus==='12m'&&monthlyTotal>0){
@@ -409,8 +410,11 @@
     function updAgree(){
       var t={'nc':'This is a month-to-month service. Setup fees and first payment are due today. Cancel anytime with 30 days written notice.',
         '6m':'This is a 6-month commitment billed monthly. Setup fee waived. First month due today. Early termination requires one additional month\u2019s payment.',
-        '12m':'This is a 12-month commitment billed monthly. Setup fee waived. 12th month is free. First month due today. Early termination requires one additional month\u2019s payment.'};
+        '12m':'This is a 12-month commitment billed monthly. Setup fee waived. 12th month is free. First month due today. Early termination requires one additional month\u2019s payment.',
+        'once':'This is a one-time purchase. No recurring charges. No subscription. Payment is due in full today.'};
       var effectiveTerm = (S.plan && plans[S.plan] && plans[S.plan].m2mOnly) ? 'nc' : S.term;
+      var hasSub2 = (S.plan && S.plan!=='none') || S.recep;
+      if(!hasSub2 && (S.site || S.react)) effectiveTerm = 'once';
       document.getElementById('ag-txt').innerHTML='I have read, understood, and agree to the <a href="/terms" target="_blank" style="color:#2E75B6;text-decoration:underline;">Terms of Service</a> and <a href="/privacy" target="_blank" style="color:#2E75B6;text-decoration:underline;">Privacy Policy</a>. ' + (t[effectiveTerm]||t['6m']);
     }
     document.getElementById('ag-check').addEventListener('click',function(){
@@ -427,7 +431,16 @@
         if(S.site)today+=SITE_COST;if(S.react)today+=REACT_COST;}
       document.getElementById('pay-total').textContent='$'+fmt(today);
       var hasItem=(S.plan&&S.plan!=='none')||S.recep||S.site||S.react;
-      document.getElementById('pay-btn').disabled=!hasItem||!S.agreed;
+      var hasSub=(S.plan&&S.plan!=='none')||S.recep;
+      var btnEl=document.getElementById('pay-btn');
+      btnEl.disabled=!hasItem||!S.agreed;
+      if(hasSub){
+        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$'+fmt(today)+'</span> due today';
+      } else if(hasItem){
+        btnEl.innerHTML='Complete Purchase &mdash; <span id="pay-total">$'+fmt(today)+'</span>';
+      } else {
+        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$0</span> due today';
+      }
       // Update inline summary above pay button
       var paySummary=document.getElementById('pay-summary');
       if(hasItem&&today>0){
@@ -436,7 +449,14 @@
         var mo=0;
         if(S.plan&&S.plan!=='none')mo+=plans[S.plan].mo;
         if(S.recep)mo+=recepMo[S.plan||'none'];
-        document.getElementById('pay-summary-mo').textContent=mo>0?'$'+fmt(mo)+'/mo':'One-time only';
+        var moLabel=document.getElementById('pay-summary-mo');
+        var moLabelParent=moLabel.parentElement;
+        if(mo>0){
+          moLabel.textContent='$'+fmt(mo)+'/mo';
+          moLabelParent.style.display='';
+        } else {
+          moLabelParent.style.display='none';
+        }
       } else {
         paySummary.style.display='none';
       }
