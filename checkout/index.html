@@ -346,42 +346,54 @@
     if(focusedMode){
       var focusAddon = prm.get('addon');
       var productNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist'};
-      var productPrices = {site:'$497 one-time',react:'$497 one-time',recep:'$997 setup + $497/mo'};
+      var productPrices = {site:'$497',react:'$497',recep:'$497/mo'};
+      var productSetup = {site:'',react:'',recep:' + $997 one-time setup'};
+      var productType = {site:'one-time',react:'one-time',recep:'monthly'};
+      var productDescs = {
+        site:'5-page professional website. Mobile-optimized. Live within 48 hours.',
+        react:'3-message reactivation campaign to your past customer database. Results in 7 days.',
+        recep:'AI receptionist answers every call, text, and chat 24/7 in your business name.'
+      };
       // Update header
       document.querySelector('.hdr h1').textContent='Complete your purchase.';
-      document.querySelector('.hdr p').textContent=productNames[focusAddon]+' — '+productPrices[focusAddon];
+      document.querySelector('.hdr p').innerHTML=productNames[focusAddon]+'<span style="display:inline-block;margin:0 8px;color:#e2e8f0;">|</span>'+productPrices[focusAddon]+productSetup[focusAddon];
       // Hide commitment, plan selector
-      document.querySelector('.stitle').style.display='none'; // "1. Choose your commitment"
-      document.getElementById('ct-sel').style.display='none';
       var stitleEls = document.querySelectorAll('.stitle');
       stitleEls[0].style.display='none'; // commitment title
+      document.getElementById('ct-sel').style.display='none';
       stitleEls[1].style.display='none'; // plan title
       document.getElementById('plan-sel').style.display='none';
-      // Hide other addons, show only the selected one
-      stitleEls[2].textContent='Your product';
+      // Hide addon section header and other addons
+      stitleEls[2].style.display='none';
       ['recep','site','react'].forEach(function(k){
         if(k!==focusAddon){document.getElementById('ao-'+k).style.display='none';}
       });
-      // Renumber the remaining sections
-      stitleEls[3].innerHTML='<span style="color:#2ecc71;margin-right:6px;">1.</span> Your information';
-      stitleEls[4].innerHTML='<span style="color:#2ecc71;margin-right:6px;">2.</span> Agreement &amp; payment';
-      // Add "explore more" link at bottom
-      var exploreLink = document.createElement('div');
-      exploreLink.style.cssText='text-align:center;padding:24px 0 0;border-top:1px solid #e2e8f0;margin-top:24px;';
-      exploreLink.innerHTML='<a href="/menu" style="font-family:Inter,sans-serif;font-size:0.875rem;color:#2E75B6;text-decoration:none;">Want a full marketing system? See all plans &rarr;</a>';
-      document.getElementById('ao-box').parentElement.after(exploreLink);
-      // Style the selected addon as a confirmation card
+      // Style the selected addon as a clean confirmation card
       var selectedAo = document.getElementById('ao-'+focusAddon);
       if(selectedAo){
-        selectedAo.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:#f0f9f4;border:2px solid #2ecc71;border-radius:10px;';
+        selectedAo.style.cssText='padding:20px 24px;background:#f0f9f4;border:2px solid #2ecc71;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:16px;';
         var tgBtn = document.getElementById('ao-'+focusAddon+'-tg');
-        if(tgBtn){tgBtn.style.display='none';}
-        // Add a checkmark instead of toggle
+        if(tgBtn) tgBtn.style.display='none';
+        var learnLink = selectedAo.querySelector('a[href]');
+        if(learnLink) learnLink.style.display='none';
         var ckSpan = document.createElement('span');
         ckSpan.style.cssText='color:#2ecc71;font-size:1.5rem;font-weight:700;flex-shrink:0;';
         ckSpan.textContent='\u2713';
         selectedAo.appendChild(ckSpan);
       }
+      // Renumber remaining sections
+      stitleEls[3].innerHTML='1. Your information';
+      stitleEls[4].innerHTML='2. Agreement &amp; payment';
+      // Make sidebar sticky and add explore link inside it
+      var osEl = document.getElementById('os');
+      osEl.style.position='sticky';
+      osEl.style.top='24px';
+      osEl.style.alignSelf='start';
+      // Add explore link inside sidebar after summary
+      var exploreDiv = document.createElement('div');
+      exploreDiv.style.cssText='text-align:center;padding:20px 0 0;margin-top:20px;border-top:1px solid #e2e8f0;';
+      exploreDiv.innerHTML='<p style="font-family:Inter,sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-bottom:8px;">Want more than a single service?</p><a href="/menu" style="font-family:Montserrat,sans-serif;font-weight:700;font-size:0.8125rem;color:#2E75B6;text-decoration:none;">See all plans &amp; pricing &rarr;</a>';
+      osEl.appendChild(exploreDiv);
     }
     // 3. ADD-ONS
     function updAddons(){
