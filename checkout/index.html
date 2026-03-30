@@ -341,6 +341,48 @@
     if(prm.get('plan')){var m=document.querySelector('[data-p="'+prm.get('plan')+'"]');if(m)m.click();}
     if(prm.get('addon')){var aa=prm.get('addon').split(',');aa.forEach(function(a){var tg=document.getElementById('ao-'+a+'-tg');if(tg&&tg.style.display!=='none'){tg.click();}});}
 
+    // FOCUSED MODE — single standalone product checkout
+    var focusedMode = prm.get('plan')==='none' && prm.get('addon') && prm.get('addon').split(',').length===1;
+    if(focusedMode){
+      var focusAddon = prm.get('addon');
+      var productNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist'};
+      var productPrices = {site:'$497 one-time',react:'$497 one-time',recep:'$997 setup + $497/mo'};
+      // Update header
+      document.querySelector('.hdr h1').textContent='Complete your purchase.';
+      document.querySelector('.hdr p').textContent=productNames[focusAddon]+' — '+productPrices[focusAddon];
+      // Hide commitment, plan selector
+      document.querySelector('.stitle').style.display='none'; // "1. Choose your commitment"
+      document.getElementById('ct-sel').style.display='none';
+      var stitleEls = document.querySelectorAll('.stitle');
+      stitleEls[0].style.display='none'; // commitment title
+      stitleEls[1].style.display='none'; // plan title
+      document.getElementById('plan-sel').style.display='none';
+      // Hide other addons, show only the selected one
+      stitleEls[2].textContent='Your product';
+      ['recep','site','react'].forEach(function(k){
+        if(k!==focusAddon){document.getElementById('ao-'+k).style.display='none';}
+      });
+      // Renumber the remaining sections
+      stitleEls[3].innerHTML='<span style="color:#2ecc71;margin-right:6px;">1.</span> Your information';
+      stitleEls[4].innerHTML='<span style="color:#2ecc71;margin-right:6px;">2.</span> Agreement &amp; payment';
+      // Add "explore more" link at bottom
+      var exploreLink = document.createElement('div');
+      exploreLink.style.cssText='text-align:center;padding:24px 0 0;border-top:1px solid #e2e8f0;margin-top:24px;';
+      exploreLink.innerHTML='<a href="/menu" style="font-family:Inter,sans-serif;font-size:0.875rem;color:#2E75B6;text-decoration:none;">Want a full marketing system? See all plans &rarr;</a>';
+      document.getElementById('ao-box').parentElement.after(exploreLink);
+      // Style the selected addon as a confirmation card
+      var selectedAo = document.getElementById('ao-'+focusAddon);
+      if(selectedAo){
+        selectedAo.style.cssText='display:flex;align-items:center;justify-content:space-between;padding:20px 24px;background:#f0f9f4;border:2px solid #2ecc71;border-radius:10px;';
+        var tgBtn = document.getElementById('ao-'+focusAddon+'-tg');
+        if(tgBtn){tgBtn.style.display='none';}
+        // Add a checkmark instead of toggle
+        var ckSpan = document.createElement('span');
+        ckSpan.style.cssText='color:#2ecc71;font-size:1.5rem;font-weight:700;flex-shrink:0;';
+        ckSpan.textContent='\u2713';
+        selectedAo.appendChild(ckSpan);
+      }
+    }
     // 3. ADD-ONS
     function updAddons(){
       var rMo=recepMo[S.plan||'none'];
