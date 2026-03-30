@@ -1,183 +1,85 @@
 # ScaleLocal — Claude Handoff Document
-Last Updated: March 29, 2026 — ALL SETUP COMPLETE
-
----
+Last Updated: March 30, 2026 — CHECKOUT LIVE, STRIPE INTEGRATED
 
 ## HOW TO START A NEW CLAUDE SESSION
-Paste this entire document at the start of a new chat and say:
-"Continue from the ScaleLocal handoff doc. The task today is [whatever you need]."
-Claude will have full context and can pick up immediately.
-
----
+Paste this entire document at the start of a new chat and say: "Continue from the ScaleLocal handoff doc. The task today is [whatever you need]." Claude will have full context and can pick up immediately.
 
 ## OPEN TASK LIST
 
-### Matt Must Do Manually (Before Next Session)
-- [ ] Accept GHL invitation at alex@scalelocal.net (set password, log in)
-- [ ] Accept GHL invitation at olivia@scalelocal.net (set password, log in)
-- [ ] Delete test contacts from GHL Contacts:
-  - Sarah Connor (sarah.connor.greenthumb@example.com)
-  - Payload Capture (payload.capture.ghl@example.com)
-  - Capture Test (capture.test.payload@...)
-  - Matt Yassen test contact (MattYassen@yahoo.com)
-- [ ] Check yahoo inbox (MattYassen@yahoo.com) — confirm Snapshot Delivery Sequence emails arriving from alex@hi.scalelocal.net
-
-### Future / Next Claude Session
-- [ ] Cold email list upload — when ready for outreach, load prospect list and enroll in sequences (Tue-Thu 9-11AM only, DNC check first)
-- [ ] Buy tracking phone numbers via Phone System for call tracking per campaign
-- [ ] Set up Google review request automation (post job-completion trigger)
+### CoWork Must Do First Session
+- [ ] Fix Snapshot Delivery Sequence trigger (change from snapshot-lead to snapshot-delivered) — emails firing before PDF exists
+- [ ] Build audit delivery pipeline (snapshot PDF + deep audit generation)
+- [ ] Paste $69 Stripe link into GHL Snapshot Delivery Sequence Email 3
+- [ ] Check email warming status in GHL
+- [ ] Build onboarding workflows in GHL (tag-triggered: welcome email + data sheet + access grants per tier)
+- [ ] Set up daily operations schedule (5 scheduled tasks, status emails at 7/9/12/3/7)
 - [ ] Configure ScaleLocal Chat (chatbot) for website
-- [ ] Set up ScaleLocal Booking (calendar) for prospect calls
+- [ ] Configure ScaleLocal Booking (calendar) for prospect calls
 
----
+### Matt Must Do
+- [ ] Rotate Stripe API key (used in session)
+- [ ] Rotate GitHub PAT (used for 25+ commits)
+- [ ] Create Google Ads MCC (ads.google.com/home/tools/manager-accounts)
+- [ ] Create Meta Business Manager (business.facebook.com)
+- [ ] Keep desktop awake 6 AM – 12 AM for CoWork scheduled tasks
+- [ ] Reapply for Google Business Profile
+- [ ] Submit sitemap to Google Search Console
+- [ ] Configure Stripe webhook endpoint: https://www.scalelocal.net/api/stripe-webhook (events: checkout.session.completed)
+- [ ] Service agreement attorney review
 
 ## PROJECT OVERVIEW
-- **Product:** ScaleLocal — white-label local business marketing platform (built on GHL)
-- **Website:** https://scalelocal.net
-- **GitHub Repo:** https://github.com/ScaleLocal/scalelocal-website
-- **GitHub PAT:** Stored in Matt's 1Password / provided at session start — do not hardcode here
-- **GHL Sub-account:** ScaleLocal | Location ID: cbDr5Xe384SCZnhPMvuZ
-- **GHL Login:** matt@scalelocal.net
-- **Business Phone:** 978.662.7580
+- Product: ScaleLocal — white-label local business marketing platform (built on GHL)
+- Website: https://scalelocal.net (Vercel, auto-deploys on GitHub push)
+- GitHub Repo: https://github.com/ScaleLocal/scalelocal-website
+- GHL Sub-account: ScaleLocal | Location ID: cbDr5Xe384SCZnhPMvuZ
+- GHL Login: matt@scalelocal.net
+- Business Phone: 978.662.7580
+- Google API Key: AIzaSyCVPo1T_toVUwBieeD04eTgpeWo_qklPFQ (Places + PageSpeed)
 
----
-
-## CRITICAL BRAND RULES (NEVER VIOLATE)
-- NEVER mention GHL, Bolt.new, or any underlying platform to clients — ScaleLocal IS the product
-- Named personas: **Alex** and **Olivia** from ScaleLocal — all prospect-facing communication
+## CRITICAL BRAND RULES
+- NEVER mention GHL, GoHighLevel, Bolt.new, or any platform name to clients
+- Named personas: Alex and Olivia — all prospect-facing communication
 - From Email: alex@hi.scalelocal.net | Reply-to: alex@scalelocal.net
-- **$69 audit upgrade offer lives ONLY in Email 3 of Snapshot Delivery Sequence** — never on website, never in cold outreach, nowhere else
-- Cold email window: Tuesday-Thursday, 9-11AM local only
-- DNC check before every sequence load — no exceptions
-- NEVER send Stripe payment links directly — prepare only, flag Matt
-- NEVER send GHL contracts/proposals without Matt's review
-- NEVER enter Matt's personal cell — he must enter it himself
-
-### GHL Brand Name Substitutions
-| GHL Term | ScaleLocal Term |
-|---|---|
-| GHL CRM | ScaleLocal Dashboard |
-| GHL Chatbot | ScaleLocal Chat |
-| GHL Calendar | ScaleLocal Booking |
-| GHL Call Tracking | ScaleLocal Tracking |
-| GHL Voice AI | ScaleLocal Receptionist |
-
----
+- $69 audit offer ONLY in Snapshot Delivery Sequence Email 3 — nowhere else
+- Cold email window: Tue-Thu 9-11 AM local only
+- NEVER send Stripe links without flagging Matt
+- NEVER enter Matt's personal cell number
 
 ## GHL CONFIGURATION — COMPLETE
+- Staff: Alex ScaleLocal (alex@scalelocal.net) + Olivia ScaleLocal (olivia@scalelocal.net), ACCOUNT-ADMIN
+- Lead Assignment: Round-robin, equally split
+- Pipelines: ScaleLocal Sales Pipeline (9 stages) + AI Website Agent (4 stages)
+- Workflows: New Lead Notification, Source Auto-Tagger, Snapshot Delivery Sequence, Free Website Delivery Sequence, Stripe Payment Handler
+- Tags: 71 tags covering all products, onboarding stages, and operations
+- Custom Fields: Town, Business Name, Industry, Biggest Challenge, Plan Tier, Commitment Term, Onboarding Status, Monthly Revenue, Signup Date, Commitment End Date, Lead Guarantee, Account Manager
+- Phone: 978.662.7580 with call forwarding to Matt's cell (20s timeout, whisper)
 
-### Staff / Team Members
-| Name | Email | Role |
-|---|---|---|
-| Alex ScaleLocal | alex@scalelocal.net | ACCOUNT-ADMIN |
-| Olivia ScaleLocal | olivia@scalelocal.net | ACCOUNT-ADMIN |
+## WEBSITE — FULLY WORKING
+- Hosting: Vercel (auto-deploys on GitHub push to main)
+- Serverless Functions: api/submit-snapshot.js (form handler), api/stripe-webhook.js (payment webhook)
+- Pages: / (homepage), /menu, /checkout, /snapshot, /snapshot/upgrade, /audit, /grow, /free-website, /websites, /receptionist, /reactivation, /start, /quiz, /recommendation, /welcome, /terms, /privacy, /blog (17 posts), /local (20 cities)
+- Checkout: Redirects to Stripe Payment Links (real payments, not simulated). Supports focused mode for standalone products.
 
-### Lead Assignment
-- Workflow: New Lead Notification + Assignment
-- Method: Round-robin, equally split between Alex and Olivia
-- Only applies to unassigned contacts
-- Follow-up task auto-assigned to Contact's Assigned User
+## STRIPE — FULLY CONFIGURED
+- 14 products, 27 payment links, 3 coupons (12mo-loyalty-free-month, audit-credit-69, audit-credit-97)
+- Webhook endpoint: /api/stripe-webhook (needs Stripe Dashboard configuration)
+- Full catalog: ScaleLocal_Stripe_Payment_Links.md
 
-### Pipelines
-1. ScaleLocal Sales Pipeline — 9 stages
-2. AI Website Agent Pipeline — 4 stages
+## PRICING (SIMPLIFIED)
+- Monthly price is the SAME regardless of term
+- M2M: $497 base setup ($249 Starter), waived on 6mo/12mo
+- 12-month: month 12 free via coupon
+- Authority: $497 base + $997 AI Receptionist setup (stacked, receptionist never waived)
+- AI Receptionist Momentum add-on: $997 setup + $297/mo
+- NO 3-month tier exists
 
-### Workflows (all Published)
-| Workflow | Trigger | Notes |
-|---|---|---|
-| New Lead Notification + Assignment | Contact Created | Round-robin Alex/Olivia, notify, task, create opportunity |
-| Source Auto-Tagger | Contact Created | Tags by source path |
-| Snapshot | Contact Tag: snapshot-lead | Snapshot delivery |
-| Snapshot Delivery Sequence | Contact Tag: snapshot-lead | 3 emails — $69 offer in Email 3 only |
-| Free Website Delivery Sequence | Contact Tag: free-website-lead | 4 emails |
-| Stripe Payment Handler | Contact Tag: deep-audit-paid | Confirms payment, notifies Matt |
-
-### Snapshot Delivery Sequence
-- Email 1: Snapshot ready
-- Wait 2 days
-- Email 2: Did you get a chance to look?
-- Wait 3 days
-- Email 3: Last note + $69 one-time upgrade offer (ONLY place this appears)
-
-### Stripe Payment Handler
-Trigger: tag deep-audit-paid
-1. Add tag: authority-client
-2. Create opportunity in ScaleLocal Sales Pipeline, Booked stage, $69
-3. Email contact confirmation
-4. Internal alert to matt@scalelocal.net
-
-### Phone / Call Forwarding
-- Business number: 978.662.7580
-- Forwarding timeout: 20 seconds
-- External cell: Matt entered manually
-
----
-
-## WEBSITE — scalelocal.net — FULLY WORKING
-
-### Infrastructure
-- Hosting: Vercel — project scalelocal-website (matts-projects-ec31e28f)
-- DNS: Netlify DNS panel
-  - A record: scalelocal.net -> 216.198.79.1
-  - CNAME: www -> 95de4b6ba3a5ed29.vercel-dns-017.com
-  - WARNING: Do NOT re-add NETLIFY-type records — deleted March 29, caused conflicts
-- Auto-deploys on every push to GitHub main branch
-
-### GHL API Token
-- Type: Sub-account (location-level) Private Integration — NOT agency-level
-- Integration name: "Coworker" in ScaleLocal sub-account Settings -> Private Integrations
-- Vercel env var: GHL_API_KEY
-- Current token set: March 29, 2026 (valid; old token expires ~7 days after rotation)
-- WARNING: Agency-level tokens return 401 on contacts API — must use sub-account token
-
-### Serverless Function: api/submit-snapshot.js
-Creates GHL contacts from all website form submissions. Routes by source field:
-| source value | GHL Tag | GHL Source Label |
-|---|---|---|
-| snapshot | snapshot-lead | Website Snapshot Request |
-| audit | audit-lead | Website Audit Request |
-| grow | grow-lead | Website Grow Request |
-| free-website | free-website-lead | Website Free-Website Request |
-
-### Forms — All Fixed and Tested
-| Page | Confirmation UX |
-|---|---|
-| /snapshot | Redirect to /snapshot/upgrade/ with prefilled URL params |
-| /audit | Inline confirmation: "You're on the list" |
-| /grow | Inline confirmation after "I'd rather talk" toggle |
-| /free-website | Inline confirmation: "You're in" |
-
-### Upgrade Page (/snapshot/upgrade/)
-- Shows upsell: Basic Snapshot (free) vs Deep Audit ($97)
-- $97 is the PUBLIC website price — completely separate from the $69 email-only offer
-- Stripe link: https://buy.stripe.com/dRm14o6td9zN7J20NL3Je00
-
----
-
-## PRICING REFERENCE
-| Price | What | Where it appears |
-|---|---|---|
-| $0 | Basic Snapshot | Delivered via Snapshot Delivery Sequence |
-| $97 | Deep Audit | Public price on /snapshot/upgrade page |
-| $69 | Deep Audit one-time offer | Email 3 of Snapshot Delivery Sequence ONLY |
-| $1,297/mo | ScaleLocal Momentum System | /grow page |
-| $497 | Keep the free website | /free-website page |
-
----
+## AD ACCOUNT ARCHITECTURE
+- Google Ads: ScaleLocal MCC (Matt creates), sub-accounts per client, ScaleLocal pays
+- Meta: ScaleLocal Business Manager (Matt creates), ad accounts per client, ScaleLocal pays
+- LSAs: Client account (business verification required), ScaleLocal added as agency manager
+- Client never touches ad platforms
 
 ## KEY TECHNICAL REFERENCE
-
-### GHL Contacts API
-- Endpoint: POST https://services.leadconnectorhq.com/contacts/
-- Auth header: Authorization: Bearer {GHL_API_KEY}
-- Version header: 2021-07-28
-- Location ID: cbDr5Xe384SCZnhPMvuZ
-
-### Token Rotation (if GHL_API_KEY expires)
-1. GHL -> sub-account -> Settings -> Private Integrations -> Coworker -> rotate token
-2. Vercel -> project -> Settings -> Environment Variables -> update GHL_API_KEY
-3. Redeploy (or any push to main triggers auto-deploy)
-
-### Vercel Project
-- URL: vercel.com/matts-projects-ec31e28f/scalelocal-website
-- Deployments tab shows full history and live status
+- GHL API: Sub-account token via Vercel env var GHL_API_KEY
+- Google APIs: AIzaSyCVPo1T_toVUwBieeD04eTgpeWo_qklPFQ (Places + PageSpeed)
+- Token Rotation: GHL → Private Integrations → Coworker → rotate → update Vercel env var → redeploy
