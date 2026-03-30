@@ -339,6 +339,7 @@
       updAddons(); updSummary(); updAgree();
     });});
     if(prm.get('plan')){var m=document.querySelector('[data-p="'+prm.get('plan')+'"]');if(m)m.click();}
+    if(prm.get('addon')){var aa=prm.get('addon').split(',');aa.forEach(function(a){var tg=document.getElementById('ao-'+a+'-tg');if(tg&&tg.style.display!=='none'){tg.click();}});}
 
     // 3. ADD-ONS
     function updAddons(){
