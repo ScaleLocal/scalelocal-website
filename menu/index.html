@@ -137,6 +137,7 @@
     @media (min-width: 768px) { .addon-cards { grid-template-columns: 1fr 1fr; } .addons-section { padding: 96px 0; } .addons-headline { font-size: 2.5rem; } }
 
     .addon-card { background: #f0f4f8; border-radius: 12px; padding: 32px; border-left: 4px solid #2E75B6; }
+    a.addon-card { display: block; cursor: pointer; }
     .addon-card-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a2e4a; font-size: 1.125rem; margin-bottom: 8px; }
     .addon-card-price { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #2E75B6; font-size: 1.25rem; margin-bottom: 12px; }
     .addon-card-body { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #6b7a8d; line-height: 1.6; }
@@ -511,29 +512,30 @@
         <h2 class="addons-headline">Need something specific?</h2>
         <p class="addons-sub">These work on their own or alongside any plan. No monthly commitment required on one-time products.</p>
         <div class="addon-cards">
-          <div class="addon-card">
+          <a href="/receptionist" class="addon-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <h3 class="addon-card-title">ScaleLocal Receptionist (AI)</h3>
             <p class="addon-card-price">$997 setup + $497/mo standalone</p>
-            <p class="addon-card-body">AI receptionist answers every call, qualifies leads, books appointments, and handles after-hours &mdash; 24/7/365. Built for your business in under 72 hours. Included in Authority. Momentum add-on: $997 setup + $297/mo at signing.</p>
-            <p class="addon-card-note">Setup fee is non-negotiable &mdash; covers full build, configuration, testing, and go-live.</p>
-          </div>
-          <div class="addon-card">
+            <p class="addon-card-body">AI receptionist answers every call, qualifies leads, books appointments, and handles after-hours &mdash; 24/7/365. Built for your business in under 72 hours. Included in Authority. Momentum add-on: $997 setup + $297/mo.</p>
+            <p class="addon-card-note">Learn more &rarr;</p>
+          </a>
+          <a href="/reactivation" class="addon-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <h3 class="addon-card-title">Client Reactivation Program</h3>
             <p class="addon-card-price">$497 one-time</p>
             <p class="addon-card-body">3-message SMS/email sequence to your existing customer database. Past customers, old inquiries, unconverted leads. Typically generates 10&ndash;20 qualified responses in the first week. Included at onboarding for all tiers.</p>
-            <p class="addon-card-note">Standalone option for businesses not ready for a full retainer.</p>
-          </div>
-          <div class="addon-card">
+            <p class="addon-card-note">Learn more &rarr;</p>
+          </a>
+          <a href="/websites" class="addon-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <h3 class="addon-card-title">Professional Website Build</h3>
             <p class="addon-card-price">$497 one-time</p>
             <p class="addon-card-body">5-page professional website, mobile-optimized, live within 48 hours. Includes Google Business Profile setup, call tracking, and ScaleLocal Chat. Included in all plans &mdash; standalone for businesses who just need a site.</p>
-          </div>
-          <div class="addon-card">
+            <p class="addon-card-note">Learn more &rarr;</p>
+          </a>
+          <a href="https://spendlocal.net" target="_blank" class="addon-card" style="text-decoration:none;color:inherit;transition:transform 0.2s,box-shadow 0.2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
             <h3 class="addon-card-title">SendLocal Shared Mailer</h3>
             <p class="addon-card-price">$500/spot per mailer</p>
             <p class="addon-card-body">Shared 9&times;12 postcard direct mail to 5,000 homes in your town. One spot per industry per mailer &mdash; category exclusivity. Includes design, print, and EDDM postage. Separate from ScaleLocal retainers.</p>
-            <p class="addon-card-note">Minimum 6 spots filled before mailer runs. Never bundled into any tier.</p>
-          </div>
+            <p class="addon-card-note">Learn more &rarr;</p>
+          </a>
         </div>
       </div>
     </section>
