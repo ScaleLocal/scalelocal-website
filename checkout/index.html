@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- Payment handled via Stripe Payment Links (redirect) -->
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
@@ -122,11 +122,6 @@
     .ag-txt{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.5}
     .ag-txt a{color:#2E75B6;text-decoration:underline}
     .pay-sec{margin-top:20px}
-    .pay-lbl{font-family:'Inter',sans-serif;font-size:0.8125rem;font-weight:600;color:#1a2e4a;margin-bottom:10px;display:block}
-    #pr-btn{margin-bottom:12px}
-    #card-element{border:1.5px solid #e2e8f0;border-radius:8px;padding:14px;background:#fff;transition:border-color 0.2s}
-    #card-element.StripeElement--focus{border-color:#2E75B6;box-shadow:0 0 0 3px rgba(46,117,182,0.1)}
-    #card-errors{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#e74c3c;margin-top:8px;min-height:18px}
     .pay-btn{display:flex;align-items:center;justify-content:center;width:100%;height:56px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;margin-top:16px;transition:all 0.2s}
     .pay-btn:hover:not(:disabled){filter:brightness(1.1);transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,204,113,0.35)}
     .pay-btn:disabled{opacity:0.45;cursor:not-allowed}
@@ -250,11 +245,10 @@
           <p class="ag-txt" id="ag-txt"></p>
         </div>
         <div class="pay-sec">
-          <span class="pay-lbl">Payment method</span>
-          <div id="pr-btn"></div>
-          <div id="card-element"></div>
-          <div id="card-errors" role="alert"></div>
-          <div id="pay-summary" style="margin-top:16px;padding:14px;background:#f0f4f8;border-radius:8px;display:none;">
+          <div style="background:#f0f9f4;border:1px solid rgba(46,204,113,0.3);border-radius:8px;padding:14px 16px;margin-bottom:16px;">
+            <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#4a5a6e;line-height:1.5;margin:0;">You&rsquo;ll be redirected to Stripe&rsquo;s secure checkout to complete payment. Apple Pay, Google Pay, and all major cards accepted.</p>
+          </div>
+          <div id="pay-summary" style="padding:14px;background:#f0f4f8;border-radius:8px;display:none;margin-bottom:16px;">
             <div style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.125rem;color:#1a2e4a;"><span>Due today</span><span id="pay-summary-total">$0</span></div>
             <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:4px;"><span>Then monthly</span><span id="pay-summary-mo">$0/mo</span></div>
           </div>
@@ -516,37 +510,113 @@
       }
     }
 
-    // STRIPE
-    // STRIPE (requires HTTPS — will gracefully degrade when previewing locally)
-    try {
-      var stripe=Stripe('pk_live_51T74wzIQF1r4C5QsftRytmE6j04v1d99rDHsUAFlctlYUOTuKFepFAnkJpQnNt1JMZuS4KsUXX3vbXI2GOKv6Gyf00kvvhSLZk');
-      var els=stripe.elements();
-      var cardEl=els.create('card',{style:{base:{fontSize:'15px',fontFamily:'Inter,sans-serif',color:'#1a2e4a','::placeholder':{color:'#9aa5b4'}},invalid:{color:'#e74c3c'}},hidePostalCode:true});
-      cardEl.mount('#card-element');
-      cardEl.on('change',function(e){document.getElementById('card-errors').textContent=e.error?e.error.message:'';});
-      var payReq=stripe.paymentRequest({country:'US',currency:'usd',total:{label:'ScaleLocal',amount:0},requestPayerName:true,requestPayerEmail:true});
-      var prBtn=els.create('paymentRequestButton',{paymentRequest:payReq});
-      payReq.canMakePayment().then(function(r){if(r)prBtn.mount('#pr-btn');else document.getElementById('pr-btn').style.display='none';});
-    } catch(err) {
-      console.warn('Stripe not available (local preview). Payment will work on scalelocal.net.');
-      document.getElementById('card-element').innerHTML='<p style="font-family:Inter,sans-serif;font-size:0.8125rem;color:#9aa5b4;padding:8px 0;">Card input will appear when deployed to scalelocal.net</p>';
-      document.getElementById('pr-btn').style.display='none';
+    // STRIPE PAYMENT LINK ROUTING
+    // Maps the selected plan + term + addons to the correct Stripe Payment Link
+    var stripeLinks = {
+      // Plans — M2M (with setup fee)
+      'starter_nc': 'https://buy.stripe.com/fZu28sdVFh2fe7q5413Je0d',
+      'foundation_nc': 'https://buy.stripe.com/8x28wQ7xhh2f2oI3ZX3Je0e',
+      'momentum_nc': 'https://buy.stripe.com/dRm5kEcRBfYb0gA9kh3Je0f',
+      'authority_nc': 'https://buy.stripe.com/28EaEY9FpcLZe7qfIF3Je0g',
+      // Plans — 6-month (no setup fee)
+      'starter_6m': 'https://buy.stripe.com/8x214o3h15jx1kE8gd3Je0h',
+      'foundation_6m': 'https://buy.stripe.com/9B69AUeZJ3bpbZidAx3Je0i',
+      'momentum_6m': 'https://buy.stripe.com/00wdRa4l5dQ39Ra8gd3Je0j',
+      'authority_6m': 'https://buy.stripe.com/fZufZibNx13h5AUaol3Je0k',
+      // Plans — 12-month (no setup fee, month 12 free via coupon later)
+      'starter_12m': 'https://buy.stripe.com/bJeeVe04P13h2oIaol3Je0l',
+      'foundation_12m': 'https://buy.stripe.com/7sYcN6dVF4ftbZi5413Je0m',
+      'momentum_12m': 'https://buy.stripe.com/aFa14ocRB8vJ6EY6853Je0n',
+      'authority_12m': 'https://buy.stripe.com/3cI5kE3h15jx1kE6853Je0o',
+      // Momentum + AI Receptionist bundles
+      'momentum_recep_nc': 'https://buy.stripe.com/bJe8wQ5p913hd3m8gd3Je0p',
+      'momentum_recep_6m': 'https://buy.stripe.com/28E8wQ6tddQ3fbu1RP3Je0q',
+      'momentum_recep_12m': 'https://buy.stripe.com/fZubJ2dVFaDR3sMbsp3Je0r',
+      // AI Receptionist standalone
+      'recep_standalone': 'https://buy.stripe.com/9B26oI4l5eU72oIdAx3Je0s',
+      // AI Receptionist add-on for existing Momentum client
+      'recep_addon_momentum': 'https://buy.stripe.com/14A14oaJt7rF6EYeEB3Je0t',
+      // Standalone one-time products
+      'site_only': 'https://buy.stripe.com/6oUaEY5p927l5AU7c93Je0a',
+      'react_only': 'https://buy.stripe.com/cNi8wQ4l59zN5AU5413Je0b',
+      // SendLocal
+      'sendlocal': 'https://buy.stripe.com/8x28wQeZJbHV2oIcwt3Je0u'
+    };
+
+    function getStripeLink() {
+      var hasPlan = S.plan && S.plan !== 'none';
+      var effectiveTerm = hasPlan && plans[S.plan] && plans[S.plan].m2mOnly ? 'nc' : S.term;
+
+      // Standalone products only (no plan)
+      if (!hasPlan) {
+        if (S.recep) return stripeLinks['recep_standalone'];
+        if (S.site && S.react) return null; // Multiple standalone — need separate transactions
+        if (S.site) return stripeLinks['site_only'];
+        if (S.react) return stripeLinks['react_only'];
+        return null;
+      }
+
+      // Plan + AI Receptionist bundle (Momentum only)
+      if (hasPlan && S.recep && S.plan === 'momentum') {
+        return stripeLinks['momentum_recep_' + effectiveTerm];
+      }
+
+      // Plan only (Authority already includes receptionist)
+      if (hasPlan) {
+        return stripeLinks[S.plan + '_' + effectiveTerm];
+      }
+
+      return null;
     }
 
-    // SUBMIT
-    document.getElementById('pay-btn').addEventListener('click',function(e){
-      e.preventDefault();if(!S.agreed)return;
-      var btn=this;btn.disabled=true;btn.textContent='Processing...';
-      setTimeout(function(){
-        document.querySelectorAll('.main,.os,.hdr').forEach(function(el){el.style.display='none';});
-        document.getElementById('suc').classList.add('vis');
-        var fn=document.getElementById('f-fn').value||'',bn=document.getElementById('f-biz').value||'';
-        var pn=S.plan&&S.plan!=='none'?S.plan.charAt(0).toUpperCase()+S.plan.slice(1):'';
-        document.getElementById('suc-h').textContent="You're in"+(fn?', '+fn:'')+".";
-        document.getElementById('suc-b').innerHTML=(pn?'Your <strong>'+pn+'</strong> plan for <strong>'+bn+'</strong> is being set up now.':'Your order for <strong>'+bn+'</strong> is being processed.')
-          +' Your account manager will reach out within 1 business day.<br><br><a href="/welcome?plan='+(S.plan||'')+'&name='+encodeURIComponent(fn)+'&company='+encodeURIComponent(bn)+'">Go to your Welcome page \u2192</a>';
-        window.scrollTo({top:0,behavior:'smooth'});
-      },2000);
+    // SUBMIT — redirect to Stripe Payment Link
+    document.getElementById('pay-btn').addEventListener('click', function(e) {
+      e.preventDefault();
+      if (!S.agreed) return;
+
+      var link = getStripeLink();
+      if (!link) {
+        alert('Please select a product to continue.');
+        return;
+      }
+
+      // Collect form data for Stripe prefill
+      var email = document.getElementById('f-em').value || '';
+      var fn = document.getElementById('f-fn').value || '';
+      var ln = document.getElementById('f-ln').value || '';
+      var ph = document.getElementById('f-ph').value || '';
+      var biz = document.getElementById('f-biz').value || '';
+
+      // Build Stripe prefill URL params
+      var params = [];
+      if (email) params.push('prefilled_email=' + encodeURIComponent(email));
+      // Stripe Payment Links support prefilled_email natively
+      // Other fields passed as client_reference_id for webhook processing
+      var refData = [fn, ln, ph, biz, S.plan || 'none', S.term].join('|');
+      params.push('client_reference_id=' + encodeURIComponent(refData));
+
+      var finalUrl = link + (link.indexOf('?') > -1 ? '&' : '?') + params.join('&');
+
+      // Show processing state
+      var btn = this;
+      btn.disabled = true;
+      btn.textContent = 'Redirecting to secure checkout...';
+
+      // Also create the contact in GHL so the lead exists before payment
+      var formData = {
+        first_name: fn, last_name: ln, email: email,
+        phone: ph, business_name: biz, source: 'checkout'
+      };
+      fetch('/api/submit-snapshot', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(formData)
+      }).catch(function() {/* non-blocking — contact creation is best-effort before redirect */});
+
+      // Redirect to Stripe
+      setTimeout(function() {
+        window.location.href = finalUrl;
+      }, 500);
     });
 
     updCards(); updAddons(); updSummary(); updAgree();
