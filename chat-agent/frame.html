@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ScaleLocal AI Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html,body{width:100%;height:100%;overflow:hidden;background:#f8f9fb;}
+
+    /* Simulated website background */
+    .site-bg {
+      position:absolute;inset:0;
+      background:#f8f9fb;
+      display:flex;flex-direction:column;
+      overflow:hidden;
+    }
+
+    /* Fake nav bar */
+    .fake-nav {
+      background:#1a2e4a;
+      padding:10px 14px;
+      display:flex;align-items:center;justify-content:space-between;
+      flex-shrink:0;
+    }
+    .fake-logo {
+      font-family:'Montserrat',sans-serif;
+      font-size:13px;font-weight:800;
+      color:#fff;letter-spacing:-0.01em;
+    }
+    .fake-logo span{color:#2ecc71;}
+    .fake-nav-links {
+      display:flex;gap:10px;
+    }
+    .fake-nav-link {
+      width:28px;height:5px;background:rgba(255,255,255,0.25);border-radius:3px;
+    }
+
+    /* Fake hero */
+    .fake-hero {
+      background:linear-gradient(160deg,#1a2e4a 0%,#0f1c2e 100%);
+      padding:20px 14px 18px;
+      flex-shrink:0;
+    }
+    .fake-badge {
+      display:inline-flex;align-items:center;gap:5px;
+      background:rgba(46,204,113,0.15);border:1px solid rgba(46,204,113,0.3);
+      border-radius:100px;padding:3px 9px;margin-bottom:10px;
+    }
+    .fake-badge-dot {width:5px;height:5px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
+    .fake-badge-text {font-size:8px;font-weight:700;color:#2ecc71;letter-spacing:0.08em;text-transform:uppercase;}
+    .fake-h1 {font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:7px;letter-spacing:-0.01em;}
+    .fake-h1 span{color:#2ecc71;}
+    .fake-sub {font-size:9px;color:rgba(255,255,255,0.65);line-height:1.5;margin-bottom:12px;max-width:220px;}
+    .fake-btns {display:flex;gap:6px;}
+    .fake-btn-p {background:#2ecc71;color:#0f1c2e;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:5px 10px;border-radius:5px;}
+    .fake-btn-s {background:transparent;color:#fff;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:5px 10px;border-radius:5px;border:1.5px solid rgba(255,255,255,0.3);}
+
+    /* Fake content blocks */
+    .fake-content {padding:14px;display:flex;flex-direction:column;gap:10px;overflow:hidden;}
+    .fake-section-label {font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#2E75B6;margin-bottom:5px;}
+    .fake-cards {display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .fake-card {background:#fff;border-radius:8px;padding:10px;border:1px solid #e8ecf0;}
+    .fake-card-icon {width:18px;height:18px;border-radius:5px;background:#1a2e4a;margin-bottom:6px;}
+    .fake-bar {height:5px;border-radius:3px;background:#e8ecf0;margin-bottom:4px;}
+    .fake-bar.w80{width:80%;}
+    .fake-bar.w60{width:60%;}
+    .fake-bar.w70{width:70%;}
+    .fake-bar.w50{width:50%;}
+    .fake-bar.accent{background:rgba(46,204,113,0.35);}
+
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+  </style>
+</head>
+<body>
+
+<!-- Simulated ScaleLocal website background -->
+<div class="site-bg">
+  <div class="fake-nav">
+    <div class="fake-logo">Scale<span>Local</span></div>
+    <div class="fake-nav-links">
+      <div class="fake-nav-link"></div>
+      <div class="fake-nav-link" style="width:22px"></div>
+      <div class="fake-nav-link" style="width:18px"></div>
+    </div>
+  </div>
+
+  <div class="fake-hero">
+    <div class="fake-badge"><span class="fake-badge-dot"></span><span class="fake-badge-text">AI Agent Active</span></div>
+    <div class="fake-h1">More Customers.<br><span>Less Effort.</span></div>
+    <div class="fake-sub">Local marketing that gets your business found on Google — and keeps leads from slipping away.</div>
+    <div class="fake-btns">
+      <div class="fake-btn-p">Get Started</div>
+      <div class="fake-btn-s">See Pricing</div>
+    </div>
+  </div>
+
+  <div class="fake-content">
+    <div>
+      <div class="fake-section-label">What we do</div>
+      <div class="fake-cards">
+        <div class="fake-card">
+          <div class="fake-card-icon"></div>
+          <div class="fake-bar w80"></div>
+          <div class="fake-bar w60"></div>
+          <div class="fake-bar w70 accent"></div>
+        </div>
+        <div class="fake-card">
+          <div class="fake-card-icon" style="background:#2ecc71;"></div>
+          <div class="fake-bar w70"></div>
+          <div class="fake-bar w50"></div>
+          <div class="fake-bar w60 accent"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Clear any stale GHL session data -->
+<script>
+(function(){
+  try {
+    var keys=[];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k&&(k.indexOf('lc_')===0||k.indexOf('leadconnector')!==-1||k.indexOf('msgsndr')!==-1||k.indexOf('chat_')===0||k.indexOf('widget_')===0||k.indexOf('conversation')!==-1||k.indexOf('contact_id')!==-1)){
+        keys.push(k);
+      }
+    }
+    keys.forEach(function(k){localStorage.removeItem(k);});
+  }catch(e){}
+})();
+</script>
+
+<!-- GHL Chat Widget -->
+<script
+  src="https://beta.leadconnectorhq.com/loader.js"
+  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69c34fd013ad14bdd250aace"
+></script>
+
+<!-- Auto-open the widget -->
+<script>
+(function(){
+  var attempts=0;
+  function tryOpen(){
+    var el=document.querySelector('chat-widget');
+    if(el && typeof el.open==='function'){el.open();return;}
+    if(++attempts<75) setTimeout(tryOpen,200);
+  }
+  window.addEventListener('load',function(){setTimeout(tryOpen,1500);});
+})();
+</script>
+
+</body>
+</html>
