@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Chat & Voice Agent | ScaleLocal</title>
+  <meta name="description" content="Add a 24/7 AI chat and voice agent to your website. Trained on your business. Answers questions, qualifies leads, and books appointments automatically." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.6; color: #1a1a2e; overflow-x: hidden; background: #fff; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: #1a2e4a; z-index: 1000; display: flex; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .nav-inner { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .nav-logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
+    .nav-logo-text span { color: #2ecc71; }
+    .nav-back { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: rgba(255,255,255,0.7); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: #fff; }
+
+    /* HERO */
+    .hero { padding: 100px 24px 64px; background: linear-gradient(160deg, #1a2e4a 0%, #0f1c2e 100%); text-align: center; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.35); border-radius: 100px; padding: 5px 14px; font-size: 0.75rem; font-weight: 600; color: #2ecc71; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 20px; }
+    .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #2ecc71; animation: pulse 1.8s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+    .hero h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+    .hero h1 span { color: #2ecc71; }
+    .hero-sub { font-size: 1.125rem; color: rgba(255,255,255,0.72); max-width: 560px; margin: 0 auto 32px; line-height: 1.65; }
+    .hero-stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+    .stat { text-align: center; }
+    .stat-num { font-family: 'Montserrat', sans-serif; font-size: 2rem; font-weight: 800; color: #fff; line-height: 1; }
+    .stat-label { font-size: 0.75rem; color: rgba(255,255,255,0.55); margin-top: 3px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .hero-ctas { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { display: inline-block; padding: 14px 28px; background: #2ecc71; color: #0f1c2e; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem; border-radius: 8px; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+    .btn-primary:hover { background: #27ae60; transform: translateY(-1px); }
+    .btn-outline { display: inline-block; padding: 14px 28px; background: transparent; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem; border-radius: 8px; text-decoration: none; border: 2px solid rgba(255,255,255,0.3); transition: border-color 0.2s, transform 0.15s; }
+    .btn-outline:hover { border-color: #fff; transform: translateY(-1px); }
+
+    /* DEMO SECTION */
+    .demo-section { background: #f4f7fa; padding: 72px 24px; }
+    .section-label { text-align: center; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #2E75B6; margin-bottom: 10px; }
+    .section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #1a2e4a; letter-spacing: -0.02em; margin-bottom: 12px; }
+    .section-sub { text-align: center; font-size: 1rem; color: #6b7a8d; max-width: 540px; margin: 0 auto 48px; }
+
+    .demo-wrap { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    @media (max-width: 720px) { .demo-wrap { grid-template-columns: 1fr; } }
+
+    .demo-phone-wrap { display: flex; justify-content: center; position: relative; }
+    .demo-phone { width: 280px; border-radius: 36px; overflow: hidden; box-shadow: 0 32px 64px rgba(26,46,74,0.22); border: 8px solid #1a2e4a; background: #fff; position: relative; }
+    .demo-phone-bar { background: #1a2e4a; padding: 12px 16px 8px; display: flex; justify-content: space-between; align-items: center; font-size: 0.7rem; color: rgba(255,255,255,0.7); }
+    .demo-agent-frame { width: 100%; height: 480px; border: none; display: block; }
+    .demo-live-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #2ecc71; color: #0f1c2e; font-size: 0.68rem; font-weight: 700; padding: 3px 12px; border-radius: 100px; white-space: nowrap; }
+
+    .demo-info { }
+    .demo-info h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 800; color: #1a2e4a; margin-bottom: 16px; line-height: 1.3; }
+    .demo-info p { color: #4a5568; font-size: 0.9375rem; line-height: 1.65; margin-bottom: 20px; }
+    .demo-features { list-style: none; margin-bottom: 28px; }
+    .demo-features li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.9rem; color: #4a5568; padding: 6px 0; border-bottom: 1px solid #e2e8f0; }
+    .demo-features li:last-child { border-bottom: none; }
+    .demo-features li::before { content: '✓'; color: #2ecc71; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+    .try-url-box { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    .try-url-box label { display: block; font-size: 0.8rem; font-weight: 600; color: #1a2e4a; margin-bottom: 8px; }
+    .try-url-row { display: flex; gap: 8px; }
+    .try-url-input { flex: 1; padding: 10px 14px; border: 1.5px solid #e2e8f0; border-radius: 8px; font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #1a1a2e; outline: none; transition: border-color 0.2s; }
+    .try-url-input:focus { border-color: #2E75B6; }
+    .try-url-btn { padding: 10px 16px; background: #1a2e4a; color: #fff; border: none; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8125rem; cursor: pointer; white-space: nowrap; transition: background 0.2s; }
+    .try-url-btn:hover { background: #0f1c2e; }
+    .try-url-note { font-size: 0.73rem; color: #8a9bb0; margin-top: 8px; }
+
+    /* HOW IT WORKS */
+    .how-section { padding: 72px 24px; background: #fff; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 880px; margin: 0 auto; }
+    @media (max-width: 640px) { .steps { grid-template-columns: 1fr; } }
+    .step { text-align: center; }
+    .step-num { width: 48px; height: 48px; border-radius: 50%; background: #1a2e4a; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .step h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: #1a2e4a; margin-bottom: 8px; }
+    .step p { font-size: 0.875rem; color: #6b7a8d; line-height: 1.6; }
+
+    /* PRICING */
+    .pricing-section { padding: 72px 24px; background: #f4f7fa; }
+    .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 720px; margin: 0 auto; }
+    @media (max-width: 600px) { .pricing-cards { grid-template-columns: 1fr; } }
+    .price-card { background: #fff; border: 2px solid #e2e8f0; border-radius: 16px; padding: 32px 28px; position: relative; }
+    .price-card--featured { border-color: #1a2e4a; box-shadow: 0 8px 32px rgba(26,46,74,0.12); }
+    .price-card__badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #2ecc71; color: #0f1c2e; font-size: 0.68rem; font-weight: 700; padding: 3px 14px; border-radius: 100px; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.05em; }
+    .price-card__label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6b7a8d; margin-bottom: 8px; }
+    .price-card__name { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 800; color: #1a2e4a; margin-bottom: 4px; }
+    .price-card__price { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; color: #1a2e4a; line-height: 1; margin: 12px 0 4px; }
+    .price-card__price span { font-size: 1rem; font-weight: 500; color: #6b7a8d; }
+    .price-card__setup { font-size: 0.8rem; color: #6b7a8d; margin-bottom: 20px; }
+    .price-card__setup s { color: #a8b8cc; }
+    .price-card__divider { height: 1px; background: #e2e8f0; margin-bottom: 16px; }
+    .price-card__features { list-style: none; margin-bottom: 24px; }
+    .price-card__features li { font-size: 0.875rem; color: #4a5568; padding: 5px 0; display: flex; align-items: flex-start; gap: 8px; }
+    .price-card__features li::before { content: '✓'; color: #2ecc71; font-weight: 700; flex-shrink: 0; }
+    .price-card__btn { display: block; width: 100%; padding: 13px; border-radius: 8px; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9rem; text-align: center; text-decoration: none; transition: all 0.15s; border: none; cursor: pointer; }
+    .price-card__btn--dark { background: #1a2e4a; color: #fff; }
+    .price-card__btn--dark:hover { background: #0f1c2e; }
+    .price-card__btn--outline { background: #fff; color: #1a2e4a; border: 2px solid #1a2e4a; }
+    .price-card__btn--outline:hover { background: #1a2e4a; color: #fff; }
+    .pricing-note { text-align: center; font-size: 0.8125rem; color: #8a9bb0; margin-top: 20px; max-width: 520px; margin-left: auto; margin-right: auto; }
+
+    /* SOCIAL PROOF */
+    .proof-section { padding: 64px 24px; background: #fff; }
+    .proof-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+    @media (max-width: 640px) { .proof-grid { grid-template-columns: 1fr; } }
+    .proof-card { background: #f4f7fa; border-radius: 12px; padding: 24px; }
+    .proof-quote { font-size: 0.9rem; color: #4a5568; line-height: 1.65; margin-bottom: 14px; font-style: italic; }
+    .proof-name { font-size: 0.8rem; font-weight: 600; color: #1a2e4a; }
+    .proof-biz { font-size: 0.75rem; color: #8a9bb0; }
+
+    /* CTA FOOTER */
+    .cta-section { background: #1a2e4a; padding: 72px 24px; text-align: center; }
+    .cta-section h2 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.5rem, 3vw, 2.25rem); font-weight: 800; color: #fff; margin-bottom: 14px; letter-spacing: -0.02em; }
+    .cta-section p { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 480px; margin: 0 auto 32px; }
+
+    /* FOOTER */
+    .footer { background: #0f1c2e; padding: 24px; text-align: center; font-size: 0.8125rem; color: rgba(255,255,255,0.4); }
+    .footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer a:hover { color: #fff; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-text">Scale<span>Local</span></span>
+    </a>
+    <a href="/" class="nav-back">&#8592; Back to ScaleLocal</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">AI Agent · Live</div>
+  <h1>Your website should be<br><span>answering questions right now.</span></h1>
+  <p class="hero-sub">Add a 24/7 AI chat and voice agent to your website. It already knows your business — services, pricing, hours. Trained in seconds. Live in 24 hours.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Always answering</div></div>
+    <div class="stat"><div class="stat-num">&lt;2s</div><div class="stat-label">Response time</div></div>
+    <div class="stat"><div class="stat-num">3x</div><div class="stat-label">More leads captured</div></div>
+  </div>
+  <div class="hero-ctas">
+    <a href="#demo" class="btn-primary">Try a Live Demo</a>
+    <a href="/checkout?plan=starter&addon=agent" class="btn-outline">Add to My Site &mdash; $149/mo</a>
+  </div>
+</section>
+
+<!-- DEMO -->
+<section class="demo-section" id="demo">
+  <p class="section-label">Live Demo</p>
+  <h2 class="section-title">See it working on a real business</h2>
+  <p class="section-sub">This isn't a mockup. It's a live AI agent trained on The Pizza Bar's actual website. Try talking to it.</p>
+
+  <div class="demo-wrap">
+    <div class="demo-phone-wrap">
+      <div class="demo-live-tag">&#9679; Agent live</div>
+      <div class="demo-phone">
+        <div class="demo-phone-bar">
+          <span>the-pizza-bar.com</span>
+          <span>&#9679;&#9679;&#9679;</span>
+        </div>
+        <iframe
+          class="demo-agent-frame"
+          src="https://agentcopyai.com/site-agent/the-pizza-bar?embed=1"
+          title="AI Agent Demo — The Pizza Bar"
+          allow="microphone"
+          loading="lazy">
+        </iframe>
+      </div>
+    </div>
+
+    <div class="demo-info">
+      <h3>Try it with your own website</h3>
+      <p>Enter your URL and we'll build a personalized demo in seconds — trained on your actual services, pricing, and business details.</p>
+
+      <div class="try-url-box">
+        <label for="url-input">Your website URL</label>
+        <div class="try-url-row">
+          <input type="url" id="url-input" class="try-url-input" placeholder="yourwebsite.com" />
+          <button class="try-url-btn" onclick="launchDemo()">Build My Demo</button>
+        </div>
+        <p class="try-url-note">No account needed. Takes about 5 seconds.</p>
+      </div>
+
+      <ul class="demo-features">
+        <li>Answers questions about your services, pricing &amp; hours</li>
+        <li>Talks with visitors — full voice + chat support</li>
+        <li>Qualifies leads and captures contact info</li>
+        <li>Works on any website, no code required</li>
+        <li>First payment credited toward any ScaleLocal plan</li>
+      </ul>
+
+      <a href="#pricing" class="btn-primary" style="display:inline-block;">See Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <p class="section-label">How It Works</p>
+  <h2 class="section-title">Live in 24 hours</h2>
+  <p class="section-sub" style="margin-bottom:48px;">Three steps. No technical setup on your end.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>We read your website</h4>
+      <p>Our system scrapes your existing site — services, pricing, FAQs, hours — and builds your agent's knowledge base automatically.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>You review &amp; approve</h4>
+      <p>We send you the agent to test before it goes live. You talk to it, ask it anything. If it's not right, we fix it.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>One line of code</h4>
+      <p>Paste one snippet into your website — or tell us your developer and we'll send it to them. It's live in under 10 minutes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <p class="section-label">Pricing</p>
+  <h2 class="section-title">Simple, honest pricing</h2>
+  <p class="section-sub">No setup calls. No annual contracts required. Cancel anytime.</p>
+
+  <div class="pricing-cards">
+    <!-- Standalone -->
+    <div class="price-card">
+      <div class="price-card__label">Standalone</div>
+      <div class="price-card__name">AI Agent Only</div>
+      <p style="font-size:0.85rem;color:#6b7a8d;margin-bottom:12px;">Already have a website? Add the agent to it.</p>
+      <div class="price-card__price">$149<span>/mo</span></div>
+      <div class="price-card__setup">+ $149 one-time setup &nbsp;&middot;&nbsp; Cancel anytime</div>
+      <div class="price-card__divider"></div>
+      <ul class="price-card__features">
+        <li>AI chat widget on your existing site</li>
+        <li>AI voice agent (visitors can talk to it)</li>
+        <li>Trained on your business data</li>
+        <li>Lead capture + contact routing</li>
+        <li>Monthly performance report</li>
+      </ul>
+      <a href="https://buy.stripe.com/cNi9AU8Bl6nB1kEfIF3Je0C" class="price-card__btn price-card__btn--outline">Get Started</a>
+    </div>
+
+    <!-- With Starter -->
+    <div class="price-card price-card--featured">
+      <div class="price-card__badge">Best Value</div>
+      <div class="price-card__label">Bundled with Website</div>
+      <div class="price-card__name">Starter + AI Agent</div>
+      <p style="font-size:0.85rem;color:#6b7a8d;margin-bottom:12px;">New website AND the agent. Built and live together.</p>
+      <div class="price-card__price">$247<span>/mo</span></div>
+      <div class="price-card__setup"><s>$197 setup</s> &nbsp;Setup waived on 6-month &middot; <strong style="color:#2ecc71;">Save $99/mo vs. buying separate</strong></div>
+      <div class="price-card__divider"></div>
+      <ul class="price-card__features">
+        <li>Professional 5-page website</li>
+        <li>AI chat + voice agent included</li>
+        <li>ScaleLocal Dashboard</li>
+        <li>5 content updates per month</li>
+        <li>SSL, mobile-optimized, speed monitoring</li>
+      </ul>
+      <a href="/checkout?plan=starter&addon=agent" class="price-card__btn price-card__btn--dark">Get Started</a>
+    </div>
+  </div>
+
+  <div class="pricing-cards" style="margin-top:20px;max-width:720px;margin-left:auto;margin-right:auto;">
+    <div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:#1a2e4a;">Already on a ScaleLocal plan?</div>
+        <div style="font-size:0.8125rem;color:#6b7a8d;margin-top:3px;">Add the agent to your Starter plan for just $50/mo more.</div>
+      </div>
+      <a href="/checkout?plan=starter&addon=agent" style="display:inline-block;padding:10px 20px;background:#1a2e4a;color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;border-radius:8px;text-decoration:none;white-space:nowrap;">Add Agent &rarr;</a>
+    </div>
+    <div style="background:#fff;border:1.5px solid #e2e8f0;border-radius:12px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;color:#1a2e4a;">Want phone calls answered too?</div>
+        <div style="font-size:0.8125rem;color:#6b7a8d;margin-top:3px;">Upgrade to AI Receptionist — answers every call, 24/7.</div>
+      </div>
+      <a href="/receptionist" style="display:inline-block;padding:10px 20px;background:#fff;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;border-radius:8px;text-decoration:none;border:2px solid #1a2e4a;white-space:nowrap;">Learn More &rarr;</a>
+    </div>
+  </div>
+
+  <p class="pricing-note" style="margin-top:28px;">Your first payment is credited toward any ScaleLocal plan if you upgrade within 30 days. No contracts required on standalone. 6-month and 12-month commitments waive the setup fee.</p>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="proof-section">
+  <p class="section-label">What Clients Say</p>
+  <h2 class="section-title" style="margin-bottom:40px;">It pays for itself fast</h2>
+  <div class="proof-grid">
+    <div class="proof-card">
+      <p class="proof-quote">"I was missing calls at 2am from people looking for a plumber. Now the agent answers, gets their info, and I call them back in the morning. Three new jobs last month from after-hours leads alone."</p>
+      <div class="proof-name">Mike T.</div>
+      <div class="proof-biz">Plumbing contractor, Tewksbury MA</div>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">"My old website just sat there. Now it actually does something — answers questions, tells people what I charge, and sends me their contact info. It's like having a receptionist I don't have to pay by the hour."</p>
+      <div class="proof-name">Sarah M.</div>
+      <div class="proof-biz">Licensed Massage Therapist, Chelmsford MA</div>
+    </div>
+    <div class="proof-card">
+      <p class="proof-quote">"The demo blew me away. It already knew my prices and everything I do. My customers can't tell it's AI — they just think I got really responsive all of a sudden."</p>
+      <div class="proof-name">Dave L.</div>
+      <div class="proof-biz">Auto detailing, Billerica MA</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2>Ready to see it on your website?</h2>
+  <p>Enter your URL below and we'll build a live demo in under 10 seconds — trained on your actual business.</p>
+  <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:16px;">
+    <input type="url" id="url-input-cta" class="try-url-input" placeholder="yourwebsite.com" style="max-width:320px;background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.25);color:#fff;" />
+    <button class="btn-primary" onclick="launchDemoCta()">Build My Demo</button>
+  </div>
+  <p style="font-size:0.8125rem;color:rgba(255,255,255,0.45);margin-top:8px;">Or <a href="/checkout?plan=starter&addon=agent" style="color:rgba(255,255,255,0.7);">skip the demo and get started</a> — $149/mo, live in 24 hours.</p>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><a href="/">ScaleLocal</a> &nbsp;&middot;&nbsp; 978.662.7580 &nbsp;&middot;&nbsp; <a href="mailto:matt@scalelocal.net">matt@scalelocal.net</a> &nbsp;&middot;&nbsp; <a href="/privacy">Privacy</a></p>
+</footer>
+
+<script>
+  function buildDemoUrl(input) {
+    var url = input.value.trim();
+    if (!url) { input.focus(); return null; }
+    if (!url.startsWith('http')) url = 'https://' + url;
+    try {
+      var host = new URL(url).hostname.replace(/^www\./, '');
+      var slug = host.replace(/\./g, '-');
+      return 'https://agentcopyai.com/site-agent/' + encodeURIComponent(slug) + '?source=scalelocal&url=' + encodeURIComponent(url);
+    } catch(e) { return null; }
+  }
+
+  function launchDemo() {
+    var url = buildDemoUrl(document.getElementById('url-input'));
+    if (url) window.open(url, '_blank');
+  }
+
+  function launchDemoCta() {
+    var url = buildDemoUrl(document.getElementById('url-input-cta'));
+    if (url) window.open(url, '_blank');
+  }
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+</script>
+</body>
+</html>
