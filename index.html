@@ -2747,7 +2747,7 @@
             <div class="roi-tiers-row" id="roi-tiers-row">
               <a href="/checkout?plan=starter" class="roi-tier-card roi-tier-link" id="roi-card-starter" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <p class="roi-tc-label">STARTER</p>
-                <p class="roi-tc-cost">$199<span>/mo</span></p>
+                <p class="roi-tc-cost">$197<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-s-math" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
                 <p id="roi-s-eq" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
                 <p id="roi-s-result" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
@@ -2867,20 +2867,20 @@
       <div class="services-inner">
         <p class="section-label">OUR SYSTEMS</p>
         <h2 class="services-headline">Four systems. One goal.<br>More customers finding you first.</h2>
-        <p class="services-sub">Starting at $199/mo. Every plan includes a live dashboard, AI chat assistant, and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
+        <p class="services-sub">Starting at $197/mo. Every plan includes a live dashboard and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
         <div class="service-cards">
           <div class="service-card service-card--starter">
             <p class="service-tier-label">STARTER</p>
             <h3 class="service-card-title">Starter</h3>
             <p class="service-tagline">A real website that actually works for you.</p>
             <div class="service-price-block">
-              <span class="service-price-amount">$199</span><span class="service-price-period">/mo</span>
+              <span class="service-price-amount">$197</span><span class="service-price-period">/mo</span>
               <span class="service-price-note" style="color:#2ecc71;display:block;margin-top:4px;">$0 setup &bull; Month-to-month &bull; Cancel anytime</span>
             </div>
             <hr class="service-divider--light">
             <ul class="service-features">
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Professional 5-page website, live and hosted</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Chat &mdash; AI chat assistant 24/7</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">AI Chat &amp; Voice Agent &mdash; add for $50/mo</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Dashboard (traffic + chat data)</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">1 content update per month</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">SSL, mobile optimization, speed monitoring</span></li>
@@ -4280,7 +4280,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var CR = crVal / 10;
         var tiers = [
-          { cost:199, leads:0, label:'Starter', m:'roi-s-math', e:'roi-s-eq', r:'roi-s-result', p:'roi-s-roi', noGuarantee:true },
+          { cost:197, leads:0, label:'Starter', m:'roi-s-math', e:'roi-s-eq', r:'roi-s-result', p:'roi-s-roi', noGuarantee:true },
           { cost:497, leads:3, label:'Foundation', m:'roi-f-math', e:'roi-f-eq', r:'roi-f-result', p:'roi-f-roi' },
           { cost:1297, leads:8, label:'Momentum', m:'roi-m-math', e:'roi-m-eq', r:'roi-m-result', p:'roi-m-roi' },
           { cost:1997, leads:15, label:'Authority', m:'roi-a-math', e:'roi-a-eq', r:'roi-a-result', p:'roi-a-roi' }
@@ -4318,8 +4318,8 @@ document.addEventListener('DOMContentLoaded', function() {
           if (r.isStarter) {
             // Starter — no lead guarantee, show breakeven customers needed
             document.getElementById(r.t.m).textContent = 'No lead guarantee \u2014 website + AI chat + dashboard';
-            document.getElementById(r.t.e).textContent = 'At $' + _fmt(Math.round(val)) + '/customer, you need ~' + r.be + ' customers/mo to cover $199/mo';
-            if (val >= 249) {
+            document.getElementById(r.t.e).textContent = 'At $' + _fmt(Math.round(val)) + '/customer, you need ~' + r.be + ' customers/mo to cover $197/mo';
+            if (val >= 197) {
               document.getElementById(r.t.r).innerHTML = '<strong style="color:#2ecc71">Pays for itself with ' + r.be + ' customer' + (r.be > 1 ? 's' : '') + '/mo</strong>';
               document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest risk entry point \u2014 no commitment required</span>' + clickHint;
             } else {
@@ -4373,7 +4373,7 @@ document.addEventListener('DOMContentLoaded', function() {
           }
 
           if (allLoss) {
-            recText.innerHTML = 'At this customer value, <strong>Starter at $199/mo</strong> is the best way to get started \u2014 a professional website with an AI chat assistant, no commitment, and you only need ' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
+            recText.innerHTML = 'At this customer value, <strong>Starter at $197/mo</strong> is the best way to get started \u2014 a professional website with an AI chat assistant, no commitment, and you only need ' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
             recEl.style.display = 'block';
           } else if (profitCount === 3) {
             recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, all three guaranteed systems are net positive. <strong>' + bestTier.t.label + '</strong> delivers the strongest return at <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click any tier above to see what\u2019s included.';
@@ -4521,7 +4521,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="footer-nav-col">
           <p class="footer-nav-heading">Our Systems</p>
-          <a href="/checkout?plan=starter">Starter &mdash; $199/mo</a>
+          <a href="/checkout?plan=starter">Starter &mdash; $197/mo</a>
           <a href="/menu">Foundation &mdash; $497/mo</a>
           <a href="/menu">Momentum &mdash; $1,297/mo</a>
           <a href="/menu">Authority &mdash; $1,997/mo</a>
