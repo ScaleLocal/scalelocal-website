@@ -157,7 +157,7 @@
           <div class="pln-rad"></div>
           <div class="pln-top">
             <div><div class="pln-name">Starter</div><div class="pln-tag">A real website that works for you.</div></div>
-            <div class="pln-rt"><div class="pln-price" id="pr-starter">$199<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived &bull; Month-to-month</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-starter">$197<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived &bull; Month-to-month</div></div>
           </div>
         </div>
         <div class="pln" data-p="foundation">
@@ -225,6 +225,15 @@
           <button class="ao-tg" id="ao-react-tg" aria-label="Toggle Reactivation"></button>
           <span class="ao-inc" id="ao-react-inc" style="display:none">&#10003; Included</span>
         </div>
+        <div class="ao-r" id="ao-agent" style="display:none">
+          <div class="ao-inf">
+            <div class="ao-nm">AI Chat &amp; Voice Agent</div>
+            <div class="ao-ds">AI agent answers questions and talks with visitors 24/7. Trained on your business. <a href="/chat-agent" target="_blank" style="color:#2E75B6;text-decoration:none;">Try a live demo &rarr;</a></div>
+            <div class="ao-pr" id="ao-agent-pr">+ $50/mo</div>
+          </div>
+          <button class="ao-tg" id="ao-agent-tg" aria-label="Toggle AI Agent"></button>
+          <span class="ao-inc" id="ao-agent-inc" style="display:none">&#10003; Included</span>
+        </div>
       </div>
 
       <!-- 4. INFO -->
@@ -281,8 +290,8 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var plans = {
-      starter: {mo:199, setup:199, leads:0, guar:'', m2mOnly:true,
-        inc:['Professional website, live and hosted','ScaleLocal Chat \u2014 AI chat assistant 24/7','ScaleLocal Dashboard (website traffic + chat)','1 content update per month','SSL, mobile optimization, speed monitoring']},
+      starter: {mo:197, setup:197, leads:0, guar:'', m2mOnly:true,
+        inc:['Professional website, live and hosted','ScaleLocal Dashboard (website traffic + chat)','5 content updates per month','SSL, mobile optimization, speed monitoring']},
       foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
         inc:['Everything in Starter','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','Full ScaleLocal Dashboard','Citation building (50+ directories)','Named account manager','Client Reactivation Program']},
       momentum: {mo:1297, setup:497, leads:8, guar:'8 leads/month by day 90 \u2014 or we work free',
@@ -292,7 +301,7 @@
     };
     var recepMo = {starter:497, foundation:497, momentum:297, authority:0, none:497};
     var RECEP_SETUP = 997, SITE_COST = 497, REACT_COST = 497;
-    var S = {term:'6m', plan:null, recep:false, site:false, react:false, agreed:false};
+    var S = {term:'6m', plan:null, recep:false, site:false, react:false, agent:false, agreed:false};
     var prm = new URLSearchParams(location.search);
     if(prm.get('name')){var pp=prm.get('name').split(' ');document.getElementById('f-fn').value=pp[0]||'';document.getElementById('f-ln').value=pp.slice(1).join(' ')||'';}
     if(prm.get('company'))document.getElementById('f-biz').value=prm.get('company');
@@ -359,7 +368,7 @@
       document.getElementById('plan-sel').style.display='none';
       // Hide addon section header and other addons
       stitleEls[2].style.display='none';
-      ['recep','site','react'].forEach(function(k){
+      ['recep','site','react','agent'].forEach(function(k){
         if(k!==focusAddon){document.getElementById('ao-'+k).style.display='none';}
       });
       // Style the selected addon as a clean confirmation card
@@ -405,8 +414,20 @@
       document.getElementById('ao-react-inc').style.display=hasFullPlan?'':'none';
       document.getElementById('ao-react-pr').textContent=hasFullPlan?'Included with your plan':'$'+fmt(REACT_COST)+' one-time';
       if(hasFullPlan){S.react=false;document.getElementById('ao-react-tg').classList.remove('on');}
+      // Agent chat/voice: show only for Starter; Foundation+ includes it
+      var agentRow = document.getElementById('ao-agent');
+      var agentInc = document.getElementById('ao-agent-inc');
+      if(agentRow){
+        if(S.plan==='starter'){agentRow.style.display='';if(agentInc)agentInc.style.display='none';}
+        else if(hasFullPlan){
+          agentRow.style.display='';
+          if(agentInc)agentInc.style.display='';
+          document.getElementById('ao-agent-tg').style.display='none';
+          S.agent=false;document.getElementById('ao-agent-tg').classList.remove('on');
+        } else {agentRow.style.display='none';S.agent=false;}
+      }
     }
-    ['recep','site','react'].forEach(function(k){
+    ['recep','site','react','agent'].forEach(function(k){
       document.getElementById('ao-'+k+'-tg').addEventListener('click',function(){
         this.classList.toggle('on');S[k]=this.classList.contains('on');updSummary();
       });
@@ -514,17 +535,20 @@
     // Maps the selected plan + term + addons to the correct Stripe Payment Link
     var stripeLinks = {
       // Plans — M2M (with setup fee)
-      'starter_nc': 'https://buy.stripe.com/14AfZi8Bl3bpd3mfIF3Je0v',
+      'starter_nc': 'https://buy.stripe.com/4gMeVeg3N6nB6EYeEB3Je0y',
+      'starter_agent_nc': 'https://buy.stripe.com/4gMfZi5p96nB0gA6853Je0E',
       'foundation_nc': 'https://buy.stripe.com/8x28wQ7xhh2f2oI3ZX3Je0e',
       'momentum_nc': 'https://buy.stripe.com/dRm5kEcRBfYb0gA9kh3Je0f',
       'authority_nc': 'https://buy.stripe.com/28EaEY9FpcLZe7qfIF3Je0g',
       // Plans — 6-month (no setup fee)
-      'starter_6m': 'https://buy.stripe.com/aFa5kEaJtbHVfbufIF3Je0w',
+      'starter_6m': 'https://buy.stripe.com/28E28s7xh13h7J2eEB3Je0z',
+      'starter_agent_6m': 'https://buy.stripe.com/6oUeVeg3N3bpbZigMJ3Je0F',
       'foundation_6m': 'https://buy.stripe.com/9B69AUeZJ3bpbZidAx3Je0i',
       'momentum_6m': 'https://buy.stripe.com/00wdRa4l5dQ39Ra8gd3Je0j',
       'authority_6m': 'https://buy.stripe.com/fZufZibNx13h5AUaol3Je0k',
       // Plans — 12-month (no setup fee, month 12 free via coupon later)
-      'starter_12m': 'https://buy.stripe.com/fZu6oI04Ph2fgfy9kh3Je0x',
+      'starter_12m': 'https://buy.stripe.com/3cI9AU9Fp8vJbZieEB3Je0A',
+      'starter_agent_12m': 'https://buy.stripe.com/7sYdRacRBcLZ6EY0NL3Je0G',
       'foundation_12m': 'https://buy.stripe.com/7sYcN6dVF4ftbZi5413Je0m',
       'momentum_12m': 'https://buy.stripe.com/aFa14ocRB8vJ6EY6853Je0n',
       'authority_12m': 'https://buy.stripe.com/3cI5kE3h15jx1kE6853Je0o',
@@ -554,6 +578,11 @@
         if (S.site) return stripeLinks['site_only'];
         if (S.react) return stripeLinks['react_only'];
         return null;
+      }
+
+      // Starter + Agent bundle
+      if (hasPlan && S.plan === 'starter' && S.agent) {
+        return stripeLinks['starter_agent_' + effectiveTerm] || null;
       }
 
       // Plan + AI Receptionist bundle (Momentum only)
