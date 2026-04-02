@@ -297,16 +297,19 @@
         justify-content: flex-start;
       }
 
-      /* Compact phone for result on tablet */
+      /* Phone for result on tablet — proper tall iPhone proportions */
       #state-result .two-col {
-        --ph-w: 240px;
-        --ph-h: 454px;
-        --ph-scale-h: 362px;
-        --ph-iframe-scale: 0.610;
-        --ph-iframe-h: 594px;
-        --ph-radius: 34px;
-        --ph-screen-radius: 0 0 26px 26px;
+        --ph-w: 250px;
+        --ph-h: 530px;
+        --ph-scale-h: 438px;         /* 530 - 78 - 14 */
+        --ph-iframe-scale: 0.6361;   /* 250 / 393 */
+        --ph-iframe-h: 688px;        /* 438 / 0.636 */
+        --ph-radius: 36px;
+        --ph-screen-radius: 0 0 28px 28px;
       }
+
+      /* Center phone on single-col result */
+      #state-result .phone-col { justify-content: center; }
     }
 
     /* Mobile — narrow screens */
@@ -317,15 +320,15 @@
       .res-headline { font-size: 1.4rem !important; }
       .nav-back { font-size: 0.72rem; }
 
-      /* Even smaller phone on narrow mobile */
+      /* Proper tall iPhone proportions — 230×490 ≈ 1:2.13 ratio */
       #state-result .two-col {
-        --ph-w: 210px;
-        --ph-h: 398px;
-        --ph-scale-h: 310px;
-        --ph-iframe-scale: 0.534;
-        --ph-iframe-h: 581px;
-        --ph-radius: 30px;
-        --ph-screen-radius: 0 0 22px 22px;
+        --ph-w: 230px;
+        --ph-h: 490px;
+        --ph-scale-h: 398px;         /* 490 - 78 - 14 */
+        --ph-iframe-scale: 0.5852;   /* 230 / 393 */
+        --ph-iframe-h: 680px;        /* 398 / 0.585 */
+        --ph-radius: 32px;
+        --ph-screen-radius: 0 0 24px 24px;
       }
 
       .plan-row { padding: 10px 12px; }
