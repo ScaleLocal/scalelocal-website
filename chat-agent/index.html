@@ -23,272 +23,322 @@
       --text-2:  #4a5568;
       --text-3:  #8a9ab0;
       --border:  #dde4ed;
+      --nav-h:   56px;
+
+      /* Phone sizing — these vars control the whole phone in one place */
+      --ph-w: 260px;
+      --ph-h: 536px;
+      --ph-screen-top: 78px;
+      --ph-home: 9px;
+      --ph-scale-h: calc(var(--ph-h) - var(--ph-screen-top) - 14px);
+      --ph-iframe-scale: 0.6615;     /* 260 / 393 */
+      --ph-iframe-h: 671px;          /* ph-scale-h / iframe-scale */
+      --ph-radius: 38px;
+      --ph-screen-radius: 0 0 30px 30px;
     }
+
+    /* Taller screens get a bigger phone */
+    @media (min-height: 820px) {
+      :root {
+        --ph-w: 280px;
+        --ph-h: 580px;
+        --ph-scale-h: 488px;         /* 580 - 78 - 14 */
+        --ph-iframe-scale: 0.7125;   /* 280 / 393 */
+        --ph-iframe-h: 690px;
+        --ph-radius: 40px;
+        --ph-screen-radius: 0 0 32px 32px;
+      }
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--navy); overflow-x: hidden; min-height: 100vh; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--navy); overflow-x: hidden; }
 
     /* ── STATE MACHINE ── */
-    /* Default: show landing (phone + form side by side) */
-    #state-landing  { display: grid; }
-    #state-loading  { display: none; }
-    #state-result   { display: none; }
-    body.is-loading #state-landing  { display: none; }
-    body.is-loading #state-loading  { display: flex; }
-    body.is-result  #state-landing  { display: none; }
-    body.is-result  #state-result   { display: grid; }
+    #state-landing { display: block; }
+    #state-loading { display: none; }
+    #state-result  { display: none; }
+    body.is-loading #state-landing { display: none; }
+    body.is-loading #state-loading { display: flex; }
+    body.is-result  #state-landing { display: none; }
+    body.is-result  #state-result  { display: block; }
 
     /* ── NAV ── */
     .nav { position: sticky; top: 0; z-index: 200; background: rgba(26,46,74,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .nav__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
-    .nav__logo { text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; letter-spacing: -0.01em; display: flex; align-items: baseline; }
-    .nav__logo .nl-s { font-weight: 700; color: #fff; }
-    .nav__logo .nl-l { font-weight: 400; color: var(--blue); }
-    .nav__back { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
-    .nav__back:hover { color: #fff; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 20px; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; letter-spacing: -0.01em; display: flex; align-items: baseline; }
+    .nav-logo .nl-s { font-weight: 700; color: #fff; }
+    .nav-logo .nl-l { font-weight: 400; color: var(--blue); }
+    .nav-back { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+    .nav-back:hover { color: #fff; }
 
     /* ══════════════════════════════════════════
-       LANDING — two-column: phone left, form right
+       SHARED TWO-COLUMN WRAPPER
     ══════════════════════════════════════════ */
-    #state-landing {
-      grid-template-columns: 1fr 1fr;
-      min-height: calc(100vh - 56px);
-      max-width: 1200px;
+    .two-col {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      max-width: 1160px;
       margin: 0 auto;
-      padding: 40px 32px;
-      gap: 48px;
-      align-items: center;
+      padding: 28px 32px 32px;
+      align-items: start;
     }
 
-    /* Phone column (left) */
-    .lnd-phone-col { display: flex; flex-direction: column; align-items: center; }
+    /* ══════════════════════════════════════════
+       iPHONE FRAME — uses CSS vars for all sizing
+    ══════════════════════════════════════════ */
+    .phone-col { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
 
     .ph-header {
       display: flex; align-items: center; gap: 10px;
-      margin-bottom: 16px;
+      margin-bottom: 14px; height: 28px;
     }
-    .ph-pill { display: flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 100px; background: var(--green-bg); border: 1px solid var(--green-bd); font-size: 0.7rem; font-weight: 600; color: var(--green-d); }
-    .ph-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
-    .ph-name { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; color: var(--text-2); }
-    .ph-name strong { color: var(--navy); font-weight: 800; }
+    .ph-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 3px 11px; border-radius: 100px;
+      background: var(--green-bg); border: 1px solid var(--green-bd);
+      font-size: 0.68rem; font-weight: 600; color: var(--green-d);
+      white-space: nowrap;
+    }
+    .ph-pill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; flex-shrink: 0; }
+    .ph-label { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 240px; }
+    .ph-label strong { color: var(--navy); font-weight: 800; }
 
-    /* ── iPHONE FRAME ── */
     .phone-wrap { position: relative; padding: 0 13px; }
-    .phone { position: relative; width: 280px; height: 580px; border-radius: 40px; background: #111; overflow: hidden; box-shadow: 0 0 0 9px #1f1f1f, 0 0 0 10px #0a0a0a, 0 28px 56px rgba(0,0,0,0.22), 0 8px 16px rgba(0,0,0,0.14), inset 0 0 0 1px rgba(255,255,255,0.07); }
-    .phone__btns-l, .phone__btns-r { position: absolute; }
-    .phone__btns-l { left: 0; top: 76px; display: flex; flex-direction: column; gap: 9px; }
-    .phone__btn { width: 3px; height: 26px; background: #2a2a2a; border-radius: 2px 0 0 2px; }
-    .phone__btn--sm { height: 19px; }
-    .phone__btns-r { right: 0; top: 114px; }
-    .phone__btn--r { width: 3px; height: 52px; background: #2a2a2a; border-radius: 0 2px 2px 0; }
-    .phone__island { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 78px; height: 24px; background: #000; border-radius: 18px; z-index: 10; box-shadow: 0 0 0 1px rgba(255,255,255,0.05); }
-    .phone__statusbar { position: absolute; top: 0; left: 0; right: 0; height: 46px; z-index: 9; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 18px 7px; pointer-events: none; background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 100%); }
-    .phone__time { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
-    .phone__icons { display: flex; align-items: center; gap: 5px; }
-    .phone__signal { display: flex; align-items: flex-end; gap: 1.5px; height: 9px; }
-    .phone__signal span { background: #fff; border-radius: 1px; width: 2px; }
-    .phone__signal span:nth-child(1){height:3px} .phone__signal span:nth-child(2){height:5px} .phone__signal span:nth-child(3){height:7px} .phone__signal span:nth-child(4){height:9px}
-    .phone__wifi { width: 13px; height: 10px; position: relative; }
-    .phone__wifi::before,.phone__wifi::after { content:''; position:absolute; border-radius:50%; border:1.6px solid #fff; border-bottom:none; border-left-color:transparent; border-right-color:transparent; }
-    .phone__wifi::before { width:13px;height:10px;top:0;left:0; }
-    .phone__wifi::after  { width:8px;height:6px;top:3px;left:2.5px; }
-    .phone__wifi i { position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;bottom:0;left:50%;transform:translateX(-50%); }
-    .phone__battery { width:19px;height:10px;border:1.5px solid rgba(255,255,255,0.8);border-radius:2px;position:relative; }
-    .phone__battery::before { content:'';position:absolute;right:-3.5px;top:50%;transform:translateY(-50%);width:2px;height:4px;background:rgba(255,255,255,0.8);border-radius:0 1px 1px 0; }
-    .phone__battery::after { content:'';position:absolute;left:2px;top:2px;bottom:2px;right:3px;background:rgba(255,255,255,0.9);border-radius:1px; }
-    .phone__addressbar { position:absolute;top:46px;left:0;right:0;height:32px;z-index:8;pointer-events:none;background:rgba(248,248,248,0.97);border-bottom:1px solid rgba(0,0,0,0.07);display:flex;align-items:center;justify-content:center;padding:0 10px; }
-    .phone__url { background:rgba(0,0,0,0.055);border-radius:7px;padding:2px 9px;font-size:9px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;display:flex;align-items:center;gap:3px; }
-    .phone__screen { position:absolute;top:78px;left:0;right:0;bottom:0;overflow:hidden;background:#f5f5f5;border-radius:0 0 32px 32px; }
-    .phone__scale-wrap { width:280px;height:493px;transform-origin:top left;overflow:hidden;position:relative; }
-    .phone__iframe { width:393px;height:690px;border:none;transform-origin:top left;transform:scale(0.7125);display:block;position:absolute;top:0;left:0; }
-    .phone__home { position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:88px;height:4px;border-radius:3px;background:rgba(0,0,0,0.2);z-index:9; }
 
-    /* ── FORM COLUMN (right) ── */
-    .lnd-form-col {
-      display: flex; flex-direction: column; gap: 24px;
+    .phone {
+      position: relative;
+      width: var(--ph-w); height: var(--ph-h);
+      border-radius: var(--ph-radius);
+      background: #111; overflow: hidden;
+      box-shadow:
+        0 0 0 9px #1f1f1f,
+        0 0 0 10px #0a0a0a,
+        0 24px 48px rgba(0,0,0,0.22),
+        0 6px 14px rgba(0,0,0,0.14),
+        inset 0 0 0 1px rgba(255,255,255,0.06);
     }
+    .phone-btns-l, .phone-btns-r { position: absolute; }
+    .phone-btns-l { left: 0; top: 76px; display: flex; flex-direction: column; gap: 9px; }
+    .phone-btn { width: 3px; height: 26px; background: #2a2a2a; border-radius: 2px 0 0 2px; }
+    .phone-btn-sm { height: 19px; }
+    .phone-btns-r { right: 0; top: 110px; }
+    .phone-btn-r { width: 3px; height: 52px; background: #2a2a2a; border-radius: 0 2px 2px 0; }
+    .phone-island { position: absolute; top: 9px; left: 50%; transform: translateX(-50%); width: 78px; height: 24px; background: #000; border-radius: 18px; z-index: 10; box-shadow: 0 0 0 1px rgba(255,255,255,0.04); }
+    .phone-statusbar { position: absolute; top: 0; left: 0; right: 0; height: 46px; z-index: 9; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 18px 7px; pointer-events: none; background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 100%); }
+    .phone-time { font-size: 10px; font-weight: 700; color: #fff; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+    .phone-icons { display: flex; align-items: center; gap: 5px; }
+    .phone-signal { display: flex; align-items: flex-end; gap: 1.5px; height: 9px; }
+    .phone-signal span { background: #fff; border-radius: 1px; width: 2px; }
+    .phone-signal span:nth-child(1){height:3px} .phone-signal span:nth-child(2){height:5px} .phone-signal span:nth-child(3){height:7px} .phone-signal span:nth-child(4){height:9px}
+    .phone-wifi { width: 13px; height: 10px; position: relative; }
+    .phone-wifi::before,.phone-wifi::after { content:''; position:absolute; border-radius:50%; border:1.6px solid #fff; border-bottom:none; border-left-color:transparent; border-right-color:transparent; }
+    .phone-wifi::before { width:13px;height:10px;top:0;left:0; }
+    .phone-wifi::after  { width:8px;height:6px;top:3px;left:2.5px; }
+    .phone-wifi i { position:absolute;width:3px;height:3px;background:#fff;border-radius:50%;bottom:0;left:50%;transform:translateX(-50%); }
+    .phone-battery { width:19px;height:10px;border:1.5px solid rgba(255,255,255,0.8);border-radius:2px;position:relative; }
+    .phone-battery::before { content:'';position:absolute;right:-3.5px;top:50%;transform:translateY(-50%);width:2px;height:4px;background:rgba(255,255,255,0.8);border-radius:0 1px 1px 0; }
+    .phone-battery::after { content:'';position:absolute;left:2px;top:2px;bottom:2px;right:3px;background:rgba(255,255,255,0.9);border-radius:1px; }
+    .phone-addressbar { position:absolute;top:46px;left:0;right:0;height:32px;z-index:8;pointer-events:none;background:rgba(248,248,248,0.97);border-bottom:1px solid rgba(0,0,0,0.07);display:flex;align-items:center;justify-content:center;padding:0 10px; }
+    .phone-url { background:rgba(0,0,0,0.055);border-radius:7px;padding:2px 9px;font-size:9px;color:#444;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:190px;display:flex;align-items:center;gap:3px; }
+    .phone-screen {
+      position:absolute;top: var(--ph-screen-top);left:0;right:0;bottom:0;
+      overflow:hidden;background:#f5f5f5;
+      border-radius: var(--ph-screen-radius);
+    }
+    .phone-scale-wrap {
+      width: var(--ph-w);
+      height: var(--ph-scale-h);
+      transform-origin:top left;overflow:hidden;position:relative;
+    }
+    .phone-iframe {
+      width:393px;
+      height: var(--ph-iframe-h);
+      border:none;
+      transform-origin:top left;
+      transform: scale(var(--ph-iframe-scale));
+      display:block;position:absolute;top:0;left:0;
+    }
+    .phone-home { position:absolute;bottom:5px;left:50%;transform:translateX(-50%);width:88px;height:4px;border-radius:3px;background:rgba(0,0,0,0.2);z-index:9; }
+
+    /* ══════════════════════════════════════════
+       LANDING STATE
+    ══════════════════════════════════════════ */
+    #state-landing .two-col { }
+
+    /* Right column — form */
+    .lnd-right { display: flex; flex-direction: column; justify-content: center; gap: 20px; min-height: calc(var(--ph-h) + 42px); }
 
     .lnd-headline {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      font-size: clamp(1.6rem, 2.4vw, 2.4rem);
       font-weight: 800; line-height: 1.12;
       letter-spacing: -0.025em; color: var(--navy);
     }
     .lnd-headline em { font-style: normal; color: var(--green-d); }
-    .lnd-tagline { font-size: 1rem; color: var(--text-2); line-height: 1.65; max-width: 400px; }
+    .lnd-tagline { font-size: 0.95rem; color: var(--text-2); line-height: 1.65; max-width: 420px; }
 
-    /* THE BOLD FORM BOX */
-    .see-live-box {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(26,46,74,0.18), 0 2px 8px rgba(26,46,74,0.10);
-    }
+    /* Bold "See Your Agent Live" box */
+    .see-live-box { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(26,46,74,0.14), 0 2px 6px rgba(26,46,74,0.08); }
+
     .slb-header {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-d) 100%);
-      padding: 22px 24px 18px;
-      position: relative;
-      overflow: hidden;
+      padding: 18px 22px 16px; position: relative; overflow: hidden;
     }
-    .slb-header::before {
-      content: '';
-      position: absolute; top: -40px; right: -40px;
-      width: 160px; height: 160px;
-      border-radius: 50%;
-      background: rgba(46,204,113,0.12);
-    }
-    .slb-header::after {
-      content: '';
-      position: absolute; bottom: -30px; left: 20px;
-      width: 100px; height: 100px;
-      border-radius: 50%;
-      background: rgba(46,204,113,0.07);
-    }
-    .slb-eyebrow {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(46,204,113,0.18); border: 1px solid rgba(46,204,113,0.4);
-      border-radius: 100px; padding: 3px 10px;
-      font-size: 0.68rem; font-weight: 700; color: var(--green);
-      text-transform: uppercase; letter-spacing: 0.08em;
-      margin-bottom: 10px; position: relative; z-index: 1;
-    }
-    .slb-eyebrow-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
-    .slb-title {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.45rem; font-weight: 800;
-      color: #fff; line-height: 1.15;
-      letter-spacing: -0.02em;
-      position: relative; z-index: 1;
-    }
-    .slb-title span { color: var(--green); }
-    .slb-sub {
-      font-size: 0.82rem; color: rgba(255,255,255,0.65);
-      margin-top: 6px; line-height: 1.5;
-      position: relative; z-index: 1;
-    }
+    .slb-header::before { content:''; position:absolute; top:-40px; right:-40px; width:140px; height:140px; border-radius:50%; background:rgba(46,204,113,0.10); }
+    .slb-eyebrow { display:inline-flex; align-items:center; gap:6px; background:rgba(46,204,113,0.18); border:1px solid rgba(46,204,113,0.4); border-radius:100px; padding:3px 10px; font-size:0.68rem; font-weight:700; color:var(--green); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px; position:relative; z-index:1; }
+    .slb-eyebrow-dot { width:5px; height:5px; border-radius:50%; background:var(--green); animation:pulse 2s infinite; }
+    .slb-title { font-family:'Montserrat',sans-serif; font-size:1.3rem; font-weight:800; color:#fff; line-height:1.15; letter-spacing:-0.02em; position:relative; z-index:1; }
+    .slb-title span { color:var(--green); }
+    .slb-sub { font-size:0.8rem; color:rgba(255,255,255,0.62); margin-top:5px; line-height:1.5; position:relative; z-index:1; }
 
-    .slb-body {
-      background: var(--white);
-      padding: 22px 24px 24px;
-      border: 1px solid var(--border);
-      border-top: none;
-      border-radius: 0 0 16px 16px;
-    }
-    .slb-field { margin-bottom: 14px; }
-    .slb-label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--text-2); margin-bottom: 5px; }
-    .slb-input {
-      width: 100%; padding: 11px 14px;
-      border: 1.5px solid var(--border); border-radius: 8px;
-      font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--navy);
-      outline: none; transition: border-color 0.15s, box-shadow 0.15s;
-      background: #fafbfc;
-    }
-    .slb-input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(46,204,113,0.12); background: var(--white); }
-    .slb-input::placeholder { color: var(--text-3); }
-    .slb-input.err { border-color: #ef4444; }
-    .slb-error { display: none; font-size: 0.74rem; color: #ef4444; margin-top: 5px; }
-    .slb-error.show { display: block; }
-    .slb-btn {
-      width: 100%; padding: 14px;
-      background: var(--green); color: var(--navy-d);
-      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem;
-      border: none; border-radius: 10px; cursor: pointer;
-      transition: background 0.15s, transform 0.12s, box-shadow 0.15s;
-      box-shadow: 0 4px 16px rgba(46,204,113,0.35);
-      letter-spacing: -0.01em;
-      margin-top: 4px;
-    }
-    .slb-btn:hover { background: var(--green-d); color: #fff; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(46,204,113,0.4); }
-    .slb-note { text-align: center; font-size: 0.74rem; color: var(--text-3); margin-top: 10px; }
+    .slb-body { background:var(--white); padding:18px 20px 20px; border:1px solid var(--border); border-top:none; border-radius:0 0 14px 14px; }
+    .slb-field { margin-bottom:12px; }
+    .slb-label { display:block; font-size:0.75rem; font-weight:600; color:var(--text-2); margin-bottom:4px; }
+    .slb-input { width:100%; padding:10px 13px; border:1.5px solid var(--border); border-radius:8px; font-family:'Inter',sans-serif; font-size:0.92rem; color:var(--navy); outline:none; transition:border-color 0.15s, box-shadow 0.15s; background:#fafbfc; }
+    .slb-input:focus { border-color:var(--green); box-shadow:0 0 0 3px rgba(46,204,113,0.12); background:var(--white); }
+    .slb-input::placeholder { color:var(--text-3); }
+    .slb-input.err { border-color:#ef4444; }
+    .slb-error { display:none; font-size:0.72rem; color:#ef4444; margin-top:4px; line-height:1.4; }
+    .slb-error.show { display:block; }
+    .slb-btn { width:100%; padding:13px; background:var(--green); color:var(--navy-d); font-family:'Montserrat',sans-serif; font-weight:800; font-size:0.95rem; border:none; border-radius:9px; cursor:pointer; transition:background 0.15s, transform 0.1s, box-shadow 0.15s; box-shadow:0 4px 14px rgba(46,204,113,0.3); margin-top:4px; letter-spacing:-0.01em; }
+    .slb-btn:hover { background:var(--green-d); color:#fff; transform:translateY(-1px); box-shadow:0 6px 18px rgba(46,204,113,0.35); }
+    .slb-note { text-align:center; font-size:0.72rem; color:var(--text-3); margin-top:8px; }
 
-    /* Mini trust strip */
-    .lnd-trust { display: flex; gap: 16px; flex-wrap: wrap; }
-    .lnd-trust-item { font-size: 0.75rem; color: var(--text-3); font-weight: 500; display: flex; align-items: center; gap: 5px; }
-    .lnd-trust-item::before { content: '✓'; color: var(--green-d); font-weight: 700; }
+    .lnd-trust { display:flex; gap:14px; flex-wrap:wrap; }
+    .lnd-trust-item { font-size:0.73rem; color:var(--text-3); font-weight:500; display:flex; align-items:center; gap:5px; }
+    .lnd-trust-item::before { content:'✓'; color:var(--green-d); font-weight:700; font-size:0.7rem; }
 
     /* ══════════════════════════════════════════
        LOADING STATE
     ══════════════════════════════════════════ */
     #state-loading {
-      flex-direction: column; align-items: center; justify-content: center;
-      min-height: calc(100vh - 56px); gap: 16px;
-      text-align: center; padding: 40px 24px;
+      flex-direction:column; align-items:center; justify-content:center;
+      min-height:calc(100vh - var(--nav-h)); gap:16px;
+      text-align:center; padding:40px 24px;
     }
-    .load__icon { width: 56px; height: 56px; border-radius: 14px; background: linear-gradient(135deg, var(--green-bg), #EFF6FF); border: 1px solid var(--green-bd); display: flex; align-items: center; justify-content: center; font-size: 22px; animation: breathe 2s ease-in-out infinite; }
-    .load__title { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--navy); }
-    .load__steps { font-size: 0.78rem; color: var(--text-3); text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px; width: 100%; max-width: 280px; }
-    .load__step { display: flex; align-items: center; gap: 8px; font-weight: 500; transition: color 0.2s; }
-    .load__step.done   { color: var(--green-d); }
-    .load__step.active { color: var(--navy); }
+    .load-icon { width:52px; height:52px; border-radius:13px; background:linear-gradient(135deg,var(--green-bg),#EFF6FF); border:1px solid var(--green-bd); display:flex; align-items:center; justify-content:center; font-size:20px; animation:breathe 2s ease-in-out infinite; }
+    .load-title { font-family:'Montserrat',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); }
+    .load-steps { font-size:0.77rem; color:var(--text-3); text-align:left; background:var(--white); border:1px solid var(--border); border-radius:12px; padding:14px 18px; display:flex; flex-direction:column; gap:5px; width:100%; max-width:260px; }
+    .load-step { display:flex; align-items:center; gap:8px; font-weight:500; transition:color 0.2s; color:var(--text-3); }
+    .load-step.done { color:var(--green-d); }
+    .load-step.active { color:var(--navy); }
 
     /* ══════════════════════════════════════════
-       RESULT STATE — phone left, CTA right
+       RESULT STATE
     ══════════════════════════════════════════ */
-    #state-result {
-      grid-template-columns: 1fr 1fr;
-      min-height: calc(100vh - 56px);
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 40px 32px;
-      gap: 48px;
-      align-items: center;
-    }
+    #state-result .two-col { }
 
-    .res-phone-col { display: flex; flex-direction: column; align-items: center; }
+    /* Right column — CTA */
+    .res-right { display:flex; flex-direction:column; gap:18px; justify-content:center; min-height:calc(var(--ph-h) + 42px); }
 
-    .res-cta-col { display: flex; flex-direction: column; gap: 20px; }
+    .res-headline { font-family:'Montserrat',sans-serif; font-size:clamp(1.5rem,2.2vw,2rem); font-weight:800; line-height:1.15; letter-spacing:-0.02em; color:var(--navy); }
+    .res-headline span { color:var(--green-d); }
+    .res-sub { font-size:0.9rem; color:var(--text-2); line-height:1.7; }
+    .res-sub strong { color:var(--navy); font-weight:600; }
 
-    .res-biz-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--text-2);
-    }
-    .res-biz-badge strong { color: var(--navy); }
+    /* Pricing rows */
+    .plan-rows { display:flex; flex-direction:column; gap:7px; }
+    .plan-row { display:flex; align-items:center; justify-content:space-between; padding:11px 14px; border-radius:8px; border:1.5px solid var(--border); background:var(--white); cursor:pointer; transition:border-color 0.15s; }
+    .plan-row:hover { border-color:var(--green); }
+    .plan-row.featured,.plan-row.selected { border-color:var(--green); background:var(--green-bg); }
+    .plan-row-left { display:flex; align-items:center; gap:9px; }
+    .plan-radio { width:14px; height:14px; border-radius:50%; border:2px solid var(--border); flex-shrink:0; transition:border-color 0.15s, background 0.15s; }
+    .plan-row.featured .plan-radio,.plan-row.selected .plan-radio { border-color:var(--green); background:var(--green); box-shadow:inset 0 0 0 2.5px #fff; }
+    .plan-name { font-size:0.82rem; font-weight:600; color:var(--navy); }
+    .plan-tag { font-size:0.66rem; font-weight:700; color:var(--green-d); background:var(--green-bg); padding:2px 7px; border-radius:100px; }
+    .plan-commit { font-size:0.7rem; color:var(--text-3); }
+    .plan-price { text-align:right; }
+    .plan-mo { font-size:0.88rem; font-weight:700; color:var(--navy); }
+    .plan-setup { font-size:0.66rem; color:var(--text-3); }
+    .plan-setup s { color:var(--text-3); }
+    .plan-setup .free { color:var(--green-d); font-weight:600; }
 
-    .res-headline { font-family: 'Montserrat', sans-serif; font-size: clamp(1.4rem,2.5vw,2.1rem); font-weight: 800; line-height: 1.15; letter-spacing: -0.02em; color: var(--navy); }
-    .res-headline span { color: var(--green-d); }
-    .res-sub { font-size: 0.92rem; color: var(--text-2); line-height: 1.7; }
-    .res-sub strong { color: var(--navy); font-weight: 600; }
+    .cta-btn { display:flex; flex-direction:column; align-items:center; justify-content:center; width:100%; padding:14px 24px; border-radius:10px; background:var(--navy); color:#fff; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; border:none; cursor:pointer; transition:background 0.2s, transform 0.15s, box-shadow 0.15s; line-height:1.2; box-shadow:0 4px 14px rgba(26,46,74,0.2); }
+    .cta-btn:hover { background:var(--navy-d); transform:translateY(-2px); box-shadow:0 6px 20px rgba(26,46,74,0.28); }
+    .cta-btn-sub { font-size:0.73rem; font-weight:400; opacity:0.6; margin-top:3px; }
+    .cta-urgency { text-align:center; font-size:0.72rem; color:var(--green-d); font-weight:600; min-height:16px; }
+    .cta-trust { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
+    .cta-trust-item { font-size:0.7rem; color:var(--text-3); font-weight:500; }
+    .cta-escape { font-size:0.75rem; color:var(--text-3); text-align:center; }
+    .cta-escape a { color:var(--text-2); font-weight:500; text-decoration:none; }
+    .cta-escape a:hover { color:var(--navy); }
+    .cta-try-again { text-align:center; font-size:0.78rem; color:var(--text-3); }
+    .cta-try-again a { color:var(--navy); font-weight:600; text-decoration:none; }
+    .cta-try-again a:hover { color:var(--blue); }
 
-    /* Pricing */
-    .plan-rows { display: flex; flex-direction: column; gap: 8px; }
-    .plan-row { display: flex; align-items: center; justify-content: space-between; padding: 11px 14px; border-radius: 8px; border: 1.5px solid var(--border); background: var(--white); cursor: pointer; transition: border-color 0.15s; }
-    .plan-row:hover { border-color: var(--green); }
-    .plan-row.featured,.plan-row.selected { border-color: var(--green); background: var(--green-bg); }
-    .plan-row__left { display: flex; align-items: center; gap: 9px; }
-    .plan-row__radio { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--border); flex-shrink: 0; transition: border-color 0.15s, background 0.15s; }
-    .plan-row.featured .plan-row__radio,.plan-row.selected .plan-row__radio { border-color: var(--green); background: var(--green); box-shadow: inset 0 0 0 2.5px #fff; }
-    .plan-row__name { font-size: 0.83rem; font-weight: 600; color: var(--navy); }
-    .plan-row__tag { font-size: 0.68rem; font-weight: 700; color: var(--green-d); background: var(--green-bg); padding: 2px 7px; border-radius: 100px; }
-    .plan-row__commit { font-size: 0.72rem; color: var(--text-3); }
-    .plan-row__price { text-align: right; }
-    .plan-row__mo { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
-    .plan-row__setup { font-size: 0.68rem; color: var(--text-3); }
-    .plan-row__setup s { color: var(--text-3); }
-    .plan-row__setup .free { color: var(--green-d); font-weight: 600; }
-
-    .cta-btn { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; padding: 15px 24px; border-radius: 10px; background: var(--navy); color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; border: none; cursor: pointer; transition: background 0.2s, transform 0.15s, box-shadow 0.15s; line-height: 1.2; box-shadow: 0 4px 16px rgba(26,46,74,0.2); }
-    .cta-btn:hover { background: var(--navy-d); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,46,74,0.28); }
-    .cta-btn span { font-size: 0.75rem; font-weight: 500; opacity: 0.65; margin-top: 3px; }
-    .cta-urgency { text-align: center; font-size: 0.74rem; color: var(--green-d); font-weight: 600; min-height: 18px; }
-    .cta-trust { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-    .cta-trust-item { font-size: 0.72rem; color: var(--text-3); font-weight: 500; }
-    .cta-escape { text-align: center; font-size: 0.76rem; color: var(--text-3); }
-    .cta-escape a { color: var(--text-2); font-weight: 500; text-decoration: none; }
-    .cta-escape a:hover { color: var(--navy); }
-
-    /* "Try another" link on result */
-    .res-try-again { font-size: 0.8rem; color: var(--text-3); text-align: center; }
-    .res-try-again a { color: var(--navy); font-weight: 600; text-decoration: none; }
-    .res-try-again a:hover { color: var(--green-d); }
-
-    /* ── RESPONSIVE ── */
+    /* ══════════════════════════════════════════
+       RESPONSIVE — TABLET + MOBILE
+       Below 900px: single column
+    ══════════════════════════════════════════ */
     @media (max-width: 900px) {
-      #state-landing, #state-result { grid-template-columns: 1fr; padding: 24px 20px; gap: 32px; align-items: start; }
-      .lnd-phone-col, .res-phone-col { display: none; }
-      .lnd-headline { font-size: 1.6rem; }
+      .two-col {
+        grid-template-columns: 1fr;
+        padding: 20px 16px 32px;
+        gap: 24px;
+      }
+
+      /* On tablet/mobile landing: hide phone, show form prominently */
+      #state-landing .phone-col { display: none; }
+      #state-landing .lnd-right { min-height: unset; justify-content: flex-start; }
+      #state-landing .lnd-headline { font-size: 1.8rem; }
+
+      /* On tablet/mobile result: show phone above CTA */
+      #state-result .two-col {
+        grid-template-columns: 1fr;
+      }
+      #state-result .phone-col {
+        display: flex;
+        order: -1; /* phone comes first */
+      }
+      #state-result .res-right {
+        min-height: unset;
+        justify-content: flex-start;
+      }
+
+      /* Compact phone for result on tablet */
+      #state-result .two-col {
+        --ph-w: 240px;
+        --ph-h: 454px;
+        --ph-scale-h: 362px;
+        --ph-iframe-scale: 0.610;
+        --ph-iframe-h: 594px;
+        --ph-radius: 34px;
+        --ph-screen-radius: 0 0 26px 26px;
+      }
     }
+
+    /* Mobile — narrow screens */
     @media (max-width: 480px) {
-      #state-landing, #state-result { padding: 20px 16px; }
+      .two-col { padding: 16px 14px 28px; gap: 20px; }
+      .lnd-headline { font-size: 1.5rem !important; }
+      .slb-title { font-size: 1.15rem; }
+      .res-headline { font-size: 1.4rem !important; }
+      .nav-back { font-size: 0.72rem; }
+
+      /* Even smaller phone on narrow mobile */
+      #state-result .two-col {
+        --ph-w: 210px;
+        --ph-h: 398px;
+        --ph-scale-h: 310px;
+        --ph-iframe-scale: 0.534;
+        --ph-iframe-h: 581px;
+        --ph-radius: 30px;
+        --ph-screen-radius: 0 0 22px 22px;
+      }
+
+      .plan-row { padding: 10px 12px; }
+      .plan-name { font-size: 0.78rem; }
+      .plan-mo { font-size: 0.82rem; }
     }
+
+    /* Landscape mobile — phone might be too tall */
+    @media (max-height: 600px) and (max-width: 900px) {
+      #state-result .phone-col { display: none; }
+      #state-loading { min-height: 100vh; }
+    }
+
     @keyframes pulse   { 0%,100%{opacity:1} 50%{opacity:0.4} }
     @keyframes breathe { 0%,100%{transform:scale(1)} 50%{transform:scale(1.06)} }
   </style>
@@ -296,211 +346,203 @@
 <body>
 
 <nav class="nav">
-  <div class="nav__inner">
-    <a href="/" class="nav__logo"><span class="nl-s">Scale</span><span class="nl-l">Local</span></a>
-    <a href="/" class="nav__back">&#8592; Back to ScaleLocal</a>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="nl-s">Scale</span><span class="nl-l">Local</span></a>
+    <a href="/" class="nav-back">&#8592; Back to ScaleLocal</a>
   </div>
 </nav>
 
-<!-- ══════════════════════════════
-     LANDING STATE
-     Phone left, bold form right
-══════════════════════════════ -->
+<!-- ══════════════════════════
+     LANDING
+══════════════════════════ -->
 <div id="state-landing">
+  <div class="two-col">
 
-  <!-- LEFT: ScaleLocal live demo phone -->
-  <div class="lnd-phone-col">
-    <div class="ph-header">
-      <div class="ph-pill"><span class="ph-pill-dot"></span> Agent live</div>
-      <div class="ph-name"><strong>ScaleLocal</strong> &#8212; live demo</div>
-    </div>
-    <div class="phone-wrap">
-      <div class="phone__btns-l">
-        <div class="phone__btn phone__btn--sm"></div>
-        <div class="phone__btn"></div>
-        <div class="phone__btn"></div>
+    <!-- Phone: ScaleLocal live demo -->
+    <div class="phone-col">
+      <div class="ph-header">
+        <div class="ph-pill"><span class="ph-pill-dot"></span> Agent live</div>
+        <div class="ph-label"><strong>ScaleLocal</strong> &#8212; live demo</div>
       </div>
-      <div class="phone__btns-r"><div class="phone__btn--r"></div></div>
-      <div class="phone">
-        <div class="phone__island"></div>
-        <div class="phone__statusbar">
-          <div class="phone__time" id="clock-lnd">9:41</div>
-          <div class="phone__icons">
-            <div class="phone__signal"><span></span><span></span><span></span><span></span></div>
-            <div class="phone__wifi"><i></i></div>
-            <div class="phone__battery"></div>
+      <div class="phone-wrap">
+        <div class="phone-btns-l">
+          <div class="phone-btn phone-btn-sm"></div>
+          <div class="phone-btn"></div>
+          <div class="phone-btn"></div>
+        </div>
+        <div class="phone-btns-r"><div class="phone-btn-r"></div></div>
+        <div class="phone">
+          <div class="phone-island"></div>
+          <div class="phone-statusbar">
+            <div class="phone-time" id="clock-lnd">9:41</div>
+            <div class="phone-icons">
+              <div class="phone-signal"><span></span><span></span><span></span><span></span></div>
+              <div class="phone-wifi"><i></i></div>
+              <div class="phone-battery"></div>
+            </div>
           </div>
-        </div>
-        <div class="phone__addressbar">
-          <div class="phone__url">&#128274; scalelocal.net</div>
-        </div>
-        <div class="phone__screen">
-          <div class="phone__scale-wrap">
-            <iframe class="phone__iframe"
-              src="/chat-agent/frame.html"
-              title="ScaleLocal AI Agent Demo"
-              allow="microphone"
-            ></iframe>
+          <div class="phone-addressbar">
+            <div class="phone-url">&#128274; scalelocal.net</div>
           </div>
+          <div class="phone-screen">
+            <div class="phone-scale-wrap">
+              <iframe class="phone-iframe" src="/chat-agent/frame.html" title="ScaleLocal AI Agent Demo" allow="microphone"></iframe>
+            </div>
+          </div>
+          <div class="phone-home"></div>
         </div>
-        <div class="phone__home"></div>
       </div>
     </div>
+
+    <!-- Form -->
+    <div class="lnd-right">
+      <div>
+        <h1 class="lnd-headline">Your website.<br><em>Your agent.</em><br>Live in seconds.</h1>
+        <p class="lnd-tagline" style="margin-top:10px;">That's ScaleLocal's AI on the left. Enter your business info and watch it work on <em>your</em> website instead.</p>
+      </div>
+
+      <div class="see-live-box">
+        <div class="slb-header">
+          <div class="slb-eyebrow"><span class="slb-eyebrow-dot"></span> Free instant demo</div>
+          <div class="slb-title">See Your Agent <span>Live</span></div>
+          <div class="slb-sub">We'll read your website and build a live AI agent in about 10 seconds.</div>
+        </div>
+        <div class="slb-body">
+          <div class="slb-field">
+            <label class="slb-label" for="f-company">Business Name</label>
+            <input class="slb-input" id="f-company" type="text" placeholder="Acme Plumbing" autocomplete="organization" />
+          </div>
+          <div class="slb-field">
+            <label class="slb-label" for="f-url">Website URL</label>
+            <input class="slb-input" id="f-url" type="text" placeholder="yourwebsite.com" autocomplete="url"
+              onkeypress="if(event.key==='Enter')buildDemo()" />
+            <p class="slb-error" id="f-url-error">Please enter a valid URL with a domain extension (.com, .net, .org etc.)</p>
+          </div>
+          <button class="slb-btn" onclick="buildDemo()">Build My AI Agent &#8594;</button>
+          <p class="slb-note">No signup &middot; No credit card &middot; ~10 seconds</p>
+        </div>
+      </div>
+
+      <div class="lnd-trust">
+        <span class="lnd-trust-item">Live in 24 hours</span>
+        <span class="lnd-trust-item">Chat &amp; Voice included</span>
+        <span class="lnd-trust-item">No code needed</span>
+        <span class="lnd-trust-item">Cancel anytime</span>
+      </div>
+    </div>
+
   </div>
-
-  <!-- RIGHT: Bold "See Your Agent Live" form -->
-  <div class="lnd-form-col">
-    <div>
-      <h1 class="lnd-headline">Your website.<br><em>Your agent.</em><br>Live in seconds.</h1>
-      <p class="lnd-tagline" style="margin-top:12px;">That's ScaleLocal's AI on the left. Enter your business info and watch it work on <em>your</em> website instead.</p>
-    </div>
-
-    <div class="see-live-box">
-      <div class="slb-header">
-        <div class="slb-eyebrow"><span class="slb-eyebrow-dot"></span> Free instant demo</div>
-        <div class="slb-title">See Your Agent <span>Live</span></div>
-        <div class="slb-sub">We'll read your website and build a live AI agent in about 10 seconds.</div>
-      </div>
-      <div class="slb-body">
-        <div class="slb-field">
-          <label class="slb-label" for="f-company">Business Name</label>
-          <input class="slb-input" id="f-company" type="text" placeholder="Acme Plumbing" autocomplete="organization" />
-        </div>
-        <div class="slb-field">
-          <label class="slb-label" for="f-url">Website URL</label>
-          <input class="slb-input" id="f-url" type="text" placeholder="yourwebsite.com" autocomplete="url"
-            onkeypress="if(event.key==='Enter')buildDemo()" />
-          <p class="slb-error" id="f-url-error">Please enter a valid URL including a domain extension (.com, .net, .org etc.)</p>
-        </div>
-        <button class="slb-btn" onclick="buildDemo()">Build My AI Agent &#8594;</button>
-        <p class="slb-note">No signup. No credit card. Takes about 10 seconds.</p>
-      </div>
-    </div>
-
-    <div class="lnd-trust">
-      <span class="lnd-trust-item">Live in 24 hours</span>
-      <span class="lnd-trust-item">Chat + Voice included</span>
-      <span class="lnd-trust-item">No code needed</span>
-      <span class="lnd-trust-item">Cancel anytime</span>
-    </div>
-  </div>
-
 </div><!-- /state-landing -->
 
 
-<!-- ══════════════════════════════
-     LOADING STATE
-══════════════════════════════ -->
+<!-- ══════════════════════════
+     LOADING
+══════════════════════════ -->
 <div id="state-loading">
-  <div class="load__icon">&#9889;</div>
-  <div class="load__title" id="load-title">Building your AI agent&hellip;</div>
-  <div class="load__steps">
-    <div class="load__step" id="sa-s1"><span>&#9675;</span>&nbsp; Reading your website</div>
-    <div class="load__step" id="sa-s2"><span>&#9675;</span>&nbsp; Pulling business details</div>
-    <div class="load__step" id="sa-s3"><span>&#9675;</span>&nbsp; Training the AI agent</div>
-    <div class="load__step" id="sa-s4"><span>&#9675;</span>&nbsp; Going live</div>
+  <div class="load-icon">&#9889;</div>
+  <div class="load-title" id="load-title">Building your AI agent&hellip;</div>
+  <div class="load-steps">
+    <div class="load-step" id="sa-s1"><span>&#9675;</span>&nbsp; Reading your website</div>
+    <div class="load-step" id="sa-s2"><span>&#9675;</span>&nbsp; Pulling business details</div>
+    <div class="load-step" id="sa-s3"><span>&#9675;</span>&nbsp; Training the AI agent</div>
+    <div class="load-step" id="sa-s4"><span>&#9675;</span>&nbsp; Going live</div>
   </div>
 </div>
 
 
-<!-- ══════════════════════════════
-     RESULT STATE
-     Phone left, CTA right
-══════════════════════════════ -->
+<!-- ══════════════════════════
+     RESULT
+══════════════════════════ -->
 <div id="state-result">
+  <div class="two-col">
 
-  <!-- LEFT: their business phone -->
-  <div class="res-phone-col">
-    <div class="ph-header">
-      <div class="ph-pill"><span class="ph-pill-dot"></span> Agent live</div>
-      <div class="ph-name" id="res-biz-label"><strong>Your Business</strong> &#8212; AI agent live</div>
-    </div>
-    <div class="phone-wrap">
-      <div class="phone__btns-l">
-        <div class="phone__btn phone__btn--sm"></div>
-        <div class="phone__btn"></div>
-        <div class="phone__btn"></div>
+    <!-- Phone: their business -->
+    <div class="phone-col">
+      <div class="ph-header">
+        <div class="ph-pill"><span class="ph-pill-dot"></span> Agent live</div>
+        <div class="ph-label" id="res-biz-label"><strong>Your Business</strong> &#8212; AI agent live</div>
       </div>
-      <div class="phone__btns-r"><div class="phone__btn--r"></div></div>
-      <div class="phone">
-        <div class="phone__island"></div>
-        <div class="phone__statusbar">
-          <div class="phone__time" id="clock-res">9:41</div>
-          <div class="phone__icons">
-            <div class="phone__signal"><span></span><span></span><span></span><span></span></div>
-            <div class="phone__wifi"><i></i></div>
-            <div class="phone__battery"></div>
+      <div class="phone-wrap">
+        <div class="phone-btns-l">
+          <div class="phone-btn phone-btn-sm"></div>
+          <div class="phone-btn"></div>
+          <div class="phone-btn"></div>
+        </div>
+        <div class="phone-btns-r"><div class="phone-btn-r"></div></div>
+        <div class="phone">
+          <div class="phone-island"></div>
+          <div class="phone-statusbar">
+            <div class="phone-time" id="clock-res">9:41</div>
+            <div class="phone-icons">
+              <div class="phone-signal"><span></span><span></span><span></span><span></span></div>
+              <div class="phone-wifi"><i></i></div>
+              <div class="phone-battery"></div>
+            </div>
           </div>
-        </div>
-        <div class="phone__addressbar">
-          <div class="phone__url">&#128274; <span id="res-domain">yourwebsite.com</span></div>
-        </div>
-        <div class="phone__screen">
-          <div class="phone__scale-wrap">
-            <iframe id="res-iframe" class="phone__iframe"
-              src="about:blank"
-              title="Your Business AI Agent"
-              allow="microphone"
-            ></iframe>
+          <div class="phone-addressbar">
+            <div class="phone-url">&#128274; <span id="res-domain">yourwebsite.com</span></div>
           </div>
+          <div class="phone-screen">
+            <div class="phone-scale-wrap">
+              <iframe id="res-iframe" class="phone-iframe" src="about:blank" title="Your Business AI Agent" allow="microphone"></iframe>
+            </div>
+          </div>
+          <div class="phone-home"></div>
         </div>
-        <div class="phone__home"></div>
       </div>
     </div>
+
+    <!-- CTA -->
+    <div class="res-right">
+      <div>
+        <div class="ph-pill" style="display:inline-flex;margin-bottom:10px;"><span class="ph-pill-dot"></span> Agent live</div>
+        <h2 class="res-headline">Your agent is ready<br>to <span>go live.</span></h2>
+        <p class="res-sub" style="margin-top:8px;">That's a live AI trained on <strong id="res-biz-name">your website</strong>. It just answered a customer inquiry — and it'll do that 24/7, saving your team hours of calls and messages every month.</p>
+      </div>
+
+      <div class="plan-rows">
+        <div class="plan-row" data-plan="m2m" onclick="selectPlan('m2m')">
+          <div class="plan-row-left">
+            <div class="plan-radio"></div>
+            <div><div class="plan-name">Month-to-Month</div><div class="plan-commit">Cancel anytime</div></div>
+          </div>
+          <div class="plan-price"><div class="plan-mo">$149/mo</div><div class="plan-setup">+ $149 setup fee</div></div>
+        </div>
+        <div class="plan-row featured" data-plan="6mo" onclick="selectPlan('6mo')">
+          <div class="plan-row-left">
+            <div class="plan-radio"></div>
+            <div><div class="plan-name">6-Month <span class="plan-tag">No Setup Fee</span></div><div class="plan-commit">Save $149 &middot; Billed monthly</div></div>
+          </div>
+          <div class="plan-price"><div class="plan-mo">$149/mo</div><div class="plan-setup"><s>$149 setup</s> <span class="free">Free</span></div></div>
+        </div>
+        <div class="plan-row" data-plan="12mo" onclick="selectPlan('12mo')">
+          <div class="plan-row-left">
+            <div class="plan-radio"></div>
+            <div><div class="plan-name">12-Month <span class="plan-tag">Best Deal</span></div><div class="plan-commit">No setup fee &middot; Month 12 free</div></div>
+          </div>
+          <div class="plan-price"><div class="plan-mo">$149/mo</div><div class="plan-setup"><span class="free">Setup + month 12 free</span></div></div>
+        </div>
+      </div>
+
+      <div>
+        <button class="cta-btn" id="cta-btn" onclick="handleCTA()">
+          Get This On My Website
+          <span class="cta-btn-sub" id="cta-plan-sub">6-Month &mdash; $149/mo &middot; No setup fee &middot; Save $149</span>
+        </button>
+        <p class="cta-urgency" id="cta-urgency" style="margin-top:8px;">&#9889; Setup fee waived with 6-month commitment &mdash; save $149</p>
+      </div>
+
+      <div class="cta-trust">
+        <span class="cta-trust-item">&#9889; Live in 24 hours</span>
+        <span class="cta-trust-item">&#128172; Chat + Voice</span>
+        <span class="cta-trust-item">&#128274; No code needed</span>
+      </div>
+
+      <p class="cta-try-again">Not your business? <a href="/chat-agent/">&#8592; Try a different URL</a></p>
+      <p class="cta-escape">Want it to answer calls too? <a href="/receptionist/">See AI Receptionist &#8594;</a></p>
+    </div>
+
   </div>
-
-  <!-- RIGHT: CTA / pricing -->
-  <div class="res-cta-col">
-    <div>
-      <div class="ph-pill" style="display:inline-flex;margin-bottom:12px;"><span class="ph-pill-dot"></span> Agent live</div>
-      <h2 class="res-headline">Your agent is<br>ready to <span>go live.</span></h2>
-      <p class="res-sub" style="margin-top:10px;">
-        That's a live AI trained on <strong id="res-biz-name">your website</strong>. It just answered a customer inquiry. It'll do that 24/7 — saving your team hours of calls and messages every month.
-      </p>
-    </div>
-
-    <div class="plan-rows">
-      <div class="plan-row" data-plan="m2m" onclick="selectPlan('m2m')">
-        <div class="plan-row__left">
-          <div class="plan-row__radio"></div>
-          <div><div class="plan-row__name">Month-to-Month</div><div class="plan-row__commit">Cancel anytime</div></div>
-        </div>
-        <div class="plan-row__price"><div class="plan-row__mo">$149/mo</div><div class="plan-row__setup">+ $149 setup fee</div></div>
-      </div>
-      <div class="plan-row featured" data-plan="6mo" onclick="selectPlan('6mo')">
-        <div class="plan-row__left">
-          <div class="plan-row__radio"></div>
-          <div><div class="plan-row__name">6-Month <span class="plan-row__tag">No Setup Fee</span></div><div class="plan-row__commit">Save $149 &middot; Billed monthly</div></div>
-        </div>
-        <div class="plan-row__price"><div class="plan-row__mo">$149/mo</div><div class="plan-row__setup"><s>$149 setup</s> <span class="free">Free</span></div></div>
-      </div>
-      <div class="plan-row" data-plan="12mo" onclick="selectPlan('12mo')">
-        <div class="plan-row__left">
-          <div class="plan-row__radio"></div>
-          <div><div class="plan-row__name">12-Month <span class="plan-row__tag">Best Deal</span></div><div class="plan-row__commit">No setup fee &middot; Month 12 free</div></div>
-        </div>
-        <div class="plan-row__price"><div class="plan-row__mo">$149/mo</div><div class="plan-row__setup"><span class="free">Setup + month 12 free</span></div></div>
-      </div>
-    </div>
-
-    <div>
-      <button class="cta-btn" id="cta-btn" onclick="handleCTA()">
-        Get This On My Website
-        <span id="cta-plan-sub">6-Month &mdash; $149/mo &middot; No setup fee &middot; Save $149</span>
-      </button>
-      <p class="cta-urgency" id="cta-urgency" style="margin-top:8px;">&#9889; Setup fee waived with 6-month commitment &mdash; save $149</p>
-    </div>
-
-    <div class="cta-trust">
-      <span class="cta-trust-item">&#9889; Live in 24 hours</span>
-      <span class="cta-trust-item">&#128172; Chat + Voice</span>
-      <span class="cta-trust-item">&#128274; No code needed</span>
-    </div>
-
-    <p class="res-try-again">Not your business? <a href="/chat-agent/">&#8592; Try a different URL</a></p>
-    <p class="cta-escape">Want it to answer calls too? <a href="/receptionist/">See AI Receptionist &#8594;</a></p>
-  </div>
-
 </div><!-- /state-result -->
 
 
@@ -508,38 +550,38 @@
 (function(){
   var API='https://agentcopy-api.vercel.app';
 
-  /* ── Clocks ── */
+  /* Clocks */
   function tick(){
     var n=new Date(),h=n.getHours()%12||12,m=n.getMinutes().toString().padStart(2,'0'),t=h+':'+m;
     ['clock-lnd','clock-res'].forEach(function(id){var el=document.getElementById(id);if(el)el.textContent=t;});
   }
   tick();setInterval(tick,30000);
 
-  /* ── Slug from URL path ── */
+  /* Slug */
   function getSlug(){
     var m=window.location.pathname.match(/^\/chat-agent\/(.+?)\/?$/);
     return m?decodeURIComponent(m[1]):null;
   }
 
-  /* ── Form validation & redirect ── */
+  /* Build demo from form */
   window.buildDemo=function(){
     var company=document.getElementById('f-company').value.trim();
     var url=document.getElementById('f-url').value.trim();
     var urlEl=document.getElementById('f-url');
     var errEl=document.getElementById('f-url-error');
-    errEl.classList.remove('show');
-    urlEl.classList.remove('err');
+    errEl.classList.remove('show'); urlEl.classList.remove('err');
     if(!url){urlEl.classList.add('err');errEl.classList.add('show');urlEl.focus();return;}
     var clean=url.replace(/^https?:\/\//,'').replace(/^www\./,'').replace(/\/.*$/,'').toLowerCase().trim();
-    var validTld=/\.(com|net|org|co|io|biz|us|info|dev|ai|app|edu|gov|me|tv|ca|uk|au|co\.uk)$/i;
-    if(!validTld.test(clean)){urlEl.classList.add('err');errEl.classList.add('show');urlEl.focus();return;}
+    if(!/\.(com|net|org|co|io|biz|us|info|dev|ai|app|edu|gov|me|tv|ca|uk|au|co\.uk)$/i.test(clean)){
+      urlEl.classList.add('err');errEl.classList.add('show');urlEl.focus();return;
+    }
     var slug=clean.replace(/\.com$/,'').replace(/\.(net|org|co|io|biz|us|info|dev|ai|app|edu|gov|me|tv|ca|uk|au)$/,'-$1');
     slug=slug.replace(/[^a-zA-Z0-9-]+/g,'-').replace(/^-|-$/g,'');
     if(company)sessionStorage.setItem('sa-hint-'+slug,company);
     window.location.href='/chat-agent/'+slug;
   };
 
-  /* ── Plan selection ── */
+  /* Plan selection */
   var planSubs={'m2m':'Month-to-Month \u2014 $149/mo + $149 setup fee','6mo':'6-Month \u2014 $149/mo \u00b7 No setup fee \u00b7 Save $149','12mo':'12-Month \u2014 $149/mo \u00b7 No setup fee \u00b7 Month 12 free'};
   var planUrg={'m2m':'','6mo':'\u26a1 Setup fee waived with 6-month commitment \u2014 save $149','12mo':'\u26a1 Setup fee waived + month 12 free \u2014 save $298 or more'};
   window.selectPlan=function(plan){
@@ -549,7 +591,7 @@
   };
   (function(){var f=document.querySelector('.plan-row.featured');if(f){var u=document.getElementById('cta-urgency');if(u)u.textContent=planUrg[f.dataset.plan]||'';}})();
 
-  /* ── Checkout ── */
+  /* Checkout */
   window.handleCTA=function(){
     var sel=document.querySelector('.plan-row.selected,.plan-row.featured');
     var plan=sel?sel.dataset.plan:'6mo';
@@ -559,7 +601,7 @@
     window.location.href=links[plan]||links['6mo'];
   };
 
-  /* ── Loading animation ── */
+  /* Loading animation */
   function animStep(id,ms){
     return new Promise(function(resolve){
       var el=document.getElementById(id);if(!el){resolve();return;}
@@ -568,7 +610,7 @@
     });
   }
 
-  /* ── Run demo for slug ── */
+  /* Run demo for slug */
   async function runDemo(slug){
     document.body.classList.add('is-loading');
     var tldM=slug.match(/^(.+)-(net|org|co|io|biz|us|info|dev|ai|app)$/i);
@@ -576,8 +618,8 @@
     var dTld=tldM?('.'+tldM[2].toLowerCase()):'.com';
     var guessName=dSlug.split('-').map(function(w){return w[0].toUpperCase()+w.slice(1);}).join(' ');
     var hint=sessionStorage.getItem('sa-hint-'+slug)||guessName;
-    var loadTitle=document.getElementById('load-title');
-    if(loadTitle&&hint)loadTitle.textContent='Building agent for '+hint+'\u2026';
+    var lt=document.getElementById('load-title');
+    if(lt&&hint)lt.textContent='Building agent for '+hint+'\u2026';
 
     try{
       var apiPromise=fetch(API+'/api/create-agent',{
@@ -601,19 +643,15 @@
 
       document.body.classList.remove('is-loading');
       document.body.classList.add('is-result');
-
     }catch(err){
       console.error('[SA]',err);
       document.body.classList.remove('is-loading');
-      // Fall back to landing
       window.location.href='/chat-agent/';
     }
   }
 
-  /* ── Route on load ── */
   var slug=getSlug();
   if(slug) runDemo(slug);
-
 })();
 </script>
 
