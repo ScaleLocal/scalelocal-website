@@ -35,6 +35,25 @@
 
     /* The actual proxied site */
     #biz-frame{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;border:none;z-index:1;background:#fff;}
+
+    /* Demo context prompt card */
+    #demo-prompt{
+      display:none;position:fixed;bottom:80px;right:16px;z-index:999;
+      background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);
+      padding:14px 16px;max-width:260px;font-family:system-ui,sans-serif;
+      animation:slideUp .3s ease;
+    }
+    #demo-prompt.show{display:block;}
+    #demo-prompt .dp-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;font-weight:700;margin-bottom:6px;}
+    #demo-prompt .dp-text{font-size:12px;color:#444;line-height:1.4;margin-bottom:10px;}
+    #demo-prompt .dp-btn{
+      display:block;width:100%;padding:8px 12px;border:1px solid #e0e0e0;border-radius:8px;
+      background:#f8f9fa;font-size:11.5px;color:#333;text-align:left;cursor:pointer;
+      transition:background .15s;line-height:1.3;
+    }
+    #demo-prompt .dp-btn:hover{background:#e8f4ff;border-color:#2E75B6;}
+    #demo-prompt .dp-close{position:absolute;top:6px;right:8px;background:none;border:none;font-size:14px;color:#aaa;cursor:pointer;}
+    @keyframes slideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -54,6 +73,13 @@
   <div class="fb-logo"><span class="s">Scale</span><span class="l">Local</span></div>
   <div class="fb-badge"><span></span> AI agent active</div>
   <div class="fb-msg">AI agent is live and ready to answer your questions.</div>
+</div>
+
+<div id="demo-prompt">
+  <button class="dp-close" onclick="this.parentElement.classList.remove('show')">&times;</button>
+  <div class="dp-label">Try it out</div>
+  <div class="dp-text">Click the chat icon, then ask:</div>
+  <button class="dp-btn" id="dp-suggestion"></button>
 </div>
 
 <iframe id="biz-frame" src="about:blank"
@@ -81,75 +107,57 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open widget and send demo context -->
+<!-- Auto-open widget and show demo context prompt -->
 <script>
 (function(){
   var params=new URLSearchParams(window.location.search);
   var bizName=params.get('name')||'';
   var bizUrl=params.get('url')||'';
-  var contextSent=false;
   var attempts=0;
 
+  // Try to open widget via .open() or bubble click
   function tryOpen(){
     var el=document.querySelector('chat-widget');
-    if(el&&typeof el.open==='function'){
-      el.open();
-      if(bizName&&!contextSent){setTimeout(function(){sendContext(el);},2000);}
-      return;
+    if(el){
+      if(typeof el.open==='function'){el.open();showPrompt();return;}
+      // Try clicking the bubble button inside shadow DOM
+      var sr=el.shadowRoot;
+      if(sr){
+        var bubble=sr.querySelector('button')||sr.querySelector('.lc_text-widget--bubble');
+        if(bubble){bubble.click();showPrompt();return;}
+      }
     }
     if(++attempts<75)setTimeout(tryOpen,200);
   }
 
-  function sendContext(widget){
-    if(contextSent)return;
-    try{
-      var root=widget.shadowRoot||widget;
-      var input=root.querySelector('textarea')||root.querySelector('input[type="text"]');
-      if(!input){
-        // Try deeper shadow roots
-        var inner=root.querySelectorAll('*');
-        for(var i=0;i<inner.length;i++){
-          if(inner[i].shadowRoot){
-            input=inner[i].shadowRoot.querySelector('textarea')||inner[i].shadowRoot.querySelector('input[type="text"]');
-            if(input)break;
-          }
-        }
+  // Show the demo context prompt card if we have a business name
+  function showPrompt(){
+    if(!bizName)return;
+    var card=document.getElementById('demo-prompt');
+    var btn=document.getElementById('dp-suggestion');
+    if(!card||!btn)return;
+    var suggestion='Hi! I want to see a demo for '+bizName+(bizUrl?' ('+bizUrl+')':'');
+    btn.textContent='"'+suggestion+'"';
+    btn.onclick=function(){
+      // Copy to clipboard so visitor can paste into widget
+      if(navigator.clipboard){
+        navigator.clipboard.writeText(suggestion).then(function(){
+          btn.textContent='Copied! Paste into the chat.';
+          btn.style.background='#d4edda';
+          btn.style.borderColor='#28a745';
+          btn.style.color='#155724';
+        });
+      }else{
+        // Fallback: select text
+        var ta=document.createElement('textarea');
+        ta.value=suggestion;ta.style.position='fixed';ta.style.left='-9999px';
+        document.body.appendChild(ta);ta.select();document.execCommand('copy');
+        document.body.removeChild(ta);
+        btn.textContent='Copied! Paste into the chat.';
+        btn.style.background='#d4edda';
       }
-      if(input){
-        var msg='I want to see a demo for my business: '+bizName+(bizUrl?(' (website: '+bizUrl+')'):'');
-        var nativeSetter=Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype,'value')||Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value');
-        if(nativeSetter&&nativeSetter.set){nativeSetter.set.call(input,msg);}else{input.value=msg;}
-        input.dispatchEvent(new Event('input',{bubbles:true}));
-        input.dispatchEvent(new Event('change',{bubbles:true}));
-        // Find and click send button
-        setTimeout(function(){
-          var btn=root.querySelector('button[type="submit"]')||root.querySelector('.lc_text-widget__send-btn')||root.querySelector('button.send-button');
-          if(!btn){
-            var btns=root.querySelectorAll('button');
-            for(var j=0;j<btns.length;j++){
-              var svg=btns[j].querySelector('svg');
-              if(svg){btn=btns[j];break;}
-            }
-          }
-          if(!btn){
-            // Try deeper shadow roots for button
-            var inner2=root.querySelectorAll('*');
-            for(var k=0;k<inner2.length;k++){
-              if(inner2[k].shadowRoot){
-                btn=inner2[k].shadowRoot.querySelector('button[type="submit"]')||inner2[k].shadowRoot.querySelector('button');
-                if(btn)break;
-              }
-            }
-          }
-          if(btn){btn.click();contextSent=true;}
-          else{
-            // Fallback: try pressing Enter
-            input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
-            contextSent=true;
-          }
-        },500);
-      }
-    }catch(e){console.log('Context send failed:',e);}
+    };
+    setTimeout(function(){card.classList.add('show');},1500);
   }
 
   window.addEventListener('load',function(){setTimeout(tryOpen,1500);});
