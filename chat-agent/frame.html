@@ -8,7 +8,18 @@
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{width:100%;height:100%;overflow:hidden;background:#fff;}
 
-    #loader{position:absolute;inset:0;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:50;transition:opacity .3s ease;}
+    #biz-frame{
+      position:absolute;top:0;left:0;right:0;bottom:0;
+      width:100%;height:100%;border:none;outline:none;
+      z-index:1;background:#fff;
+    }
+
+    /* Loading overlay */
+    #loader{
+      position:absolute;inset:0;background:#f5f5f5;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:10px;z-index:50;transition:opacity .3s ease;
+    }
     #loader.gone{opacity:0;pointer-events:none;}
     .loader-dots{display:flex;gap:7px;}
     .loader-dot{width:9px;height:9px;border-radius:50%;background:#2E75B6;animation:ldot 1.2s ease-in-out infinite;}
@@ -32,28 +43,6 @@
     .fb-badge span{width:5px;height:5px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
     .fb-msg{font-size:.72rem;color:rgba(255,255,255,0.5);max-width:200px;line-height:1.5;font-family:system-ui,sans-serif;}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-
-    /* The actual proxied site */
-    #biz-frame{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;border:none;z-index:1;background:#fff;}
-
-    /* Demo context prompt card */
-    #demo-prompt{
-      display:none;position:fixed;bottom:80px;right:16px;z-index:999;
-      background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);
-      padding:14px 16px;max-width:260px;font-family:system-ui,sans-serif;
-      animation:slideUp .3s ease;
-    }
-    #demo-prompt.show{display:block;}
-    #demo-prompt .dp-label{font-size:10px;text-transform:uppercase;letter-spacing:.5px;color:#2E75B6;font-weight:700;margin-bottom:6px;}
-    #demo-prompt .dp-text{font-size:12px;color:#444;line-height:1.4;margin-bottom:10px;}
-    #demo-prompt .dp-btn{
-      display:block;width:100%;padding:8px 12px;border:1px solid #e0e0e0;border-radius:8px;
-      background:#f8f9fa;font-size:11.5px;color:#333;text-align:left;cursor:pointer;
-      transition:background .15s;line-height:1.3;
-    }
-    #demo-prompt .dp-btn:hover{background:#e8f4ff;border-color:#2E75B6;}
-    #demo-prompt .dp-close{position:absolute;top:6px;right:8px;background:none;border:none;font-size:14px;color:#aaa;cursor:pointer;}
-    @keyframes slideUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -75,27 +64,22 @@
   <div class="fb-msg">AI agent is live and ready to answer your questions.</div>
 </div>
 
-<div id="demo-prompt">
-  <button class="dp-close" onclick="this.parentElement.classList.remove('show')">&times;</button>
-  <div class="dp-label">Try it out</div>
-  <div class="dp-text">Click the chat icon, then ask:</div>
-  <button class="dp-btn" id="dp-suggestion"></button>
-</div>
-
 <iframe id="biz-frame" src="about:blank"
-  sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+  sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
 ></iframe>
 
-<!-- Clear ALL GHL session data for fresh demo -->
+<!-- Clear stale GHL chat history so every visitor sees a fresh greeting -->
 <script>
 (function(){
-  try{ localStorage.clear(); }catch(e){}
-  try{ sessionStorage.clear(); }catch(e){}
-  // Also clear cookies for this domain
-  try{
-    document.cookie.split(';').forEach(function(c){
-      document.cookie=c.trim().split('=')[0]+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
-    });
+  try {
+    var keysToNuke = [];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k&&(k.indexOf('lc_')===0||k.indexOf('leadconnector')!==-1||k.indexOf('msgsndr')!==-1||k.indexOf('chat_')===0||k.indexOf('widget_')===0||k.indexOf('conversation')!==-1||k.indexOf('contact_id')!==-1||k.indexOf('session')!==-1)){
+        keysToNuke.push(k);
+      }
+    }
+    keysToNuke.forEach(function(k){localStorage.removeItem(k);});
   }catch(e){}
 })();
 </script>
@@ -107,144 +91,143 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open widget, click Live Chat, and send demo context -->
+<!-- Auto-open the widget, then auto-send demo context if a business name was provided -->
 <script>
 (function(){
-  var params=new URLSearchParams(window.location.search);
-  var bizName=params.get('name')||'';
-  var bizUrl=params.get('url')||'';
-  var attempts=0;
-  var contextSent=false;
+  var params  = new URLSearchParams(window.location.search);
+  var bizName = params.get('name') || '';
+  var bizUrl  = params.get('url')  || '';
+  var sent    = false;
 
-  // Helper: recursively find element in shadow DOMs
-  function findDeep(root,selector){
-    var el=root.querySelector(selector);
-    if(el)return el;
-    var all=root.querySelectorAll('*');
-    for(var i=0;i<all.length;i++){
-      if(all[i].shadowRoot){
-        el=findDeep(all[i].shadowRoot,selector);
-        if(el)return el;
+  /* ─── Helper: recursively search shadow DOMs ─── */
+  function findDeep(root, sel){
+    if(!root) return null;
+    var el = root.querySelector(sel);
+    if(el) return el;
+    var nodes = root.querySelectorAll('*');
+    for(var i=0;i<nodes.length;i++){
+      if(nodes[i].shadowRoot){
+        el = findDeep(nodes[i].shadowRoot, sel);
+        if(el) return el;
       }
     }
     return null;
   }
 
-  // Step 1: Open widget bubble
+  /* ─── Step 1: Open the widget ─── */
+  var openAttempts = 0;
   function tryOpen(){
-    var el=document.querySelector('chat-widget');
-    if(el){
-      if(typeof el.open==='function'){el.open();setTimeout(clickLiveChat,2000);return;}
-      var sr=el.shadowRoot;
-      if(sr){
-        var bubble=sr.querySelector('button')||sr.querySelector('.lc_text-widget--bubble');
-        if(bubble){bubble.click();setTimeout(clickLiveChat,2000);return;}
+    var el = document.querySelector('chat-widget');
+    if(el && typeof el.open === 'function'){
+      el.open();
+      // After opening, wait for chat pane to appear then try to auto-send
+      if(bizName) setTimeout(tryAutoSend, 2500);
+      return;
+    }
+    if(++openAttempts < 75) setTimeout(tryOpen, 200);
+  }
+
+  /* ─── Step 2: Auto-send the demo context message ─── */
+  var sendAttempts = 0;
+  function tryAutoSend(){
+    if(sent || !bizName) return;
+    var widget = document.querySelector('chat-widget');
+    if(!widget || !widget.shadowRoot) { retry(); return; }
+
+    // First try to click "Chat via Live Chat" if the selection screen is showing
+    var chatSel = findDeep(widget.shadowRoot, 'chat-selection');
+    if(chatSel){
+      var sr = chatSel.shadowRoot || chatSel;
+      var btns = sr.querySelectorAll('ion-button');
+      if(btns.length > 0){
+        btns[0].click();
+        // Wait for chat pane to load after clicking
+        setTimeout(tryAutoSend, 2500);
+        return;
       }
     }
-    if(++attempts<75)setTimeout(tryOpen,200);
-  }
 
-  // Step 2: Click "Chat via Live Chat" button
-  function clickLiveChat(){
-    var el=document.querySelector('chat-widget');
-    if(!el||!el.shadowRoot)return;
-    var sr=el.shadowRoot;
-    var chatSel=sr.querySelector('chat-selection');
-    if(chatSel&&chatSel.shadowRoot){
-      var btns=chatSel.shadowRoot.querySelectorAll('ion-button');
-      if(btns.length>0){btns[0].click();setTimeout(waitForInput,3000);return;}
-    }
-    // If no chat-selection (already in chat), try finding input directly
-    setTimeout(waitForInput,1000);
-  }
+    // Look for the textarea input
+    var textarea = findDeep(widget.shadowRoot, 'textarea');
+    if(!textarea){ retry(); return; }
 
-  // Step 3: Wait for chat input to appear, then send context
-  var inputAttempts=0;
-  function waitForInput(){
-    if(!bizName||contextSent)return;
-    var el=document.querySelector('chat-widget');
-    if(!el||!el.shadowRoot)return;
-    var input=findDeep(el.shadowRoot,'textarea');
-    if(input){
-      sendContext(el.shadowRoot,input);
-    }else if(++inputAttempts<30){
-      setTimeout(waitForInput,500);
-    }else{
-      showPromptCard(); // Fallback: show manual prompt
-    }
-  }
+    // Found textarea — send the demo context message
+    var msg = 'Hi! I want to see a demo for ' + bizName + (bizUrl ? ' (' + bizUrl + ')' : '');
+    textarea.focus();
+    // Use native input setter to bypass framework restrictions
+    var nativeSetter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set;
+    nativeSetter.call(textarea, msg);
+    textarea.dispatchEvent(new Event('input', {bubbles:true}));
+    textarea.dispatchEvent(new Event('change', {bubbles:true}));
 
-  // Step 4: Type and send the context message
-  function sendContext(sr,input){
-    if(contextSent)return;
-    var msg='Hi! I want to see a demo for '+bizName+(bizUrl?' ('+bizUrl+')':'');
-    input.focus();
-    input.select();
-    document.execCommand('insertText',false,msg);
-    contextSent=true;
-    // Find and click send button
+    sent = true;
+
+    // Click send button or press Enter
     setTimeout(function(){
-      var btn=findDeep(sr,'.live-chat-send-button');
-      if(btn){btn.click();}
-      else{
-        // Try Enter key
-        input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
+      var btn = findDeep(widget.shadowRoot, '.live-chat-send-button') ||
+                findDeep(widget.shadowRoot, 'button[type="submit"]') ||
+                findDeep(widget.shadowRoot, '.send-button');
+      if(btn){
+        btn.click();
+      } else {
+        textarea.dispatchEvent(new KeyboardEvent('keydown', {key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
+        textarea.dispatchEvent(new KeyboardEvent('keypress',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
+        textarea.dispatchEvent(new KeyboardEvent('keyup',   {key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
       }
-    },500);
+    }, 400);
   }
 
-  // Fallback: show copy-paste prompt card
-  function showPromptCard(){
-    var card=document.getElementById('demo-prompt');
-    var btn=document.getElementById('dp-suggestion');
-    if(!card||!btn||!bizName)return;
-    var suggestion='Hi! I want to see a demo for '+bizName+(bizUrl?' ('+bizUrl+')':'');
-    btn.textContent='"'+suggestion+'"';
-    btn.onclick=function(){
-      if(navigator.clipboard){
-        navigator.clipboard.writeText(suggestion).then(function(){
-          btn.textContent='Copied! Paste into the chat.';
-          btn.style.background='#d4edda';btn.style.borderColor='#28a745';btn.style.color='#155724';
-        });
-      }
-    };
-    card.classList.add('show');
+  function retry(){
+    if(++sendAttempts < 40) setTimeout(tryAutoSend, 600);
+    // If all retries fail, just let the user chat manually — widget is still open
   }
 
-  window.addEventListener('load',function(){setTimeout(tryOpen,1500);});
+  /* ─── Boot ─── */
+  window.addEventListener('load', function(){ setTimeout(tryOpen, 1500); });
 })();
 </script>
 
-<!-- Load site via proxy -->
+<!-- Load the business site via proxy -->
 <script>
 (function(){
-  var PROXY='https://agentcopy-api.vercel.app/api/proxy?url=';
-  var params=new URLSearchParams(window.location.search);
-  var url=params.get('url')||'https://scalelocal.net';
-  var name=params.get('name')||'ScaleLocal';
+  var PROXY  = 'https://agentcopy-api.vercel.app/api/proxy?url=';
+  var params = new URLSearchParams(window.location.search);
+  var url    = params.get('url') || 'https://scalelocal.net';
+  var name   = params.get('name') || 'ScaleLocal';
 
-  var loader=document.getElementById('loader');
-  var fallback=document.getElementById('fallback');
-  var frame=document.getElementById('biz-frame');
-  document.getElementById('loader-text').textContent='Loading '+name+'...';
+  var loader   = document.getElementById('loader');
+  var fallback = document.getElementById('fallback');
+  var frame    = document.getElementById('biz-frame');
+  document.getElementById('loader-text').textContent = 'Loading ' + name + '...';
 
-  function hideLoader(){loader.classList.add('gone');setTimeout(function(){loader.style.display='none';},350);}
-  function showFallback(){loader.style.display='none';fallback.classList.add('show');}
+  function hideLoader(){
+    loader.classList.add('gone');
+    setTimeout(function(){ loader.style.display='none'; }, 350);
+  }
+  function showFallback(){
+    loader.style.display = 'none';
+    fallback.classList.add('show');
+  }
 
-  var timer=setTimeout(showFallback, 7000);
+  var timer = setTimeout(showFallback, 7000);
 
-  frame.onload=function(){
-    try{
-      var doc=frame.contentDocument||frame.contentWindow.document;
-      if(!doc||!doc.body||doc.body.innerHTML===''){clearTimeout(timer);showFallback();return;}
-      try{frame.contentWindow.scrollTo(0,0);}catch(e){}
-    }catch(e){/* cross-origin — loaded fine */}
-    clearTimeout(timer);hideLoader();
+  frame.onload = function(){
+    try {
+      var doc = frame.contentDocument || frame.contentWindow.document;
+      if(!doc || !doc.body || doc.body.innerHTML === ''){
+        clearTimeout(timer); showFallback(); return;
+      }
+      try{ frame.contentWindow.scrollTo(0,0); }catch(e){}
+    } catch(e) {
+      // Cross-origin = loaded fine
+    }
+    clearTimeout(timer);
+    hideLoader();
   };
-  frame.onerror=function(){clearTimeout(timer);showFallback();};
+  frame.onerror = function(){ clearTimeout(timer); showFallback(); };
 
-  var fullUrl=url.startsWith('http')?url:'https://'+url;
-  frame.src=PROXY+encodeURIComponent(fullUrl);
+  var fullUrl = url.startsWith('http') ? url : 'https://' + url;
+  frame.src = PROXY + encodeURIComponent(fullUrl);
 })();
 </script>
 
