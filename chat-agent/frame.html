@@ -81,15 +81,77 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open widget -->
+<!-- Auto-open widget and send demo context -->
 <script>
 (function(){
+  var params=new URLSearchParams(window.location.search);
+  var bizName=params.get('name')||'';
+  var bizUrl=params.get('url')||'';
+  var contextSent=false;
   var attempts=0;
+
   function tryOpen(){
     var el=document.querySelector('chat-widget');
-    if(el&&typeof el.open==='function'){el.open();return;}
+    if(el&&typeof el.open==='function'){
+      el.open();
+      if(bizName&&!contextSent){setTimeout(function(){sendContext(el);},2000);}
+      return;
+    }
     if(++attempts<75)setTimeout(tryOpen,200);
   }
+
+  function sendContext(widget){
+    if(contextSent)return;
+    try{
+      var root=widget.shadowRoot||widget;
+      var input=root.querySelector('textarea')||root.querySelector('input[type="text"]');
+      if(!input){
+        // Try deeper shadow roots
+        var inner=root.querySelectorAll('*');
+        for(var i=0;i<inner.length;i++){
+          if(inner[i].shadowRoot){
+            input=inner[i].shadowRoot.querySelector('textarea')||inner[i].shadowRoot.querySelector('input[type="text"]');
+            if(input)break;
+          }
+        }
+      }
+      if(input){
+        var msg='I want to see a demo for my business: '+bizName+(bizUrl?(' (website: '+bizUrl+')'):'');
+        var nativeSetter=Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype,'value')||Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value');
+        if(nativeSetter&&nativeSetter.set){nativeSetter.set.call(input,msg);}else{input.value=msg;}
+        input.dispatchEvent(new Event('input',{bubbles:true}));
+        input.dispatchEvent(new Event('change',{bubbles:true}));
+        // Find and click send button
+        setTimeout(function(){
+          var btn=root.querySelector('button[type="submit"]')||root.querySelector('.lc_text-widget__send-btn')||root.querySelector('button.send-button');
+          if(!btn){
+            var btns=root.querySelectorAll('button');
+            for(var j=0;j<btns.length;j++){
+              var svg=btns[j].querySelector('svg');
+              if(svg){btn=btns[j];break;}
+            }
+          }
+          if(!btn){
+            // Try deeper shadow roots for button
+            var inner2=root.querySelectorAll('*');
+            for(var k=0;k<inner2.length;k++){
+              if(inner2[k].shadowRoot){
+                btn=inner2[k].shadowRoot.querySelector('button[type="submit"]')||inner2[k].shadowRoot.querySelector('button');
+                if(btn)break;
+              }
+            }
+          }
+          if(btn){btn.click();contextSent=true;}
+          else{
+            // Fallback: try pressing Enter
+            input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
+            contextSent=true;
+          }
+        },500);
+      }
+    }catch(e){console.log('Context send failed:',e);}
+  }
+
   window.addEventListener('load',function(){setTimeout(tryOpen,1500);});
 })();
 </script>
