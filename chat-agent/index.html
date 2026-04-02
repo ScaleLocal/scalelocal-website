@@ -13,6 +13,7 @@
     :root {
       --navy:    #1a2e4a;
       --navy-d:  #0f1c2e;
+      --blue:    #2E75B6;
       --green:   #2ecc71;
       --green-d: #27ae60;
       --green-bg:rgba(46,204,113,0.10);
@@ -40,8 +41,9 @@
     /* ── NAV ── */
     .nav { position: sticky; top: 0; z-index: 200; background: rgba(26,46,74,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.08); }
     .nav__inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
-    .nav__logo { text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 800; color: #fff; letter-spacing: -0.01em; }
-    .nav__logo span { color: var(--green); }
+    .nav__logo { text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; letter-spacing: -0.01em; display: flex; align-items: baseline; }
+    .nav__logo .nl-s { font-weight: 700; color: #fff; }
+    .nav__logo .nl-l { font-weight: 400; color: var(--blue); }
     .nav__back { font-size: 0.8rem; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
     .nav__back:hover { color: #fff; }
 
@@ -122,7 +124,7 @@
       box-shadow: 0 8px 40px rgba(26,46,74,0.18), 0 2px 8px rgba(26,46,74,0.10);
     }
     .slb-header {
-      background: linear-gradient(135deg, var(--navy) 0%, #1e3a5f 100%);
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-d) 100%);
       padding: 22px 24px 18px;
       position: relative;
       overflow: hidden;
@@ -295,7 +297,7 @@
 
 <nav class="nav">
   <div class="nav__inner">
-    <a href="/" class="nav__logo">Scale<span>Local</span></a>
+    <a href="/" class="nav__logo"><span class="nl-s">Scale</span><span class="nl-l">Local</span></a>
     <a href="/" class="nav__back">&#8592; Back to ScaleLocal</a>
   </div>
 </nav>

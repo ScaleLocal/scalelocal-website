@@ -4,75 +4,43 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Agent</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *{margin:0;padding:0;box-sizing:border-box;}
     html,body{width:100%;height:100%;overflow:hidden;background:#fff;}
 
-    /* Loading overlay */
-    #loader{position:absolute;inset:0;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;z-index:50;transition:opacity .3s ease;}
+    #loader{position:absolute;inset:0;background:#f5f5f5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:50;transition:opacity .3s ease;}
     #loader.gone{opacity:0;pointer-events:none;}
-    .loader-dots{display:flex;gap:8px;}
-    .loader-dot{width:9px;height:9px;border-radius:50%;background:#2ecc71;animation:ldot 1.2s ease-in-out infinite;}
+    .loader-dots{display:flex;gap:7px;}
+    .loader-dot{width:9px;height:9px;border-radius:50%;background:#2E75B6;animation:ldot 1.2s ease-in-out infinite;}
     .loader-dot:nth-child(2){animation-delay:.2s;}
     .loader-dot:nth-child(3){animation-delay:.4s;}
-    .loader-text{font-family:'Inter',sans-serif;font-size:11px;color:#8a9ab0;}
+    .loader-text{font-family:system-ui,sans-serif;font-size:11px;color:#8a9ab0;}
     @keyframes ldot{0%,80%,100%{transform:scale(.7);opacity:.5}40%{transform:scale(1);opacity:1}}
 
-    /* ScaleLocal branded fallback (used when no URL or site blocks proxy) */
-    #sl-bg{
-      display:none;position:absolute;inset:0;
-      background:#f8f9fb;flex-direction:column;overflow:hidden;z-index:5;
+    /* Fallback when proxy fails */
+    #fallback{
+      display:none;position:absolute;inset:0;z-index:5;
+      background:linear-gradient(160deg,#1a2e4a 0%,#0f1c2e 100%);
+      flex-direction:column;align-items:center;justify-content:center;
+      gap:12px;text-align:center;padding:28px;
     }
-    #sl-bg.show{display:flex;}
-    .sl-nav{background:#1a2e4a;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;}
-    .sl-logo{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;color:#fff;letter-spacing:-0.01em;}
-    .sl-logo span{color:#2ecc71;}
-    .sl-nav-dots{display:flex;gap:8px;}
-    .sl-nav-dot{width:26px;height:4px;background:rgba(255,255,255,0.2);border-radius:3px;}
-    .sl-hero{background:linear-gradient(160deg,#1a2e4a 0%,#0f1c2e 100%);padding:18px 14px 16px;flex-shrink:0;}
-    .sl-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(46,204,113,0.15);border:1px solid rgba(46,204,113,0.3);border-radius:100px;padding:3px 9px;margin-bottom:9px;}
-    .sl-badge-dot{width:5px;height:5px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
-    .sl-badge-text{font-size:8px;font-weight:700;color:#2ecc71;letter-spacing:.08em;text-transform:uppercase;}
-    .sl-h1{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:7px;}
-    .sl-h1 span{color:#2ecc71;}
-    .sl-sub{font-size:9px;color:rgba(255,255,255,0.6);line-height:1.5;margin-bottom:11px;max-width:220px;}
-    .sl-btns{display:flex;gap:6px;}
-    .sl-btn-p{background:#2ecc71;color:#0f1c2e;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:5px 10px;border-radius:5px;}
-    .sl-btn-s{background:transparent;color:#fff;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:5px 10px;border-radius:5px;border:1.5px solid rgba(255,255,255,0.3);}
-    .sl-content{padding:12px;display:flex;flex-direction:column;gap:9px;overflow:hidden;}
-    .sl-section-lbl{font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#2E75B6;margin-bottom:4px;}
-    .sl-cards{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
-    .sl-card{background:#fff;border-radius:8px;padding:9px;border:1px solid #e8ecf0;}
-    .sl-card-icon{width:16px;height:16px;border-radius:4px;background:#1a2e4a;margin-bottom:5px;}
-    .sl-bar{height:5px;border-radius:3px;background:#e8ecf0;margin-bottom:4px;}
-    .sl-bar.w80{width:80%;} .sl-bar.w60{width:60%;} .sl-bar.w70{width:70%;} .sl-bar.w50{width:50%;}
-    .sl-bar.accent{background:rgba(46,204,113,0.3);}
-
-    /* Generic business fallback */
-    #biz-bg{
-      display:none;position:absolute;inset:0;
-      background:linear-gradient(135deg,#f8f9fb 0%,#fff 100%);
-      align-items:center;justify-content:center;flex-direction:column;
-      gap:14px;text-align:center;padding:28px;z-index:5;
-    }
-    #biz-bg.show{display:flex;}
-    .biz-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#1a2e4a,#2E75B6);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;font-family:'Montserrat',sans-serif;}
-    .biz-name{font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:800;color:#1a2e4a;}
-    .biz-msg{font-size:.75rem;color:#8a9ab0;max-width:200px;line-height:1.5;}
-    .biz-badge{display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;background:rgba(46,204,113,0.1);border:1px solid rgba(46,204,113,0.3);font-size:.7rem;font-weight:600;color:#27ae60;}
-    .biz-badge span{width:5px;height:5px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
-
-    /* Proxied site iframe */
-    #biz-frame{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;border:none;z-index:1;background:#fff;}
-
+    #fallback.show{display:flex;}
+    .fb-logo{font-family:'Montserrat',Arial,sans-serif;font-size:18px;line-height:1;margin-bottom:4px;}
+    .fb-logo .s{font-weight:700;color:#fff;}
+    .fb-logo .l{font-weight:400;color:#2E75B6;}
+    .fb-badge{display:flex;align-items:center;gap:6px;padding:4px 12px;border-radius:100px;background:rgba(46,204,113,0.12);border:1px solid rgba(46,204,113,0.35);font-size:.7rem;font-weight:600;color:#2ecc71;font-family:system-ui,sans-serif;}
+    .fb-badge span{width:5px;height:5px;border-radius:50%;background:#2ecc71;animation:pulse 2s infinite;}
+    .fb-msg{font-size:.72rem;color:rgba(255,255,255,0.5);max-width:200px;line-height:1.5;font-family:system-ui,sans-serif;}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+    /* The actual proxied site */
+    #biz-frame{position:absolute;top:0;left:0;right:0;bottom:0;width:100%;height:100%;border:none;z-index:1;background:#fff;}
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<!-- Loading -->
 <div id="loader">
   <div class="loader-dots">
     <div class="loader-dot"></div>
@@ -82,45 +50,25 @@
   <div class="loader-text" id="loader-text">Loading...</div>
 </div>
 
-<!-- ScaleLocal branded background (default / no URL) -->
-<div id="sl-bg">
-  <div class="sl-nav">
-    <div class="sl-logo">Scale<span>Local</span></div>
-    <div class="sl-nav-dots"><div class="sl-nav-dot"></div><div class="sl-nav-dot" style="width:20px"></div><div class="sl-nav-dot" style="width:16px"></div></div>
-  </div>
-  <div class="sl-hero">
-    <div class="sl-badge"><span class="sl-badge-dot"></span><span class="sl-badge-text">AI Agent Active</span></div>
-    <div class="sl-h1">More Customers.<br><span>Less Effort.</span></div>
-    <div class="sl-sub">Local marketing that gets your business found — and keeps leads from slipping away.</div>
-    <div class="sl-btns"><div class="sl-btn-p">Get Started</div><div class="sl-btn-s">See Pricing</div></div>
-  </div>
-  <div class="sl-content">
-    <div>
-      <div class="sl-section-lbl">What we do</div>
-      <div class="sl-cards">
-        <div class="sl-card"><div class="sl-card-icon"></div><div class="sl-bar w80"></div><div class="sl-bar w60"></div><div class="sl-bar w70 accent"></div></div>
-        <div class="sl-card"><div class="sl-card-icon" style="background:#2ecc71;"></div><div class="sl-bar w70"></div><div class="sl-bar w50"></div><div class="sl-bar w60 accent"></div></div>
-      </div>
-    </div>
-  </div>
+<div id="fallback">
+  <div class="fb-logo"><span class="s">Scale</span><span class="l">Local</span></div>
+  <div class="fb-badge"><span></span> AI agent active</div>
+  <div class="fb-msg">AI agent is live and ready to answer your questions.</div>
 </div>
 
-<!-- Generic business fallback (when their site blocks proxy) -->
-<div id="biz-bg">
-  <div class="biz-icon" id="biz-initial">?</div>
-  <div class="biz-name" id="biz-name-el">Your Business</div>
-  <div class="biz-msg">Website preview restricted by browser security — your AI agent is fully trained and ready to talk.</div>
-  <div class="biz-badge"><span></span> AI agent active</div>
-</div>
-
-<!-- Proxied business site -->
-<iframe id="biz-frame" src="about:blank" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+<iframe id="biz-frame" src="about:blank"
+  sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
+></iframe>
 
 <!-- Clear stale GHL session data -->
 <script>
 (function(){
   try{
-    var k=[];for(var i=0;i<localStorage.length;i++){var key=localStorage.key(i);if(key&&(key.indexOf('lc_')===0||key.indexOf('leadconnector')!==-1||key.indexOf('msgsndr')!==-1||key.indexOf('chat_')===0||key.indexOf('widget_')===0||key.indexOf('conversation')!==-1||key.indexOf('contact_id')!==-1)){k.push(key);}}
+    var k=[];
+    for(var i=0;i<localStorage.length;i++){
+      var key=localStorage.key(i);
+      if(key&&(key.indexOf('lc_')===0||key.indexOf('leadconnector')!==-1||key.indexOf('msgsndr')!==-1||key.indexOf('chat_')===0||key.indexOf('widget_')===0||key.indexOf('conversation')!==-1||key.indexOf('contact_id')!==-1)){k.push(key);}
+    }
     k.forEach(function(key){localStorage.removeItem(key);});
   }catch(e){}
 })();
@@ -146,48 +94,36 @@
 })();
 </script>
 
-<!-- Frame logic: handle URL param or show ScaleLocal default -->
+<!-- Load site via proxy -->
 <script>
 (function(){
+  var PROXY='https://agentcopy-api.vercel.app/api/proxy?url=';
   var params=new URLSearchParams(window.location.search);
-  var url=params.get('url')||'';
-  var name=params.get('name')||'';
+  var url=params.get('url')||'https://scalelocal.net';
+  var name=params.get('name')||'ScaleLocal';
 
   var loader=document.getElementById('loader');
-  var slBg=document.getElementById('sl-bg');
-  var bizBg=document.getElementById('biz-bg');
+  var fallback=document.getElementById('fallback');
   var frame=document.getElementById('biz-frame');
-  var loaderText=document.getElementById('loader-text');
+  document.getElementById('loader-text').textContent='Loading '+name+'...';
 
   function hideLoader(){loader.classList.add('gone');setTimeout(function(){loader.style.display='none';},350);}
-  function showSlBg(){hideLoader();slBg.classList.add('show');}
-  function showBizBg(){hideLoader();bizBg.classList.add('show');}
+  function showFallback(){loader.style.display='none';fallback.classList.add('show');}
 
-  // No URL → show ScaleLocal branded default
-  if(!url){
-    setTimeout(showSlBg,600);
-    return;
-  }
-
-  // Has URL → try to proxy the business site
-  document.getElementById('biz-initial').textContent=(name?name.charAt(0):'?').toUpperCase();
-  document.getElementById('biz-name-el').textContent=name||'Your Business';
-  loaderText.textContent='Loading '+(name||'your website')+'...';
-
-  var timer=setTimeout(showBizBg,6000);
+  var timer=setTimeout(showFallback, 7000);
 
   frame.onload=function(){
     try{
       var doc=frame.contentDocument||frame.contentWindow.document;
-      if(!doc||!doc.body||doc.body.innerHTML===''){clearTimeout(timer);showBizBg();return;}
+      if(!doc||!doc.body||doc.body.innerHTML===''){clearTimeout(timer);showFallback();return;}
       try{frame.contentWindow.scrollTo(0,0);}catch(e){}
-    }catch(e){/* cross-origin = loaded fine */}
+    }catch(e){/* cross-origin — loaded fine */}
     clearTimeout(timer);hideLoader();
   };
-  frame.onerror=function(){clearTimeout(timer);showBizBg();};
+  frame.onerror=function(){clearTimeout(timer);showFallback();};
 
   var fullUrl=url.startsWith('http')?url:'https://'+url;
-  frame.src='https://agentcopy-api.vercel.app/api/proxy?url='+encodeURIComponent(fullUrl);
+  frame.src=PROXY+encodeURIComponent(fullUrl);
 })();
 </script>
 
