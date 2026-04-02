@@ -86,16 +86,16 @@
   sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-top-navigation-by-user-activation"
 ></iframe>
 
-<!-- Clear stale GHL session data -->
+<!-- Clear ALL GHL session data for fresh demo -->
 <script>
 (function(){
+  try{ localStorage.clear(); }catch(e){}
+  try{ sessionStorage.clear(); }catch(e){}
+  // Also clear cookies for this domain
   try{
-    var k=[];
-    for(var i=0;i<localStorage.length;i++){
-      var key=localStorage.key(i);
-      if(key&&(key.indexOf('lc_')===0||key.indexOf('leadconnector')!==-1||key.indexOf('msgsndr')!==-1||key.indexOf('chat_')===0||key.indexOf('widget_')===0||key.indexOf('conversation')!==-1||key.indexOf('contact_id')!==-1)){k.push(key);}
-    }
-    k.forEach(function(key){localStorage.removeItem(key);});
+    document.cookie.split(';').forEach(function(c){
+      document.cookie=c.trim().split('=')[0]+'=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/';
+    });
   }catch(e){}
 })();
 </script>
@@ -107,57 +107,108 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open widget and show demo context prompt -->
+<!-- Auto-open widget, click Live Chat, and send demo context -->
 <script>
 (function(){
   var params=new URLSearchParams(window.location.search);
   var bizName=params.get('name')||'';
   var bizUrl=params.get('url')||'';
   var attempts=0;
+  var contextSent=false;
 
-  // Try to open widget via .open() or bubble click
+  // Helper: recursively find element in shadow DOMs
+  function findDeep(root,selector){
+    var el=root.querySelector(selector);
+    if(el)return el;
+    var all=root.querySelectorAll('*');
+    for(var i=0;i<all.length;i++){
+      if(all[i].shadowRoot){
+        el=findDeep(all[i].shadowRoot,selector);
+        if(el)return el;
+      }
+    }
+    return null;
+  }
+
+  // Step 1: Open widget bubble
   function tryOpen(){
     var el=document.querySelector('chat-widget');
     if(el){
-      if(typeof el.open==='function'){el.open();showPrompt();return;}
-      // Try clicking the bubble button inside shadow DOM
+      if(typeof el.open==='function'){el.open();setTimeout(clickLiveChat,2000);return;}
       var sr=el.shadowRoot;
       if(sr){
         var bubble=sr.querySelector('button')||sr.querySelector('.lc_text-widget--bubble');
-        if(bubble){bubble.click();showPrompt();return;}
+        if(bubble){bubble.click();setTimeout(clickLiveChat,2000);return;}
       }
     }
     if(++attempts<75)setTimeout(tryOpen,200);
   }
 
-  // Show the demo context prompt card if we have a business name
-  function showPrompt(){
-    if(!bizName)return;
+  // Step 2: Click "Chat via Live Chat" button
+  function clickLiveChat(){
+    var el=document.querySelector('chat-widget');
+    if(!el||!el.shadowRoot)return;
+    var sr=el.shadowRoot;
+    var chatSel=sr.querySelector('chat-selection');
+    if(chatSel&&chatSel.shadowRoot){
+      var btns=chatSel.shadowRoot.querySelectorAll('ion-button');
+      if(btns.length>0){btns[0].click();setTimeout(waitForInput,3000);return;}
+    }
+    // If no chat-selection (already in chat), try finding input directly
+    setTimeout(waitForInput,1000);
+  }
+
+  // Step 3: Wait for chat input to appear, then send context
+  var inputAttempts=0;
+  function waitForInput(){
+    if(!bizName||contextSent)return;
+    var el=document.querySelector('chat-widget');
+    if(!el||!el.shadowRoot)return;
+    var input=findDeep(el.shadowRoot,'textarea');
+    if(input){
+      sendContext(el.shadowRoot,input);
+    }else if(++inputAttempts<30){
+      setTimeout(waitForInput,500);
+    }else{
+      showPromptCard(); // Fallback: show manual prompt
+    }
+  }
+
+  // Step 4: Type and send the context message
+  function sendContext(sr,input){
+    if(contextSent)return;
+    var msg='Hi! I want to see a demo for '+bizName+(bizUrl?' ('+bizUrl+')':'');
+    input.focus();
+    input.select();
+    document.execCommand('insertText',false,msg);
+    contextSent=true;
+    // Find and click send button
+    setTimeout(function(){
+      var btn=findDeep(sr,'.live-chat-send-button');
+      if(btn){btn.click();}
+      else{
+        // Try Enter key
+        input.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
+      }
+    },500);
+  }
+
+  // Fallback: show copy-paste prompt card
+  function showPromptCard(){
     var card=document.getElementById('demo-prompt');
     var btn=document.getElementById('dp-suggestion');
-    if(!card||!btn)return;
+    if(!card||!btn||!bizName)return;
     var suggestion='Hi! I want to see a demo for '+bizName+(bizUrl?' ('+bizUrl+')':'');
     btn.textContent='"'+suggestion+'"';
     btn.onclick=function(){
-      // Copy to clipboard so visitor can paste into widget
       if(navigator.clipboard){
         navigator.clipboard.writeText(suggestion).then(function(){
           btn.textContent='Copied! Paste into the chat.';
-          btn.style.background='#d4edda';
-          btn.style.borderColor='#28a745';
-          btn.style.color='#155724';
+          btn.style.background='#d4edda';btn.style.borderColor='#28a745';btn.style.color='#155724';
         });
-      }else{
-        // Fallback: select text
-        var ta=document.createElement('textarea');
-        ta.value=suggestion;ta.style.position='fixed';ta.style.left='-9999px';
-        document.body.appendChild(ta);ta.select();document.execCommand('copy');
-        document.body.removeChild(ta);
-        btn.textContent='Copied! Paste into the chat.';
-        btn.style.background='#d4edda';
       }
     };
-    setTimeout(function(){card.classList.add('show');},1500);
+    card.classList.add('show');
   }
 
   window.addEventListener('load',function(){setTimeout(tryOpen,1500);});
