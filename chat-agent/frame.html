@@ -68,19 +68,11 @@
   sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
 ></iframe>
 
-<!-- Clear stale GHL chat history so every visitor sees a fresh greeting -->
+<!-- Clear ALL storage so every demo visitor gets a fresh conversation -->
 <script>
 (function(){
-  try {
-    var keysToNuke = [];
-    for(var i=0;i<localStorage.length;i++){
-      var k=localStorage.key(i);
-      if(k&&(k.indexOf('lc_')===0||k.indexOf('leadconnector')!==-1||k.indexOf('msgsndr')!==-1||k.indexOf('chat_')===0||k.indexOf('widget_')===0||k.indexOf('conversation')!==-1||k.indexOf('contact_id')!==-1||k.indexOf('session')!==-1)){
-        keysToNuke.push(k);
-      }
-    }
-    keysToNuke.forEach(function(k){localStorage.removeItem(k);});
-  }catch(e){}
+  try{ localStorage.clear(); }catch(e){}
+  try{ sessionStorage.clear(); }catch(e){}
 })();
 </script>
 
@@ -116,11 +108,25 @@
 
   /* ─── Step 1: Open the widget ─── */
   var openAttempts = 0;
+  var widgetOpened = false;
   function tryOpen(){
     var el = document.querySelector('chat-widget');
-    if(el && typeof el.open === 'function'){
-      el.open();
-      // After opening, wait for chat pane to appear then try to auto-send
+    if(!el){ if(++openAttempts < 75) setTimeout(tryOpen, 200); return; }
+
+    // Try the Stencil .open() API first
+    if(typeof el.open === 'function'){
+      try{ el.open(); widgetOpened = true; }catch(e){}
+    }
+
+    // Fallback: click the bubble button inside shadow DOM
+    if(!widgetOpened && el.shadowRoot){
+      var bubble = el.shadowRoot.querySelector('button') ||
+                   el.shadowRoot.querySelector('.lc_text-widget--bubble') ||
+                   el.shadowRoot.querySelector('[class*="bubble"]');
+      if(bubble){ bubble.click(); widgetOpened = true; }
+    }
+
+    if(widgetOpened){
       if(bizName) setTimeout(tryAutoSend, 2500);
       return;
     }
