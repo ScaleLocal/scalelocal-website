@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/chat-agent/:slug([a-zA-Z0-9][a-zA-Z0-9-]*)", "destination": "/chat-agent/index.html" }
   ],
   "redirects": [
     { "source": "/(.*)", "has": [{ "type": "host", "value": "scalelocal.net" }], "destination": "https://www.scalelocal.net/$1", "permanent": true }
