@@ -81,15 +81,9 @@
         <label for="s-biz">Business Name</label>
         <input type="text" id="s-biz" name="business_name" required placeholder="e.g. Joe's Plumbing">
       </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="s-fn">First Name</label>
-          <input type="text" id="s-fn" name="first_name" required placeholder="First name">
-        </div>
-        <div class="field">
-          <label for="s-ln">Last Name</label>
-          <input type="text" id="s-ln" name="last_name" required placeholder="Last name">
-        </div>
+      <div class="field">
+        <label for="s-fn">First Name</label>
+        <input type="text" id="s-fn" name="first_name" required placeholder="First name">
       </div>
       <div class="field">
         <label for="s-email">Email</label>
@@ -188,7 +182,7 @@
       btn.textContent = 'Submitting...';
 
       var fn       = document.getElementById('s-fn').value.trim();
-      var ln       = document.getElementById('s-ln').value.trim();
+      var ln       = '';
       var email    = document.getElementById('s-email').value.trim();
       var phone    = document.getElementById('s-phone').value.trim();
       var biz      = document.getElementById('s-biz').value.trim();

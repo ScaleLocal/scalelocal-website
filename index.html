@@ -3061,7 +3061,7 @@
             <div class="mock-dot mock-dot--yellow"></div>
             <div class="mock-dot mock-dot--green"></div>
             <div class="mock-url-bar">dashboard.scalelocal.net</div>
-            <span style="font-family:'Inter',sans-serif;font-size:0.625rem;color:#6b7a8d;text-transform:uppercase;letter-spacing:0.1em;margin-left:auto;">Sample Client Data — Anonymized</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.625rem;color:#6b7a8d;text-transform:uppercase;letter-spacing:0.1em;margin-left:auto;">Live Dashboard Preview</span>
           </div>
           <div class="mock-dashboard-content">
             <div class="mock-stat-tiles">
@@ -3187,7 +3187,7 @@
 }
 
 #founder .founder-container {
-  max-width: 1140px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -3209,144 +3209,89 @@
   font-size: 32px;
   line-height: 1.1;
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
-#founder .founder-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  align-items: center;
-}
-
-#founder .video-column {
-  width: 100%;
-}
-
-#founder .video-placeholder {
-  position: relative;
+#founder .founder-letter {
+  background: #f8fafb;
+  border: 1px solid #e2e8f0;
   border-radius: 16px;
-  overflow: hidden;
-  background: #1a2e4a;
-  padding-top: 56.25%;
-  box-shadow: 0 8px 40px rgba(26, 46, 74, 0.2);
+  padding: 40px 32px;
+  position: relative;
 }
 
-#founder .video-content {
+#founder .founder-letter::before {
+  content: "\201C";
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 120px;
+  color: rgba(46, 204, 113, 0.12);
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-#founder .play-button {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: #2ecc71;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-#founder .play-button:hover {
-  transform: scale(1.05);
-}
-
-#founder .play-icon {
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 12px 0 12px 22px;
-  border-color: transparent transparent transparent #ffffff;
-  margin-left: 4px;
-}
-
-#founder .video-caption {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  color: #a8b8cc;
-  text-align: center;
-}
-
-#founder .video-overlay-label {
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
-  background: rgba(0, 0, 0, 0.6);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  color: #ffffff;
-  font-weight: 600;
-}
-
-#founder .copy-column {
-  width: 100%;
+  top: -10px;
+  left: 20px;
+  line-height: 1;
+  pointer-events: none;
 }
 
 #founder .founder-intro {
   font-family: 'Inter', sans-serif;
-  font-size: 18px;
-  color: #6b7a8d;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  font-size: 1.125rem;
+  color: #4a5a6e;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 #founder .founder-body {
   font-family: 'Inter', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   color: #4a5a6e;
   line-height: 1.7;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+}
+
+#founder .founder-body:last-of-type {
+  margin-bottom: 0;
 }
 
 #founder .signature-block {
   display: flex;
   align-items: center;
   gap: 16px;
-  padding-top: 24px;
+  padding-top: 32px;
+  margin-top: 32px;
   border-top: 1px solid #e2e8f0;
-  margin-top: 8px;
 }
 
-#founder .avatar-circle {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: #1a2e4a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+#founder .signature-line {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #1a2e4a;
+  letter-spacing: -0.02em;
+  font-style: italic;
+}
+
+#founder .signature-dash {
+  width: 32px;
+  height: 2px;
+  background: #2ecc71;
   flex-shrink: 0;
 }
 
-#founder .avatar-initials {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
-  color: #ffffff;
-  font-size: 18px;
+#founder .signature-meta {
+  display: flex;
+  flex-direction: column;
 }
 
 #founder .signature-name {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   color: #1a2e4a;
-  font-size: 16px;
+  font-size: 1rem;
 }
 
 #founder .signature-title {
   font-family: 'Inter', sans-serif;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #6b7a8d;
   margin-top: 2px;
 }
@@ -3495,23 +3440,12 @@
 }
 
 @media (min-width: 768px) {
-  #founder {
-    padding: 96px 24px;
-  }
-  
   #founder .founder-headline {
     font-size: 42px;
   }
-  
-  #founder .founder-grid {
-    flex-direction: row;
-    gap: 64px;
-    align-items: center;
-  }
-  
-  #founder .video-column,
-  #founder .copy-column {
-    width: 50%;
+
+  #founder .founder-letter {
+    padding: 56px 64px;
   }
   
   #faq {
@@ -4022,37 +3956,22 @@
 </style>
 <section id="founder">
   <div class="founder-container">
-    <div class="section-label">THE FOUNDER</div>
+    <div class="section-label">A NOTE FROM THE FOUNDER</div>
     <h2 class="founder-headline">Every account gets a personal point of contact.<br>Not a ticket system.</h2>
-    
-    <div class="founder-grid">
-      <div class="video-column">
-        <div class="video-placeholder">
-          <div class="video-content">
-            <div class="play-button">
-              <div class="play-icon"></div>
-            </div>
-            <div class="video-caption">Matt — Founder, ScaleLocal</div>
-          </div>
-          <div class="video-overlay-label">Watch: Why I started ScaleLocal (3 min)</div>
-        </div>
-      </div>
-      
-      <div class="copy-column">
-        <p class="founder-intro">I started ScaleLocal because I kept seeing the same thing — good local businesses losing customers to competitors who just showed up better online. Not because they were better. Because they were more visible.</p>
-        
-        <p class="founder-body">I've spent years building the exact system that fixes that. Not a bundle of tools you manage yourself — a done-for-you engine with a person behind it. Me, or someone I've trained and trust, on your account every single month.</p>
-        
-        <p class="founder-body">ScaleLocal is intentionally small. We don't take on more clients than we can serve at the level I'd want if I were the client. Every account gets the same thing: real work, real results, and a written guarantee that puts my money on the line if we don't deliver.</p>
-        
-        <div class="signature-block">
-          <div class="avatar-circle">
-            <div class="avatar-initials">M</div>
-          </div>
-          <div>
-            <div class="signature-name">Matt</div>
-            <div class="signature-title">Founder, ScaleLocal — Tewksbury, MA</div>
-          </div>
+
+    <div class="founder-letter">
+      <p class="founder-intro">I started ScaleLocal because I kept seeing the same thing &mdash; good local businesses losing customers to competitors who just showed up better online. Not because they were better. Because they were more visible.</p>
+
+      <p class="founder-body">I&rsquo;ve spent years building the exact system that fixes that. Not a bundle of tools you manage yourself &mdash; a done-for-you engine with a person behind it. Me, or someone I&rsquo;ve trained and trust, on your account every single month.</p>
+
+      <p class="founder-body">ScaleLocal is intentionally small. We don&rsquo;t take on more clients than we can serve at the level I&rsquo;d want if I were the client. Every account gets the same thing: real work, real results, and a written guarantee that puts my money on the line if we don&rsquo;t deliver.</p>
+
+      <div class="signature-block">
+        <div class="signature-line">Matt</div>
+        <div class="signature-dash"></div>
+        <div class="signature-meta">
+          <div class="signature-name">Matt Yassen</div>
+          <div class="signature-title">Founder, ScaleLocal &mdash; Tewksbury, MA</div>
         </div>
       </div>
     </div>
@@ -4168,7 +4087,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="contact-header">
     <p class="contact-section-label">CONTACT</p>
     <h2 class="contact-headline">Reach out directly.</h2>
-    <p class="contact-sub">Text or email &mdash; you&rsquo;ll hear back the same day. No forms, no gatekeepers.</p>
+    <p class="contact-sub">Text or email &mdash; you&rsquo;ll hear back the same day. No gatekeepers, no runaround.</p>
   </div>
   <div class="contact-reach-out">
     <a href="sms:9786627580" class="contact-reach-item">

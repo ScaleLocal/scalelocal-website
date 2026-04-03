@@ -261,8 +261,15 @@
             <div style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.125rem;color:#1a2e4a;"><span>Due today</span><span id="pay-summary-total">$0</span></div>
             <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:4px;"><span>Then monthly</span><span id="pay-summary-mo">$0/mo</span></div>
           </div>
+          <div id="checkout-guarantee" style="background:#f0f9f4;border:1px solid rgba(46,204,113,0.3);border-radius:8px;padding:12px 16px;margin-bottom:16px;text-align:center;display:none;">
+            <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#2ecc71;font-weight:600;line-height:1.4;margin:0;">&#10003; Written performance guarantee included &mdash; we hit your lead target or work free until we do.</p>
+          </div>
           <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span>&nbsp;due today</button>
-          <p class="sec-note">&#128274; Secured by Stripe. 256-bit encryption. Apple Pay &amp; Google Pay accepted.</p>
+          <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;padding:12px 0;">
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#128274; SSL Encrypted</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#9989; Secured by Stripe</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#128179; Cancel anytime (M2M)</span>
+          </div>
         </div>
       </div>
     </div>
@@ -328,10 +335,10 @@
           su.textContent='Setup fee waived';su.className='pln-setup green';
         }
       });
-      // Starter always shows M2M note
+      // Starter always shows M2M note — always show setup fee since Starter is M2M-only
       var suS=document.getElementById('su-starter');
-      if(S.term==='nc'){suS.textContent='$'+fmt(plans.starter.setup)+' one-time setup \u2022 Month-to-month';}
-      else{suS.textContent='Setup fee waived \u2022 Month-to-month';}
+      suS.textContent='$'+fmt(plans.starter.setup)+' one-time setup \u2022 Month-to-month';
+      suS.className='pln-setup gray';
     }
 
     // 2. PLAN SELECTOR
@@ -476,6 +483,8 @@
       if(hasPlan&&plans[S.plan].guar)guarW.innerHTML='<div class="os-guar">\u2705 Guaranteed: '+plans[S.plan].guar+'</div>';
       else guarW.innerHTML='';
       updPayBtn(todayTotal);
+      var guarEl=document.getElementById('checkout-guarantee');
+      if(guarEl)guarEl.style.display=(hasPlan&&plans[S.plan].guar)?'block':'none';
     }
     window.togDet=function(btn){btn.classList.toggle('open');btn.nextElementSibling.classList.toggle('open');};
 

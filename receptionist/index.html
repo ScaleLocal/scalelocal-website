@@ -34,12 +34,34 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
     body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.7;color:#1a1a2e;background:#f0f4f8}
-    .topbar{background:#1a2e4a;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-    .topbar a{text-decoration:none}
-    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
-    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
-    .topbar-cta{display:inline-flex;padding:8px 20px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;border-radius:6px;text-decoration:none}
-    .hero{background:#1a2e4a;padding:72px 24px 64px;text-align:center}
+    .site-nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:#1a2e4a;padding:0 24px;transition:all 0.3s ease}
+    .site-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.15)}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+    .nav-logo{text-decoration:none;display:flex;align-items:center}
+    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
+    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
+    .nav-links{display:none;gap:20px;align-items:center}
+    .hamburger{background:none;border:none;cursor:pointer;padding:8px;display:flex;flex-direction:column;gap:5px}
+    .hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s ease}
+    .mobile-menu{position:fixed;top:0;left:0;right:0;bottom:0;background:#1a2e4a;z-index:2000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.3s ease}
+    .mobile-menu.open{opacity:1;pointer-events:auto}
+    .mobile-menu-close{position:absolute;top:16px;right:20px;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;padding:8px}
+    .mobile-menu nav{display:flex;flex-direction:column;align-items:center;gap:32px}
+    .mobile-menu a{font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:600;color:#fff;text-decoration:none;transition:color 0.2s}
+    .mobile-menu a:hover{color:#2ecc71}
+    .mobile-menu .mobile-cta{background:#2ecc71;color:#1a2e4a;padding:14px 32px;border-radius:10px;font-weight:700}
+    .nav-cta-desktop{display:none}
+    @media(min-width:768px){
+      .site-nav{height:auto}
+      .nav-inner{height:72px}
+      .nav-links{display:flex;gap:20px;align-items:center}
+      .nav-links a{color:#fff;text-decoration:none;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;transition:color 0.2s ease}
+      .nav-links a:hover{color:#2E75B6}
+      .nav-cta-desktop{display:inline-flex;align-items:center;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-size:0.875rem;font-weight:700;padding:10px 16px;border-radius:6px;text-decoration:none;transition:all 0.2s ease;flex-shrink:0}
+      .nav-cta-desktop:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(46,204,113,0.3)}
+      .hamburger{display:none}
+    }
+    .hero{background:#1a2e4a;padding:128px 24px 64px;text-align:center}
     .hero-ey{font-family:'Inter',sans-serif;font-size:0.6875rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.2em;font-weight:600;margin-bottom:16px}
     .hero h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:2rem;line-height:1.15;max-width:700px;margin:0 auto 20px}
     @media(min-width:768px){.hero h1{font-size:2.75rem}}
@@ -126,10 +148,34 @@
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
-    <a href="/snapshot" class="topbar-cta">Free Digital Audit</a>
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/#growth-system">How We Help</a>
+        <a href="/menu">Pricing</a>
+        <a href="/#founder">About</a>
+      </nav>
+      <a href="/snapshot" class="nav-cta-desktop">Get Your Free Digital Audit &rarr;</a>
+      <button class="hamburger" aria-label="Open menu" id="hamburger-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" aria-label="Close menu" id="mobile-menu-close">&times;</button>
+    <nav>
+      <a href="/#growth-system">How We Help</a>
+      <a href="/menu">Pricing</a>
+      <a href="/#founder">About</a>
+      <a href="/snapshot" class="mobile-cta">Get Your Free Digital Audit &rarr;</a>
+    </nav>
+  </div>
 
   <section class="hero">
     <p class="hero-ey">SCALELOCAL AI RECEPTIONIST</p>
@@ -288,6 +334,27 @@
     src="https://widgets.leadconnectorhq.com/loader.js"
     data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
     data-widget-id="69cdcf4d34c04489825322a1" >
+  </script>
+
+  <script>
+    // Nav scroll behavior
+    var nav = document.getElementById('site-nav');
+    if (nav) {
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+      });
+    }
+    // Mobile menu
+    var hamburgerBtn = document.getElementById('hamburger-btn');
+    var mobileMenu = document.getElementById('mobile-menu');
+    var mobileClose = document.getElementById('mobile-menu-close');
+    if (hamburgerBtn && mobileMenu) {
+      hamburgerBtn.addEventListener('click', function() { mobileMenu.classList.add('open'); });
+      if (mobileClose) mobileClose.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+      mobileMenu.querySelectorAll('a').forEach(function(a) {
+        a.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+      });
+    }
   </script>
 </body>
 </html>
