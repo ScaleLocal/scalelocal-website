@@ -119,7 +119,11 @@
       background: none;
       border: none;
       cursor: pointer;
-      padding: 8px;
+      padding: 12px;
+      min-width: 44px;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
     }
 
     .hamburger span {
@@ -2259,7 +2263,65 @@
       border-top: 1px solid #f0e8d8;
     }
 
+    /* Sticky mobile CTA bar — hidden on desktop, visible on mobile after scroll */
+    .mobile-sticky-cta {
+      display: none;
+    }
+
     @media (max-width: 767px) {
+      .mobile-sticky-cta {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        background: #1a2e4a;
+        padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px)) 20px;
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.2);
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+      }
+
+      .mobile-sticky-cta.visible {
+        transform: translateY(0);
+      }
+
+      .mobile-sticky-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 48px;
+        background: #2ecc71;
+        color: #1a2e4a;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        border-radius: 10px;
+        text-decoration: none;
+        box-shadow: 0 2px 8px rgba(46, 204, 113, 0.3);
+        transition: all 0.25s ease;
+      }
+
+      .mobile-sticky-btn:active {
+        transform: scale(0.98);
+      }
+
+      .mobile-sticky-sub {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.6875rem;
+        color: #a8b8cc;
+        margin-top: 6px;
+        text-align: center;
+      }
+
+      body {
+        padding-bottom: 90px;
+      }
+
       .service-cards {
         gap: 24px;
         margin-top: 48px;
@@ -2912,6 +2974,7 @@
         </div>
         <div class="pricing-cta-wrap">
           <a href="/snapshot" class="pricing-cta">Get Started &mdash; It&rsquo;s $0 to Set Up &rarr;</a>
+          <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;text-align:center;margin-top:12px;">Free audit. No credit card. No commitment.</p>
         </div>
       </div>
     </section>
@@ -2978,6 +3041,7 @@
             <p class="service-tier-label">FOUNDATION SYSTEM</p>
             <h3 class="service-card-title">Foundation</h3>
             <p class="service-tagline">Get found. Get reviewed. Get calls.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses starting from zero online presence</p>
             <div class="service-price-block">
               <span class="service-price-amount">$497</span><span class="service-price-period">/mo</span>
             </div>
@@ -3002,6 +3066,7 @@
             <p class="service-tier-label">MOMENTUM SYSTEM</p>
             <h3 class="service-card-title">Momentum</h3>
             <p class="service-tagline">Dominate your local market.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#a8b8cc;font-weight:600;margin-top:6px;">Best for: businesses ready to outrank the competition</p>
             <div class="service-price-block">
               <span class="service-price-amount">$1,297</span><span class="service-price-period">/mo</span>
             </div>
@@ -3026,6 +3091,7 @@
             <p class="service-tier-label">AUTHORITY SYSTEM</p>
             <h3 class="service-card-title">Authority</h3>
             <p class="service-tagline">Total market dominance.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses that want to own their entire market</p>
             <div class="service-price-block">
               <span class="service-price-amount">$1,997</span><span class="service-price-period">/mo</span>
             </div>
@@ -4480,6 +4546,12 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
   </script>
+  <!-- Sticky mobile CTA bar -->
+  <div class="mobile-sticky-cta" id="mobile-sticky-cta">
+    <a href="/snapshot" class="mobile-sticky-btn">Get My Free Audit &rarr;</a>
+    <span class="mobile-sticky-sub">Free. No credit card. No commitment.</span>
+  </div>
+
   <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -4548,5 +4620,25 @@ document.addEventListener('DOMContentLoaded', function() {
     <button class="upsell-no-btn" id="upsell-no-btn">No thanks &mdash; just send my free digital audit</button>
   </div>
 </div>
+<script>
+// Sticky mobile CTA — show after scrolling past hero, hide in footer
+(function(){
+  var bar=document.getElementById('mobile-sticky-cta');
+  if(!bar||window.innerWidth>=768)return;
+  var hero=document.getElementById('hero');
+  var footer=document.querySelector('.site-footer');
+  var shown=false;
+  function check(){
+    var y=window.scrollY;
+    var heroBottom=hero?hero.offsetTop+hero.offsetHeight:600;
+    var footerTop=footer?footer.offsetTop-window.innerHeight:Infinity;
+    var shouldShow=y>heroBottom&&y<footerTop;
+    if(shouldShow&&!shown){bar.classList.add('visible');shown=true;}
+    else if(!shouldShow&&shown){bar.classList.remove('visible');shown=false;}
+  }
+  window.addEventListener('scroll',check,{passive:true});
+  check();
+})();
+</script>
 </body>
 </html>
