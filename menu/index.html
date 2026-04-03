@@ -75,16 +75,20 @@
     @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr 1fr; align-items: stretch; } .plans-section { padding: 96px 0; } }
     @media (min-width: 1080px) { .plan-cards { grid-template-columns: 1fr 1fr 1fr 1fr; } }
 
-    .plan-card { border-radius: 16px; padding: 32px; display: flex; flex-direction: column; transition: all 0.25s ease; }
+    .plan-card { border-radius: 16px; padding: 28px; display: flex; flex-direction: column; transition: all 0.25s ease; height: 100%; }
     .plan-card--starter { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
     .plan-card--starter:hover { box-shadow: 0 8px 32px rgba(26,46,74,0.12); transform: translateY(-2px); }
     .plan-card--starter .plan-name { color: #1a2e4a; }
+    .plan-card--starter .plan-tagline { color: #6b7a8d; }
     .plan-card--starter .plan-price { color: #1a2e4a; }
+    .plan-card--starter .plan-period { color: #6b7a8d; }
+    .plan-card--starter .plan-feature-text { color: #1a2e4a; }
     .plan-upgrade-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2E75B6; font-weight: 600; margin-top: 16px; padding: 10px 14px; background: rgba(46,117,182,0.06); border: 1px solid rgba(46,117,182,0.15); border-radius: 8px; line-height: 1.4; text-align: center; }
     .plan-card--standard { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
     .plan-card--standard:hover { box-shadow: 0 8px 32px rgba(26,46,74,0.12); transform: translateY(-2px); }
     .plan-card--featured { background: #1a2e4a; border: 2px solid #2ecc71; box-shadow: 0 8px 40px rgba(26,46,74,0.2); }
-    @media (min-width: 768px) { .plan-card--featured { transform: scale(1.03); } .plan-card { padding: 40px; } }
+    .plan-card--featured:hover { box-shadow: 0 12px 48px rgba(26,46,74,0.25); }
+    @media (min-width: 768px) { .plan-card--featured { transform: scale(1.03); } .plan-card--featured:hover { transform: scale(1.03) translateY(-2px); } .plan-card { padding: 40px; } }
 
     .plan-badge { display: inline-block; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 14px; border-radius: 20px; margin-bottom: 16px; align-self: flex-start; }
     .plan-tier { font-family: 'Inter', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #2ecc71; font-weight: 600; margin-bottom: 8px; }
@@ -95,13 +99,13 @@
     .plan-card--standard .plan-tagline { color: #6b7a8d; }
     .plan-card--featured .plan-tagline { color: #a8b8cc; }
 
-    .plan-price-block { margin: 24px 0; }
+    .plan-price-block { margin-top: 24px; margin-bottom: 24px; }
     .plan-setup { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #2ecc71; font-weight: 600; display: block; margin-bottom: 4px; }
     .plan-annual-badge { display: inline-block; background: linear-gradient(135deg, #f39c12, #e67e22); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; padding: 3px 10px; border-radius: 20px; margin-top: 4px; margin-bottom: 2px; text-transform: uppercase; }
     .plan-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3rem; line-height: 1; }
     .plan-card--standard .plan-price { color: #1a2e4a; }
     .plan-card--featured .plan-price { color: #fff; }
-    .plan-period { font-family: 'Inter', sans-serif; font-size: 1rem; }
+    .plan-period { font-family: 'Inter', sans-serif; font-size: 1rem; vertical-align: middle; }
     .plan-card--standard .plan-period { color: #6b7a8d; }
     .plan-card--featured .plan-period { color: #a8b8cc; }
     .plan-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; display: block; margin-top: 4px; }
@@ -112,9 +116,9 @@
     .plan-divider--light { border: none; height: 1px; background: #e2e8f0; margin: 24px 0; }
     .plan-divider--dark { border: none; height: 1px; background: rgba(255,255,255,0.12); margin: 24px 0; }
 
-    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .plan-feature { display: flex; align-items: flex-start; gap: 10px; }
-    .plan-check { color: #2ecc71; font-size: 0.875rem; font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+    .plan-check { color: #2ecc71; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 600; flex-shrink: 0; margin-top: 1px; }
     .plan-feature-text { font-family: 'Inter', sans-serif; font-size: 0.875rem; line-height: 1.4; }
     .plan-card--standard .plan-feature-text { color: #1a2e4a; }
     .plan-card--featured .plan-feature-text { color: #fff; }
@@ -125,8 +129,9 @@
     .plan-guarantee--dark { background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.3); }
 
     .plan-cta-wrap { margin-top: auto; padding-top: 32px; }
-    .plan-cta { display: inline-flex; align-items: center; justify-content: center; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; width: 100%; height: 52px; border-radius: 8px; border: none; text-decoration: none; cursor: pointer; transition: all 0.2s; }
-    .plan-cta:hover { filter: brightness(1.1); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(46,204,113,0.35); }
+    .plan-cta { display: inline-flex; align-items: center; justify-content: center; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; width: 100%; min-height: 56px; padding: 14px 24px; border-radius: 10px; border: none; text-decoration: none; cursor: pointer; transition: all 0.25s ease; white-space: nowrap; box-shadow: 0 2px 8px rgba(46,204,113,0.2); letter-spacing: -0.01em; }
+    .plan-cta:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,204,113,0.4); }
+    .plan-cta:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(46,204,113,0.2); }
 
     /* ========== ADD-ONS ========== */
     .addons-section { background: #fff; padding: 64px 0; }
@@ -451,9 +456,10 @@
             <p class="plan-tier">STARTER</p>
             <h3 class="plan-name">Starter</h3>
             <p class="plan-tagline">A real website that actually works for you.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses that need a professional online presence</p>
             <div class="plan-price-block">
               <span class="plan-price">$197</span><span class="plan-period">/mo</span>
-              <span class="plan-note" style="color:#2ecc71;">$0 setup &bull; Month-to-month &bull; Cancel anytime</span>
+              <span class="plan-note" style="color:#6b7a8d;">$197 setup &bull; Month-to-month &bull; Cancel anytime</span>
             </div>
             <hr class="plan-divider--light">
             <ul class="plan-features">
@@ -474,6 +480,7 @@
             <p class="plan-tier">FOUNDATION SYSTEM</p>
             <h3 class="plan-name">Foundation</h3>
             <p class="plan-tagline">Get found. Get reviewed. Get calls.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses starting from zero online presence</p>
             <div class="plan-price-block">
               <span class="plan-price">$497</span><span class="plan-period">/mo</span>
             </div>
@@ -501,6 +508,7 @@
             <p class="plan-tier">MOMENTUM SYSTEM</p>
             <h3 class="plan-name">Momentum</h3>
             <p class="plan-tagline">Dominate your local market.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#a8b8cc;font-weight:600;margin-top:6px;">Best for: businesses ready to outrank the competition</p>
             <div class="plan-price-block">
               <span class="plan-price">$1,297</span><span class="plan-period">/mo</span>
             </div>
@@ -527,6 +535,7 @@
             <p class="plan-tier">AUTHORITY SYSTEM</p>
             <h3 class="plan-name">Authority</h3>
             <p class="plan-tagline">Total market dominance.</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses that want to own their entire market</p>
             <div class="plan-price-block">
               <span class="plan-price">$1,997</span><span class="plan-period">/mo</span>
             </div>
@@ -659,7 +668,7 @@
         <span class="footer-trust-item">&#10003; Personal account manager</span>
       </div>
       <div class="footer-legal">
-        <p>&copy; 2026 ScaleLocal. All rights reserved. Tewksbury, MA. Serving Rhode Island, Massachusetts &amp; New Hampshire. <a href="/terms" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
+        <p>&copy; 2026 ScaleLocal. All rights reserved. 10 Leisa G, Tewksbury, MA 01876. Serving Rhode Island, Massachusetts &amp; New Hampshire. <a href="/terms" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
       </div>
     </div>
   </footer>
