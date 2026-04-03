@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Starter Plan — $197/mo Professional Website | ScaleLocal</title>
+  <meta name="description" content="Your professional online presence, handled. Starter plan with 5-page website, AI chat, Google Business Profile setup, and lead management. $197/mo.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:#f5f7fa; color:#1a1a2e; line-height:1.6; }
+    body.menu-open { overflow:hidden; }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4, h5, h6 { font-family:'Montserrat',sans-serif; font-weight:700; }
+    h1 { font-size:3.5rem; line-height:1.2; font-weight:800; }
+    h2 { font-size:2.5rem; line-height:1.2; font-weight:800; }
+    h3 { font-size:1.5rem; line-height:1.3; font-weight:700; }
+    h4 { font-size:1.125rem; font-weight:700; }
+    a { transition:all 0.2s ease; }
+
+    /* NAVIGATION */
+    .site-nav { position:fixed; top:0; left:0; width:100%; height:60px; background:#1a2e4a; border-bottom:1px solid rgba(255,255,255,0.08); z-index:1000; display:flex; align-items:center; transition:box-shadow 0.3s ease; }
+    .site-nav.scrolled { box-shadow:0 2px 20px rgba(0,0,0,0.4); }
+    .nav-inner { width:100%; max-width:1140px; margin:0 auto; padding:0 24px; display:flex; align-items:center; justify-content:space-between; }
+    .nav-logo { text-decoration:none; display:flex; align-items:center; flex-shrink:0; }
+    .logo-scale { font-family:'Montserrat',sans-serif; font-weight:700; font-size:22px; color:#ffffff; line-height:1; }
+    .logo-local { font-family:'Montserrat',sans-serif; font-weight:400; font-size:22px; color:#2E75B6; line-height:1; }
+    .nav-links { display:none; list-style:none; }
+    .nav-cta-desktop { display:none; }
+    .hamburger { display:flex; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:8px; }
+    .hamburger span { display:block; width:22px; height:2px; background:#fff; border-radius:1px; transition:0.3s ease; }
+    .mobile-menu { position:fixed; top:0; right:0; width:100%; height:100%; background:#1a2e4a; z-index:1001; display:flex; flex-direction:column; padding:80px 24px 32px; transform:translateX(100%); transition:transform 0.3s ease; }
+    .mobile-menu.open { transform:translateX(0); }
+    .mobile-menu-close { position:absolute; top:16px; right:24px; background:none; border:none; color:#fff; font-size:28px; cursor:pointer; width:48px; height:48px; display:flex; align-items:center; justify-content:center; }
+    .mobile-menu nav { display:flex; flex-direction:column; flex:1; }
+    .mobile-menu a { color:#fff; text-decoration:none; font-family:'Montserrat',sans-serif; font-size:1.25rem; font-weight:500; min-height:48px; display:flex; align-items:center; }
+    .mobile-menu .mobile-cta { margin-top:auto; display:inline-flex; align-items:center; justify-content:center; background:#2ecc71; color:#1a2e4a; height:56px; width:100%; font-family:'Montserrat',sans-serif; font-size:1.0625rem; font-weight:700; border:none; border-radius:8px; text-decoration:none; }
+
+    @media(min-width:768px) {
+      .site-nav { height:72px; }
+      .nav-links { display:flex; gap:20px; align-items:center; }
+      .nav-links a { color:#fff; text-decoration:none; font-family:'Inter',sans-serif; font-size:0.875rem; font-weight:500; transition:color 0.2s ease; }
+      .nav-links a:hover, .nav-links a.active { color:#2E75B6; }
+      .nav-cta-desktop { display:inline-flex; align-items:center; background:#2ecc71; color:#1a2e4a; font-family:'Montserrat',sans-serif; font-size:0.875rem; font-weight:700; padding:10px 16px; border-radius:6px; text-decoration:none; transition:all 0.2s ease; flex-shrink:0; }
+      .nav-cta-desktop:hover { filter:brightness(1.1); box-shadow:0 4px 12px rgba(46,204,113,0.3); }
+      .hamburger { display:none; }
+    }
+
+    /* FOOTER */
+    .site-footer { background:#1a2e4a; border-top:1px solid rgba(255,255,255,0.06); }
+    .footer-inner { max-width:1140px; margin:0 auto; padding:0 24px; }
+    .footer-top { display:flex; flex-direction:column; gap:48px; padding:64px 0 48px; }
+    .footer-logo { text-decoration:none; display:inline-flex; align-items:center; margin-bottom:16px; }
+    .footer-tagline { font-family:'Inter',sans-serif; font-size:0.9375rem; color:#6b7a8d; line-height:1.6; max-width:320px; margin-bottom:12px; }
+    .footer-location { font-family:'Inter',sans-serif; font-size:0.8125rem; color:#4a5a6e; }
+    .footer-nav { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+    .footer-nav-heading { font-family:'Montserrat',sans-serif; font-weight:700; color:#ffffff; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em; margin-bottom:16px; }
+    .footer-nav-col { display:flex; flex-direction:column; gap:10px; }
+    .footer-nav-col a { font-family:'Inter',sans-serif; font-size:0.875rem; color:#6b7a8d; text-decoration:none; transition:color 0.2s; }
+    .footer-nav-col a:hover { color:#2ecc71; }
+    .footer-trust { display:flex; flex-wrap:wrap; gap:12px 24px; padding:32px 0; border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+    .footer-trust-item { font-family:'Inter',sans-serif; font-size:0.8125rem; color:#2ecc71; font-weight:600; }
+    .footer-legal { display:flex; flex-direction:column; gap:12px; padding:24px 0; text-align:center; }
+    .footer-legal p { font-family:'Inter',sans-serif; font-size:0.75rem; color:#4a5a6e; line-height:1.6; }
+
+    @media(min-width:768px) {
+      .footer-top { flex-direction:row; justify-content:space-between; align-items:flex-start; }
+      .footer-brand { max-width:340px; }
+      .footer-legal { flex-direction:row; justify-content:space-between; align-items:center; text-align:left; }
+    }
+
+    /* LAYOUT UTILITIES */
+    .container { width:100%; max-width:1140px; margin:0 auto; padding:0 24px; }
+    .section { padding:64px 0; }
+    .section-light { background:#f5f7fa; }
+    .section-white { background:#ffffff; }
+
+    /* HERO SECTION */
+    .hero {
+      background:linear-gradient(135deg, #1a1a2e 0%, #1f3554 100%);
+      color:#ffffff;
+      padding:120px 0 80px;
+      margin-top:60px;
+      position:relative;
+      overflow:hidden;
+    }
+    @media(min-width:768px) {
+      .hero { margin-top:72px; padding:160px 0 120px; }
+    }
+
+    .hero-content { text-align:center; }
+    .hero-badge {
+      display:inline-block;
+      background:#2ecc71;
+      color:#1a2e4a;
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      padding:8px 16px;
+      border-radius:20px;
+      margin-bottom:32px;
+    }
+
+    .hero h1 {
+      font-size:2.75rem;
+      margin-bottom:16px;
+      color:#ffffff;
+    }
+    @media(min-width:768px) {
+      .hero h1 { font-size:3.5rem; }
+    }
+
+    .hero-tagline {
+      font-size:1.125rem;
+      color:#a8b8cc;
+      margin-bottom:40px;
+      max-width:600px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+
+    .hero-price {
+      margin-bottom:48px;
+    }
+
+    .hero-price-amount {
+      font-size:4rem;
+      font-weight:800;
+      color:#2ecc71;
+      line-height:1;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .hero-price-period {
+      font-size:1.125rem;
+      color:#a8b8cc;
+      margin-top:8px;
+    }
+
+    .hero-cta {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#2ecc71;
+      color:#1a2e4a;
+      font-family:'Montserrat',sans-serif;
+      font-size:1rem;
+      font-weight:700;
+      padding:16px 32px;
+      border-radius:6px;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      transition:all 0.2s ease;
+      margin-bottom:32px;
+    }
+    .hero-cta:hover {
+      filter:brightness(1.1);
+      box-shadow:0 8px 24px rgba(46,204,113,0.3);
+      transform:translateY(-2px);
+    }
+
+    .hero-secondary-link {
+      color:#a8b8cc;
+      text-decoration:none;
+      font-size:0.9375rem;
+      border-bottom:1px solid #a8b8cc;
+    }
+    .hero-secondary-link:hover { color:#2ecc71; border-bottom-color:#2ecc71; }
+
+    /* OUTCOMES SECTION */
+    .outcomes { background:#f5f7fa; }
+    .outcomes-header {
+      text-align:center;
+      margin-bottom:64px;
+    }
+    .outcomes-header h2 {
+      color:#1a1a2e;
+      margin-bottom:16px;
+    }
+    .outcomes-header p {
+      font-size:1.125rem;
+      color:#555;
+      max-width:600px;
+      margin:0 auto;
+    }
+
+    .outcomes-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+    @media(min-width:768px) {
+      .outcomes-grid { grid-template-columns:1fr 1fr; }
+    }
+
+    .outcome-card {
+      background:#ffffff;
+      padding:32px;
+      border-radius:12px;
+      border-left:4px solid #2ecc71;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .outcome-card h3 {
+      color:#1a1a2e;
+      margin-bottom:12px;
+      font-size:1.25rem;
+    }
+
+    .outcome-card p {
+      color:#555;
+      font-size:0.9375rem;
+      line-height:1.7;
+    }
+
+    /* UPGRADE OPPORTUNITY SECTION */
+    .upgrade-opportunity {
+      background:#ffffff;
+      padding:80px 0;
+    }
+
+    .upgrade-opportunity-inner {
+      max-width:800px;
+      margin:0 auto;
+      text-align:center;
+      background:linear-gradient(135deg, rgba(46,204,113,0.08) 0%, rgba(46,204,113,0.04) 100%);
+      padding:60px 32px;
+      border-radius:12px;
+      border:1px solid rgba(46,204,113,0.2);
+    }
+
+    .upgrade-opportunity-icon {
+      font-size:3.5rem;
+      margin-bottom:24px;
+    }
+
+    .upgrade-opportunity-inner h2 {
+      color:#1a1a2e;
+      margin-bottom:16px;
+      font-size:2rem;
+    }
+
+    .upgrade-opportunity-highlight {
+      font-size:1.125rem;
+      color:#1a1a2e;
+      margin-bottom:24px;
+      font-family:'Montserrat',sans-serif;
+      font-weight:600;
+    }
+
+    .upgrade-opportunity-description {
+      font-size:0.9375rem;
+      color:#555;
+      line-height:1.8;
+      max-width:700px;
+      margin:0 auto;
+    }
+
+    .upgrade-opportunities {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:24px;
+      margin-top:32px;
+      text-align:left;
+    }
+
+    @media(min-width:768px) {
+      .upgrade-opportunities { grid-template-columns:1fr 1fr; }
+    }
+
+    .upgrade-item {
+      background:#ffffff;
+      padding:24px;
+      border-radius:8px;
+      border-left:3px solid #2ecc71;
+    }
+
+    .upgrade-item-title {
+      font-weight:700;
+      color:#1a1a2e;
+      margin-bottom:8px;
+      font-family:'Montserrat',sans-serif;
+      font-size:1rem;
+    }
+
+    .upgrade-item-price {
+      font-size:1.25rem;
+      font-weight:800;
+      color:#2ecc71;
+      margin-bottom:8px;
+      font-family:'Montserrat',sans-serif;
+    }
+
+    .upgrade-item-description {
+      font-size:0.875rem;
+      color:#555;
+      line-height:1.6;
+      margin-bottom:12px;
+    }
+
+    .upgrade-item-cta {
+      display:inline-block;
+      color:#2E75B6;
+      text-decoration:none;
+      font-weight:600;
+      font-size:0.875rem;
+      border-bottom:2px solid #2E75B6;
+      padding-bottom:2px;
+      transition:all 0.2s ease;
+    }
+
+    .upgrade-item-cta:hover {
+      color:#2ecc71;
+      border-bottom-color:#2ecc71;
+    }
+
+    /* FEATURES SECTION */
+    .features {
+      background:#ffffff;
+      padding:80px 0;
+    }
+
+    .features-header {
+      text-align:center;
+      margin-bottom:64px;
+    }
+    .features-header h2 {
+      color:#1a1a2e;
+      margin-bottom:16px;
+    }
+
+    .features-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:48px;
+    }
+    @media(min-width:768px) {
+      .features-grid { grid-template-columns:1fr 1fr; gap:64px; }
+    }
+
+    .feature-group {
+      border-bottom:2px solid #2ecc71;
+      padding-bottom:32px;
+    }
+
+    .feature-group h3 {
+      color:#1a1a2e;
+      margin-bottom:24px;
+      font-size:1.25rem;
+    }
+
+    .feature-list {
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .feature-item {
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:#555;
+      font-size:0.9375rem;
+      line-height:1.6;
+    }
+
+    .feature-checkmark {
+      color:#2ecc71;
+      font-weight:700;
+      flex-shrink:0;
+      width:20px;
+      text-align:center;
+      margin-top:2px;
+    }
+
+    /* COMMITMENT OPTIONS SECTION */
+    .commitment {
+      background:#f5f7fa;
+      padding:80px 0;
+    }
+
+    .commitment-header {
+      text-align:center;
+      margin-bottom:64px;
+    }
+    .commitment-header h2 {
+      color:#1a1a2e;
+      margin-bottom:16px;
+    }
+
+    .commitment-grid {
+      display:grid;
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+    @media(min-width:768px) {
+      .commitment-grid { grid-template-columns:1fr 1fr 1fr; }
+    }
+
+    .commitment-card {
+      background:#ffffff;
+      padding:40px 32px;
+      border-radius:12px;
+      border:2px solid transparent;
+      box-shadow:0 4px 16px rgba(0,0,0,0.08);
+      display:flex;
+      flex-direction:column;
+      transition:all 0.3s ease;
+      position:relative;
+    }
+
+    .commitment-card:hover {
+      transform:translateY(-4px);
+      box-shadow:0 8px 32px rgba(0,0,0,0.12);
+    }
+
+    .commitment-card.best-value {
+      border-color:#2ecc71;
+      box-shadow:0 8px 24px rgba(46,204,113,0.2);
+    }
+
+    .commitment-card.best-value:hover {
+      box-shadow:0 12px 36px rgba(46,204,113,0.3);
+    }
+
+    .commitment-badge {
+      position:absolute;
+      top:-12px;
+      right:24px;
+      background:#2ecc71;
+      color:#1a2e4a;
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      font-size:0.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      padding:6px 12px;
+      border-radius:4px;
+      display:none;
+    }
+
+    .commitment-card.best-value .commitment-badge {
+      display:block;
+    }
+
+    .commitment-term {
+      font-family:'Montserrat',sans-serif;
+      font-weight:700;
+      color:#1a1a2e;
+      font-size:1.25rem;
+      margin-bottom:8px;
+    }
+
+    .commitment-price {
+      font-family:'Montserrat',sans-serif;
+      font-weight:800;
+      font-size:2.5rem;
+      color:#2ecc71;
+      margin-bottom:4px;
+    }
+
+    .commitment-period {
+      font-size:0.875rem;
+      color:#555;
+      margin-bottom:24px;
+      padding-bottom:24px;
+      border-bottom:1px solid #e8eef5;
+    }
+
+    .commitment-details {
+      font-size:0.875rem;
+      color:#555;
+      margin-bottom:32px;
+      flex:1;
+    }
+
+    .commitment-detail-item {
+      margin-bottom:12px;
+      line-height:1.6;
+    }
+
+    .commitment-detail-label {
+      font-weight:600;
+      color:#1a1a2e;
+      display:block;
+    }
+
+    .commitment-detail-value {
+      color:#2ecc71;
+      font-weight:700;
+    }
+
+    .commitment-cta {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#2ecc71;
+      color:#1a2e4a;
+      font-family:'Montserrat',sans-serif;
+      font-size:0.9375rem;
+      font-weight:700;
+      padding:14px 24px;
+      border-radius:6px;
+      text-decoration:none;
+      border:none;
+      cursor:pointer;
+      transition:all 0.2s ease;
+    }
+    .commitment-cta:hover {
+      filter:brightness(1.1);
+      box-shadow:0 4px 12px rgba(46,204,113,0.3);
+    }
+
+    /* COMPARE SECTION */
+    .compare {
+      background:#ffffff;
+      padding:80px 0;
+      text-align:center;
+    }
+
+    .compare h2 {
+      color:#1a1a2e;
+      margin-bottom:24px;
+    }
+
+    .compare-text {
+      font-size:1.125rem;
+      color:#555;
+      margin-bottom:32px;
+      line-height:1.7;
+    }
+
+    .compare-links {
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    @media(min-width:768px) {
+      .compare-links { flex-direction:row; justify-content:center; }
+    }
+
+    .compare-link {
+      color:#2E75B6;
+      text-decoration:none;
+      font-weight:600;
+      border-bottom:2px solid #2E75B6;
+      padding-bottom:4px;
+      transition:all 0.2s ease;
+    }
+    .compare-link:hover {
+      color:#2ecc71;
+      border-bottom-color:#2ecc71;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:767px) {
+      h1 { font-size:2rem; }
+      h2 { font-size:1.75rem; }
+      h3 { font-size:1.125rem; }
+      .section { padding:48px 0; }
+      .hero { padding:80px 0 60px; margin-top:60px; }
+      .outcomes-grid { gap:24px; }
+      .outcomes-header { margin-bottom:48px; }
+      .upgrade-opportunity-inner { padding:48px 24px; }
+      .features-grid { gap:32px; }
+      .commitment-grid { gap:24px; }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVIGATION -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">
+        <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/#growth-system">How We Help</a>
+        <a href="/menu" class="active">Pricing</a>
+        <a href="/#founder">About</a>
+      </nav>
+      <a href="/snapshot" class="nav-cta-desktop">Get Your Free Digital Audit &rarr;</a>
+      <button class="hamburger" aria-label="Open menu" id="hamburger-btn">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" aria-label="Close menu" id="mobile-menu-close">&times;</button>
+    <nav>
+      <a href="/#growth-system">How We Help</a>
+      <a href="/menu">Pricing</a>
+      <a href="/#founder">About</a>
+      <a href="/snapshot" class="mobile-cta">Get Your Free Digital Audit &rarr;</a>
+    </nav>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Starter</h1>
+        <p class="hero-tagline">Your professional online presence, handled.</p>
+
+        <div class="hero-price">
+          <div class="hero-price-amount">$197</div>
+          <div class="hero-price-period">/mo</div>
+        </div>
+
+        <a href="/checkout?plan=starter&term=m2m" class="hero-cta">Start with Starter &rarr;</a>
+
+        <p>
+          <a href="/plans/compare" class="hero-secondary-link">View all plans &rarr;</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT CHANGES IN 30 DAYS -->
+  <section class="outcomes section-light">
+    <div class="container">
+      <div class="outcomes-header">
+        <h2>What Changes in 30 Days</h2>
+        <p>Get up and running with a professional online presence that generates leads from day one.</p>
+      </div>
+
+      <div class="outcomes-grid">
+        <div class="outcome-card">
+          <h3>Professional Website Live in 48 Hours</h3>
+          <p>Your 5-page mobile-optimized website is live and conversion-focused. Built to capture leads and communicate your value to potential customers.</p>
+        </div>
+
+        <div class="outcome-card">
+          <h3>AI Chat Assistant Engaging Visitors 24/7</h3>
+          <p>Intelligent chat assistant answers visitor questions, qualifies leads, and captures contact information while you sleep. Never miss a potential customer again.</p>
+        </div>
+
+        <div class="outcome-card">
+          <h3>Google Business Profile Optimized</h3>
+          <p>Your business profile is fully set up and optimized on Google. Local customers find you, see your services, and contact you directly from search results.</p>
+        </div>
+
+        <div class="outcome-card">
+          <h3>Real-Time Dashboard Tracking Every Lead</h3>
+          <p>ScaleLocal Dashboard gives you complete visibility. Track every lead, call, and visitor in one place. Know exactly where your business is getting noticed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPGRADE OPPORTUNITY -->
+  <section class="upgrade-opportunity section-white">
+    <div class="container">
+      <div class="upgrade-opportunity-inner">
+        <div class="upgrade-opportunity-icon">🚀</div>
+        <h2>Ready for Guaranteed Leads?</h2>
+        <p class="upgrade-opportunity-description">Starter provides the foundation. If you're ready to scale with guaranteed leads and comprehensive lead generation systems, we've got you covered. Upgrade to Foundation or Momentum to access our lead guarantees and full digital marketing suite.</p>
+
+        <div class="upgrade-opportunities">
+          <div class="upgrade-item">
+            <div class="upgrade-item-title">Foundation Plan</div>
+            <div class="upgrade-item-price">$497/mo</div>
+            <div class="upgrade-item-description">3 guaranteed leads per month + full SEO, call tracking, and reputation management.</div>
+            <a href="/plans/foundation" class="upgrade-item-cta">Learn About Foundation &rarr;</a>
+          </div>
+          <div class="upgrade-item">
+            <div class="upgrade-item-title">Momentum Plan</div>
+            <div class="upgrade-item-price">$1,297/mo</div>
+            <div class="upgrade-item-description">8 guaranteed leads per month + ads with spend covered, full digital marketing, and AI search visibility.</div>
+            <a href="/plans/momentum" class="upgrade-item-cta">Learn About Momentum &rarr;</a>
+          </div>
+        </div>
+
+        <p style="margin-top:32px;"><a href="/plans/compare" style="color:#2E75B6;text-decoration:none;font-weight:600;border-bottom:2px solid #2E75B6;padding-bottom:4px;">Compare all plans &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVERYTHING INCLUDED -->
+  <section class="features section-white">
+    <div class="container">
+      <div class="features-header">
+        <h2>Everything Included</h2>
+      </div>
+
+      <div class="features-grid">
+        <!-- Website & Online Presence -->
+        <div class="feature-group">
+          <h3>Website & Online Presence</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Professional 5-page website (mobile-optimized, conversion-focused)</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>AI-powered chat assistant (24/7 visitor engagement)</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>ScaleLocal Dashboard (real-time leads, calls, reviews)</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>5 content updates per month</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Basic Online Visibility -->
+        <div class="feature-group">
+          <h3>Basic Online Visibility</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Google Business Profile setup</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Basic local SEO foundations</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Mobile optimization</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lead Management -->
+        <div class="feature-group">
+          <h3>Lead Management</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Contact form with lead notifications</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Basic call tracking</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>ScaleLocal Dashboard access</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Plan Notes -->
+        <div class="feature-group">
+          <h3>Perfect For</h3>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Building a professional online presence</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Getting found on Google locally</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Starting to capture leads systematically</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-checkmark">●</div>
+              <div>Learning about your customer journey</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMITMENT OPTIONS -->
+  <section class="commitment section-light">
+    <div class="container">
+      <div class="commitment-header">
+        <h2>Choose Your Commitment</h2>
+      </div>
+
+      <div class="commitment-grid">
+        <!-- Month-to-Month -->
+        <div class="commitment-card">
+          <div class="commitment-term">Month-to-Month</div>
+          <div class="commitment-price">$197</div>
+          <div class="commitment-period">per month</div>
+
+          <div class="commitment-details">
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Setup Fee</span>
+              <span class="commitment-detail-value">$197 one-time</span>
+            </div>
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Flexibility</span>
+              <div style="color:#555;margin-top:4px;">Cancel anytime with 30 days notice</div>
+            </div>
+          </div>
+
+          <a href="/checkout?plan=starter&term=m2m" class="commitment-cta">Select Plan</a>
+        </div>
+
+        <!-- 6-Month -->
+        <div class="commitment-card">
+          <div class="commitment-term">6-Month</div>
+          <div class="commitment-price">$197</div>
+          <div class="commitment-period">per month</div>
+
+          <div class="commitment-details">
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Setup Fee</span>
+              <span class="commitment-detail-value">WAIVED</span>
+            </div>
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Total Commitment</span>
+              <div style="color:#2ecc71;margin-top:4px;font-weight:700;">$1,182</div>
+            </div>
+          </div>
+
+          <a href="/checkout?plan=starter&term=6m" class="commitment-cta">Select Plan</a>
+        </div>
+
+        <!-- 12-Month (Best Value) -->
+        <div class="commitment-card best-value">
+          <div class="commitment-badge">BEST VALUE</div>
+          <div class="commitment-term">12-Month</div>
+          <div class="commitment-price">$197</div>
+          <div class="commitment-period">per month</div>
+
+          <div class="commitment-details">
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Setup Fee</span>
+              <span class="commitment-detail-value">WAIVED</span>
+            </div>
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Bonus</span>
+              <span class="commitment-detail-value">Month 12 FREE</span>
+            </div>
+            <div class="commitment-detail-item">
+              <span class="commitment-detail-label">Total Commitment</span>
+              <div style="color:#2ecc71;margin-top:4px;font-weight:700;">$2,167</div>
+            </div>
+          </div>
+
+          <a href="/checkout?plan=starter&term=12m" class="commitment-cta">Select Plan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARE PLANS -->
+  <section class="compare section-white">
+    <div class="container">
+      <h2>Ready for More?</h2>
+      <p class="compare-text">See our Foundation plan at $497/mo for guaranteed leads and comprehensive lead generation systems.</p>
+
+      <div class="compare-links">
+        <a href="/plans/foundation" class="compare-link">Foundation at $497/mo &rarr;</a>
+        <span style="color:#a8b8cc;">or</span>
+        <a href="/plans/compare" class="compare-link">Compare All Plans &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo">
+            <span class="logo-scale">Scale</span><span class="logo-local">Local</span>
+          </a>
+          <p class="footer-tagline">Local digital marketing for businesses across Rhode Island, Massachusetts and New Hampshire — backed by a written performance guarantee.</p>
+          <p class="footer-location">&#128205; Tewksbury, MA &mdash; Serving RI, MA &amp; NH</p>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Quick Links</p>
+            <a href="/#growth-system">How We Help</a>
+            <a href="/menu">Pricing</a>
+            <a href="/#founder">About</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/snapshot">Free Digital Audit</a>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Our Systems</p>
+            <a href="/plans/starter">Starter &mdash; $197/mo</a>
+            <a href="/plans/foundation">Foundation &mdash; $497/mo</a>
+            <a href="/plans/momentum">Momentum &mdash; $1,297/mo</a>
+            <a href="/plans/authority">Authority &mdash; $1,997/mo</a>
+            <a href="/websites">Website Build &mdash; $497</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-trust">
+        <span class="footer-trust-item">&#10003; Website live in 48 hours</span>
+        <span class="footer-trust-item">&#10003; Written results guarantee</span>
+        <span class="footer-trust-item">&#10003; Month-to-month, 6-month, or 12-month options</span>
+        <span class="footer-trust-item">&#10003; Personal account manager</span>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; 2026 ScaleLocal. All rights reserved. Tewksbury, MA. Serving Rhode Island, Massachusetts &amp; New Hampshire. <a href="/terms" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation scroll shadow
+    const siteNav = document.getElementById('site-nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        siteNav.classList.add('scrolled');
+      } else {
+        siteNav.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile menu toggle
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const body = document.body;
+
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('open');
+      body.classList.add('menu-open');
+    });
+
+    mobileMenuClose.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      body.classList.remove('menu-open');
+    });
+
+    // Close mobile menu when a link is clicked
+    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+    mobileMenuLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        body.classList.remove('menu-open');
+      });
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target) && !hamburgerBtn.contains(e.target) && mobileMenu.classList.contains('open')) {
+        mobileMenu.classList.remove('open');
+        body.classList.remove('menu-open');
+      }
+    });
+  </script>
+</body>
+</html>
