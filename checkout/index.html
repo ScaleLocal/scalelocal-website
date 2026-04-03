@@ -261,7 +261,7 @@
             <div style="display:flex;justify-content:space-between;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.125rem;color:#1a2e4a;"><span>Due today</span><span id="pay-summary-total">$0</span></div>
             <div style="display:flex;justify-content:space-between;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:4px;"><span>Then monthly</span><span id="pay-summary-mo">$0/mo</span></div>
           </div>
-          <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span> due today</button>
+          <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span>&nbsp;due today</button>
           <p class="sec-note">&#128274; Secured by Stripe. 256-bit encryption. Apple Pay &amp; Google Pay accepted.</p>
         </div>
       </div>
@@ -437,7 +437,7 @@
     function updSummary(){
       var body=document.getElementById('os-body'),footer=document.getElementById('os-footer');
       var hasPlan=S.plan&&S.plan!=='none';
-      var hasAny=hasPlan||S.recep||S.site||S.react;
+      var hasAny=hasPlan||S.recep||S.site||S.react||S.agent;
       if(!hasAny){body.innerHTML='<p class="os-empty">Select a plan or product to get started.</p>';footer.style.display='none';updPayBtn(0);return;}
       footer.style.display='';
       var html='',todayTotal=0,monthlyTotal=0;
@@ -451,6 +451,10 @@
         html+='<div class="os-detail"><div class="os-detail-inner">';
         d.inc.forEach(function(i){html+='<div>'+i+'</div>';});
         html+='</div></div></div>';
+      }
+      if(S.agent&&S.plan==='starter'){
+        monthlyTotal+=50;todayTotal+=50;
+        html+='<div class="os-item"><div class="os-row"><span>AI Chat &amp; Voice Agent</span><span>$50/mo</span></div></div>';
       }
       if(S.recep){
         var rMo=recepMo[S.plan||'none'];monthlyTotal+=rMo;todayTotal+=rMo+RECEP_SETUP;
@@ -496,19 +500,20 @@
           var effTerm = plans[S.plan].m2mOnly ? 'nc' : S.term;
           if(effTerm==='nc'&&plans[S.plan].setup>0)today+=plans[S.plan].setup;
         }
+        if(S.agent&&S.plan==='starter')today+=50;
         if(S.recep)today+=RECEP_SETUP+recepMo[S.plan||'none'];
         if(S.site)today+=SITE_COST;if(S.react)today+=REACT_COST;}
       document.getElementById('pay-total').textContent='$'+fmt(today);
-      var hasItem=(S.plan&&S.plan!=='none')||S.recep||S.site||S.react;
-      var hasSub=(S.plan&&S.plan!=='none')||S.recep;
+      var hasItem=(S.plan&&S.plan!=='none')||S.recep||S.site||S.react||S.agent;
+      var hasSub=(S.plan&&S.plan!=='none')||S.recep||S.agent;
       var btnEl=document.getElementById('pay-btn');
       btnEl.disabled=!hasItem||!S.agreed;
       if(hasSub){
-        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$'+fmt(today)+'</span> due today';
+        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$'+fmt(today)+'</span>&nbsp;due today';
       } else if(hasItem){
         btnEl.innerHTML='Complete Purchase &mdash; <span id="pay-total">$'+fmt(today)+'</span>';
       } else {
-        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$0</span> due today';
+        btnEl.innerHTML='Start My Plan &mdash; <span id="pay-total">$0</span>&nbsp;due today';
       }
       // Update inline summary above pay button
       var paySummary=document.getElementById('pay-summary');
@@ -517,6 +522,7 @@
         document.getElementById('pay-summary-total').textContent='$'+fmt(today);
         var mo=0;
         if(S.plan&&S.plan!=='none')mo+=plans[S.plan].mo;
+        if(S.agent&&S.plan==='starter')mo+=50;
         if(S.recep)mo+=recepMo[S.plan||'none'];
         var moLabel=document.getElementById('pay-summary-mo');
         var moLabelParent=moLabel.parentElement;

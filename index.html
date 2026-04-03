@@ -2745,15 +2745,8 @@
               </div>
             </div>
             <div class="roi-tiers-row" id="roi-tiers-row">
-              <a href="/checkout?plan=starter" class="roi-tier-card roi-tier-link" id="roi-card-starter" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
-                <p class="roi-tc-label">STARTER</p>
-                <p class="roi-tc-cost">$197<span>/mo</span></p>
-                <p class="roi-tc-math" id="roi-s-math" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
-                <p id="roi-s-eq" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
-                <p id="roi-s-result" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
-                <p id="roi-s-roi" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
-              </a>
-              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link" id="roi-card-foundation">>
+              <!-- Starter ROI card removed — hidden from public site -->
+              <a href="/checkout?plan=foundation" class="roi-tier-card roi-tier-link" id="roi-card-foundation" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
                 <p class="roi-tc-label">FOUNDATION</p>
                 <p class="roi-tc-cost">$497<span>/mo</span></p>
                 <p class="roi-tc-math" id="roi-f-math"></p>
@@ -2866,30 +2859,10 @@
     <section id="services">
       <div class="services-inner">
         <p class="section-label">OUR SYSTEMS</p>
-        <h2 class="services-headline">Four systems. One goal.<br>More customers finding you first.</h2>
-        <p class="services-sub">Starting at $197/mo. Every plan includes a live dashboard and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
+        <h2 class="services-headline">Three systems. One goal.<br>More customers finding you first.</h2>
+        <p class="services-sub">Starting at $497/mo. Every plan includes a live dashboard and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
         <div class="service-cards">
-          <div class="service-card service-card--starter">
-            <p class="service-tier-label">STARTER</p>
-            <h3 class="service-card-title">Starter</h3>
-            <p class="service-tagline">A real website that actually works for you.</p>
-            <div class="service-price-block">
-              <span class="service-price-amount">$197</span><span class="service-price-period">/mo</span>
-              <span class="service-price-note" style="color:#2ecc71;display:block;margin-top:4px;">$0 setup &bull; Month-to-month &bull; Cancel anytime</span>
-            </div>
-            <hr class="service-divider--light">
-            <ul class="service-features">
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Professional 5-page website, live and hosted</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">AI Chat &amp; Voice Agent &mdash; add for $50/mo</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Dashboard (traffic + chat data)</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">1 content update per month</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">SSL, mobile optimization, speed monitoring</span></li>
-            </ul>
-            <div class="service-upgrade-note">Upgrade to Foundation anytime &mdash; $248/mo more unlocks Google visibility, reviews, call tracking, and a written lead guarantee.</div>
-            <div class="service-cta-wrap">
-              <a href="/checkout?plan=starter" class="service-cta">Get Started &rarr;</a>
-            </div>
-          </div>
+          <!-- Starter card removed — Starter is hidden from public site. Foundation is the lowest visible plan. -->
           <div class="service-card service-card--standard">
             <p class="service-tier-label">FOUNDATION SYSTEM</p>
             <h3 class="service-card-title">Foundation</h3>
@@ -2962,7 +2935,7 @@
             </div>
           </div>
         </div>
-        <p class="services-footer-note">Starter is month-to-month. Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. 6-month and 12-month commitments waive setup fees. 12-month gets your 12th month free.</p>
+        <p class="services-footer-note">Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. 6-month and 12-month commitments waive setup fees. 12-month gets your 12th month free.</p>
       </div>
     </section>
 
@@ -4280,7 +4253,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var CR = crVal / 10;
         var tiers = [
-          { cost:197, leads:0, label:'Starter', m:'roi-s-math', e:'roi-s-eq', r:'roi-s-result', p:'roi-s-roi', noGuarantee:true },
           { cost:497, leads:3, label:'Foundation', m:'roi-f-math', e:'roi-f-eq', r:'roi-f-result', p:'roi-f-roi' },
           { cost:1297, leads:8, label:'Momentum', m:'roi-m-math', e:'roi-m-eq', r:'roi-m-result', p:'roi-m-roi' },
           { cost:1997, leads:15, label:'Authority', m:'roi-a-math', e:'roi-a-eq', r:'roi-a-result', p:'roi-a-roi' }
@@ -4292,20 +4264,13 @@ document.addEventListener('DOMContentLoaded', function() {
         var res = [];
         for (var i = 0; i < tiers.length; i++) {
           var t = tiers[i];
-          if (t.noGuarantee) {
-            // Starter has no lead guarantee — show breakeven math only
-            var be = Math.ceil(t.cost / val);
-            var beLeads = CR > 0 ? Math.ceil(be / CR) : 999;
-            res.push({ t:t, closed:0, rev:0, profit:-t.cost, roiPct:-100, be:be, beLeads:beLeads, isStarter:true });
-          } else {
-            var closed = Math.round(t.leads * CR * 10) / 10;
-            var rev = Math.round(closed * val);
-            var profit = rev - t.cost;
-            var roiPct = Math.round((profit / t.cost) * 100);
-            var be = Math.ceil(t.cost / val);
-            if (profit >= 0) allLoss = false;
-            res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
-          }
+          var closed = Math.round(t.leads * CR * 10) / 10;
+          var rev = Math.round(closed * val);
+          var profit = rev - t.cost;
+          var roiPct = Math.round((profit / t.cost) * 100);
+          var be = Math.ceil(t.cost / val);
+          if (profit >= 0) allLoss = false;
+          res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
         }
 
         document.getElementById('roi-payoff-headline').innerHTML = 'At <span class="roi-green">$' + _fmt(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like.';
@@ -4314,20 +4279,6 @@ document.addEventListener('DOMContentLoaded', function() {
         for (var j = 0; j < res.length; j++) {
           var r = res[j];
           var clickHint = '<span style="display:block;font-family:Inter,sans-serif;font-size:0.6875rem;color:#2E75B6;margin-top:10px;font-weight:600;">See what\u2019s included \u2192</span>';
-
-          if (r.isStarter) {
-            // Starter — no lead guarantee, show breakeven customers needed
-            document.getElementById(r.t.m).textContent = 'No lead guarantee \u2014 website + AI chat + dashboard';
-            document.getElementById(r.t.e).textContent = 'At $' + _fmt(Math.round(val)) + '/customer, you need ~' + r.be + ' customers/mo to cover $197/mo';
-            if (val >= 197) {
-              document.getElementById(r.t.r).innerHTML = '<strong style="color:#2ecc71">Pays for itself with ' + r.be + ' customer' + (r.be > 1 ? 's' : '') + '/mo</strong>';
-              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest risk entry point \u2014 no commitment required</span>' + clickHint;
-            } else {
-              document.getElementById(r.t.r).innerHTML = '<strong style="color:#6b7a8d">' + r.be + ' customers/mo to break even</strong>';
-              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest cost option at $8/day</span>' + clickHint;
-            }
-            continue;
-          }
 
           document.getElementById(r.t.m).textContent = r.t.leads + ' guaranteed leads \u00d7 ' + (CR*100) + '% close rate = ~' + r.closed + ' est. customers';
           document.getElementById(r.t.e).textContent = '$' + _fmt(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + _fmt(r.rev) + ' est. revenue \u2212 $' + _fmt(r.t.cost) + ' cost';
@@ -4350,7 +4301,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (allLoss && lowBox) {
           var beHtml = '';
           for (var k = 0; k < res.length; k++) {
-            if (res[k].isStarter) continue;
             var beLeads = CR > 0 ? Math.ceil(res[k].be / CR) : 999;
             beHtml += '<strong style="color:#e67e22">' + res[k].t.label + ':</strong> ~' + res[k].be + ' customers/mo (~' + beLeads + ' leads at ' + (CR*100) + '% close)<br>';
           }
@@ -4361,19 +4311,19 @@ document.addEventListener('DOMContentLoaded', function() {
           lowBox.style.display = 'none';
         }
 
-        // Summary logic — only considers guaranteed tiers (not Starter)
+        // Summary logic
         var recEl = document.getElementById('roi-rec');
         var recText = document.getElementById('roi-rec-text');
         if (recEl && recText) {
           var bestTier = null; var bestProfit = -Infinity;
           var profitCount = 0; var profitNames = [];
-          for (var b = 1; b < res.length; b++) { // skip index 0 (Starter)
+          for (var b = 0; b < res.length; b++) {
             if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; }
             if (res[b].profit > 0) { profitCount++; profitNames.push(res[b].t.label); }
           }
 
           if (allLoss) {
-            recText.innerHTML = 'At this customer value, <strong>Starter at $197/mo</strong> is the best way to get started \u2014 a professional website with an AI chat assistant, no commitment, and you only need ' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
+            recText.innerHTML = 'At this customer value, <strong>Foundation at $497/mo</strong> is the best way to get started \u2014 a professional website, Google Business Profile optimization, review generation, and a written 3-lead guarantee. You need ~' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
             recEl.style.display = 'block';
           } else if (profitCount === 3) {
             recText.innerHTML = 'At $' + _fmt(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10 leads, all three guaranteed systems are net positive. <strong>' + bestTier.t.label + '</strong> delivers the strongest return at <strong>+$' + _fmt(bestTier.profit) + '/mo</strong>. Click any tier above to see what\u2019s included.';
@@ -4390,7 +4340,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Dynamic highlight — blue border on the most profitable guaranteed tier
-        var cardIds = ['roi-card-starter', 'roi-card-foundation', 'roi-card-momentum', 'roi-card-authority'];
+        var cardIds = ['roi-card-foundation', 'roi-card-momentum', 'roi-card-authority'];
         for (var h = 0; h < cardIds.length; h++) {
           var card = document.getElementById(cardIds[h]);
           if (card) { card.style.border = '2px solid transparent'; card.style.background = '#f0f4f8'; }
@@ -4399,9 +4349,9 @@ document.addEventListener('DOMContentLoaded', function() {
           var bestCard = document.getElementById('roi-card-' + bestTier.t.label.toLowerCase());
           if (bestCard) { bestCard.style.border = '2px solid #2E75B6'; bestCard.style.background = '#f0f7ff'; }
         } else if (allLoss) {
-          // Highlight Starter when all guaranteed tiers are losses
-          var starterCard = document.getElementById('roi-card-starter');
-          if (starterCard) { starterCard.style.border = '2px solid #2E75B6'; starterCard.style.background = '#f0f7ff'; }
+          // Highlight Foundation when all tiers are losses (it's the most accessible entry point)
+          var foundationCard = document.getElementById('roi-card-foundation');
+          if (foundationCard) { foundationCard.style.border = '2px solid #2E75B6'; foundationCard.style.background = '#f0f7ff'; }
         }
 
         payoff.style.display = 'block';
@@ -4521,8 +4471,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         <div class="footer-nav-col">
           <p class="footer-nav-heading">Our Systems</p>
-          <a href="/checkout?plan=starter">Starter &mdash; $197/mo</a>
-          <a href="/menu">Foundation &mdash; $497/mo</a>
+          <a href="/checkout?plan=foundation">Foundation &mdash; $497/mo</a>
           <a href="/menu">Momentum &mdash; $1,297/mo</a>
           <a href="/menu">Authority &mdash; $1,997/mo</a>
           <a href="/websites">Website Build &mdash; $497</a>
