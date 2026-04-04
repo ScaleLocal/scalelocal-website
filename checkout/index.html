@@ -130,6 +130,36 @@
     .pay-btn:disabled{opacity:0.45;cursor:not-allowed}
     .sec-note{text-align:center;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:10px}
 
+    /* What Happens Next Timeline */
+    .whn{background:#fff;border-radius:12px;padding:24px;border:1px solid #e2e8f0}
+    @media(min-width:768px){.whn{padding:28px}}
+    .whn-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.0625rem;margin-bottom:20px}
+    .whn-steps{display:flex;flex-direction:column;gap:0;position:relative}
+    .whn-step{display:flex;gap:16px;position:relative;padding-bottom:20px}
+    .whn-step:last-child{padding-bottom:0}
+    .whn-dot{width:32px;height:32px;border-radius:50%;background:#f0f9f4;border:2px solid #2ecc71;display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#2ecc71;flex-shrink:0;z-index:1}
+    .whn-step:not(:last-child)::before{content:'';position:absolute;left:15px;top:32px;bottom:0;width:2px;background:#e2e8f0}
+    .whn-body{flex:1;padding-top:5px}
+    .whn-label{font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;color:#1a2e4a}
+    .whn-desc{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;margin-top:2px;line-height:1.5}
+
+    /* FAQ Accordion */
+    .faq-sec{margin-top:24px}
+    .faq-title{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.0625rem;margin-bottom:14px}
+    .faq-item{border-bottom:1px solid #e2e8f0}
+    .faq-item:last-child{border-bottom:none}
+    .faq-q{display:flex;justify-content:space-between;align-items:center;padding:16px 0;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;color:#1a2e4a;background:none;border:none;width:100%;text-align:left;gap:12px}
+    .faq-q:hover{color:#2E75B6}
+    .faq-arr{font-size:0.75rem;color:#6b7a8d;transition:transform 0.2s;flex-shrink:0}
+    .faq-item.open .faq-arr{transform:rotate(180deg)}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+    .faq-item.open .faq-a{max-height:300px}
+    .faq-a-inner{padding:0 0 16px;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;line-height:1.6}
+
+    /* Social proof */
+    .sp-bar{display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 0;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d}
+    .sp-bar .sp-icon{color:#2ecc71;font-size:1rem}
+
     /* Success */
     .suc{display:none;grid-column:1/-1;text-align:center;padding:64px 24px}
     .suc.vis{display:block}
@@ -249,8 +279,32 @@
         <div class="fr"><label for="f-ph">Phone</label><input type="tel" id="f-ph" required></div>
       </div>
 
-      <!-- 5. AGREEMENT + PAYMENT -->
-      <h2 class="stitle">5. Agreement &amp; payment</h2>
+      <!-- 5. WHAT HAPPENS NEXT -->
+      <h2 class="stitle">5. What happens after you sign up</h2>
+      <div class="whn" id="whn-section">
+        <div class="whn-steps">
+          <div class="whn-step">
+            <div class="whn-dot">1</div>
+            <div class="whn-body">
+              <div class="whn-label">Within 1 business day</div>
+              <div class="whn-desc">Your dedicated account manager reaches out via email to gather everything we need to build your systems.</div>
+            </div>
+          </div>
+          <div class="whn-step">
+            <div class="whn-dot">&#10003;</div>
+            <div class="whn-body">
+              <div class="whn-label">Within 72 business hours</div>
+              <div class="whn-desc">Your complete marketing systems are live and working. Website deployed, Google Business Profile optimized, campaigns launched. The gates are open &mdash; leads start rolling in.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL PROOF -->
+      <div class="sp-bar"><span class="sp-icon">&#9733;</span> Local businesses across MA, NH &amp; RI trust ScaleLocal to deliver results.</div>
+
+      <!-- 6. AGREEMENT + PAYMENT -->
+      <h2 class="stitle">6. Agreement &amp; payment</h2>
       <div class="card">
         <div class="ag-check" id="ag-check">
           <div class="ag-cb" id="ag-cb"></div>
@@ -268,10 +322,42 @@
             <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#2ecc71;font-weight:600;line-height:1.4;margin:0;">&#10003; Written performance guarantee included &mdash; we hit your lead target or work free until we do.</p>
           </div>
           <button class="pay-btn" id="pay-btn" disabled>Start My Plan &mdash; <span id="pay-total">$0</span>&nbsp;due today</button>
-          <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;padding:12px 0;">
+          <div id="trust-badges" style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:14px;padding:12px 0;">
             <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#128274; SSL Encrypted</span>
             <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#9989; Secured by Stripe</span>
-            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#128179; Cancel anytime (M2M)</span>
+            <span id="cancel-badge" style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#128179; Cancel anytime with 30 days notice</span>
+            <span style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#6b7a8d;display:flex;align-items:center;gap:4px;">&#9989; Written performance guarantee</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-sec">
+        <h2 class="faq-title">Common questions</h2>
+        <div class="card">
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">How long until I see results?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Most clients see their first leads within 30 days. Your written guarantee kicks in at day 60 (Foundation) or day 90 (Momentum &amp; Authority). We ramp up aggressively from day one.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What does &ldquo;guaranteed leads&rdquo; actually mean?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner">It means exactly what it says. If we don&rsquo;t deliver your guaranteed number of qualified leads per month, we continue working at no charge until we do. The guarantee is written into your service agreement.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Can I cancel? What are the terms?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner"><strong>Month-to-month (no commitment):</strong> Cancel anytime with 30 days written notice. No penalty.<br><br><strong>6-month or 12-month commitment:</strong> You save on setup fees. If you need to cancel early, the cancellation fee is one additional month of service. That&rsquo;s it &mdash; no hidden charges, no remainder-of-contract billing.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">What&rsquo;s included in the setup fee?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Setup covers your professional website build, Google Business Profile optimization, CRM configuration, review generation system, citation building across 50+ directories, and initial campaign setup. On a 6-month or 12-month commitment, this fee is waived entirely.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">Do I own my website and content?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Yes. Your website, content, Google Business Profile, and all creative assets belong to you. If you ever leave, we hand everything over. No hostage situations.</div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">I&rsquo;m locked into a contract with another agency. Can I still switch?<span class="faq-arr">&#9660;</span></button>
+            <div class="faq-a"><div class="faq-a-inner">Absolutely. Many of our clients were with another agency before us. We can start building your systems now so everything is ready the day your current contract ends. No gap in coverage.</div></div>
           </div>
         </div>
       </div>
@@ -342,6 +428,12 @@
       var suS=document.getElementById('su-starter');
       suS.textContent='$'+fmt(plans.starter.setup)+' one-time setup \u2022 Month-to-month';
       suS.className='pln-setup gray';
+      // Update cancel badge based on commitment
+      var cb=document.getElementById('cancel-badge');
+      if(cb){
+        if(S.term==='nc')cb.innerHTML='&#128179; Cancel anytime with 30 days notice';
+        else cb.innerHTML='&#128179; Early cancellation: one month of service';
+      }
     }
 
     // 2. PLAN SELECTOR
@@ -394,9 +486,15 @@
         ckSpan.textContent='\u2713';
         selectedAo.appendChild(ckSpan);
       }
+      // Hide "What Happens Next" timeline and social proof in focused mode
+      stitleEls[4].style.display='none'; // "What happens after you sign up"
+      var whnSec=document.getElementById('whn-section');if(whnSec)whnSec.style.display='none';
+      var spBars=document.querySelectorAll('.sp-bar');spBars.forEach(function(s){s.style.display='none';});
       // Renumber remaining sections
       stitleEls[3].innerHTML='1. Your information';
-      stitleEls[4].innerHTML='2. Agreement &amp; payment';
+      stitleEls[5].innerHTML='2. Agreement &amp; payment';
+      // Hide FAQ in focused mode
+      var faqSec=document.querySelector('.faq-sec');if(faqSec)faqSec.style.display='none';
       // Make sidebar sticky and add explore link inside it
       var osEl = document.getElementById('os');
       osEl.style.position='sticky';
