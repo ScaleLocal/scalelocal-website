@@ -650,7 +650,16 @@
       document.getElementById('res-biz-label').innerHTML='<strong>'+name+'</strong> \u2014 AI agent live';
       document.getElementById('res-domain').textContent=domain;
       document.getElementById('res-biz-name').textContent=name;
-      document.getElementById('res-iframe').src='/chat-agent/frame.html?url='+encodeURIComponent('https://'+domain)+'&name='+encodeURIComponent(name);
+      // Replace the iframe entirely (not just .src) so the allow="microphone"
+      // permission is correctly associated with the real origin, not about:blank
+      var oldFrame=document.getElementById('res-iframe');
+      var newFrame=document.createElement('iframe');
+      newFrame.id='res-iframe';
+      newFrame.className='phone-iframe';
+      newFrame.title='Your Business AI Agent';
+      newFrame.setAttribute('allow','microphone');
+      newFrame.src='/chat-agent/frame.html?url='+encodeURIComponent('https://'+domain)+'&name='+encodeURIComponent(name);
+      oldFrame.parentNode.replaceChild(newFrame,oldFrame);
 
       document.body.classList.remove('is-loading');
       document.body.classList.add('is-result');
