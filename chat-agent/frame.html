@@ -84,32 +84,12 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open the widget, then auto-send demo context if a business name was provided -->
+<!-- Auto-open the widget — let user choose voice or chat -->
 <script>
 (function(){
-  var params  = new URLSearchParams(window.location.search);
-  var bizName = params.get('name') || '';
-  var bizUrl  = params.get('url')  || '';
-  var sent    = false;
-
-  /* ─── Helper: recursively search shadow DOMs ─── */
-  function findDeep(root, sel){
-    if(!root) return null;
-    var el = root.querySelector(sel);
-    if(el) return el;
-    var nodes = root.querySelectorAll('*');
-    for(var i=0;i<nodes.length;i++){
-      if(nodes[i].shadowRoot){
-        el = findDeep(nodes[i].shadowRoot, sel);
-        if(el) return el;
-      }
-    }
-    return null;
-  }
-
-  /* ─── Step 1: Open the widget ─── */
   var openAttempts = 0;
   var widgetOpened = false;
+
   function tryOpen(){
     var el = document.querySelector('chat-widget');
     if(!el){ if(++openAttempts < 75) setTimeout(tryOpen, 200); return; }
@@ -127,69 +107,10 @@
       if(bubble){ bubble.click(); widgetOpened = true; }
     }
 
-    if(widgetOpened){
-      if(bizName) setTimeout(tryAutoSend, 2500);
-      return;
-    }
-    if(++openAttempts < 75) setTimeout(tryOpen, 200);
+    if(!widgetOpened && ++openAttempts < 75) setTimeout(tryOpen, 200);
   }
 
-  /* ─── Step 2: Auto-send the demo context message ─── */
-  var sendAttempts = 0;
-  function tryAutoSend(){
-    if(sent || !bizName) return;
-    var widget = document.querySelector('chat-widget');
-    if(!widget || !widget.shadowRoot) { retry(); return; }
-
-    // First try to click "Chat via Live Chat" if the selection screen is showing
-    var chatSel = findDeep(widget.shadowRoot, 'chat-selection');
-    if(chatSel){
-      var sr = chatSel.shadowRoot || chatSel;
-      var btns = sr.querySelectorAll('ion-button');
-      if(btns.length > 0){
-        btns[0].click();
-        // Wait for chat pane to load after clicking
-        setTimeout(tryAutoSend, 2500);
-        return;
-      }
-    }
-
-    // Look for the textarea input
-    var textarea = findDeep(widget.shadowRoot, 'textarea');
-    if(!textarea){ retry(); return; }
-
-    // Found textarea — send the demo context message
-    var msg = 'Hi! I want to see a demo for ' + bizName + (bizUrl ? ' (' + bizUrl + ')' : '');
-    textarea.focus();
-    // Use native input setter to bypass framework restrictions
-    var nativeSetter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value').set;
-    nativeSetter.call(textarea, msg);
-    textarea.dispatchEvent(new Event('input', {bubbles:true}));
-    textarea.dispatchEvent(new Event('change', {bubbles:true}));
-
-    sent = true;
-
-    // Click send button or press Enter
-    setTimeout(function(){
-      var btn = findDeep(widget.shadowRoot, '.live-chat-send-button') ||
-                findDeep(widget.shadowRoot, 'button[type="submit"]') ||
-                findDeep(widget.shadowRoot, '.send-button');
-      if(btn){
-        btn.click();
-      } else {
-        textarea.dispatchEvent(new KeyboardEvent('keydown', {key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
-        textarea.dispatchEvent(new KeyboardEvent('keypress',{key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
-        textarea.dispatchEvent(new KeyboardEvent('keyup',   {key:'Enter',code:'Enter',keyCode:13,which:13,bubbles:true}));
-      }
-    }, 400);
-  }
-
-  function retry(){
-    if(++sendAttempts < 40) setTimeout(tryAutoSend, 600);
-    // If all retries fail, just let the user chat manually — widget is still open
-  }
-
-  /* ─── Boot ─── */
+  /* ─── Boot: auto-open widget after page loads ─── */
   window.addEventListener('load', function(){ setTimeout(tryOpen, 1500); });
 })();
 </script>
