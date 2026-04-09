@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patriot Plumbing & Drain | Tewksbury, MA — Licensed Plumber</title>
+    <meta name="description" content="Patriot Plumbing & Drain — Licensed plumber serving Tewksbury, Lowell, Billerica, Chelmsford & surrounding towns. Emergency plumbing, drain cleaning, water heaters. Call 617-394-8707.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #1a2744;
+            --red: #c0392b;
+            --red-dark: #a93226;
+            --gold: #d4a03c;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --gray-100: #f1f3f5;
+            --gray-200: #e9ecef;
+            --gray-600: #6c757d;
+            --gray-800: #343a40;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+        }
+
+        /* ===== HEADER / NAV ===== */
+        header {
+            background: var(--navy);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,.25);
+        }
+
+        .top-bar {
+            background: var(--red);
+            color: var(--white);
+            text-align: center;
+            padding: 6px 16px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .top-bar a { color: var(--white); text-decoration: none; font-weight: 700; }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--white);
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: var(--red);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--white);
+        }
+
+        .logo-text { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .logo-sub { font-size: 11px; color: var(--gold); letter-spacing: 1.5px; text-transform: uppercase; }
+
+        .nav-links { display: flex; gap: 28px; list-style: none; }
+        .nav-links a {
+            color: rgba(255,255,255,.85);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color .2s;
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            background: var(--red);
+            color: var(--white) !important;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+            transition: background .2s;
+        }
+        .nav-cta:hover { background: var(--red-dark); }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #0f1a30 100%);
+            color: var(--white);
+            padding: 80px 24px 90px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: .5;
+        }
+
+        .hero-inner { position: relative; max-width: 800px; margin: 0 auto; }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212,160,60,.15);
+            color: var(--gold);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(212,160,60,.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero h1 span { color: var(--gold); }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,.75);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary { background: var(--red); color: var(--white); }
+        .btn-primary:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(192,57,43,.35); }
+
+        .btn-outline { background: transparent; color: var(--white); border: 2px solid rgba(255,255,255,.3); }
+        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+        .hero-trust {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: rgba(255,255,255,.65);
+        }
+
+        .trust-item .check { color: var(--gold); font-weight: 700; }
+
+        /* ===== SECTIONS ===== */
+        section { padding: 80px 24px; }
+
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .section-label {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--red);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-desc {
+            font-size: 17px;
+            color: var(--gray-600);
+            max-width: 640px;
+            margin-bottom: 48px;
+        }
+
+        /* ===== SERVICES ===== */
+        #services { background: var(--light); }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+            transition: transform .2s, box-shadow .2s;
+            border: 1px solid var(--gray-200);
+        }
+
+        .service-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,.1); }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(192,57,43,.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 { font-size: 19px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .service-card p { font-size: 15px; color: var(--gray-600); line-height: 1.55; }
+
+        /* ===== ABOUT ===== */
+        #about { background: var(--white); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .about-img {
+            background: linear-gradient(135deg, var(--navy), #2c3e6b);
+            border-radius: 16px;
+            height: 380px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 72px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-img::after {
+            content: 'PP&D';
+            font-weight: 800;
+            font-size: 48px;
+            opacity: .15;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .stat { text-align: center; }
+        .stat-num { font-size: 32px; font-weight: 800; color: var(--red); }
+        .stat-label { font-size: 13px; color: var(--gray-600); margin-top: 2px; }
+
+        .about-content h3 { font-size: 15px; color: var(--red); font-weight: 600; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 1px; }
+        .about-content h2 { font-size: 32px; font-weight: 800; color: var(--navy); margin-bottom: 16px; }
+        .about-content p { font-size: 16px; color: var(--gray-600); margin-bottom: 16px; line-height: 1.7; }
+
+        .about-highlights {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .about-highlights li {
+            padding: 8px 0;
+            font-size: 15px;
+            color: var(--gray-800);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .about-highlights li::before {
+            content: '\2713';
+            color: var(--red);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        /* ===== REVIEWS ===== */
+        #reviews { background: var(--light); }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06);
+            border: 1px solid var(--gray-200);
+        }
+
+        .review-stars { color: var(--gold); font-size: 18px; margin-bottom: 12px; letter-spacing: 2px; }
+
+        .review-card blockquote {
+            font-size: 15px;
+            color: var(--gray-800);
+            line-height: 1.65;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .reviewer { display: flex; align-items: center; gap: 12px; }
+
+        .reviewer-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .reviewer-name { font-weight: 600; font-size: 15px; color: var(--navy); }
+        .reviewer-meta { font-size: 13px; color: var(--gray-600); }
+
+        .reviews-summary {
+            text-align: center;
+            margin-top: 40px;
+            padding: 28px;
+            background: var(--white);
+            border-radius: 12px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .reviews-summary .big-rating { font-size: 48px; font-weight: 800; color: var(--navy); }
+        .reviews-summary .stars { color: var(--gold); font-size: 24px; letter-spacing: 3px; }
+        .reviews-summary p { color: var(--gray-600); margin-top: 4px; }
+
+        /* ===== CONTACT ===== */
+        #contact { background: var(--white); }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .contact-info h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+
+        .contact-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(192,57,43,.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-item strong { display: block; font-size: 15px; color: var(--navy); margin-bottom: 2px; }
+        .contact-item span { font-size: 15px; color: var(--gray-600); }
+        .contact-item a { color: var(--red); text-decoration: none; font-weight: 500; }
+
+        .service-area {
+            margin-top: 28px;
+            padding: 20px;
+            background: var(--gray-100);
+            border-radius: 10px;
+        }
+
+        .service-area h4 { font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+        .service-area p { font-size: 14px; color: var(--gray-600); line-height: 1.6; }
+
+        .contact-form {
+            background: var(--gray-100);
+            padding: 32px;
+            border-radius: 12px;
+        }
+
+        .contact-form h3 { font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 20px; }
+
+        .form-group { margin-bottom: 16px; }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color .2s;
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+
+        .form-group textarea { resize: vertical; min-height: 100px; }
+
+        .form-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s;
+        }
+
+        .form-submit:hover { background: var(--red-dark); }
+
+        /* ===== CTA BANNER ===== */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-banner h2 { font-size: clamp(26px, 4vw, 38px); font-weight: 800; margin-bottom: 12px; }
+        .cta-banner p { font-size: 17px; opacity: .9; margin-bottom: 28px; }
+
+        .cta-banner .btn-white {
+            background: var(--white);
+            color: var(--red);
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform .2s;
+        }
+
+        .cta-banner .btn-white:hover { transform: translateY(-2px); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--navy);
+            color: rgba(255,255,255,.6);
+            padding: 48px 24px 24px;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 32px;
+        }
+
+        .footer-brand .logo-text { color: var(--white); font-size: 18px; }
+        .footer-brand p { font-size: 14px; margin-top: 8px; line-height: 1.6; }
+
+        footer h4 { color: var(--white); font-size: 15px; font-weight: 700; margin-bottom: 14px; }
+
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 8px; }
+        .footer-links a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; transition: color .2s; }
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,.1);
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        .footer-bottom a { color: rgba(255,255,255,.5); text-decoration: none; }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .menu-toggle { display: block; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--navy);
+                padding: 20px 24px;
+                gap: 16px;
+                border-top: 1px solid rgba(255,255,255,.1);
+            }
+
+            .hero { padding: 50px 20px 60px; }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img { height: 240px; }
+
+            .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        24/7 Emergency Service Available &mdash; Call <a href="tel:6173948707">617-394-8707</a>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">PP</div>
+                <div>
+                    <div class="logo-text">Patriot Plumbing & Drain</div>
+                    <div class="logo-sub">Tewksbury, MA</div>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="tel:6173948707" class="nav-cta">617-394-8707</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">&#9776;</button>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-badge">Serving the Merrimack Valley Since 2009</div>
+            <h1>Tewksbury's Most Trusted <span>Plumber</span></h1>
+            <p>From emergency repairs to full bathroom remodels &mdash; fast, honest, licensed plumbing for your home or business.</p>
+            <div class="hero-btns">
+                <a href="tel:6173948707" class="btn btn-primary">Call 617-394-8707</a>
+                <a href="#contact" class="btn btn-outline">Request an Estimate</a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item"><span class="check">&#10003;</span> Licensed & Insured</div>
+                <div class="trust-item"><span class="check">&#10003;</span> Same-Day Service</div>
+                <div class="trust-item"><span class="check">&#10003;</span> Upfront Pricing</div>
+                <div class="trust-item"><span class="check">&#10003;</span> 100% Satisfaction Guarantee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+        <div class="container">
+            <div class="section-label">What We Do</div>
+            <div class="section-title">Our Plumbing Services</div>
+            <p class="section-desc">Whether it's a clogged drain at midnight or a kitchen renovation you've been planning for months &mdash; we handle it all.</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128679;</div>
+                    <h3>Emergency Plumbing</h3>
+                    <p>Burst pipes, major leaks, sewer backups &mdash; we're available 24/7 and typically arrive within 60 minutes in the Tewksbury area.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128678;</div>
+                    <h3>Drain Cleaning</h3>
+                    <p>Slow drains, recurring clogs, tree root intrusion &mdash; we use professional hydro-jetting and camera inspection to fix it right the first time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128293;</div>
+                    <h3>Water Heater Services</h3>
+                    <p>Repair, replacement, and new installation for tank and tankless water heaters. Same-day service on most repairs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128705;</div>
+                    <h3>Bathroom & Kitchen Remodeling</h3>
+                    <p>Full plumbing rough-in and finish work for remodels. We coordinate with your GC or handle the plumbing scope directly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128295;</div>
+                    <h3>Sewer Line Repair</h3>
+                    <p>Trenchless sewer repair and traditional excavation. Video inspection included with every sewer line job &mdash; no guessing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128688;</div>
+                    <h3>Fixture Installation</h3>
+                    <p>Faucets, toilets, garbage disposals, sump pumps, water filtration systems &mdash; installed correctly with a warranty on our work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-img">&#128295;</div>
+                <div class="about-content">
+                    <h3>About Us</h3>
+                    <h2>Family-Owned. Locally Operated. Built on Trust.</h2>
+                    <p>Patriot Plumbing & Drain was founded in 2009 by Mike Sullivan, a Tewksbury native who grew up working alongside his father in the trades. After earning his Master Plumber license and spending years working for large plumbing companies, Mike started Patriot Plumbing with a simple idea: treat every customer's home like his own.</p>
+                    <p>Today we're a team of 6 licensed plumbers serving Tewksbury and the surrounding Merrimack Valley communities. We don't do high-pressure sales. We show up on time, explain what we find, give you an honest price, and do the work right.</p>
+                    <ul class="about-highlights">
+                        <li>MA Master Plumber License #14823</li>
+                        <li>$2M General Liability Insurance</li>
+                        <li>A+ Better Business Bureau Rating</li>
+                        <li>Over 2,400 Jobs Completed</li>
+                        <li>Background-Checked, Drug-Tested Crew</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <div class="stat-num">15+</div>
+                    <div class="stat-label">Years in Business</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">2,400+</div>
+                    <div class="stat-label">Jobs Completed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num">4.9</div>
+                    <div class="stat-label">Google Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews">
+        <div class="container">
+            <div class="section-label">What Customers Say</div>
+            <div class="section-title">Reviews From Your Neighbors</div>
+            <p class="section-desc">Don't take our word for it &mdash; here's what homeowners across the Merrimack Valley have to say.</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"Our basement was flooding at 11pm on a Saturday. Mike had someone at our house within 45 minutes. They found the issue, fixed it that night, and even helped us start cleanup. I've never had a contractor respond that fast. Patriot Plumbing has a customer for life."</blockquote>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">DM</div>
+                        <div>
+                            <div class="reviewer-name">Dan M.</div>
+                            <div class="reviewer-meta">Tewksbury, MA &mdash; Google Review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"We got three quotes for a tankless water heater install. Patriot was the most reasonable AND the most thorough in explaining what the job actually involved. No surprise charges. Finished in one day. Hot water works perfectly."</blockquote>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">KL</div>
+                        <div>
+                            <div class="reviewer-name">Karen L.</div>
+                            <div class="reviewer-meta">Billerica, MA &mdash; Google Review</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                    <blockquote>"Mike's team did all the plumbing for our kitchen renovation. They showed up every day they said they would, coordinated perfectly with our contractor, and the quality of work was outstanding. Clean, professional, fair pricing."</blockquote>
+                    <div class="reviewer">
+                        <div class="reviewer-avatar">JR</div>
+                        <div>
+                            <div class="reviewer-name">Jennifer R.</div>
+                            <div class="reviewer-meta">Chelmsford, MA &mdash; Google Review</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reviews-summary">
+                <div class="big-rating">4.9</div>
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p>Based on 127 Google Reviews</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <div class="cta-banner">
+        <h2>Plumbing Problem? We'll Be There Today.</h2>
+        <p>Same-day service for most jobs. Emergency service available 24/7.</p>
+        <a href="tel:6173948707" class="btn-white">Call 617-394-8707 Now</a>
+    </div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-label">Get In Touch</div>
+            <div class="section-title">Request a Free Estimate</div>
+            <p class="section-desc">Fill out the form below and we'll get back to you within 2 business hours &mdash; or call us anytime.</p>
+
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128222;</div>
+                        <div>
+                            <strong>Phone</strong>
+                            <a href="tel:6173948707">617-394-8707</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#9993;</div>
+                        <div>
+                            <strong>Email</strong>
+                            <a href="mailto:MattYassen@gmail.com">info@patriotplumbingdrain.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128205;</div>
+                        <div>
+                            <strong>Address</strong>
+                            <span>1847 Main Street<br>Tewksbury, MA 01876</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">&#128336;</div>
+                        <div>
+                            <strong>Hours</strong>
+                            <span>Mon&ndash;Fri: 7:00 AM &ndash; 6:00 PM<br>Saturday: 8:00 AM &ndash; 2:00 PM<br>Emergency Service: 24/7</span>
+                        </div>
+                    </div>
+
+                    <div class="service-area">
+                        <h4>Service Area</h4>
+                        <p>Tewksbury, Lowell, Billerica, Chelmsford, Wilmington, Andover, Dracut, North Andover, Methuen, Lawrence, and surrounding communities in the Merrimack Valley.</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Get Your Free Estimate</h3>
+                    <form id="contactForm" onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Mike Sullivan">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="(617) 394-8707">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service...</option>
+                                <option value="emergency">Emergency Plumbing</option>
+                                <option value="drain">Drain Cleaning</option>
+                                <option value="water-heater">Water Heater</option>
+                                <option value="remodel">Bathroom/Kitchen Remodel</option>
+                                <option value="sewer">Sewer Line</option>
+                                <option value="fixture">Fixture Installation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Tell Us About Your Issue</label>
+                            <textarea id="message" name="message" placeholder="Describe what's going on and we'll give you an accurate estimate..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send My Request</button>
+                    </form>
+                    <div id="formSuccess" style="display:none; text-align:center; padding:32px 0;">
+                        <div style="font-size:48px; margin-bottom:12px;">&#9989;</div>
+                        <div style="font-size:20px; font-weight:700; color:var(--navy); margin-bottom:8px;">Request Received!</div>
+                        <p style="color:var(--gray-600);">We'll get back to you within 2 business hours. For emergencies, call <a href="tel:6173948707" style="color:var(--red); font-weight:600;">617-394-8707</a> now.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo-text">Patriot Plumbing & Drain</div>
+                <p>Licensed, insured, and locally owned plumbing service for Tewksbury and the Merrimack Valley. MA License #14823.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="#services">Emergency Plumbing</a></li>
+                    <li><a href="#services">Drain Cleaning</a></li>
+                    <li><a href="#services">Water Heaters</a></li>
+                    <li><a href="#services">Remodeling</a></li>
+                    <li><a href="#services">Sewer Repair</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#contact">Free Estimate</a></li>
+                    <li><a href="tel:6173948707">617-394-8707</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Patriot Plumbing & Drain. All rights reserved.</span>
+            <span>Serving Tewksbury, MA and the Merrimack Valley</span>
+        </div>
+    </footer>
+
+    <!-- SCALELOCAL CHAT WIDGET -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js"
+            data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+            data-widget-id="69d78078cc7d6259bb673b5c">
+    </script>
+
+    <script>
+        function handleSubmit(e) {
+            e.preventDefault();
+            document.getElementById('contactForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
