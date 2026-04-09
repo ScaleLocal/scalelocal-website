@@ -650,19 +650,23 @@
       document.getElementById('res-biz-label').innerHTML='<strong>'+name+'</strong> \u2014 AI agent live';
       document.getElementById('res-domain').textContent=domain;
       document.getElementById('res-biz-name').textContent=name;
-      // Replace the iframe entirely (not just .src) so the allow="microphone"
-      // permission is correctly associated with the real origin, not about:blank
+      // IMPORTANT: make result section visible BEFORE creating the iframe.
+      // Browsers ignore allow="microphone" on iframes inside display:none containers.
+      document.body.classList.remove('is-loading');
+      document.body.classList.add('is-result');
+
+      // Now create the iframe fresh (remove + appendChild, not replaceChild)
+      // so the allow="microphone" permission is properly initialised.
       var oldFrame=document.getElementById('res-iframe');
+      var frameParent=oldFrame.parentNode;
+      oldFrame.remove();
       var newFrame=document.createElement('iframe');
       newFrame.id='res-iframe';
       newFrame.className='phone-iframe';
       newFrame.title='Your Business AI Agent';
       newFrame.setAttribute('allow','microphone');
       newFrame.src='/chat-agent/frame.html?url='+encodeURIComponent('https://'+domain)+'&name='+encodeURIComponent(name);
-      oldFrame.parentNode.replaceChild(newFrame,oldFrame);
-
-      document.body.classList.remove('is-loading');
-      document.body.classList.add('is-result');
+      frameParent.appendChild(newFrame);
     }catch(err){
       console.error('[SA]',err);
       document.body.classList.remove('is-loading');
