@@ -662,7 +662,16 @@
   }
 
   var slug=getSlug();
-  if(slug) runDemo(slug);
+  if(slug){
+    runDemo(slug);
+  } else {
+    // Landing page — reset Cole bot to ScaleLocal personality in the background
+    // so the phone demo chat widget responds as ScaleLocal, not the last business
+    fetch(API+'/api/create-agent',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({slug:'scalelocal'})
+    }).catch(function(){});
+  }
 })();
 </script>
 
