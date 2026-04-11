@@ -1,783 +1,913 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Superior Sealcoat | MA & NH Paving Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --black: #0a0a0a;
-      --charcoal: #111111;
-      --dark: #181818;
-      --border: #222222;
-      --text: #a0a0a0;
-      --text-light: #c8c8c8;
-      --white: #f0f0f0;
-      --yellow: #f5a623;
-      --yellow-dark: #d4910a;
-      --orange: #e8740c;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--black);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    /* TOP BAR */
-    .top-bar {
-      background-color: var(--charcoal);
-      border-bottom: 1px solid var(--border);
-      padding: 12px 0;
-      font-size: 13px;
-    }
-
-    .top-bar-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .top-bar-left {
-      display: flex;
-      gap: 30px;
-    }
-
-    .top-bar-item {
-      display: flex;
-      align-items: center;
-      color: var(--text);
-    }
-
-    .top-bar-item strong {
-      color: var(--white);
-      margin-right: 6px;
-    }
-
-    .top-bar-cta {
-      background-color: var(--yellow);
-      color: var(--black);
-      padding: 8px 16px;
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 12px;
-      border-radius: 3px;
-      transition: background-color 0.3s ease;
-    }
-
-    .top-bar-cta:hover {
-      background-color: var(--yellow-dark);
-    }
-
-    @media (max-width: 768px) {
-      .top-bar-left {
-        display: none;
-      }
-
-      .top-bar-content {
-        justify-content: center;
-      }
-    }
-
-    /* HEADER & NAV */
-    header {
-      background-color: var(--dark);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 16px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 24px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--white);
-      text-decoration: none;
-    }
-
-    nav {
-      display: flex;
-      gap: 40px;
-      align-items: center;
-    }
-
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      transition: color 0.3s ease;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
-
-    nav a:hover {
-      color: var(--yellow);
-    }
-
-    nav a.active {
-      color: var(--yellow);
-      border-bottom: 2px solid var(--yellow);
-      padding-bottom: 2px;
-    }
-
-    .header-phone {
-      color: var(--text-light);
-      font-weight: 600;
-      font-size: 14px;
-      margin-left: 20px;
-      border-left: 1px solid var(--border);
-      padding-left: 20px;
-    }
-
-    .mobile-menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 24px;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        display: none;
-        gap: 0;
-        flex-direction: column;
-        position: absolute;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background-color: var(--charcoal);
-        border-bottom: 1px solid var(--border);
-        padding: 20px;
-      }
-
-      nav.active {
-        display: flex;
-      }
-
-      nav a {
-        padding: 10px 0;
-        border-bottom: 1px solid var(--border);
-      }
-
-      .header-phone {
-        display: none;
-      }
-
-      .mobile-menu-toggle {
-        display: block;
-      }
-    }
-
-    /* HERO SECTION */
-    .hero {
-      background-color: var(--charcoal);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 20px;
-      text-align: center;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 64px;
-      letter-spacing: 3px;
-      color: var(--white);
-      margin-bottom: 16px;
-      font-weight: 700;
-    }
-
-    .hero p {
-      font-size: 16px;
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 60px 20px;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-        letter-spacing: 2px;
-      }
-
-      .hero p {
-        font-size: 14px;
-      }
-    }
-
-    /* CONTACT SECTION */
-    .contact-section {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
-
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .contact-form-wrapper h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 30px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    .form-group label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--text-light);
-      margin-bottom: 8px;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 16px;
-      background-color: var(--charcoal);
-      border: 1px solid var(--border);
-      color: var(--white);
-      font-family: 'Inter', sans-serif;
-      font-size: 14px;
-      transition: border-color 0.3s ease, background-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--yellow);
-      background-color: var(--dark);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 120px;
-    }
-
-    .form-group select {
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23a0a0a0' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 40px;
-    }
-
-    .submit-btn {
-      background-color: var(--yellow);
-      color: var(--black);
-      border: none;
-      padding: 14px 32px;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-      font-family: 'Inter', sans-serif;
-      border-radius: 3px;
-    }
-
-    .submit-btn:hover {
-      background-color: var(--yellow-dark);
-      transform: translateY(-2px);
-    }
-
-    .contact-info-wrapper h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 32px;
-      letter-spacing: 2px;
-      color: var(--white);
-      margin-bottom: 30px;
-    }
-
-    .info-card {
-      background-color: var(--charcoal);
-      border: 1px solid var(--border);
-      padding: 24px;
-      margin-bottom: 20px;
-      border-radius: 3px;
-    }
-
-    .info-card h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 18px;
-      letter-spacing: 1px;
-      color: var(--yellow);
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .info-card p {
-      color: var(--text-light);
-      font-size: 15px;
-      line-height: 1.8;
-    }
-
-    .info-card a {
-      color: var(--yellow);
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .info-card a:hover {
-      color: var(--yellow-dark);
-    }
-
-    @media (max-width: 968px) {
-      .contact-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-    }
-
-    /* SERVICE AREA SECTION */
-    .service-area-section {
-      background-color: var(--charcoal);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 80px 20px;
-    }
-
-    .service-area-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .service-area-content h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 40px;
-      letter-spacing: 2px;
-      color: var(--white);
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .service-item {
-      background-color: var(--dark);
-      border: 1px solid var(--border);
-      padding: 24px;
-      text-align: center;
-      border-radius: 3px;
-      transition: border-color 0.3s ease;
-    }
-
-    .service-item:hover {
-      border-color: var(--yellow);
-    }
-
-    .service-item p {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-light);
-      letter-spacing: 0.5px;
-    }
-
-    @media (max-width: 968px) {
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .service-area-content h2 {
-        font-size: 28px;
-      }
-    }
-
-    /* CTA BAND */
-    .cta-band {
-      background-color: var(--yellow);
-      color: var(--black);
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .cta-band-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .cta-band h2 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 48px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
-
-    .cta-band p {
-      font-size: 16px;
-      margin-bottom: 30px;
-      opacity: 0.9;
-    }
-
-    .cta-band-btn {
-      background-color: var(--black);
-      color: var(--yellow);
-      padding: 14px 40px;
-      font-size: 14px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      text-decoration: none;
-      display: inline-block;
-      border-radius: 3px;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
-
-    .cta-band-btn:hover {
-      background-color: var(--charcoal);
-      transform: translateY(-2px);
-    }
-
-    @media (max-width: 768px) {
-      .cta-band {
-        padding: 40px 20px;
-      }
-
-      .cta-band h2 {
-        font-size: 32px;
-      }
-
-      .cta-band p {
-        font-size: 14px;
-      }
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: var(--charcoal);
-      border-top: 1px solid var(--border);
-      padding: 50px 20px 30px;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 40px;
-      margin-bottom: 40px;
-    }
-
-    .footer-section h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 16px;
-      letter-spacing: 1px;
-      color: var(--white);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .footer-section p,
-    .footer-section a {
-      font-size: 13px;
-      color: var(--text);
-      line-height: 1.8;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .footer-section a:hover {
-      color: var(--yellow);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid var(--border);
-      padding-top: 30px;
-      text-align: center;
-      color: var(--text);
-      font-size: 12px;
-    }
-
-    @media (max-width: 968px) {
-      .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .footer-content {
-        grid-template-columns: 1fr;
-      }
-    }
-
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Superior Sealcoat & Paging | Wilmington, MA</title>
+    <meta name="description" content="Contact Superior Sealcoat Inc. in Wilmington, MA. Call (978) 988-5555 for a free on-site estimate on sealcoating, asphalt paving, crack sealing, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #0056A0;
+            --blue-dark: #003D73;
+            --blue-light: #1a73c7;
+            --yellow: #FFD100;
+            --yellow-dark: #E0B800;
+            --yellow-light: #FFE04D;
+            --white: #ffffff;
+            --off-white: #f5f7fa;
+            --gray-50: #f8f9fb;
+            --gray-100: #e9ecf0;
+            --gray-200: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--gray-800);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background-color: var(--gray-900);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .utility-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .utility-bar .highlight {
+            color: var(--yellow);
+            font-weight: 600;
+        }
+
+        .utility-bar a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .utility-bar a:hover {
+            color: var(--yellow);
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo-link img {
+            height: 65px;
+            width: auto;
+        }
+
+        nav ul.nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav ul.nav-links li a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul.nav-links li a:hover {
+            color: var(--blue);
+            border-bottom-color: var(--blue);
+        }
+
+        nav ul.nav-links li a.active {
+            color: var(--blue);
+            border-bottom-color: var(--blue);
+        }
+
+        nav ul.nav-links li a.nav-cta {
+            background-color: var(--yellow);
+            color: var(--gray-900);
+            padding: 10px 24px;
+            border-radius: 4px;
+            font-weight: 800;
+            border: 2px solid var(--yellow-dark);
+            transition: background-color 0.3s ease;
+            border-bottom: 2px solid var(--yellow-dark);
+        }
+
+        nav ul.nav-links li a.nav-cta:hover {
+            background-color: var(--yellow-dark);
+            border-bottom-color: var(--yellow-dark);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            background: none;
+            border: none;
+            cursor: pointer;
+            gap: 6px;
+            padding: 8px;
+        }
+
+        .mobile-toggle span {
+            width: 24px;
+            height: 3px;
+            background-color: var(--gray-700);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            nav ul.nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--white);
+                padding: 24px;
+                gap: 16px;
+                box-shadow: var(--shadow-md);
+            }
+
+            nav ul.nav-links.open {
+                display: flex;
+            }
+
+            nav ul.nav-links li a {
+                font-size: 13px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,86,160,0.92) 0%, rgba(0,61,115,0.85) 100%);
+            color: var(--white);
+            padding: 64px 24px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 209, 0, 0.15);
+            color: var(--yellow);
+            padding: 8px 16px;
+            border-radius: 24px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 209, 0, 0.3);
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 48px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background-color: var(--white);
+            padding: 80px 24px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-form-wrapper {
+            background-color: var(--off-white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            padding: 40px;
+        }
+
+        .contact-form-wrapper h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 24px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            padding: 12px 16px;
+            background-color: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 4px;
+            color: var(--gray-800);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(0,86,160,0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: 100%;
+            padding: 14px 24px;
+            background-color: var(--yellow);
+            color: var(--gray-900);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--yellow-dark);
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-card {
+            background-color: var(--off-white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            padding: 24px;
+        }
+
+        .detail-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .detail-card svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            stroke: var(--blue);
+        }
+
+        .detail-card p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        .detail-card a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .detail-card a:hover {
+            color: var(--blue-dark);
+        }
+
+        .maps-embed {
+            width: 100%;
+            height: 350px;
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 60px 24px;
+            }
+
+            .contact-form-wrapper,
+            .detail-card {
+                padding: 24px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .maps-embed {
+                height: 250px;
+            }
+        }
+
+        /* Estimate Process Section */
+        .estimate-process {
+            background-color: var(--off-white);
+            padding: 80px 24px;
+        }
+
+        .estimate-process .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+        }
+
+        .process-header p {
+            font-size: 16px;
+            color: var(--gray-700);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .process-card {
+            background-color: var(--white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        .process-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--blue);
+            margin-bottom: 16px;
+        }
+
+        .process-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 12px;
+        }
+
+        .process-card p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .process-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .estimate-process {
+                padding: 60px 24px;
+            }
+
+            .process-header h2 {
+                font-size: 28px;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .process-card {
+                padding: 24px;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0,86,160,0.92) 0%, rgba(0,61,115,0.85) 100%);
+            color: var(--white);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-section .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+
+        .cta-phone {
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--yellow);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .cta-phone:hover {
+            color: var(--yellow-light);
+        }
+
+        @media (max-width: 768px) {
+            .cta-section {
+                padding: 60px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 28px;
+            }
+
+            .cta-section p {
+                font-size: 16px;
+            }
+
+            .cta-phone {
+                font-size: 20px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--gray-900);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 56px 0 0;
+        }
+
+        footer .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand img {
+            max-width: 200px;
+            object-fit: contain;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        footer h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 12px;
+        }
+
+        footer a {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: var(--yellow);
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 0;
+            font-size: 13px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
-
-  <!-- TOP BAR -->
-  <div class="top-bar">
-    <div class="top-bar-content">
-      <div class="top-bar-left">
-        <div class="top-bar-item">
-          <strong>Address:</strong> 236 Andover St, Wilmington MA 01887
+    <!-- Utility Bar -->
+    <div class="utility-bar">
+        <div class="container">
+            <span>Serving Massachusetts &amp; New England <span class="highlight">Since 1990</span></span>
+            <a href="tel:9789885555">(978) 988-5555 &mdash; Free Estimates</a>
         </div>
-        <div class="top-bar-item">
-          <strong>Email:</strong> info@superiorsealcoat.com
-        </div>
-        <div class="top-bar-item">
-          <strong>Hours:</strong> Mon-Fri 7AM-5PM
-        </div>
-      </div>
-      <a href="#contact" class="top-bar-cta">Free Estimate</a>
     </div>
-  </div>
 
-  <!-- HEADER & NAV -->
-  <header>
-    <div class="header-content">
-      <a href="index.html" class="logo">SUPERIOR SEALCOAT</a>
-      <button class="mobile-menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')">☰</button>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="reviews.html">Reviews</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-      <div class="header-phone">(978) 988-5555</div>
-    </div>
-  </header>
-
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>GET IN TOUCH</h1>
-      <p>We're here to answer your questions about sealcoating, paving, and all your asphalt maintenance needs. Reach out today for a free, no-obligation estimate.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section class="contact-section" id="contact">
-    <div class="contact-container">
-      <!-- CONTACT FORM -->
-      <div class="contact-form-wrapper">
-        <h2>Send us a message</h2>
-        <form action="#" method="POST">
-          <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" required>
-          </div>
-
-          <div class="form-group">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required>
-          </div>
-
-          <div class="form-group">
-            <label for="service">Service Needed</label>
-            <select id="service" name="service" required>
-              <option value="">Select a service</option>
-              <option value="Sealcoating">Sealcoating</option>
-              <option value="Asphalt Paving">Asphalt Paving</option>
-              <option value="Crack Sealing">Crack Sealing</option>
-              <option value="Line Striping">Line Striping</option>
-              <option value="Micro Surfacing">Micro Surfacing</option>
-              <option value="Parking Lot Maintenance">Parking Lot Maintenance</option>
-              <option value="Bridge Repairs">Bridge Repairs</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn">Send Message</button>
-        </form>
-      </div>
-
-      <!-- CONTACT INFO -->
-      <div class="contact-info-wrapper">
-        <h2>Contact Info</h2>
-
-        <div class="info-card">
-          <h3>Phone</h3>
-          <p><a href="tel:+19789885555">(978) 988-5555</a></p>
-          <p style="font-size: 13px; color: var(--text); margin-top: 8px;">Available Mon-Fri 7AM-5PM</p>
+    <!-- Header -->
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo-superior-sealcoat.png" alt="Superior Sealcoat, Inc. — Wilmington, MA">
+            </a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#why-us">Why Us</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="contact.html" class="nav-cta">Get a Free Estimate</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
+    </header>
 
-        <div class="info-card">
-          <h3>Email</h3>
-          <p><a href="mailto:info@superiorsealcoat.com">info@superiorsealcoat.com</a></p>
-          <p style="font-size: 13px; color: var(--text); margin-top: 8px;">We'll respond within one business day</p>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Get Your Free Estimate</div>
+            <h1>Let's Discuss Your <span class="accent">Pavement Project</span></h1>
+            <p>Reach out to our team at Superior Sealcoat. We're ready to help with your asphalt paving, sealcoating, and pavement maintenance needs.</p>
         </div>
+    </section>
 
-        <div class="info-card">
-          <h3>Address</h3>
-          <p>
-            236 Andover Street<br>
-            Wilmington, MA 01887
-          </p>
-        </div>
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-grid">
+            <!-- Contact Form -->
+            <div class="contact-form-wrapper">
+                <h3>Request a Free Estimate</h3>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
 
-        <div class="info-card">
-          <h3>Hours</h3>
-          <p>
-            Monday - Friday<br>
-            7:00 AM - 5:00 PM<br>
-            <br>
-            Saturday - Sunday<br>
-            Closed
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="asphalt-paving">Asphalt Paving</option>
+                                <option value="sealcoating">Sealcoating</option>
+                                <option value="crack-sealing">Crack Sealing</option>
+                                <option value="line-striping">Line Striping</option>
+                                <option value="bridge-repairs">Bridge Repairs</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
 
-  <!-- SERVICE AREA SECTION -->
-  <section class="service-area-section">
-    <div class="service-area-content">
-      <h2>Our Service Areas</h2>
-      <div class="service-grid">
-        <div class="service-item">
-          <p>Greater Boston</p>
-        </div>
-        <div class="service-item">
-          <p>North Shore</p>
-        </div>
-        <div class="service-item">
-          <p>Merrimack Valley</p>
-        </div>
-        <div class="service-item">
-          <p>Southern NH</p>
-        </div>
-        <div class="service-item">
-          <p>Central MA</p>
-        </div>
-        <div class="service-item">
-          <p>South Shore</p>
-        </div>
-        <div class="service-item">
-          <p>Rhode Island</p>
-        </div>
-        <div class="service-item">
-          <p>Southern ME</p>
-        </div>
-      </div>
-    </div>
-  </section>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label for="description">Project Description</label>
+                            <textarea id="description" name="description" placeholder="Tell us about your project..."></textarea>
+                        </div>
+                    </div>
 
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="cta-band-content">
-      <h2>Ready to get started?</h2>
-      <p>Our team is standing by to discuss your project and provide a free estimate. Call us today.</p>
-      <a href="tel:+19789885555" class="cta-band-btn">Call Now: (978) 988-5555</a>
-    </div>
-  </section>
+                    <button type="submit" class="submit-btn">Get Free Estimate</button>
+                </form>
+            </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Company</h3>
-        <p><a href="index.html">Home</a></p>
-        <p><a href="about.html">About Us</a></p>
-        <p><a href="contact.html">Contact</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Services</h3>
-        <p><a href="services.html">Sealcoating</a></p>
-        <p><a href="services.html">Asphalt Paving</a></p>
-        <p><a href="services.html">Crack Sealing</a></p>
-        <p><a href="services.html">Line Striping</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Resources</h3>
-        <p><a href="reviews.html">Customer Reviews</a></p>
-        <p><a href="#">Maintenance Tips</a></p>
-        <p><a href="#">FAQs</a></p>
-      </div>
-      <div class="footer-section">
-        <h3>Contact</h3>
-        <p><a href="tel:+19789885555">(978) 988-5555</a></p>
-        <p><a href="mailto:info@superiorsealcoat.com">info@superiorsealcoat.com</a></p>
-        <p>236 Andover Street<br>Wilmington, MA 01887</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Superior Sealcoat, Inc. All rights reserved.</p>
-    </div>
-  </footer>
+            <!-- Contact Details -->
+            <div class="contact-details">
+                <!-- Phone Card -->
+                <div class="detail-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        Phone
+                    </h4>
+                    <p><a href="tel:9789885555">(978) 988-5555</a></p>
+                </div>
 
-  <!-- CHAT WIDGET — Preview Slot 1 -->
-  <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d911e69f3b6f315812fd8b"></script>
+                <!-- Fax Card -->
+                <div class="detail-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                            <path d="M6 9h12M6 13h12"></path>
+                        </svg>
+                        Fax
+                    </h4>
+                    <p>(978) 988-9221</p>
+                </div>
 
-  <script>
-    // Mobile menu close on link click
-    document.querySelectorAll('nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('nav').classList.remove('active');
-      });
-    });
-  </script>
+                <!-- Address Card -->
+                <div class="detail-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        Address
+                    </h4>
+                    <p>236 Andover Street<br>Wilmington, MA 01887</p>
+                </div>
 
+                <!-- Business Hours Card -->
+                <div class="detail-card">
+                    <h4>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Business Hours
+                    </h4>
+                    <p>Monday-Friday<br>7:00 AM - 4:00 PM<br><br>Saturday<br>By Appointment</p>
+                </div>
+
+                <!-- Google Maps -->
+                <iframe class="maps-embed" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2965.0232897471057!2d-71.16355!3d42.16447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e3b58c0e0e0e0d%3A0x0!2sSuperior%20Sealcoat%20Inc!5e0!3m2!1sen!2sus!4v1234567890" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estimate Process Section -->
+    <section class="estimate-process">
+        <div class="container">
+            <div class="process-header">
+                <h2>Our Estimate Process</h2>
+                <p>We make it simple to get a professional assessment of your pavement needs with transparent pricing and expert recommendations.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-card">
+                    <div class="process-number">1</div>
+                    <h3>We Come to You</h3>
+                    <p>Schedule a free on-site assessment. Our team will evaluate your pavement and discuss your needs with you.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">2</div>
+                    <h3>Professional Assessment</h3>
+                    <p>We carefully evaluate your project and provide expert recommendations tailored to your specific situation.</p>
+                </div>
+                <div class="process-card">
+                    <div class="process-number">3</div>
+                    <h3>Transparent Quote</h3>
+                    <p>Receive a detailed, written estimate with no hidden fees. We'll explain everything clearly so you can make an informed decision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Still Have Questions?</h2>
+            <p>Our team is ready to help. Give us a call for a free consultation about your pavement project.</p>
+            <a href="tel:9789885555" class="cta-phone">(978) 988-5555</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-superior-sealcoat.png" alt="Superior Sealcoat, Inc." style="max-width:200px; object-fit:contain;">
+                    <p>Professional asphalt paving, sealcoating, and pavement maintenance serving Massachusetts and New England since 1990.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Asphalt Paving</a></li>
+                        <li><a href="services.html">Sealcoating</a></li>
+                        <li><a href="services.html">Crack Sealing</a></li>
+                        <li><a href="services.html">Line Striping</a></li>
+                        <li><a href="services.html">Bridge Repairs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#why-us">Why Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Free Estimate</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:9789885555">(978) 988-5555</a></li>
+                        <li>236 Andover Street</li>
+                        <li>Wilmington, MA 01887</li>
+                        <li style="margin-top:16px"><a href="contact.html" style="color:var(--yellow);font-weight:600">Get a Free Estimate &rarr;</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Superior Sealcoat Inc. All rights reserved.</span>
+                <span>Serving Massachusetts &amp; New England since 1990</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lead Connector Widget -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d9496fc41f60a7fa93719d"></script>
 </body>
 </html>

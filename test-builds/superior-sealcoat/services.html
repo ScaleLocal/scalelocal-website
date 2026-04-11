@@ -3,820 +3,1062 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Superior Sealcoat, Inc. — Paving & Sealcoating Specialists</title>
+    <meta name="description" content="Comprehensive asphalt and pavement services: sealcoating, paving, crack sealing, line striping, bridge repairs & more. Superior Sealcoat — Wilmington, MA. Call (978) 988-5555.">
+    <title>Professional Paving & Sealcoating Services | Superior Sealcoat Inc.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --blue: #0056A0;
+            --blue-dark: #003D73;
+            --blue-light: #1a73c7;
+            --yellow: #FFD100;
+            --yellow-dark: #E0B800;
+            --yellow-light: #FFE04D;
+            --white: #ffffff;
+            --off-white: #f5f7fa;
+            --gray-50: #f8f9fb;
+            --gray-100: #e9ecf0;
+            --gray-200: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --black: #0a0a0a;
-            --charcoal: #111111;
-            --dark: #181818;
-            --border: #222222;
-            --text: #a0a0a0;
-            --text-light: #c8c8c8;
-            --white: #f0f0f0;
-            --yellow: #f5a623;
-            --yellow-dark: #d4910a;
-            --orange: #e8740c;
+        html {
+            scroll-behavior: smooth;
         }
 
-        html, body {
-            background-color: var(--black);
-            color: var(--text);
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--gray-700);
             line-height: 1.6;
+            background-color: var(--white);
         }
 
-        /* TOP BAR */
-        .top-bar {
-            background-color: var(--charcoal);
-            border-bottom: 1px solid var(--border);
-            padding: 12px 0;
-            font-size: 13px;
-            position: relative;
-            z-index: 100;
-        }
-
-        .top-bar-content {
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background-color: var(--gray-900);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+
+        .utility-bar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
         }
 
-        .top-bar-left {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-
-        .top-bar-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .top-bar-item span {
-            color: var(--text-light);
-        }
-
-        .top-bar-cta {
-            background-color: var(--yellow);
-            color: var(--black);
-            padding: 8px 20px;
+        .utility-bar .highlight {
+            color: var(--yellow);
             font-weight: 600;
+        }
+
+        .utility-bar a {
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            border: none;
-            transition: background-color 0.3s ease;
+            transition: color 0.3s ease;
         }
 
-        .top-bar-cta:hover {
-            background-color: var(--yellow-dark);
+        .utility-bar a:hover {
+            color: var(--yellow);
         }
 
-        @media (max-width: 768px) {
-            .top-bar-left {
-                flex-direction: column;
-                gap: 8px;
-                width: 100%;
-                font-size: 12px;
-            }
-
-            .top-bar-item span {
-                display: none;
-            }
-
-            .top-bar-item:nth-child(1)::after {
-                content: '236 Andover St, Wilmington, MA 01887';
-                color: var(--text-light);
-                font-size: 12px;
-            }
-
-            .top-bar-item:nth-child(2)::after {
-                content: 'info@superiorsealcoat.com';
-                color: var(--text-light);
-                font-size: 12px;
-            }
-
-            .top-bar-item:nth-child(3)::after {
-                content: 'Mon-Fri 7AM-5PM';
-                color: var(--text-light);
-                font-size: 12px;
-            }
-        }
-
-        /* HEADER / NAVIGATION */
+        /* Header */
         header {
-            background-color: var(--dark);
-            border-bottom: 1px solid var(--border);
+            background-color: var(--white);
             position: sticky;
             top: 0;
-            z-index: 200;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
         }
 
-        .header-content {
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 24px;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
         }
 
-        .logo {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
+        .logo-link img {
+            height: 65px;
+            width: auto;
+        }
+
+        nav {
+            flex: 1;
+            margin-left: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 32px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
             font-weight: 700;
-            color: var(--white);
-            text-decoration: none;
-            letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        .nav {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav a {
-            color: var(--text);
+            letter-spacing: 0.04em;
+            color: var(--gray-700);
             text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-            text-transform: uppercase;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
         }
 
-        .nav a:hover {
-            color: var(--yellow);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--blue);
+            border-bottom: 2px solid var(--blue);
         }
 
-        .nav a.active {
-            color: var(--yellow);
-            border-bottom: 2px solid var(--yellow);
-            padding-bottom: 4px;
+        .nav-cta {
+            background-color: var(--yellow) !important;
+            color: var(--gray-900) !important;
+            padding: 10px 24px !important;
+            border-radius: 4px;
+            font-weight: 800;
+            border: 2px solid var(--yellow-dark);
+            border-bottom: none !important;
+            cursor: pointer;
         }
 
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
+        .nav-cta:hover {
+            background-color: var(--yellow-dark) !important;
+            color: var(--white) !important;
         }
 
-        .phone-number {
-            color: var(--white);
-            font-weight: 600;
-            font-size: 14px;
-            text-decoration: none;
-        }
-
-        .menu-toggle {
+        .mobile-toggle {
             display: none;
+            flex-direction: column;
             background: none;
             border: none;
-            color: var(--white);
-            font-size: 24px;
             cursor: pointer;
+            gap: 6px;
+            padding: 8px;
         }
 
-        @media (max-width: 768px) {
-            .nav {
-                display: none;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                gap: 0;
-                background-color: var(--charcoal);
-                border-bottom: 1px solid var(--border);
-                padding: 20px;
-            }
-
-            .nav.active {
-                display: flex;
-            }
-
-            .nav a {
-                padding: 12px 0;
-                border-bottom: 1px solid var(--border);
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .header-content {
-                height: auto;
-                padding: 15px 20px;
-            }
-
-            .logo {
-                font-size: 18px;
-            }
-
-            .phone-number {
-                display: none;
-            }
+        .mobile-toggle span {
+            width: 24px;
+            height: 3px;
+            background-color: var(--gray-700);
+            border-radius: 2px;
+            transition: all 0.3s ease;
         }
 
-        /* HERO SECTION */
-        .hero {
-            background-color: var(--charcoal);
-            border-bottom: 1px solid var(--border);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 72px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            line-height: 1.1;
-        }
-
-        .hero p {
-            font-size: 16px;
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                padding: 50px 20px;
-            }
-
-            .hero h1 {
-                font-size: 48px;
-            }
-        }
-
-        /* SERVICES GRID */
-        .services {
-            background-color: var(--black);
-            padding: 80px 20px;
-        }
-
-        .services-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-intro {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .services-intro h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            color: var(--white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .services-intro p {
-            font-size: 16px;
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
-        }
-
-        .service-card {
-            background-color: var(--dark);
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--yellow);
-            padding: 40px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--yellow);
-        }
-
-        .service-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--yellow);
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .service-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .service-description {
-            font-size: 14px;
-            line-height: 1.8;
-            color: var(--text);
-        }
-
-        .service-description p {
-            margin-bottom: 14px;
-        }
-
-        .service-description p:last-child {
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 768px) {
-            .services {
-                padding: 50px 20px;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .services-intro h2 {
-                font-size: 36px;
-            }
-
-            .service-card {
-                padding: 30px;
-            }
-
-            .service-number {
-                font-size: 48px;
-            }
-
-            .service-title {
-                font-size: 22px;
-            }
-        }
-
-        /* PROCESS SECTION */
-        .process {
-            background-color: var(--charcoal);
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            padding: 80px 20px;
-        }
-
-        .process-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .process-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .process-header h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            color: var(--white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .process-header p {
-            font-size: 16px;
-            color: var(--text-light);
-        }
-
-        .process-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .step-number {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 56px;
-            font-weight: 700;
-            color: var(--yellow);
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-        }
-
-        .step-title {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--white);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
-
-        .step-description {
-            font-size: 14px;
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        @media (max-width: 768px) {
-            .process {
-                padding: 50px 20px;
-            }
-
-            .process-header h2 {
-                font-size: 36px;
-            }
-
-            .process-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        /* CTA BAND */
-        .cta-band {
-            background-color: var(--yellow);
-            color: var(--black);
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .cta-band-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .cta-band h2 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 48px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-
-        .cta-band p {
-            font-size: 16px;
-            margin-bottom: 32px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background-color: var(--black);
-            color: var(--yellow);
-            padding: 16px 40px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
-            display: inline-block;
-        }
-
-        .cta-button:hover {
-            background-color: var(--charcoal);
-        }
-
-        @media (max-width: 768px) {
-            .cta-band {
-                padding: 40px 20px;
-            }
-
-            .cta-band h2 {
-                font-size: 36px;
-            }
-        }
-
-        /* FOOTER */
+        /* Footer */
         footer {
-            background-color: var(--charcoal);
-            border-top: 1px solid var(--border);
-            padding: 60px 20px;
-            color: var(--text);
-            font-size: 14px;
+            background-color: var(--gray-900);
+            color: rgba(255, 255, 255, 0.6);
+            padding: 56px 0 0;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 2fr 1fr 1fr 1fr;
             gap: 40px;
             margin-bottom: 40px;
         }
 
-        .footer-section h3 {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: 16px;
-            color: var(--white);
-            letter-spacing: 1px;
+        .footer-brand p {
+            font-size: 14px;
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+
+        footer h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--white);
             margin-bottom: 16px;
         }
 
-        .footer-section p {
-            line-height: 1.8;
-            color: var(--text);
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .footer-section a {
-            color: var(--yellow);
+        footer li {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: var(--white);
+        footer a:hover {
+            color: var(--yellow);
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--border);
-            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 86, 160, 0.92) 0%, rgba(0, 61, 115, 0.85) 100%);
+            color: var(--white);
+            padding: 80px 24px;
             text-align: center;
-            color: var(--text);
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: var(--yellow);
+            font-family: 'Montserrat', sans-serif;
             font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 6px 12px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 .accent {
+            color: var(--yellow);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            padding: 14px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--yellow);
+            color: var(--gray-900);
+            border-color: var(--yellow-dark);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--yellow-dark);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--blue);
+        }
+
+        /* Services Section */
+        .services-section {
+            background-color: var(--white);
+            padding: 80px 24px;
+        }
+
+        .service-detail {
+            border-bottom: 1px solid var(--gray-100);
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .detail-left {
+            display: flex;
+            gap: 32px;
+        }
+
+        .detail-icon {
+            flex-shrink: 0;
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, rgba(0, 86, 160, 0.1), rgba(0, 86, 160, 0.05));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+        }
+
+        .detail-icon svg {
+            width: 40px;
+            height: 40px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .detail-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .detail-content p {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .detail-right {
+            background-color: var(--off-white);
+            border: 1px solid var(--gray-100);
+            border-radius: 8px;
+            padding: 32px;
+        }
+
+        .detail-right h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--blue);
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .feature-list li:before {
+            content: '';
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            background-color: var(--blue);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 6px;
+        }
+
+        .detail-descriptions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-top: 32px;
+        }
+
+        .detail-desc-item h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+
+        .detail-desc-item p {
+            font-size: 14px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(0, 86, 160, 0.92) 0%, rgba(0, 61, 115, 0.85) 100%);
+            color: var(--white);
+            padding: 80px 24px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .cta-section > .container > p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            color: var(--yellow);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .cta-phone svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .detail-descriptions {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
         }
 
         @media (max-width: 768px) {
-            .footer-content {
-                gap: 30px;
+            .mobile-toggle {
+                display: flex;
+            }
+
+            nav {
+                margin-left: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--white);
+                flex-direction: column;
+                gap: 0;
+                box-shadow: var(--shadow-lg);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links.open {
+                max-height: 500px;
+            }
+
+            .nav-links li {
+                width: 100%;
+                padding: 16px 24px;
+                border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 60px 24px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .services-section {
+                padding: 60px 24px;
+            }
+
+            .service-detail {
+                padding: 60px 0;
+            }
+
+            .detail-left {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .detail-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .detail-icon svg {
+                width: 32px;
+                height: 32px;
+            }
+
+            .detail-content h3 {
+                font-size: 24px;
+            }
+
+            .footer-grid {
                 grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .cta-section {
+                padding: 60px 24px;
+            }
+
+            .cta-section h2 {
+                font-size: 32px;
+            }
+
+            .cta-section > .container > p {
+                font-size: 16px;
+            }
+
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .utility-bar .container {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+                font-size: 12px;
+            }
+
+            .header-inner {
+                padding: 8px 16px;
+            }
+
+            .logo-link img {
+                height: 50px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .detail-content h3 {
+                font-size: 20px;
+            }
+
+            .detail-right {
+                padding: 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 24px;
+            }
+
+            .cta-section > .container > p {
+                font-size: 14px;
+            }
+
+            .cta-phone {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- TOP BAR -->
-    <div class="top-bar">
-        <div class="top-bar-content">
-            <div class="top-bar-left">
-                <div class="top-bar-item">
-                    <span>236 Andover Street, Wilmington, MA 01887</span>
-                </div>
-                <div class="top-bar-item">
-                    <span>info@superiorsealcoat.com</span>
-                </div>
-                <div class="top-bar-item">
-                    <span>Mon-Fri 7AM-5PM</span>
-                </div>
-            </div>
-            <button class="top-bar-cta" onclick="document.getElementById('contact-form').scrollIntoView({behavior: 'smooth'});">Free Estimate</button>
+    <div class="utility-bar">
+        <div class="container">
+            <span>Serving Massachusetts &amp; New England <span class="highlight">Since 1990</span></span>
+            <a href="tel:9789885555">(978) 988-5555 &mdash; Free Estimates</a>
         </div>
     </div>
 
-    <!-- HEADER / NAVIGATION -->
     <header>
-        <div class="header-content">
-            <a href="index.html" class="logo">Superior Sealcoat</a>
-            <nav class="nav">
-                <a href="index.html">Home</a>
-                <a href="services.html" class="active">Services</a>
-                <a href="about.html">About</a>
-                <a href="reviews.html">Reviews</a>
-                <a href="contact.html">Contact</a>
+        <div class="header-inner">
+            <a href="index.html" class="logo-link">
+                <img src="images/logo-superior-sealcoat.png" alt="Superior Sealcoat, Inc. — Wilmington, MA">
+            </a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="index.html#why-us">Why Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="contact.html" class="nav-cta">Get a Free Estimate</a></li>
+                </ul>
             </nav>
-            <div class="header-right">
-                <a href="tel:(978) 988-5555" class="phone-number">(978) 988-5555</a>
-                <button class="menu-toggle" onclick="document.querySelector('.nav').classList.toggle('active');">☰</button>
-            </div>
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Our Services</h1>
-            <p>Comprehensive solutions for asphalt paving, sealcoating, and parking lot maintenance serving Massachusetts, New Hampshire, Rhode Island, and Maine since 1990.</p>
-        </div>
-    </section>
-
-    <!-- SERVICES SECTION -->
-    <section class="services">
-        <div class="services-content">
-            <div class="services-intro">
-                <h2>What We Offer</h2>
-                <p>Superior Sealcoat provides a complete range of paving and maintenance services with over three decades of proven expertise.</p>
-            </div>
-
-            <div class="services-grid">
-                <!-- Service 01 -->
-                <div class="service-card">
-                    <div class="service-number">01</div>
-                    <h3 class="service-title">Sealcoating</h3>
-                    <div class="service-description">
-                        <p>Protect your asphalt from the elements with our professional sealcoating services. We apply coal tar and asphalt emulsion formulations that create a durable protective barrier against UV rays, water infiltration, and oil degradation.</p>
-                        <p>Sealcoating extends the life of your pavement by 5-7 years, restores the rich black appearance, and prevents costly repairs. Our experienced crews ensure even application and complete coverage on driveways, parking lots, and commercial properties throughout the region.</p>
-                    </div>
-                </div>
-
-                <!-- Service 02 -->
-                <div class="service-card">
-                    <div class="service-number">02</div>
-                    <h3 class="service-title">Asphalt Paving</h3>
-                    <div class="service-description">
-                        <p>From new construction to overlay projects, we deliver high-quality asphalt paving that stands up to New England weather. Whether you need a new driveway, parking lot expansion, or road construction, our team brings precision and durability to every project.</p>
-                        <p>We handle site preparation, base layer installation, and final wearing course application using industry-leading equipment and materials. Our work meets or exceeds all local and state specifications for residential, commercial, and municipal applications.</p>
-                    </div>
-                </div>
-
-                <!-- Service 03 -->
-                <div class="service-card">
-                    <div class="service-number">03</div>
-                    <h3 class="service-title">Crack Sealing</h3>
-                    <div class="service-description">
-                        <p>Prevent small cracks from becoming expensive pothole repairs with our professional crack sealing service. We use hot-pour rubberized sealant that fills cracks completely and flexes with pavement movement, preventing water infiltration and further deterioration.</p>
-                        <p>Early intervention through crack sealing is one of the most cost-effective ways to extend pavement life. Our technicians identify and seal all cracks before they expand, protecting your investment and reducing long-term maintenance costs.</p>
-                    </div>
-                </div>
-
-                <!-- Service 04 -->
-                <div class="service-card">
-                    <div class="service-number">04</div>
-                    <h3 class="service-title">Line Striping</h3>
-                    <div class="service-description">
-                        <p>Clear, professional parking lot striping creates safe, organized spaces and enhances property appearance. We provide parking lot layout design, ADA-compliant accessible parking spaces, traffic control markings, and custom stenciling for your unique branding needs.</p>
-                        <p>Our precision striping equipment ensures straight lines, proper spacing, and long-lasting durability. We handle everything from initial design consultation through installation, ensuring your parking lot meets all regulatory requirements and maximizes usable space.</p>
-                    </div>
-                </div>
-
-                <!-- Service 05 -->
-                <div class="service-card">
-                    <div class="service-number">05</div>
-                    <h3 class="service-title">Micro Surfacing</h3>
-                    <div class="service-description">
-                        <p>Extend your pavement life cost-effectively with micro surfacing, an advanced surface treatment that renews tired asphalt without full replacement. This polymer-based system fills small voids, improves drainage, and adds years to your pavement's lifespan.</p>
-                        <p>Micro surfacing is ideal for pavements showing early signs of wear but not yet requiring complete reconstruction. It typically extends pavement life by 7-10 years while providing improved friction, reduced noise, and a refreshed appearance at a fraction of new paving costs.</p>
-                    </div>
-                </div>
-
-                <!-- Service 06 -->
-                <div class="service-card">
-                    <div class="service-number">06</div>
-                    <h3 class="service-title">Parking Lot Maintenance</h3>
-                    <div class="service-description">
-                        <p>Comprehensive maintenance programs keep your parking lot in peak condition year-round. We provide pothole patching, surface repairs, drainage correction, and preventative treatments that address issues before they become major problems.</p>
-                        <p>Our maintenance plans are customized to your property's needs and budget. Regular upkeep through patching, seal coating refreshers, and drainage maintenance significantly extends pavement life and reduces emergency repair costs while improving safety and appearance.</p>
-                    </div>
-                </div>
-
-                <!-- Service 07 -->
-                <div class="service-card">
-                    <div class="service-number">07</div>
-                    <h3 class="service-title">Bridge Repairs</h3>
-                    <div class="service-description">
-                        <p>Specialized structural repairs for bridge decks, approaches, and surfaces require expertise and precision. Superior Sealcoat handles comprehensive bridge rehabilitation including deck repair, waterproofing, joint sealing, and expansion joint maintenance for municipal and commercial structures.</p>
-                        <p>Our bridge repair teams work with engineers and municipalities to ensure projects meet all structural and safety requirements. We use advanced techniques and materials to restore functionality, extend bridge life, and ensure public safety on critical infrastructure.</p>
-                    </div>
-                </div>
-
-                <!-- Service 08 -->
-                <div class="service-card">
-                    <div class="service-number">08</div>
-                    <h3 class="service-title">TechCrete Poly Patch</h3>
-                    <div class="service-description">
-                        <p>Our advanced polymer patching technology delivers superior pothole repairs that outlast traditional methods. TechCrete Poly Patch creates permanent, flexible repairs that resist shoving, cracking, and raveling even in harsh New England conditions and heavy traffic areas.</p>
-                        <p>Unlike temporary asphalt patches that fail quickly, our polymer-based system bonds permanently to existing pavement and accommodates temperature fluctuations and traffic stress. One application provides long-lasting protection, improving safety and property appearance.</p>
-                    </div>
-                </div>
+            <div class="hero-badge">Comprehensive Solutions</div>
+            <h1>Complete <span class="accent">Pavement Services</span> for Every Need</h1>
+            <p>From sealcoating to full-depth repairs, we provide comprehensive asphalt and pavement solutions for residential and commercial properties across Massachusetts and New England.</p>
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn btn-primary">Get a Free Estimate</a>
+                <a href="tel:9789885555" class="btn btn-secondary">Call (978) 988-5555</a>
             </div>
         </div>
     </section>
 
-    <!-- OUR PROCESS SECTION -->
-    <section class="process">
-        <div class="process-content">
-            <div class="process-header">
-                <h2>Our Process</h2>
-                <p>A systematic approach to delivering exceptional results every time</p>
+    <section class="services-section">
+        <div class="container">
+            <!-- Sealcoating -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 3v18"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Sealcoating</h3>
+                        <p>Premium asphalt sealcoating protects your pavement from weather damage, oxidation, and harsh UV exposure. Our coal-tar and asphalt-based formulations provide superior durability and a rich, professional appearance.</p>
+                        <p>Whether you need residential driveway sealcoating or commercial lot maintenance, we deliver consistent, long-lasting results that extend pavement life by years.</p>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Coal-tar and asphalt formulations for maximum protection</li>
+                        <li>Freeze-thaw cycle resistance prevents cracking and deterioration</li>
+                        <li>Water damage prevention protects subsurface layers</li>
+                        <li>UV protection maintains dark, rich pavement color</li>
+                        <li>Enhanced curb appeal and property value</li>
+                        <li>Cost-effective maintenance extends pavement lifespan</li>
+                        <li>Residential and commercial applications</li>
+                        <li>Professional application with precision striping</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Residential Driveways</h4>
+                            <p>Protect your home's first impression with professional sealcoating that shields driveways from weathering, salt damage, and UV rays while enhancing curb appeal.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Commercial Lots</h4>
+                            <p>Maintain professional appearance and safety for customer parking areas with regular sealcoating maintenance that demonstrates property pride and reduces long-term repair costs.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h3 class="step-title">Consultation</h3>
-                    <p class="step-description">We meet with you to understand your needs, assess your property, discuss objectives, and provide transparent recommendations tailored to your situation and budget.</p>
+            <!-- Asphalt Paving -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 20h16M4 20V4h4v16M10 20V10h4v10M16 20V7h4v13"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Asphalt Paving</h3>
+                        <p>New asphalt installation and reconstruction projects require expert planning, precision grading, and quality material selection. We handle everything from site preparation through final compaction.</p>
+                        <p>Our full-depth reclamation process allows us to recycle existing pavement materials while creating strong, durable new surfaces that meet all design specifications and load requirements.</p>
+                    </div>
                 </div>
-
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h3 class="step-title">Assessment</h3>
-                    <p class="step-description">Our experts conduct detailed inspections of your pavement condition, identify problem areas, determine the best solution, and provide accurate estimates and timelines for your project.</p>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>New construction with complete site design and planning</li>
+                        <li>Full-depth reclamation recycles existing pavement</li>
+                        <li>Professional grading ensures proper drainage</li>
+                        <li>ADA-compliant design meets accessibility requirements</li>
+                        <li>Customized thickness for intended use and traffic</li>
+                        <li>Quality compaction ensures durability and performance</li>
+                        <li>Comprehensive project management from start to finish</li>
+                        <li>Long-term warranty on materials and workmanship</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Design & Planning</h4>
+                            <p>From site assessment through final design, we ensure your new pavement meets all requirements, codes, and performance standards for residential or commercial applications.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Full-Depth Reclamation</h4>
+                            <p>Recycle existing pavement material for sustainable, cost-effective reconstruction. Our FDR process creates strong foundations while reducing waste and environmental impact.</p>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h3 class="step-title">Execution</h3>
-                    <p class="step-description">Our skilled crews perform the work with precision and professionalism, using quality materials and proven techniques. We maintain the schedule, coordinate logistics, and minimize disruption to your operations.</p>
+            <!-- Crack Sealing -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Crack Sealing</h3>
+                        <p>Cracks in asphalt allow water penetration that leads to base erosion, potholes, and pavement failure. Our hot-pour rubberized crack sealant creates a flexible, long-lasting bond.</p>
+                        <p>Early crack sealing prevents water damage and extends pavement life significantly. We use professional equipment and high-quality materials to ensure proper penetration and adhesion for lasting protection.</p>
+                    </div>
                 </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Hot-pour rubberized sealant resists cracking and separation</li>
+                        <li>Prevents water penetration and base layer erosion</li>
+                        <li>Stops small cracks before they become potholes</li>
+                        <li>Flexible composition accommodates pavement movement</li>
+                        <li>Extended pavement lifespan and reduced repair costs</li>
+                        <li>Professional application with precise equipment</li>
+                        <li>Cost-effective preventative maintenance solution</li>
+                        <li>Works on driveways, parking lots, and roads</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Problem Prevention</h4>
+                            <p>Water entering pavement cracks causes base erosion and accelerates deterioration. Sealing stops water at the source before expensive damage occurs.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Professional Process</h4>
+                            <p>Our specialized equipment cleans cracks and applies rubberized sealant at optimal temperature, ensuring complete penetration and adhesion for maximum protection.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h3 class="step-title">Quality Check</h3>
-                    <p class="step-description">We inspect all work thoroughly before completion, address any concerns, and ensure everything meets our high standards and your expectations. Your satisfaction is our guarantee.</p>
+            <!-- Line Striping -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 6h16M4 12h16M4 18h8"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Line Striping</h3>
+                        <p>Clear, visible pavement markings guide traffic flow, organize parking, and ensure safety compliance. We apply ADA-compliant line striping with durable thermoplastic and paint materials.</p>
+                        <p>From standard parking lot layouts to custom stenciling for unique designs, we deliver professional line striping that improves safety, organization, and appearance for any pavement surface.</p>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>ADA-compliant stripe widths and spacing</li>
+                        <li>Thermoplastic and durable paint options available</li>
+                        <li>Clear traffic flow organization and directional guidance</li>
+                        <li>Improved parking lot safety and organization</li>
+                        <li>Professional appearance enhances property image</li>
+                        <li>Custom stenciling for logos and text</li>
+                        <li>Reflective materials improve nighttime visibility</li>
+                        <li>Long-lasting durability with proper maintenance</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Parking Lot Layouts</h4>
+                            <p>Standard parking space, driving lane, and fire lane markings organize traffic flow while ensuring compliance with accessibility and safety regulations.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Custom Stenciling</h4>
+                            <p>Add company logos, custom designs, and specialized markings to parking spaces, loading areas, and walkways with precision stenciling and professional application.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bridge & Infrastructure Repairs -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 3v18M3 12h18"/>
+                            <circle cx="12" cy="12" r="9"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Bridge & Infrastructure Repairs</h3>
+                        <p>Bridge decks and elevated structures require specialized repair and maintenance to ensure safety and longevity. We handle deck repairs, waterproofing, and structural rehabilitation.</p>
+                        <p>Our expertise in bridge infrastructure extends pavement life, improves safety, and maintains structural integrity for commercial bridges, municipal overpasses, and elevated parking structures.</p>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Bridge deck repairs and resurfacing</li>
+                        <li>Waterproofing systems prevent water infiltration</li>
+                        <li>Structural assessment and rehabilitation planning</li>
+                        <li>Specialized equipment for elevated work</li>
+                        <li>Minimal traffic disruption with careful scheduling</li>
+                        <li>Safety compliance and engineering standards</li>
+                        <li>Municipal and commercial bridge expertise</li>
+                        <li>Extended service life and improved functionality</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Bridge Deck Repairs</h4>
+                            <p>Assessment, repair, and resurfacing of bridge deck surfaces and supporting structures, ensuring safe passage and preventing further deterioration.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Municipal Infrastructure</h4>
+                            <p>Specialized services for town, city, and state highway bridges including waterproofing, bearing repairs, and deck rehabilitation to meet engineering specifications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Geotextile Fabrics -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="7" height="7" rx="1"/>
+                            <rect x="14" y="3" width="7" height="7" rx="1"/>
+                            <rect x="3" y="14" width="7" height="7" rx="1"/>
+                            <rect x="14" y="14" width="7" height="7" rx="1"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Geotextile Fabrics</h3>
+                        <p>Geotextile reinforcement fabrics prevent reflective cracking in resurfaced pavement by absorbing stress and distributing loads. These engineered materials extend pavement life and reduce maintenance costs.</p>
+                        <p>Professional installation of geotextile fabrics during overlays and paving projects creates a barrier that prevents cracks in old pavement from reflecting through new surfaces.</p>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Prevents reflective cracking in overlaid pavement</li>
+                        <li>Absorbs and distributes stress loads</li>
+                        <li>Reinforces compromised base layers</li>
+                        <li>Extends overlay service life by 3-5 years</li>
+                        <li>Cost-effective compared to full reconstruction</li>
+                        <li>Professional installation with precision placement</li>
+                        <li>Works with asphalt and concrete overlays</li>
+                        <li>Improves drainage and base layer performance</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Reflective Crack Prevention</h4>
+                            <p>Geotextile fabric creates a stress-absorbing layer between old and new pavement, preventing cracks from migrating upward and extending the life of overlay surfaces.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Professional Installation</h4>
+                            <p>Proper placement, tack coat application, and compaction ensure the geotextile fabric performs optimally to prevent cracking and extend pavement longevity.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recreational Surfacing -->
+            <div class="service-detail">
+                <div class="detail-left">
+                    <div class="detail-icon">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="2" y="2" width="20" height="20" rx="2"/>
+                            <path d="M2 7h20M2 17h20M7 2v20M17 2v20"/>
+                        </svg>
+                    </div>
+                    <div class="detail-content">
+                        <h3>Recreational Surfacing</h3>
+                        <p>Specialized asphalt surfaces for sports courts and playgrounds require proper thickness, grade, and finish for safety and performance. We install and maintain court and playground surfaces.</p>
+                        <p>From basketball and tennis courts to playground surfaces, our recreational asphalt meets all sport-specific requirements while providing durable, safe, and reliable playing surfaces.</p>
+                    </div>
+                </div>
+                <div class="detail-right">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        <li>Sports court construction and maintenance</li>
+                        <li>Playground surface installation with safety standards</li>
+                        <li>Proper grade and slope for drainage</li>
+                        <li>Cushioning layers reduce impact and injury risk</li>
+                        <li>Line striping for court markings and games</li>
+                        <li>Durable surfaces withstand heavy use</li>
+                        <li>Professional installation meets specification requirements</li>
+                        <li>Regular maintenance extends playing surface life</li>
+                    </ul>
+                    <div class="detail-descriptions">
+                        <div class="detail-desc-item">
+                            <h4>Sports Courts</h4>
+                            <p>Professional asphalt surfaces for basketball, tennis, and other sports with proper grade, cushioning, and line marking for safe, competitive play.</p>
+                        </div>
+                        <div class="detail-desc-item">
+                            <h4>Playground Surfaces</h4>
+                            <p>Safe, durable asphalt playground surfaces with appropriate thickness and cushioning to reduce impact injuries while providing reliable, long-lasting play areas.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA BAND -->
-    <section class="cta-band">
-        <div class="cta-band-content">
+    <section class="cta-section">
+        <div class="container">
             <h2>Ready to Get Started?</h2>
-            <p>Contact Superior Sealcoat today for a free estimate on your paving or sealcoating project. Our team is ready to help you protect and extend the life of your pavement investment.</p>
-            <a href="tel:(978) 988-5555" class="cta-button">Call (978) 988-5555</a>
+            <p>Contact Superior Sealcoat today for a free estimate on any of our paving, sealcoating, or pavement maintenance services. We'll assess your needs and provide a comprehensive solution.</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn btn-primary">Get a Free Estimate</a>
+            </div>
+            <a href="tel:9789885555" class="cta-phone">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                </svg>
+                (978) 988-5555
+            </a>
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Superior Sealcoat, Inc.</h3>
-                <p>Award-winning paving and sealcoating services serving New England since 1990. Founded by Robert Vita with a commitment to quality, reliability, and customer satisfaction.</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="images/logo-superior-sealcoat.png" alt="Superior Sealcoat, Inc." style="max-width:200px; object-fit:contain;">
+                    <p>Professional asphalt paving, sealcoating, and pavement maintenance serving Massachusetts and New England since 1990.</p>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html">Asphalt Paving</a></li>
+                        <li><a href="services.html">Sealcoating</a></li>
+                        <li><a href="services.html">Crack Sealing</a></li>
+                        <li><a href="services.html">Line Striping</a></li>
+                        <li><a href="services.html">Bridge Repairs</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="index.html#why-us">Why Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact.html">Free Estimate</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:9789885555">(978) 988-5555</a></li>
+                        <li>236 Andover Street</li>
+                        <li>Wilmington, MA 01887</li>
+                        <li style="margin-top:16px"><a href="contact.html" style="color:var(--yellow);font-weight:600">Get a Free Estimate &rarr;</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="footer-section">
-                <h3>Contact</h3>
-                <p>
-                    <strong>Phone:</strong> <a href="tel:(978) 988-5555">(978) 988-5555</a><br>
-                    <strong>Email:</strong> <a href="mailto:info@superiorsealcoat.com">info@superiorsealcoat.com</a><br>
-                    <strong>Address:</strong> 236 Andover Street, Wilmington, MA 01887<br>
-                    <strong>Hours:</strong> Mon-Fri 7AM-5PM
-                </p>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Superior Sealcoat Inc. All rights reserved.</span>
+                <span>Serving Massachusetts &amp; New England since 1990</span>
             </div>
-
-            <div class="footer-section">
-                <h3>Service Areas</h3>
-                <p>
-                    Massachusetts<br>
-                    New Hampshire<br>
-                    Rhode Island<br>
-                    Maine<br>
-                </p>
-            </div>
-
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <p>
-                    <a href="index.html">Home</a><br>
-                    <a href="services.html">Services</a><br>
-                    <a href="about.html">About</a><br>
-                    <a href="reviews.html">Reviews</a><br>
-                    <a href="contact.html">Contact</a>
-                </p>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2024 Superior Sealcoat, Inc. All rights reserved. | Serving New England Since 1990</p>
         </div>
     </footer>
 
-    <!-- CHAT WIDGET — Preview Slot 1 -->
-    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d911e69f3b6f315812fd8b"></script>
-
-    <!-- GOOGLE FONTS -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d9496fc41f60a7fa93719d"></script>
 </body>
 </html>
