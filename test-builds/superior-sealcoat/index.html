@@ -376,50 +376,51 @@
             grid-row: span 2;
         }
 
-        /* ===== REVIEWS ===== */
-        .reviews-section {
+        /* ===== WHY CUSTOMERS CHOOSE US ===== */
+        .choose-section {
             background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
             color: var(--white);
         }
-        .reviews-section .section-label { color: var(--yellow); }
-        .reviews-section .section-title { color: var(--white); }
-        .reviews-section .section-subtitle { color: rgba(255,255,255,0.7); }
-        .reviews-grid {
+        .choose-section .section-label { color: var(--yellow); }
+        .choose-section .section-title { color: var(--white); }
+        .choose-section .section-subtitle { color: rgba(255,255,255,0.7); }
+        .choose-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
         }
-        .review-card {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.15);
+        .choose-card {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
             border-radius: 8px;
             padding: 32px;
             backdrop-filter: blur(10px);
+            transition: background 0.25s, transform 0.25s;
         }
-        .review-stars {
-            display: flex; gap: 3px;
-            margin-bottom: 16px;
+        .choose-card:hover {
+            background: rgba(255,255,255,0.14);
+            transform: translateY(-2px);
         }
-        .review-stars svg {
-            width: 18px; height: 18px;
-            fill: var(--yellow);
-        }
-        .review-text {
-            font-size: 15px;
-            color: rgba(255,255,255,0.9);
-            font-style: italic;
+        .choose-card-icon {
+            width: 44px; height: 44px;
+            background: var(--yellow);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
             margin-bottom: 20px;
-            line-height: 1.8;
         }
-        .review-author {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
+        .choose-card-icon svg {
+            width: 22px; height: 22px;
+            fill: var(--gray-900);
         }
-        .review-source {
-            font-size: 12px;
-            color: rgba(255,255,255,0.5);
-            margin-top: 4px;
+        .choose-card h3 {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+        .choose-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.7;
         }
 
         /* ===== SERVICE AREA ===== */
@@ -616,7 +617,7 @@
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery-item.featured { grid-column: span 2; }
             .trust-bar .container { gap: 24px; }
-            .reviews-grid { grid-template-columns: 1fr; }
+            .choose-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
             .area-towns { grid-template-columns: 1fr; }
         }
@@ -862,32 +863,44 @@
         </div>
     </section>
 
-    <!-- Reviews -->
-    <section class="section reviews-section">
+    <!-- Why Customers Choose Us -->
+    <section class="section choose-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Customer Reviews</div>
-                <h2 class="section-title">What Our Customers Say</h2>
-                <p class="section-subtitle">Real feedback from homeowners and businesses across Massachusetts.</p>
+                <div class="section-label">The Superior Difference</div>
+                <h2 class="section-title">Why Customers Choose Us</h2>
+                <p class="section-subtitle">What sets Superior Sealcoat apart after 35+ years serving Massachusetts and New England.</p>
             </div>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-                    <p class="review-text">"They did a great job and prices were very good compared to other paving companies in our area. I have already suggested to a friend of mine to use them."</p>
-                    <div class="review-author">— Verified Customer</div>
-                    <div class="review-source">Yelp Review</div>
+            <div class="choose-grid">
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+                    <h3>OSHA-Certified Crews</h3>
+                    <p>Every crew member is OSHA trained and certified. We maintain the highest safety standards on every job site, from residential driveways to active highway work zones.</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-                    <p class="review-text">"Very pleased with the work they did for us. They excavated, repaved, and sealed our driveway. Their price was reasonable and in line with other estimates we received."</p>
-                    <div class="review-author">— Verified Customer</div>
-                    <div class="review-source">Yelp Review</div>
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg></div>
+                    <h3>35+ Years of Proven Experience</h3>
+                    <p>Operating since 1990, we have decades of hands-on experience across every type of asphalt project. That depth of knowledge shows in the quality of our finished work.</p>
                 </div>
-                <div class="review-card">
-                    <div class="review-stars"><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></div>
-                    <p class="review-text">"Professional crew from start to finish. They showed up on time, did quality work, and left the site clean. Our parking lot looks brand new. Highly recommend for commercial work."</p>
-                    <div class="review-author">— Business Owner</div>
-                    <div class="review-source">Google Review</div>
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg></div>
+                    <h3>Public and Private Agency Work</h3>
+                    <p>We hold contracts with municipalities, state agencies, and private clients across New England. Government agencies trust us with bridge repairs, highway resurfacing, and infrastructure projects.</p>
+                </div>
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M22 9V7h-2V5c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-2h2v-2h-2v-2h2v-2h-2V9h2zm-4 10H4V5h14v14zM6 13h5v4H6v-4zm6-6h4v3h-4V7zM6 7h5v5H6V7zm6 4h4v6h-4v-6z"/></svg></div>
+                    <h3>Modern Methods and Materials</h3>
+                    <p>We keep our staff and crews up to date with the most current products and techniques available. From paving fabrics to bridge deck membranes, we use the right solution for every job.</p>
+                </div>
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+                    <h3>Responsive and Courteous Service</h3>
+                    <p>From your first call to project completion, expect timely communication and professional treatment. Our courteous sales team provides clear estimates with no surprises.</p>
+                </div>
+                <div class="choose-card">
+                    <div class="choose-card-icon"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg></div>
+                    <h3>Full-Service Capability</h3>
+                    <p>Paving, sealcoating, crack sealing, line striping, fabric reinforcement, bridge repairs, and recreational surfacing. One contractor for every asphalt need, from driveways to highways.</p>
                 </div>
             </div>
         </div>
