@@ -195,9 +195,9 @@
         /* ========== HERO ========== */
         .hero {
             position: relative;
-            min-height: 40vh;
+            min-height: auto;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             background: linear-gradient(165deg, rgba(13,40,24,0.88) 0%, rgba(27,67,50,0.72) 50%, rgba(45,106,79,0.6) 100%),
                         url('images/hero-golf-course.jpg') center/cover no-repeat;
             color: var(--white);
@@ -221,7 +221,7 @@
             height: 200px;
             background: linear-gradient(to top, var(--ivory), transparent);
         }
-        .hero .container { position: relative; z-index: 2; padding: 60px 24px 100px; }
+        .hero .container { position: relative; z-index: 2; padding: 32px 24px 80px; }
         .hero-badge {
             display: inline-flex;
             align-items: center;
@@ -673,8 +673,8 @@
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .top-bar-left { gap: 14px; font-size: 0.72rem; }
             section { padding: 72px 0; }
-            .hero .container { padding: 48px 24px 80px; }
-            .hero { min-height: 60vh; }
+            .hero .container { padding: 24px 24px 60px; }
+            .hero { min-height: auto; }
             .course-img-wrap img { height: 350px; }
         }
         @media (max-width: 480px) {
@@ -807,7 +807,7 @@
                 </div>
                 <div class="exp-card">
                     <div class="exp-card-img">
-                        <img src="images/grilledsteak.jpg" alt="Clubhouse dining at Exeter Country Club" loading="lazy">
+                        <img src="images/16thWaterAndBridge600.jpg" alt="Scenic view from the clubhouse at Exeter Country Club" loading="lazy">
                         <span class="exp-tag">Signature Dining</span>
                     </div>
                     <div class="exp-card-body">
@@ -821,7 +821,7 @@
                 </div>
                 <div class="exp-card">
                     <div class="exp-card-img">
-                        <img src="images/clubhouse-sign.jpg" alt="Event space at Exeter Country Club" loading="lazy">
+                        <img src="images/BridgewithSign600.jpg" alt="Iconic covered bridge at Exeter Country Club" loading="lazy">
                         <span class="exp-tag">Outings & Events</span>
                     </div>
                     <div class="exp-card-body">
