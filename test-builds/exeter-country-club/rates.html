@@ -692,6 +692,18 @@
                 display: none;
             }
 
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            }
+
             .hamburger {
                 display: flex;
             }
@@ -816,17 +828,17 @@
                 </div>
             </div>
 
-            <ul class="nav-links">
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="course.html">The Course</a></li>
                 <li><a href="rates.html" class="active">Rates & Tee Times</a></li>
-                <li><a href="outings.html">Outings & Events</a></li>
+                <li><a href="events.html">Outings & Events</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
 
             <div class="nav-right">
                 <span class="nav-right-phone">(401) 295-8212</span>
-                <button class="hamburger">
+                <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -974,10 +986,9 @@
             <div class="footer-section">
                 <h3>Golf</h3>
                 <ul>
-                    <li><a href="#">Course Map</a></li>
-                    <li><a href="#">Leaderboards</a></li>
-                    <li><a href="#">Tournaments</a></li>
-                    <li><a href="#">League Play</a></li>
+                    <li><a href="course.html">Course Map</a></li>
+                    <li><a href="events.html">Tournaments</a></li>
+                    <li><a href="events.html">League Play</a></li>
                 </ul>
             </div>
 
@@ -992,6 +1003,11 @@
         </div>
 
         <div class="footer-bottom">
+            <div style="margin-bottom: 12px;">
+                <a href="https://www.facebook.com/pages/Exeter-Country-Club/240168962827" target="_blank" rel="noopener" style="color: var(--gold); margin-right: 12px;" title="Follow us on Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+                </a>
+            </div>
             <p>&copy; 2024 Exeter Country Club. All rights reserved. | RIGA Affiliated | USGA Member</p>
         </div>
     </footer>

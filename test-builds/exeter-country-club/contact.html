@@ -644,6 +644,20 @@
                 display: none;
             }
 
+            .nav-center.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 20px;
+                gap: 15px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+                border-top: 2px solid var(--gold);
+            }
+
             .nav-phone {
                 display: none;
             }
@@ -739,7 +753,7 @@
                     <span class="logo-subtext">COUNTRY CLUB</span>
                 </div>
             </a>
-            <nav class="nav-center">
+            <nav class="nav-center" id="navCenter">
                 <a href="index.html">Home</a>
                 <a href="course.html">The Course</a>
                 <a href="rates.html">Rates & Tee Times</a>
@@ -748,11 +762,11 @@
             </nav>
             <div class="nav-right">
                 <a href="tel:+14012958212" class="nav-phone">(401) 295-8212</a>
-                <div class="hamburger">
+                <button class="hamburger" onclick="document.getElementById('navCenter').classList.toggle('open')" aria-label="Menu">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </div>
     </header>
@@ -952,6 +966,11 @@
             </div>
         </div>
         <div class="footer-bottom">
+            <div style="margin-bottom: 12px;">
+                <a href="https://www.facebook.com/pages/Exeter-Country-Club/240168962827" target="_blank" rel="noopener" style="color: var(--gold); margin-right: 12px;" title="Follow us on Facebook">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+                </a>
+            </div>
             <p>&copy; 2026 Exeter Country Club. All rights reserved.</p>
         </div>
     </footer>

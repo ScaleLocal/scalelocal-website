@@ -221,12 +221,28 @@
         @media (max-width: 900px) {
             .nav-center {
                 display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--white);
+                border-bottom: 1px solid var(--border);
+                padding: 20px;
+                gap: 15px;
+            }
+            .nav-center.open {
+                display: flex;
             }
             .hamburger {
                 display: flex;
+                background: none;
+                border: none;
+                padding: 0;
             }
             nav {
                 padding: 0 15px;
+                position: relative;
             }
         }
 
@@ -846,7 +862,7 @@
                 <div class="nav-logo-club">COUNTRY CLUB</div>
             </div>
         </a>
-        <div class="nav-center">
+        <div class="nav-center" id="navLinks">
             <a href="index.html">Home</a>
             <a href="course.html">The Course</a>
             <a href="rates.html">Rates & Tee Times</a>
@@ -855,11 +871,11 @@
         </div>
         <div class="nav-right">
             <a href="tel:+14012951178" class="nav-phone">(401) 295-1178</a>
-            <div class="hamburger">
+            <button class="hamburger" id="hamburger" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -885,7 +901,7 @@
                     <p style="margin-top: 40px; font-style: italic; color: var(--gold);">Contact Jennifer at (401) 295-1178 to discuss your vision.</p>
                 </div>
                 <div class="two-column-image">
-                    <img src="images/stock-event-space.jpg" alt="Golf event at Exeter Country Club">
+                    <img src="images/grilledsteak.jpg" alt="Signature steak fry dinner at Exeter Country Club">
                 </div>
             </div>
         </div>
@@ -1095,30 +1111,27 @@
                     <li><a href="tel:+14012951178">(401) 295-1178</a></li>
                     <li><a href="mailto:info@exetercc.com">info@exetercc.com</a></li>
                     <li><a href="contact.html">Contact Form</a></li>
-                    <li><a href="#">Membership Inquiries</a></li>
+                    <li><a href="rates.html#membership">Membership Inquiries</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Club Information</h4>
                 <ul>
-                    <li><a href="#">Hours of Operation</a></li>
-                    <li><a href="#">Dress Code</a></li>
-                    <li><a href="#">Course Rules</a></li>
-                    <li><a href="#">Pro Shop</a></li>
+                    <li><a href="contact.html">Hours of Operation</a></li>
+                    <li><a href="course.html#policies">Dress Code</a></li>
+                    <li><a href="course.html#policies">Course Rules</a></li>
+                    <li><a href="contact.html">Pro Shop</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="#">Facebook</a></li>
-                    <li><a href="#">Instagram</a></li>
-                    <li><a href="#">Twitter</a></li>
-                    <li><a href="#">Newsletter</a></li>
+                    <li><a href="https://www.facebook.com/pages/Exeter-Country-Club/240168962827">Facebook</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Exeter Country Club. All rights reserved. | <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a></p>
+            <p>&copy; 2026 Exeter Country Club. All rights reserved.</p>
         </div>
     </footer>
 
