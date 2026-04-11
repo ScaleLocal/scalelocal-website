@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rates & Tee Times | Exeter Country Club</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #1B4332;
+            --green-dark: #0D2818;
+            --green-mid: #2D6A4F;
+            --green-light: #40916C;
+            --gold: #B8960C;
+            --gold-light: #D4AF37;
+            --gold-pale: #E8D48B;
+            --gold-dark: #8B7209;
+            --ivory: #FAF8F2;
+            --ivory-dark: #F0EDE3;
+            --cream: #F5F1E8;
+            --white: #FFFFFF;
+            --charcoal: #1A1A1A;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --text-muted: #8A8A7E;
+            --border: #DDD8CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background-color: var(--green-dark);
+            color: var(--white);
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar-item svg {
+            width: 18px;
+            height: 18px;
+            stroke: var(--gold);
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-book {
+            background-color: var(--gold);
+            color: var(--text);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-book:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* NAVIGATION */
+        .nav-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .nav-logo-circle {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--ivory);
+        }
+
+        .nav-logo-circle svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .nav-logo-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.65rem;
+            color: var(--green-dark);
+            font-weight: 400;
+            line-height: 1;
+        }
+
+        .nav-logo-text h2 {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 0.55rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a.active {
+            color: var(--gold);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-right-phone {
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--text);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+            color: var(--white);
+            padding: 100px 20px;
+            text-align: center;
+            min-height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--gold-pale);
+            max-width: 600px;
+        }
+
+        /* SECTIONS */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--green-dark);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--green-dark);
+            margin-bottom: 20px;
+        }
+
+        /* SECTION 1 - TEE TIME INFO */
+        #tee-info {
+            background-color: var(--ivory);
+        }
+
+        .info-card {
+            background-color: var(--white);
+            border-left: 4px solid var(--gold);
+            padding: 35px;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.05rem;
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .info-card li strong {
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        /* SECTION 2 - RATE CARD */
+        #rates {
+            background-color: var(--white);
+        }
+
+        .rate-notice {
+            background-color: var(--ivory);
+            border: 2px dashed var(--gold);
+            padding: 40px;
+            border-radius: 4px;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .rate-notice p {
+            font-size: 1.2rem;
+            color: var(--green-dark);
+            line-height: 1.6;
+        }
+
+        .tee-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .tee-card {
+            background: linear-gradient(135deg, var(--ivory) 0%, var(--cream) 100%);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .tee-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .tee-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .tee-card-stat {
+            font-size: 1rem;
+            color: var(--text-light);
+            margin: 10px 0;
+        }
+
+        .tee-card-stat strong {
+            color: var(--green-dark);
+            font-weight: 600;
+        }
+
+        .rate-details {
+            background-color: var(--ivory);
+            padding: 30px;
+            border-radius: 4px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rate-details p {
+            font-size: 1.05rem;
+            margin: 15px 0;
+            color: var(--text);
+        }
+
+        /* SECTION 3 - LEAGUE PLAY */
+        #league {
+            background-color: var(--ivory);
+        }
+
+        .league-content {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 4px;
+            border-left: 4px solid var(--green-light);
+        }
+
+        .league-content p {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            color: var(--text);
+        }
+
+        .league-days {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            justify-content: center;
+        }
+
+        .day-badge {
+            background-color: var(--gold);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* SECTION 4 - MEMBERSHIP */
+        #membership {
+            background-color: var(--white);
+        }
+
+        .membership-card {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            border-radius: 8px;
+            padding: 50px 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border: 2px solid var(--gold-light);
+        }
+
+        .membership-card h3 {
+            font-size: 2rem;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+
+        .membership-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--gold-light);
+            margin: 20px 0;
+            font-weight: 700;
+        }
+
+        .membership-period {
+            font-size: 1rem;
+            color: var(--gold-pale);
+            margin-bottom: 30px;
+        }
+
+        .membership-benefits {
+            text-align: left;
+            margin: 30px 0;
+        }
+
+        .membership-benefits li {
+            list-style: none;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 1.05rem;
+        }
+
+        .membership-benefits li:last-child {
+            border-bottom: none;
+        }
+
+        .membership-benefits li::before {
+            content: '✓ ';
+            color: var(--gold-light);
+            font-weight: 700;
+            margin-right: 10px;
+        }
+
+        .membership-cta {
+            margin-top: 30px;
+            font-size: 1rem;
+        }
+
+        .membership-contact {
+            color: var(--gold-pale);
+            font-weight: 600;
+        }
+
+        /* SECTION 5 - COMING SOON */
+        #coming-soon {
+            background-color: var(--ivory);
+        }
+
+        .coming-soon-box {
+            background-color: var(--white);
+            border: 2px dashed var(--gold);
+            border-radius: 4px;
+            padding: 60px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .coming-soon-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 30px;
+        }
+
+        .coming-soon-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--gold);
+        }
+
+        .coming-soon-box h2 {
+            font-size: 2.2rem;
+            color: var(--green-dark);
+            margin: 0 0 15px 0;
+        }
+
+        .coming-soon-subheading {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin: 0 0 25px 0;
+            font-style: italic;
+        }
+
+        .coming-soon-box p {
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--white);
+            margin: 0 0 20px 0;
+        }
+
+        .cta-band p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            color: var(--gold-pale);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn-cta {
+            background-color: var(--gold);
+            color: var(--text);
+            padding: 15px 40px;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--gold-light);
+            transform: scale(1.05);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin: 10px 0;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-brand h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.5;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 30px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 12px;
+                justify-content: center;
+            }
+
+            .top-bar-left {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .top-bar-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            nav {
+                padding: 12px 15px;
+            }
+
+            .nav-logo-circle {
+                width: 40px;
+                height: 40px;
+            }
+
+            .nav-logo-text h1 {
+                font-size: 1.3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-right-phone {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 50px 15px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .info-card {
+                padding: 25px;
+            }
+
+            .tee-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .membership-card {
+                padding: 35px 25px;
+            }
+
+            .membership-price {
+                font-size: 2.2rem;
+            }
+
+            .coming-soon-box {
+                padding: 40px 25px;
+            }
+
+            .cta-band h2 {
+                font-size: 1.8rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .membership-price {
+                font-size: 2rem;
+            }
+
+            .info-card {
+                padding: 20px;
+            }
+
+            .btn-book, .btn-cta {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                </svg>
+                <span>320 Ten Rod Road, Exeter, RI 02822</span>
+            </div>
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+                <span>(401) 295-8212</span>
+            </div>
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                </svg>
+                <span>jen@exetercc.com</span>
+            </div>
+        </div>
+        <div class="top-bar-right">
+            <button class="btn-book">Book a Tee Time</button>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <div class="nav-wrapper">
+        <nav>
+            <div class="nav-logo">
+                <div class="nav-logo-circle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M12 7v5l4 2"/>
+                    </svg>
+                </div>
+                <div class="nav-logo-text">
+                    <h1>Exeter</h1>
+                    <h2>Country Club</h2>
+                </div>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="course.html">The Course</a></li>
+                <li><a href="rates.html" class="active">Rates & Tee Times</a></li>
+                <li><a href="outings.html">Outings & Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <span class="nav-right-phone">(401) 295-8212</span>
+                <button class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Rates & Tee Times</h1>
+        <p>Reserve your tee time and discover our competitive rates</p>
+    </section>
+
+    <!-- SECTION 1: TEE TIME INFORMATION -->
+    <section id="tee-info" class="container">
+        <h2>Tee Time Information</h2>
+        <div class="info-card">
+            <ul>
+                <li><strong>Advance Reservations:</strong> Tee times reserved up to 5 days in advance</li>
+                <li><strong>Book Your Tee Time:</strong> Contact Pro Shop at (401) 295-8212, in-person or by phone</li>
+                <li><strong>Arrival Time:</strong> Arrive 15 minutes before your tee time and check in at Pro Shop</li>
+                <li><strong>Single Players:</strong> Arrive 45 minutes early for available openings</li>
+                <li><strong>Payment:</strong> All major credit cards accepted, cash preferred</li>
+                <li><strong>Deposits:</strong> Credit card deposit required for Friday-Sunday tee times (Visa/MC only)</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 2: RATE CARD -->
+    <section id="rates" class="container">
+        <h2>Golf Rates</h2>
+        <div class="rate-notice">
+            <p>Rates vary seasonally. Please contact the Golf Shop at (401) 295-8212 for current pricing and availability.</p>
+        </div>
+
+        <div class="tee-cards">
+            <div class="tee-card">
+                <h3>Back (Blue) Tees</h3>
+                <div class="tee-card-stat"><strong>6,921</strong> yards</div>
+                <div class="tee-card-stat"><strong>Par 72</strong></div>
+            </div>
+            <div class="tee-card">
+                <h3>White Tees</h3>
+                <div class="tee-card-stat"><strong>6,406</strong> yards</div>
+                <div class="tee-card-stat"><strong>Par 72</strong></div>
+            </div>
+            <div class="tee-card">
+                <h3>Forward (Red) Tees</h3>
+                <div class="tee-card-stat"><strong>5,706</strong> yards</div>
+                <div class="tee-card-stat"><strong>Par 72</strong></div>
+            </div>
+        </div>
+
+        <div class="rate-details">
+            <p><strong>Electric drive carts and pull cart rentals available</strong></p>
+            <p>9-hole rates available at select times. Call (401) 295-8212 for details.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: LEAGUE PLAY -->
+    <section id="league" class="container">
+        <h2>League Play</h2>
+        <div class="league-content">
+            <p>We offer popular <strong>weekday afternoon league play</strong> with multiple opportunities to compete and improve your game.</p>
+
+            <div class="league-days">
+                <div class="day-badge">Monday</div>
+                <div class="day-badge">Tuesday</div>
+                <div class="day-badge">Wednesday</div>
+                <div class="day-badge">Thursday</div>
+            </div>
+
+            <p style="margin-top: 25px; color: var(--text-light); font-style: italic;">No league play on Friday, Saturday, or Sunday</p>
+
+            <p style="margin-top: 25px;">
+                <strong>Interested in joining?</strong> Contact our Pro Shop at <strong>(401) 295-8212</strong> to learn about league availability and registration.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: INNER CLUB MEMBERSHIP -->
+    <section id="membership" class="container">
+        <h2>Inner Club Membership</h2>
+        <div class="membership-card">
+            <h3>Premium Membership</h3>
+            <div class="membership-price">$300</div>
+            <div class="membership-period">per year</div>
+
+            <ul class="membership-benefits">
+                <li>5-day advance tee time reservations</li>
+                <li>GHIN handicap membership included</li>
+                <li>Inner Club tournaments including Club Championship</li>
+                <li>RIGA affiliation and playing privileges</li>
+                <li>Greens fees paid at time of play</li>
+            </ul>
+
+            <div class="membership-cta">
+                <p>For membership inquiries, contact</p>
+                <p class="membership-contact">Jennifer at jen@exetercc.com or (401) 295-8212</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: COMING SOON -->
+    <section id="coming-soon" class="container">
+        <div class="coming-soon-box">
+            <div class="coming-soon-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
+            <h2>Online Tee Time Booking</h2>
+            <div class="coming-soon-subheading">Coming Soon</div>
+            <p>We're working on bringing you the convenience of booking your tee time online. In the meantime, please call our Pro Shop at <strong>(401) 295-8212</strong> to reserve your spot.</p>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <h2>Ready to Play?</h2>
+        <p>Call our Pro Shop today to reserve your tee time and experience the Exeter Country Club difference.</p>
+        <button class="btn-cta">Contact Pro Shop</button>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-brand">
+                <h1>Exeter</h1>
+                <p>Exeter Country Club is a premier destination for golf in Rhode Island, offering championship golf, beautiful grounds, and exceptional member experiences.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="course.html">The Course</a></li>
+                    <li><a href="rates.html">Rates & Tee Times</a></li>
+                    <li><a href="outings.html">Outings & Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Golf</h3>
+                <ul>
+                    <li><a href="#">Course Map</a></li>
+                    <li><a href="#">Leaderboards</a></li>
+                    <li><a href="#">Tournaments</a></li>
+                    <li><a href="#">League Play</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <ul>
+                    <li><a href="tel:(401)295-8212">(401) 295-8212</a></li>
+                    <li><a href="mailto:jen@exetercc.com">jen@exetercc.com</a></li>
+                    <li>320 Ten Rod Road<br>Exeter, RI 02822</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 Exeter Country Club. All rights reserved. | RIGA Affiliated | USGA Member</p>
+        </div>
+    </footer>
+
+    <!-- CHAT WIDGET -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+</body>
+</html>

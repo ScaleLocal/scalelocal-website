@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exeter Country Club | Premier Public Golf in Exeter, Rhode Island</title>
+    <meta name="description" content="Exeter Country Club — Geoffrey Cornish-designed 18-hole championship course in Exeter, RI. Public golf, signature dining, tournaments & events since 1964.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           EXETER COUNTRY CLUB — DESIGN SYSTEM v2
+           Elevated Country Club Aesthetic
+           Deep Forest Green + Antique Gold + Ivory
+        ======================================== */
+        :root {
+            --green: #1B4332;
+            --green-dark: #0D2818;
+            --green-mid: #2D6A4F;
+            --green-light: #40916C;
+            --gold: #B8960C;
+            --gold-light: #D4AF37;
+            --gold-pale: #E8D48B;
+            --gold-dark: #8B7209;
+            --ivory: #FAF8F2;
+            --ivory-dark: #F0EDE3;
+            --cream: #F5F1E8;
+            --white: #FFFFFF;
+            --charcoal: #1A1A1A;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --text-muted: #8A8A7E;
+            --border: #DDD8CC;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+            --shadow-md: 0 8px 30px rgba(0,0,0,0.08);
+            --shadow-lg: 0 20px 60px rgba(0,0,0,0.12);
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: var(--text);
+            line-height: 1.75;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3, h4, h5 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            line-height: 1.2;
+            color: var(--green-dark);
+        }
+        h1 { font-size: clamp(2.5rem, 5.5vw, 4rem); letter-spacing: -0.02em; }
+        h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.01em; }
+        h3 { font-size: clamp(1.2rem, 2.2vw, 1.5rem); }
+        .serif-body {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 400;
+            font-size: 1.15rem;
+            line-height: 1.85;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container-wide { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 100px 0; }
+
+        /* ========== TOP BAR ========== */
+        .top-bar {
+            background: var(--green-dark);
+            color: rgba(255,255,255,0.7);
+            font-size: 0.8rem;
+            padding: 10px 0;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid rgba(200,169,81,0.12);
+        }
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .top-bar-left { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
+        .top-bar-left span { display: flex; align-items: center; gap: 7px; }
+        .top-bar-left svg { width: 13px; height: 13px; fill: var(--gold); flex-shrink: 0; opacity: 0.8; }
+        .top-bar a { color: var(--gold-light); }
+        .top-bar a:hover { color: #fff; }
+        .top-bar-cta {
+            background: var(--gold);
+            color: var(--green-dark);
+            padding: 6px 20px;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .top-bar-cta:hover { background: var(--gold-light); }
+
+        /* ========== NAVIGATION ========== */
+        .nav-wrap {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo { display: flex; align-items: center; gap: 12px; }
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon svg { width: 22px; height: 22px; fill: var(--green); }
+        .logo-text { display: flex; flex-direction: column; line-height: 1; }
+        .logo-exeter {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.65rem;
+            color: var(--green-dark);
+            letter-spacing: 0.5px;
+        }
+        .logo-cc {
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 0.55rem;
+            color: var(--gold);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+        .nav-links a {
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text);
+            position: relative;
+            padding: 4px 0;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links a.active { color: var(--green-dark); }
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+            color: var(--green-dark);
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        .nav-phone svg { width: 16px; height: 16px; fill: var(--gold); }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; background: none; border: none; }
+        .hamburger span { width: 24px; height: 2px; background: var(--green-dark); transition: 0.3s; display: block; }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(165deg, rgba(13,40,24,0.88) 0%, rgba(27,67,50,0.72) 50%, rgba(45,106,79,0.6) 100%),
+                        url('images/hero-golf-course.jpg') center/cover no-repeat;
+            color: var(--white);
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(184,150,12,0.06) 0%, transparent 60%);
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 200px;
+            background: linear-gradient(to top, var(--ivory), transparent);
+        }
+        .hero .container { position: relative; z-index: 2; padding: 120px 24px 140px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(212,175,55,0.35);
+            color: var(--gold-pale);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding: 10px 24px;
+            margin-bottom: 32px;
+            background: rgba(184,150,12,0.08);
+        }
+        .hero-badge svg { width: 14px; height: 14px; fill: var(--gold-light); }
+        .hero h1 {
+            color: var(--white);
+            max-width: 750px;
+            margin-bottom: 24px;
+            font-weight: 700;
+        }
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+        .hero-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            max-width: 580px;
+            margin-bottom: 44px;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            font-size: 0.78rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 16px 36px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+        .btn-gold {
+            background: var(--gold);
+            color: var(--green-dark);
+            border-color: var(--gold);
+        }
+        .btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(184,150,12,0.3); }
+        .btn-ghost {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255,255,255,0.3);
+        }
+        .btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+        .btn-green {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+        .btn-green:hover { background: var(--green-dark); border-color: var(--green-dark); transform: translateY(-2px); }
+        .btn-outline {
+            background: transparent;
+            color: var(--green-dark);
+            border-color: var(--green-dark);
+        }
+        .btn-outline:hover { background: var(--green-dark); color: var(--white); }
+
+        /* ========== STATS RIBBON ========== */
+        .stats-ribbon {
+            background: var(--green-dark);
+            position: relative;
+            z-index: 3;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .stat-item {
+            padding: 40px 24px;
+            text-align: center;
+            position: relative;
+        }
+        .stat-item::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 25%;
+            height: 50%;
+            width: 1px;
+            background: rgba(212,175,55,0.15);
+        }
+        .stat-item:last-child::after { display: none; }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.45);
+        }
+
+        /* ========== SECTION HEADER ========== */
+        .section-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 900;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+        .section-header { text-align: center; margin-bottom: 64px; }
+        .section-header h2 { margin-bottom: 20px; }
+        .section-header p {
+            max-width: 620px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+        .gold-rule {
+            width: 50px;
+            height: 2px;
+            background: var(--gold);
+            margin: 20px auto;
+        }
+
+        /* ========== EXPERIENCE CARDS ========== */
+        .experience { background: var(--ivory); }
+        .exp-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        .exp-card {
+            background: var(--white);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+        }
+        .exp-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--gold); }
+        .exp-card-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        .exp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .exp-card:hover .exp-card-img img { transform: scale(1.05); }
+        .exp-card-img .exp-tag {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--green-dark);
+            color: var(--gold-light);
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+        }
+        .exp-card-body { padding: 32px 28px; }
+        .exp-card-body h3 {
+            margin-bottom: 12px;
+            font-size: 1.35rem;
+        }
+        .exp-card-body p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        .exp-link {
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .exp-link svg { width: 14px; height: 14px; fill: var(--gold); transition: transform 0.3s ease; }
+        .exp-link:hover svg { transform: translateX(4px); }
+        .exp-link:hover { color: var(--green-dark); }
+
+        /* ========== COURSE HIGHLIGHT ========== */
+        .course-hl { background: var(--white); }
+        .course-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .course-img-wrap { position: relative; }
+        .course-img-wrap img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+        .course-img-badge {
+            position: absolute;
+            bottom: -20px;
+            right: 30px;
+            background: var(--gold);
+            color: var(--green-dark);
+            padding: 20px 28px;
+            text-align: center;
+        }
+        .course-img-badge .badge-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        .course-img-badge .badge-text {
+            font-size: 0.65rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .course-content h2 { margin-bottom: 24px; }
+        .course-content .serif-body { color: var(--text-light); margin-bottom: 20px; }
+        .course-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 32px 0;
+            padding: 28px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        .course-stat { text-align: center; }
+        .course-stat-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--green-dark);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+        .course-stat-lbl {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ========== DINING BANNER ========== */
+        .dining-banner {
+            position: relative;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(13,40,24,0.92) 0%, rgba(27,67,50,0.85) 100%),
+                        url('images/stock-clubhouse-dining.jpg') center/cover no-repeat;
+            color: var(--white);
+        }
+        .dining-banner .container { position: relative; z-index: 2; }
+        .dining-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .dining-content h2 { color: var(--white); margin-bottom: 20px; }
+        .dining-content .section-label { color: var(--gold-light); }
+        .dining-content p {
+            color: rgba(255,255,255,0.75);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            line-height: 1.85;
+            margin-bottom: 32px;
+        }
+        .dining-features { list-style: none; }
+        .dining-features li {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: rgba(255,255,255,0.85);
+            font-size: 0.95rem;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .dining-features svg { width: 18px; height: 18px; fill: var(--gold-light); flex-shrink: 0; }
+
+        /* ========== MEMBERSHIP TEASER ========== */
+        .membership { background: var(--ivory); }
+        .membership-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            padding: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .membership-card h2 { margin-bottom: 16px; }
+        .membership-card .serif-body { color: var(--text-light); margin-bottom: 24px; }
+        .membership-perks { list-style: none; }
+        .membership-perks li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 8px 0;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+        .membership-perks svg { width: 18px; height: 18px; fill: var(--gold); flex-shrink: 0; margin-top: 2px; }
+        .membership-price {
+            text-align: center;
+            padding: 48px 40px;
+            background: var(--green-dark);
+            color: var(--white);
+        }
+        .membership-price .price-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 12px;
+        }
+        .membership-price .price-amount {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1;
+        }
+        .membership-price .price-period {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            margin-bottom: 20px;
+        }
+        .membership-price .price-note {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 20px;
+            line-height: 1.5;
+        }
+
+        /* ========== CTA BAND ========== */
+        .cta-band {
+            background: var(--green-dark);
+            text-align: center;
+            padding: 72px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-band::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(184,150,12,0.05) 0%, transparent 70%);
+        }
+        .cta-band .container { position: relative; z-index: 2; }
+        .cta-band h2 { color: var(--white); margin-bottom: 16px; }
+        .cta-band p { color: rgba(255,255,255,0.6); margin-bottom: 32px; font-size: 1.05rem; }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.6);
+            padding: 72px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 48px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .footer-brand .logo-exeter { color: var(--white); font-size: 1.5rem; }
+        .footer-brand .logo-cc { color: var(--gold); }
+        .footer-brand p { margin-top: 16px; font-size: 0.88rem; line-height: 1.75; }
+        .footer h4 {
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 900;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul a { font-size: 0.88rem; color: rgba(255,255,255,0.5); }
+        .footer ul a:hover { color: var(--gold-light); }
+        .footer-contact li { display: flex; align-items: flex-start; gap: 10px; }
+        .footer-contact svg { width: 15px; height: 15px; fill: var(--gold); flex-shrink: 0; margin-top: 4px; opacity: 0.7; }
+        .footer-bottom {
+            padding: 28px 0;
+            text-align: center;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            letter-spacing: 0.5px;
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                padding: 28px;
+                gap: 18px;
+                box-shadow: var(--shadow-lg);
+                border-top: 2px solid var(--gold);
+            }
+            .nav-phone { display: none; }
+            .exp-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
+            .course-grid { grid-template-columns: 1fr; gap: 40px; }
+            .dining-grid { grid-template-columns: 1fr; gap: 40px; }
+            .membership-card { grid-template-columns: 1fr; padding: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .top-bar-left { gap: 14px; font-size: 0.72rem; }
+            section { padding: 72px 0; }
+            .hero .container { padding: 80px 24px 100px; }
+            .hero { min-height: 75vh; }
+            .course-img-wrap img { height: 350px; }
+        }
+        @media (max-width: 480px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-item::after { display: none; }
+            .top-bar-left span:nth-child(2) { display: none; }
+            .course-stats { grid-template-columns: 1fr; }
+            .membership-card { padding: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-left">
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                    320 Ten Rod Road, Exeter, RI 02822
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <a href="tel:4012958212">(401) 295-8212</a>
+                </span>
+                <span>
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:jen@exetercc.com">jen@exetercc.com</a>
+                </span>
+            </div>
+            <a href="tel:4012958212" class="top-bar-cta">Book a Tee Time</a>
+        </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav-wrap">
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-exeter">Exeter</span>
+                    <span class="logo-cc">Country Club</span>
+                </div>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="course.html">The Course</a></li>
+                <li><a href="rates.html">Rates & Tee Times</a></li>
+                <li><a href="events.html">Outings & Events</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="tel:4012958212" class="nav-phone">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                (401) 295-8212
+            </a>
+            <button class="hamburger" id="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                Established 1964 &mdash; Exeter, Rhode Island
+            </div>
+            <h1>Rhode Island's <em>Premier</em><br>Public Golf Experience</h1>
+            <p class="hero-sub">A Geoffrey Cornish masterpiece nestled in the rolling countryside of southern Rhode Island. Championship golf, signature dining, and unforgettable events &mdash; all open to the public.</p>
+            <div class="hero-btns">
+                <a href="tel:4012958212" class="btn btn-gold">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Reserve Tee Time
+                </a>
+                <a href="course.html" class="btn btn-ghost">Explore the Course</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS RIBBON -->
+    <div class="stats-ribbon">
+        <div class="container-wide" style="padding:0;">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">60+</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Championship Holes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6,921</div>
+                    <div class="stat-label">Yards &middot; Back Tees</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Par 72</div>
+                    <div class="stat-label">Slope 123 &middot; Rating 72.3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- EXPERIENCE CARDS -->
+    <section class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">The Exeter Experience</span>
+                <h2>More Than a Round of Golf</h2>
+                <div class="gold-rule"></div>
+                <p>From the first tee to the final toast in our clubhouse, every moment at Exeter Country Club is designed to exceed expectations.</p>
+            </div>
+            <div class="exp-grid">
+                <div class="exp-card">
+                    <div class="exp-card-img">
+                        <img src="images/stock-golf-fairway.jpg" alt="Championship golf fairway at Exeter Country Club" loading="lazy">
+                        <span class="exp-tag">Championship Golf</span>
+                    </div>
+                    <div class="exp-card-body">
+                        <h3>The Course</h3>
+                        <p>Geoffrey Cornish's 1964 masterpiece features Poa Annua greens, Kentucky Bluegrass fairways, and elevation changes that reward strategic play at every level.</p>
+                        <a href="course.html" class="exp-link">
+                            Explore the Course
+                            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-card-img">
+                        <img src="images/stock-clubhouse-dining.jpg" alt="Clubhouse dining at Exeter Country Club" loading="lazy">
+                        <span class="exp-tag">Signature Dining</span>
+                    </div>
+                    <div class="exp-card-body">
+                        <h3>Restaurant & Bar</h3>
+                        <p>Steaks prepared to order on our legendary open-fire pit. Full bar, brick patio overlooking the fairways, and a menu crafted for every occasion from casual to celebratory.</p>
+                        <a href="events.html" class="exp-link">
+                            View Dining & Events
+                            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-card-img">
+                        <img src="images/stock-event-space.jpg" alt="Event space at Exeter Country Club" loading="lazy">
+                        <span class="exp-tag">Outings & Events</span>
+                    </div>
+                    <div class="exp-card-body">
+                        <h3>Your Next Event</h3>
+                        <p>Corporate outings, charity tournaments, bachelor parties, and celebrations. Professionally managed with customizable golf and dining packages tailored to your group.</p>
+                        <a href="events.html" class="exp-link">
+                            Plan Your Event
+                            <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSE HIGHLIGHT -->
+    <section class="course-hl">
+        <div class="container">
+            <div class="course-grid">
+                <div class="course-img-wrap">
+                    <img src="images/course-aerial.jpg" alt="Exeter Country Club course aerial view" loading="lazy">
+                    <div class="course-img-badge">
+                        <div class="badge-num">63</div>
+                        <div class="badge-text">Course Record<br>R. Butcher, 1995</div>
+                    </div>
+                </div>
+                <div class="course-content">
+                    <span class="section-label">Designed by Geoffrey Cornish</span>
+                    <h2>A New England Classic Since 1964</h2>
+                    <p class="serif-body">Long considered one of Rhode Island's finest championship courses, Exeter Country Club winds through scenic countryside with rolling fairways, strategic bunkering, and greens that demand precision. Open to the public and welcoming to players of every ability.</p>
+                    <div class="course-stats">
+                        <div class="course-stat">
+                            <div class="course-stat-val">6,921</div>
+                            <div class="course-stat-lbl">Back Tees</div>
+                        </div>
+                        <div class="course-stat">
+                            <div class="course-stat-val">6,406</div>
+                            <div class="course-stat-lbl">White Tees</div>
+                        </div>
+                        <div class="course-stat">
+                            <div class="course-stat-val">5,706</div>
+                            <div class="course-stat-lbl">Forward Tees</div>
+                        </div>
+                    </div>
+                    <a href="course.html" class="btn btn-outline">Full Course Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DINING BANNER -->
+    <section class="dining-banner">
+        <div class="container">
+            <div class="dining-grid">
+                <div class="dining-content">
+                    <span class="section-label">Clubhouse Dining</span>
+                    <h2>The Signature<br>Steak Pit Experience</h2>
+                    <p>After your round, settle into our clubhouse for steaks prepared to order on our open-fire pit, cold drinks at the full bar, and views of the course from our brick patio. It's the kind of post-round tradition that keeps players coming back.</p>
+                    <a href="events.html" class="btn btn-gold">Explore Dining & Events</a>
+                </div>
+                <div>
+                    <ul class="dining-features">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+                            Open-fire steak pit with steaks to order
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-8 16c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+                            Full-service bar with craft selections
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.41 1.41 1.79 1.79 1.42-1.41zM4 10.5H1v2h3v-2zm9-9.95h-2V3.5h2V.55zm7.45 3.91l-1.41-1.41-1.79 1.79 1.41 1.41 1.79-1.79zm-3.21 13.7l1.79 1.8 1.41-1.41-1.8-1.79-1.4 1.4zM20 10.5v2h3v-2h-3zm-8-5c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm-1 16.95h2V19.5h-2v2.95zm-7.45-3.91l1.41 1.41 1.79-1.8-1.41-1.41-1.79 1.8z"/></svg>
+                            Scenic brick patio with fairway views
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                            Customizable menus for private events
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M2 17h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1 3h1.8L2 13.1v.9h3v-1H3.2L5 10.9V10H2v1zm5-6v2h14V5H7zm0 14h14v-2H7v2zm0-6h14v-2H7v2z"/></svg>
+                            Indoor dining for inclement weather
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MEMBERSHIP TEASER -->
+    <section class="membership">
+        <div class="container">
+            <div class="membership-card">
+                <div>
+                    <span class="section-label">Inner Club Membership</span>
+                    <h2>Unlock the Full Exeter Experience</h2>
+                    <p class="serif-body">Join our Inner Club and gain priority access, competitive play, and a community of golfers who share your passion for the game. No membership required to play &mdash; but members enjoy distinct advantages.</p>
+                    <ul class="membership-perks">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            5-day advance tee time reservations
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Official GHIN handicap index
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Inner Club tournaments including Club Championship
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                            Rhode Island Golf Association affiliation & privileges
+                        </li>
+                    </ul>
+                </div>
+                <div class="membership-price">
+                    <div class="price-label">Annual Membership</div>
+                    <div class="price-amount">$300</div>
+                    <div class="price-period">per year</div>
+                    <a href="tel:4012958212" class="btn btn-gold" style="width:100%;">Inquire About Membership</a>
+                    <div class="price-note">Greens fees paid at time of play.<br>Contact Jennifer for details.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="container">
+            <h2>Ready to Play Exeter?</h2>
+            <p>Call the Pro Shop to reserve your tee time, or plan your next event with our team.</p>
+            <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+                <a href="tel:4012958212" class="btn btn-gold">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Call (401) 295-8212
+                </a>
+                <a href="events.html" class="btn btn-ghost">Plan an Event</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="margin-bottom:0;">
+                        <div class="logo-text">
+                            <span class="logo-exeter">Exeter</span>
+                            <span class="logo-cc">Country Club</span>
+                        </div>
+                    </a>
+                    <p>A Geoffrey Cornish-designed championship 18-hole public golf course in the heart of southern Rhode Island. Proudly welcoming golfers since 1964.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="course.html">The Course</a></li>
+                        <li><a href="rates.html">Rates & Tee Times</a></li>
+                        <li><a href="events.html">Outings & Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Golf</h4>
+                    <ul>
+                        <li><a href="rates.html">Current Rates</a></li>
+                        <li><a href="rates.html#membership">Inner Club Membership</a></li>
+                        <li><a href="events.html">Outings & Tournaments</a></li>
+                        <li><a href="events.html#dining">Restaurant & Bar</a></li>
+                        <li><a href="course.html#practice">Practice Facilities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                            320 Ten Rod Road<br>Exeter, RI 02822
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>Pro Shop: <a href="tel:4012958212">(401) 295-8212</a><br>Clubhouse: <a href="tel:4012951178">(401) 295-1178</a></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:jen@exetercc.com">jen@exetercc.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Exeter Country Club. All rights reserved. &nbsp;|&nbsp; 320 Ten Rod Road (Route 102), Exeter, Rhode Island 02822 &nbsp;|&nbsp; Member of RIGA & USGA
+            </div>
+        </div>
+    </footer>
+
+    <!-- CHAT WIDGET — Preview Slot 2 -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="69d81a75d69ee845759a0dc1"></script>
+</body>
+</html>

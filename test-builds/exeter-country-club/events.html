@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outings & Events | Exeter Country Club</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&family=Cormorant+Garamond:wght@400;600&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* DESIGN SYSTEM */
+        :root {
+            --green: #1B4332;
+            --green-dark: #0D2818;
+            --green-mid: #2D6A4F;
+            --green-light: #40916C;
+            --gold: #B8960C;
+            --gold-light: #D4AF37;
+            --gold-pale: #E8D48B;
+            --gold-dark: #8B7209;
+            --ivory: #FAF8F2;
+            --ivory-dark: #F0EDE3;
+            --cream: #F5F1E8;
+            --white: #FFFFFF;
+            --charcoal: #1A1A1A;
+            --text: #2C2C2C;
+            --text-light: #5A5A5A;
+            --text-muted: #8A8A7E;
+            --border: #DDD8CC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        /* TOP BAR */
+        .top-bar {
+            background-color: var(--green-dark);
+            color: var(--white);
+            padding: 12px 20px;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-bar svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold);
+        }
+
+        .cta-button {
+            background-color: var(--gold);
+            color: var(--green-dark);
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--gold-light);
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 12px;
+            }
+            .top-bar-left {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--green-dark);
+        }
+
+        .nav-logo-circle {
+            width: 32px;
+            height: 32px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--white);
+        }
+
+        .nav-logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .nav-logo-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.65rem;
+            color: var(--green-dark);
+            line-height: 1;
+            font-weight: 600;
+        }
+
+        .nav-logo-club {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 900;
+            color: var(--gold);
+            letter-spacing: 5px;
+            line-height: 1;
+        }
+
+        .nav-center {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-center a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-family: 'Lato', sans-serif;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-center a:hover {
+            color: var(--gold);
+        }
+
+        .nav-center a.active {
+            color: var(--gold);
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 2px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-phone {
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--green-dark);
+        }
+
+        @media (max-width: 900px) {
+            .nav-center {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            nav {
+                padding: 0 15px;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+            color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+            min-height: 45vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 80px 20px;
+                min-height: auto;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* TWO-COLUMN SECTION */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .two-column-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .two-column-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .two-column-text ul {
+            list-style: none;
+            margin: 30px 0;
+        }
+
+        .two-column-text li {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .two-column-text li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .two-column-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--ivory) 0%, var(--cream) 100%);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .two-column-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 900px) {
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        /* EVENT TYPES CARDS */
+        .event-types {
+            background-color: var(--ivory);
+            padding: 80px 20px;
+        }
+
+        .event-types h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .cards-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--gold);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--green-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 1024px) {
+            .cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* OUTING PACKAGE FEATURES */
+        .package-section {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+
+        .package-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .features-list {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 20px;
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--white);
+        }
+
+        .feature-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--green-dark);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .feature-text p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* DINING SECTION */
+        .dining-section {
+            background-color: var(--green-dark);
+            color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .dining-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .dining-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .dining-content p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .dining-highlight {
+            background: rgba(184, 150, 12, 0.15);
+            padding: 25px;
+            border-left: 4px solid var(--gold);
+            margin: 30px 0;
+            border-radius: 4px;
+        }
+
+        .dining-highlight h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .dining-highlight ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .dining-highlight li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .dining-highlight li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--gold-light);
+        }
+
+        .dining-cta {
+            margin-top: 35px;
+            padding-top: 35px;
+            border-top: 1px solid rgba(184, 150, 12, 0.3);
+        }
+
+        .dining-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .phone-link {
+            font-size: 1.4rem;
+            color: var(--gold-light);
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .phone-link:hover {
+            color: var(--gold);
+        }
+
+        /* HOW TO BOOK SECTION */
+        .booking-section {
+            background: var(--white);
+            padding: 80px 20px;
+        }
+
+        .booking-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--green-dark);
+            font-weight: 700;
+        }
+
+        .steps-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--white);
+            margin: 0 auto 20px;
+            font-weight: 700;
+        }
+
+        .step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--green-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .step p {
+            font-size: 1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        @media (max-width: 900px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        /* CONTACT CTA SECTION */
+        .contact-cta-section {
+            background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .contact-cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .contact-cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .contact-phone {
+            font-size: 2rem;
+            color: var(--gold-light);
+            font-weight: 700;
+            font-family: 'Lato', sans-serif;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--green-dark);
+            padding: 15px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* CTA BAND BEFORE FOOTER */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .cta-band-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-band h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .cta-band p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .cta-band-button {
+            background: var(--gold);
+            color: var(--green-dark);
+            padding: 12px 35px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .cta-band-button:hover {
+            background-color: var(--gold-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- TOP BAR -->
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.2 3.2.8-1.3-5.5-3.4V7z"/>
+                </svg>
+                <span>Exeter, RI</span>
+            </div>
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                </svg>
+                <span>(401) 295-1178</span>
+            </div>
+            <div class="top-bar-item">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>info@exetercc.com</span>
+            </div>
+        </div>
+        <a href="#contact" class="cta-button">Book a Tee Time</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <a href="index.html" class="nav-logo">
+            <div class="nav-logo-circle">E</div>
+            <div class="nav-logo-text">
+                <div class="nav-logo-name">Exeter</div>
+                <div class="nav-logo-club">COUNTRY CLUB</div>
+            </div>
+        </a>
+        <div class="nav-center">
+            <a href="index.html">Home</a>
+            <a href="course.html">The Course</a>
+            <a href="rates.html">Rates & Tee Times</a>
+            <a href="events.html" class="active">Outings & Events</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="nav-right">
+            <a href="tel:+14012951178" class="nav-phone">(401) 295-1178</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>Outings & Events</h1>
+        <p>From corporate tournaments to private celebrations, we handle every detail.</p>
+    </section>
+
+    <!-- GOLF OUTINGS OVERVIEW -->
+    <section class="booking-section">
+        <div class="section-container">
+            <div class="two-column">
+                <div class="two-column-text">
+                    <h2>Premium Golf Outings</h2>
+                    <p>Professionally managed golf outings for corporate and charity groups, bachelor parties, and birthdays. Our team brings decades of experience to every event, ensuring flawless execution from the first tee to the final toast.</p>
+                    <ul>
+                        <li>Customizable packages to fit your group and budget</li>
+                        <li>Full event coordination from tee to table</li>
+                        <li>Championship course on a Geoffrey Cornish design</li>
+                        <li>Professional tournament management available</li>
+                    </ul>
+                    <p style="margin-top: 40px; font-style: italic; color: var(--gold);">Contact Jennifer at (401) 295-1178 to discuss your vision.</p>
+                </div>
+                <div class="two-column-image">
+                    <img src="images/stock-event-space.jpg" alt="Golf event at Exeter Country Club">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EVENT TYPES CARDS -->
+    <section class="event-types">
+        <div class="section-container">
+            <h2>Types of Events We Host</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Corporate Outings</h3>
+                    <p>Team building, client entertainment, and networking events on a championship course. Perfect for strengthening relationships and making lasting impressions.</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Charity Tournaments</h3>
+                    <p>Professionally organized fundraiser tournaments with full scoring, leaderboards, and prize selections. We handle all logistics so you can focus on your cause.</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Private Celebrations</h3>
+                    <p>Bachelor parties, milestone birthdays, retirement celebrations, and special occasions. Create unforgettable memories with your closest friends and family.</p>
+                </div>
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>League Play</h3>
+                    <p>Weekday afternoon leagues Monday through Thursday with both competitive and social play options. Join our community of passionate golfers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUTING PACKAGE DETAILS -->
+    <section class="package-section">
+        <div class="section-container">
+            <h2>The Complete Outing Package</h2>
+            <div class="features-list">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.08-2.5-.78.9 2.86 3.4 3.54-4.35z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>18 Holes Championship Golf</h3>
+                        <p>Play our Geoffrey Cornish-designed course, recognized for its challenging layout and pristine conditioning.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11 9H9V7h2m8-2H1v14h18V7m-1 13H2V8h16v12m-8-10h2v8h-2m-4 0h2v8H6m8 0h2v8h-2z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Signature Steak Fry Dinner</h3>
+                        <p>Steaks prepared to order on our open-fire pit, served on the brick patio with views of the course.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Table Service & Patio Dining</h3>
+                        <p>Brick patio overlooking the course with indoor backup for inclement weather. Full beverage and appetizer service.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Beverage Cart Service</h3>
+                        <p>On-course refreshments and snacks available throughout your round. Note: Coolers are not permitted; use our beverage cart.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-0.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-0.9-2-2-2z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Prize Selection</h3>
+                        <p>Choose from our fully stocked Golf Shop for tournament prizes and awards. Professional scoring available.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.9 9.5c.3-.6.1-1.3-.5-1.6-.6-.3-1.3-.1-1.6.5L9.5 18.2l-3.2-2.6c-.5-.4-1.3-.4-1.8 0-.4.5-.4 1.3 0 1.8l4.1 3.4c.3.3.8.4 1.2.1l8.1-9.4z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Electric Golf Carts</h3>
+                        <p>Modern, well-maintained carts for comfortable transportation throughout your round.</p>
+                    </div>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12 6.5 2 12 2m0-2C6.48 0 2 4.48 2 10s4.48 10 10 10 10-4.48 10-10S17.52 0 12 0zm3.5 9c.83 0 1.5-.67 1.5-1.5S16.33 6 15.5 6 14 6.67 14 7.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 6 8.5 6 7 6.67 7 7.5 7.67 9 8.5 9zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                        </svg>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Custom Menu Design</h3>
+                        <p>Want something special? Call Jennifer to discuss your menu vision and customize your dining experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DINING SECTION -->
+    <section class="dining-section" id="dining">
+        <div class="section-container">
+            <h2>Restaurant & Bar</h2>
+            <div class="dining-content">
+                <p>Our full-service restaurant and bar in the clubhouse is the perfect venue for your celebration. Whether you're looking for fine dining or casual catering, we have the expertise and facilities to make your event special.</p>
+
+                <div class="dining-highlight">
+                    <h3>Our Signature Dining Experience</h3>
+                    <ul>
+                        <li>Open-fire steak pit with steaks prepared to order</li>
+                        <li>Brick patio dining overlooking the course</li>
+                        <li>Indoor dining for inclement weather</li>
+                        <li>Self-serve morning coffee</li>
+                        <li>Full bar with premium selections</li>
+                    </ul>
+                </div>
+
+                <p>Available for private functions, catering, and special events. Our experienced staff is ready to accommodate groups of any size, from intimate dinner parties to large tournaments.</p>
+
+                <div class="dining-cta">
+                    <p>Ready to reserve your space?</p>
+                    <a href="tel:+14012951178" class="phone-link">(401) 295-1178</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW TO BOOK YOUR EVENT -->
+    <section class="booking-section">
+        <div class="section-container">
+            <h2>How to Book Your Event</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Share Your Vision</h3>
+                    <p>Call Jennifer at (401) 295-1178 to discuss your event vision and customize the menu to your specifications.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>We Handle Logistics</h3>
+                    <p>We manage golf coordination, dining setup, prizes, beverage service, and all tournament logistics so you can focus on enjoying the day.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Confirm & Celebrate</h3>
+                    <p>Confirm your final participant count 72 hours before the event, then relax and enjoy a flawlessly executed day.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT CTA SECTION -->
+    <section class="contact-cta-section" id="contact">
+        <div class="contact-cta-content">
+            <h2>Ready to Plan Your Next Event?</h2>
+            <p>Let our experienced team handle all the details so you can focus on creating memories with your group.</p>
+            <div class="contact-phone">(401) 295-1178</div>
+            <a href="contact.html" class="contact-link">Send Us a Message</a>
+        </div>
+    </section>
+
+    <!-- CTA BAND BEFORE FOOTER -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h3>Experience the Exeter Difference</h3>
+            <p>Join our community of satisfied groups who have celebrated their most important moments at Exeter Country Club.</p>
+            <a href="tel:+14012951178" class="cta-band-button">Call Jennifer Now</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Exeter Country Club</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="course.html">The Course</a></li>
+                    <li><a href="rates.html">Rates & Tee Times</a></li>
+                    <li><a href="events.html">Outings & Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get in Touch</h4>
+                <ul>
+                    <li><a href="tel:+14012951178">(401) 295-1178</a></li>
+                    <li><a href="mailto:info@exetercc.com">info@exetercc.com</a></li>
+                    <li><a href="contact.html">Contact Form</a></li>
+                    <li><a href="#">Membership Inquiries</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Club Information</h4>
+                <ul>
+                    <li><a href="#">Hours of Operation</a></li>
+                    <li><a href="#">Dress Code</a></li>
+                    <li><a href="#">Course Rules</a></li>
+                    <li><a href="#">Pro Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Exeter Country Club. All rights reserved. | <a href="#" style="color: var(--text-muted); text-decoration: none;">Privacy Policy</a> | <a href="#" style="color: var(--text-muted); text-decoration: none;">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+</body>
+</html>
