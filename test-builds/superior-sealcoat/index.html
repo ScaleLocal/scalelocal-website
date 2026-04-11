@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Superior Sealcoat &amp; Paving | Wilmington, MA — Since 1990</title>
     <meta name="description" content="Superior Sealcoat Inc. — Premium sealcoating, asphalt paving, crack sealing & line striping in Wilmington, MA. Serving Massachusetts & New England since 1990. Call (978) 988-5555.">
-    <meta name="keywords" content="sealcoating Wilmington MA, asphalt paving Massachusetts, crack sealing, line striping, driveway paving, parking lot maintenance">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,9 +12,12 @@
         :root {
             --charcoal: #1a1a2e;
             --charcoal-light: #2d2d44;
-            --amber: #d4910a;
-            --amber-light: #e9a825;
-            --amber-dark: #b87a08;
+            --orange: #e87a1e;
+            --orange-light: #f09040;
+            --orange-dark: #c4660f;
+            --brown: #6b4c2a;
+            --brown-light: #8a6540;
+            --gold: #d4a543;
             --white: #ffffff;
             --off-white: #f7f6f3;
             --warm-gray: #f0eeeb;
@@ -36,7 +38,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             color: var(--gray-700);
@@ -44,10 +45,8 @@
             background: var(--white);
             -webkit-font-smoothing: antialiased;
         }
-
         img { max-width: 100%; height: auto; display: block; }
         a { color: inherit; text-decoration: none; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
         /* ===== UTILITY BAR ===== */
@@ -59,590 +58,306 @@
             letter-spacing: 0.02em;
         }
         .utility-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 8px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
         }
         .utility-bar a { color: rgba(255,255,255,0.9); transition: color 0.2s; }
-        .utility-bar a:hover { color: var(--amber-light); }
-        .utility-bar strong { color: var(--amber-light); font-weight: 600; }
+        .utility-bar a:hover { color: var(--orange-light); }
+        .utility-bar strong { color: var(--orange-light); font-weight: 600; }
 
         /* ===== HEADER ===== */
         header {
             background: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            position: sticky; top: 0; z-index: 100;
             box-shadow: var(--shadow-md);
-            transition: box-shadow 0.3s;
         }
-
         .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 10px 24px; max-width: 1200px; margin: 0 auto;
         }
+        .logo-link { display: flex; align-items: center; }
+        .logo-link img { height: 60px; width: auto; }
 
-        .logo { display: flex; align-items: center; gap: 14px; }
-        .logo-mark {
-            width: 48px; height: 48px;
-            background: linear-gradient(135deg, var(--amber), var(--amber-dark));
-            border-radius: var(--radius-sm);
-            display: flex; align-items: center; justify-content: center;
-            font-size: 20px; font-weight: 800; color: var(--white);
-            letter-spacing: -0.5px;
-            box-shadow: 0 2px 8px rgba(212,145,10,0.3);
-        }
-        .logo-text h1 {
-            font-size: 18px; font-weight: 800; color: var(--charcoal);
-            line-height: 1.15; letter-spacing: -0.3px;
-        }
-        .logo-text span {
-            font-size: 11px; color: var(--gray-500); font-weight: 500;
-            letter-spacing: 1.5px; text-transform: uppercase;
-        }
-
-        .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; }
+        .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
         .nav-links a {
             font-size: 14px; font-weight: 600; color: var(--gray-700);
             letter-spacing: 0.01em; transition: color 0.2s; position: relative;
         }
         .nav-links a::after {
             content: ''; position: absolute; bottom: -4px; left: 0;
-            width: 0; height: 2px; background: var(--amber);
-            transition: width 0.25s ease;
+            width: 0; height: 2px; background: var(--orange); transition: width 0.25s ease;
         }
         .nav-links a:hover { color: var(--charcoal); }
         .nav-links a:hover::after { width: 100%; }
         .nav-links a.active { color: var(--charcoal); }
         .nav-links a.active::after { width: 100%; }
-
         .nav-cta {
-            background: var(--amber);
-            color: var(--white) !important;
-            padding: 10px 24px;
-            border-radius: var(--radius-sm);
-            font-weight: 700;
-            font-size: 14px;
-            transition: all 0.25s;
-            box-shadow: 0 2px 8px rgba(212,145,10,0.25);
+            background: var(--orange); color: var(--white) !important;
+            padding: 10px 24px; border-radius: var(--radius-sm);
+            font-weight: 700; font-size: 14px; transition: all 0.25s;
+            box-shadow: 0 2px 8px rgba(232,122,30,0.25);
         }
-        .nav-cta:hover {
-            background: var(--amber-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(212,145,10,0.35);
-        }
+        .nav-cta:hover { background: var(--orange-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(232,122,30,0.35); }
         .nav-cta::after { display: none !important; }
 
-        .mobile-toggle {
-            display: none; background: none; border: none; cursor: pointer;
-            padding: 8px; color: var(--charcoal);
-        }
+        .mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; color: var(--charcoal); }
         .mobile-toggle svg { width: 26px; height: 26px; }
 
         /* ===== HERO ===== */
         .hero {
-            background: linear-gradient(165deg, var(--charcoal) 0%, var(--charcoal-light) 50%, #3a3a5c 100%);
-            padding: 100px 0 110px;
-            position: relative;
+            position: relative; min-height: 600px;
+            display: flex; align-items: center;
             overflow: hidden;
         }
-        .hero::before {
-            content: '';
-            position: absolute; top: 0; right: 0;
-            width: 50%; height: 100%;
-            background: linear-gradient(135deg, rgba(212,145,10,0.08) 0%, rgba(212,145,10,0.02) 100%);
-            clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        .hero-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('images/real-truck.jpg') center center / cover no-repeat;
         }
-        .hero::after {
-            content: '';
-            position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
-            background: linear-gradient(to top right, var(--white) 49.5%, transparent 50%);
+        .hero-bg::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(26,26,46,0.88) 0%, rgba(26,26,46,0.65) 60%, rgba(26,26,46,0.45) 100%);
         }
-
-        .hero .container { position: relative; z-index: 2; }
+        .hero .container { position: relative; z-index: 2; padding-top: 60px; padding-bottom: 60px; }
         .hero-content { max-width: 640px; }
-
         .hero-badge {
             display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(212,145,10,0.15);
-            border: 1px solid rgba(212,145,10,0.3);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 13px; font-weight: 600; color: var(--amber-light);
-            margin-bottom: 28px;
-            letter-spacing: 0.03em;
+            background: rgba(232,122,30,0.15); border: 1px solid rgba(232,122,30,0.3);
+            padding: 6px 16px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; color: var(--orange-light);
+            margin-bottom: 28px; letter-spacing: 0.03em;
         }
-
         .hero h2 {
-            font-size: 52px; font-weight: 800; color: var(--white);
-            line-height: 1.1; letter-spacing: -1.5px;
-            margin-bottom: 20px;
+            font-size: 50px; font-weight: 800; color: var(--white);
+            line-height: 1.1; letter-spacing: -1.5px; margin-bottom: 20px;
         }
-        .hero h2 .accent { color: var(--amber-light); }
-
+        .hero h2 .accent { color: var(--orange-light); }
         .hero p {
-            font-size: 18px; color: rgba(255,255,255,0.7);
-            line-height: 1.7; margin-bottom: 36px;
-            max-width: 520px;
+            font-size: 18px; color: rgba(255,255,255,0.75);
+            line-height: 1.7; margin-bottom: 36px; max-width: 520px;
         }
-
         .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
-
         .btn-primary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: var(--amber);
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: var(--radius-sm);
-            font-size: 16px; font-weight: 700;
-            transition: all 0.25s;
-            box-shadow: 0 4px 16px rgba(212,145,10,0.3);
-            border: none; cursor: pointer;
+            background: var(--orange); color: var(--white);
+            padding: 16px 32px; border-radius: var(--radius-sm);
+            font-size: 16px; font-weight: 700; transition: all 0.25s;
+            box-shadow: 0 4px 16px rgba(232,122,30,0.3); border: none; cursor: pointer;
         }
-        .btn-primary:hover {
-            background: var(--amber-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(212,145,10,0.4);
-        }
-
+        .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(232,122,30,0.4); }
         .btn-secondary {
             display: inline-flex; align-items: center; gap: 8px;
-            background: transparent;
-            color: var(--white);
-            padding: 16px 32px;
-            border-radius: var(--radius-sm);
-            font-size: 16px; font-weight: 600;
-            border: 2px solid rgba(255,255,255,0.25);
-            transition: all 0.25s;
-            cursor: pointer;
+            background: transparent; color: var(--white);
+            padding: 16px 32px; border-radius: var(--radius-sm);
+            font-size: 16px; font-weight: 600; border: 2px solid rgba(255,255,255,0.25);
+            transition: all 0.25s; cursor: pointer;
         }
-        .btn-secondary:hover {
-            border-color: rgba(255,255,255,0.5);
-            background: rgba(255,255,255,0.05);
-        }
+        .btn-secondary:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
 
         .hero-stats {
-            display: flex; gap: 48px;
-            margin-top: 56px;
-            padding-top: 32px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex; gap: 48px; margin-top: 56px;
+            padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.1);
         }
-        .hero-stat-number {
-            font-size: 36px; font-weight: 800; color: var(--amber-light);
-            line-height: 1; letter-spacing: -1px;
-        }
-        .hero-stat-label {
-            font-size: 13px; color: rgba(255,255,255,0.5);
-            font-weight: 500; margin-top: 4px;
-            text-transform: uppercase; letter-spacing: 0.1em;
-        }
+        .hero-stat-number { font-size: 36px; font-weight: 800; color: var(--orange-light); line-height: 1; letter-spacing: -1px; }
+        .hero-stat-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 500; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.1em; }
 
         /* ===== TRUST BAR ===== */
-        .trust-bar {
-            background: var(--off-white);
-            padding: 40px 0;
-            border-bottom: 1px solid var(--gray-100);
-        }
-        .trust-items {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 48px;
-            flex-wrap: wrap;
-        }
-        .trust-item {
-            display: flex; align-items: center; gap: 12px;
-            font-size: 14px; font-weight: 600; color: var(--gray-700);
-        }
+        .trust-bar { background: var(--off-white); padding: 40px 0; border-bottom: 1px solid var(--gray-100); }
+        .trust-items { display: flex; justify-content: center; align-items: center; gap: 48px; flex-wrap: wrap; }
+        .trust-item { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; color: var(--gray-700); }
         .trust-icon {
-            width: 40px; height: 40px;
-            background: var(--white);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: var(--shadow-sm);
+            width: 40px; height: 40px; background: var(--white); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);
         }
-        .trust-icon svg { width: 20px; height: 20px; color: var(--amber); }
+        .trust-icon svg { width: 20px; height: 20px; color: var(--orange); }
 
-        /* ===== SERVICES SECTION ===== */
-        .services {
-            padding: 100px 0;
-            background: var(--white);
-        }
-
+        /* ===== SERVICES ===== */
+        .services { padding: 100px 0; background: var(--white); }
         .section-label {
             display: inline-flex; align-items: center; gap: 8px;
-            font-size: 13px; font-weight: 700; color: var(--amber);
-            text-transform: uppercase; letter-spacing: 0.15em;
-            margin-bottom: 16px;
+            font-size: 13px; font-weight: 700; color: var(--orange);
+            text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px;
         }
-        .section-label::before {
-            content: ''; width: 24px; height: 2px;
-            background: var(--amber); display: block;
-        }
-
+        .section-label::before { content: ''; width: 24px; height: 2px; background: var(--orange); display: block; }
         .section-title {
             font-size: 40px; font-weight: 800; color: var(--charcoal);
-            line-height: 1.15; letter-spacing: -1px;
-            margin-bottom: 16px;
+            line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px;
         }
-
         .section-subtitle {
-            font-size: 17px; color: var(--gray-500);
-            max-width: 560px; line-height: 1.7;
-            margin-bottom: 56px;
+            font-size: 17px; color: var(--gray-500); max-width: 560px;
+            line-height: 1.7; margin-bottom: 56px;
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 
         .service-card {
-            background: var(--white);
-            border: 1px solid var(--gray-100);
-            border-radius: var(--radius-lg);
-            padding: 36px 32px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--white); border: 1px solid var(--gray-100);
+            border-radius: var(--radius-lg); overflow: hidden;
+            transition: all 0.3s ease; position: relative;
         }
-        .service-card::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--amber), var(--amber-light));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
+        .service-card:hover { border-color: transparent; box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+        .service-card-img {
+            width: 100%; height: 200px; object-fit: cover;
         }
-        .service-card:hover {
-            border-color: transparent;
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-        }
-        .service-card:hover::before { transform: scaleX(1); }
-
-        .service-icon {
-            width: 56px; height: 56px;
-            background: linear-gradient(135deg, rgba(212,145,10,0.1), rgba(212,145,10,0.05));
-            border-radius: var(--radius-md);
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-        }
-        .service-icon svg { width: 28px; height: 28px; color: var(--amber); }
-
-        .service-card h3 {
-            font-size: 20px; font-weight: 700; color: var(--charcoal);
-            margin-bottom: 10px; letter-spacing: -0.3px;
-        }
-        .service-card p {
-            font-size: 15px; color: var(--gray-500); line-height: 1.65;
-        }
-
+        .service-card-body { padding: 24px; }
+        .service-card h3 { font-size: 20px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; letter-spacing: -0.3px; }
+        .service-card p { font-size: 15px; color: var(--gray-500); line-height: 1.65; }
         .service-card .learn-more {
             display: inline-flex; align-items: center; gap: 6px;
-            font-size: 14px; font-weight: 600; color: var(--amber);
-            margin-top: 16px;
-            transition: gap 0.2s;
+            font-size: 14px; font-weight: 600; color: var(--orange);
+            margin-top: 16px; transition: gap 0.2s;
         }
         .service-card:hover .learn-more { gap: 10px; }
 
-        /* ===== WHY US ===== */
-        .why-us {
+        /* ===== FEATURED WORK / GALLERY ===== */
+        .gallery {
             padding: 100px 0;
             background: var(--charcoal);
-            position: relative;
-            overflow: hidden;
+            position: relative; overflow: hidden;
         }
-        .why-us::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: radial-gradient(ellipse at 80% 20%, rgba(212,145,10,0.06) 0%, transparent 60%);
+        .gallery::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(ellipse at 80% 20%, rgba(232,122,30,0.06) 0%, transparent 60%);
         }
+        .gallery .section-title { color: var(--white); }
+        .gallery .section-subtitle { color: rgba(255,255,255,0.5); }
 
-        .why-us .section-title { color: var(--white); }
-        .why-us .section-subtitle { color: rgba(255,255,255,0.5); }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-            position: relative;
-            z-index: 1;
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+            position: relative; z-index: 1;
         }
+        .gallery-item {
+            border-radius: var(--radius-md); overflow: hidden;
+            position: relative; cursor: pointer;
+        }
+        .gallery-item img { width: 100%; height: 260px; object-fit: cover; transition: transform 0.4s ease; }
+        .gallery-item:hover img { transform: scale(1.05); }
+        .gallery-item-overlay {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 20px; background: linear-gradient(transparent, rgba(0,0,0,0.75));
+            color: white; opacity: 0; transition: opacity 0.3s;
+        }
+        .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+        .gallery-item-overlay span { font-size: 14px; font-weight: 600; }
 
+        /* ===== WHY US ===== */
+        .why-us { padding: 100px 0; background: var(--off-white); }
+        .why-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .why-image { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-xl); }
+        .why-image img { width: 100%; height: 480px; object-fit: cover; }
+        .why-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
         .why-card {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08);
-            border-radius: var(--radius-lg);
-            padding: 36px 32px;
-            transition: all 0.3s;
+            background: var(--white); border-radius: var(--radius-md);
+            padding: 24px; box-shadow: var(--shadow-sm);
+            transition: all 0.3s; border-left: 4px solid var(--orange);
         }
-        .why-card:hover {
-            background: rgba(255,255,255,0.07);
-            border-color: rgba(212,145,10,0.2);
-        }
-
-        .why-number {
-            font-size: 48px; font-weight: 800; color: rgba(212,145,10,0.2);
-            line-height: 1; margin-bottom: 12px;
-            letter-spacing: -2px;
-        }
-        .why-card h3 {
-            font-size: 20px; font-weight: 700; color: var(--white);
-            margin-bottom: 10px; letter-spacing: -0.3px;
-        }
-        .why-card p {
-            font-size: 15px; color: rgba(255,255,255,0.55); line-height: 1.65;
-        }
+        .why-card:hover { box-shadow: var(--shadow-md); }
+        .why-card h3 { font-size: 18px; font-weight: 700; color: var(--charcoal); margin-bottom: 8px; }
+        .why-card p { font-size: 14px; color: var(--gray-500); line-height: 1.65; }
 
         /* ===== SERVICE AREA ===== */
-        .service-area {
-            padding: 100px 0;
-            background: var(--off-white);
-        }
-        .area-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 64px;
-            align-items: center;
-        }
-        .area-text h3 {
-            font-size: 28px; font-weight: 700; color: var(--charcoal);
-            margin-bottom: 16px; letter-spacing: -0.5px;
-        }
-        .area-text p {
-            font-size: 16px; color: var(--gray-500); line-height: 1.7;
-            margin-bottom: 24px;
-        }
-
-        .town-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 8px;
-        }
+        .service-area { padding: 100px 0; background: var(--white); }
+        .area-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+        .area-text h3 { font-size: 28px; font-weight: 700; color: var(--charcoal); margin-bottom: 16px; }
+        .area-text p { font-size: 16px; color: var(--gray-500); line-height: 1.7; margin-bottom: 24px; }
+        .town-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
         .town-item {
             display: flex; align-items: center; gap: 8px;
             font-size: 14px; font-weight: 500; color: var(--gray-700);
-            padding: 8px 12px;
-            background: var(--white);
-            border-radius: var(--radius-sm);
+            padding: 8px 12px; background: var(--off-white); border-radius: var(--radius-sm);
         }
-        .town-item::before {
-            content: '';
-            width: 6px; height: 6px;
-            background: var(--amber);
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-
-        .area-visual {
-            background: var(--charcoal);
-            border-radius: var(--radius-xl);
-            padding: 48px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .area-visual::before {
-            content: '';
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(212,145,10,0.08) 0%, transparent 70%);
-        }
-        .area-visual-content { position: relative; z-index: 1; }
-        .area-visual .big-number {
-            font-size: 80px; font-weight: 800; color: var(--amber);
-            line-height: 1; letter-spacing: -3px;
-        }
-        .area-visual .big-label {
-            font-size: 16px; color: rgba(255,255,255,0.6);
-            font-weight: 500; margin-top: 8px;
-        }
-        .area-visual-divider {
-            width: 48px; height: 2px;
-            background: rgba(255,255,255,0.15);
-            margin: 24px auto;
-        }
-        .area-visual .sub-stats {
-            display: flex; justify-content: center; gap: 40px;
-        }
-        .area-visual .sub-stat-num {
-            font-size: 32px; font-weight: 800; color: var(--white);
-            line-height: 1;
-        }
-        .area-visual .sub-stat-label {
-            font-size: 12px; color: rgba(255,255,255,0.4);
-            text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px;
-        }
+        .town-item::before { content: ''; width: 6px; height: 6px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+        .area-image { border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg); }
+        .area-image img { width: 100%; height: 420px; object-fit: cover; }
 
         /* ===== TESTIMONIALS ===== */
-        .testimonials {
-            padding: 100px 0;
-            background: var(--white);
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
+        .testimonials { padding: 100px 0; background: var(--off-white); }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
         .testimonial-card {
-            background: var(--off-white);
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            position: relative;
+            background: var(--white); border-radius: var(--radius-lg);
+            padding: 32px; box-shadow: var(--shadow-sm);
         }
-        .testimonial-stars {
-            display: flex; gap: 3px; margin-bottom: 16px;
-        }
-        .testimonial-stars svg { width: 18px; height: 18px; color: var(--amber); }
-        .testimonial-card blockquote {
-            font-size: 15px; color: var(--gray-700); line-height: 1.7;
-            font-style: normal; margin-bottom: 20px;
-        }
-        .testimonial-author {
-            font-size: 14px; font-weight: 700; color: var(--charcoal);
-        }
-        .testimonial-role {
-            font-size: 13px; color: var(--gray-500); margin-top: 2px;
-        }
+        .testimonial-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+        .testimonial-stars svg { width: 18px; height: 18px; color: var(--orange); }
+        .testimonial-card blockquote { font-size: 15px; color: var(--gray-700); line-height: 1.7; font-style: normal; margin-bottom: 20px; }
+        .testimonial-author { font-size: 14px; font-weight: 700; color: var(--charcoal); }
+        .testimonial-role { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
 
-        /* ===== CTA SECTION ===== */
+        /* ===== CTA ===== */
         .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(165deg, var(--charcoal) 0%, var(--charcoal-light) 100%);
-            position: relative;
-            overflow: hidden;
+            padding: 100px 0; position: relative; overflow: hidden;
         }
-        .cta-section::before {
-            content: '';
-            position: absolute; top: -50%; right: -20%;
-            width: 60%; height: 200%;
-            background: radial-gradient(ellipse, rgba(212,145,10,0.06) 0%, transparent 60%);
+        .cta-bg {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: url('images/hero2.jpg') center center / cover no-repeat;
+        }
+        .cta-bg::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(26,26,46,0.9) 0%, rgba(26,26,46,0.75) 100%);
         }
         .cta-content {
-            text-align: center;
-            max-width: 640px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            text-align: center; max-width: 640px; margin: 0 auto;
+            position: relative; z-index: 1;
         }
-        .cta-content h2 {
-            font-size: 40px; font-weight: 800; color: var(--white);
-            line-height: 1.15; letter-spacing: -1px;
-            margin-bottom: 16px;
-        }
-        .cta-content p {
-            font-size: 17px; color: rgba(255,255,255,0.6);
-            margin-bottom: 36px;
-        }
+        .cta-content h2 { font-size: 40px; font-weight: 800; color: var(--white); line-height: 1.15; letter-spacing: -1px; margin-bottom: 16px; }
+        .cta-content p { font-size: 17px; color: rgba(255,255,255,0.6); margin-bottom: 36px; }
         .cta-phone {
             display: inline-flex; align-items: center; gap: 12px;
-            font-size: 28px; font-weight: 800; color: var(--amber-light);
-            margin-top: 20px;
-            letter-spacing: -0.5px;
+            font-size: 28px; font-weight: 800; color: var(--orange-light);
+            margin-top: 20px; letter-spacing: -0.5px;
         }
         .cta-phone svg { width: 28px; height: 28px; }
 
         /* ===== FOOTER ===== */
-        footer {
-            background: #111122;
-            padding: 64px 0 0;
-            color: rgba(255,255,255,0.5);
-        }
-
+        footer { background: #111122; padding: 64px 0 0; color: rgba(255,255,255,0.5); }
         .footer-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 48px;
-            padding-bottom: 48px;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 48px; padding-bottom: 48px;
             border-bottom: 1px solid rgba(255,255,255,0.08);
         }
-
-        .footer-brand p {
-            font-size: 14px; line-height: 1.7; margin-top: 16px;
-            max-width: 300px;
-        }
-
-        footer h4 {
-            font-size: 13px; font-weight: 700; color: var(--white);
-            text-transform: uppercase; letter-spacing: 0.12em;
-            margin-bottom: 20px;
-        }
+        .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+        .footer-logo { height: 50px; width: auto; }
+        .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 300px; }
+        footer h4 { font-size: 13px; font-weight: 700; color: var(--white); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 20px; }
         footer ul { list-style: none; }
         footer li { margin-bottom: 10px; }
-        footer li a {
-            font-size: 14px; color: rgba(255,255,255,0.5);
-            transition: color 0.2s;
-        }
-        footer li a:hover { color: var(--amber-light); }
-
+        footer li a { font-size: 14px; color: rgba(255,255,255,0.5); transition: color 0.2s; }
+        footer li a:hover { color: var(--orange-light); }
         .footer-bottom {
-            padding: 24px 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 13px;
+            padding: 24px 0; display: flex; justify-content: space-between;
+            align-items: center; font-size: 13px;
         }
-        .footer-bottom a { color: var(--amber-light); }
+        .footer-bottom a { color: var(--orange-light); }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero h2 { font-size: 42px; }
             .section-title { font-size: 34px; }
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
-
         @media (max-width: 768px) {
             .utility-bar .container { justify-content: center; text-align: center; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
-
             .nav-links.open {
                 display: flex; flex-direction: column;
                 position: absolute; top: 100%; left: 0; right: 0;
-                background: var(--white);
-                padding: 24px;
-                box-shadow: var(--shadow-lg);
-                gap: 16px;
-                z-index: 99;
+                background: var(--white); padding: 24px;
+                box-shadow: var(--shadow-lg); gap: 16px; z-index: 99;
             }
-            .nav-links.open .nav-cta {
-                text-align: center;
-                display: block;
-            }
-
-            .hero { padding: 72px 0 88px; }
+            .nav-links.open .nav-cta { text-align: center; display: block; }
+            .hero { min-height: 500px; }
             .hero h2 { font-size: 34px; letter-spacing: -1px; }
             .hero p { font-size: 16px; }
             .hero-stats { flex-direction: column; gap: 24px; }
-
             .section-title { font-size: 30px; }
-
-            .services-grid,
-            .testimonial-grid { grid-template-columns: 1fr; }
-
-            .why-grid { grid-template-columns: 1fr; }
-
-            .area-layout { grid-template-columns: 1fr; gap: 40px; }
-            .area-visual { order: -1; }
-
+            .services-grid, .testimonial-grid, .gallery-grid { grid-template-columns: 1fr; }
+            .why-layout, .area-layout { grid-template-columns: 1fr; gap: 40px; }
+            .why-image { order: -1; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
-
             .cta-content h2 { font-size: 30px; }
             .cta-phone { font-size: 22px; }
         }
-
         @media (max-width: 480px) {
             .hero h2 { font-size: 28px; }
             .hero-actions { flex-direction: column; width: 100%; }
@@ -663,14 +378,9 @@
     <!-- Header -->
     <header>
         <div class="header-inner">
-            <a href="index.html" class="logo">
-                <div class="logo-mark">SS</div>
-                <div class="logo-text">
-                    <h1>Superior Sealcoat</h1>
-                    <span>Paving &amp; Sealcoating</span>
-                </div>
+            <a href="index.html" class="logo-link">
+                <img src="images/real-logo.jpg" alt="Superior Sealcoat Service Inc. Logo">
             </a>
-
             <nav>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" class="active">Home</a></li>
@@ -681,17 +391,15 @@
                     <li><a href="contact.html" class="nav-cta">Get a Free Estimate</a></li>
                 </ul>
             </nav>
-
             <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
             </button>
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- Hero — Real equipment photo background -->
     <section class="hero">
+        <div class="hero-bg"></div>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -700,17 +408,16 @@
                 </div>
                 <h2>Premium Asphalt Paving &amp; <span class="accent">Sealcoating</span> in Massachusetts</h2>
                 <p>From driveways to commercial parking lots, Superior Sealcoat delivers expert asphalt services backed by 35 years of New England experience. OSHA-certified crews. Guaranteed results.</p>
-
                 <div class="hero-actions">
                     <a href="contact.html" class="btn-primary">
                         Get a Free Estimate
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
-                    <a href="services.html" class="btn-secondary">
-                        View Our Services
+                    <a href="tel:9789885555" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                        (978) 988-5555
                     </a>
                 </div>
-
                 <div class="hero-stats">
                     <div>
                         <div class="hero-stat-number">35+</div>
@@ -761,84 +468,95 @@
         </div>
     </section>
 
-    <!-- Services -->
+    <!-- Services — Real portfolio photos -->
     <section class="services" id="services">
         <div class="container">
             <div class="section-label">Our Services</div>
             <h2 class="section-title">Complete Asphalt Solutions<br>for Every Project</h2>
-            <p class="section-subtitle">Residential driveways to commercial infrastructure, we bring the same standard of precision and durability to every surface we touch.</p>
-
+            <p class="section-subtitle">Residential driveways to commercial infrastructure — we bring the same standard of precision and durability to every surface we touch.</p>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                    <img src="images/real-emulsion-portfolio.jpg" alt="Emulsion sealcoating on a commercial parking lot" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Sealcoating</h3>
+                        <p>Protect your investment with our premium coal-tar and asphalt-based sealcoating. Formulated specifically for New England weather to double the life of your pavement.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Sealcoating</h3>
-                    <p>Protect your investment with our premium coal-tar and asphalt-based sealcoating. Formulated specifically for New England weather conditions to double the life of your pavement.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20h16M4 20V4h4v16M10 20V10h4v10M16 20V7h4v13"/></svg>
+                    <img src="images/real-paving-portfolio.jpg" alt="Asphalt paving on a commercial roadway" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Asphalt Paving</h3>
+                        <p>Full-service paving for parking lots, roadways, driveways, walkways, and curbing. New construction, rehabilitation, and full-depth reclamation.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Asphalt Paving</h3>
-                    <p>Full-service paving for parking lots, roadways, driveways, walkways, and curbing. New construction, rehabilitation, and full-depth reclamation from a crew that knows MA conditions.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+                    <img src="images/real-crack-portfolio.jpg" alt="Crack sealing on asphalt surface" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Crack Sealing</h3>
+                        <p>Stop cracks from becoming craters. Our hot-pour rubberized sealant fills and flexes with pavement movement, preventing water intrusion.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Crack Sealing</h3>
-                    <p>Stop cracks from becoming craters. Our hot-pour rubberized sealant fills and flexes with pavement movement, preventing water intrusion and extending surface life by years.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h8"/></svg>
+                    <img src="images/real-chip-portfolio.jpg" alt="Chip sealing application" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Chip Sealing</h3>
+                        <p>Cost-effective surface treatment for roads and parking lots. Extends pavement life with a durable, skid-resistant finish.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Line Striping</h3>
-                    <p>ADA-compliant parking lot striping, road markings, and custom stenciling. Precision application with traffic-grade paint and thermoplastic for lasting visibility.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3v18M3 12h18" stroke-linecap="round"/><circle cx="12" cy="12" r="9"/></svg>
+                    <img src="images/real-patching-portfolio.jpg" alt="Asphalt patching repair" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Patching &amp; Repair</h3>
+                        <p>Targeted repairs for potholes, utility cuts, and damaged areas. Full-depth and skin patching to restore surface integrity fast.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Bridge &amp; Infrastructure</h3>
-                    <p>Specialized bridge deck repairs, joint rehabilitation, waterproofing membranes, and high-friction surface installations for municipal and commercial infrastructure.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
                 </div>
-
                 <div class="service-card">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+                    <img src="images/real-sweeping-portfolio.jpg" alt="Pavement sweeping services" class="service-card-img">
+                    <div class="service-card-body">
+                        <h3>Sweeping &amp; Striping</h3>
+                        <p>ADA-compliant parking lot striping, road markings, and power sweeping. Precision application with traffic-grade materials.</p>
+                        <a href="services.html" class="learn-more">Learn more <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg></a>
                     </div>
-                    <h3>Geotextile Fabrics</h3>
-                    <p>Reinforcing fabric installation for pavement stabilization. Prevents reflective cracking and extends the life of overlays on deteriorated surfaces.</p>
-                    <a href="services.html" class="learn-more">
-                        Learn more
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
-                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Work Gallery — Their REAL equipment and job photos -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-label" style="color:var(--orange-light)">Our Work</div>
+            <h2 class="section-title">See Our Crew &amp; Equipment<br>in Action</h2>
+            <p class="section-subtitle">Real projects, real equipment, real results. Here's a look at our fleet and team on the job across New England.</p>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/real-truck.jpg" alt="BOMAG milling machine and dump truck on commercial paving job">
+                    <div class="gallery-item-overlay"><span>Commercial Milling &amp; Paving</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/real-roller.jpg" alt="Tandem roller compacting fresh asphalt">
+                    <div class="gallery-item-overlay"><span>Asphalt Rolling &amp; Compaction</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/real-milling.jpg" alt="Weiler paver and Western Star dump truck">
+                    <div class="gallery-item-overlay"><span>Paving Equipment Fleet</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/real-patching.jpg" alt="Bobcat and dump truck on patching job site">
+                    <div class="gallery-item-overlay"><span>Patching &amp; Repair Work</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/real-emulsion.jpg" alt="Sealcoat spray truck applying emulsion">
+                    <div class="gallery-item-overlay"><span>Emulsion Sealcoating</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/real-chipsealing.jpg" alt="Chip sealing equipment at yard">
+                    <div class="gallery-item-overlay"><span>Chip Seal Operations</span></div>
                 </div>
             </div>
         </div>
@@ -847,30 +565,31 @@
     <!-- Why Us -->
     <section class="why-us">
         <div class="container">
-            <div class="section-label">Why Superior Sealcoat</div>
-            <h2 class="section-title">Built on 35 Years of<br>New England Experience</h2>
-            <p class="section-subtitle">Every project benefits from three decades of understanding Massachusetts weather, soil conditions, and what it takes to make pavement last here.</p>
-
-            <div class="why-grid">
-                <div class="why-card">
-                    <div class="why-number">01</div>
-                    <h3>New England Weather Expertise</h3>
-                    <p>Massachusetts freeze-thaw cycles destroy pavement faster than almost anywhere in the country. Our materials and methods are specifically calibrated for the conditions your surfaces actually face.</p>
+            <div class="why-layout">
+                <div class="why-image">
+                    <img src="images/real-roller.jpg" alt="Superior Sealcoat crew operating roller on fresh asphalt">
                 </div>
-                <div class="why-card">
-                    <div class="why-number">02</div>
-                    <h3>OSHA-Certified Crews</h3>
-                    <p>Every crew member is trained and certified. We carry full liability and workers compensation insurance. Your property, your employees, and our team are protected on every project.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-number">03</div>
-                    <h3>Commercial &amp; Residential</h3>
-                    <p>From a 200-space parking lot to your home driveway, we bring the same equipment, the same materials, and the same attention to detail. No project is too large or too small.</p>
-                </div>
-                <div class="why-card">
-                    <div class="why-number">04</div>
-                    <h3>Transparent, Fair Pricing</h3>
-                    <p>Free on-site estimates with no hidden fees. We measure, we quote, we deliver. Our pricing reflects the quality of materials and workmanship, and we stand behind every job.</p>
+                <div>
+                    <div class="section-label">Why Superior Sealcoat</div>
+                    <h2 class="section-title" style="margin-bottom:32px">Built on 35 Years of<br>New England Experience</h2>
+                    <div class="why-grid">
+                        <div class="why-card">
+                            <h3>New England Weather Expertise</h3>
+                            <p>Massachusetts freeze-thaw cycles destroy pavement faster than almost anywhere. Our materials and methods are calibrated for the conditions your surfaces actually face.</p>
+                        </div>
+                        <div class="why-card">
+                            <h3>OSHA-Certified Crews</h3>
+                            <p>Every crew member is trained and certified. Full liability and workers compensation insurance on every project.</p>
+                        </div>
+                        <div class="why-card">
+                            <h3>Commercial &amp; Residential</h3>
+                            <p>From a 200-space parking lot to your home driveway — same equipment, same materials, same attention to detail.</p>
+                        </div>
+                        <div class="why-card">
+                            <h3>Transparent, Fair Pricing</h3>
+                            <p>Free on-site estimates with no hidden fees. We measure, we quote, we deliver.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -882,12 +601,10 @@
             <div class="section-label">Service Area</div>
             <h2 class="section-title">Serving All of Massachusetts<br>&amp; New England</h2>
             <p class="section-subtitle">Based in Wilmington, MA, we serve residential and commercial clients across the region.</p>
-
             <div class="area-layout">
                 <div class="area-text">
                     <h3>Local Roots. Regional Reach.</h3>
-                    <p>Our headquarters on Andover Street in Wilmington puts us right in the heart of the Merrimack Valley. We serve towns across northeastern Massachusetts and regularly travel throughout the New England states for larger commercial and municipal projects.</p>
-
+                    <p>Our headquarters on Andover Street in Wilmington puts us right in the heart of the Merrimack Valley. We serve towns across northeastern Massachusetts and regularly travel throughout New England for larger commercial and municipal projects.</p>
                     <div class="town-grid">
                         <div class="town-item">Wilmington</div>
                         <div class="town-item">Billerica</div>
@@ -903,23 +620,8 @@
                         <div class="town-item">Middleton</div>
                     </div>
                 </div>
-
-                <div class="area-visual">
-                    <div class="area-visual-content">
-                        <div class="big-number">35+</div>
-                        <div class="big-label">Years Serving New England</div>
-                        <div class="area-visual-divider"></div>
-                        <div class="sub-stats">
-                            <div>
-                                <div class="sub-stat-num">5</div>
-                                <div class="sub-stat-label">States</div>
-                            </div>
-                            <div>
-                                <div class="sub-stat-num">50+</div>
-                                <div class="sub-stat-label">Towns</div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="area-image">
+                    <img src="images/hero2.jpg" alt="New England road in autumn — Superior Sealcoat service area">
                 </div>
             </div>
         </div>
@@ -930,8 +632,7 @@
         <div class="container">
             <div class="section-label">What Clients Say</div>
             <h2 class="section-title">Trusted by Property Owners<br>Across Massachusetts</h2>
-            <p class="section-subtitle">Hear from the homeowners and businesses who count on Superior Sealcoat to protect their pavement investments.</p>
-
+            <p class="section-subtitle">Hear from homeowners and businesses who count on Superior Sealcoat to protect their pavement investments.</p>
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
@@ -945,7 +646,6 @@
                     <div class="testimonial-author">Michael R.</div>
                     <div class="testimonial-role">Homeowner, Wilmington</div>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -954,11 +654,10 @@
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                     </div>
-                    <blockquote>Very pleased with the work they did on our commercial parking lot. The sealcoating came out beautiful and the line striping was precision work. They finished ahead of schedule with minimal disruption to our tenants.</blockquote>
+                    <blockquote>Very pleased with the work they did on our commercial parking lot. The sealcoating came out beautiful and the line striping was precision work. Finished ahead of schedule with minimal disruption to our tenants.</blockquote>
                     <div class="testimonial-author">David K.</div>
                     <div class="testimonial-role">Property Manager, Burlington</div>
                 </div>
-
                 <div class="testimonial-card">
                     <div class="testimonial-stars">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -975,12 +674,13 @@
         </div>
     </section>
 
-    <!-- CTA -->
+    <!-- CTA — Fall New England road photo background -->
     <section class="cta-section">
+        <div class="cta-bg"></div>
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Protect Your Pavement Investment?</h2>
-                <p>Get a free, no-obligation on-site estimate from our team. We will assess your pavement condition, recommend the right solution, and provide transparent pricing.</p>
+                <p>Get a free, no-obligation on-site estimate from our team. We'll assess your pavement condition, recommend the right solution, and provide transparent pricing.</p>
                 <a href="contact.html" class="btn-primary">
                     Request Your Free Estimate
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -998,27 +698,19 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="margin-bottom:4px">
-                        <div class="logo-mark">SS</div>
-                        <div class="logo-text">
-                            <h1 style="color:#fff;font-size:16px">Superior Sealcoat</h1>
-                            <span style="color:rgba(255,255,255,0.4)">Paving &amp; Sealcoating</span>
-                        </div>
-                    </a>
+                    <img src="images/real-logo.jpg" alt="Superior Sealcoat Service Inc." class="footer-logo">
                     <p>Premium sealcoating, asphalt paving, and pavement maintenance for residential and commercial properties across Massachusetts and New England. Family owned and operated since 1990.</p>
                 </div>
-
                 <div>
                     <h4>Services</h4>
                     <ul>
                         <li><a href="services.html">Sealcoating</a></li>
                         <li><a href="services.html">Asphalt Paving</a></li>
                         <li><a href="services.html">Crack Sealing</a></li>
-                        <li><a href="services.html">Line Striping</a></li>
-                        <li><a href="services.html">Bridge Repairs</a></li>
+                        <li><a href="services.html">Chip Sealing</a></li>
+                        <li><a href="services.html">Sweeping &amp; Striping</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4>Company</h4>
                     <ul>
@@ -1028,18 +720,16 @@
                         <li><a href="contact.html">Free Estimate</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4>Contact</h4>
                     <ul>
                         <li><a href="tel:9789885555">(978) 988-5555</a></li>
                         <li>236 Andover Street</li>
                         <li>Wilmington, MA 01887</li>
-                        <li style="margin-top:16px"><a href="contact.html" style="color:var(--amber-light);font-weight:600">Get a Free Estimate &rarr;</a></li>
+                        <li style="margin-top:16px"><a href="contact.html" style="color:var(--orange-light);font-weight:600">Get a Free Estimate &rarr;</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
                 <span>&copy; 2026 Superior Sealcoat Inc. All rights reserved.</span>
                 <span>Serving Massachusetts &amp; New England since 1990</span>
@@ -1049,6 +739,5 @@
 
     <!-- AIO Chat Widget — Preview 1 (Superior Sealcoat) -->
     <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d9496fc41f60a7fa93719d"></script>
-
 </body>
 </html>
