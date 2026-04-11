@@ -590,48 +590,42 @@
         }
 
         /* FOOTER */
-        footer {
-            background-color: var(--charcoal);
-            color: var(--ivory);
-            padding: 50px 20px;
+        .footer {
+            background: var(--green-dark);
+            color: rgba(255,255,255,0.6);
+            padding: 60px 0 0;
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
+        .footer .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
             gap: 40px;
+            margin-bottom: 40px;
         }
-
-        .footer-column h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+        .footer-brand .logo-exeter { color: var(--white); font-size: 1.5rem; }
+        .footer-brand .logo-cc { color: var(--gold); }
+        .footer-brand p { margin-top: 16px; font-size: 0.88rem; line-height: 1.75; }
+        .footer h4 {
             color: var(--gold);
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.7rem;
+            margin-bottom: 20px;
         }
-
-        .footer-column p,
-        .footer-column a {
-            color: var(--ivory-dark);
-            font-size: 0.9rem;
-            line-height: 1.8;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-column a:hover {
-            color: var(--gold-light);
-        }
-
+        .footer ul { list-style: none; }
+        .footer ul li { margin-bottom: 12px; }
+        .footer ul a { font-size: 0.88rem; color: rgba(255,255,255,0.5); text-decoration: none; }
+        .footer ul a:hover { color: var(--gold-light); }
+        .footer-contact li { display: flex; align-items: flex-start; gap: 10px; }
+        .footer-contact svg { width: 15px; height: 15px; fill: var(--gold); flex-shrink: 0; margin-top: 4px; opacity: 0.7; }
         .footer-bottom {
-            max-width: 1200px;
-            margin: 40px auto 0;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 24px 0;
             text-align: center;
-            font-size: 0.85rem;
-            color: var(--text-muted);
+            font-size: 0.78rem;
+            color: rgba(255,255,255,0.3);
         }
 
         /* RESPONSIVE */
@@ -691,6 +685,8 @@
             .quick-contact h2 {
                 font-size: 1.6rem;
             }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 480px) {
@@ -941,37 +937,64 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h4>About</h4>
-                <p>Exeter Country Club offers championship golf and premium club amenities in the heart of Rhode Island.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="margin-bottom:0;">
+                        <div class="logo-text">
+                            <span class="logo-exeter">Exeter</span>
+                            <span class="logo-cc">Country Club</span>
+                        </div>
+                    </a>
+                    <p>A Geoffrey Cornish-designed championship 18-hole public golf course in the heart of southern Rhode Island. Proudly welcoming golfers since 1964.</p>
+                </div>
+                <div>
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="course.html">The Course</a></li>
+                        <li><a href="rates.html">Rates & Tee Times</a></li>
+                        <li><a href="events.html">Outings & Events</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Golf</h4>
+                    <ul>
+                        <li><a href="rates.html">Current Rates</a></li>
+                        <li><a href="rates.html#membership">Inner Club Membership</a></li>
+                        <li><a href="events.html">Outings & Tournaments</a></li>
+                        <li><a href="events.html#dining">Restaurant & Bar</a></li>
+                        <li><a href="course.html#practice">Practice Facilities</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+                            320 Ten Rod Road<br>Exeter, RI 02822
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                            <span>Pro Shop: <a href="tel:4012958212">(401) 295-8212</a><br>Clubhouse: <a href="tel:4012951178">(401) 295-1178</a></span>
+                        </li>
+                        <li>
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            <a href="mailto:jen@exetercc.com">jen@exetercc.com</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-column">
-                <h4>Quick Links</h4>
-                <a href="index.html">Home</a><br>
-                <a href="course.html">The Course</a><br>
-                <a href="rates.html">Rates & Tee Times</a><br>
-                <a href="events.html">Outings & Events</a>
+            <div class="footer-bottom">
+                <div style="margin-bottom: 12px;">
+                    <a href="https://www.facebook.com/pages/Exeter-Country-Club/240168962827" target="_blank" rel="noopener" style="color: var(--gold); margin-right: 12px;" title="Follow us on Facebook">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
+                    </a>
+                </div>
+                &copy; 2026 Exeter Country Club. All rights reserved. &nbsp;|&nbsp; 320 Ten Rod Road (Route 102), Exeter, Rhode Island 02822 &nbsp;|&nbsp; Member of RIGA & USGA
             </div>
-            <div class="footer-column">
-                <h4>Contact</h4>
-                <p><a href="tel:+14012958212">(401) 295-8212</a></p>
-                <p><a href="mailto:jen@exetercc.com">jen@exetercc.com</a></p>
-                <p>320 Ten Rod Road<br>Exeter, RI 02822</p>
-            </div>
-            <div class="footer-column">
-                <h4>Hours</h4>
-                <p>Seasonal operation.<br>Call Pro Shop for current hours: (401) 295-8212</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div style="margin-bottom: 12px;">
-                <a href="https://www.facebook.com/pages/Exeter-Country-Club/240168962827" target="_blank" rel="noopener" style="color: var(--gold); margin-right: 12px;" title="Follow us on Facebook">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
-                </a>
-            </div>
-            <p>&copy; 2026 Exeter Country Club. All rights reserved.</p>
         </div>
     </footer>
 
