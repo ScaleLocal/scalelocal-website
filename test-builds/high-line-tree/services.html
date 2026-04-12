@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Tree Services | High Line Tree Service — Tewksbury, MA</title>
+    <meta name="description" content="Expert tree removal, pruning, cabling, plant health care, and emergency services. High Line Tree Service — Certified Arborist Bobby Black serving Northeastern Massachusetts.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --green-light: #22964A;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --charcoal-light: #2D2D2D;
+            --white: #ffffff;
+            --off-white: #f5f7f5;
+            --gray-50: #f8f9f8;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --gray-800: #1f2720;
+            --gray-900: #111511;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --radius: 6px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--gray-700);
+            line-height: 1.7;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== UTILITY BAR ===== */
+        .utility-bar {
+            background: var(--black);
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .utility-bar .container {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+        }
+        .utility-bar a { color: rgba(255,255,255,0.9); transition: color 0.2s; }
+        .utility-bar a:hover { color: var(--accent); }
+        .utility-bar .highlight { color: var(--accent); font-weight: 600; }
+        .utility-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .utility-left span { display: flex; align-items: center; gap: 6px; }
+        .utility-left svg { width: 14px; height: 14px; fill: currentColor; opacity: 0.8; }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 24px; max-width: 1200px; margin: 0 auto;
+        }
+        .logo-link { display: flex; align-items: center; }
+        .logo-link img { height: 60px; width: auto; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700; color: var(--gray-700);
+            text-transform: uppercase; letter-spacing: 0.04em;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--green); transition: width 0.25s ease;
+        }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--green); }
+        .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            background: var(--green); color: var(--white) !important;
+            padding: 10px 24px; border-radius: var(--radius);
+            font-weight: 800; font-size: 14px; transition: all 0.25s;
+            border: 2px solid var(--green-dark);
+            text-transform: uppercase;
+        }
+        .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+        .nav-cta::after { display: none !important; }
+        .nav-phone {
+            display: flex; align-items: center; gap: 8px;
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 16px; color: var(--green) !important;
+        }
+        .nav-phone svg { width: 18px; height: 18px; fill: var(--green); }
+
+        /* Mobile Menu */
+        .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .menu-toggle svg { width: 28px; height: 28px; fill: var(--gray-700); }
+        .mobile-overlay { display: none; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex; align-items: center;
+            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(27,122,61,0.7) 100%),
+                        url('images/stock-hero-trees.jpg') center/cover no-repeat;
+            color: var(--white);
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 720px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 18px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 24px;
+        }
+        .hero-badge svg { width: 16px; height: 16px; fill: var(--accent); }
+        .hero h1 {
+            font-size: 52px; font-weight: 900; line-height: 1.08;
+            margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--accent); }
+        .hero p {
+            font-size: 19px; line-height: 1.7; opacity: 0.92;
+            margin-bottom: 36px; max-width: 580px;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--green); color: var(--white);
+            padding: 16px 36px; border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+            transition: all 0.3s; border: 2px solid var(--green-dark);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-primary svg { width: 18px; height: 18px; fill: currentColor; }
+        .btn-ghost {
+            background: transparent; color: var(--white);
+            padding: 16px 36px; border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+            transition: all 0.3s; border: 2px solid rgba(255,255,255,0.4);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+        .btn-ghost svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* ===== SECTION STYLES ===== */
+        .section { padding: 80px 0; }
+        .section-dark { background: var(--off-white); }
+        .section-header {
+            text-align: center; margin-bottom: 56px;
+        }
+        .section-header .overline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--green);
+            margin-bottom: 12px;
+        }
+        .section-header h2 {
+            font-size: 38px; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        .section-header p {
+            font-size: 17px; color: var(--gray-600);
+            max-width: 640px; margin: 0 auto;
+        }
+
+        /* ===== FULL SERVICES GRID ===== */
+        .full-services-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+        }
+        .full-service-card {
+            background: var(--white); border-radius: var(--radius);
+            padding: 40px; transition: all 0.3s;
+            border: 1px solid var(--gray-100);
+            position: relative; overflow: hidden;
+        }
+        .full-service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--green);
+        }
+        .full-service-card .card-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px; font-weight: 900;
+            color: rgba(27,122,61,0.08);
+            position: absolute; top: 8px; right: 20px;
+        }
+        .full-service-card .card-icon {
+            width: 64px; height: 64px;
+            background: rgba(27,122,61,0.08);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 24px;
+        }
+        .full-service-card .card-icon svg { width: 32px; height: 32px; fill: var(--green); }
+        .full-service-card h3 {
+            font-size: 22px; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 16px;
+        }
+        .full-service-card p {
+            font-size: 15px; color: var(--gray-600); line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        .full-service-card ul {
+            list-style: none; padding: 0;
+        }
+        .full-service-card li {
+            font-size: 14px; color: var(--gray-600);
+            padding-left: 28px; position: relative;
+            margin-bottom: 10px; line-height: 1.6;
+        }
+        .full-service-card li::before {
+            content: '';
+            position: absolute; left: 0; top: 5px;
+            width: 6px; height: 6px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        /* ===== PROCESS SECTION ===== */
+        .process-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+        }
+        .process-step {
+            background: var(--white); border-radius: var(--radius);
+            padding: 36px 28px; text-align: center;
+            border: 1px solid var(--gray-100);
+            position: relative;
+        }
+        .process-step::before {
+            content: '';
+            position: absolute; top: 40px; right: -28px;
+            width: 20px; height: 2px;
+            background: linear-gradient(90deg, var(--green) 0%, transparent 100%);
+        }
+        .process-step:last-child::before { display: none; }
+        .process-step .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px; font-weight: 900;
+            color: var(--green); margin-bottom: 12px;
+            line-height: 1;
+        }
+        .process-step .step-icon {
+            width: 56px; height: 56px;
+            background: rgba(27,122,61,0.08);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .process-step .step-icon svg { width: 28px; height: 28px; fill: var(--green); }
+        .process-step h3 {
+            font-size: 17px; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+        .process-step p {
+            font-size: 14px; color: var(--gray-600); line-height: 1.7;
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            background: linear-gradient(135deg, var(--charcoal) 0%, var(--green-dark) 100%);
+            padding: 64px 0; text-align: center; color: var(--white);
+        }
+        .cta-band h2 {
+            font-size: 34px; font-weight: 800; margin-bottom: 16px;
+        }
+        .cta-band p {
+            font-size: 18px; opacity: 0.85; margin-bottom: 32px;
+            max-width: 560px; margin-left: auto; margin-right: auto;
+        }
+        .cta-band .btn-primary {
+            background: var(--accent); border-color: var(--green);
+            font-size: 16px; padding: 18px 40px;
+        }
+        .cta-band .btn-primary:hover { background: var(--green); }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--black); color: rgba(255,255,255,0.7);
+            padding: 64px 0 0;
+        }
+        .footer-grid {
+            display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px;
+            padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+        .footer-brand img { height: 55px; margin-bottom: 16px; }
+        .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 300px; }
+        footer h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 800; color: var(--white);
+            text-transform: uppercase; letter-spacing: 0.08em;
+            margin-bottom: 20px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            font-size: 14px; color: rgba(255,255,255,0.6);
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--accent); }
+        .footer-contact-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            margin-bottom: 14px; font-size: 14px;
+        }
+        .footer-contact-item svg { width: 16px; height: 16px; fill: var(--accent); flex-shrink: 0; margin-top: 3px; }
+        .footer-bottom {
+            padding: 24px 0; text-align: center;
+            font-size: 13px; color: rgba(255,255,255,0.4);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 42px; }
+            .full-services-grid { grid-template-columns: repeat(2, 1fr); }
+            .process-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-phone { display: none; }
+            .menu-toggle { display: block; }
+            .mobile-overlay.active {
+                display: flex; position: fixed; inset: 0; z-index: 200;
+                background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+            }
+            .mobile-menu {
+                background: var(--white); width: 300px; height: 100%;
+                padding: 24px; margin-left: auto;
+                display: flex; flex-direction: column; gap: 0;
+                overflow-y: auto;
+            }
+            .mobile-menu-header {
+                display: flex; justify-content: space-between; align-items: center;
+                margin-bottom: 24px; padding-bottom: 16px;
+                border-bottom: 1px solid var(--gray-100);
+            }
+            .mobile-menu-header img { height: 45px; }
+            .mobile-close { background: none; border: none; cursor: pointer; padding: 4px; }
+            .mobile-close svg { width: 28px; height: 28px; fill: var(--gray-600); }
+            .mobile-nav-links { list-style: none; }
+            .mobile-nav-links li { border-bottom: 1px solid var(--gray-100); }
+            .mobile-nav-links a {
+                display: block; padding: 14px 0;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 15px; font-weight: 700; color: var(--gray-700);
+                text-transform: uppercase;
+            }
+            .mobile-nav-links a.active { color: var(--green); }
+            .mobile-cta-phone {
+                margin-top: 24px; text-align: center;
+            }
+            .mobile-cta-phone a {
+                display: block; background: var(--green); color: var(--white);
+                padding: 14px; border-radius: var(--radius);
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 800; font-size: 16px;
+            }
+
+            .hero { min-height: 500px; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .full-services-grid { grid-template-columns: 1fr; }
+            .process-grid { grid-template-columns: 1fr; }
+            .process-step::before { display: none; }
+            .section { padding: 56px 0; }
+            .section-header h2 { font-size: 28px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .utility-bar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Utility Bar -->
+<div class="utility-bar">
+    <div class="container">
+        <div class="utility-left">
+            <span>
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Tewksbury, MA
+            </span>
+            <span>
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                <a href="mailto:info@highlinetreemass.com">info@highlinetreemass.com</a>
+            </span>
+        </div>
+        <div>
+            <span class="highlight">24/7 Emergency Service Available</span>
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo-highline-tree.png" alt="High Line Tree Service Logo" loading="eager">
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="why-us.html">Why Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:9784800403" class="nav-cta">Free Estimate</a></li>
+            </ul>
+        </nav>
+        <a href="tel:9784800403" class="nav-phone">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            (978) 480-0403
+        </a>
+        <button class="menu-toggle" onclick="document.querySelector('.mobile-overlay').classList.add('active')" aria-label="Open menu">
+            <svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+        </button>
+    </div>
+</header>
+
+<!-- Mobile Menu -->
+<div class="mobile-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
+            <button class="mobile-close" onclick="document.querySelector('.mobile-overlay').classList.remove('active')" aria-label="Close menu">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-cta-phone">
+            <a href="tel:9784800403">(978) 480-0403 — Free Estimate</a>
+        </div>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                Complete Tree Care Solutions
+            </div>
+            <h1>Our Tree Care <span>Services</span></h1>
+            <p>High Line Tree Service offers comprehensive tree care including removal, pruning, emergency response, and plant health care. Every service is delivered with precision by Certified Arborist Bobby Black.</p>
+            <div class="hero-btns">
+                <a href="tel:9784800403" class="btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Get a Free Estimate
+                </a>
+                <a href="#process" class="btn-ghost">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    Our Process
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full Services Grid -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Professional Services</div>
+            <h2>Complete Tree Care Services</h2>
+            <p>From hazardous tree removal to plant health care, High Line Tree handles every aspect of professional arborist services.</p>
+        </div>
+        <div class="full-services-grid">
+            <!-- Service 01: Tree Removal -->
+            <div class="full-service-card">
+                <span class="card-number">01</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-9l-1 1H5v2h14V4z"/></svg>
+                </div>
+                <h3>Tree Removal</h3>
+                <p>Safe removal of hazardous, dead, storm-damaged, or unwanted trees. Every removal is completed with precision and includes full clean-up.</p>
+                <ul>
+                    <li>Hazardous tree assessment</li>
+                    <li>Precision felling techniques</li>
+                    <li>Complete debris removal</li>
+                    <li>Bobby oversees every job</li>
+                </ul>
+            </div>
+
+            <!-- Service 02: Tree Pruning -->
+            <div class="full-service-card">
+                <span class="card-number">02</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M7.06 11.5c-.07.3-.1.6-.1.9.01 2.3 1.87 4.16 4.16 4.16s4.16-1.87 4.16-4.16c0-.31-.03-.6-.1-.9M11.99 2c-5.52 0-10 4.48-10 10s4.48 10 10 10 10-4.48 10-10S17.51 2 11.99 2m0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"/></svg>
+                </div>
+                <h3>Tree Pruning</h3>
+                <p>Expert aesthetic and structural pruning by a Certified Arborist. Improves tree health, appearance, and safety with science-backed techniques.</p>
+                <ul>
+                    <li>Crown thinning</li>
+                    <li>Crown raising</li>
+                    <li>Deadwood removal</li>
+                    <li>Vista pruning</li>
+                </ul>
+            </div>
+
+            <!-- Service 03: Hazardous Tree Removal -->
+            <div class="full-service-card">
+                <span class="card-number">03</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                </div>
+                <h3>Hazardous Tree Removal</h3>
+                <p>Emergency removal of trees posing immediate danger to people or property. Rapid assessment and safe extraction in critical situations.</p>
+                <ul>
+                    <li>Storm damage response</li>
+                    <li>Leaning tree removal</li>
+                    <li>Root failure assessment</li>
+                    <li>Hanging limb removal</li>
+                </ul>
+            </div>
+
+            <!-- Service 04: Cabling & Bracing -->
+            <div class="full-service-card">
+                <span class="card-number">04</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M5 9h14V5H5v4zm0 10h14v-4H5v4zm0-6h14v-2H5v2z"/></svg>
+                </div>
+                <h3>Cabling & Bracing</h3>
+                <p>Structural support systems that extend the life of valuable mature trees with weak branch unions or co-dominant stems.</p>
+                <ul>
+                    <li>Cable installation</li>
+                    <li>Brace systems</li>
+                    <li>Union support</li>
+                    <li>Tree preservation</li>
+                </ul>
+            </div>
+
+            <!-- Service 05: Plant Health Care -->
+            <div class="full-service-card">
+                <span class="card-number">05</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"/></svg>
+                </div>
+                <h3>Plant Health Care</h3>
+                <p>Comprehensive health assessments, diagnosis, and treatment. Bobby's PHC certification ensures proper science-backed care for your landscape.</p>
+                <ul>
+                    <li>Tree health assessments</li>
+                    <li>Soil testing</li>
+                    <li>Fertilization programs</li>
+                    <li>Pest & disease management</li>
+                </ul>
+            </div>
+
+            <!-- Service 06: New Tree Planting -->
+            <div class="full-service-card">
+                <span class="card-number">06</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M8 19h3v4h2v-4h3l-4-4-4 4zm6-15h3V4h-3V0h-2v4H9v2h3v3h2V6z"/></svg>
+                </div>
+                <h3>New Tree Planting</h3>
+                <p>Expert species selection, site assessment, and professional installation. Bobby guides you to the right tree for the right location.</p>
+                <ul>
+                    <li>Species selection</li>
+                    <li>Site assessment</li>
+                    <li>Professional installation</li>
+                    <li>Right tree placement</li>
+                </ul>
+            </div>
+
+            <!-- Service 07: Stump Grinding -->
+            <div class="full-service-card">
+                <span class="card-number">07</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15h4v-2h-4v2zm0-4h4v-2h-4v2zm0-4h4V7h-4v2z"/></svg>
+                </div>
+                <h3>Stump Grinding</h3>
+                <p>Complete stump removal below grade level for a clean finish. Ready for reseeding, landscaping, or new planting with thorough debris cleanup.</p>
+                <ul>
+                    <li>Complete stump removal</li>
+                    <li>Below-grade grinding</li>
+                    <li>Debris removal</li>
+                    <li>Ready for landscaping</li>
+                </ul>
+            </div>
+
+            <!-- Service 08: Storm Damage Response -->
+            <div class="full-service-card">
+                <span class="card-number">08</span>
+                <div class="card-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+                </div>
+                <h3>Storm Damage Response</h3>
+                <p>24/7 emergency response for storm-damaged trees. Rapid assessment, safe removal of fallen trees and debris, and property protection.</p>
+                <ul>
+                    <li>24/7 emergency response</li>
+                    <li>Storm damage assessment</li>
+                    <li>Fallen tree removal</li>
+                    <li>Property protection</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="section" id="process">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">How We Work</div>
+            <h2>Our Tree Care Process</h2>
+            <p>From initial consultation to final cleanup, High Line Tree follows a proven approach to deliver results you can trust.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                </div>
+                <h3>Free Consultation</h3>
+                <p>Call Bobby to discuss your tree care needs. We provide honest assessments and competitive estimates at no charge.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                </div>
+                <h3>Assessment & Plan</h3>
+                <p>Bobby evaluates your trees and develops a comprehensive plan. We explain options and discuss the best approach for your property.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <h3>Professional Execution</h3>
+                <p>Bobby and his crew execute the work with precision and care. Every project meets our high standards for safety and quality.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <div class="step-icon">
+                    <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+                </div>
+                <h3>Complete Cleanup</h3>
+                <p>Full debris removal and site cleanup. Your property is left clean and ready. That's our commitment to every customer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band -->
+<section class="cta-band">
+    <div class="container">
+        <h2>Ready to Schedule Your Tree Service?</h2>
+        <p>Call Bobby directly for a free estimate. High Line Tree Service is available 24/7 for emergency service across Northeastern Massachusetts.</p>
+        <a href="tel:9784800403" class="btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
+            (978) 480-0403
+        </a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
+                <p>Professional tree care and removal services serving Northeastern Massachusetts. Certified Arborist Bobby Black delivers 18+ years of expertise to every project.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-us.html">Why Choose Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Tree Removal</a></li>
+                    <li><a href="services.html">Tree Pruning</a></li>
+                    <li><a href="services.html">Hazardous Tree Removal</a></li>
+                    <li><a href="services.html">Cabling & Bracing</a></li>
+                    <li><a href="services.html">Plant Health Care</a></li>
+                    <li><a href="services.html">Stump Grinding</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    <a href="tel:9784800403">(978) 480-0403</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:info@highlinetreemass.com">info@highlinetreemass.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>Tewksbury, MA 01876</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    <span>Available 24/7</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 High Line Tree Service. All Rights Reserved. | Tewksbury, MA
+        </div>
+    </div>
+</footer>
+
+<!-- Chat Widget -->
+<script src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+</body>
+</html>
