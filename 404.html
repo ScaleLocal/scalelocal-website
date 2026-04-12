@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        // GitHub Pages serves from a case-sensitive Linux filesystem.
+        // This script redirects any mixed-case URL to its lowercase equivalent.
+        var path = window.location.pathname;
+        var lower = path.toLowerCase();
+        if (path !== lower) {
+            window.location.replace(window.location.origin + lower + window.location.search + window.location.hash);
+        }
+    </script>
+</head>
+<body>
+    <noscript>
+        <p>Page not found. Try <a href="/">returning to the homepage</a>.</p>
+    </noscript>
+</body>
+</html>
