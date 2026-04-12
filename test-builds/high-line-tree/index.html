@@ -119,10 +119,10 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 600px;
+            min-height: 620px;
             display: flex; align-items: center;
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(27,122,61,0.7) 100%),
-                        url('images/stock-hero-trees.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(27,122,61,0.65) 100%),
+                        url('images/real-gallery-08.jpg') center/cover no-repeat;
             color: var(--white);
         }
         .hero-content { position: relative; z-index: 2; max-width: 720px; }
@@ -211,13 +211,13 @@
             max-width: 640px; margin: 0 auto;
         }
 
-        /* ===== SERVICES PREVIEW ===== */
+        /* ===== SERVICES WITH IMAGES ===== */
         .services-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
         }
         .service-card {
             background: var(--white); border-radius: var(--radius);
-            padding: 36px 28px; transition: all 0.3s;
+            transition: all 0.3s;
             border: 1px solid var(--gray-100);
             position: relative; overflow: hidden;
         }
@@ -226,26 +226,106 @@
             box-shadow: var(--shadow-lg);
             border-color: var(--green);
         }
+        .service-card-img {
+            width: 100%; height: 200px; object-fit: cover;
+        }
+        .service-card-body { padding: 28px; }
         .service-card .card-number {
             font-family: 'Montserrat', sans-serif;
             font-size: 48px; font-weight: 900;
             color: rgba(27,122,61,0.08);
-            position: absolute; top: 12px; right: 20px;
+            position: absolute; top: 210px; right: 20px;
         }
-        .service-card .card-icon {
-            width: 52px; height: 52px;
-            background: rgba(27,122,61,0.08);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px;
-        }
-        .service-card .card-icon svg { width: 26px; height: 26px; fill: var(--green); }
         .service-card h3 {
             font-size: 19px; font-weight: 800; color: var(--charcoal);
             margin-bottom: 12px;
         }
         .service-card p {
             font-size: 15px; color: var(--gray-600); line-height: 1.7;
+        }
+
+        /* ===== BRANDED FEATURE SECTION ===== */
+        .feature-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            min-height: 480px;
+        }
+        .feature-img {
+            width: 100%; height: 100%; object-fit: cover; min-height: 480px;
+        }
+        .feature-content {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 56px 48px;
+            background: var(--charcoal); color: var(--white);
+        }
+        .feature-content .overline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .feature-content h2 {
+            font-size: 34px; font-weight: 800; margin-bottom: 20px; line-height: 1.2;
+        }
+        .feature-content p {
+            font-size: 16px; line-height: 1.8; opacity: 0.85; margin-bottom: 28px;
+        }
+        .feature-list { list-style: none; margin-bottom: 32px; }
+        .feature-list li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 15px; font-weight: 600; margin-bottom: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+        .feature-list li svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; }
+
+        /* ===== PROJECT GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .gallery-item {
+            border-radius: var(--radius); overflow: hidden;
+            position: relative; cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 250px; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.3s;
+            display: flex; align-items: flex-end; padding: 16px;
+        }
+        .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+        .gallery-item-overlay span {
+            color: var(--white); font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .gallery-item.wide { grid-column: span 2; }
+        .gallery-item.wide img { height: 250px; }
+
+        /* ===== BEFORE/AFTER ===== */
+        .ba-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+        }
+        .ba-card {
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .ba-card img {
+            width: 100%; height: 300px; object-fit: cover;
+        }
+        .ba-label {
+            text-align: center; padding: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            background: var(--charcoal); color: var(--white);
         }
 
         /* ===== WHY CHOOSE US ===== */
@@ -276,8 +356,9 @@
 
         /* ===== CTA BAND ===== */
         .cta-band {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--green-dark) 100%);
-            padding: 64px 0; text-align: center; color: var(--white);
+            background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,92,46,0.85) 100%),
+                        url('images/real-gallery-18.jpg') center/cover no-repeat;
+            padding: 80px 0; text-align: center; color: var(--white);
         }
         .cta-band h2 {
             font-size: 34px; font-weight: 800; margin-bottom: 16px;
@@ -330,6 +411,10 @@
         @media (max-width: 1024px) {
             .hero h1 { font-size: 42px; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.wide { grid-column: span 1; }
+            .feature-split { grid-template-columns: 1fr; }
+            .feature-img { min-height: 350px; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -381,8 +466,12 @@
             .stat-number { font-size: 32px; }
             .services-grid { grid-template-columns: 1fr; }
             .why-grid { grid-template-columns: 1fr; }
+            .ba-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .section { padding: 56px 0; }
             .section-header h2 { font-size: 28px; }
+            .feature-content { padding: 40px 24px; }
+            .feature-content h2 { font-size: 26px; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .utility-bar { display: none; }
         }
@@ -457,7 +546,7 @@
     </div>
 </div>
 
-<!-- Hero -->
+<!-- Hero — Real crane operation photo in snow -->
 <section class="hero">
     <div class="container">
         <div class="hero-content">
@@ -505,7 +594,7 @@
     </div>
 </section>
 
-<!-- Services Preview -->
+<!-- Services Preview with Real Photos -->
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
@@ -515,52 +604,52 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <span class="card-number">01</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M17.66 8L12 2.35 6.34 8A8.02 8.02 0 004 13.64c0 2 .78 4.11 2.34 5.67a7.99 7.99 0 0011.32 0c1.56-1.56 2.34-3.67 2.34-5.67S19.22 9.56 17.66 8zM6 14c.01-2 .62-3.27 1.76-4.4L12 5.27l4.24 4.38C17.38 10.77 17.99 12 18 14H6z"/></svg>
+                <img src="images/real-gallery-01.jpg" alt="High Line Tree Service performing tree removal" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">01</span>
+                    <h3>Tree Removal</h3>
+                    <p>Safe, efficient removal of hazardous, storm-damaged, or unwanted trees. Bobby is on-site for every job, ensuring precision from start to finish.</p>
                 </div>
-                <h3>Tree Removal</h3>
-                <p>Safe, efficient removal of hazardous, storm-damaged, or unwanted trees. Bobby is on-site for every job, ensuring precision from start to finish.</p>
             </div>
             <div class="service-card">
-                <span class="card-number">02</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M20 7h-5V4c0-1.1-.9-2-2-2h-2c-1.1 0-2 .9-2 2v3H4c-1.1 0-2 .9-2 2v11h20V9c0-1.1-.9-2-2-2zm-9-3h2v5h-2V4zm9 14H4v-7h5v2h6v-2h5v7z"/></svg>
+                <img src="images/real-gallery-04.jpg" alt="Certified Arborist climbing and pruning a tree" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">02</span>
+                    <h3>Tree Pruning</h3>
+                    <p>Expert aesthetic and structural pruning to promote tree health, improve appearance, and eliminate safety hazards. Certified Arborist techniques on every project.</p>
                 </div>
-                <h3>Tree Pruning</h3>
-                <p>Expert aesthetic and structural pruning to promote tree health, improve appearance, and eliminate safety hazards. Certified Arborist techniques used on every project.</p>
             </div>
             <div class="service-card">
-                <span class="card-number">03</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+                <img src="images/real-gallery-13.jpg" alt="Emergency storm damage tree removal" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">03</span>
+                    <h3>Emergency Service</h3>
+                    <p>24/7 emergency storm response and hazardous tree removal. When severe weather strikes, High Line Tree is ready to respond immediately.</p>
                 </div>
-                <h3>Emergency Service</h3>
-                <p>24/7 emergency storm response and hazardous tree removal. When severe weather strikes, High Line Tree is ready to respond immediately to keep your property safe.</p>
             </div>
             <div class="service-card">
-                <span class="card-number">04</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+                <img src="images/real-gallery-03.jpg" alt="Professional tree climbing and care" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">04</span>
+                    <h3>Plant Health Care</h3>
+                    <p>Comprehensive plant health assessments and treatments. Bobby's PHC certification ensures science-backed care for your landscape.</p>
                 </div>
-                <h3>Plant Health Care</h3>
-                <p>Comprehensive plant health assessments and treatments to keep your trees thriving. Bobby's PHC certification ensures science-backed care for your landscape.</p>
             </div>
             <div class="service-card">
-                <span class="card-number">05</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M14 6l-1-2H5v17h2v-7h5l1 2h7V6h-6zm4 8h-4l-1-2H7V6h5l1 2h5v6z"/></svg>
+                <img src="images/real-gallery-07.jpg" alt="Crane operation for large tree removal near power lines" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">05</span>
+                    <h3>Cabling &amp; Bracing</h3>
+                    <p>Structural support systems that extend the life of valuable trees with weak branch unions or co-dominant stems.</p>
                 </div>
-                <h3>Cabling &amp; Bracing</h3>
-                <p>Structural support systems that extend the life of valuable trees with weak branch unions or co-dominant stems. Preserve your mature trees safely.</p>
             </div>
             <div class="service-card">
-                <span class="card-number">06</span>
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c4.97 0 9-4.03 9-9-4.97 0-9 4.03-9 9zM5.6 10.25c0 1.38 1.12 2.5 2.5 2.5.53 0 1.01-.16 1.42-.44l-.02.19c0 1.38 1.12 2.5 2.5 2.5s2.5-1.12 2.5-2.5l-.02-.19c.4.28.89.44 1.42.44 1.38 0 2.5-1.12 2.5-2.5 0-1-.59-1.85-1.43-2.25.84-.4 1.43-1.25 1.43-2.25 0-1.38-1.12-2.5-2.5-2.5-.53 0-1.01.16-1.42.44l.02-.19C14.5 2.12 13.38 1 12 1S9.5 2.12 9.5 3.5l.02.19c-.4-.28-.89-.44-1.42-.44-1.38 0-2.5 1.12-2.5 2.5 0 1 .59 1.85 1.43 2.25-.84.4-1.43 1.25-1.43 2.25zM12 5.5c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5S9.5 9.38 9.5 8s1.12-2.5 2.5-2.5zM3 13c0 4.97 4.03 9 9 9 0-4.97-4.03-9-9-9z"/></svg>
+                <img src="images/real-gallery-18.jpg" alt="Beautiful mature tree cared for by High Line Tree Service" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <span class="card-number">06</span>
+                    <h3>New Tree Planting</h3>
+                    <p>Species selection guidance and professional planting. Choose the right tree for the right location with expert advice from a Certified Arborist.</p>
                 </div>
-                <h3>New Tree Planting</h3>
-                <p>Species selection guidance and professional planting services. Choose the right tree for the right location with expert advice from a Certified Arborist.</p>
             </div>
         </div>
         <div style="text-align:center; margin-top:40px;">
@@ -568,6 +657,104 @@
                 <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
                 View All Services
             </a>
+        </div>
+    </div>
+</section>
+
+<!-- Branded Equipment Feature — Real trailer photo -->
+<section class="feature-split">
+    <img src="images/real-gallery-12.jpg" alt="High Line Tree Service branded trailer with crane" class="feature-img" loading="lazy">
+    <div class="feature-content">
+        <div class="overline">Owner-Operated Since Day One</div>
+        <h2>When You Call, You Get Bobby</h2>
+        <p>High Line Tree isn't a franchise and it isn't a call center. When you pick up the phone, you speak directly to Bobby Black, the Certified Arborist who founded this company and who will be on your property personally overseeing every cut, every climb, and every cleanup.</p>
+        <ul class="feature-list">
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                ISA Certified Arborist
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Plant Health Care Certified
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                18+ Years Hands-On Experience
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Fully Insured &mdash; Every Job
+            </li>
+        </ul>
+        <a href="about.html" class="btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
+            Read Bobby's Story
+        </a>
+    </div>
+</section>
+
+<!-- Before & After Section -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Real Results</div>
+            <h2>Before &amp; After Our Work</h2>
+            <p>See the difference professional tree care makes. These are actual projects completed by High Line Tree Service in Northeastern Massachusetts.</p>
+        </div>
+        <div class="ba-grid">
+            <div class="ba-card">
+                <img src="images/real-gallery-09.jpg" alt="Before and after residential tree pruning with chipper truck" loading="lazy">
+                <div class="ba-label">Residential Tree Service &mdash; Pruning &amp; Cleanup</div>
+            </div>
+            <div class="ba-card">
+                <img src="images/real-gallery-10.jpg" alt="Before and after professional tree pruning" loading="lazy">
+                <div class="ba-label">Professional Pruning &mdash; Before &amp; After</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Project Gallery -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Our Work</div>
+            <h2>Recent Projects</h2>
+            <p>A look at some of the tree removal, pruning, and emergency response work we've completed across Northeastern Massachusetts.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item wide">
+                <img src="images/real-gallery-08.jpg" alt="Crane tree removal during winter storm" loading="lazy">
+                <div class="gallery-item-overlay"><span>Storm Response</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-04.jpg" alt="Arborist climbing and cutting tree limbs" loading="lazy">
+                <div class="gallery-item-overlay"><span>Expert Climbing</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-05.jpg" alt="Climber silhouette in tall tree" loading="lazy">
+                <div class="gallery-item-overlay"><span>Hazardous Removal</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-17.jpg" alt="High Line Tree Service branded equipment on site" loading="lazy">
+                <div class="gallery-item-overlay"><span>Professional Equipment</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-11.jpg" alt="Before and after tree pruning project" loading="lazy">
+                <div class="gallery-item-overlay"><span>Before &amp; After</span></div>
+            </div>
+            <div class="gallery-item wide">
+                <img src="images/real-gallery-07.jpg" alt="Crane operation near utility lines" loading="lazy">
+                <div class="gallery-item-overlay"><span>Crane Operations</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-14.jpg" alt="Land clearing completed project" loading="lazy">
+                <div class="gallery-item-overlay"><span>Land Clearing</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-01.jpg" alt="Tree removal crew in action" loading="lazy">
+                <div class="gallery-item-overlay"><span>Tree Removal</span></div>
+            </div>
         </div>
     </div>
 </section>
@@ -621,7 +808,7 @@
     </div>
 </section>
 
-<!-- CTA Band -->
+<!-- CTA Band with Fall Foliage Background -->
 <section class="cta-band">
     <div class="container">
         <h2>Ready for a Free Tree Care Estimate?</h2>
@@ -630,6 +817,19 @@
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
             (978) 480-0403
         </a>
+    </div>
+</section>
+
+<!-- Service Area Map -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Where We Work</div>
+            <h2>Serving Northeastern Massachusetts</h2>
+        </div>
+        <div style="text-align:center;">
+            <img src="images/real-hero-main.jpg" alt="High Line Tree Service area map centered on Tewksbury, MA" style="max-width:600px; margin:0 auto; border-radius:var(--radius); box-shadow:var(--shadow-lg);" loading="lazy">
+        </div>
     </div>
 </section>
 

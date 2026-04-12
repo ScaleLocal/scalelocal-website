@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About High Line Tree Service | Certified Arborist Bobby Black</title>
-    <meta name="description" content="Meet Bobby Black, Certified Arborist and owner of High Line Tree Service. 18+ years of professional tree care experience serving Northeastern Massachusetts. Bobby is present on every job.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Learn about Bobby Black, Certified Arborist and owner of High Line Tree Service. 18+ years of professional tree care experience serving Northeastern Massachusetts.">
+    <title>About High Line Tree Service - Bobby Black, Certified Arborist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --green: #1B7A3D;
@@ -119,21 +117,75 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 400px;
+            min-height: 620px;
             display: flex; align-items: center;
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(27,122,61,0.7) 100%),
-                        url('images/stock-hero-trees.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(27,122,61,0.65) 100%),
+                        url('images/real-gallery-04.jpg') center/cover no-repeat;
             color: var(--white);
         }
         .hero-content { position: relative; z-index: 2; max-width: 720px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 8px 18px; border-radius: 100px;
+            font-size: 13px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.08em; margin-bottom: 24px;
+        }
+        .hero-badge svg { width: 16px; height: 16px; fill: var(--accent); }
         .hero h1 {
-            font-size: 48px; font-weight: 900; line-height: 1.08;
+            font-size: 52px; font-weight: 900; line-height: 1.08;
             margin-bottom: 20px;
         }
         .hero h1 span { color: var(--accent); }
         .hero p {
-            font-size: 18px; line-height: 1.7; opacity: 0.92;
-            margin-bottom: 24px; max-width: 580px;
+            font-size: 19px; line-height: 1.7; opacity: 0.92;
+            margin-bottom: 36px; max-width: 580px;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            background: var(--green); color: var(--white);
+            padding: 16px 36px; border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif; font-weight: 800;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+            transition: all 0.3s; border: 2px solid var(--green-dark);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-primary svg { width: 18px; height: 18px; fill: currentColor; }
+        .btn-ghost {
+            background: transparent; color: var(--white);
+            padding: 16px 36px; border-radius: var(--radius);
+            font-family: 'Montserrat', sans-serif; font-weight: 700;
+            font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
+            transition: all 0.3s; border: 2px solid rgba(255,255,255,0.4);
+            display: inline-flex; align-items: center; gap: 10px;
+        }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: var(--white); }
+        .btn-ghost svg { width: 18px; height: 18px; fill: currentColor; }
+
+        /* ===== STATS BAR ===== */
+        .stats-bar {
+            background: var(--charcoal);
+            padding: 0;
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+        }
+        .stat-item {
+            padding: 32px 24px; text-align: center;
+            border-right: 1px solid rgba(255,255,255,0.08);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px; font-weight: 900; color: var(--accent);
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 13px; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.1em; color: rgba(255,255,255,0.6);
+            margin-top: 8px;
         }
 
         /* ===== SECTION STYLES ===== */
@@ -157,126 +209,158 @@
             max-width: 640px; margin: 0 auto;
         }
 
-        /* ===== STORY SECTION ===== */
-        .story-content {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+        /* ===== BRANDED FEATURE SECTION ===== */
+        .feature-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            min-height: 480px;
         }
-        .story-text h3 {
-            font-size: 24px; font-weight: 800; color: var(--charcoal);
-            margin-bottom: 16px; margin-top: 28px;
+        .feature-img {
+            width: 100%; height: 100%; object-fit: cover; min-height: 480px;
         }
-        .story-text h3:first-child { margin-top: 0; }
-        .story-text p {
-            font-size: 16px; color: var(--gray-600); line-height: 1.8;
+        .feature-content {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 56px 48px;
+            background: var(--charcoal); color: var(--white);
+        }
+        .feature-content .overline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--accent);
             margin-bottom: 16px;
         }
+        .feature-content h2 {
+            font-size: 34px; font-weight: 800; margin-bottom: 20px; line-height: 1.2;
+        }
+        .feature-content p {
+            font-size: 16px; line-height: 1.8; opacity: 0.85; margin-bottom: 28px;
+        }
+        .feature-list { list-style: none; margin-bottom: 32px; }
+        .feature-list li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 15px; font-weight: 600; margin-bottom: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+        .feature-list li svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; }
 
-        /* ===== WHY CHOOSE US CARDS ===== */
+        /* ===== PROJECT GALLERY ===== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .gallery-item {
+            border-radius: var(--radius); overflow: hidden;
+            position: relative; cursor: pointer;
+        }
+        .gallery-item img {
+            width: 100%; height: 250px; object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-item-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 50%);
+            opacity: 0; transition: opacity 0.3s;
+            display: flex; align-items: flex-end; padding: 16px;
+        }
+        .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+        .gallery-item-overlay span {
+            color: var(--white); font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        .gallery-item.wide { grid-column: span 2; }
+        .gallery-item.wide img { height: 250px; }
+
+        /* ===== WHY CHOOSE US ===== */
         .why-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
         }
         .why-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            border: 1px solid var(--gray-100);
-            padding: 40px 32px;
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center; padding: 36px 28px;
+            background: var(--white); border-radius: var(--radius);
+            border: 1px solid var(--gray-100); transition: all 0.3s;
         }
         .why-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--green);
+            box-shadow: var(--shadow-md); border-color: var(--green);
+        }
+        .why-icon {
+            flex-shrink: 0; width: 64px; height: 64px;
+            background: var(--green); border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 20px;
+        }
+        .why-icon svg { width: 32px; height: 32px; fill: var(--white); }
+        .why-card h3 {
+            font-size: 18px; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+        .why-card p {
+            font-size: 15px; color: var(--gray-600); line-height: 1.7;
         }
         .why-card .card-number {
             font-family: 'Montserrat', sans-serif;
             font-size: 56px; font-weight: 900;
             color: rgba(27,122,61,0.08);
-            position: absolute; top: 8px; left: 16px;
-        }
-        .why-icon {
-            width: 64px; height: 64px;
-            background: rgba(27,122,61,0.1);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin: 0 auto 24px;
-        }
-        .why-icon svg { width: 32px; height: 32px; fill: var(--green); }
-        .why-card h3 {
-            font-size: 18px; font-weight: 800; color: var(--charcoal);
-            margin-bottom: 12px;
-            position: relative; z-index: 1;
-        }
-        .why-card p {
-            font-size: 15px; color: var(--gray-600); line-height: 1.7;
-            position: relative; z-index: 1;
-        }
-
-        /* ===== TIMELINE SECTION ===== */
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--green);
-            top: 0;
-        }
-        .timeline-item {
-            margin-bottom: 48px;
-            position: relative;
-        }
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: 0;
-            margin-right: 50%;
-            padding-right: 40px;
-            text-align: right;
-        }
-        .timeline-item:nth-child(even) .timeline-content {
-            margin-left: 50%;
-            margin-right: 0;
-            padding-left: 40px;
-            text-align: left;
-        }
-        .timeline-dot {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-            width: 16px;
-            height: 16px;
-            background: var(--green);
-            border: 4px solid var(--white);
-            border-radius: 50%;
-            box-shadow: 0 0 0 2px var(--green);
-            z-index: 2;
-        }
-        .timeline-content h4 {
-            font-size: 18px; font-weight: 800; color: var(--charcoal);
+            line-height: 1;
             margin-bottom: 8px;
         }
-        .timeline-content p {
-            font-size: 15px; color: var(--gray-600); line-height: 1.7;
+
+        /* ===== TIMELINE ===== */
+        .timeline {
+            position: relative; padding: 40px 0;
+        }
+        .timeline-item {
+            display: grid; grid-template-columns: 180px 1fr; gap: 40px;
+            margin-bottom: 48px; padding-left: 20px;
+            position: relative;
+        }
+        .timeline-item:not(:last-child)::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: 60px;
+            bottom: 0;
+            width: 2px;
+            background: var(--green);
+        }
+        .timeline-marker {
+            position: relative;
+        }
+        .timeline-marker::before {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            background: var(--green);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 2px var(--green);
         }
         .timeline-year {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px; font-weight: 700; color: var(--green);
-            text-transform: uppercase; letter-spacing: 0.08em;
-            margin-bottom: 6px;
+            font-size: 18px; font-weight: 800;
+            color: var(--green);
+        }
+        .timeline-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px; font-weight: 800;
+            color: var(--charcoal); margin-bottom: 6px;
+        }
+        .timeline-desc {
+            font-size: 15px; color: var(--gray-600); line-height: 1.7;
         }
 
         /* ===== CTA BAND ===== */
         .cta-band {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--green-dark) 100%);
-            padding: 64px 0; text-align: center; color: var(--white);
+            background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,92,46,0.85) 100%),
+                        url('images/real-gallery-18.jpg') center/cover no-repeat;
+            padding: 80px 0; text-align: center; color: var(--white);
         }
         .cta-band h2 {
             font-size: 34px; font-weight: 800; margin-bottom: 16px;
@@ -285,16 +369,6 @@
             font-size: 18px; opacity: 0.85; margin-bottom: 32px;
             max-width: 560px; margin-left: auto; margin-right: auto;
         }
-        .btn-primary {
-            background: var(--green); color: var(--white);
-            padding: 16px 36px; border-radius: var(--radius);
-            font-family: 'Montserrat', sans-serif; font-weight: 800;
-            font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em;
-            transition: all 0.3s; border: 2px solid var(--green-dark);
-            display: inline-flex; align-items: center; gap: 10px;
-        }
-        .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
-        .btn-primary svg { width: 18px; height: 18px; fill: currentColor; }
         .cta-band .btn-primary {
             background: var(--accent); border-color: var(--green);
             font-size: 16px; padding: 18px 40px;
@@ -337,20 +411,14 @@
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .hero h1 { font-size: 38px; }
-            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero h1 { font-size: 42px; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item.wide { grid-column: span 1; }
+            .feature-split { grid-template-columns: 1fr; }
+            .feature-img { min-height: 350px; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
-            .story-content { grid-template-columns: 1fr; gap: 40px; }
-            .timeline::before { left: 16px; }
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                margin-left: 0;
-                margin-right: 0;
-                padding-left: 56px;
-                padding-right: 0;
-                text-align: left;
-            }
-            .timeline-dot { left: 16px; }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .timeline-item { grid-template-columns: 140px 1fr; gap: 30px; }
         }
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -393,14 +461,23 @@
                 font-weight: 800; font-size: 16px;
             }
 
-            .hero { min-height: 350px; }
+            .hero { min-height: 500px; }
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 16px; }
-            .why-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 24px 16px; }
+            .stat-number { font-size: 32px; }
             .section { padding: 56px 0; }
             .section-header h2 { font-size: 28px; }
+            .feature-content { padding: 40px 24px; }
+            .feature-content h2 { font-size: 26px; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .utility-bar { display: none; }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: 1fr; }
+            .timeline-item { grid-template-columns: 100px 1fr; gap: 20px; }
+            .timeline-year { font-size: 16px; }
+            .timeline-title { font-size: 15px; }
         }
     </style>
 </head>
@@ -473,182 +550,219 @@
     </div>
 </div>
 
-<!-- Hero -->
+<!-- Hero — Bobby Climbing -->
 <section class="hero">
     <div class="container">
         <div class="hero-content">
-            <h1>About <span>High Line Tree</span> Service</h1>
-            <p>Meet Bobby Black, Certified Arborist and owner. With 18+ years of professional tree care experience, Bobby is committed to delivering expert service on every single job.</p>
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                Bobby Black, Certified Arborist
+            </div>
+            <h1>The <span>Story</span> Behind High Line Tree</h1>
+            <p>18 years of dedicated arborist experience, a personal commitment to excellence, and a passion for healthy trees. When you hire High Line Tree, you're working directly with Bobby Black.</p>
+            <div class="hero-btns">
+                <a href="tel:9784800403" class="btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    Get a Free Estimate
+                </a>
+                <a href="tel:9784800403" class="btn-ghost">
+                    <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    Call (978) 480-0403
+                </a>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Company Story Section -->
-<section class="section">
+<!-- Stats Bar -->
+<section class="stats-bar">
     <div class="container">
-        <div class="section-header">
-            <div class="overline">Our Story</div>
-            <h2>Bobby's Path to Professional Arboriculture</h2>
-        </div>
-        <div class="story-content">
-            <div class="story-text">
-                <h3>From Education to Tree Work</h3>
-                <p>Bobby Black started his career with a degree in criminal justice while working for a local tree company. There, he discovered his passion for climbing, pruning, and the technical demands of professional tree care.</p>
-
-                <h3>Pursuing Professional Certification</h3>
-                <p>Committed to mastering his craft, Bobby studied Plant Health Care extensively and earned his professional Certified Arborist credential through the International Society of Arboriculture. This certification represents rigorous knowledge of tree biology, safety, and best practices in modern arboriculture.</p>
-
-                <h3>Leadership in Chicago</h3>
-                <p>Bobby joined The Care of Trees in Chicago, one of the nation's leading tree service companies, where he worked as crew leader for 6 years. This experience taught him how to manage complex projects, lead teams, and maintain the highest standards of quality and safety.</p>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">18+</div>
+                <div class="stat-label">Years Experience</div>
             </div>
-            <div class="story-text">
-                <h3>Returning to New England</h3>
-                <p>After years in Chicago, Bobby returned to New England and founded High Line Tree Service in Tewksbury, MA. He brought his deep expertise and commitment to personal service, building a reputation for thorough, professional tree care throughout Northeastern Massachusetts.</p>
-
-                <h3>Owner-Operator Philosophy</h3>
-                <p>High Line Tree stands apart because Bobby is present on every job from start to finish. You don't work with a franchise or a middleman. When you hire High Line Tree, you get the owner conducting your tree assessment, managing your project, and ensuring your complete satisfaction.</p>
-
-                <h3>A Full-Service Company</h3>
-                <p>Today, High Line Tree offers comprehensive services including tree removal, pruning, cabling and bracing, plant health care, new tree planting, and 24/7 emergency response. All work is fully insured and performed with the professional standards Bobby learned at the nation's best tree companies.</p>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Emergency Service</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Fully Insured</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">ISA</div>
+                <div class="stat-label">Certified Arborist</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Why Choose Us Section -->
+<!-- Company Story Feature — Branded Trailer + Story -->
+<section class="feature-split">
+    <img src="images/real-gallery-12.jpg" alt="High Line Tree Service branded trailer with crane" class="feature-img" loading="lazy">
+    <div class="feature-content">
+        <div class="overline">Bobby's Journey</div>
+        <h2>From Tewksbury Native to Certified Arborist</h2>
+        <p>Bobby Black started his tree care journey while still pursuing a criminal justice degree at a local college in Massachusetts. Rather than follow the traditional path, he realized his true passion was working with trees and people. He began learning the fundamentals at a local tree care company, immersing himself in both the science and art of arboriculture.</p>
+        <p style="margin-bottom: 28px;">After mastering the technical skills, Bobby pursued his Plant Health Care (PHC) certification and earned his ISA Certified Arborist credential. He then spent six years as a crew leader at The Care of Trees in Chicago, one of the nation's most respected tree care companies, where he refined his expertise and leadership skills on complex projects ranging from hazardous tree removal to aesthetic pruning.</p>
+        <p>In 2016, Bobby returned home to New England with a vision: to bring that same level of professional excellence back to his community. High Line Tree Service was founded on a simple principle: every client deserves direct access to the owner, and every job deserves the personal attention of a Certified Arborist who truly cares about doing it right.</p>
+    </div>
+</section>
+
+<!-- Why Choose Us / Bobby's Credentials -->
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <div class="overline">What Sets Us Apart</div>
-            <h2>Why Property Owners Choose High Line Tree</h2>
+            <div class="overline">Bobby's Qualifications</div>
+            <h2>Why Property Owners Trust High Line Tree</h2>
+            <p>A combination of education, certifications, real-world experience, and an unwavering commitment to excellence in every job.</p>
         </div>
         <div class="why-grid">
             <div class="why-card">
-                <span class="card-number">01</span>
+                <div class="card-number">01</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>Certified Arborist</h3>
-                <p>Bobby holds a professional Certified Arborist credential and Plant Health Care training. Every decision is grounded in tree biology and ISA standards.</p>
+                <h3>ISA Certified Arborist</h3>
+                <p>Bobby holds the International Society of Arboriculture's highest credential, demonstrating comprehensive knowledge of tree science, care, and safety standards.</p>
             </div>
             <div class="why-card">
-                <span class="card-number">02</span>
+                <div class="card-number">02</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>Owner-Operated</h3>
-                <p>Bobby is present on every job from start to finish. No middlemen, no subcontractors. You get direct access to the owner.</p>
+                <h3>Plant Health Care Certified</h3>
+                <p>Specialized certification in diagnosing tree diseases, pest management, and preventive care. Science-backed solutions for long-term tree health.</p>
             </div>
             <div class="why-card">
-                <span class="card-number">03</span>
+                <div class="card-number">03</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>18+ Years Experience</h3>
-                <p>Bobby trained with top tree companies including The Care of Trees in Chicago before founding High Line Tree.</p>
+                <h3>18+ Years Hands-On Experience</h3>
+                <p>From crew member to leader at a top-tier Chicago firm, then owner of High Line Tree. Deep expertise across all aspects of professional arboriculture.</p>
             </div>
             <div class="why-card">
-                <span class="card-number">04</span>
+                <div class="card-number">04</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>Fully Insured</h3>
-                <p>High Line Tree carries complete liability coverage. Your property is fully protected on every job.</p>
+                <h3>Owner-Operated Since Day One</h3>
+                <p>High Line Tree is not a franchise or call center. Bobby is on every job personally, overseeing work quality and ensuring complete customer satisfaction.</p>
             </div>
             <div class="why-card">
-                <span class="card-number">05</span>
+                <div class="card-number">05</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>24/7 Emergency Response</h3>
-                <p>Storm damage and hazardous trees don't wait. High Line Tree is available 24/7 for emergency service across Northeastern Massachusetts.</p>
+                <h3>Fully Insured &mdash; Every Job</h3>
+                <p>Complete liability coverage on all projects. You get professional protection and the peace of mind that comes from working with a fully bonded, insured company.</p>
             </div>
             <div class="why-card">
-                <span class="card-number">06</span>
+                <div class="card-number">06</div>
                 <div class="why-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                 </div>
-                <h3>Northeastern MA Experts</h3>
-                <p>Serving the region for years. We know the local trees, soil conditions, and weather challenges of Northeastern Massachusetts.</p>
+                <h3>Available 24/7 Emergency Response</h3>
+                <p>Storm damage doesn't wait for business hours. When severe weather strikes, High Line Tree responds immediately to keep your property and family safe.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Timeline Section -->
+<!-- Photo Gallery Strip — Action Shots -->
 <section class="section">
     <div class="container">
         <div class="section-header">
-            <div class="overline">Professional Timeline</div>
-            <h2>Bobby's Career Path</h2>
-            <p>A commitment to continuous learning and professional growth</p>
+            <div class="overline">Bobby at Work</div>
+            <h2>In Action — Real Jobs, Real Results</h2>
+            <p>A glimpse into the day-to-day work of professional tree care. These are actual projects Bobby and his team handle across Northeastern Massachusetts.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="images/real-gallery-04.jpg" alt="Bobby climbing and cutting tree limbs with chainsaw" loading="lazy">
+                <div class="gallery-item-overlay"><span>Expert Climbing</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-03.jpg" alt="Certified Arborist climbing high in tall tree" loading="lazy">
+                <div class="gallery-item-overlay"><span>Hazardous Tree Removal</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-01.jpg" alt="Tree removal crew in action with rigging" loading="lazy">
+                <div class="gallery-item-overlay"><span>Professional Crew</span></div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/real-gallery-05.jpg" alt="Silhouette of climber working in tall tree" loading="lazy">
+                <div class="gallery-item-overlay"><span>Safety First</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Timeline Section — Bobby's Career -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">The Timeline</div>
+            <h2>Bobby's Career Milestones</h2>
+            <p>From learning the craft to becoming a trusted expert in Northeastern Massachusetts tree care.</p>
         </div>
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Education</div>
-                    <h4>Criminal Justice Degree</h4>
-                    <p>While pursuing degree, Bobby began working for a local tree company where he discovered his passion for arboriculture and climbing techniques.</p>
+                <div class="timeline-marker">
+                    <div class="timeline-year">Day One</div>
+                </div>
+                <div>
+                    <div class="timeline-title">Started in Tree Care While in College</div>
+                    <div class="timeline-desc">Bobby began learning arboriculture while pursuing a criminal justice degree, working hands-on at a local Massachusetts tree care company. He realized his true passion was in the trees and chose to pursue it full-time.</div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Early Career</div>
-                    <h4>Local Tree Company</h4>
-                    <p>Developed core climbing and pruning skills working hands-on with experienced arborists in New England.</p>
+                <div class="timeline-marker">
+                    <div class="timeline-year">Year 3-4</div>
+                </div>
+                <div>
+                    <div class="timeline-title">Pursued Plant Health Care Certification</div>
+                    <div class="timeline-desc">Bobby earned his PHC (Plant Health Care) certification, developing deep expertise in tree diagnosis, disease management, and preventive care. This credential reflects his commitment to science-based arboriculture.</div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Professional Development</div>
-                    <h4>Plant Health Care Training</h4>
-                    <p>Completed comprehensive PHC studies to understand tree biology, disease prevention, and science-based care practices.</p>
+                <div class="timeline-marker">
+                    <div class="timeline-year">Year 5</div>
+                </div>
+                <div>
+                    <div class="timeline-title">Achieved ISA Certified Arborist Status</div>
+                    <div class="timeline-desc">Bobby earned the International Society of Arboriculture's Certified Arborist credential through rigorous study and examination. This is the gold standard in the profession and a mark of true expertise.</div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Certification</div>
-                    <h4>ISA Certified Arborist</h4>
-                    <p>Earned professional Certified Arborist credential through the International Society of Arboriculture, demonstrating mastery of arboricultural practices.</p>
+                <div class="timeline-marker">
+                    <div class="timeline-year">Year 6-12</div>
+                </div>
+                <div>
+                    <div class="timeline-title">Six Years as Crew Leader at The Care of Trees</div>
+                    <div class="timeline-desc">Bobby moved to Chicago to work with one of the nation's most respected tree care companies. He led complex crews, managed major projects including hazardous removals and crane operations, and mentored other arborists.</div>
                 </div>
             </div>
             <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">6 Years</div>
-                    <h4>Crew Leader at The Care of Trees</h4>
-                    <p>Worked as crew leader for one of the nation's top tree service companies in Chicago, managing complex projects and leading teams to the highest standards.</p>
+                <div class="timeline-marker">
+                    <div class="timeline-year">Year 12+</div>
                 </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Founded</div>
-                    <h4>High Line Tree Service</h4>
-                    <p>Returned to New England and established High Line Tree Service in Tewksbury, MA with a commitment to owner-operated, fully-insured, certified professional tree care.</p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-content">
-                    <div class="timeline-year">Today</div>
-                    <h4>18+ Years of Professional Experience</h4>
-                    <p>Serving Northeastern Massachusetts with a full range of tree care services, 24/7 emergency response, and Bobby on every job start to finish.</p>
+                <div>
+                    <div class="timeline-title">Founded High Line Tree Service</div>
+                    <div class="timeline-desc">Bobby returned to New England to bring professional, owner-operated tree care back to Northeastern Massachusetts. High Line Tree was born from a simple promise: every client gets the owner's personal attention and a Certified Arborist's expertise on every job.</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA Band -->
+<!-- CTA Band with Fall Foliage Background -->
 <section class="cta-band">
     <div class="container">
-        <h2>Ready to Discuss Your Tree Care Needs?</h2>
-        <p>Call Bobby directly for a free consultation and estimate on your tree service project. Available 24/7 for emergency work.</p>
+        <h2>Ready to Work with Bobby?</h2>
+        <p>Call for a free estimate and speak directly with the owner. No middlemen, no call centers — just professional tree care from a Certified Arborist who cares about your property.</p>
         <a href="tel:9784800403" class="btn-primary">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
             (978) 480-0403

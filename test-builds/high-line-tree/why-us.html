@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Why Choose High Line Tree Service | Tewksbury, MA</title>
-    <meta name="description" content="Why Northeastern Massachusetts property owners choose High Line Tree Service. Owner Bobby Black is on every job with 18+ years of Certified Arborist expertise, 24/7 emergency response, and complete insurance coverage.">
+    <title>Why Choose High Line Tree Service — Certified Arborist in Tewksbury, MA</title>
+    <meta name="description" content="Why choose High Line Tree Service? Owner-operated, 18+ years experience, fully insured, and certified arborist. Learn what makes us the trusted tree care choice in Northeastern Massachusetts.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -119,10 +119,10 @@
         /* ===== HERO ===== */
         .hero {
             position: relative;
-            min-height: 600px;
+            min-height: 620px;
             display: flex; align-items: center;
-            background: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(27,122,61,0.7) 100%),
-                        url('images/stock-hero-trees.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(27,122,61,0.65) 100%),
+                        url('images/real-gallery-03.jpg') center/cover no-repeat;
             color: var(--white);
         }
         .hero-content { position: relative; z-index: 2; max-width: 720px; }
@@ -211,41 +211,91 @@
             max-width: 640px; margin: 0 auto;
         }
 
-        /* ===== VALUE PROPOSITION CARDS (6-column grid on desktop, 2 on tablet, 1 on mobile) ===== */
+        /* ===== BRANDED FEATURE SECTION ===== */
+        .feature-split {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+            min-height: 480px;
+        }
+        .feature-img {
+            width: 100%; height: 100%; object-fit: cover; min-height: 480px;
+        }
+        .feature-content {
+            display: flex; flex-direction: column; justify-content: center;
+            padding: 56px 48px;
+            background: var(--charcoal); color: var(--white);
+        }
+        .feature-content .overline {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.12em; color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .feature-content h2 {
+            font-size: 34px; font-weight: 800; margin-bottom: 20px; line-height: 1.2;
+        }
+        .feature-content p {
+            font-size: 16px; line-height: 1.8; opacity: 0.85; margin-bottom: 28px;
+        }
+        .feature-list { list-style: none; margin-bottom: 32px; }
+        .feature-list li {
+            display: flex; align-items: center; gap: 12px;
+            font-size: 15px; font-weight: 600; margin-bottom: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+        .feature-list li svg { width: 20px; height: 20px; fill: var(--accent); flex-shrink: 0; }
+
+        /* ===== VALUE PROPOSITION GRID ===== */
         .value-grid {
             display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
         }
         .value-card {
             background: var(--white); border-radius: var(--radius);
-            padding: 36px 28px; transition: all 0.3s;
-            border: 1px solid var(--gray-100);
-            display: flex; flex-direction: column;
+            overflow: hidden; border: 1px solid var(--gray-100);
+            transition: all 0.3s;
         }
         .value-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-lg);
             border-color: var(--green);
         }
-        .value-card .card-icon {
-            width: 56px; height: 56px;
-            background: rgba(27,122,61,0.08);
-            border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 24px;
+        .value-card-img {
+            width: 100%; height: 160px; object-fit: cover;
         }
-        .value-card .card-icon svg { width: 28px; height: 28px; fill: var(--green); }
+        .value-card-body {
+            padding: 28px;
+        }
         .value-card h3 {
-            font-size: 19px; font-weight: 800; color: var(--charcoal);
+            font-size: 18px; font-weight: 800; color: var(--charcoal);
             margin-bottom: 12px;
         }
         .value-card p {
             font-size: 15px; color: var(--gray-600); line-height: 1.7;
         }
 
+        /* ===== BEFORE/AFTER ===== */
+        .ba-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px;
+        }
+        .ba-card {
+            border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .ba-card img {
+            width: 100%; height: 300px; object-fit: cover;
+        }
+        .ba-label {
+            text-align: center; padding: 16px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.08em;
+            background: var(--charcoal); color: var(--white);
+        }
+
         /* ===== CTA BAND ===== */
         .cta-band {
-            background: linear-gradient(135deg, var(--charcoal) 0%, var(--green-dark) 100%);
-            padding: 64px 0; text-align: center; color: var(--white);
+            background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,92,46,0.85) 100%),
+                        url('images/real-gallery-18.jpg') center/cover no-repeat;
+            padding: 80px 0; text-align: center; color: var(--white);
         }
         .cta-band h2 {
             font-size: 34px; font-weight: 800; margin-bottom: 16px;
@@ -298,6 +348,8 @@
         @media (max-width: 1024px) {
             .hero h1 { font-size: 42px; }
             .value-grid { grid-template-columns: repeat(2, 1fr); }
+            .feature-split { grid-template-columns: 1fr; }
+            .feature-img { min-height: 350px; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -348,8 +400,11 @@
             .stat-item { padding: 24px 16px; }
             .stat-number { font-size: 32px; }
             .value-grid { grid-template-columns: 1fr; }
+            .ba-grid { grid-template-columns: 1fr; }
             .section { padding: 56px 0; }
             .section-header h2 { font-size: 28px; }
+            .feature-content { padding: 40px 24px; }
+            .feature-content h2 { font-size: 26px; }
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
             .utility-bar { display: none; }
         }
@@ -424,128 +479,175 @@
     </div>
 </div>
 
-<!-- Hero -->
+<!-- Hero — Climber in tree with blue sky -->
 <section class="hero">
     <div class="container">
         <div class="hero-content">
             <div class="hero-badge">
                 <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                Why Customers Choose Us
+                Why Choose High Line
             </div>
-            <h1>Your <span>Trusted Tree Care</span> Partner</h1>
-            <p>When you choose High Line Tree Service, you're partnering with an experienced Certified Arborist who is personally invested in your property's health and safety.</p>
+            <h1>Professional Tree Care You Can <span>Trust</span></h1>
+            <p>Owner-operated, fully insured, and backed by 18+ years of certified arborist expertise. Learn what makes High Line Tree Service the trusted choice for tree care across Northeastern Massachusetts.</p>
             <div class="hero-btns">
                 <a href="tel:9784800403" class="btn-primary">
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     Get a Free Estimate
                 </a>
-                <a href="contact.html" class="btn-ghost">
+                <a href="services.html" class="btn-ghost">
                     <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                    Contact Us
+                    View Our Services
                 </a>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Value Proposition Cards -->
+<!-- Feature Split: Owner-Operated Difference with Branded Trailer Photo -->
+<section class="feature-split">
+    <img src="images/real-gallery-12.jpg" alt="High Line Tree Service branded trailer" class="feature-img" loading="lazy">
+    <div class="feature-content">
+        <div class="overline">The High Line Difference</div>
+        <h2>Owner-Operated. Always.</h2>
+        <p>When you call High Line Tree Service, you speak directly to Bobby Black, the Certified Arborist who founded this company. Bobby doesn't delegate your project to a subcontractor or pass you to a call center. He personally oversees every cut, every climb, and every cleanup on your property.</p>
+        <ul class="feature-list">
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Owner on every job, start to finish
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                No middlemen, no call centers
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Direct communication with Bobby
+            </li>
+            <li>
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Family business since day one
+            </li>
+        </ul>
+        <a href="about.html" class="btn-primary">
+            <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
+            Learn Bobby's Story
+        </a>
+    </div>
+</section>
+
+<!-- Why Choose Us: 6 Value Proposition Cards -->
 <section class="section section-dark">
     <div class="container">
         <div class="section-header">
-            <div class="overline">Our Difference</div>
-            <h2>What Sets Us Apart</h2>
-            <p>High Line Tree Service stands out through owner expertise, proven experience, and an unwavering commitment to customer satisfaction on every single project.</p>
+            <div class="overline">Why Property Owners Choose Us</div>
+            <h2>Built on Trust &amp; Expertise</h2>
+            <p>High Line Tree Service stands out because of our commitment to excellence, transparency, and genuine craftsmanship.</p>
         </div>
         <div class="value-grid">
-            <!-- Card 1 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                <img src="images/real-gallery-04.jpg" alt="Certified Arborist Bobby Black climbing" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>Certified Arborist Expertise</h3>
+                    <p>ISA Certified Arborist Bobby Black brings science-backed knowledge to every project. Your trees receive care grounded in professional arboricultural standards, not guesswork.</p>
                 </div>
-                <h3>Certified Arborist Expertise</h3>
-                <p>Bobby Black holds a Professional Arborist certification and extensive Plant Health Care training. You get science-backed tree care that follows industry best practices, not guesswork.</p>
             </div>
 
-            <!-- Card 2 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                <img src="images/real-gallery-17.jpg" alt="High Line Tree Service branded equipment" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>Owner on Every Job</h3>
+                    <p>Bobby doesn't sub out your work. He personally oversees every project from start to finish, ensuring your complete satisfaction and professional quality on every single job.</p>
                 </div>
-                <h3>Owner on Every Job</h3>
-                <p>When you hire High Line Tree, you get Bobby personally on-site from start to finish. No middlemen, no subcontractors. The owner handles your project directly.</p>
             </div>
 
-            <!-- Card 3 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                <img src="images/real-gallery-07.jpg" alt="Crane tree removal near power lines" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>18+ Years of Experience</h3>
+                    <p>Bobby trained with leading tree companies before founding High Line Tree. His depth of hands-on experience means advanced expertise, safe techniques, and proven problem-solving on every project.</p>
                 </div>
-                <h3>18+ Years of Proven Experience</h3>
-                <p>Bobby trained with The Care of Trees in Chicago, where he led crews for 6 years before founding High Line Tree. That depth of experience shows on every project.</p>
             </div>
 
-            <!-- Card 4 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <img src="images/real-gallery-08.jpg" alt="Crane operation in winter conditions" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>Fully Insured &amp; Bonded</h3>
+                    <p>High Line Tree carries comprehensive liability insurance on every job. You have complete peace of mind knowing your property is fully protected while work is being performed.</p>
                 </div>
-                <h3>Fully Insured &amp; Licensed</h3>
-                <p>High Line Tree carries complete liability insurance on every project. You're fully protected, giving you total peace of mind while work is done on your property.</p>
             </div>
 
-            <!-- Card 5 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+                <img src="images/real-gallery-01.jpg" alt="Tree removal crew in action" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>24/7 Emergency Response</h3>
+                    <p>When storms strike or emergencies happen, High Line Tree is ready. Available around the clock for emergency tree removal, storm cleanup, and hazard assessment across the region.</p>
                 </div>
-                <h3>24/7 Emergency Response</h3>
-                <p>Severe weather, falling trees, or hazardous limbs—we respond immediately. High Line Tree is available 24/7 to address emergency tree damage and keep your property safe.</p>
             </div>
 
-            <!-- Card 6 -->
             <div class="value-card">
-                <div class="card-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 12 2zm4.84 11.27l-5.49-3.18c-.31-.18-.51-.5-.51-.88V6.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v3.62l4.31 2.5c.67.39.87 1.24.48 1.91-.39.67-1.24.87-1.91.48l-.38-.22z"/></svg>
+                <img src="images/real-gallery-18.jpg" alt="Beautiful mature tree" class="value-card-img" loading="lazy">
+                <div class="value-card-body">
+                    <h3>Deep Local Knowledge</h3>
+                    <p>Bobby has spent 18+ years serving Northeastern Massachusetts. He understands local tree species, soil conditions, weather patterns, and property challenges specific to this region.</p>
                 </div>
-                <h3>Deep Local Knowledge</h3>
-                <p>Bobby knows the trees, soil conditions, and weather patterns of Northeastern Massachusetts. He understands local regulations and delivers tailored solutions for your region.</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Stats Bar: Built on Trust -->
+<!-- Built on Trust Stats Bar -->
 <section class="stats-bar">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
                 <div class="stat-number">18+</div>
-                <div class="stat-label">Years Experience</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">Emergency Service</div>
+                <div class="stat-label">Years of Experience</div>
             </div>
             <div class="stat-item">
                 <div class="stat-number">100%</div>
                 <div class="stat-label">Fully Insured</div>
             </div>
             <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Emergency Service</div>
+            </div>
+            <div class="stat-item">
                 <div class="stat-number">NE MA</div>
-                <div class="stat-label">Service Area</div>
+                <div class="stat-label">Local Service Area</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- CTA Band -->
+<!-- Before & After Gallery -->
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Real Results</div>
+            <h2>Before &amp; After Our Work</h2>
+            <p>See the difference professional tree care makes. These are actual projects completed by High Line Tree Service.</p>
+        </div>
+        <div class="ba-grid">
+            <div class="ba-card">
+                <img src="images/real-gallery-09.jpg" alt="Before and after residential tree work" loading="lazy">
+                <div class="ba-label">Professional Tree Care in Action</div>
+            </div>
+            <div class="ba-card">
+                <img src="images/real-gallery-10.jpg" alt="Before and after tree pruning project" loading="lazy">
+                <div class="ba-label">Expert Pruning &amp; Restoration</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Band with Fall Foliage Background -->
 <section class="cta-band">
     <div class="container">
-        <h2>Ready to Experience the High Line Difference?</h2>
-        <p>Call Bobby directly to discuss your tree care project. Free estimates for all services across Northeastern Massachusetts.</p>
+        <h2>Ready to Trust Your Trees to the Experts?</h2>
+        <p>Call Bobby Black directly for a free estimate. High Line Tree Service delivers owner-operated, fully insured tree care across Northeastern Massachusetts.</p>
         <a href="tel:9784800403" class="btn-primary">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="currentColor"/></svg>
-            (978) 480-0403
+            (978) 480-0403 — Free Estimate
         </a>
     </div>
 </section>
@@ -605,7 +707,7 @@
     </div>
 </footer>
 
-<!-- CHAT WIDGET -->
+<!-- CHAT WIDGET — Preview Slot 2 -->
 <script src="https://widgets.leadconnectorhq.com/loader.js"
     data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
     data-widget-id="69d81a75d69ee845759a0dc1"></script>
