@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Green tree icon matching High Line Tree brand color -->
+  <rect width="32" height="32" rx="6" fill="#1B7A3D"/>
+  <!-- Tree crown (three layered triangles) -->
+  <polygon points="16,4 10,14 22,14" fill="white"/>
+  <polygon points="16,8 8,18 24,18" fill="white"/>
+  <polygon points="16,12 6,22 26,22" fill="white"/>
+  <!-- Trunk -->
+  <rect x="14" y="22" width="4" height="6" rx="1" fill="white"/>
+</svg>
