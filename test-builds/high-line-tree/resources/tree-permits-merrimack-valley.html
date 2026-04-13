@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Removal Permits Merrimack Valley — Town-by-Town Guide | High Line Tree Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        /* UTILITY BAR */
+        .utility-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 12px 24px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-bar p {
+            margin: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            padding: 16px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--green);
+        }
+
+        .phone-button {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .phone-button:hover {
+            background-color: var(--green-dark);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 100px 24px 24px;
+            z-index: 90;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/real-gallery-07.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 40px 24px;
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .article-meta span {
+            display: inline-block;
+        }
+
+        /* ARTICLE CONTENT */
+        .article-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background-color: var(--white);
+        }
+
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--green);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 24px 0 24px 24px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+        }
+
+        .town-entry {
+            background-color: var(--off-white);
+            padding: 24px;
+            margin: 24px 0;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--green);
+        }
+
+        .town-entry h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--green);
+            margin-bottom: 12px;
+            margin-top: 0;
+        }
+
+        .town-entry p {
+            margin-bottom: 12px;
+        }
+
+        .town-entry p:last-child {
+            margin-bottom: 0;
+        }
+
+        .town-contact {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        /* CTA BOX */
+        .cta-box {
+            background-color: var(--off-white);
+            border-left: 4px solid var(--green);
+            padding: 24px;
+            margin: 48px 0;
+            border-radius: var(--radius);
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
+
+        .cta-box p {
+            margin-bottom: 0;
+        }
+
+        .cta-box a {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* RELATED RESOURCES */
+        .related-resources {
+            margin: 60px 0;
+            padding: 40px 24px;
+            background-color: var(--off-white);
+            border-radius: var(--radius);
+        }
+
+        .related-resources h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--charcoal);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--green);
+        }
+
+        .resource-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--green);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+
+        /* STICKY MOBILE CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--green);
+            padding: 12px 24px;
+            text-align: center;
+            z-index: 95;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-mobile-cta a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-desktop {
+                display: flex;
+            }
+
+            .phone-button {
+                display: inline-block;
+            }
+
+            .article-hero-content h1 {
+                font-size: 56px;
+            }
+
+            .article-meta {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .cta-band h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sticky-mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .article-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .article-content h2 {
+                font-size: 26px;
+            }
+
+            .article-content h3 {
+                font-size: 18px;
+            }
+
+            .cta-band h2 {
+                font-size: 28px;
+            }
+
+            .cta-band p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <p>Serving Merrimack Valley & North Shore</p>
+        <p>Available 24/7 for Emergency Tree Service</p>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service">
+            </div>
+            <nav class="nav-desktop">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../about.html">About</a>
+                <a href="../reviews.html">Reviews</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="tel:(978) 480-0403" class="phone-button">(978) 480-0403</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:(978) 480-0403" style="color: var(--accent);">(978) 480-0403</a>
+    </div>
+
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1>Tree Removal Permits in the Merrimack Valley — Town-by-Town Guide</h1>
+            <div class="article-meta">
+                <span><strong>Updated April 2026</strong></span>
+                <span>8 min read</span>
+                <span>By Bobby Black, ISA Certified Arborist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="article-content">
+        <h2>Tree Permits Vary Dramatically by Town</h2>
+
+        <p>This is the question I get almost every time I walk a property: "Do I need a permit?" The honest answer is: it depends on which town you're in. Merrimack Valley permit requirements are all over the place.</p>
+
+        <p>I handle permit paperwork for clients all the time, so I've learned what each town requires. This guide breaks down the major towns in our service area. If your town isn't listed here, call your local conservation commission or DPW—they'll tell you what applies to your property.</p>
+
+        <h2>Tewksbury</h2>
+
+        <div class="town-entry">
+            <h4>Public Trees</h4>
+            <p>Public trees (on town property, in rights-of-way) require Tree Warden review. A public hearing is typically required unless the tree is an imminent hazard to public safety. The process takes time, so plan ahead.</p>
+            <p><span class="town-contact">Contact DPW: (978) 640-4440</span></p>
+
+            <h4 style="margin-top: 20px;">Private Trees</h4>
+            <p>Private property tree removal generally doesn't require a permit from the town, but you should check if the tree sits in a wetland buffer or protected area. Tewksbury has wetland protections that may apply.</p>
+        </div>
+
+        <h2>Wilmington</h2>
+
+        <div class="town-entry">
+            <h4>General Requirements</h4>
+            <p>Wilmington's Conservation Commission approves tree removal through either a Request for Determination of Applicability (RDA) or Notice of Intent (NOI) filing. Trees near or in wetlands require approval.</p>
+
+            <h4 style="margin-top: 20px;">Safety Hazards</h4>
+            <p>If a tree is an imminent hazard (storm-damaged, leaning, threatening a structure), you may be able to get Emergency Certification for expedited removal within 30 days. This speeds up the process significantly.</p>
+
+            <h4 style="margin-top: 20px;">Replacement</h4>
+            <p>Wilmington typically requires replacement of removed trees with native deciduous species. Plan for this requirement in your project timeline.</p>
+
+            <h4 style="margin-top: 20px;">Public Trees</h4>
+            <p>Public shade trees require a written request to the Tree Warden at DPW (121 Glen Road).</p>
+
+            <p><span class="town-contact">Contact: (978) 658-8238</span></p>
+        </div>
+
+        <h2>Andover</h2>
+
+        <div class="town-entry">
+            <h4>Current Status and Changes</h4>
+            <p>Andover is currently operating under its Wetlands Protection Bylaw. Trees in wetland buffers require approval through the Conservation Commission. The town established a Tree Committee in 2023 that is currently developing a comprehensive town tree bylaw, so requirements may expand in coming years.</p>
+
+            <h4 style="margin-top: 20px;">Wetland Buffers</h4>
+            <p>100-foot wetland buffers and 200-foot riverfront buffers protect trees in these zones. Trees in buffers require an RDA or NOI filing with the Conservation Commission.</p>
+
+            <p><span class="town-contact">Contact: CDPConservation@andoverma.us</span></p>
+        </div>
+
+        <h2>North Andover</h2>
+
+        <div class="town-entry">
+            <h4>Conservation Commission Approval</h4>
+            <p>North Andover's Conservation Commission has jurisdiction over trees in wetland areas and their buffers. Protected areas include the 200-foot Riverfront Area and the 25-foot No-Disturbance Zone around wetlands.</p>
+
+            <h4 style="margin-top: 20px;">Private Property</h4>
+            <p>Trees on upland private property typically don't require approval unless they're in a protected area. Check with the town if you're unsure.</p>
+        </div>
+
+        <h2>Lowell</h2>
+
+        <div class="town-entry">
+            <h4>Tree Work Permit Required</h4>
+            <p>Lowell requires a valid tree work permit from the Tree Warden before removing any trees. The Commissioner of Public Works serves as the Tree Warden.</p>
+
+            <h4 style="margin-top: 20px;">Certified Arborist Preferred</h4>
+            <p>Lowell prefers to work with Massachusetts-certified arborists or ISA-certified professionals. Having a certified arborist handle the removal or at least consult on the project smooths the approval process.</p>
+        </div>
+
+        <h2>Chelmsford</h2>
+
+        <div class="town-entry">
+            <h4>Public Trees</h4>
+            <p>Public shade trees need approval from the Tree Warden, plus a public hearing. The process is formal and takes time.</p>
+
+            <h4 style="margin-top: 20px;">Scenic Roads</h4>
+            <p>Trees 6 inches or larger in diameter on scenic roads require Planning Board approval. This adds complexity to your project.</p>
+
+            <h4 style="margin-top: 20px;">Private Property</h4>
+            <p>Generally no permit is required for private trees, except near wetlands (Heart Pond, Freeman Lake, Stony Brook have 100-foot buffers where tree removal needs approval).</p>
+        </div>
+
+        <h2>Billerica</h2>
+
+        <div class="town-entry">
+            <h4>Conservation Department Review</h4>
+            <p>Billerica's Conservation Department has jurisdiction over trees in wetland areas, including the 100-year floodplain, areas within 200 feet of perennial streams, and areas within 100 feet of other wetlands.</p>
+
+            <h4 style="margin-top: 20px;">Public Process</h4>
+            <p>Tree removal in protected areas requires a public hearing and abutter notification. Plan for a longer timeline if your property is in a protected zone.</p>
+        </div>
+
+        <h2>Dracut</h2>
+
+        <div class="town-entry">
+            <h4>Tree Removal Permits Required</h4>
+            <p>Dracut requires permits for tree removal per town bylaw. Check with the town's DPW or Conservation Commission for specific requirements on your property.</p>
+        </div>
+
+        <h2>Methuen</h2>
+
+        <div class="town-entry">
+            <h4>Zoning Ordinance</h4>
+            <p>Methuen's tree removal requirements are found in the city's zoning ordinance. Refer to methuen.gov for specific provisions, or contact the Planning Department for guidance.</p>
+        </div>
+
+        <div class="cta-box">
+            <h3>Not sure about your town's requirements?</h3>
+            <p>I handle permit paperwork for my clients. Call Bobby at (978) 480-0403, and I'll tell you exactly what's required for your property and take care of the paperwork.</p>
+        </div>
+
+        <h2>Massachusetts Chapter 87: The Statewide Law</h2>
+
+        <p>On top of local rules, Massachusetts Chapter 87 (the Public Shade Tree Law) applies statewide to publicly owned shade trees. If your tree is in the public right-of-way or on town property, state law applies. Private trees are generally not covered by Chapter 87 unless they're officially designated as public shade trees.</p>
+
+        <h2>Wetlands: A Common Thread Across All Towns</h2>
+
+        <p>Almost every Merrimack Valley town has wetlands protections. The standard is a 100-foot buffer around wetlands where trees cannot be removed without approval. Some towns have 200-foot buffers near rivers and streams.</p>
+
+        <p>If your tree is anywhere near water—a pond, stream, marsh, even seasonal drainage—there's a good chance it's in a protected zone. When in doubt, contact the Conservation Commission.</p>
+
+        <h2>My Approach to Permits</h2>
+
+        <p>I'm on every job site from start to finish. That means I'm familiar with each town's requirements. If a permit is needed, I handle the paperwork. You don't have to deal with conservation commissions or Tree Wardens—I do that for you.</p>
+
+        <p>It's one less thing you have to worry about. I've been doing this for 18 years in this area. I know which towns are strict, which ones move fast, and how to present your project so it gets approved.</p>
+
+        <h2>Timeline Planning</h2>
+
+        <p>If you need a permit, the process typically takes 2–4 weeks from application to approval. Emergency hazard situations can sometimes be expedited. Plan ahead if possible—don't wait until a tree is failing to start the permit process.</p>
+
+        <!-- RELATED RESOURCES -->
+        <section class="related-resources">
+            <h3>Related Resources</h3>
+            <div class="resources-grid">
+                <a href="tree-removal-cost-massachusetts.html" class="resource-card">
+                    <h4>Tree Removal Cost</h4>
+                    <p>How much does tree removal cost in Massachusetts? Real pricing breakdown.</p>
+                </a>
+                <a href="signs-tree-needs-removal.html" class="resource-card">
+                    <h4>Signs Tree Needs Removal</h4>
+                    <p>7 clear warning signs that your tree may need to come down.</p>
+                </a>
+                <a href="best-time-prune-trees-new-england.html" class="resource-card">
+                    <h4>Best Time to Prune Trees</h4>
+                    <p>Learn when to prune your trees in New England for best results.</p>
+                </a>
+                <a href="emergency-storm-damage-trees.html" class="resource-card">
+                    <h4>Emergency Tree Service</h4>
+                    <p>What to do when a storm damages your trees.</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h2>Let Us Handle the Permits</h2>
+            <p>I'll navigate your town's requirements and take care of all the paperwork. Focus on your property—we'll handle the bureaucracy.</p>
+            <a href="../contact.html" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p>Professional tree removal, pruning, and emergency services in Merrimack Valley and North Shore Massachusetts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="../services.html">Tree Removal</a></li>
+                        <li><a href="../services.html">Tree Pruning</a></li>
+                        <li><a href="../services.html">Emergency Service</a></li>
+                        <li><a href="../services.html">Stump Grinding</a></li>
+                        <li><a href="../services.html">Storm Cleanup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><strong>Phone:</strong> <a href="tel:(978) 480-0403">(978) 480-0403</a></p>
+                    <p><strong>Service Area:</strong> Merrimack Valley & North Shore</p>
+                    <p><strong>Available:</strong> 24/7 Emergency Service</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-mobile-cta">
+        <a href="tel:(978) 480-0403">Call Bobby — (978) 480-0403</a>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

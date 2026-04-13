@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Removal — Tewksbury, MA | High Line Tree Service</title>
+    <meta name="description" content="Professional tree removal in Tewksbury, Merrimack Valley & beyond. ISA certified, fully insured. Same-day emergency services. Free estimates — no obligation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .utility-bar-content {
+            display: flex;
+            justify-content: flex-start;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .utility-bar a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .utility-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        .cta-phone {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--green);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .free-estimate-btn {
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .free-estimate-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('../images/real-gallery-08.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 24px;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 20px;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Badge Bar */
+        .badge-bar {
+            background: var(--off-white);
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .badge-content {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--green);
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        /* Service Detail Section */
+        .service-detail {
+            padding: 80px 24px;
+        }
+
+        .service-intro {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .service-intro h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .service-intro p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 16px;
+        }
+
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .service-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 32px;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .service-text h3:first-of-type {
+            margin-top: 0;
+        }
+
+        .service-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 16px;
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* What to Expect */
+        .what-to-expect {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--charcoal);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-step {
+            background: var(--white);
+            padding: 40px 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+
+        .process-step:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 900;
+            color: var(--green);
+            margin-bottom: 16px;
+        }
+
+        .process-step h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--charcoal);
+        }
+
+        .process-step p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 24px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .faq-item details {
+            cursor: pointer;
+        }
+
+        .faq-item summary {
+            padding: 20px 24px;
+            background: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--charcoal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.3s;
+        }
+
+        .faq-item summary:hover {
+            background: var(--gray-100);
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .faq-item details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 20px 24px;
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        /* Service Area */
+        .service-area {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .service-area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-area-item {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-area-item:hover {
+            border-color: var(--green);
+            box-shadow: 0 4px 12px rgba(27, 122, 61, 0.1);
+        }
+
+        .service-area-item a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .service-area-item:hover a {
+            color: var(--green);
+        }
+
+        /* CTA Band */
+        .cta-band {
+            background: var(--green);
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--green);
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border: 2px solid var(--white);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        /* Sticky Mobile CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--green);
+            z-index: 200;
+            padding: 12px 16px;
+        }
+
+        .sticky-mobile-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .sticky-mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 150;
+            flex-direction: column;
+            padding: 80px 24px 24px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .utility-bar-content {
+                gap: 16px;
+                flex-wrap: wrap;
+                font-size: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-phone {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-hero {
+                padding: 80px 24px;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .page-hero p {
+                font-size: 16px;
+            }
+
+            .service-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .badge-content {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "High Line Tree Service",
+        "image": "../images/logo-highline-tree.png",
+        "description": "Professional tree removal, pruning, stump grinding, land clearing, and plant health care in the Merrimack Valley.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tewksbury",
+            "addressLocality": "Tewksbury",
+            "addressRegion": "MA",
+            "postalCode": "01876"
+        },
+        "telephone": "+19784800403",
+        "url": "../",
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Tree Removal",
+        "description": "Professional tree removal services in the Merrimack Valley and surrounding areas. Fully licensed and insured. Same-day emergency services available.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "High Line Tree Service"
+        },
+        "areaServed": ["Tewksbury", "North Andover", "Wilmington", "Burlington", "Billerica", "Lowell", "Dracut", "Andover", "Lawrence"],
+        "availableLanguage": ["en"]
+    }
+    </script>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <span>📍 Tewksbury, MA</span>
+                <a href="mailto:contact@highlinetree.com">✉️ contact@highlinetree.com</a>
+                <span>24/7 Emergency Services Available</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service" class="logo">
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="../services.html">Services</a>
+                    <a href="../about.html">About</a>
+                    <a href="../reviews.html">Reviews</a>
+                    <a href="../contact.html">Contact</a>
+                </nav>
+                <a href="tel:+19784800403" class="cta-phone">(978) 480-0403</a>
+                <a href="../contact.html" class="free-estimate-btn">Free Estimate</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:+19784800403" style="color: var(--green); margin-top: 20px;">(978) 480-0403</a>
+    </div>
+
+    <section class="page-hero">
+        <h1>Tree Removal — Merrimack Valley, MA</h1>
+        <p>When a tree has to go, you need someone you can trust. Bobby brings 15+ years of expertise to every removal—whether it's a storm-damaged emergency or planned takedown of a hazardous tree.</p>
+    </section>
+
+    <div class="badge-bar">
+        <div class="badge-content">
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                ISA Certified Arborist
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Fully Licensed & Insured
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Free Estimates — No Obligation
+            </div>
+        </div>
+    </div>
+
+    <section class="service-detail">
+        <div class="container">
+            <div class="service-intro">
+                <h2>When Trees Need to Go</h2>
+                <p>Not every tree that looks bad needs to be removed—but when a tree truly is a danger or past saving, Bobby knows the safest, most efficient way to take it down. Whether the culprit is disease, storm damage, or structural failure, he assesses the situation fully before a single piece of equipment arrives on your property.</p>
+            </div>
+
+            <div class="service-content">
+                <div class="service-text">
+                    <h3>Bobby's Assessment-First Approach</h3>
+                    <p>Before removing any tree, <span class="highlight">Bobby personally evaluates the tree, nearby structures, power lines, and site conditions</span>. This isn't guesswork—it's decades of real experience deciding what can stay and what truly must go.</p>
+
+                    <h3>Why Trees Get Removed</h3>
+                    <p>Dead, dying, or diseased trees become liability hazards. The <span class="highlight">emerald ash borer has killed ash trees across 280+ Massachusetts communities</span>, including many in the Merrimack Valley. Storm damage, root rot, structural defects, and proximity to buildings all factor into removal decisions. When the September 2023 thunderstorms brought 66+ mph gusts to the area, many trees that survived for decades suddenly became dangerous.</p>
+
+                    <h3>The Removal Process</h3>
+                    <p>Bobby's crew uses specialized equipment matched to each job: crane operations for tall trees near structures, bucket trucks for precision dismantling, rigging systems to control each section as it comes down. For smaller trees on clear properties, we work efficiently and clean up the debris same-day. For large, complex removals near buildings, we take the time to do it right.</p>
+
+                    <h3>After the Tree is Down</h3>
+                    <p>We don't leave you with a stump and a mess. Depending on your needs, Bobby can chip branches on-site, remove logs, and grind the stump below grade so you can plant again or reclaim the space.</p>
+                </div>
+
+                <div class="service-text">
+                    <h3>Equipment & Safety</h3>
+                    <p>Tree removal is inherently risky. That's why Bobby's crew is fully insured and trained to handle complex removals near power lines, fences, decks, and septic systems. We use:</p>
+                    <p style="margin: 16px 0;">• Mobile and bucket-lift cranes<br>• Bucket trucks for reach and control<br>• Professional-grade rigging systems<br>• Brush chippers for debris management<br>• Traffic control for site safety</p>
+
+                    <h3>Service Areas</h3>
+                    <p>Bobby serves all nine Merrimack Valley towns: Tewksbury, North Andover, Wilmington, Burlington, Billerica, Lowell, Dracut, Andover, and Lawrence. Same-day emergency service is available 24/7 for storm damage and hazardous trees.</p>
+
+                    <h3>Emergency Tree Removal</h3>
+                    <p>When a tree falls across your roof or blocks your driveway, Bobby responds quickly. Call <span class="highlight">(978) 480-0403</span> anytime—day, night, or weekend. We prioritize emergencies and can often be on-site within hours of your call.</p>
+
+                    <h3>Why Hire Bobby</h3>
+                    <p>Cheap quotes often come with shortcuts. Bobby's fee is fair because he does the job right the first time—no come-backs, no hidden costs, no property damage. His ISA certification means he diagnoses tree problems accurately. His track record speaks for itself: hundreds of safe removals across the Merrimack Valley, no major incidents, and neighbors who recommend him year after year.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="what-to-expect">
+        <div class="container">
+            <h2 class="section-title">What Happens When You Call Bobby</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Free On-Site Assessment</h3>
+                    <p>Bobby visits your property, examines the tree, checks for hazards to structures and utilities, and discusses your options—removal or preservation.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Detailed Estimate & Timeline</h3>
+                    <p>You'll receive a transparent quote with equipment needs, crew size, duration, and cleanup scope. No surprises, no upsells.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Safe, Professional Removal</h3>
+                    <p>Bobby's crew removes the tree using appropriate equipment, controls debris, and manages site safety throughout the job.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Cleanup & Stump Options</h3>
+                    <p>Debris is chipped or removed, the site is cleared, and you decide: leave the stump or grind it below grade for future planting.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Tree Removal Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <details>
+                        <summary>How much does tree removal cost in Massachusetts?</summary>
+                        <div class="faq-content">
+                            <p>Tree removal costs depend on tree height, diameter, location on the property, proximity to structures, equipment needed, and cleanup scope. A 30-foot oak near a deck costs more than a 40-foot tree in the middle of a field. Bobby provides free estimates so you know the exact cost before work begins—no surprises.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>Do I need a permit to remove a tree in Tewksbury or surrounding areas?</summary>
+                        <div class="faq-content">
+                            <p>Permit requirements vary by town. Many Merrimack Valley municipalities don't require permits for hazardous or dead trees on residential property, but some towns have local regulations or size thresholds. Bobby is familiar with local bylaws and can advise whether permits are needed. When permits are required, he handles the paperwork.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>How long does tree removal take?</summary>
+                        <div class="faq-content">
+                            <p>A small-to-medium tree (under 40 feet, clear site) typically takes 2-4 hours. Large trees near structures may take a full day or multiple days. Complex removals with crane operations take longer because safety is the priority. Bobby will give you a realistic timeline during the estimate.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>What happens to the wood after removal?</summary>
+                        <div class="faq-content">
+                            <p>Bobby chips branches and small wood on-site (you can take mulch home) or hauls it away. Larger logs can be left for firewood if you'd like, or removed. Hard-to-handle debris is disposed of responsibly. The stump is either left for your landscape design or ground below grade.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>Is tree removal covered by homeowners insurance?</summary>
+                        <div class="faq-content">
+                            <p>Insurance may cover removal if the tree fell in a storm or poses an immediate hazard. Pre-emptive removal of a dead or diseased tree is rarely covered. Check your policy and call your insurer—Bobby can provide documentation if needed for a claim.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area">
+        <div class="container">
+            <h2 class="section-title">Service Areas</h2>
+            <div class="service-area-grid">
+                <div class="service-area-item">
+                    <a href="../areas/tewksbury.html">Tewksbury</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/north-andover.html">North Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/wilmington.html">Wilmington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/burlington.html">Burlington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/billerica.html">Billerica</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lowell.html">Lowell</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/dracut.html">Dracut</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/andover.html">Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lawrence.html">Lawrence</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-band">
+        <div class="container">
+            <h2>Get Your Free Tree Removal Estimate</h2>
+            <p>No obligation. No high-pressure sales. Just an honest assessment from Bobby.</p>
+            <div class="cta-buttons">
+                <a href="tel:+19784800403" class="btn-primary">Call (978) 480-0403</a>
+                <a href="../contact.html" class="btn-secondary">Request Online</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p style="margin-bottom: 16px; color: var(--gray-200); font-size: 14px;">Professional tree care in the Merrimack Valley since 2009.</p>
+                    <p style="color: var(--gray-200); font-size: 14px;">
+                        <strong>Phone:</strong> <a href="tel:+19784800403" style="color: var(--accent);">(978) 480-0403</a><br>
+                        <strong>Email:</strong> <a href="mailto:contact@highlinetree.com" style="color: var(--accent);">contact@highlinetree.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="./tree-removal.html">Tree Removal</a></li>
+                        <li><a href="./tree-pruning.html">Tree Pruning</a></li>
+                        <li><a href="./stump-grinding.html">Stump Grinding</a></li>
+                        <li><a href="./land-clearing.html">Land Clearing</a></li>
+                        <li><a href="./plant-health-care.html">Plant Health Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Areas</h3>
+                    <ul>
+                        <li><a href="../areas/tewksbury.html">Tewksbury</a></li>
+                        <li><a href="../areas/north-andover.html">North Andover</a></li>
+                        <li><a href="../areas/wilmington.html">Wilmington</a></li>
+                        <li><a href="../areas/burlington.html">Burlington</a></li>
+                        <li><a href="../areas/billerica.html">Billerica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-mobile-cta">
+        <a href="tel:+19784800403"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> Call Bobby — (978) 480-0403</a>
+    </div>
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

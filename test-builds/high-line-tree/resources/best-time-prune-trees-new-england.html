@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Is the Best Time to Prune Trees in New England? | High Line Tree Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        /* UTILITY BAR */
+        .utility-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 12px 24px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-bar p {
+            margin: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            padding: 16px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--green);
+        }
+
+        .phone-button {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .phone-button:hover {
+            background-color: var(--green-dark);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 100px 24px 24px;
+            z-index: 90;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/real-gallery-04.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 40px 24px;
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .article-meta span {
+            display: inline-block;
+        }
+
+        /* ARTICLE CONTENT */
+        .article-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background-color: var(--white);
+        }
+
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--green);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 24px 0 24px 24px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+        }
+
+        /* CTA BOX */
+        .cta-box {
+            background-color: var(--off-white);
+            border-left: 4px solid var(--green);
+            padding: 24px;
+            margin: 48px 0;
+            border-radius: var(--radius);
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
+
+        .cta-box p {
+            margin-bottom: 0;
+        }
+
+        .cta-box a {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* RELATED RESOURCES */
+        .related-resources {
+            margin: 60px 0;
+            padding: 40px 24px;
+            background-color: var(--off-white);
+            border-radius: var(--radius);
+        }
+
+        .related-resources h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--charcoal);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--green);
+        }
+
+        .resource-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--green);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+
+        /* STICKY MOBILE CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--green);
+            padding: 12px 24px;
+            text-align: center;
+            z-index: 95;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-mobile-cta a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
+        }
+
+        .season-box {
+            background-color: var(--off-white);
+            padding: 24px;
+            border-radius: var(--radius);
+            margin: 24px 0;
+            border-left: 4px solid var(--accent);
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-desktop {
+                display: flex;
+            }
+
+            .phone-button {
+                display: inline-block;
+            }
+
+            .article-hero-content h1 {
+                font-size: 56px;
+            }
+
+            .article-meta {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .cta-band h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sticky-mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .article-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .article-content h2 {
+                font-size: 26px;
+            }
+
+            .article-content h3 {
+                font-size: 18px;
+            }
+
+            .cta-band h2 {
+                font-size: 28px;
+            }
+
+            .cta-band p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <p>Serving Merrimack Valley & North Shore</p>
+        <p>Available 24/7 for Emergency Tree Service</p>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service">
+            </div>
+            <nav class="nav-desktop">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../about.html">About</a>
+                <a href="../reviews.html">Reviews</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="tel:(978) 480-0403" class="phone-button">(978) 480-0403</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:(978) 480-0403" style="color: var(--accent);">(978) 480-0403</a>
+    </div>
+
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1>When Is the Best Time to Prune Trees in New England?</h1>
+            <div class="article-meta">
+                <span><strong>Updated April 2026</strong></span>
+                <span>6 min read</span>
+                <span>By Bobby Black, ISA Certified Arborist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="article-content">
+        <h2>Winter Pruning Is the New England Standard</h2>
+
+        <p>If I had to give one answer to the question "When should I prune my trees?"—it's this: late winter to early spring, January through March. That's the best time for most trees in New England.</p>
+
+        <p>But that's not the complete answer. Different tree species have different preferences, and there are important exceptions. Let me walk you through what I've learned in 18 years of managing trees in Massachusetts.</p>
+
+        <h2>The Golden Rule: Dormant Season Pruning (January–March)</h2>
+
+        <p>Pruning in late winter is ideal because trees are dormant. Here's what that means for you:</p>
+
+        <ul>
+            <li><strong>Disease and insect pressure is low.</strong> Pests aren't active in winter. You're not opening fresh wounds when beetles and fungi are out looking for targets.</li>
+            <li><strong>You can see the structure clearly.</strong> No leaves means you can actually see what you're doing. You can identify weak crotches, crossing branches, and the true shape of the tree.</li>
+            <li><strong>Trees heal faster in spring.</strong> Winter pruning wounds close quickly once the tree starts growing in March and April. Spring growth seals over your cuts efficiently.</li>
+            <li><strong>Less stress on the tree.</strong> Winter dormancy means the tree's using minimal energy. Pruning doesn't tax its reserves.</li>
+        </ul>
+
+        <p>This is my pruning season. February and March is when I'm out here with my crew handling most of our pruning work. By summer, I've shifted to removals and emergency work.</p>
+
+        <h2>The Exception: Spring-Blooming Trees</h2>
+
+        <p>Crabapples, flowering plums, dogwoods, magnolias—if your tree produces those beautiful spring flowers, don't prune it in winter. You'll remove the flower buds.</p>
+
+        <p>For spring bloomers, wait until immediately after the flowers drop. Prune them in late April or May when the blooms are done. The tree still gets the benefit of early-season healing, and you don't sacrifice next year's flowers.</p>
+
+        <h2>Critical for Oak Trees: November–March Only</h2>
+
+        <p>This is important enough to bold. <strong>Never prune oak trees from April through October.</strong></p>
+
+        <p>Oak trees are susceptible to oak wilt, a fungal disease that spreads through fresh pruning wounds. The disease is most active in the growing season. Pruning an oak tree during spring and summer is like inviting the fungus in. Winter pruning is safe.</p>
+
+        <p>If your oak tree has a branch that needs immediate removal due to safety, that's different—safety always comes first. But for routine pruning and maintenance, oak trees are November through March only.</p>
+
+        <h2>Maple Trees: Late Spring or Early Summer</h2>
+
+        <p>Sugar maples and red maples are better pruned after their leaves have fully developed, usually late May or June. Maples bleed sap heavily if pruned in late winter or early spring, which looks messy but doesn't actually harm the tree.</p>
+
+        <p>Wait until full leaf development and the sap flow has slowed. Maples pruned in June heal just fine, and you avoid the dramatic bleeding.</p>
+
+        <h2>Why Summer Pruning Is Generally a Bad Idea</h2>
+
+        <p>It's tempting. It's warm, you have time off, the weather's perfect. But summer pruning comes with costs:</p>
+
+        <ul>
+            <li><strong>Disease risk increases.</strong> Fungi spread easily through fresh wounds in warm, humid weather. That open cut is an invitation.</li>
+            <li><strong>Insects target fresh wounds.</strong> Bark beetles and other wood-boring insects are active and hungry.</li>
+            <li><strong>It slows tree growth.</strong> Pruning removes leaf area, and summer is when the tree's trying to grow and build energy reserves.</li>
+        </ul>
+
+        <p>The only exception is if you need to remove dead branches or hazardous limbs. Safety trumps timing, always.</p>
+
+        <h2>Fall Pruning: The Worst Season</h2>
+
+        <p>Avoid it. Fall is when fungi are spreading spores aggressively. Fresh wounds attract disease. Trees are also preparing for dormancy—pruning in September and October stresses them as they're trying to shut down for winter.</p>
+
+        <p>If you have branches you want pruned, wait six weeks for winter. The difference it makes is real.</p>
+
+        <div class="cta-box">
+            <h3>Uncertain about your trees?</h3>
+            <p>Call Bobby at (978) 480-0403. I'll recommend the right timing for your specific trees.</p>
+        </div>
+
+        <h2>Emergency Pruning Doesn't Follow the Calendar</h2>
+
+        <p>Dead branches hanging overhead? Remove them whenever you notice them. Safety hazards? Deal with them immediately regardless of season. Ice storms, wind damage, broken limbs—these take priority over ideal timing.</p>
+
+        <p>The pruning schedule I'm describing is for routine maintenance and shaping. Emergency situations are different.</p>
+
+        <h2>How Often Should You Prune?</h2>
+
+        <p>That depends on the tree's age and condition. Mature trees typically need pruning every 3–5 years to maintain shape and health. Young trees can benefit from more frequent pruning—every 2–3 years—to establish good structure early on.</p>
+
+        <p>When a tree's young, pruning it regularly trains it to grow right. Once it's mature, less frequent pruning maintains what you've already built.</p>
+
+        <h2>My Pruning Philosophy</h2>
+
+        <p>I'm not a big fan of "topping" trees—cutting the tops off to make them shorter. You'll see it sometimes, and it ruins the tree's natural shape and makes it weaker. Proper pruning respects the tree's structure, removes deadwood, opens up the crown for light and air, and maintains the tree's natural form.</p>
+
+        <p>Good pruning should be subtle. When I'm done with a tree, it looks like it could have grown that way naturally. You're not supposed to notice the cuts.</p>
+
+        <h2>Final Word on Timing</h2>
+
+        <p>Late winter pruning—January through March for most trees, with the exceptions I've listed—is the gold standard in New England. It's when I schedule my pruning work, and it's when your trees will respond best.</p>
+
+        <p>But don't wait for perfect conditions if safety's at stake. And don't overthink it—most trees are forgiving. The difference between pruning in late February versus mid-April isn't going to make or break your tree. The important thing is that it gets pruned properly, whenever you do it.</p>
+
+        <!-- RELATED RESOURCES -->
+        <section class="related-resources">
+            <h3>Related Resources</h3>
+            <div class="resources-grid">
+                <a href="tree-removal-cost-massachusetts.html" class="resource-card">
+                    <h4>Tree Removal Cost</h4>
+                    <p>How much does tree removal cost in Massachusetts? Real pricing breakdown.</p>
+                </a>
+                <a href="signs-tree-needs-removal.html" class="resource-card">
+                    <h4>Signs Tree Needs Removal</h4>
+                    <p>7 clear warning signs that your tree may need to come down.</p>
+                </a>
+                <a href="tree-permits-merrimack-valley.html" class="resource-card">
+                    <h4>Tree Removal Permits</h4>
+                    <p>Town-by-town guide to permit requirements in the Merrimack Valley.</p>
+                </a>
+                <a href="emergency-storm-damage-trees.html" class="resource-card">
+                    <h4>Emergency Tree Service</h4>
+                    <p>What to do when a storm damages your trees.</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h2>Ready to Prune Your Trees?</h2>
+            <p>Schedule your tree pruning during the optimal season. I'll ensure your trees are properly shaped and healthy for years to come.</p>
+            <a href="../contact.html" class="cta-button">Request a Pruning Estimate</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p>Professional tree removal, pruning, and emergency services in Merrimack Valley and North Shore Massachusetts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="../services.html">Tree Removal</a></li>
+                        <li><a href="../services.html">Tree Pruning</a></li>
+                        <li><a href="../services.html">Emergency Service</a></li>
+                        <li><a href="../services.html">Stump Grinding</a></li>
+                        <li><a href="../services.html">Storm Cleanup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><strong>Phone:</strong> <a href="tel:(978) 480-0403">(978) 480-0403</a></p>
+                    <p><strong>Service Area:</strong> Merrimack Valley & North Shore</p>
+                    <p><strong>Available:</strong> 24/7 Emergency Service</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-mobile-cta">
+        <a href="tel:(978) 480-0403">Call Bobby — (978) 480-0403</a>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

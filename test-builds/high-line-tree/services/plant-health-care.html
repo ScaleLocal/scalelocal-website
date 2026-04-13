@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Health Care — Tewksbury, MA | High Line Tree Service</title>
+    <meta name="description" content="Tree health care & disease management in Merrimack Valley. Emerald ash borer treatment, plant care, ISA arborist. Prevent problems before they start.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .utility-bar-content {
+            display: flex;
+            justify-content: flex-start;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .utility-bar a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .utility-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        .cta-phone {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--green);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .free-estimate-btn {
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .free-estimate-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('../images/real-gallery-05.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 24px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Badge Bar */
+        .badge-bar {
+            background: var(--off-white);
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .badge-content {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--green);
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        /* Alert Box */
+        .alert-box {
+            background: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 40px 32px;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .alert-content {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .alert-icon {
+            font-size: 48px;
+            flex-shrink: 0;
+        }
+
+        .alert-text h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+
+        .alert-text p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* Section Title */
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--charcoal);
+            text-align: center;
+        }
+
+        /* Services Grid */
+        .services-section {
+            padding: 80px 24px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--off-white);
+            padding: 40px 32px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* Prevention vs Treatment */
+        .prevention-section {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .pv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: start;
+        }
+
+        .pv-column h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .pv-column p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .pv-column ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .pv-column li {
+            padding: 12px 0;
+            padding-left: 28px;
+            position: relative;
+            font-size: 15px;
+            color: var(--gray-700);
+        }
+
+        .pv-column li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .pv-column.treatment {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 24px;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .faq-item details {
+            cursor: pointer;
+        }
+
+        .faq-item summary {
+            padding: 20px 24px;
+            background: var(--off-white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--charcoal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.3s;
+        }
+
+        .faq-item summary:hover {
+            background: var(--gray-100);
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .faq-item details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 20px 24px;
+            background: var(--white);
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        /* Service Area */
+        .service-area {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .service-area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-area-item {
+            background: var(--white);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-area-item:hover {
+            border-color: var(--green);
+            box-shadow: 0 4px 12px rgba(27, 122, 61, 0.1);
+        }
+
+        .service-area-item a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .service-area-item:hover a {
+            color: var(--green);
+        }
+
+        /* CTA Band */
+        .cta-band {
+            background: var(--green);
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--green);
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border: 2px solid var(--white);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        /* Sticky Mobile CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--green);
+            z-index: 200;
+            padding: 12px 16px;
+        }
+
+        .sticky-mobile-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .sticky-mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 150;
+            flex-direction: column;
+            padding: 80px 24px 24px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .utility-bar-content {
+                gap: 16px;
+                flex-wrap: wrap;
+                font-size: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-phone {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-hero {
+                padding: 60px 24px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .page-hero p {
+                font-size: 16px;
+            }
+
+            .alert-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pv-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .sticky-mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .badge-content {
+                gap: 16px;
+            }
+
+            .alert-box {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "High Line Tree Service",
+        "image": "../images/logo-highline-tree.png",
+        "description": "Professional tree removal, pruning, stump grinding, land clearing, and plant health care in the Merrimack Valley.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tewksbury",
+            "addressLocality": "Tewksbury",
+            "addressRegion": "MA",
+            "postalCode": "01876"
+        },
+        "telephone": "+19784800403",
+        "url": "../",
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Plant Health Care",
+        "description": "Tree health care, disease management, and preventive treatment in the Merrimack Valley. Emerald ash borer treatment, plant inspections.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "High Line Tree Service"
+        },
+        "areaServed": ["Tewksbury", "North Andover", "Wilmington", "Burlington", "Billerica", "Lowell", "Dracut", "Andover", "Lawrence"],
+        "availableLanguage": ["en"]
+    }
+    </script>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <span>📍 Tewksbury, MA</span>
+                <a href="mailto:contact@highlinetree.com">✉️ contact@highlinetree.com</a>
+                <span>24/7 Emergency Services Available</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service" class="logo">
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="../services.html">Services</a>
+                    <a href="../about.html">About</a>
+                    <a href="../reviews.html">Reviews</a>
+                    <a href="../contact.html">Contact</a>
+                </nav>
+                <a href="tel:+19784800403" class="cta-phone">(978) 480-0403</a>
+                <a href="../contact.html" class="free-estimate-btn">Free Estimate</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:+19784800403" style="color: var(--green); margin-top: 20px;">(978) 480-0403</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1>Plant Health Care — Merrimack Valley, MA</h1>
+            <p>Healthy trees live longer, require less removal, and increase property value. Bobby diagnoses problems early—before they become emergencies—using ISA-certified expertise.</p>
+        </div>
+    </section>
+
+    <div class="badge-bar">
+        <div class="badge-content">
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                ISA Certified Arborist
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Fully Licensed & Insured
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Free Estimates — No Obligation
+            </div>
+        </div>
+    </div>
+
+    <section style="padding: 60px 24px; background: var(--white);">
+        <div class="container">
+            <div class="alert-box">
+                <div class="alert-content">
+                    <div class="alert-icon">⚠️</div>
+                    <div class="alert-text">
+                        <h3>Emerald Ash Borer Alert</h3>
+                        <p>The emerald ash borer has been confirmed in <span class="highlight">280+ Massachusetts communities</span>, including North Andover, Wilmington, and throughout the Merrimack Valley. This invasive beetle kills ash trees within 2-4 years of infestation. Bobby can assess your ash trees and recommend treatment or removal before it's too late.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2 class="section-title">Plant Health Care Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Emerald Ash Borer Treatment</h3>
+                    <p>Ash trees showing early signs of emerald ash borer attack can be treated with targeted insecticide injections. <span class="highlight">Treatment is most effective when started early</span>. Bobby assesses infestation severity and recommends treatment or removal based on the tree's condition.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Winter Moth & Pest Management</h3>
+                    <p>Winter moths have plagued New England oaks for years. <span class="highlight">Biological control using parasitic flies has been successful since 2018</span> across the region. Bobby coordinates integrated pest management to protect your trees naturally.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Oak Anthracnose & Fungal Disease</h3>
+                    <p>Oak anthracnose is common in southern New England springs. Fungal leaf diseases weaken trees and reduce vigor. Bobby diagnoses these conditions and recommends appropriate care—from pruning infected branches to soil improvements.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Soil Health & Fertilization</h3>
+                    <p>Healthy trees start with healthy soil. <span class="highlight">Bobby recommends soil testing and targeted fertilization</span> to address nutrient deficiencies, pH imbalances, and compaction issues affecting your trees' growth.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tree Cabling & Bracing</h3>
+                    <p>Weak branch attachments, narrow crotches, and structural defects can be reinforced with cable and brace systems. This extends tree life and prevents dangerous failure, especially important for large trees near homes.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Tree Inspections & Diagnosis</h3>
+                    <p>An ISA-certified arborist inspection identifies disease, pest damage, structural problems, and care needs. <span class="highlight">Bobby's certification means accurate diagnosis and science-backed recommendations</span>—not guesswork.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="prevention-section">
+        <div class="container">
+            <h2 class="section-title">Prevention vs. Reactive Treatment</h2>
+            <div class="pv-grid">
+                <div class="pv-column">
+                    <h3>Why Prevention Works</h3>
+                    <p>Waiting until a tree looks sick often means it's too late. By then, disease or pest populations are well-established, and removal may be your only option. <span class="highlight">Preventive care catches problems when they're manageable</span>.</p>
+                    <p>Regular tree inspections, early disease detection, and strategic pruning keep your trees healthy for decades. The cost of prevention is a fraction of emergency removal.</p>
+                    <ul>
+                        <li>Annual or biennial inspections catch emerging problems</li>
+                        <li>Pruning diseased branches stops spread early</li>
+                        <li>Soil improvements prevent nutrient stress</li>
+                        <li>Pest monitoring allows early intervention</li>
+                        <li>Cabling prevents catastrophic failure</li>
+                    </ul>
+                </div>
+                <div class="pv-column treatment">
+                    <h3>Reactive Treatment Costs More</h3>
+                    <p>Once a tree is visibly dying, treatment options shrink and costs rise. You're either paying for emergency removal and stump grinding, or attempting costly, often unsuccessful treatments on a failing tree.</p>
+                    <p><span class="highlight">Bobby's ISA certification means he can diagnose problems before they become emergencies</span>. Early-stage emerald ash borer? Treatable. Late-stage? Removal is often the only option.</p>
+                    <ul>
+                        <li>Emergency removal after a dangerous tree fails</li>
+                        <li>Expensive treatments on far-gone trees</li>
+                        <li>Property damage from fallen limbs or trees</li>
+                        <li>Rapid spread of disease through your landscape</li>
+                        <li>Loss of mature trees that took decades to grow</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Plant Health Care Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <details>
+                        <summary>How do I know if my tree is dying?</summary>
+                        <div class="faq-content">
+                            <p>Signs include sparse or discolored foliage, bare branches appearing year after year, visible pest damage, oozing cankers, significant deadwood, or weak branch attachment. Call Bobby for an inspection—he'll assess the tree and recommend treatment or removal based on its condition.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>What is emerald ash borer and is it in Massachusetts?</summary>
+                        <div class="faq-content">
+                            <p>Emerald ash borer is an invasive beetle that kills ash trees within 2-4 years. It has been confirmed in 280+ Massachusetts communities, including North Andover and other Merrimack Valley towns. If you have ash trees, Bobby can assess them for infestation and recommend early treatment if needed.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>Can a dying tree be saved?</summary>
+                        <div class="faq-content">
+                            <p>It depends on the cause and severity. Early-stage pest infestations and fungal diseases can often be treated successfully. Advanced decline, deep cankers, or structural failure usually means removal is the best option. Bobby evaluates each tree individually to recommend the right path forward.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>How often should trees be inspected?</summary>
+                        <div class="faq-content">
+                            <p>Annual inspections are ideal, especially for mature or high-value trees. Trees over 60 years old or near structures should be checked at least every 2-3 years. Bobby can recommend an inspection schedule tailored to your landscape and tree species.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area">
+        <div class="container">
+            <h2 class="section-title">Service Areas</h2>
+            <div class="service-area-grid">
+                <div class="service-area-item">
+                    <a href="../areas/tewksbury.html">Tewksbury</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/north-andover.html">North Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/wilmington.html">Wilmington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/burlington.html">Burlington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/billerica.html">Billerica</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lowell.html">Lowell</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/dracut.html">Dracut</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/andover.html">Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lawrence.html">Lawrence</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-band">
+        <div class="container">
+            <h2>Schedule Your Tree Health Assessment</h2>
+            <p>Bobby will inspect your trees, diagnose any issues, and recommend preventive care before problems become emergencies.</p>
+            <div class="cta-buttons">
+                <a href="tel:+19784800403" class="btn-primary">Call (978) 480-0403</a>
+                <a href="../contact.html" class="btn-secondary">Request Online</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p style="margin-bottom: 16px; color: var(--gray-200); font-size: 14px;">Professional tree care in the Merrimack Valley since 2009.</p>
+                    <p style="color: var(--gray-200); font-size: 14px;">
+                        <strong>Phone:</strong> <a href="tel:+19784800403" style="color: var(--accent);">(978) 480-0403</a><br>
+                        <strong>Email:</strong> <a href="mailto:contact@highlinetree.com" style="color: var(--accent);">contact@highlinetree.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="./tree-removal.html">Tree Removal</a></li>
+                        <li><a href="./tree-pruning.html">Tree Pruning</a></li>
+                        <li><a href="./stump-grinding.html">Stump Grinding</a></li>
+                        <li><a href="./land-clearing.html">Land Clearing</a></li>
+                        <li><a href="./plant-health-care.html">Plant Health Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Areas</h3>
+                    <ul>
+                        <li><a href="../areas/tewksbury.html">Tewksbury</a></li>
+                        <li><a href="../areas/north-andover.html">North Andover</a></li>
+                        <li><a href="../areas/wilmington.html">Wilmington</a></li>
+                        <li><a href="../areas/burlington.html">Burlington</a></li>
+                        <li><a href="../areas/billerica.html">Billerica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-mobile-cta">
+        <a href="tel:+19784800403"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> Call Bobby — (978) 480-0403</a>
+    </div>
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

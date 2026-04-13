@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Service in Lowell, MA | High Line Tree Service</title>
+    <meta name="description" content="Tree removal and trimming near Lowell National Historical Park and Boott Cotton Mills. Professional, insured, free estimates.">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta property="og:title" content="Tree Service in Lowell, MA | High Line Tree Service">
+    <meta property="og:description" content="Tree removal and trimming in Lowell, MA. Licensed, insured, free estimates.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-50: #f8f9f8;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--charcoal);
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .utility-bar {
+            background-color: var(--off-white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 12px 0;
+            font-size: 13px;
+        }
+
+        .utility-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-left {
+            display: flex;
+            gap: 24px;
+        }
+
+        .utility-left span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--gray-700);
+        }
+
+        .utility-left svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--green);
+        }
+
+        .utility-left a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        .utility-left a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight {
+            background-color: #fffacd;
+            color: var(--charcoal);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo-link img {
+            height: 45px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            flex: 1;
+            margin-left: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 36px;
+        }
+
+        .nav-links a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-cta {
+            background-color: var(--green) !important;
+            color: var(--white) !important;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            transition: background-color 0.3s;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--green-dark) !important;
+        }
+
+        .nav-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            margin-left: auto;
+        }
+
+        .nav-phone svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--green);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .menu-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--charcoal);
+        }
+
+        .mobile-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .mobile-overlay.active {
+            display: flex;
+        }
+
+        .mobile-menu {
+            background: var(--white);
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mobile-menu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-menu-header img {
+            height: 40px;
+            width: auto;
+        }
+
+        .mobile-close {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .mobile-close svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--charcoal);
+        }
+
+        .mobile-nav-links {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .mobile-nav-links li {
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .mobile-nav-links a {
+            display: block;
+            padding: 16px 24px;
+            color: var(--charcoal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .mobile-cta-phone {
+            margin-top: auto;
+            padding: 20px 24px;
+            border-top: 1px solid var(--gray-100);
+        }
+
+        .mobile-cta-phone a {
+            display: block;
+            background-color: var(--green);
+            color: var(--white);
+            text-align: center;
+            padding: 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .page-hero {
+            min-height: 400px;
+            background: linear-gradient(135deg, rgba(27, 122, 61, 0.7) 0%, rgba(20, 92, 46, 0.7) 100%), url('../images/real-gallery-08.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 0;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .isa-banner {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 16px 0;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .isa-banner .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        .city-intro {
+            background-color: var(--white);
+            color: var(--charcoal);
+        }
+
+        .city-intro h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--green);
+        }
+
+        .city-intro p {
+            margin-bottom: 20px;
+            max-width: 900px;
+        }
+
+        .services-section {
+            background-color: var(--gray-50);
+        }
+
+        .services-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--charcoal);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            padding: 28px;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .service-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--green);
+        }
+
+        .service-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .service-card .arrow {
+            color: var(--green);
+            font-weight: 700;
+            display: inline-block;
+        }
+
+        .local-faq {
+            background-color: var(--white);
+        }
+
+        .local-faq h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--charcoal);
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius);
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            background-color: var(--gray-50);
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background-color: var(--gray-100);
+        }
+
+        .faq-toggle {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--green);
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background-color: var(--white);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .faq-answer p {
+            margin-bottom: 12px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cta-band {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-block;
+            font-size: 15px;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--charcoal);
+        }
+
+        .btn-primary:hover {
+            background-color: #00a046;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 0 20px;
+            font-size: 13px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+        }
+
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--green);
+            padding: 12px 16px;
+            z-index: 998;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-mobile-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .sticky-mobile-cta svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .utility-left {
+                gap: 12px;
+                flex-direction: column;
+            }
+
+            .utility-bar .container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .nav-phone {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .page-hero h1 {
+                font-size: 36px;
+            }
+
+            .page-hero p {
+                font-size: 16px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .sticky-mobile-cta {
+                display: flex;
+            }
+
+            section {
+                padding: 40px 0;
+            }
+
+            .local-faq h2,
+            .services-section h2,
+            .city-intro h2 {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-inner {
+                height: 60px;
+            }
+
+            .page-hero {
+                min-height: 300px;
+            }
+
+            .page-hero h1 {
+                font-size: 28px;
+            }
+
+            .highlight {
+                font-size: 11px;
+                padding: 3px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-left">
+                <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg> Lowell, MA</span>
+                <span><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg> <a href="mailto:info@highlinetreemass.com">info@highlinetreemass.com</a></span>
+            </div>
+            <div><span class="highlight">24/7 Emergency Service Available</span></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="header-inner">
+            <a href="../index.html" class="logo-link"><img src="../images/logo-highline-tree.png" alt="High Line Tree Service Logo" loading="eager"></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../services.html">Services</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../reviews.html">Reviews</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                    <li><a href="tel:9784800403" class="nav-cta">Free Estimate</a></li>
+                </ul>
+            </nav>
+            <a href="tel:9784800403" class="nav-phone"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> (978) 480-0403</a>
+            <button class="menu-toggle" onclick="document.querySelector('.mobile-overlay').classList.add('active')" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+        </div>
+    </header>
+
+    <div class="mobile-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
+                <button class="mobile-close" onclick="document.querySelector('.mobile-overlay').classList.remove('active')" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+            </div>
+            <ul class="mobile-nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../services.html">Services</a></li>
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../reviews.html">Reviews</a></li>
+                <li><a href="../contact.html">Contact</a></li>
+            </ul>
+            <div class="mobile-cta-phone"><a href="tel:9784800403">(978) 480-0403 — Free Estimate</a></div>
+        </div>
+    </div>
+
+    <div class="page-hero">
+        <div style="max-width: 800px;">
+            <h1>Tree Service in Lowell, MA</h1>
+            <p>Professional tree care for the Boott Cotton Mills area and Lowell National Historical Park surroundings.</p>
+        </div>
+    </div>
+
+    <div class="isa-banner">
+        <div class="container">
+            <span>ISA Certified Arborist</span>
+            <span>•</span>
+            <span>18+ Years Experience</span>
+            <span>•</span>
+            <span>Fully Licensed & Insured</span>
+            <span>•</span>
+            <span>Free Estimates</span>
+        </div>
+    </div>
+
+    <section class="city-intro">
+        <div class="container">
+            <h2>Tree Care for Lowell's Historic Communities</h2>
+            <p>Lowell's neighborhoods near the National Historical Park and Boott Cotton Mills district have unique character shaped by mature urban trees—Eastern white pine, red oak, and sugar maple defining streetscapes and residential blocks. These trees tell the story of the city, and keeping them healthy matters.</p>
+            <p>We've served Lowell's residential and commercial properties for nearly two decades. Urban tree work is different from suburban work. Space is tighter, overhead utilities complicate planning, and neighboring properties require careful consideration. We know how to navigate those constraints. Emergency storm response, routine maintenance, hazard removal—we handle it all with expertise and respect for the neighborhood.</p>
+            <p>Start with a free estimate. We assess what you're facing, explain options clearly, and quote a fair price upfront. Full insurance covers every job, and we clean up completely. That's how we've built our reputation throughout the Lowell area.</p>
+        </div>
+    </section>
+
+    <section class="services-section">
+        <div class="container">
+            <h2>Lowell Tree Services</h2>
+            <div class="services-grid">
+                <a href="../services.html" class="service-card">
+                    <h3>Urban Tree Removal</h3>
+                    <p>Expert removal of trees in tight urban and suburban spaces with careful planning and rigging.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+                <a href="../services.html" class="service-card">
+                    <h3>Tree Trimming & Pruning</h3>
+                    <p>Strategic pruning for health, safety, and aesthetics in residential and commercial settings.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+                <a href="../services.html" class="service-card">
+                    <h3>Stump Removal</h3>
+                    <p>Thorough stump grinding in confined spaces where landscape renovation is planned.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+                <a href="../services.html" class="service-card">
+                    <h3>Storm Cleanup</h3>
+                    <p>24/7 emergency response for storm damage in residential neighborhoods and commercial areas.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+                <a href="../services.html" class="service-card">
+                    <h3>Tree Health Assessment</h3>
+                    <p>Professional evaluation of tree conditions, disease, and hazard identification.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+                <a href="../services.html" class="service-card">
+                    <h3>Lot Clearing</h3>
+                    <p>Site preparation and clearing for renovation or new development projects.</p>
+                    <span class="arrow">Learn More →</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="local-faq">
+        <div class="container">
+            <h2>Lowell Tree Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Do I need a permit for tree work in Lowell?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Some tree work may require local approval, particularly near protected areas or in certain historic zones. We research requirements and handle permit applications. Your free estimate includes information about any permits your specific project needs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>How do you handle tree work on narrow city streets?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We're experts at confined-space work. Using rigging, rope systems, and careful planning, we remove trees safely near utilities, buildings, and neighbor properties. Urban work takes more care and planning, but we manage it efficiently and safely.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>What about overhead power lines?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We work around power lines regularly using safe rigging and planning. Never work directly on power lines—we maintain proper clearance and coordinate with utility companies when necessary. Your safety and property protection are paramount.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="this.parentElement.classList.toggle('active')">
+                        <span>Can you work quickly during an emergency?</span>
+                        <div class="faq-toggle">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes. We offer 24/7 emergency response. For immediate danger from storm damage or falling limbs, call right away. We prioritize emergencies and often respond same-day in the Lowell area.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-band">
+        <div class="container">
+            <h2>Need Tree Work in Lowell?</h2>
+            <p>Get a free estimate from someone who knows the city and your neighborhood.</p>
+            <div class="cta-buttons">
+                <a href="tel:9784800403" class="btn btn-primary">Call Now</a>
+                <a href="../contact.html" class="btn btn-secondary">Request Estimate Online</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>High Line Tree Service</h4>
+                    <p>Professional tree care and removal services throughout the Merrimack Valley.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="../services.html">Tree Removal</a></li>
+                        <li><a href="../services.html">Tree Trimming</a></li>
+                        <li><a href="../services.html">Stump Grinding</a></li>
+                        <li><a href="../services.html">Emergency Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li><a href="./tewksbury.html">Tewksbury</a></li>
+                        <li><a href="./wilmington.html">Wilmington</a></li>
+                        <li><a href="./andover.html">Andover</a></li>
+                        <li><a href="./methuen.html">Methuen</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p><strong>(978) 480-0403</strong></p>
+                    <p><a href="mailto:info@highlinetreemass.com">info@highlinetreemass.com</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 High Line Tree Service. All rights reserved. Licensed & Insured.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-mobile-cta">
+        <a href="tel:+19784800403"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> Call Bobby — (978) 480-0403</a>
+    </div>
+
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "High Line Tree Service - Lowell",
+        "image": "../images/logo-highline-tree.png",
+        "description": "Tree removal and trimming in Lowell, MA. Licensed, insured, free estimates.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Lowell",
+            "addressRegion": "MA",
+            "postalCode": "01852",
+            "addressCountry": "US"
+        },
+        "telephone": "(978) 480-0403",
+        "email": "info@highlinetreemass.com",
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "Lowell"
+        },
+        "sameAs": [
+            "https://www.facebook.com/highlinetreeservice"
+        ]
+    }
+    </script>
+</body>
+</html>

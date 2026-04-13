@@ -481,7 +481,152 @@
             .timeline-year { font-size: 16px; }
             .timeline-title { font-size: 15px; }
         }
-    </style>
+    
+        /* ===== STICKY MOBILE CTA ===== */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 99;
+            background: var(--green);
+            padding: 12px 24px;
+            text-align: center;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+        .sticky-mobile-cta a {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .sticky-mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+        }
+        @media (max-width: 768px) {
+            .sticky-mobile-cta { display: block; }
+            body { padding-bottom: 52px; }
+        }
+
+        /* ===== FREE ESTIMATE BADGE ===== */
+        .free-estimate-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 176, 80, 0.1);
+            border: 1px solid rgba(0, 176, 80, 0.3);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 16px;
+        }
+        .free-estimate-badge svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--accent);
+        }
+
+        </style>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TreeService",
+        "name": "High Line Tree Service",
+        "description": "Professional tree removal, pruning, stump grinding, land clearing, and plant health care serving the Merrimack Valley. ISA Certified Arborist Bobby Black — 18+ years of experience.",
+        "url": "https://www.highlinetreemass.com",
+        "telephone": "+19784800403",
+        "email": "info@highlinetreemass.com",
+        "founder": {
+            "@type": "Person",
+            "name": "Bobby Black",
+            "jobTitle": "ISA Certified Arborist & Owner"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Tewksbury",
+            "addressRegion": "MA",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 42.6107,
+            "longitude": -71.2339
+        },
+        "areaServed": [
+            {"@type": "City", "name": "Tewksbury", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Wilmington", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Andover", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Methuen", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "North Andover", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Lowell", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Chelmsford", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Dracut", "containedInPlace": {"@type": "State", "name": "Massachusetts"}},
+            {"@type": "City", "name": "Billerica", "containedInPlace": {"@type": "State", "name": "Massachusetts"}}
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Tree Care Services",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tree Removal"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Tree Pruning & Trimming"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Stump Grinding"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Land & Lot Clearing"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Plant Health Care"}},
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Emergency Storm Damage"}}
+            ]
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "48",
+            "bestRating": "5"
+        },
+        "priceRange": "$$",
+        "image": "https://www.scalelocal.net/test-builds/high-line-tree/images/logo-highline-tree.png",
+        "sameAs": [
+            "https://www.google.com/maps/place/High+Line+Tree+Service",
+            "https://www.facebook.com/highlinetreeservice"
+        ],
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                "opens": "07:00",
+                "closes": "18:00"
+            },
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": "Saturday",
+                "opens": "08:00",
+                "closes": "16:00"
+            }
+        ],
+        "knowsAbout": [
+            "Tree removal",
+            "Tree pruning",
+            "Stump grinding",
+            "Land clearing",
+            "Emergency tree service",
+            "Certified arboriculture",
+            "Emerald ash borer treatment",
+            "Storm damage cleanup"
+        ]
+    }
+    </script>
 </head>
 <body>
 

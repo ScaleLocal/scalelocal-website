@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Much Does Tree Removal Cost in Massachusetts? | High Line Tree Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        /* UTILITY BAR */
+        .utility-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 12px 24px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-bar p {
+            margin: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            padding: 16px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--green);
+        }
+
+        .phone-button {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .phone-button:hover {
+            background-color: var(--green-dark);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 100px 24px 24px;
+            z-index: 90;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/real-gallery-08.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 40px 24px;
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .article-meta span {
+            display: inline-block;
+        }
+
+        /* ARTICLE CONTENT */
+        .article-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background-color: var(--white);
+        }
+
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--green);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 24px 0 24px 24px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+        }
+
+        /* CTA BOX */
+        .cta-box {
+            background-color: var(--off-white);
+            border-left: 4px solid var(--green);
+            padding: 24px;
+            margin: 48px 0;
+            border-radius: var(--radius);
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
+
+        .cta-box p {
+            margin-bottom: 0;
+        }
+
+        .cta-box a {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-box a:hover {
+            text-decoration: underline;
+        }
+
+        /* RELATED RESOURCES */
+        .related-resources {
+            margin: 60px 0;
+            padding: 40px 24px;
+            background-color: var(--off-white);
+            border-radius: var(--radius);
+        }
+
+        .related-resources h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--charcoal);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--green);
+        }
+
+        .resource-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--green);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+
+        /* STICKY MOBILE CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--green);
+            padding: 12px 24px;
+            text-align: center;
+            z-index: 95;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-mobile-cta a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-desktop {
+                display: flex;
+            }
+
+            .phone-button {
+                display: inline-block;
+            }
+
+            .article-hero-content h1 {
+                font-size: 56px;
+            }
+
+            .article-meta {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .cta-band h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sticky-mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .article-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .article-content h2 {
+                font-size: 26px;
+            }
+
+            .article-content h3 {
+                font-size: 18px;
+            }
+
+            .cta-band h2 {
+                font-size: 28px;
+            }
+
+            .cta-band p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <p>Serving Merrimack Valley & North Shore</p>
+        <p>Available 24/7 for Emergency Tree Service</p>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service">
+            </div>
+            <nav class="nav-desktop">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../about.html">About</a>
+                <a href="../reviews.html">Reviews</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="tel:(978) 480-0403" class="phone-button">(978) 480-0403</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:(978) 480-0403" style="color: var(--accent);">(978) 480-0403</a>
+    </div>
+
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1>How Much Does Tree Removal Cost in Massachusetts?</h1>
+            <div class="article-meta">
+                <span><strong>Updated April 2026</strong></span>
+                <span>7 min read</span>
+                <span>By Bobby Black, ISA Certified Arborist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="article-content">
+        <h2>What You'll Actually Pay for Tree Removal</h2>
+
+        <p>I get asked this question almost every week: "How much does tree removal cost?" The answer I usually give is: it depends. But I know that's not helpful when you're standing in your yard looking at a problem tree and need to know if you should budget $500 or $5,000.</p>
+
+        <p>After 18 years of removing trees across Massachusetts, I've handled hundreds of removals in our Merrimack Valley area. The truth is, pricing varies dramatically based on factors most homeowners don't think about. Let me break down what actually drives the cost.</p>
+
+        <h2>Tree Size is Your Primary Cost Driver</h2>
+
+        <p>The biggest factor in removal cost is tree size. I measure this by height because that's what determines the complexity and risk of the job.</p>
+
+        <h3>Small Trees (Under 30 feet)</h3>
+        <p>These typically cost $300–$700 to remove. A small white birch or ornamental maple falls into this category. The work is straightforward: climb up, section out the branches, lower them to the ground, and fell the trunk. Minimal equipment needed, shorter work time.</p>
+
+        <h3>Medium Trees (30–60 feet)</h3>
+        <p>Expect $800–$1,800. Most mature oaks, maples, and pines in residential yards fall here. These require more careful rigging, proper rope technique, and sometimes a crane truck depending on where the tree is located. This is where labor and equipment costs really add up.</p>
+
+        <h3>Large Trees (60 feet and taller)</h3>
+        <p>These run $2,000–$5,000 or more. Removing a 100-foot white pine near your house isn't a quick operation. We're talking multiple days sometimes, specialized equipment, and serious insurance considerations. I've priced removals in this range that went significantly higher when the tree was wrapped around power lines or hanging over a neighbor's pool.</p>
+
+        <h2>Location Matters More Than You'd Think</h2>
+
+        <p>Where a tree sits on your property dramatically affects the price. A tree in an open yard with plenty of fall space? That's straightforward work. But throw in complications, and costs rise fast.</p>
+
+        <p><strong>Proximity to structures:</strong> If a tree is close to your house, garage, deck, or pool, the removal becomes much more complex. We have to rig each section down carefully to avoid damage. Nobody wants a $50,000 insurance claim to replace a roof because a tree section fell wrong. This can add 50–100% to the cost.</p>
+
+        <p><strong>Power lines:</strong> Trees touching or near power lines require coordination with the utility company and sometimes specialized bucket trucks. This adds significant cost and coordination time.</p>
+
+        <p><strong>Access for equipment:</strong> Can our truck get close to the tree? Does your driveway have to be protected? Are there fences we need to work around? Limited access means longer job times and potentially higher labor costs.</p>
+
+        <h2>The Condition of the Tree</h2>
+
+        <p>A healthy, living tree and a dead tree of the same size can have different removal costs—though not always in the direction people expect.</p>
+
+        <p>Dead trees are often <em>more</em> expensive to remove, not less. Here's why: dead wood is brittle. Branches snap unexpectedly. The trunk can splinter as you cut. You have to move slower, be more careful, and sometimes work takes twice as long. Plus, dead trees are the ones most likely to drop branches without warning, making them urgent removals that cost more.</p>
+
+        <p>A healthy tree with good branch structure is often easier and faster to remove. I can climb safely, cut confidently, and move through the work efficiently.</p>
+
+        <h2>Stump Grinding: The Add-On Nobody Plans For</h2>
+
+        <p>I've removed the tree. Now what about the stump? You have options:</p>
+
+        <ul>
+            <li><strong>Grind it down:</strong> $175–$450 depending on stump size and accessibility. Our grinder makes short work of most stumps.</li>
+            <li><strong>Leave it for you:</strong> Much cheaper upfront, but you'll want it gone eventually (roots keep spreading, it's a tripping hazard, it limits what you can plant there).</li>
+            <li><strong>Treat it with herbicide:</strong> Slows regrowth but doesn't eliminate the stump—sometimes a temporary solution.</li>
+        </ul>
+
+        <p>Most of my customers bundle the grinding with the removal. It's convenient and you're not dealing with a 3-foot stump for the next 10 years.</p>
+
+        <div class="cta-box">
+            <h3>Need help? Call Bobby at (978) 480-0403</h3>
+            <p>I'll walk your property, assess the trees, and give you an honest estimate. No upselling, no guessing—just straight advice on what needs to happen and what it'll cost.</p>
+        </div>
+
+        <h2>When to Save Money: Seasonal Timing</h2>
+
+        <p>Tree removal cost varies by season, and understanding this can save you hundreds.</p>
+
+        <p><strong>Winter is the sweet spot.</strong> February and March are the slowest months for tree work—fewer storms mean fewer emergency calls hogging our crew's time. We can offer better rates. Plus, frozen ground means less damage to your lawn, and dormant trees are lighter (less moisture in the wood). Winter is genuinely the best time if you have time to wait.</p>
+
+        <p><strong>Spring and summer are peak demand.</strong> Storms happen, trees fail, everyone wants their trees trimmed before summer. That means longer wait times and higher prices. If you don't have an emergency, I'd recommend scheduling for winter.</p>
+
+        <h2>Will Your Homeowners Insurance Cover It?</h2>
+
+        <p>This is important. Most Massachusetts homeowners insurance policies cover tree removal if the tree was damaged by a covered peril—usually a storm or lightning strike.</p>
+
+        <p>Typical coverage: $500–$1,000 per tree. If your removal falls under your insurance, you'll have a deductible ($500–$1,000 typically), but the insurance should cover the rest. Trees that are diseased, infested, or just "in the way" don't qualify for insurance coverage.</p>
+
+        <p>I often recommend customers file their insurance claim. It's what you're paying for. Just photograph everything and document the damage before anything gets moved.</p>
+
+        <h2>Certified Arborist vs. General Contractor</h2>
+
+        <p>This matters more than a lot of people realize. In Massachusetts, almost anyone can cut down a tree. You don't need a license. That's the problem.</p>
+
+        <p>A certified arborist has formal training in tree biology, proper pruning and removal techniques, and continues education. I'm ISA certified—that means I've passed rigorous exams and keep my knowledge current. When I remove a tree, I'm thinking about the impact on surrounding trees, proper disposal of the wood, and safety protocols that protect you and your neighbors.</p>
+
+        <p>A general contractor with a chainsaw might be cheaper. They might also leave you with property damage, hurt a neighbor's tree, or skip proper cleanup. I've been hired multiple times to clean up other contractors' removal jobs. That always costs more in the end.</p>
+
+        <h2>My Approach: Honest Assessment</h2>
+
+        <p>Here's something I pride myself on: I don't always recommend removal. I'd rather save a tree than cut it down. If a tree is declining but still viable, we can often prune it back, remove dead wood, and give it years of healthy life. That costs less than removal and you get to keep a mature tree on your property.</p>
+
+        <p>But when a tree is genuinely unsafe—hollow trunk, major structural failure, root damage from construction—removal is the right call. Waiting doesn't make it cheaper. It makes it more dangerous and often more expensive when the tree fails unexpectedly.</p>
+
+        <h2>Getting an Accurate Estimate</h2>
+
+        <p>Any legitimate tree service will give you an on-site estimate. They need to see the tree, assess its condition, understand your property layout, and check for hazards. Phone estimates are rough at best. In-person estimates are free—that's the standard in our industry.</p>
+
+        <p>A good estimate should include:</p>
+        <ul>
+            <li>Tree height and diameter</li>
+            <li>Location on the property and proximity to structures</li>
+            <li>Cost for removal</li>
+            <li>Cost for stump grinding (if included)</li>
+            <li>Debris cleanup and disposal</li>
+            <li>Liability insurance details</li>
+        </ul>
+
+        <p>If something seems off or the price is shockingly cheap, trust your gut. Ask questions. A professional will be happy to explain their pricing.</p>
+
+        <h2>Final Word</h2>
+
+        <p>Tree removal in Massachusetts isn't cheap, but it's not arbitrary either. You're paying for expertise, equipment, insurance, and the safe disposal of heavy wood. For a small tree, you might spend $500. For a large tree near your house, you might spend $3,000–$4,000.</p>
+
+        <p>The best move? Call early when you notice a problem. Get it assessed before it becomes an emergency. And don't hesitate to ask your tree service why something costs what it does. We're happy to explain.</p>
+
+        <!-- RELATED RESOURCES -->
+        <section class="related-resources">
+            <h3>Related Resources</h3>
+            <div class="resources-grid">
+                <a href="signs-tree-needs-removal.html" class="resource-card">
+                    <h4>Signs Tree Needs Removal</h4>
+                    <p>7 clear warning signs that your tree may need to come down.</p>
+                </a>
+                <a href="best-time-prune-trees-new-england.html" class="resource-card">
+                    <h4>Best Time to Prune Trees</h4>
+                    <p>Learn when to prune your trees in New England for best results.</p>
+                </a>
+                <a href="tree-permits-merrimack-valley.html" class="resource-card">
+                    <h4>Tree Removal Permits</h4>
+                    <p>Town-by-town guide to permit requirements in the Merrimack Valley.</p>
+                </a>
+                <a href="emergency-storm-damage-trees.html" class="resource-card">
+                    <h4>Emergency Tree Service</h4>
+                    <p>What to do when a storm damages your trees.</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h2>Ready for a Free Estimate?</h2>
+            <p>Contact High Line Tree Service today. I'll assess your trees and give you honest, upfront pricing.</p>
+            <a href="../contact.html" class="cta-button">Get Your Free Estimate</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p>Professional tree removal, pruning, and emergency services in Merrimack Valley and North Shore Massachusetts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="../services.html">Tree Removal</a></li>
+                        <li><a href="../services.html">Tree Pruning</a></li>
+                        <li><a href="../services.html">Emergency Service</a></li>
+                        <li><a href="../services.html">Stump Grinding</a></li>
+                        <li><a href="../services.html">Storm Cleanup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><strong>Phone:</strong> <a href="tel:(978) 480-0403">(978) 480-0403</a></p>
+                    <p><strong>Service Area:</strong> Merrimack Valley & North Shore</p>
+                    <p><strong>Available:</strong> 24/7 Emergency Service</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-mobile-cta">
+        <a href="tel:(978) 480-0403">Call Bobby — (978) 480-0403</a>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Pruning — Tewksbury, MA | High Line Tree Service</title>
+    <meta name="description" content="Expert tree pruning and trimming in Tewksbury & Merrimack Valley. Proper ISA pruning techniques. Winter & spring scheduling. Free estimates.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Utility Bar */
+        .utility-bar {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 13px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+        }
+
+        .utility-bar-content {
+            display: flex;
+            justify-content: flex-start;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .utility-bar a {
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .utility-bar a:hover {
+            color: var(--accent);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-100);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--green);
+        }
+
+        .cta-phone {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--green);
+            text-decoration: none;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+
+        .free-estimate-btn {
+            background: var(--green);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            transition: background 0.3s;
+        }
+
+        .free-estimate-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--charcoal);
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background: linear-gradient(rgba(26, 26, 26, 0.5), rgba(26, 26, 26, 0.5)), url('../images/real-gallery-04.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 100px 24px;
+            text-align: left;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .page-hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Badge Bar */
+        .badge-bar {
+            background: var(--off-white);
+            padding: 24px 0;
+            text-align: center;
+            border-top: 1px solid var(--gray-100);
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .badge-content {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--green);
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--green);
+            border-radius: 50%;
+        }
+
+        /* Key Stats Section */
+        .key-stats {
+            padding: 80px 24px;
+            background: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            color: var(--green);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--charcoal);
+            margin-bottom: 8px;
+        }
+
+        .stat-description {
+            font-size: 14px;
+            color: var(--gray-700);
+            line-height: 1.6;
+        }
+
+        /* Timing Guide */
+        .timing-guide {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 50px;
+            color: var(--charcoal);
+        }
+
+        .timing-content {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .timing-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border-left: 4px solid var(--green);
+            margin-bottom: 30px;
+        }
+
+        .timing-box h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .timing-box p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 12px;
+        }
+
+        .highlight {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        /* Pruning Types */
+        .pruning-types {
+            padding: 80px 24px;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .type-card {
+            background: var(--off-white);
+            padding: 40px 28px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+
+        .type-card:hover {
+            border-color: var(--green);
+            box-shadow: 0 8px 24px rgba(27, 122, 61, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .type-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+
+        .type-card p {
+            font-size: 15px;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 24px;
+            background: var(--off-white);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+            border: 1px solid var(--gray-100);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+
+        .faq-item details {
+            cursor: pointer;
+        }
+
+        .faq-item summary {
+            padding: 20px 24px;
+            background: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--charcoal);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: background 0.3s;
+        }
+
+        .faq-item summary:hover {
+            background: var(--gray-100);
+        }
+
+        .faq-item summary::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        .faq-item details[open] summary::after {
+            content: '−';
+        }
+
+        .faq-content {
+            padding: 20px 24px;
+            background: var(--off-white);
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        /* Service Area */
+        .service-area {
+            padding: 80px 24px;
+        }
+
+        .service-area-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-area-item {
+            background: var(--off-white);
+            padding: 24px;
+            border-radius: var(--radius);
+            border: 1px solid var(--gray-100);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-area-item:hover {
+            border-color: var(--green);
+            box-shadow: 0 4px 12px rgba(27, 122, 61, 0.1);
+        }
+
+        .service-area-item a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .service-area-item:hover a {
+            color: var(--green);
+        }
+
+        /* CTA Band */
+        .cta-band {
+            background: var(--green);
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--green);
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            padding: 16px 32px;
+            border: 2px solid var(--white);
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--accent);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: var(--gray-400);
+        }
+
+        /* Sticky Mobile CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--green);
+            z-index: 200;
+            padding: 12px 16px;
+        }
+
+        .sticky-mobile-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .sticky-mobile-cta svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--white);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--white);
+            z-index: 150;
+            flex-direction: column;
+            padding: 80px 24px 24px;
+        }
+
+        .mobile-menu.active {
+            display: flex;
+        }
+
+        .mobile-menu a {
+            color: var(--charcoal);
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .utility-bar-content {
+                gap: 16px;
+                flex-wrap: wrap;
+                font-size: 12px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .cta-phone {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .page-hero {
+                padding: 60px 24px;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .page-hero h1 {
+                font-size: 32px;
+            }
+
+            .page-hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .types-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .sticky-mobile-cta {
+                display: flex;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .badge-content {
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "High Line Tree Service",
+        "image": "../images/logo-highline-tree.png",
+        "description": "Professional tree removal, pruning, stump grinding, land clearing, and plant health care in the Merrimack Valley.",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Tewksbury",
+            "addressLocality": "Tewksbury",
+            "addressRegion": "MA",
+            "postalCode": "01876"
+        },
+        "telephone": "+19784800403",
+        "url": "../",
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Tree Pruning",
+        "description": "Professional tree pruning and trimming services in the Merrimack Valley. ISA-certified pruning techniques for healthy trees.",
+        "provider": {
+            "@type": "LocalBusiness",
+            "name": "High Line Tree Service"
+        },
+        "areaServed": ["Tewksbury", "North Andover", "Wilmington", "Burlington", "Billerica", "Lowell", "Dracut", "Andover", "Lawrence"],
+        "availableLanguage": ["en"]
+    }
+    </script>
+
+    <div class="utility-bar">
+        <div class="container">
+            <div class="utility-bar-content">
+                <span>📍 Tewksbury, MA</span>
+                <a href="mailto:contact@highlinetree.com">✉️ contact@highlinetree.com</a>
+                <span>24/7 Emergency Services Available</span>
+            </div>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service" class="logo">
+                <nav>
+                    <a href="../index.html">Home</a>
+                    <a href="../services.html">Services</a>
+                    <a href="../about.html">About</a>
+                    <a href="../reviews.html">Reviews</a>
+                    <a href="../contact.html">Contact</a>
+                </nav>
+                <a href="tel:+19784800403" class="cta-phone">(978) 480-0403</a>
+                <a href="../contact.html" class="free-estimate-btn">Free Estimate</a>
+                <div class="hamburger" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:+19784800403" style="color: var(--green); margin-top: 20px;">(978) 480-0403</a>
+    </div>
+
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1>Tree Pruning — Merrimack Valley, MA</h1>
+            <p>Good pruning doesn't just improve a tree's appearance—it extends its life, prevents disease, and can increase property value. Bobby doesn't just cut branches; he reads the tree's structure and prunes with purpose.</p>
+        </div>
+    </section>
+
+    <div class="badge-bar">
+        <div class="badge-content">
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                ISA Certified Arborist
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Fully Licensed & Insured
+            </div>
+            <div class="badge-item">
+                <div class="badge-dot"></div>
+                Free Estimates — No Obligation
+            </div>
+        </div>
+    </div>
+
+    <section class="key-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Pruning Experience</div>
+                    <div class="stat-description">Bobby has honed the craft across hundreds of New England trees.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">9</div>
+                    <div class="stat-label">Towns Served</div>
+                    <div class="stat-description">Consistent expert pruning across the entire Merrimack Valley.</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">ISA</div>
+                    <div class="stat-label">Certified Standards</div>
+                    <div class="stat-description">Every cut follows science-backed best practices to reduce disease entry.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timing-guide">
+        <div class="container">
+            <h2 class="section-title">When to Prune in New England</h2>
+            <div class="timing-content">
+                <div class="timing-box">
+                    <h3>Best Time: Late Winter to Early Spring (January–March)</h3>
+                    <p>This is the <span class="highlight">ideal window for most trees in New England</span>. Deciduous trees are dormant, so pruning stress is minimal. Wounds heal faster in spring, and you can see branch structure without leaves. Bobby schedules the majority of his pruning work between late January and March for this reason.</p>
+                </div>
+
+                <div class="timing-box">
+                    <h3>Oak Trees: ONLY Prune November–March</h3>
+                    <p><span class="highlight">Oak wilt is a serious fungal disease</span> spread through open pruning wounds in spring and summer. In the Merrimack Valley, where oak trees are common and valued, pruning between April and October is forbidden. Bobby follows strict oak pruning protocols—dormant-season only, sterilized tools, wound dressing when required.</p>
+                </div>
+
+                <div class="timing-box">
+                    <h3>Summer: Deadwood Only</h3>
+                    <p>Spring and summer pruning (April–September) should be limited to removing dead branches, branches rubbing or crossing, and hazardous limbs. Avoid heavy pruning in summer heat—it stresses the tree and invites pest and disease damage.</p>
+                </div>
+
+                <div class="timing-box">
+                    <h3>Fall: Proceed with Caution</h3>
+                    <p>Pruning in September, October, and early November exposes fresh cuts right as trees begin dormancy, slowing wound closure. Bobby avoids major pruning in fall unless there's an immediate hazard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pruning-types">
+        <div class="container">
+            <h2 class="section-title">Types of Pruning Bobby Provides</h2>
+            <div class="types-grid">
+                <div class="type-card">
+                    <h3>Crown Thinning</h3>
+                    <p>Selective removal of interior branches to reduce density, improve light penetration, and reduce wind load. This is the most common and beneficial type of pruning for mature trees.</p>
+                </div>
+                <div class="type-card">
+                    <h3>Deadwood Removal</h3>
+                    <p>Dead branches are pruned flush to the branch collar. They're safety hazards, visual detractions, and entry points for pests and disease. Bobby removes deadwood year-round.</p>
+                </div>
+                <div class="type-card">
+                    <h3>Structural Pruning</h3>
+                    <p>Young trees benefit from structural pruning—establishing a strong branch framework and central leader. Early intervention prevents costly future problems and weak crotches.</p>
+                </div>
+                <div class="type-card">
+                    <h3>Vista Pruning</h3>
+                    <p>Selective pruning to open sightlines, frame a view, or improve lighting into a home. Bobby balances the property's aesthetics with the tree's health.</p>
+                </div>
+                <div class="type-card">
+                    <h3>Species-Specific Pruning</h3>
+                    <p>Red maples, white oaks, hemlocks, and other New England species have unique pruning needs. Bobby's certification means he diagnoses and prunes to each species' biology.</p>
+                </div>
+                <div class="type-card">
+                    <h3>Reduction Pruning</h3>
+                    <p>Reducing a tree's size without creating stubs or flush cuts. Used for trees too large for their site, or to manage height near power lines or structures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Tree Pruning Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <details>
+                        <summary>When is the best time to prune trees in New England?</summary>
+                        <div class="faq-content">
+                            <p>Late winter to early spring (January through March) is ideal for most trees. Trees are dormant, healing is fast, and you can see branch structure. Oak trees must only be pruned November through March to prevent oak wilt disease. Always avoid heavy pruning in spring and summer on oaks.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>How often should trees be pruned?</summary>
+                        <div class="faq-content">
+                            <p>Most mature trees benefit from pruning every 3–5 years. Young trees may need annual structural pruning to develop good form. Dead branches can be pruned anytime. Bobby assesses your specific trees and recommends a pruning schedule that keeps them healthy and safe.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>Should I prune my trees in summer?</summary>
+                        <div class="faq-content">
+                            <p>Heavy pruning in summer stresses trees and leaves open wounds vulnerable to pests and disease. Summer pruning should be limited to removing deadwood and hazardous branches. Save major structural and crown pruning for dormant season (November–March).</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-item">
+                    <details>
+                        <summary>What's the difference between pruning and trimming?</summary>
+                        <div class="faq-content">
+                            <p>"Trimming" usually refers to light, routine maintenance (hedge trimming, removing dead ends). "Pruning" is strategic branch removal for tree health, structure, and safety. Bobby performs ISA-certified pruning, which uses science-backed cuts to promote healing and prevent disease entry.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="service-area">
+        <div class="container">
+            <h2 class="section-title">Service Areas</h2>
+            <div class="service-area-grid">
+                <div class="service-area-item">
+                    <a href="../areas/tewksbury.html">Tewksbury</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/north-andover.html">North Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/wilmington.html">Wilmington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/burlington.html">Burlington</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/billerica.html">Billerica</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lowell.html">Lowell</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/dracut.html">Dracut</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/andover.html">Andover</a>
+                </div>
+                <div class="service-area-item">
+                    <a href="../areas/lawrence.html">Lawrence</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-band">
+        <div class="container">
+            <h2>Schedule Your Tree Pruning Assessment</h2>
+            <p>Bobby will evaluate your trees and create a custom pruning plan for healthier, safer growth.</p>
+            <div class="cta-buttons">
+                <a href="tel:+19784800403" class="btn-primary">Call (978) 480-0403</a>
+                <a href="../contact.html" class="btn-secondary">Request Online</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p style="margin-bottom: 16px; color: var(--gray-200); font-size: 14px;">Professional tree care in the Merrimack Valley since 2009.</p>
+                    <p style="color: var(--gray-200); font-size: 14px;">
+                        <strong>Phone:</strong> <a href="tel:+19784800403" style="color: var(--accent);">(978) 480-0403</a><br>
+                        <strong>Email:</strong> <a href="mailto:contact@highlinetree.com" style="color: var(--accent);">contact@highlinetree.com</a>
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="./tree-removal.html">Tree Removal</a></li>
+                        <li><a href="./tree-pruning.html">Tree Pruning</a></li>
+                        <li><a href="./stump-grinding.html">Stump Grinding</a></li>
+                        <li><a href="./land-clearing.html">Land Clearing</a></li>
+                        <li><a href="./plant-health-care.html">Plant Health Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Areas</h3>
+                    <ul>
+                        <li><a href="../areas/tewksbury.html">Tewksbury</a></li>
+                        <li><a href="../areas/north-andover.html">North Andover</a></li>
+                        <li><a href="../areas/wilmington.html">Wilmington</a></li>
+                        <li><a href="../areas/burlington.html">Burlington</a></li>
+                        <li><a href="../areas/billerica.html">Billerica</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400);">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <div class="sticky-mobile-cta">
+        <a href="tel:+19784800403"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg> Call Bobby — (978) 480-0403</a>
+    </div>
+    <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+    <script>
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

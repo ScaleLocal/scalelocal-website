@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency Tree Service: What to Do When a Storm Hits | High Line Tree Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #1B7A3D;
+            --green-dark: #145C2E;
+            --accent: #00B050;
+            --black: #0A0A0A;
+            --charcoal: #1A1A1A;
+            --white: #fff;
+            --off-white: #f5f7f5;
+            --gray-100: #e9ece9;
+            --gray-200: #d1d5d1;
+            --gray-400: #9ca39c;
+            --gray-600: #4b5549;
+            --gray-700: #374135;
+            --radius: 6px;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            background-color: var(--off-white);
+        }
+
+        /* UTILITY BAR */
+        .utility-bar {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 12px 24px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .utility-bar p {
+            margin: 0;
+        }
+
+        /* HEADER */
+        header {
+            background-color: var(--white);
+            padding: 16px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+        }
+
+        .nav-desktop {
+            display: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-desktop a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-desktop a:hover {
+            color: var(--green);
+        }
+
+        .phone-button {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: none;
+            white-space: nowrap;
+        }
+
+        .phone-button:hover {
+            background-color: var(--green-dark);
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            padding: 100px 24px 24px;
+            z-index: 90;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.open {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .mobile-menu a:hover {
+            color: var(--accent);
+        }
+
+        /* ARTICLE HERO */
+        .article-hero {
+            min-height: 300px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/real-gallery-08.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding: 40px 24px;
+        }
+
+        .article-hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            font-size: 14px;
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .article-meta span {
+            display: inline-block;
+        }
+
+        /* ARTICLE CONTENT */
+        .article-content {
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            background-color: var(--white);
+        }
+
+        .article-content h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 48px 0 24px;
+            color: var(--charcoal);
+            line-height: 1.3;
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            margin: 32px 0 16px;
+            color: var(--green);
+        }
+
+        .article-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--gray-700);
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 24px 0 24px 24px;
+            color: var(--gray-700);
+            line-height: 1.8;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+        }
+
+        .emergency-alert {
+            background-color: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: var(--radius);
+        }
+
+        .emergency-alert h3 {
+            color: #ff6f00;
+            margin-top: 0;
+        }
+
+        .emergency-alert p {
+            margin-bottom: 0;
+            color: var(--gray-700);
+        }
+
+        /* CTA BOX */
+        .cta-box {
+            background-color: var(--off-white);
+            border-left: 4px solid var(--green);
+            padding: 24px;
+            margin: 48px 0;
+            border-radius: var(--radius);
+        }
+
+        .cta-box h3 {
+            margin-top: 0;
+            color: var(--green);
+        }
+
+        .cta-box p {
+            margin-bottom: 0;
+        }
+
+        .cta-box a {
+            color: var(--green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .cta-box a:hover {
+            text-decoration: underline;
+        }
+
+        .emergency-number {
+            background-color: var(--green);
+            color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-align: center;
+            margin: 32px 0;
+        }
+
+        .emergency-number p {
+            margin-bottom: 12px;
+            color: var(--white);
+        }
+
+        .emergency-number a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 28px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* RELATED RESOURCES */
+        .related-resources {
+            margin: 60px 0;
+            padding: 40px 24px;
+            background-color: var(--off-white);
+            border-radius: var(--radius);
+        }
+
+        .related-resources h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .resource-card {
+            background-color: var(--white);
+            padding: 20px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--charcoal);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+        }
+
+        .resource-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--green);
+        }
+
+        .resource-card h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--green);
+        }
+
+        .resource-card p {
+            font-size: 14px;
+            color: var(--gray-600);
+            margin-bottom: 0;
+        }
+
+        /* CTA BAND */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green), var(--green-dark));
+            color: var(--white);
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .cta-band-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-band h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .cta-band p {
+            font-size: 18px;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--green);
+            padding: 14px 32px;
+            border-radius: var(--radius);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-block;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--white);
+            padding: 60px 24px 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: var(--gray-400);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+
+        .footer-section p {
+            font-size: 14px;
+            color: var(--gray-400);
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 24px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--gray-400);
+        }
+
+        /* STICKY MOBILE CTA */
+        .sticky-mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--green);
+            padding: 12px 24px;
+            text-align: center;
+            z-index: 95;
+            box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sticky-mobile-cta a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (min-width: 768px) {
+            .hamburger {
+                display: none;
+            }
+
+            .nav-desktop {
+                display: flex;
+            }
+
+            .phone-button {
+                display: inline-block;
+            }
+
+            .article-hero-content h1 {
+                font-size: 56px;
+            }
+
+            .article-meta {
+                flex-direction: row;
+                gap: 24px;
+            }
+
+            .cta-band h2 {
+                font-size: 42px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .sticky-mobile-cta {
+                display: block;
+            }
+
+            body {
+                padding-bottom: 60px;
+            }
+
+            .article-hero-content h1 {
+                font-size: 32px;
+            }
+
+            .article-content h2 {
+                font-size: 26px;
+            }
+
+            .article-content h3 {
+                font-size: 18px;
+            }
+
+            .cta-band h2 {
+                font-size: 28px;
+            }
+
+            .cta-band p {
+                font-size: 16px;
+            }
+
+            .emergency-number a {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- UTILITY BAR -->
+    <div class="utility-bar">
+        <p>Serving Merrimack Valley & North Shore</p>
+        <p>Available 24/7 for Emergency Tree Service</p>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="../images/logo-highline-tree.png" alt="High Line Tree Service">
+            </div>
+            <nav class="nav-desktop">
+                <a href="../index.html">Home</a>
+                <a href="../services.html">Services</a>
+                <a href="../about.html">About</a>
+                <a href="../reviews.html">Reviews</a>
+                <a href="../contact.html">Contact</a>
+            </nav>
+            <div style="display: flex; gap: 16px; align-items: center;">
+                <a href="tel:(978) 480-0403" class="phone-button">(978) 480-0403</a>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="../index.html">Home</a>
+        <a href="../services.html">Services</a>
+        <a href="../about.html">About</a>
+        <a href="../reviews.html">Reviews</a>
+        <a href="../contact.html">Contact</a>
+        <a href="tel:(978) 480-0403" style="color: var(--accent);">(978) 480-0403</a>
+    </div>
+
+    <!-- ARTICLE HERO -->
+    <section class="article-hero">
+        <div class="article-hero-content">
+            <h1>Emergency Tree Service: What to Do When a Storm Hits</h1>
+            <div class="article-meta">
+                <span><strong>Updated April 2026</strong></span>
+                <span>7 min read</span>
+                <span>By Bobby Black, ISA Certified Arborist</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTICLE CONTENT -->
+    <article class="article-content">
+        <h2>A Tree Just Fell on Your Roof. Here's What to Do.</h2>
+
+        <p>The storm hit at 3 a.m. You wake to the sound of crashing wood. A tree—or part of one—just came down on your house. Your heart's racing. You don't know what to do next.</p>
+
+        <p>This is an emergency, but it's manageable. After 18 years in this business, I've handled hundreds of storm damage situations. Here's exactly what you need to do, in order.</p>
+
+        <h2>Step 1: Safety First — Evacuate if Necessary</h2>
+
+        <p>Check your house for structural damage. If the tree has come through the roof or crashed into a load-bearing wall, if there's significant structural shifting, or if you're in any doubt about safety, evacuate immediately. Get your family outside to a safe distance from the house and any other trees.</p>
+
+        <p>Don't try to be a hero. Don't stay in a compromised house waiting for daylight. If you feel unsafe, leave.</p>
+
+        <h2>Step 2: Check for Power Lines</h2>
+
+        <p>If a tree is touching or lying across power lines, do not go near it. Do not let anyone touch it. Call 911 or your local utility company immediately. Trees touching live power lines are electrocution hazards. The power company will cut power to the lines and remove the hazard safely.</p>
+
+        <p>If power lines are involved, that's 911. Everything else waits until the utility company has made the situation safe.</p>
+
+        <h2>Step 3: Document Everything with Photos</h2>
+
+        <p>Once you're safely away from immediate danger, take photos. Your insurance company will want to see everything—the tree damage, the damage to your house, the full extent of what happened. Photograph it from multiple angles in daylight if possible.</p>
+
+        <p>This documentation is your proof for the insurance claim. Do it before anything gets moved or cleaned up.</p>
+
+        <h2>Step 4: Call Your Insurance Company</h2>
+
+        <p>Most homeowners insurance policies cover tree removal if the tree was damaged by a covered peril—usually a storm or lightning strike. This is what you're paying for.</p>
+
+        <p>The key phrase: "Act of God" damage. If a storm knocked the tree down and it landed on your house or property, your homeowners insurance typically covers the removal. Expect coverage of $500–$1,000 for tree removal. You'll have a deductible, but the insurance should cover the bulk of the removal cost.</p>
+
+        <p>Call your insurance agent right away. Don't wait.</p>
+
+        <div class="emergency-number">
+            <p>24/7 Emergency Tree Service</p>
+            <a href="tel:(978) 480-0403">(978) 480-0403</a>
+        </div>
+
+        <h2>Step 5: When to Call Emergency Tree Service vs. Wait Until Morning</h2>
+
+        <p>If the tree is lying on your house, on a power line, or blocking an emergency exit, call an emergency tree service immediately. Cost doesn't matter right now—your safety and property protection matter.</p>
+
+        <p>If the tree is down in your yard but not touching anything dangerous, you can often wait until morning. Daytime removal is cheaper, safer, and easier for the crew to coordinate.</p>
+
+        <p>The exception: if more trees are threatening to fail, if there's a second tree already leaning toward your house, or if you're in a situation where waiting creates more risk, call now.</p>
+
+        <div class="cta-box">
+            <h3>Emergency Tree Removal — Available 24/7</h3>
+            <p>Call Bobby at (978) 480-0403. I'll respond to emergency calls immediately. I can usually get to you within a few hours, even in the middle of the night.</p>
+        </div>
+
+        <h2>Do NOT Try to Remove the Tree Yourself</h2>
+
+        <p>I say this every time after a big storm: do not try to cut up that tree yourself. Here's why:</p>
+
+        <ul>
+            <li>A tree that just failed is unstable. Branches can shift and drop without warning.</li>
+            <li>The tree may be pinning power lines—you won't know until you touch it.</li>
+            <li>Chainsaw injuries are serious. You're exhausted, stressed, and not thinking clearly after a storm. That's when accidents happen.</li>
+            <li>Your insurance claim may be denied if you remove the tree yourself and damage something else in the process.</li>
+        </ul>
+
+        <p>Your neighbor might have a chainsaw and think they're helping. Tell them no. Let a professional handle it. It's not worth the risk.</p>
+
+        <h2>Handling the Insurance Claim</h2>
+
+        <p>Here's what you need to know about insurance coverage for storm-damaged trees:</p>
+
+        <h3>Coverage Basics</h3>
+        <p>Most standard homeowners policies cover removal of a tree that's damaged the house or other structures. Typical coverage is $500–$1,000 per tree. You pay your deductible, insurance covers the rest.</p>
+
+        <h3>What's Covered</h3>
+        <p>Storm damage and lightning damage are "Acts of God"—your insurance pays. The tree fell because of the storm, not because you neglected it, so it's covered.</p>
+
+        <h3>What's NOT Covered</h3>
+        <p>If the tree was dead or dying before the storm, your insurance company may argue it wasn't truly storm damage. This is why having a certified arborist assess the tree is helpful—they can determine whether the tree was healthy or already in decline.</p>
+
+        <h3>Neighbor's Tree Falls on Your Property</h3>
+        <p>If your neighbor's dead tree falls on your house, your insurance pays for removal of your own property damage. Your neighbor's liability insurance may be responsible for their tree if they knew it was at risk and did nothing. This is murky territory—consult with your insurance agent about next steps.</p>
+
+        <h2>New England Storm Types and What They Do</h2>
+
+        <p>Understanding what's likely to happen helps you prepare:</p>
+
+        <h3>Nor'easters</h3>
+        <p>Heavy, wet snow combined with strong winds. The weight of snow snaps branches and can topple entire trees, especially evergreens. These are most common in winter and early spring.</p>
+
+        <h3>Thunderstorms</h3>
+        <p>Microbursts and straight-line winds can exceed 60 mph. Trees that are healthy and strong can snap like toothpicks. A microburst hits fast and without warning—you can't prepare for it, only recover after.</p>
+
+        <h3>Ice Storms</h3>
+        <p>Ice loading is catastrophic. A quarter-inch of ice on every branch adds hundreds of pounds of weight. Trees collapse under the load. I remember the ice storms of 2008—they took down more mature trees than any storm I'd seen before or since.</p>
+
+        <h2>The September 2023 Storm and Beyond</h2>
+
+        <p>In September 2023, gusts exceeding 66 mph hit the Andover and Lowell area. The storm knocked out power to over 45,000 homes and caused extensive tree damage across the Merrimack Valley. We worked non-stop for weeks cleaning up storm damage.</p>
+
+        <p>Storms like that are a reminder: trees that look healthy can fail. Proper pruning and regular maintenance reduce risk, but they don't eliminate it. Nature's powerful, and sometimes trees lose.</p>
+
+        <h2>Prevention: The Best Strategy</h2>
+
+        <p>You can't stop a storm, but you can reduce the risk that your trees will fail in one:</p>
+
+        <h3>Regular Pruning</h3>
+        <p>Dead branches, weak crotches, and crossing branches fail first in storms. Removing them before the storm means less risk of failure. A well-pruned tree sheds wind better than a dense, heavy one.</p>
+
+        <h3>Professional Assessment</h3>
+        <p>If you're worried about a tree, have a certified arborist evaluate it. We can spot structural weakness that you won't see. A tree that looks fine from the driveway might have internal problems.</p>
+
+        <h3>Remove Declining Trees</h3>
+        <p>A tree that's already sick or dying is the one most likely to fail. If I assess a tree and see it's in decline, I recommend removal before a storm takes it down on your house.</p>
+
+        <h2>After the Storm: What's Next?</h2>
+
+        <p>Once we've removed the emergency tree and your house is secure, you have time to plan. You might want to plant a new tree to replace what you lost. You might want to have other trees on your property assessed to make sure they're healthy.</p>
+
+        <p>I'm here for that, too. After we handle the emergency, let's talk about long-term tree health and prevention.</p>
+
+        <!-- RELATED RESOURCES -->
+        <section class="related-resources">
+            <h3>Related Resources</h3>
+            <div class="resources-grid">
+                <a href="tree-removal-cost-massachusetts.html" class="resource-card">
+                    <h4>Tree Removal Cost</h4>
+                    <p>How much does tree removal cost in Massachusetts? Real pricing breakdown.</p>
+                </a>
+                <a href="signs-tree-needs-removal.html" class="resource-card">
+                    <h4>Signs Tree Needs Removal</h4>
+                    <p>7 clear warning signs that your tree may need to come down.</p>
+                </a>
+                <a href="best-time-prune-trees-new-england.html" class="resource-card">
+                    <h4>Best Time to Prune Trees</h4>
+                    <p>Learn when to prune your trees in New England for best results.</p>
+                </a>
+                <a href="tree-permits-merrimack-valley.html" class="resource-card">
+                    <h4>Tree Removal Permits</h4>
+                    <p>Town-by-town guide to permit requirements in the Merrimack Valley.</p>
+                </a>
+            </div>
+        </section>
+    </article>
+
+    <!-- CTA BAND -->
+    <section class="cta-band">
+        <div class="cta-band-content">
+            <h2>Emergency? Call Now — 24/7</h2>
+            <p>Storm damage, fallen trees, hazardous branches—I'll be there to help. Available any time, day or night.</p>
+            <a href="tel:(978) 480-0403" class="cta-button" style="background-color: var(--accent); color: var(--charcoal);">(978) 480-0403</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>High Line Tree Service</h3>
+                    <p>Professional tree removal, pruning, and emergency services in Merrimack Valley and North Shore Massachusetts.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../services.html">Services</a></li>
+                        <li><a href="../about.html">About Bobby</a></li>
+                        <li><a href="../reviews.html">Reviews</a></li>
+                        <li><a href="../contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="../services.html">Tree Removal</a></li>
+                        <li><a href="../services.html">Tree Pruning</a></li>
+                        <li><a href="../services.html">Emergency Service</a></li>
+                        <li><a href="../services.html">Stump Grinding</a></li>
+                        <li><a href="../services.html">Storm Cleanup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p><strong>Phone:</strong> <a href="tel:(978) 480-0403">(978) 480-0403</a></p>
+                    <p><strong>Service Area:</strong> Merrimack Valley & North Shore</p>
+                    <p><strong>Available:</strong> 24/7 Emergency Service</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-mobile-cta">
+        <a href="tel:(978) 480-0403">Call Bobby — (978) 480-0403</a>
+    </div>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        hamburger.addEventListener('click', function() {
+            hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
+</body>
+</html>
