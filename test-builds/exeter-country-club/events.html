@@ -813,9 +813,31 @@
             letter-spacing: 0.5px;
             color: rgba(255,255,255,0.3);
         }
+        /* Demo Disclaimer Banner */
+        .demo-banner {
+            background: var(--charcoal, #1A1A1A);
+            color: #fff;
+            text-align: center;
+            padding: 8px 16px;
+            font-family: 'Lato', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 10000;
+        }
+        .demo-banner strong { color: #D4AF37; font-weight: 700; }
+        .demo-banner a { color: #D4AF37; text-decoration: underline; }
     </style>
 </head>
 <body>
+
+    <!-- DEMO DISCLAIMER BANNER -->
+    <div class="demo-banner">
+        This is a <strong>demo website</strong> built for Exeter Country Club by <a href="https://scalelocal.net" target="_blank" rel="noopener">ScaleLocal</a>. All information is for demonstration purposes only.
+    </div>
+
     <!-- TOP BAR -->
     <div class="top-bar">
         <div class="top-bar-left">
@@ -1138,6 +1160,7 @@
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z"/></svg>
                 </a>
             </div>
+            <p style="font-size: 11px; color: var(--text-muted, #8A8A7E); margin-bottom: 8px; line-height: 1.5;">This is a demo website built by ScaleLocal for preview purposes only. Information shown may not reflect current business details, hours, or pricing. Visit <a href="https://www.exetercc.com" target="_blank" rel="noopener" style="color: var(--gold, #D4AF37);">exetercc.com</a> for official information.</p>
             &copy; 2026 Exeter Country Club. All rights reserved. &nbsp;|&nbsp; 320 Ten Rod Road (Route 102), Exeter, Rhode Island 02822 &nbsp;|&nbsp; Member of RIGA & USGA
         </div>
     </div>
