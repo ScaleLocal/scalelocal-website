@@ -285,7 +285,7 @@
             border-color: var(--green);
         }
         .service-card-img {
-            width: 100%; height: 200px; object-fit: cover;
+            width: 100%; height: 220px; object-fit: cover;
         }
         .service-card-body { padding: 28px; }
         .service-card .card-number {
@@ -305,10 +305,10 @@
         /* ===== BRANDED FEATURE SECTION ===== */
         .feature-split {
             display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-            min-height: 480px; max-height: 560px; overflow: hidden;
+            min-height: 480px;
         }
         .feature-img {
-            width: 100%; height: 100%; object-fit: cover;
+            width: 100%; height: 100%; object-fit: cover; display: block;
         }
         .feature-content {
             display: flex; flex-direction: column; justify-content: center;
@@ -479,8 +479,8 @@
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery-grid { grid-template-columns: repeat(2, 1fr); }
             .gallery-item.wide { grid-column: span 1; }
-            .feature-split { grid-template-columns: 1fr; max-height: none; }
-            .feature-img { min-height: 350px; max-height: 400px; }
+            .feature-split { grid-template-columns: 1fr; }
+            .feature-img { min-height: 300px; max-height: 450px; }
             .footer-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 768px) {
@@ -918,7 +918,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="/test-builds/high-line-tree/images/real-gallery-07.jpg" alt="Crane operation for large tree removal near power lines" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-07.jpg" alt="Tree work near utility lines showing professional cabling" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">05</span>
                     <h3>Cabling &amp; Bracing</h3>
@@ -1039,8 +1039,8 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item wide">
-                <img src="/test-builds/high-line-tree/images/real-gallery-08.jpg" alt="Crane tree removal during winter storm" loading="lazy">
-                <div class="gallery-item-overlay"><span>Storm Response</span></div>
+                <img src="/test-builds/high-line-tree/images/real-gallery-01.jpg" alt="High Line Tree Service crew performing tree removal" loading="lazy">
+                <div class="gallery-item-overlay"><span>Tree Removal</span></div>
             </div>
             <div class="gallery-item">
                 <img src="/test-builds/high-line-tree/images/real-gallery-04.jpg" alt="Arborist climbing and cutting tree limbs" loading="lazy">
@@ -1059,7 +1059,7 @@
                 <div class="gallery-item-overlay"><span>Before &amp; After</span></div>
             </div>
             <div class="gallery-item wide">
-                <img src="/test-builds/high-line-tree/images/real-gallery-07.jpg" alt="Crane operation near utility lines" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-08.jpg" alt="Crane operation for large tree removal in snow" loading="lazy">
                 <div class="gallery-item-overlay"><span>Crane Operations</span></div>
             </div>
             <div class="gallery-item">
@@ -1067,8 +1067,8 @@
                 <div class="gallery-item-overlay"><span>Land Clearing</span></div>
             </div>
             <div class="gallery-item">
-                <img src="/test-builds/high-line-tree/images/real-gallery-01.jpg" alt="Tree removal crew in action" loading="lazy">
-                <div class="gallery-item-overlay"><span>Tree Removal</span></div>
+                <img src="/test-builds/high-line-tree/images/real-gallery-06.jpg" alt="Arborist felling large tree" loading="lazy">
+                <div class="gallery-item-overlay"><span>Storm Damage</span></div>
             </div>
         </div>
     </div>
