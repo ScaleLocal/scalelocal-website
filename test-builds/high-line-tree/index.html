@@ -8,10 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-        <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+        <link rel="icon" type="image/svg+xml" href="/test-builds/high-line-tree/images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/test-builds/high-line-tree/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/test-builds/high-line-tree/images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/test-builds/high-line-tree/images/apple-touch-icon.png">
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.scalelocal.net/test-builds/high-line-tree/index.html">
@@ -141,7 +141,7 @@
             min-height: 620px;
             display: flex; align-items: center;
             background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(27,122,61,0.65) 100%),
-                        url('images/real-gallery-08.jpg') center/cover no-repeat;
+                        url('/test-builds/high-line-tree/images/real-gallery-08.jpg') center/cover no-repeat;
             color: var(--white);
         }
         .hero-content { position: relative; z-index: 2; max-width: 720px; }
@@ -376,7 +376,7 @@
         /* ===== CTA BAND ===== */
         .cta-band {
             background: linear-gradient(135deg, rgba(10,10,10,0.88) 0%, rgba(20,92,46,0.85) 100%),
-                        url('images/real-gallery-18.jpg') center/cover no-repeat;
+                        url('/test-builds/high-line-tree/images/real-gallery-18.jpg') center/cover no-repeat;
             padding: 80px 0; text-align: center; color: var(--white);
         }
         .cta-band h2 {
@@ -687,16 +687,16 @@
 <!-- Header -->
 <header>
     <div class="header-inner">
-        <a href="index.html" class="logo-link">
-            <img src="images/logo-highline-tree.png" alt="High Line Tree Service Logo" loading="eager">
+        <a href="/test-builds/high-line-tree/index.html" class="logo-link">
+            <img src="/test-builds/high-line-tree/images/logo-highline-tree.png" alt="High Line Tree Service Logo" loading="eager">
         </a>
         <nav>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="reviews.html">Reviews</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/test-builds/high-line-tree/index.html" class="active">Home</a></li>
+                <li><a href="/test-builds/high-line-tree/services.html">Services</a></li>
+                <li><a href="/test-builds/high-line-tree/about.html">About</a></li>
+                <li><a href="/test-builds/high-line-tree/reviews.html">Reviews</a></li>
+                <li><a href="/test-builds/high-line-tree/contact.html">Contact</a></li>
                 <li><a href="tel:9784800403" class="nav-cta">Free Estimate</a></li>
             </ul>
         </nav>
@@ -714,17 +714,17 @@
 <div class="mobile-overlay" onclick="if(event.target===this)this.classList.remove('active')">
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <img src="images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
+            <img src="/test-builds/high-line-tree/images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
             <button class="mobile-close" onclick="document.querySelector('.mobile-overlay').classList.remove('active')" aria-label="Close menu">
                 <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
             </button>
         </div>
         <ul class="mobile-nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="reviews.html">Reviews</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="/test-builds/high-line-tree/index.html" class="active">Home</a></li>
+            <li><a href="/test-builds/high-line-tree/services.html">Services</a></li>
+            <li><a href="/test-builds/high-line-tree/about.html">About</a></li>
+            <li><a href="/test-builds/high-line-tree/reviews.html">Reviews</a></li>
+            <li><a href="/test-builds/high-line-tree/contact.html">Contact</a></li>
         </ul>
         <div class="mobile-cta-phone">
             <a href="tel:9784800403">(978) 480-0403 — Free Estimate</a>
@@ -747,7 +747,7 @@
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     Get a Free Estimate
                 </a>
-                <a href="services.html" class="btn-ghost">
+                <a href="/test-builds/high-line-tree/services.html" class="btn-ghost">
                     <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
                     View Our Services
                 </a>
@@ -809,7 +809,7 @@
         </div>
         <div class="services-grid">
             <div class="service-card">
-                <img src="images/real-gallery-01.jpg" alt="High Line Tree Service performing tree removal" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-01.jpg" alt="High Line Tree Service performing tree removal" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">01</span>
                     <h3>Tree Removal</h3>
@@ -817,7 +817,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="images/real-gallery-04.jpg" alt="Certified Arborist climbing and pruning a tree" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-04.jpg" alt="Certified Arborist climbing and pruning a tree" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">02</span>
                     <h3>Tree Pruning</h3>
@@ -825,7 +825,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="images/real-gallery-13.jpg" alt="Emergency storm damage tree removal" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-13.jpg" alt="Emergency storm damage tree removal" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">03</span>
                     <h3>Emergency Service</h3>
@@ -833,7 +833,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="images/real-gallery-03.jpg" alt="Professional tree climbing and care" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-03.jpg" alt="Professional tree climbing and care" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">04</span>
                     <h3>Plant Health Care</h3>
@@ -841,7 +841,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="images/real-gallery-07.jpg" alt="Crane operation for large tree removal near power lines" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-07.jpg" alt="Crane operation for large tree removal near power lines" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">05</span>
                     <h3>Cabling &amp; Bracing</h3>
@@ -849,7 +849,7 @@
                 </div>
             </div>
             <div class="service-card">
-                <img src="images/real-gallery-18.jpg" alt="Beautiful mature tree cared for by High Line Tree Service" class="service-card-img" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-18.jpg" alt="Beautiful mature tree cared for by High Line Tree Service" class="service-card-img" loading="lazy">
                 <div class="service-card-body">
                     <span class="card-number">06</span>
                     <h3>New Tree Planting</h3>
@@ -858,7 +858,7 @@
             </div>
         </div>
         <div style="text-align:center; margin-top:40px;">
-            <a href="services.html" class="btn-primary" style="background:var(--charcoal); border-color:var(--gray-800);">
+            <a href="/test-builds/high-line-tree/services.html" class="btn-primary" style="background:var(--charcoal); border-color:var(--gray-800);">
                 <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
                 View All Services
             </a>
@@ -868,7 +868,7 @@
 
 <!-- Branded Equipment Feature — Real trailer photo -->
 <section class="feature-split">
-    <img src="images/real-gallery-12.jpg" alt="High Line Tree Service branded trailer with crane" class="feature-img" loading="lazy">
+    <img src="/test-builds/high-line-tree/images/real-gallery-12.jpg" alt="High Line Tree Service branded trailer with crane" class="feature-img" loading="lazy">
     <div class="feature-content">
         <div class="overline">Owner-Operated Since Day One</div>
         <h2>When You Call, You Get Bobby</h2>
@@ -891,7 +891,7 @@
                 Fully Insured &mdash; Every Job
             </li>
         </ul>
-        <a href="about.html" class="btn-primary">
+        <a href="/test-builds/high-line-tree/about.html" class="btn-primary">
             <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z" fill="currentColor"/></svg>
             Read Bobby's Story
         </a>
@@ -908,11 +908,11 @@
         </div>
         <div class="ba-grid">
             <div class="ba-card">
-                <img src="images/real-gallery-09.jpg" alt="Before and after residential tree pruning with chipper truck" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-09.jpg" alt="Before and after residential tree pruning with chipper truck" loading="lazy">
                 <div class="ba-label">Residential Tree Service &mdash; Pruning &amp; Cleanup</div>
             </div>
             <div class="ba-card">
-                <img src="images/real-gallery-10.jpg" alt="Before and after professional tree pruning" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-10.jpg" alt="Before and after professional tree pruning" loading="lazy">
                 <div class="ba-label">Professional Pruning &mdash; Before &amp; After</div>
             </div>
         </div>
@@ -936,13 +936,13 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                     24/7 Emergency Line
                 </a>
-                <a href="resources/emergency-storm-damage-trees.html" class="btn-ghost" style="border-color: rgba(255,255,255,0.3);">
+                <a href="/test-builds/high-line-tree/resources/emergency-storm-damage-trees.html" class="btn-ghost" style="border-color: rgba(255,255,255,0.3);">
                     Storm Damage Guide
                 </a>
             </div>
         </div>
         <div style="border-radius: 8px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.4);">
-            <img src="images/real-gallery-08.jpg" alt="High Line Tree Service crane removing storm-damaged tree" loading="lazy" style="width: 100%; height: 380px; object-fit: cover; display: block;">
+            <img src="/test-builds/high-line-tree/images/real-gallery-08.jpg" alt="High Line Tree Service crane removing storm-damaged tree" loading="lazy" style="width: 100%; height: 380px; object-fit: cover; display: block;">
         </div>
     </div>
     <style>
@@ -962,35 +962,35 @@
         </div>
         <div class="gallery-grid">
             <div class="gallery-item wide">
-                <img src="images/real-gallery-08.jpg" alt="Crane tree removal during winter storm" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-08.jpg" alt="Crane tree removal during winter storm" loading="lazy">
                 <div class="gallery-item-overlay"><span>Storm Response</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-04.jpg" alt="Arborist climbing and cutting tree limbs" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-04.jpg" alt="Arborist climbing and cutting tree limbs" loading="lazy">
                 <div class="gallery-item-overlay"><span>Expert Climbing</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-05.jpg" alt="Climber silhouette in tall tree" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-05.jpg" alt="Climber silhouette in tall tree" loading="lazy">
                 <div class="gallery-item-overlay"><span>Hazardous Removal</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-17.jpg" alt="High Line Tree Service branded equipment on site" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-17.jpg" alt="High Line Tree Service branded equipment on site" loading="lazy">
                 <div class="gallery-item-overlay"><span>Professional Equipment</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-11.jpg" alt="Before and after tree pruning project" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-11.jpg" alt="Before and after tree pruning project" loading="lazy">
                 <div class="gallery-item-overlay"><span>Before &amp; After</span></div>
             </div>
             <div class="gallery-item wide">
-                <img src="images/real-gallery-07.jpg" alt="Crane operation near utility lines" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-07.jpg" alt="Crane operation near utility lines" loading="lazy">
                 <div class="gallery-item-overlay"><span>Crane Operations</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-14.jpg" alt="Land clearing completed project" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-14.jpg" alt="Land clearing completed project" loading="lazy">
                 <div class="gallery-item-overlay"><span>Land Clearing</span></div>
             </div>
             <div class="gallery-item">
-                <img src="images/real-gallery-01.jpg" alt="Tree removal crew in action" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/real-gallery-01.jpg" alt="Tree removal crew in action" loading="lazy">
                 <div class="gallery-item-overlay"><span>Tree Removal</span></div>
             </div>
         </div>
@@ -1066,7 +1066,7 @@
             <h2>Serving Northeastern Massachusetts</h2>
         </div>
         <div style="text-align:center;">
-            <img src="images/real-hero-main.jpg" alt="High Line Tree Service area map centered on Tewksbury, MA" style="max-width:600px; margin:0 auto; border-radius:var(--radius); box-shadow:var(--shadow-lg);" loading="lazy">
+            <img src="/test-builds/high-line-tree/images/real-hero-main.jpg" alt="High Line Tree Service area map centered on Tewksbury, MA" style="max-width:600px; margin:0 auto; border-radius:var(--radius); box-shadow:var(--shadow-lg);" loading="lazy">
         </div>
     </div>
 </section>
@@ -1076,28 +1076,28 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
+                <img src="/test-builds/high-line-tree/images/logo-highline-tree.png" alt="High Line Tree Service" loading="lazy">
                 <p>Professional tree care and removal services serving Northeastern Massachusetts. Certified Arborist Bobby Black delivers 18+ years of expertise to every project.</p>
             </div>
             <div>
                 <h4>Quick Links</h4>
                 <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="/test-builds/high-line-tree/index.html">Home</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Services</a></li>
+                    <li><a href="/test-builds/high-line-tree/about.html">About Us</a></li>
+                    <li><a href="/test-builds/high-line-tree/reviews.html">Reviews</a></li>
+                    <li><a href="/test-builds/high-line-tree/contact.html">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <h4>Services</h4>
                 <ul class="footer-links">
-                    <li><a href="services.html">Tree Removal</a></li>
-                    <li><a href="services.html">Tree Pruning</a></li>
-                    <li><a href="services.html">Emergency Service</a></li>
-                    <li><a href="services.html">Cabling &amp; Bracing</a></li>
-                    <li><a href="services.html">Plant Health Care</a></li>
-                    <li><a href="services.html">New Tree Planting</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Tree Removal</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Tree Pruning</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Emergency Service</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Cabling &amp; Bracing</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">Plant Health Care</a></li>
+                    <li><a href="/test-builds/high-line-tree/services.html">New Tree Planting</a></li>
                 </ul>
             </div>
             <div>
