@@ -336,13 +336,13 @@
         }
         .timeline-item {
             display: grid; grid-template-columns: 180px 1fr; gap: 40px;
-            margin-bottom: 48px; padding-left: 20px;
+            margin-bottom: 48px; padding-left: 36px;
             position: relative;
         }
         .timeline-item:not(:last-child)::before {
             content: '';
             position: absolute;
-            left: -1px;
+            left: 12px;
             top: 60px;
             bottom: 0;
             width: 2px;
@@ -354,10 +354,10 @@
         .timeline-marker::before {
             content: '';
             position: absolute;
-            left: -12px;
-            top: 6px;
-            width: 12px;
-            height: 12px;
+            left: -28px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
             background: var(--green);
             border-radius: 50%;
             border: 3px solid var(--white);
