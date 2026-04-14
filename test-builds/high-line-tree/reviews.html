@@ -418,6 +418,110 @@
             font-size: 13px; color: rgba(255,255,255,0.4);
         }
 
+
+        .utility-socials { display: flex; align-items: center; gap: 12px; margin-left: 16px; }
+        .utility-socials a { display: flex; align-items: center; color: rgba(255,255,255,0.7); transition: color 0.2s; }
+        .utility-socials a:hover { color: #00B050; }
+        .footer-socials { display: flex; gap: 12px; margin-top: 12px; }
+        .footer-socials a { display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); transition: all 0.2s; }
+        .footer-socials a:hover { background: #00B050; color: white; }
+
+        /* ===== REVIEW FUNNEL ===== */
+        .review-funnel {
+            padding: 72px 0; background: var(--gray-50);
+            border-top: 1px solid var(--gray-100); border-bottom: 1px solid var(--gray-100);
+        }
+        .review-funnel-inner { max-width: 600px; margin: 0 auto; text-align: center; }
+        .review-funnel h2 { font-size: 32px; font-weight: 800; color: var(--charcoal); margin-bottom: 8px; }
+        .review-funnel .subtitle { font-size: 17px; color: var(--gray-600); margin-bottom: 36px; }
+        .star-selector { display: flex; justify-content: center; gap: 12px; margin-bottom: 16px; }
+        .star-btn {
+            width: 56px; height: 56px; border: 2px solid var(--gray-200);
+            border-radius: 12px; background: var(--white); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 28px; transition: all 0.2s; position: relative;
+        }
+        .star-btn:hover { border-color: #FFD93D; transform: scale(1.08); }
+        .star-btn.selected { border-color: #FFD93D; background: #FFFDE7; box-shadow: 0 0 0 3px rgba(255,217,61,0.25); }
+        .star-btn .star-num {
+            position: absolute; bottom: -20px; font-size: 11px; font-weight: 700;
+            color: var(--gray-400); font-family: 'Montserrat', sans-serif;
+        }
+        .star-btn.selected .star-num { color: var(--charcoal); }
+        .review-prompt { font-size: 14px; color: var(--gray-400); margin-top: 24px; margin-bottom: 0; }
+
+        /* Review Form Modal (1-3 stars) */
+        .review-modal-overlay {
+            display: none; position: fixed; inset: 0; z-index: 999;
+            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+            align-items: center; justify-content: center; padding: 24px;
+        }
+        .review-modal-overlay.active { display: flex; }
+        .review-modal {
+            background: var(--white); border-radius: 16px; padding: 40px;
+            max-width: 520px; width: 100%; box-shadow: var(--shadow-xl);
+            position: relative; animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .review-modal-close {
+            position: absolute; top: 16px; right: 16px;
+            background: none; border: none; cursor: pointer; padding: 4px;
+        }
+        .review-modal-close svg { width: 24px; height: 24px; fill: var(--gray-400); }
+        .review-modal-close:hover svg { fill: var(--charcoal); }
+        .review-modal h3 {
+            font-size: 22px; font-weight: 800; color: var(--charcoal);
+            margin-bottom: 6px; text-align: center;
+        }
+        .review-modal .modal-subtitle {
+            font-size: 14px; color: var(--gray-600); margin-bottom: 28px; text-align: center;
+        }
+        .review-form-group { margin-bottom: 18px; }
+        .review-form-group label {
+            display: block; font-family: 'Montserrat', sans-serif;
+            font-size: 12px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--gray-600); margin-bottom: 6px;
+        }
+        .review-form-group input, .review-form-group textarea {
+            width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200);
+            border-radius: var(--radius); font-family: 'Open Sans', sans-serif;
+            font-size: 15px; color: var(--charcoal); transition: border-color 0.2s;
+            background: var(--gray-50);
+        }
+        .review-form-group input:focus, .review-form-group textarea:focus {
+            outline: none; border-color: var(--green); background: var(--white);
+        }
+        .review-form-group textarea { resize: vertical; min-height: 100px; }
+        .review-submit {
+            width: 100%; padding: 14px; border: none; border-radius: var(--radius);
+            background: var(--green); color: var(--white);
+            font-family: 'Montserrat', sans-serif; font-size: 15px;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
+            cursor: pointer; transition: background 0.2s;
+        }
+        .review-submit:hover { background: var(--green-dark); }
+        .review-thank-you {
+            display: none; text-align: center; padding: 40px 20px;
+        }
+        .review-thank-you.active { display: block; }
+        .review-thank-you svg { width: 56px; height: 56px; fill: var(--green); margin-bottom: 16px; }
+        .review-thank-you h3 { font-size: 22px; margin-bottom: 8px; color: var(--charcoal); }
+        .review-thank-you p { font-size: 15px; color: var(--gray-600); }
+
+        /* Follow Us */
+        .follow-us { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
+        .follow-us a {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 100px; font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.04em; transition: all 0.2s; text-decoration: none;
+        }
+        .follow-fb { background: #1877F2; color: white; }
+        .follow-fb:hover { background: #0d6efd; }
+        .follow-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: white; }
+        .follow-ig:hover { opacity: 0.9; }
+        .follow-us a svg { width: 16px; height: 16px; fill: white; }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .page-hero h1 { font-size: 38px; }
@@ -1010,6 +1114,87 @@
     </div>
 </div>
 
+<!-- Review Funnel -->
+<section class="review-funnel" id="leave-review">
+    <div class="container">
+        <div class="review-funnel-inner">
+            <h2>How Did We Do?</h2>
+            <p class="subtitle">Tap a star to rate your experience with High Line Tree Service</p>
+            <div class="star-selector" id="starSelector">
+                <button class="star-btn" data-rating="1"><span>&#9733;</span><span class="star-num">1</span></button>
+                <button class="star-btn" data-rating="2"><span>&#9733;</span><span class="star-num">2</span></button>
+                <button class="star-btn" data-rating="3"><span>&#9733;</span><span class="star-num">3</span></button>
+                <button class="star-btn" data-rating="4"><span>&#9733;</span><span class="star-num">4</span></button>
+                <button class="star-btn" data-rating="5"><span>&#9733;</span><span class="star-num">5</span></button>
+            </div>
+            <p class="review-prompt">Your feedback helps Bobby improve the service he provides.</p>
+
+            <div class="follow-us" style="margin-top: 36px;">
+                <a href="https://www.facebook.com/highlinetreeservice/" target="_blank" rel="noopener" class="follow-fb">
+                    <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Follow on Facebook
+                </a>
+                <a href="https://www.instagram.com/highlinetreemass/" target="_blank" rel="noopener" class="follow-ig">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Review Modal (1-3 Stars) -->
+<div class="review-modal-overlay" id="reviewModal">
+    <div class="review-modal">
+        <button class="review-modal-close" id="reviewModalClose">
+            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+        <div id="reviewFormView">
+            <h3>Please Tell Bobby About Your Experience</h3>
+            <p class="modal-subtitle">We appreciate your honest feedback. Bobby reads every response personally.</p>
+            <form id="reviewForm" action="https://formsubmit.co/matt@scalelocal.net" method="POST">
+                <input type="hidden" name="_subject" value="High Line Tree - LOW REVIEW INTERCEPT">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://www.scalelocal.net/test-builds/high-line-tree/reviews.html#leave-review">
+                <input type="hidden" name="Rating" id="formRating" value="">
+                <div class="review-form-group">
+                    <label for="reviewName">First Name</label>
+                    <input type="text" id="reviewName" name="Name" placeholder="Your first name" required>
+                </div>
+                <div class="review-form-group">
+                    <label for="reviewPhone">Phone Number</label>
+                    <input type="tel" id="reviewPhone" name="Phone" placeholder="(978) 555-1234" required>
+                </div>
+                <div class="review-form-group">
+                    <label for="reviewEmail">Email Address</label>
+                    <input type="email" id="reviewEmail" name="Email" placeholder="your@email.com" required>
+                </div>
+                <div class="review-form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" name="Review" placeholder="Tell us about your experience with High Line Tree Service..." required></textarea>
+                </div>
+                <button type="submit" class="review-submit">Submit Your Feedback</button>
+            </form>
+        </div>
+        <div class="review-thank-you" id="reviewThankYou">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <h3>Thank You for Your Feedback</h3>
+            <p>Bobby will review your message and may reach out to you directly. We appreciate you taking the time to share your experience.</p>
+        </div>
+    </div>
+</div>
+
+<!-- 4-5 Star Notification Form (hidden, auto-submits) -->
+<form id="highStarNotify" action="https://formsubmit.co/matt@scalelocal.net" method="POST" style="display:none;" target="notifyFrame">
+    <input type="hidden" name="_subject" value="High Line Tree - 4/5 Star Review Incoming!">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="Message" value="Keep an eye out - a 4 or 5 star review may be incoming on Google. Someone just clicked to leave a positive review from the demo site.">
+    <input type="hidden" name="Rating" id="highStarRating" value="">
+</form>
+<iframe name="notifyFrame" style="display:none;"></iframe>
+
 <!-- CTA Band -->
 <section class="cta-band">
     <div class="container">
@@ -1077,6 +1262,86 @@
         </div>
     </div>
 </footer>
+
+<!-- Review Funnel JS -->
+<script>
+(function() {
+    var starBtns = document.querySelectorAll('.star-btn');
+    var modal = document.getElementById('reviewModal');
+    var modalClose = document.getElementById('reviewModalClose');
+    var formView = document.getElementById('reviewFormView');
+    var thankYou = document.getElementById('reviewThankYou');
+    var formRating = document.getElementById('formRating');
+    var highStarRating = document.getElementById('highStarRating');
+    var reviewForm = document.getElementById('reviewForm');
+    var highStarNotify = document.getElementById('highStarNotify');
+
+    var googleReviewURL = 'https://www.google.com/search?sca_esv=b04edf4c6777ddf8&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzUTuZbpZc4aMKarugUTlCx752hA80yyw1RCiW1hLdqQPCVv8Ttt6qS_kRE3HJLEOuSm3paOA2uQblf0RrPO5AN2lQr1KBV2tjBqB5T0GFz2r2r3kjQ%3D%3D&q=High+Line+Tree+Service+Reviews&sa=X&ved=2ahUKEwjt2qWgv_OLAxUnAHkGHbhwCo4Q0bkNegQILRAD&biw=1890&bih=1136&dpr=2#lrd=0x89e3a7d829e5ba51:0xdd538bbe690a8550,3,,,,';
+
+    starBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var rating = parseInt(this.getAttribute('data-rating'));
+
+            // Highlight selected and all below
+            starBtns.forEach(function(b, i) {
+                b.classList.toggle('selected', i < rating);
+            });
+
+            if (rating <= 3) {
+                // 1-3 stars: open feedback form
+                formRating.value = rating + ' star' + (rating > 1 ? 's' : '');
+                formView.style.display = 'block';
+                thankYou.classList.remove('active');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // 4-5 stars: send notification email, then redirect to Google
+                highStarRating.value = rating + ' stars';
+                highStarNotify.submit();
+
+                // Small delay then redirect to Google review
+                setTimeout(function() {
+                    window.open(googleReviewURL, '_blank');
+                }, 500);
+            }
+        });
+    });
+
+    // Close modal
+    modalClose.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
+    // Handle form submission (show thank you before redirect)
+    reviewForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(reviewForm);
+
+        fetch(reviewForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        }).then(function() {
+            formView.style.display = 'none';
+            thankYou.classList.add('active');
+            setTimeout(function() {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }, 3000);
+        }).catch(function() {
+            // Fallback: just submit the form normally
+            reviewForm.submit();
+        });
+    });
+})();
+</script>
 
 <!-- CHAT WIDGET — Preview Slot 2 -->
 <script src="https://widgets.leadconnectorhq.com/loader.js"
