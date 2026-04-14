@@ -965,6 +965,22 @@
     </div>
 
     <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69de9007d0d6eab45459a37b"></script>
+<script>
+(function fixWidget(){
+    function inject(){
+        var w=document.querySelector('chat-widget');
+        if(!w||!w.shadowRoot){setTimeout(inject,500);return;}
+        var s=document.createElement('style');
+        s.textContent=
+            '#lc_text-widget{min-width:400px!important;right:20px!important;bottom:80px!important;z-index:999999!important;}'+
+            '.lc_text-widget--body{min-width:380px!important;min-height:500px!important;}'+
+            '.lc_text-widget--bubble{z-index:999999!important;}'+
+            '.lc_text-widget--header{min-width:380px!important;}'; 
+        w.shadowRoot.appendChild(s);
+    }
+    inject();
+})();
+</script>
 
     <script type="application/ld+json">
     {
