@@ -135,35 +135,75 @@
         .menu-toggle svg { width: 28px; height: 28px; fill: var(--gray-700); }
         .mobile-overlay { display: none; }
 
-        /* ===== HERO ===== */
+        /* ===== HERO SLIDESHOW ===== */
         .hero {
             position: relative;
             min-height: 620px;
             display: flex; align-items: center;
-            background: linear-gradient(135deg, rgba(10,10,10,0.82) 0%, rgba(27,122,61,0.65) 100%),
-                        url('/test-builds/high-line-tree/images/real-gallery-08.jpg') center/cover no-repeat;
             color: var(--white);
+            overflow: hidden;
+        }
+        .hero-slides {
+            position: absolute; inset: 0;
+            display: flex;
+            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+            will-change: transform;
+        }
+        .hero-slide {
+            min-width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            flex-shrink: 0;
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(10,10,10,0.78) 0%, rgba(27,122,61,0.55) 100%);
+            z-index: 1;
         }
         .hero-content { position: relative; z-index: 2; max-width: 720px; }
-        .hero-badge {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(255,255,255,0.12); backdrop-filter: blur(8px);
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 18px; border-radius: 100px;
-            font-size: 13px; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.08em; margin-bottom: 24px;
+        .hero-authority {
+            display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+            margin-bottom: 28px;
         }
-        .hero-badge svg { width: 16px; height: 16px; fill: var(--accent); }
+        .hero-authority-item {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--white);
+        }
+        .hero-authority-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+        .hero-authority-item .stars { color: #FFD93D; letter-spacing: 2px; font-size: 16px; }
+        .hero-authority-divider {
+            width: 1px; height: 20px; background: rgba(255,255,255,0.35);
+        }
         .hero h1 {
             font-size: 52px; font-weight: 900; line-height: 1.08;
             margin-bottom: 20px;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
         }
         .hero h1 span { color: var(--accent); }
         .hero p {
             font-size: 19px; line-height: 1.7; opacity: 0.92;
             margin-bottom: 36px; max-width: 580px;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.2);
         }
         .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .hero-dots {
+            position: absolute; bottom: 28px; left: 50%;
+            transform: translateX(-50%);
+            z-index: 3; display: flex; gap: 10px;
+        }
+        .hero-dot {
+            width: 10px; height: 10px; border-radius: 50%;
+            background: rgba(255,255,255,0.4);
+            border: none; cursor: pointer; padding: 0;
+            transition: all 0.3s;
+        }
+        .hero-dot.active {
+            background: var(--accent);
+            transform: scale(1.3);
+        }
         .btn-primary {
             background: var(--green); color: var(--white);
             padding: 16px 36px; border-radius: var(--radius);
@@ -480,6 +520,10 @@
             .hero { min-height: 500px; }
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 16px; }
+            .hero-authority { gap: 12px; }
+            .hero-authority-item { font-size: 12px; }
+            .hero-authority-divider { height: 16px; }
+            .hero-dots { bottom: 16px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); }
             .stat-item { padding: 24px 16px; }
             .stat-number { font-size: 32px; }
@@ -732,27 +776,52 @@
     </div>
 </div>
 
-<!-- Hero — Real crane operation photo in snow -->
+<!-- Hero Slideshow — Auto-sliding images from High Line Tree -->
 <section class="hero">
+    <div class="hero-slides" id="heroSlides">
+        <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-4.jpg');"></div>
+    </div>
+    <div class="hero-overlay"></div>
     <div class="container">
         <div class="hero-content">
-            <div class="hero-badge">
-                <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
-                Certified Arborist &mdash; Fully Insured
+            <div class="hero-authority">
+                <span class="hero-authority-item">
+                    <svg viewBox="0 0 24 24" fill="white"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                    ISA Certified Arborist
+                </span>
+                <span class="hero-authority-divider"></span>
+                <span class="hero-authority-item">
+                    <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                    4.9 Stars
+                </span>
+                <span class="hero-authority-divider"></span>
+                <span class="hero-authority-item">
+                    <svg viewBox="0 0 24 24" fill="#00B050"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    100% Recommended
+                </span>
             </div>
             <h1>Professional <span>Tree Care</span> You Can Trust</h1>
-            <p>High Line Tree Service delivers expert tree removal, pruning, and plant health care across Northeastern Massachusetts. Owner Bobby Black brings 18+ years of hands-on arborist experience to every job.</p>
+            <p>From safe removal of hazardous trees to expert pruning and plant health care, High Line Tree Service handles every aspect of professional tree care. Each service backed by 18+ years of Certified Arborist experience.</p>
             <div class="hero-btns">
                 <a href="tel:9788159178" class="btn-primary">
                     <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    Get a Free Estimate
+                    Get Your Free Estimate
                 </a>
                 <a href="/test-builds/high-line-tree/services.html" class="btn-ghost">
                     <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
-                    View Our Services
+                    See All Services
                 </a>
             </div>
         </div>
+    </div>
+    <div class="hero-dots" id="heroDots">
+        <button class="hero-dot active" data-slide="0"></button>
+        <button class="hero-dot" data-slide="1"></button>
+        <button class="hero-dot" data-slide="2"></button>
+        <button class="hero-dot" data-slide="3"></button>
     </div>
 </section>
 
@@ -1126,6 +1195,47 @@
         </div>
     </div>
 </footer>
+
+<!-- Hero Slideshow JS -->
+<script>
+(function() {
+    const slides = document.getElementById('heroSlides');
+    const dots = document.querySelectorAll('.hero-dot');
+    const totalSlides = 4;
+    let current = 0;
+    let interval;
+
+    function goToSlide(n) {
+        current = n;
+        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === current);
+        });
+    }
+
+    function nextSlide() {
+        goToSlide((current + 1) % totalSlides);
+    }
+
+    function startAutoplay() {
+        interval = setInterval(nextSlide, 3000);
+    }
+
+    function resetAutoplay() {
+        clearInterval(interval);
+        startAutoplay();
+    }
+
+    dots.forEach(function(dot) {
+        dot.addEventListener('click', function() {
+            goToSlide(parseInt(this.getAttribute('data-slide')));
+            resetAutoplay();
+        });
+    });
+
+    startAutoplay();
+})();
+</script>
 
 <!-- CHAT WIDGET — Preview Slot 2 -->
 <script src="https://widgets.leadconnectorhq.com/loader.js"
