@@ -146,7 +146,6 @@
         .hero-slides {
             position: absolute; inset: 0;
             display: flex;
-            transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
             will-change: transform;
         }
         .hero-slide {
@@ -783,6 +782,7 @@
         <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-2.jpg');"></div>
         <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-3.jpg');"></div>
         <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-4.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('/test-builds/high-line-tree/images/hero-slide-1.jpg');"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="container">
@@ -1199,22 +1199,43 @@
 <!-- Hero Slideshow JS -->
 <script>
 (function() {
-    const slides = document.getElementById('heroSlides');
-    const dots = document.querySelectorAll('.hero-dot');
-    const totalSlides = 4;
-    let current = 0;
-    let interval;
+    var slides = document.getElementById('heroSlides');
+    var dots = document.querySelectorAll('.hero-dot');
+    var totalSlides = 4;
+    var current = 0;
+    var interval;
+    var transitioning = false;
 
-    function goToSlide(n) {
-        current = n;
-        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+    function updateDots() {
         dots.forEach(function(dot, i) {
-            dot.classList.toggle('active', i === current);
+            dot.classList.toggle('active', i === (current % totalSlides));
         });
     }
 
     function nextSlide() {
-        goToSlide((current + 1) % totalSlides);
+        if (transitioning) return;
+        current++;
+        slides.style.transition = 'transform 0.8s cubic-bezier(0.65, 0, 0.35, 1)';
+        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+        updateDots();
+
+        if (current === totalSlides) {
+            transitioning = true;
+            setTimeout(function() {
+                slides.style.transition = 'none';
+                current = 0;
+                slides.style.transform = 'translateX(0%)';
+                transitioning = false;
+            }, 850);
+        }
+    }
+
+    function goToSlide(n) {
+        if (transitioning) return;
+        current = n;
+        slides.style.transition = 'transform 0.8s cubic-bezier(0.65, 0, 0.35, 1)';
+        slides.style.transform = 'translateX(-' + (current * 100) + '%)';
+        updateDots();
     }
 
     function startAutoplay() {
