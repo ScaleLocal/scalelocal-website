@@ -470,6 +470,46 @@
         }
 
         @media (max-width: 767px) {
+            /* Mobile Overlay Nav */
+            .nav-links { display: none !important; }
+            .nav-phone { display: none !important; }
+            .menu-toggle { display: block !important; }
+            .mobile-overlay.active {
+                display: flex; position: fixed; inset: 0; z-index: 200;
+                background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
+            }
+            .mobile-menu {
+                background: var(--white); width: 300px; height: 100%;
+                padding: 24px; margin-left: auto;
+                display: flex; flex-direction: column; gap: 0;
+                overflow-y: auto;
+            }
+            .mobile-menu-header {
+                display: flex; justify-content: space-between; align-items: center;
+                margin-bottom: 24px; padding-bottom: 16px;
+                border-bottom: 1px solid #eee;
+            }
+            .mobile-menu-header img { height: 45px; }
+            .mobile-close { background: none; border: none; cursor: pointer; padding: 4px; }
+            .mobile-close svg { width: 28px; height: 28px; fill: #666; }
+            .mobile-nav-links { list-style: none; margin: 0; padding: 0; }
+            .mobile-nav-links li { border-bottom: 1px solid #eee; }
+            .mobile-nav-links a {
+                display: block; padding: 14px 0;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 15px; font-weight: 700; color: #333;
+                text-transform: uppercase; text-decoration: none;
+            }
+            .mobile-nav-links a:hover { color: var(--green); }
+            .mobile-cta-phone { margin-top: 24px; text-align: center; }
+            .mobile-cta-phone a {
+                display: block; background: var(--green); color: #fff;
+                padding: 14px; border-radius: 8px;
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 800; font-size: 16px; text-decoration: none;
+            }
+            .utility-bar .container { flex-direction: column; gap: 4px; text-align: center; }
+            .utility-left { flex-direction: column; gap: 4px; }
             .sticky-mobile-cta {
                 display: block;
             }
@@ -758,21 +798,21 @@
                 </div>
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <p><strong>Phone:</strong> <a href="tel:(978) 480-0403">(978) 480-0403</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+19784800403">(978) 480-0403</a></p>
                     <p><strong>Service Area:</strong> Merrimack Valley & North Shore</p>
                     <p><strong>Available:</strong> 24/7 Emergency Service</p>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p style="font-size: 11px; color: #999; margin-bottom: 8px; line-height: 1.5;">This is a demo website built by ScaleLocal for preview purposes only. Information shown may not reflect current business details, hours, or pricing. Visit <a href="https://highlinetreeservice.com" target="_blank" rel="noopener" style="color: #FFD100;">highlinetreeservice.com</a> for official information.</p>
-                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../privacy.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
+                <p>&copy; 2026 High Line Tree Service. All rights reserved. | <a href="../contact.html" style="color: var(--gray-400); text-decoration: none;">Privacy Policy</a></p>
             </div>
         </div>
     </footer>
 
     <!-- STICKY MOBILE CTA -->
     <div class="sticky-mobile-cta">
-        <a href="tel:(978) 480-0403">Call Bobby — (978) 480-0403</a>
+        <a href="tel:+19784800403">Call Bobby — (978) 480-0403</a>
     </div>
 
     
