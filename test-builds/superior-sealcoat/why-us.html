@@ -58,125 +58,69 @@
             padding: 0 24px;
         }
 
-        /* Utility Bar */
+        /* ===== UTILITY BAR ===== */
         .utility-bar {
-            background-color: var(--gray-900);
+            background: var(--gray-900);
             color: rgba(255,255,255,0.7);
             font-size: 13px;
             padding: 8px 0;
         }
-
         .utility-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
         }
+        .utility-bar a { color: rgba(255,255,255,0.9); transition: color 0.2s; }
+        .utility-bar a:hover { color: var(--yellow); }
+        .utility-bar .highlight { color: var(--yellow); font-weight: 600; }
 
-        .utility-bar .highlight {
-            color: var(--yellow);
-            font-weight: 600;
-        }
-
-        .utility-bar a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .utility-bar a:hover {
-            color: var(--yellow);
-        }
-
-        /* Header */
+        /* ===== HEADER ===== */
         header {
-            background-color: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: var(--white);
+            position: sticky; top: 0; z-index: 100;
             box-shadow: var(--shadow-md);
         }
-
         .header-inner {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 8px 24px;
-            max-width: 1200px;
-            margin: 0 auto;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 24px; max-width: 1200px; margin: 0 auto;
         }
+        .logo-link { display: flex; align-items: center; }
+        .logo-link img { height: 65px; width: auto; }
 
-        .logo-link img {
-            height: 65px;
-            width: auto;
-        }
-
-        nav {
-            display: flex;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 32px;
-            align-items: center;
-        }
-
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
         .nav-links a {
             font-family: 'Montserrat', sans-serif;
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: var(--gray-700);
-            text-decoration: none;
-            transition: color 0.3s ease, border-bottom 0.3s ease;
-            border-bottom: 2px solid transparent;
-            padding-bottom: 2px;
+            font-size: 14px; font-weight: 700; color: var(--gray-700);
+            text-transform: uppercase; letter-spacing: 0.04em;
+            transition: color 0.2s; position: relative;
         }
-
-        .nav-links a:hover {
-            color: var(--blue);
-            border-bottom: 2px solid var(--blue);
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--blue); transition: width 0.25s ease;
         }
-
-        .nav-links a.active {
-            color: var(--blue);
-            border-bottom: 2px solid var(--blue);
-        }
-
+        .nav-links a:hover { color: var(--blue); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--blue); }
+        .nav-links a.active::after { width: 100%; }
         .nav-cta {
-            background-color: var(--yellow);
-            color: var(--gray-900);
-            padding: 10px 24px;
-            border-radius: 4px;
-            font-weight: 800;
+            background: var(--yellow); color: var(--gray-900) !important;
+            padding: 10px 24px; border-radius: 4px;
+            font-weight: 800; font-size: 14px; transition: all 0.25s;
             border: 2px solid var(--yellow-dark);
+            text-transform: uppercase;
         }
-
-        .nav-cta:hover {
-            background-color: var(--yellow-dark);
-            border-bottom: none;
-            color: var(--white);
-        }
+        .nav-cta:hover { background: var(--yellow-dark); transform: translateY(-1px); }
+        .nav-cta::after { display: none !important; }
 
         .mobile-toggle {
-            display: none;
-            flex-direction: column;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
+            display: none; background: none; border: none; cursor: pointer;
+            width: 32px; height: 32px; position: relative;
         }
-
         .mobile-toggle span {
-            width: 24px;
-            height: 2px;
-            background-color: var(--gray-700);
-            margin: 4px 0;
-            transition: 0.3s;
+            display: block; width: 24px; height: 2px; background: var(--gray-700);
+            position: absolute; left: 4px; transition: all 0.3s;
         }
+        .mobile-toggle span:nth-child(1) { top: 8px; }
+        .mobile-toggle span:nth-child(2) { top: 15px; }
+        .mobile-toggle span:nth-child(3) { top: 22px; }
 
         /* Hero Section */
         .hero {
@@ -601,28 +545,16 @@
         }
 
         @media (max-width: 768px) {
-            .mobile-toggle {
-                display: flex;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--white);
-                flex-direction: column;
-                gap: 16px;
-                padding: 24px;
-                box-shadow: var(--shadow-md);
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-            }
-
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
             .nav-links.open {
-                max-height: 500px;
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--white); padding: 20px 24px;
+                box-shadow: var(--shadow-lg); gap: 16px;
             }
+
+
 
             .hero {
                 min-height: 360px;
@@ -780,7 +712,12 @@
     <div class="utility-bar">
         <div class="container">
             <span>Serving Massachusetts &amp; New England <span class="highlight">Since 1990</span></span>
-            <a href="tel:9789885555">(978) 988-5555 &mdash; Free Estimates</a>
+            <span>
+                <a href="tel:9789885555"><strong style="color:var(--yellow);">(978) 988-5555</strong></a>
+                &nbsp;&bull;&nbsp;
+                <a href="mailto:info@superiorsealcoat.com">info@superiorsealcoat.com</a>
+                &nbsp;&bull;&nbsp; 236 Andover St, Wilmington, MA
+            </span>
         </div>
     </div>
 
@@ -800,7 +737,7 @@
                     <li><a href="contact.html" class="nav-cta">Get a Free Estimate</a></li>
                 </ul>
             </nav>
-            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
+            <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
