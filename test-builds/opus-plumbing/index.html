@@ -502,11 +502,15 @@
             }
             /* Mobile header emergency button */
             .mobile-header-emergency {
-                display: none;
+                display: none !important;
+                visibility: hidden;
+                position: absolute;
+                pointer-events: none;
             }
             @media (max-width: 768px) {
                 .mobile-header-emergency {
-                    display: flex;
+                    display: flex !important;
+                    visibility: visible;
                     align-items: center;
                     gap: 4px;
                     padding: 6px 12px;
