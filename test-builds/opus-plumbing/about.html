@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Opus Plumbing &amp; Heating | North Billerica, MA &mdash; 20+ Years of Excellence</title>
+    <meta name="description" content="Learn about Opus Plumbing and Heating LLC. Founded by Rick with 20+ years of plumbing and heating experience. Owner-operated, fully licensed &amp; insured. Serving Billerica, MA and surrounding communities.">
+    <meta property="og:title" content="About Opus Plumbing &amp; Heating">
+    <meta property="og:description" content="Opus Plumbing and Heating has been providing expert plumbing and heating services for 20+ years. Learn our story and why homeowners trust us.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.scalelocal.net/test-builds/opus-plumbing/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green: #1B8A3E;
+            --green-dark: #146B30;
+            --green-light: #22A94B;
+            --charcoal: #2D2D2D;
+            --charcoal-dark: #1A1A1A;
+            --charcoal-light: #3D3D3D;
+            --white: #ffffff;
+            --off-white: #f7f8f9;
+            --gray-50: #f8f9fb;
+            --gray-100: #e9ecf0;
+            --gray-200: #d1d5db;
+            --gray-300: #b0b7c0;
+            --gray-400: #9ca3af;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --accent: #1B8A3E;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --radius: 6px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--gray-700);
+            line-height: 1.7;
+            background: var(--white);
+            -webkit-font-smoothing: antialiased;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+            color: var(--charcoal);
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* ===== DEMO BANNER ===== */
+        .demo-banner {
+            background: var(--charcoal-dark);
+            color: rgba(255,255,255,0.85);
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 12px;
+            z-index: 10000;
+            position: relative;
+        }
+        .demo-banner a { color: #FFD700; font-weight: 600; text-decoration: underline; }
+        .demo-banner a:hover { color: #fff; }
+
+        /* ===== UTILITY BAR ===== */
+        .utility-bar {
+            background: var(--charcoal);
+            color: rgba(255,255,255,0.7);
+            font-size: 13px;
+            padding: 8px 0;
+        }
+        .utility-bar .container {
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+        }
+        .utility-bar a { color: rgba(255,255,255,0.9); transition: color 0.2s; }
+        .utility-bar a:hover { color: var(--green-light); }
+        .utility-bar .highlight { color: var(--green-light); font-weight: 600; }
+        .utility-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .utility-left svg { width: 14px; height: 14px; margin-right: 4px; vertical-align: -2px; fill: currentColor; }
+
+        /* ===== HEADER ===== */
+        header {
+            background: var(--white);
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+        .header-inner {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 8px 24px; max-width: 1200px; margin: 0 auto;
+        }
+        .logo-link { display: flex; align-items: center; }
+        .logo-link img { height: 65px; width: auto; }
+
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px; font-weight: 700; color: var(--gray-700);
+            text-transform: uppercase; letter-spacing: 0.04em;
+            transition: color 0.2s; position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 2px; background: var(--green); transition: width 0.25s ease;
+        }
+        .nav-links a:hover { color: var(--green); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a.active { color: var(--green); }
+        .nav-links a.active::after { width: 100%; }
+        .nav-cta {
+            background: var(--green); color: var(--white) !important;
+            padding: 10px 24px; border-radius: var(--radius);
+            font-weight: 800; font-size: 14px; transition: all 0.25s;
+            border: 2px solid var(--green-dark);
+            text-transform: uppercase;
+        }
+        .nav-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+        .nav-cta::after { display: none !important; }
+
+        .mobile-toggle {
+            display: none; background: none; border: none; cursor: pointer;
+            width: 32px; height: 32px; position: relative;
+        }
+        .mobile-toggle span {
+            display: block; width: 24px; height: 2px; background: var(--gray-700);
+            position: absolute; left: 4px; transition: all 0.3s;
+        }
+        .mobile-toggle span:nth-child(1) { top: 8px; }
+        .mobile-toggle span:nth-child(2) { top: 15px; }
+        .mobile-toggle span:nth-child(3) { top: 22px; }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            min-height: 480px;
+            display: flex; align-items: center;
+            background: linear-gradient(135deg, rgba(27,138,62,0.92) 0%, rgba(20,107,48,0.88) 50%, rgba(45,45,45,0.85) 100%),
+                        url('images/real-hero-photo.png') center/cover no-repeat;
+            overflow: hidden;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 680px; padding: 80px 0;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: var(--white);
+            color: var(--green);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px; font-weight: 800;
+            padding: 6px 16px; border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            color: var(--white);
+            font-size: clamp(32px, 4.5vw, 52px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .hero h1 span { color: var(--green-light); }
+        .hero p {
+            color: rgba(255,255,255,0.92);
+            font-size: 18px;
+            margin-bottom: 32px;
+            max-width: 560px;
+        }
+        .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--white); color: var(--green);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px; font-weight: 800;
+            padding: 14px 32px; border-radius: var(--radius);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border: 2px solid var(--white);
+            transition: all 0.25s;
+        }
+        .btn-primary:hover { background: var(--off-white); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,255,255,0.2); }
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: transparent; color: var(--white);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px; font-weight: 700;
+            padding: 14px 32px; border-radius: var(--radius);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            border: 2px solid rgba(255,255,255,0.4);
+            transition: all 0.25s;
+        }
+        .btn-secondary:hover { border-color: var(--white); background: rgba(255,255,255,0.1); }
+
+        /* ===== SECTIONS ===== */
+        .section { padding: 80px 0; }
+        .section-light { background: var(--off-white); }
+        .section-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+        .section-header h2 {
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .section-header h2 span { color: var(--green); }
+        .section-header p {
+            font-size: 17px;
+            color: var(--gray-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .accent-line {
+            width: 60px; height: 4px;
+            background: var(--green);
+            margin: 16px auto;
+            border-radius: 2px;
+        }
+
+        /* ===== COMPANY STORY ===== */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .story-text h2 {
+            font-size: 36px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            color: var(--charcoal);
+        }
+        .story-text h2 span { color: var(--green); }
+        .story-text p {
+            font-size: 16px;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .story-highlight {
+            background: var(--off-white);
+            border-left: 4px solid var(--green);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: var(--radius);
+        }
+        .story-highlight p {
+            font-size: 15px;
+            font-style: italic;
+            color: var(--charcoal);
+            margin: 0;
+        }
+
+        /* ===== WHY CHOOSE CARDS (NUMBERED) ===== */
+        .why-choose-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+        .why-choose-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-100);
+            transition: all 0.3s;
+            position: relative;
+            text-align: center;
+        }
+        .why-choose-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--green);
+        }
+        .why-choose-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; background: var(--green);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        .why-choose-card:hover::before { transform: scaleX(1); }
+        .why-choose-number {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 64px; font-weight: 900;
+            color: var(--gray-100);
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+        .why-choose-icon {
+            width: 56px; height: 56px;
+            background: rgba(27,138,62,0.1);
+            border-radius: var(--radius);
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .why-choose-icon svg { width: 32px; height: 32px; fill: var(--green); }
+        .why-choose-card h3 {
+            font-size: 18px; font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            color: var(--charcoal);
+        }
+        .why-choose-card p {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section {
+            background: var(--off-white);
+            padding: 80px 0;
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--green);
+            transform: translateX(-50%);
+        }
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 48px;
+            position: relative;
+            z-index: 1;
+        }
+        .timeline-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .timeline-item:nth-child(even) {
+            direction: rtl;
+        }
+        .timeline-item:nth-child(even) > * {
+            direction: ltr;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border: 4px solid var(--white);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .timeline-content {
+            background: var(--white);
+            padding: 32px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--green);
+        }
+        .timeline-year {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--green);
+            margin-bottom: 12px;
+        }
+        .timeline-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--charcoal);
+            margin-bottom: 12px;
+        }
+        .timeline-description {
+            font-size: 15px;
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ===== CTA BAND ===== */
+        .cta-band {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            padding: 64px 0;
+            text-align: center;
+        }
+        .cta-band h2 {
+            color: var(--white);
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+        .cta-band p {
+            color: rgba(255,255,255,0.9);
+            font-size: 17px;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto; margin-right: auto;
+        }
+        .cta-band .btn-primary {
+            background: var(--white); color: var(--green);
+            border-color: var(--white);
+        }
+        .cta-band .btn-primary:hover {
+            background: var(--off-white);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--charcoal-dark);
+            color: rgba(255,255,255,0.7);
+            padding: 64px 0 0;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+        .footer-about .logo-link img { height: 60px; margin-bottom: 16px; filter: brightness(1.2); }
+        .footer-about p { font-size: 14px; line-height: 1.7; margin-bottom: 16px; }
+        footer h4 {
+            color: var(--white);
+            font-size: 14px; font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 20px;
+        }
+        footer ul { list-style: none; }
+        footer ul li { margin-bottom: 10px; }
+        footer ul a {
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        footer ul a:hover { color: var(--green-light); }
+        .footer-contact-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            margin-bottom: 12px; font-size: 14px;
+        }
+        .footer-contact-item svg { width: 16px; height: 16px; fill: var(--green-light); flex-shrink: 0; margin-top: 3px; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 24px 0;
+            text-align: center;
+        }
+        .footer-bottom p { font-size: 12px; }
+        .footer-demo-note {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 8px;
+        }
+
+        /* ===== MOBILE ===== */
+        @media (max-width: 768px) {
+            .utility-bar .container { justify-content: center; text-align: center; }
+            .utility-left { justify-content: center; }
+            .nav-links { display: none; }
+            .mobile-toggle { display: block; }
+            .nav-links.open {
+                display: flex; flex-direction: column;
+                position: absolute; top: 100%; left: 0; right: 0;
+                background: var(--white);
+                padding: 20px 24px;
+                box-shadow: var(--shadow-lg);
+                gap: 16px;
+            }
+            .hero { min-height: 400px; }
+            .hero-content { padding: 48px 0; }
+            .hero-btns { flex-direction: column; }
+            .section { padding: 56px 0; }
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .story-text h2 {
+                font-size: 28px;
+            }
+            .why-choose-grid {
+                grid-template-columns: 1fr;
+            }
+            .timeline-line {
+                left: 0;
+            }
+            .timeline-item {
+                grid-template-columns: 1fr;
+                direction: ltr !important;
+            }
+            .timeline-item > * {
+                direction: ltr !important;
+            }
+            .timeline-dot {
+                left: 0;
+            }
+            .timeline-content {
+                margin-left: 32px;
+            }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 28px; }
+            .story-text h2 {
+                font-size: 24px;
+            }
+            .why-choose-number {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- DEMO BANNER -->
+<div class="demo-banner">
+    This is a demo website built for Opus Plumbing &amp; Heating by <a href="https://www.scalelocal.net" target="_blank" rel="noopener">ScaleLocal</a>. All information is for demonstration purposes only.
+</div>
+
+<!-- UTILITY BAR -->
+<div class="utility-bar">
+    <div class="container">
+        <div class="utility-left">
+            <a href="tel:7818792922">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="vertical-align:-2px;margin-right:4px"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+                (781) 879-2922
+            </a>
+            <a href="mailto:rick@opusplumbingandheating.com">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="vertical-align:-2px;margin-right:4px"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                rick@opusplumbingandheating.com
+            </a>
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="vertical-align:-2px;margin-right:4px"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                Mon-Fri: 9AM - 5PM
+            </span>
+        </div>
+        <a href="contact.html" class="highlight">Get a Free Quote</a>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo.png" alt="Opus Plumbing and Heating LLC" width="65" height="65">
+        </a>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="why-us.html">Why Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:7818792922" class="nav-cta">(781) 879-2922</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">Our Story</div>
+            <h1>About <span>Opus Plumbing &amp; Heating</span></h1>
+            <p>With over 20 years of dedicated service to North Billerica and surrounding Massachusetts communities, we have built a reputation for quality workmanship, reliability, and exceptional customer care.</p>
+            <div class="hero-btns">
+                <a href="contact.html" class="btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    Get a Free Quote
+                </a>
+                <a href="why-us.html" class="btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                    Why Choose Us
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COMPANY STORY -->
+<section class="section">
+    <div class="container">
+        <div class="story-section">
+            <div class="story-text">
+                <h2>The <span>Opus</span> Story</h2>
+                <p>Rick founded Opus Plumbing and Heating after more than 20 years working in the plumbing and heating industry. With deep expertise and a passion for exceptional service, he established Opus as an owner-operated business dedicated to serving homeowners throughout Billerica and the surrounding Massachusetts area.</p>
+                <p>Unlike large corporate chains, Opus remains a hands-on, locally-focused operation where Rick personally oversees every project. We believe in building lasting relationships with our customers based on trust, transparency, and quality work.</p>
+                <div class="story-highlight">
+                    <p>"Our commitment is simple: deliver professional, reliable plumbing and heating solutions that exceed your expectations. Every job matters, and we treat your home like our own."</p>
+                </div>
+                <p>Whether you need a routine maintenance appointment, an emergency repair, or a complete system replacement, you can count on Opus to get the job done right the first time.</p>
+            </div>
+            <div>
+                <img src="images/real-hero-photo.png" alt="Opus Plumbing and Heating professional team" style="border-radius: var(--radius); box-shadow: var(--shadow-lg);">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- WHY CHOOSE US - NUMBERED CARDS -->
+<section class="section section-light">
+    <div class="container">
+        <div class="section-header">
+            <h2>Why Choose <span>Opus</span></h2>
+            <div class="accent-line"></div>
+            <p>We stand out from the competition with our commitment to quality, transparency, and customer satisfaction.</p>
+        </div>
+        <div class="why-choose-grid">
+            <div class="why-choose-card">
+                <div class="why-choose-number">01</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg>
+                </div>
+                <h3>20+ Years Experience</h3>
+                <p>Two decades of hands-on expertise in residential plumbing and heating. We have seen it all and fixed it all with professional skill and efficiency.</p>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-number">02</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+                </div>
+                <h3>Licensed &amp; Insured</h3>
+                <p>Fully licensed and insured for all work. We meet all Massachusetts state regulations and stand behind every repair and installation with confidence.</p>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-number">03</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                </div>
+                <h3>Owner-Operated</h3>
+                <p>You work directly with Rick, the owner. No call centers, no middlemen. You get personalized attention and direct communication from start to finish.</p>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-number">04</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <h3>Upfront Pricing</h3>
+                <p>Free quotes with no hidden fees or surprise charges. We believe in transparent pricing so you always know exactly what to expect before we start work.</p>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-number">05</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 12h-2v-2h-2v2h-2v2h2v2h2v-2h2v-2zM7 9h5V7H7v2zm13.71-4.71L19 2l-7 7H5V5h7V2L4.29.29C2.35 2.23 1 5.13 1 8c0 6.63 5.37 12 12 12s12-5.37 12-12c0-2.87-1.35-5.77-3.29-7.71z"/></svg>
+                </div>
+                <h3>Quality Workmanship</h3>
+                <p>We take pride in every job. Our work is built to last, and we stand behind every repair and installation with our reputation and warranty.</p>
+            </div>
+            <div class="why-choose-card">
+                <div class="why-choose-number">06</div>
+                <div class="why-choose-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                </div>
+                <h3>Local &amp; Reliable</h3>
+                <p>Based right here in North Billerica, we know the community and the local plumbing challenges. Quick response times and familiar with your area.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIMELINE / MILESTONES -->
+<section class="timeline-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our <span>Growth</span> Journey</h2>
+            <div class="accent-line"></div>
+            <p>From our founding to today, we have grown by staying true to our commitment to quality and customer service.</p>
+        </div>
+        <div class="timeline-container">
+            <div class="timeline-line"></div>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div style="position: relative;">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Established</div>
+                            <div class="timeline-title">Opus Plumbing Founded</div>
+                            <div class="timeline-description">Rick launched Opus after 20+ years in the industry, bringing expertise and passion for quality workmanship to Billerica.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div style="position: relative;">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Growing</div>
+                            <div class="timeline-title">Expanded Service Area</div>
+                            <div class="timeline-description">Serving beyond Billerica to surrounding MA communities, earning trust and referrals through consistent quality service.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div style="position: relative;">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">Today</div>
+                            <div class="timeline-title">Trusted Local Leader</div>
+                            <div class="timeline-description">Continuing to serve 1000+ happy customers with 24/7 emergency service, heating systems, water heaters, and comprehensive plumbing solutions.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+    <div class="container">
+        <h2>Ready to Experience the Opus Difference?</h2>
+        <p>Let us show you why homeowners throughout Billerica and the greater Massachusetts area trust us with their plumbing and heating needs.</p>
+        <a href="contact.html" class="btn-primary">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Request a Free Quote
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-about">
+                <a href="index.html" class="logo-link">
+                    <img src="images/logo.png" alt="Opus Plumbing and Heating LLC" width="60" height="60">
+                </a>
+                <p>Opus Plumbing and Heating LLC has been providing expert plumbing and heating services to homeowners in the Billerica area for over 20 years. We are committed to quality workmanship and customer satisfaction on every job.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-us.html">Why Choose Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">General Plumbing</a></li>
+                    <li><a href="services.html">Boiler Services</a></li>
+                    <li><a href="services.html">Water Heaters</a></li>
+                    <li><a href="services.html">Heating Systems</a></li>
+                    <li><a href="services.html">Faucet Repair</a></li>
+                    <li><a href="services.html">Emergency Service</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact Info</h4>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                    <span>126 Treble Cove Rd<br>North Billerica, MA 01862</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+                    <a href="tel:7818792922">(781) 879-2922</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    <a href="mailto:rick@opusplumbingandheating.com">rick@opusplumbingandheating.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    <span>Mon-Fri: 9:00 AM - 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-demo-note">This is a demo website built by ScaleLocal for preview purposes only. Information shown may not reflect current business details, hours, or pricing. Visit <a href="https://opusplumbingandheating.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.6);text-decoration:underline;">opusplumbingandheating.com</a> for official information.</p>
+            <p>&copy; 2026 Opus Plumbing and Heating LLC. All rights reserved. | 126 Treble Cove Rd, North Billerica, MA 01862</p>
+        </div>
+    </div>
+</footer>
+
+<!-- CHAT WIDGET -->
+<script src="https://widgets.leadconnectorhq.com/loader.js"
+    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+    data-widget-id="69d81a75d69ee845759a0dc1"></script>
+
+</body>
+</html>
