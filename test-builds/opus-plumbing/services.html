@@ -485,10 +485,6 @@
             }
             .mobile-bottom-bar .mbb-text:active { background: #990000; }
             body { padding-bottom: 52px; }
-            /* Push GHL widget launcher above our bottom bar */
-            chat-widget {
-                --lc-widget-bottom: 70px !important;
-            }
             /* When chat is open, unstick header so it doesn't cover the chat window */
             header.chat-open {
                 position: relative !important;
@@ -795,53 +791,32 @@
     data-widget-id="69d9496fc41f60a7fa93719d"></script>
 
 <script>
-// Mobile: push widget above bottom bar & unstick header when chat opens
+// Mobile: hide bottom bar and unstick header when chat widget opens
 (function() {
     if (window.innerWidth > 768) return;
-
-    function fixWidget() {
+    function init() {
         var widget = document.querySelector('chat-widget');
-        if (!widget || !widget.shadowRoot) {
-            setTimeout(fixWidget, 500);
-            return;
-        }
+        if (!widget || !widget.shadowRoot) { setTimeout(init, 500); return; }
         var sr = widget.shadowRoot;
-
-        // Inject style into shadow DOM to fix mobile positioning
-        var style = document.createElement('style');
-        style.textContent = [
-            '@media (max-width: 768px) {',
-            '  #lc_text-widget--btn { bottom: 62px !important; }',
-            '  #lc_text-widget { bottom: 62px !important; }',
-            '  #lc_text-widget.lc_text-widget--active {',
-            '    bottom: 52px !important;',
-            '    top: auto !important;',
-            '    max-height: calc(100vh - 56px) !important;',
-            '    height: calc(100vh - 56px) !important;',
-            '    left: 0 !important;',
-            '    right: 0 !important;',
-            '    width: 100% !important;',
-            '    border-radius: 0 !important;',
-            '  }',
-            '}'
-        ].join('\n');
-        sr.appendChild(style);
-
-        // Watch for chat open/close to toggle header stickiness
-        var header = document.querySelector('header');
         var widgetEl = sr.querySelector('#lc_text-widget');
+        if (!widgetEl) { setTimeout(init, 500); return; }
+        var header = document.querySelector('header');
+        var bottomBar = document.querySelector('.mobile-bottom-bar');
         var observer = new MutationObserver(function() {
-            if (widgetEl && widgetEl.classList.contains('lc_text-widget--active')) {
+            var isOpen = widgetEl.classList.contains('lc_text-widget--active');
+            if (isOpen) {
                 header.classList.add('chat-open');
+                if (bottomBar) bottomBar.style.display = 'none';
+                document.body.style.paddingBottom = '0';
             } else {
                 header.classList.remove('chat-open');
+                if (bottomBar) bottomBar.style.display = '';
+                document.body.style.paddingBottom = '';
             }
         });
-        observer.observe(widgetEl || sr, { attributes: true, attributeFilter: ['class'], childList: true, subtree: true });
+        observer.observe(widgetEl, { attributes: true, attributeFilter: ['class'] });
     }
-
-    // Wait for widget to load
-    setTimeout(fixWidget, 1000);
+    setTimeout(init, 1500);
 })();
 </script>
 
