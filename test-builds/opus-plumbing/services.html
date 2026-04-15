@@ -457,14 +457,14 @@
                 background: var(--charcoal-dark);
                 padding: 0;
                 box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+                justify-content: center;
             }
             .mobile-bottom-bar a {
-                flex: 1;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 gap: 6px;
-                padding: 12px 8px;
+                padding: 12px 24px;
                 font-family: 'Montserrat', sans-serif;
                 font-size: 12px;
                 font-weight: 800;
@@ -480,10 +480,32 @@
             }
             .mobile-bottom-bar .mbb-call:active { background: var(--gold-dark); }
             .mobile-bottom-bar .mbb-text {
-                background: #CC0000;
-                color: var(--white);
+                display: none;
             }
-            .mobile-bottom-bar .mbb-text:active { background: #990000; }
+            /* Mobile header emergency button */
+            .mobile-header-emergency {
+                display: none;
+            }
+            @media (max-width: 768px) {
+                .mobile-header-emergency {
+                    display: flex;
+                    align-items: center;
+                    gap: 4px;
+                    padding: 6px 12px;
+                    background: #CC0000;
+                    color: var(--white);
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 10px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    letter-spacing: 0.02em;
+                    text-decoration: none;
+                    border-radius: var(--radius);
+                    transition: background 0.2s;
+                }
+                .mobile-header-emergency:active { background: #990000; }
+                .mobile-header-emergency svg { width: 14px; height: 14px; }
+            }
             body { padding-bottom: 52px; }
             /* When chat is open, unstick header so it doesn't cover the chat window */
             header.chat-open {
@@ -538,6 +560,10 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <a href="sms:7818792922" class="mobile-header-emergency">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+            Emergency Text
+        </a>
         <a href="tel:7818792922" class="nav-cta">Call for a Free Estimate</a>
         <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Toggle navigation">
             <span></span><span></span><span></span>
@@ -825,10 +851,6 @@
     <a href="tel:7818792922" class="mbb-call">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
         Call Now
-    </a>
-    <a href="sms:7818792922" class="mbb-text">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
-        24/7 Emergency Text
     </a>
 </div>
 
