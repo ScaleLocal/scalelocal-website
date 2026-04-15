@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <title>ScaleLocal Plans &amp; Pricing | Transparent Pricing, Written Guarantees</title>
+  <meta name="description" content="Local marketing pricing for small businesses. ScaleLocal plans: Starter $197/mo, Foundation $497/mo, Momentum $1,297/mo, Authority $1,997/mo. Transparent local SEO pricing with written lead guarantees. No hidden fees. See what's included.">
+  <link rel="canonical" href="https://www.scalelocal.net/pricing">
+  <meta property="og:title" content="ScaleLocal Plans & Pricing | Transparent Pricing, Written Guarantees">
+  <meta property="og:description" content="Local marketing pricing for small businesses. Transparent local SEO pricing with written lead guarantees. No hidden fees.">
+  <meta property="og:url" content="https://www.scalelocal.net/pricing">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ScaleLocal">
+  <meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+    body { font-family: 'Inter', sans-serif; font-size: 1rem; line-height: 1.6; color: #1a1a2e; overflow-x: hidden; }
+    body.menu-open { overflow: hidden; }
+
+    /* ========== NAV ========== */
+    .site-nav { position: fixed; top: 0; left: 0; width: 100%; height: 60px; background: #1a2e4a; border-bottom: 1px solid rgba(255,255,255,0.08); z-index: 1000; display: flex; align-items: center; transition: box-shadow 0.3s ease; }
+    .site-nav.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4); }
+    .nav-inner { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { text-decoration: none; display: flex; align-items: center; flex-shrink: 0; }
+    .logo-scale { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 22px; color: #fff; line-height: 1; }
+    .logo-local { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 22px; color: #2E75B6; line-height: 1; }
+    .nav-links { display: none; list-style: none; gap: 20px; align-items: center; }
+    .nav-links a { color: #fff; text-decoration: none; font-family: 'Inter', sans-serif; font-size: 0.875rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: #2E75B6; }
+    .nav-cta-desktop { display: none; align-items: center; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-size: 0.875rem; font-weight: 700; padding: 10px 16px; border-radius: 6px; text-decoration: none; transition: all 0.2s; flex-shrink: 0; }
+    .nav-cta-desktop:hover { filter: brightness(1.1); box-shadow: 0 4px 12px rgba(46,204,113,0.3); }
+    .hamburger { display: flex; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 12px; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+    .hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 1px; transition: 0.3s ease; }
+    .mobile-menu { position: fixed; top: 0; right: 0; width: 100%; height: 100%; background: #1a2e4a; z-index: 1001; display: flex; flex-direction: column; padding: 80px 24px 32px; transform: translateX(100%); transition: transform 0.3s ease; }
+    .mobile-menu.open { transform: translateX(0); }
+    .mobile-menu-close { position: absolute; top: 16px; right: 24px; background: none; border: none; color: #fff; font-size: 28px; cursor: pointer; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; }
+    .mobile-menu nav { display: flex; flex-direction: column; flex: 1; }
+    .mobile-menu a { color: #fff; text-decoration: none; font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 500; min-height: 48px; display: flex; align-items: center; }
+    .mobile-menu .mobile-cta { margin-top: auto; display: inline-flex; align-items: center; justify-content: center; background: #2ecc71; color: #1a2e4a; height: 56px; width: 100%; font-family: 'Montserrat', sans-serif; font-size: 1.0625rem; font-weight: 700; border: none; border-radius: 8px; text-decoration: none; }
+    @media (min-width: 768px) {
+      .site-nav { height: 72px; }
+      .nav-links { display: flex; }
+      .nav-cta-desktop { display: inline-flex; }
+      .hamburger { display: none; }
+    }
+
+    /* ========== SHARED ========== */
+    .section-label { color: #2ecc71; text-transform: uppercase; font-family: 'Inter', sans-serif; font-size: 0.6875rem; letter-spacing: 0.22em; font-weight: 600; margin-bottom: 16px; text-align: center; }
+
+    /* ========== HERO ========== */
+    .pricing-hero { background: #1a2e4a; padding: 120px 24px 56px; text-align: center; position: relative; overflow: hidden; }
+    .pricing-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, #1f3554 0%, #1a2e4a 70%); }
+    .pricing-hero-content { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+    .pricing-hero h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 2rem; line-height: 1.1; margin-bottom: 16px; }
+    .pricing-hero p { font-family: 'Inter', sans-serif; font-size: 1.0625rem; color: #a8b8cc; line-height: 1.6; max-width: 560px; margin: 0 auto 28px; }
+    .hero-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .hero-pill { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); border-radius: 100px; padding: 8px 16px; font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #a8b8cc; }
+    .hero-pill svg { width: 14px; height: 14px; color: #2ecc71; flex-shrink: 0; }
+    @media (min-width: 768px) { .pricing-hero { padding: 140px 24px 72px; } .pricing-hero h1 { font-size: 3rem; } }
+
+    /* ========== SECTION HEADERS ========== */
+    .sec-header { text-align: center; margin-bottom: 48px; }
+    .sec-header h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1a2e4a; font-size: 1.625rem; line-height: 1.15; }
+    .sec-header p { font-family: 'Inter', sans-serif; font-size: 1.0625rem; color: #6b7a8d; line-height: 1.6; max-width: 580px; margin: 16px auto 0; }
+    @media (min-width: 768px) { .sec-header h2 { font-size: 2.25rem; } }
+
+    /* ========== PLAN CARDS ========== */
+    .plans-section { background: #f0f4f8; padding: 64px 0; }
+    .plans-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .plan-cards { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 768px) { .plan-cards { grid-template-columns: 1fr 1fr; align-items: stretch; } .plans-section { padding: 80px 0; } }
+    @media (min-width: 1080px) { .plan-cards { grid-template-columns: 1fr 1fr 1fr 1fr; gap: 20px; } }
+
+    .plan-card { border-radius: 16px; padding: 28px; display: flex; flex-direction: column; transition: all 0.3s ease; height: 100%; position: relative; }
+    .plan-card--light { background: #fff; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
+    .plan-card--light:hover { box-shadow: 0 12px 40px rgba(26,46,74,0.12); transform: translateY(-4px); }
+    .plan-card--dark { background: #1a2e4a; border: 2px solid #2ecc71; box-shadow: 0 8px 40px rgba(26,46,74,0.2); }
+    .plan-card--dark:hover { box-shadow: 0 16px 56px rgba(26,46,74,0.28); transform: translateY(-4px); }
+    @media (min-width: 1080px) { .plan-card--dark { transform: scale(1.03); } .plan-card--dark:hover { transform: scale(1.03) translateY(-4px); } }
+    @media (min-width: 768px) { .plan-card { padding: 36px; } }
+
+    .plan-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 5px 18px; border-radius: 0 0 8px 8px; }
+    .plan-tier { font-family: 'Inter', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #2ecc71; font-weight: 600; margin-bottom: 6px; }
+    .plan-name { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.75rem; line-height: 1.1; }
+    .plan-card--light .plan-name { color: #1a2e4a; }
+    .plan-card--dark .plan-name { color: #fff; }
+    .plan-tagline { font-family: 'Inter', sans-serif; font-size: 0.9375rem; margin-top: 6px; line-height: 1.5; }
+    .plan-card--light .plan-tagline { color: #6b7a8d; }
+    .plan-card--dark .plan-tagline { color: #a8b8cc; }
+    .plan-best-for { font-family: 'Inter', sans-serif; font-size: 0.75rem; font-weight: 600; margin-top: 8px; }
+    .plan-card--light .plan-best-for { color: #2E75B6; }
+    .plan-card--dark .plan-best-for { color: #a8b8cc; }
+
+    .plan-price-block { margin-top: 20px; margin-bottom: 20px; }
+    .plan-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 2.75rem; line-height: 1; }
+    .plan-card--light .plan-price { color: #1a2e4a; }
+    .plan-card--dark .plan-price { color: #fff; }
+    .plan-period { font-family: 'Inter', sans-serif; font-size: 1rem; vertical-align: middle; }
+    .plan-card--light .plan-period { color: #6b7a8d; }
+    .plan-card--dark .plan-period { color: #a8b8cc; }
+    .plan-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; display: block; margin-top: 4px; }
+    .plan-card--light .plan-note { color: #6b7a8d; }
+    .plan-card--dark .plan-note { color: #a8b8cc; }
+
+    .plan-divider--light { border: none; height: 1px; background: #e2e8f0; margin: 20px 0; }
+    .plan-divider--dark { border: none; height: 1px; background: rgba(255,255,255,0.1); margin: 20px 0; }
+
+    .plan-features { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .plan-feature { display: flex; align-items: flex-start; gap: 8px; }
+    .plan-check { color: #2ecc71; font-size: 0.8125rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+    .plan-feature-text { font-family: 'Inter', sans-serif; font-size: 0.8125rem; line-height: 1.45; }
+    .plan-card--light .plan-feature-text { color: #3a4a5e; }
+    .plan-card--dark .plan-feature-text { color: rgba(255,255,255,0.88); }
+
+    .plan-guarantee { margin-top: 16px; border-radius: 8px; padding: 10px 12px; font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2ecc71; line-height: 1.4; font-weight: 500; }
+    .plan-guarantee--light { background: rgba(46,204,113,0.06); border: 1px solid rgba(46,204,113,0.2); }
+    .plan-guarantee--dark { background: rgba(46,204,113,0.1); border: 1px solid rgba(46,204,113,0.25); }
+
+    .plan-upgrade-note { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #2E75B6; font-weight: 600; margin-top: 16px; padding: 10px 12px; background: rgba(46,117,182,0.05); border: 1px solid rgba(46,117,182,0.12); border-radius: 8px; line-height: 1.4; text-align: center; }
+
+    .plan-cta-wrap { margin-top: auto; padding-top: 24px; }
+    .plan-cta { display: inline-flex; align-items: center; justify-content: center; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.9375rem; width: 100%; min-height: 52px; padding: 12px 20px; border-radius: 10px; border: none; text-decoration: none; cursor: pointer; transition: all 0.25s ease; white-space: nowrap; box-shadow: 0 2px 8px rgba(46,204,113,0.15); letter-spacing: -0.01em; }
+    .plan-cta:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,204,113,0.35); }
+
+    /* ========== FEATURE COMPARISON TABLE ========== */
+    .compare-section { background: #fff; padding: 64px 0; overflow: hidden; }
+    .compare-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .compare-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 2px 24px rgba(26,46,74,0.06); }
+    .compare-scroll::-webkit-scrollbar { height: 6px; }
+    .compare-scroll::-webkit-scrollbar-track { background: #f0f4f8; }
+    .compare-scroll::-webkit-scrollbar-thumb { background: #c5d0dc; border-radius: 3px; }
+    .compare-table { width: 100%; min-width: 700px; border-collapse: collapse; font-family: 'Inter', sans-serif; }
+    .compare-table thead { position: sticky; top: 0; z-index: 2; }
+    .compare-table th { background: #1a2e4a; color: #fff; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8125rem; padding: 16px 14px; text-align: center; white-space: nowrap; border-bottom: 2px solid #2ecc71; }
+    .compare-table th:first-child { text-align: left; min-width: 220px; background: #162840; border-right: 1px solid rgba(255,255,255,0.08); }
+    .compare-table th .th-price { display: block; font-family: 'Inter', sans-serif; font-weight: 400; font-size: 0.6875rem; color: #a8b8cc; margin-top: 2px; }
+    .compare-table th.th-featured { background: #0f2236; border-bottom-color: #2ecc71; position: relative; }
+    .compare-table th.th-featured::after { content: 'POPULAR'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #2ecc71; color: #1a2e4a; font-size: 0.5625rem; font-weight: 700; letter-spacing: 0.1em; padding: 2px 10px; border-radius: 0 0 6px 6px; }
+
+    .compare-table td { padding: 12px 14px; font-size: 0.8125rem; color: #3a4a5e; border-bottom: 1px solid #f0f4f8; text-align: center; vertical-align: middle; }
+    .compare-table td:first-child { text-align: left; font-weight: 500; color: #1a2e4a; border-right: 1px solid #f0f4f8; background: #fafbfc; }
+    .compare-table td.td-featured { background: rgba(46,204,113,0.03); }
+    .compare-table tbody tr:hover td { background: rgba(46,117,182,0.03); }
+    .compare-table tbody tr:hover td:first-child { background: rgba(46,117,182,0.05); }
+    .compare-table tbody tr:hover td.td-featured { background: rgba(46,204,113,0.06); }
+
+    .compare-table .cat-row td { background: #f0f4f8 !important; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #1a2e4a; padding: 10px 14px; border-bottom: 1px solid #e2e8f0; }
+    .compare-table .cat-row td:first-child { background: #eaeff4 !important; }
+
+    .ct-check { color: #2ecc71; font-weight: 700; font-size: 1rem; }
+    .ct-dash { color: #d0d6de; font-size: 1rem; }
+    .ct-text { font-size: 0.75rem; color: #6b7a8d; }
+    @media (min-width: 768px) { .compare-section { padding: 80px 0; } }
+
+    /* ========== STANDALONE SERVICES ========== */
+    .standalone-section { background: #f0f4f8; padding: 64px 0; }
+    .standalone-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .standalone-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 768px) { .standalone-grid { grid-template-columns: 1fr 1fr; } .standalone-section { padding: 80px 0; } }
+    @media (min-width: 1080px) { .standalone-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .sa-card { display: flex; flex-direction: column; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; text-decoration: none; color: inherit; transition: all 0.25s ease; position: relative; }
+    .sa-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: #2E75B6; }
+    .sa-card--accent { border: 2px solid #2ecc71; }
+    .sa-card--accent:hover { border-color: #2ecc71; }
+    .sa-badge { display: inline-block; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.1em; background: #f0f4f8; color: #6b7a8d; padding: 4px 10px; border-radius: 4px; margin-bottom: 12px; align-self: flex-start; }
+    .sa-badge--green { background: #e8f5e9; color: #2ecc71; }
+    .sa-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a2e4a; font-size: 1.0625rem; margin-bottom: 6px; }
+    .sa-price { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #2E75B6; font-size: 1.5rem; margin-bottom: 4px; }
+    .sa-price span { font-size: 0.875rem; font-weight: 400; color: #6b7a8d; }
+    .sa-card--accent .sa-price { color: #2ecc71; }
+    .sa-setup { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #6b7a8d; margin-bottom: 12px; }
+    .sa-desc { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #6b7a8d; line-height: 1.6; margin-bottom: 14px; }
+    .sa-features { list-style: none; margin: 0 0 16px; padding: 0; flex: 1; }
+    .sa-features li { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #4a5a6e; padding: 3px 0 3px 20px; position: relative; line-height: 1.5; }
+    .sa-features li::before { content: '\2713'; position: absolute; left: 0; color: #2ecc71; font-weight: 700; font-size: 0.75rem; }
+    .sa-cta { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8125rem; color: #2E75B6; margin-top: auto; }
+    .sa-card--accent .sa-cta { color: #2ecc71; }
+
+    .mailer-card { display: block; max-width: 560px; margin: 24px auto 0; background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; text-decoration: none; color: inherit; transition: all 0.25s ease; text-align: center; }
+    .mailer-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+    .mailer-title { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a2e4a; font-size: 1.0625rem; margin-bottom: 6px; }
+    .mailer-price { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #2E75B6; font-size: 1.25rem; margin-bottom: 10px; }
+    .mailer-desc { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #6b7a8d; line-height: 1.6; }
+    .mailer-link { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8125rem; color: #2E75B6; display: inline-block; margin-top: 10px; }
+
+    /* ========== COMMITMENT OPTIONS ========== */
+    .commit-section { background: #fff; padding: 64px 0; }
+    .commit-inner { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+    .commit-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 768px) { .commit-grid { grid-template-columns: 1fr 1fr 1fr; } .commit-section { padding: 80px 0; } }
+    .commit-card { background: #f0f4f8; border: 1px solid #e2e8f0; border-radius: 14px; padding: 28px 24px; text-align: center; transition: all 0.2s ease; position: relative; }
+    .commit-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,46,74,0.08); }
+    .commit-card--best { border: 2px solid #2ecc71; background: #f7fdf9; }
+    .commit-best-badge { position: absolute; top: -1px; left: 50%; transform: translateX(-50%); background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.5625rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 14px; border-radius: 0 0 6px 6px; }
+    .commit-period { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1a2e4a; font-size: 1.375rem; margin-bottom: 8px; }
+    .commit-detail { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #6b7a8d; line-height: 1.6; }
+    .commit-detail strong { color: #1a2e4a; font-weight: 600; }
+    .commit-bonus { display: inline-block; margin-top: 12px; background: rgba(46,204,113,0.1); color: #2ecc71; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.75rem; padding: 4px 12px; border-radius: 6px; }
+    .commit-note { text-align: center; margin-top: 24px; font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #6b7a8d; line-height: 1.6; max-width: 640px; margin-left: auto; margin-right: auto; }
+
+    /* ========== ROI CALCULATOR ========== */
+    .roi-section { background: #f0f4f8; padding: 64px 0; }
+    .roi-inner { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    .roi-calc { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid #e2e8f0; box-shadow: 0 2px 16px rgba(26,46,74,0.06); }
+    @media (min-width: 768px) { .roi-calc { padding: 48px; } .roi-section { padding: 80px 0; } }
+    .roi-label { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #1a2e4a; font-weight: 600; display: block; margin-bottom: 8px; }
+    .roi-input { width: 100%; height: 52px; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 0 16px; font-family: 'Inter', sans-serif; font-size: 1rem; color: #1a2e4a; outline: none; background: #f0f4f8; transition: border-color 0.2s, box-shadow 0.2s; margin-bottom: 24px; }
+    .roi-input:focus { border-color: #2E75B6; box-shadow: 0 0 0 3px rgba(46,117,182,0.1); background: #fff; }
+    .roi-tiers-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    @media (min-width: 768px) { .roi-input-row2 { grid-template-columns: 1fr 1fr !important; } .roi-tiers-grid { grid-template-columns: 1fr 1fr; } }
+    @media (min-width: 1080px) { .roi-tiers-grid { grid-template-columns: 1fr 1fr 1fr 1fr; } }
+    .roi-result-card { background: #f0f4f8; border-radius: 12px; padding: 20px; text-align: center; border: 2px solid transparent; transition: all 0.2s; }
+    .roi-result-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,46,74,0.08); }
+    .roi-tier-name { font-family: 'Inter', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; color: #6b7a8d; font-weight: 600; margin-bottom: 6px; }
+    .roi-monthly { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a2e4a; font-size: 1.25rem; }
+
+    /* ========== GUARANTEE ========== */
+    .guarantee-section { background: #1a2e4a; padding: 64px 0; }
+    .guarantee-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .guarantee-headline { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 1.625rem; line-height: 1.15; text-align: center; margin-bottom: 12px; }
+    .guarantee-sub { font-family: 'Inter', sans-serif; font-size: 1rem; color: #a8b8cc; text-align: center; margin-bottom: 48px; max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .guarantee-grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+    @media (min-width: 768px) { .guarantee-grid { grid-template-columns: 1fr 1fr 1fr; } .guarantee-section { padding: 80px 0; } .guarantee-headline { font-size: 2.25rem; } }
+    .guar-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 36px; text-align: center; position: relative; overflow: hidden; transition: all 0.2s ease; }
+    .guar-card:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.12); }
+    .guar-accent { position: absolute; top: 0; left: 0; width: 100%; height: 3px; }
+    .guar-accent--green { background: #2ecc71; }
+    .guar-accent--blue { background: #2E75B6; }
+    .guar-accent--purple { background: #9b59b6; }
+    .guar-tier { font-family: 'Inter', sans-serif; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 12px; }
+    .guar-tier--green { color: #2ecc71; }
+    .guar-tier--blue { color: #2E75B6; }
+    .guar-tier--purple { color: #9b59b6; }
+    .guar-number { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #fff; font-size: 3.5rem; line-height: 1; margin-bottom: 4px; }
+    .guar-unit { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; font-size: 0.9375rem; }
+    .guar-ramp { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #a8b8cc; margin-top: 12px; }
+    .guar-divider { border: none; height: 1px; background: rgba(255,255,255,0.08); width: 48px; margin: 20px auto; }
+    .guar-free { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #2ecc71; font-size: 0.875rem; }
+
+    /* ========== CTA BANNER ========== */
+    .cta-banner { background: #f0f4f8; padding: 64px 24px; text-align: center; }
+    .cta-banner h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; color: #1a2e4a; font-size: 1.625rem; line-height: 1.2; margin-bottom: 12px; }
+    .cta-banner p { font-family: 'Inter', sans-serif; font-size: 1rem; color: #6b7a8d; margin-bottom: 28px; max-width: 520px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+    .cta-banner-btn { display: inline-block; background: #2ecc71; color: #1a2e4a; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1.0625rem; padding: 18px 40px; border-radius: 8px; text-decoration: none; transition: all 0.2s; box-shadow: 0 4px 16px rgba(46,204,113,0.25); }
+    .cta-banner-btn:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(46,204,113,0.4); }
+    .cta-banner-secondary { display: block; margin-top: 14px; font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #6b7a8d; text-decoration: none; transition: color 0.2s; }
+    .cta-banner-secondary:hover { color: #2ecc71; }
+    @media (min-width: 768px) { .cta-banner h2 { font-size: 2.25rem; } }
+
+    /* ========== ENTRY POINTS ========== */
+    .entry-section { background: #fff; padding: 48px 0; }
+    .entry-inner { max-width: 700px; margin: 0 auto; padding: 0 24px; }
+    .entry-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 600px) { .entry-grid { grid-template-columns: 1fr 1fr; } }
+    .entry-card { background: #f0f4f8; border: 1px solid #e2e8f0; border-radius: 12px; padding: 24px; text-decoration: none; color: inherit; transition: all 0.2s; display: block; text-align: center; }
+    .entry-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(26,46,74,0.08); border-color: #2E75B6; }
+    .entry-card-price { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.5rem; margin-bottom: 4px; }
+    .entry-card-price--free { color: #2ecc71; }
+    .entry-card-price--paid { color: #2E75B6; }
+    .entry-card-name { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #1a2e4a; font-size: 1rem; margin-bottom: 6px; }
+    .entry-card-desc { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #6b7a8d; line-height: 1.5; }
+    .entry-credit { text-align: center; margin-top: 16px; font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #6b7a8d; font-style: italic; }
+
+    /* ========== FOOTER ========== */
+    .site-footer { background: #1a2e4a; border-top: 1px solid rgba(255,255,255,0.06); }
+    .footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .footer-top { display: flex; flex-direction: column; gap: 48px; padding: 64px 0 48px; }
+    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; margin-bottom: 16px; }
+    .footer-tagline { font-family: 'Inter', sans-serif; font-size: 0.9375rem; color: #6b7a8d; line-height: 1.6; max-width: 320px; margin-bottom: 12px; }
+    .footer-location { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #4a5a6e; }
+    .footer-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .footer-nav-heading { font-family: 'Montserrat', sans-serif; font-weight: 700; color: #fff; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+    .footer-nav-col { display: flex; flex-direction: column; gap: 10px; }
+    .footer-nav-col a { font-family: 'Inter', sans-serif; font-size: 0.875rem; color: #6b7a8d; text-decoration: none; transition: color 0.2s; }
+    .footer-nav-col a:hover { color: #2ecc71; }
+    .footer-trust { display: flex; flex-wrap: wrap; gap: 12px 24px; padding: 32px 0; border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .footer-trust-item { font-family: 'Inter', sans-serif; font-size: 0.8125rem; color: #2ecc71; font-weight: 600; }
+    .footer-legal { display: flex; flex-direction: column; gap: 12px; padding: 24px 0; text-align: center; }
+    .footer-legal p { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #4a5a6e; line-height: 1.6; }
+    @media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; align-items: flex-start; } .footer-legal { flex-direction: row; justify-content: space-between; align-items: center; text-align: left; } }
+
+    /* ========== ANIMATIONS ========== */
+    @keyframes roiFadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a>
+      <ul class="nav-links">
+        <li><a href="/#growth-system">How We Help</a></li>
+        <li><a href="/pricing" class="active">Pricing</a></li>
+        <li><a href="/demos">AI Demos</a></li>
+        <li><a href="/#founder">About</a></li>
+        <li><a href="/#faq">FAQ</a></li>
+      </ul>
+      <a href="/snapshot" class="nav-cta-desktop">Free Digital Audit &rarr;</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close">&times;</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#growth-system">How We Help</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/demos">AI Demos</a>
+      <a href="/#founder">About</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/snapshot" class="mobile-cta">Free Digital Audit &rarr;</a>
+    </nav>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pricing-hero">
+      <div class="pricing-hero-content">
+        <h1>Transparent pricing.<br>Written guarantees.</h1>
+        <p>Every plan includes a professional website, AI chat assistant, and live dashboard. Pick the system that matches your growth goals.</p>
+        <div class="hero-pills">
+          <span class="hero-pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 8 6 12 14 4"/></svg>No hidden fees</span>
+          <span class="hero-pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 8 6 12 14 4"/></svg>Month-to-month available</span>
+          <span class="hero-pill"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2 8 6 12 14 4"/></svg>Work-for-free guarantee</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PLAN CARDS -->
+    <section class="plans-section" id="plans">
+      <div class="plans-inner">
+        <div class="plan-cards">
+
+          <!-- STARTER -->
+          <div class="plan-card plan-card--light">
+            <p class="plan-tier">STARTER</p>
+            <h3 class="plan-name">Starter</h3>
+            <p class="plan-tagline">A real website that works for you.</p>
+            <p class="plan-best-for">Best for: businesses that need a professional online presence</p>
+            <div class="plan-price-block">
+              <span class="plan-price">$197</span><span class="plan-period">/mo</span>
+              <span class="plan-note">$497 setup on M2M &bull; Waived on 6/12-mo &bull; Cancel anytime</span>
+            </div>
+            <hr class="plan-divider--light">
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional 5-page website, live and hosted</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Chat &mdash; AI chat assistant 24/7</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal Dashboard (traffic + chat data)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">5 content updates per month</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">SSL, mobile optimization, speed monitoring</span></li>
+            </ul>
+            <div class="plan-upgrade-note">Upgrade to Foundation anytime &mdash; everything you&rsquo;ve paid is credited toward your first month.</div>
+            <div class="plan-cta-wrap">
+              <a href="/checkout?plan=starter" class="plan-cta">Get Started &rarr;</a>
+            </div>
+          </div>
+
+          <!-- FOUNDATION -->
+          <div class="plan-card plan-card--light">
+            <p class="plan-tier">FOUNDATION SYSTEM</p>
+            <h3 class="plan-name">Foundation</h3>
+            <p class="plan-tagline">Get found. Get reviewed. Get calls.</p>
+            <p class="plan-best-for">Best for: businesses starting from zero online presence</p>
+            <div class="plan-price-block">
+              <span class="plan-price">$497</span><span class="plan-period">/mo</span>
+              <span class="plan-note">$497 setup on M2M &bull; Waived on 6/12-mo</span>
+            </div>
+            <hr class="plan-divider--light">
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Professional website live in 48 hours</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Business Profile fully optimized</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ReviewLocal smart review funnel</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Call tracking + lead source attribution</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Citation building (50+ directories)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Named account manager</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Client Reactivation Program at onboarding</span></li>
+            </ul>
+            <div class="plan-guarantee plan-guarantee--light">3 leads/mo guaranteed by day 60 &mdash; or we work for free until we do.</div>
+            <div class="plan-cta-wrap">
+              <a href="/checkout?plan=foundation" class="plan-cta">Start with Foundation &rarr;</a>
+            </div>
+          </div>
+
+          <!-- MOMENTUM -->
+          <div class="plan-card plan-card--dark">
+            <div class="plan-badge">MOST POPULAR</div>
+            <p class="plan-tier">MOMENTUM SYSTEM</p>
+            <h3 class="plan-name">Momentum</h3>
+            <p class="plan-tagline">Dominate your local market.</p>
+            <p class="plan-best-for">Best for: businesses ready to outrank the competition</p>
+            <div class="plan-price-block">
+              <span class="plan-price">$1,297</span><span class="plan-period">/mo</span>
+              <span class="plan-note">$497 setup on M2M &bull; Waived on 6/12-mo</span>
+            </div>
+            <hr class="plan-divider--dark">
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Everything in Foundation</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Google Ads (spend covered through guarantee)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Retargeting campaigns</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Advanced SEO + content strategy</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">AI-powered search visibility (ChatGPT, Gemini)</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Weekly GBP posts</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Priority support (4-hr SLA)</span></li>
+            </ul>
+            <div class="plan-guarantee plan-guarantee--dark">8 leads/mo guaranteed by day 90 &mdash; or we work for free. Ad spend included.</div>
+            <div class="plan-cta-wrap">
+              <a href="/checkout?plan=momentum" class="plan-cta">Start with Momentum &rarr;</a>
+            </div>
+          </div>
+
+          <!-- AUTHORITY -->
+          <div class="plan-card plan-card--light">
+            <p class="plan-tier">AUTHORITY SYSTEM</p>
+            <h3 class="plan-name">Authority</h3>
+            <p class="plan-tagline">Total market dominance. AI-powered.</p>
+            <p class="plan-best-for">Best for: businesses that want to own their entire market</p>
+            <div class="plan-price-block">
+              <span class="plan-price">$1,997</span><span class="plan-period">/mo</span>
+              <span class="plan-note">$497 + $997 receptionist setup &bull; Base waived on 6/12-mo</span>
+            </div>
+            <hr class="plan-divider--light">
+            <ul class="plan-features">
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Everything in Momentum</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Meta (Facebook/Instagram) Ads</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">ScaleLocal AI Receptionist included</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">AI-powered follow-up sequences</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Custom landing pages</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Competitive monitoring</span></li>
+              <li class="plan-feature"><span class="plan-check">&check;</span><span class="plan-feature-text">Quarterly strategy sessions</span></li>
+            </ul>
+            <div class="plan-guarantee plan-guarantee--light">15 leads/mo guaranteed by day 90 &mdash; or we work for free. Ad spend included.</div>
+            <div class="plan-cta-wrap">
+              <a href="/checkout?plan=authority" class="plan-cta">Start with Authority &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- FEATURE COMPARISON TABLE -->
+    <section class="compare-section" id="compare">
+      <div class="compare-inner">
+        <div class="sec-header">
+          <p class="section-label">FEATURE COMPARISON</p>
+          <h2>Every feature, every plan.</h2>
+          <p>See exactly what&rsquo;s included at each tier. No surprises.</p>
+        </div>
+        <div class="compare-scroll">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Starter<span class="th-price">$197/mo</span></th>
+                <th>Foundation<span class="th-price">$497/mo</span></th>
+                <th class="th-featured">Momentum<span class="th-price">$1,297/mo</span></th>
+                <th>Authority<span class="th-price">$1,997/mo</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- WEBSITE & ONLINE PRESENCE -->
+              <tr class="cat-row"><td colspan="5">Website &amp; Online Presence</td></tr>
+              <tr><td>Professional 5-page website</td><td><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Mobile-optimized + SSL</td><td><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>AI Website Chat &amp; Voice</td><td><span class="ct-text">+$50/mo</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>ScaleLocal Dashboard</td><td><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Content updates (per month)</td><td><span class="ct-text">5</span></td><td><span class="ct-text">50</span></td><td class="td-featured"><span class="ct-text">200</span></td><td><span class="ct-text">Unlimited</span></td></tr>
+              <tr><td>Google Analytics + tracking</td><td><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Custom landing pages</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- LOCAL SEO & VISIBILITY -->
+              <tr class="cat-row"><td colspan="5">Local SEO &amp; Visibility</td></tr>
+              <tr><td>Google Business Profile optimization</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Citation building (50+ directories)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>AI-powered search visibility (ChatGPT, Gemini)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Schema markup + entity optimization</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Weekly GBP posts</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Blog content (monthly)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-text">1/mo</span></td><td class="td-featured"><span class="ct-text">4/mo</span></td><td><span class="ct-text">4/mo</span></td></tr>
+
+              <!-- REVIEWS & REPUTATION -->
+              <tr class="cat-row"><td colspan="5">Reviews &amp; Reputation</td></tr>
+              <tr><td>ReviewLocal smart review funnel</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Automated review requests (post-job)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Daily review monitoring + response</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- LEAD TRACKING & REPORTING -->
+              <tr class="cat-row"><td colspan="5">Lead Tracking &amp; Reporting</td></tr>
+              <tr><td>Call tracking + lead source attribution</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Full lead pipeline in dashboard</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Monthly performance reports</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Quarterly strategy reports</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- ADVERTISING -->
+              <tr class="cat-row"><td colspan="5">Advertising</td></tr>
+              <tr><td>Google Ads (spend covered through guarantee)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Meta Ads (Facebook + Instagram)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Google Local Services Ads (LSA) support</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Retargeting campaigns</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- AI & AUTOMATION -->
+              <tr class="cat-row"><td colspan="5">AI &amp; Automation</td></tr>
+              <tr><td>AI Receptionist (24/7 Voice)</td><td><span class="ct-text">$997 + $497/mo</span></td><td><span class="ct-text">$997 + $497/mo</span></td><td class="td-featured"><span class="ct-text">$997 + $297/mo</span></td><td><span class="ct-text">$997 setup + $0/mo</span></td></tr>
+              <tr><td>AI-powered follow-up sequences</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Client Reactivation at onboarding</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Missed call text back (30-sec auto-reply)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Competitive monitoring</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- SUPPORT & ACCOUNT MANAGEMENT -->
+              <tr class="cat-row"><td colspan="5">Support &amp; Account Management</td></tr>
+              <tr><td>Named account manager</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Email support</td><td><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Priority support (4-hr SLA)</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Quarterly strategy sessions</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td></tr>
+
+              <!-- GUARANTEES -->
+              <tr class="cat-row"><td colspan="5">Guarantees</td></tr>
+              <tr><td>Written lead guarantee</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-text">3 Leads/Mo</span></td><td class="td-featured"><span class="ct-text">8 Leads/Mo</span></td><td><span class="ct-text">15 Leads/Mo</span></td></tr>
+              <tr><td>We work for free until guarantee is met</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-check">&check;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+              <tr><td>Ad spend covered until guarantee is met</td><td><span class="ct-dash">&mdash;</span></td><td><span class="ct-dash">&mdash;</span></td><td class="td-featured"><span class="ct-check">&check;</span></td><td><span class="ct-check">&check;</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- STANDALONE SERVICES -->
+    <section class="standalone-section" id="standalone">
+      <div class="standalone-inner">
+        <div class="sec-header">
+          <p class="section-label">STANDALONE SERVICES</p>
+          <h2>Not ready for a monthly plan?</h2>
+          <p>These deliver results on their own. No retainer, no commitment. And if you upgrade later, what you paid gets credited toward your first month.</p>
+        </div>
+        <div class="standalone-grid">
+          <a href="/websites" class="sa-card">
+            <div class="sa-badge">One-time</div>
+            <h3 class="sa-title">Professional Website Build</h3>
+            <div class="sa-price">$497</div>
+            <p class="sa-desc">5-page professional website, mobile-optimized, live within 48 hours. Built to convert visitors into phone calls.</p>
+            <ul class="sa-features">
+              <li>Mobile-first responsive design</li>
+              <li>SEO-ready structure + schema markup</li>
+              <li>Click-to-call + contact form</li>
+              <li>Google Analytics installed</li>
+              <li>Delivered in under 48 hours</li>
+            </ul>
+            <div class="sa-cta">Learn more &rarr;</div>
+          </a>
+          <a href="/reactivation" class="sa-card">
+            <div class="sa-badge">One-time</div>
+            <h3 class="sa-title">Client Reactivation Program</h3>
+            <div class="sa-price">$497</div>
+            <p class="sa-desc">3-message sequence to your past customer database. Most businesses get 10&ndash;20 qualified leads in the first week.</p>
+            <ul class="sa-features">
+              <li>We clean and segment your list</li>
+              <li>3 messages fire over 7 days</li>
+              <li>5% response rate guarantee (200+ contacts)</li>
+              <li>Cleaned CRM data returned to you</li>
+              <li>We work for free if guarantee not met</li>
+            </ul>
+            <div class="sa-cta">Learn more &rarr;</div>
+          </a>
+          <a href="/receptionist" class="sa-card sa-card--accent">
+            <div class="sa-badge sa-badge--green">Monthly</div>
+            <h3 class="sa-title">AI Receptionist</h3>
+            <div class="sa-price">$497<span>/mo</span></div>
+            <div class="sa-setup">+ $997 one-time setup</div>
+            <p class="sa-desc">AI-powered receptionist answers every call, text, and chat 24/7. Qualifies leads, books appointments, handles after-hours.</p>
+            <ul class="sa-features">
+              <li>Answers calls in under 2 seconds</li>
+              <li>Knows your business deeply</li>
+              <li>Books appointments in real time</li>
+              <li>Full call summaries + transcripts</li>
+              <li>Live in 72 hours</li>
+            </ul>
+            <div class="sa-cta">Learn more &rarr;</div>
+          </a>
+        </div>
+        <a href="https://spendlocal.net" target="_blank" rel="noopener" class="mailer-card">
+          <h3 class="mailer-title">SendLocal Shared Mailer</h3>
+          <div class="mailer-price">$500/spot per mailer</div>
+          <p class="mailer-desc">Shared 9&times;12 postcard direct mail to 5,000 homes in your town. One spot per industry &mdash; category exclusivity. Includes design, print, and EDDM postage.</p>
+          <span class="mailer-link">Learn more &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- COMMITMENT OPTIONS -->
+    <section class="commit-section" id="commitment">
+      <div class="commit-inner">
+        <div class="sec-header">
+          <p class="section-label">COMMITMENT OPTIONS</p>
+          <h2>Same price. Better perks.</h2>
+          <p>Monthly price stays the same regardless of commitment length. The only difference is setup fees and loyalty bonuses.</p>
+        </div>
+        <div class="commit-grid">
+          <div class="commit-card">
+            <div class="commit-period">Month-to-Month</div>
+            <p class="commit-detail"><strong>Setup fee applies</strong><br>$497 for all tiers<br>Cancel anytime, no penalties</p>
+            <div class="commit-bonus">Maximum flexibility</div>
+          </div>
+          <div class="commit-card">
+            <div class="commit-period">6-Month</div>
+            <p class="commit-detail"><strong>Setup fee waived</strong><br>Same monthly price<br>Save $497 on day one</p>
+            <div class="commit-bonus">No setup fee</div>
+          </div>
+          <div class="commit-card commit-card--best">
+            <div class="commit-best-badge">BEST VALUE</div>
+            <div class="commit-period">12-Month</div>
+            <p class="commit-detail"><strong>Setup fee waived</strong><br>Same monthly price<br>Your 12th month is free</p>
+            <div class="commit-bonus">No setup fee + free month</div>
+          </div>
+        </div>
+        <p class="commit-note">AI Receptionist setup fee ($997) is never waived. Authority stacks both setup fees ($497 base + $997 receptionist).</p>
+      </div>
+    </section>
+
+
+    <!-- ROI CALCULATOR -->
+    <section class="roi-section" id="roi">
+      <div class="roi-inner">
+        <div class="sec-header">
+          <p class="section-label">THE MATH</p>
+          <h2>What&rsquo;s one new customer<br>worth to your business?</h2>
+          <p>Most ScaleLocal clients break even within their first two weeks. Type your number and see for yourself.</p>
+        </div>
+        <div class="roi-calc">
+          <div class="roi-input-row2" style="display:grid;gap:16px;margin-bottom:8px;">
+            <div>
+              <label class="roi-label" for="avg-val">Avg. lifetime value of a single new customer ($)</label>
+              <input class="roi-input" type="number" id="avg-val" placeholder="e.g. 2000" min="1">
+            </div>
+            <div>
+              <label class="roi-label" for="close-rate2">Out of every 10 leads, how many become customers?</label>
+              <select class="roi-input" id="close-rate2" style="-webkit-appearance:none;appearance:none;cursor:pointer;">
+                <option value="1">1 out of 10 (10%)</option>
+                <option value="2">2 out of 10 (20%)</option>
+                <option value="3" selected>3 out of 10 (30%) &mdash; industry avg.</option>
+                <option value="4">4 out of 10 (40%)</option>
+                <option value="5">5 out of 10 (50%)</option>
+                <option value="6">6 out of 10 (60%)</option>
+                <option value="7">7 out of 10 (70%)</option>
+                <option value="8">8 out of 10 (80%)</option>
+                <option value="9">9 out of 10 (90%)</option>
+                <option value="10">10 out of 10 (100%)</option>
+              </select>
+            </div>
+          </div>
+          <p id="roi-disclosure2" style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#9aa5b4;margin-bottom:20px;text-align:center;font-style:italic;">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
+          <button type="button" id="roi-calc-btn2" onclick="window.roiCalc2()" style="display:block;margin:0 auto 16px;padding:14px 36px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(46,204,113,0.2);" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(46,204,113,0.35)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 8px rgba(46,204,113,0.2)'">See My Numbers &rarr;</button>
+          <div id="roi-payoff" style="display:none;text-align:center;animation:roiFadeIn 0.4s ease;">
+            <div id="roi-headline-text" style="font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:1.75rem;line-height:1.2;margin-bottom:8px;"></div>
+            <p id="roi-sub-text" style="font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;margin-bottom:16px;"></p>
+            <div id="roi-rec2" style="display:none;margin-bottom:24px;">
+              <div style="background:#f0f4f8;border-radius:12px;padding:24px 28px;text-align:center;border:1px solid #e2e8f0;">
+                <p style="font-family:'Inter',sans-serif;font-size:0.625rem;text-transform:uppercase;letter-spacing:0.15em;color:#1a2e4a;font-weight:600;margin-bottom:8px;">HERE&rsquo;S WHAT YOUR NUMBERS SAY</p>
+                <p id="roi-rec-text2" style="font-family:'Inter',sans-serif;font-size:0.9375rem;color:#1a2e4a;line-height:1.6;"></p>
+              </div>
+            </div>
+            <div class="roi-results visible roi-tiers-grid" style="display:grid;gap:12px;">
+              <a href="/checkout?plan=starter" id="roi-card2-starter" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">STARTER</p>
+                <p class="roi-monthly">$197<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-s-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-s-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-s-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-s-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=foundation" id="roi-card2-foundation" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">FOUNDATION</p>
+                <p class="roi-monthly">$497<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-f-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-f-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-f-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-f-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=momentum" id="roi-card2-momentum" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">MOMENTUM</p>
+                <p class="roi-monthly">$1,297<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-m-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-m-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-m-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-m-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+              <a href="/checkout?plan=authority" id="roi-card2-authority" class="roi-result-card" style="text-decoration:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;border:2px solid transparent;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 24px rgba(26,46,74,0.12)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+                <p class="roi-tier-name">AUTHORITY</p>
+                <p class="roi-monthly">$1,997<span style="font-size:0.875rem;font-weight:400;color:#6b7a8d">/mo</span></p>
+                <p class="roi-breakeven" id="roi-a-math2" style="font-size:0.75rem;color:#6b7a8d;margin-top:10px;line-height:1.4;"></p>
+                <p id="roi-a-eq2" style="font-family:'Inter',sans-serif;font-size:0.6875rem;color:#9aa5b4;margin-top:6px;line-height:1.4;padding:6px 0;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;"></p>
+                <p id="roi-a-result2" style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.25rem;color:#2ecc71;margin-top:8px;"></p>
+                <p id="roi-a-roi2" style="font-family:'Montserrat',sans-serif;font-size:0.6875rem;color:#1a2e4a;margin-top:10px;padding:8px 10px;background:rgba(46,204,113,0.08);border-radius:6px;line-height:1.4;"></p>
+              </a>
+            </div>
+          </div>
+          <div id="roi-low-ltv2" style="display:none;">
+            <div style="margin-top:28px;padding:28px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;text-align:center;">
+              <p id="roi-low-honest2" style="font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1rem;margin-bottom:12px;line-height:1.4;"></p>
+              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:16px;">That said &mdash; if you close customers at a higher rate than 30%, the math shifts fast. But based on our lead guarantees alone, here&rsquo;s what you&rsquo;d need to break even:</p>
+              <div id="roi-low-be2" style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#1a2e4a;line-height:1.8;margin-bottom:20px;"></div>
+              <p style="font-family:'Inter',sans-serif;font-size:0.875rem;color:#6b7a8d;line-height:1.6;margin-bottom:20px;padding-top:20px;border-top:1px solid #fed7aa;">We&rsquo;d rather be upfront about that than take your money. But we do have standalone services that deliver value at any customer lifetime value:</p>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+                <a href="/websites" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">Professional Website</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$497 one-time</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Mobile-optimized site live in 48 hours.</span>
+                </a>
+                <a href="/pricing#standalone" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Chat Assistant</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">Included in all plans</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">A talking website that captures leads 24/7.</span>
+                </a>
+                <a href="/receptionist" style="background:#fff;border:1px solid #e2e8f0;border-radius:10px;padding:16px;text-decoration:none;text-align:center;display:block;">
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:0.875rem;margin-bottom:4px;">AI Receptionist</span>
+                  <span style="display:block;font-family:'Montserrat',sans-serif;font-weight:700;color:#2ecc71;font-size:0.8125rem;margin-bottom:6px;">$997 setup</span>
+                  <span style="display:block;font-family:'Inter',sans-serif;font-size:0.6875rem;color:#6b7a8d;line-height:1.4;">Never miss a call. AI answers 24/7.</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- GUARANTEE -->
+    <section class="guarantee-section" id="guarantee">
+      <div class="guarantee-inner">
+        <p class="section-label">THE GUARANTEE</p>
+        <h2 class="guarantee-headline">Written into your contract.<br>Not a talking point &mdash; a legal commitment.</h2>
+        <p class="guarantee-sub">Every plan above Starter comes with a written lead guarantee. If we don&rsquo;t hit your number, we work for free until we do.</p>
+        <div class="guarantee-grid">
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--green"></div>
+            <p class="guar-tier guar-tier--green">FOUNDATION</p>
+            <p class="guar-number">3</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 60. No ad spend required.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--blue"></div>
+            <p class="guar-tier guar-tier--blue">MOMENTUM</p>
+            <p class="guar-number">8</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+          <div class="guar-card">
+            <div class="guar-accent guar-accent--purple"></div>
+            <p class="guar-tier guar-tier--purple">AUTHORITY</p>
+            <p class="guar-number">15</p>
+            <p class="guar-unit">new leads / month</p>
+            <p class="guar-ramp">Guaranteed by day 90. Ad spend included.</p>
+            <hr class="guar-divider">
+            <p class="guar-free">Or we work for free until we do.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ENTRY POINTS -->
+    <section class="entry-section">
+      <div class="entry-inner">
+        <div class="sec-header">
+          <p class="section-label">NOT SURE WHERE TO START?</p>
+          <h2>Start with a free audit.</h2>
+        </div>
+        <div class="entry-grid">
+          <a href="/snapshot" class="entry-card">
+            <div class="entry-card-price entry-card-price--free">FREE</div>
+            <h3 class="entry-card-name">Digital Snapshot</h3>
+            <p class="entry-card-desc">1-page scorecard: website performance, Google visibility, reviews, competitors.</p>
+          </a>
+          <a href="/audit" class="entry-card">
+            <div class="entry-card-price entry-card-price--paid">$97</div>
+            <h3 class="entry-card-name">Deep Audit</h3>
+            <p class="entry-card-desc">3-document package: full audit report, competitive matrix, 30-day action plan.</p>
+          </a>
+        </div>
+        <p class="entry-credit">Both audit products are credited toward your first month if you sign a plan within 14 days.</p>
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-banner">
+      <h2>Ready to start?</h2>
+      <p>Your Digital Audit is free, takes under 5 minutes, and comes with zero obligation. See exactly where you stand before committing to anything.</p>
+      <a href="/snapshot" class="cta-banner-btn">Get My Free Digital Audit &rarr;</a>
+      <a href="/start" class="cta-banner-secondary">Not sure which plan? Take the 60-second assessment &rarr;</a>
+    </section>
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="/" class="footer-logo"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a>
+          <p class="footer-tagline">Local digital marketing for businesses across Rhode Island, Massachusetts and New Hampshire &mdash; backed by a written performance guarantee.</p>
+          <p class="footer-location">&#128205; Tewksbury, MA &mdash; Serving RI, MA &amp; NH</p>
+        </div>
+        <nav class="footer-nav">
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Quick Links</p>
+            <a href="/#growth-system">How We Help</a>
+            <a href="/pricing">Pricing</a>
+            <a href="/demos">AI Demos</a>
+            <a href="/#founder">About</a>
+            <a href="/#faq">FAQ</a>
+            <a href="/snapshot">Free Digital Audit</a>
+          </div>
+          <div class="footer-nav-col">
+            <p class="footer-nav-heading">Our Systems</p>
+            <a href="/checkout?plan=starter">Starter &mdash; $197/mo</a>
+            <a href="/pricing">Foundation &mdash; $497/mo</a>
+            <a href="/pricing">Momentum &mdash; $1,297/mo</a>
+            <a href="/pricing">Authority &mdash; $1,997/mo</a>
+            <a href="/websites">Website Build &mdash; $497</a>
+          </div>
+        </nav>
+      </div>
+      <div class="footer-trust">
+        <span class="footer-trust-item">&#10003; Website live in 48 hours</span>
+        <span class="footer-trust-item">&#10003; Written results guarantee</span>
+        <span class="footer-trust-item">&#10003; Month-to-month, 6-month, or 12-month options</span>
+        <span class="footer-trust-item">&#10003; Personal account manager</span>
+      </div>
+      <div class="footer-legal">
+        <p>&copy; 2026 ScaleLocal. All rights reserved. 10 Leisa G, Tewksbury, MA 01876. Serving Rhode Island, Massachusetts &amp; New Hampshire. <a href="/terms" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    (function() {
+      // Nav scroll + mobile menu
+      var nav = document.getElementById('site-nav');
+      var hamburger = document.getElementById('hamburger-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      var mobileClose = document.getElementById('mobile-menu-close');
+      var mobileLinks = mobileMenu.querySelectorAll('a');
+
+      window.addEventListener('scroll', function() {
+        nav.classList.toggle('scrolled', window.scrollY > 80);
+      });
+      hamburger.addEventListener('click', function() {
+        mobileMenu.classList.add('open');
+        document.body.classList.add('menu-open');
+      });
+      mobileClose.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+        document.body.classList.remove('menu-open');
+      });
+      mobileLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+          document.body.classList.remove('menu-open');
+        });
+      });
+
+      // ROI Calculator
+      window._roiRevealed2 = false;
+
+      function _fmt2(n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+
+      window.roiCalc2 = function() {
+        var ltv = document.getElementById('avg-val');
+        var crSel = document.getElementById('close-rate2');
+        var payoff = document.getElementById('roi-payoff');
+        var lowBox = document.getElementById('roi-low-ltv2');
+        var disc = document.getElementById('roi-disclosure2');
+        var btn = document.getElementById('roi-calc-btn2');
+
+        var val = parseFloat(ltv.value);
+        var crVal = parseInt(crSel.value);
+        if (!val || val < 1) {
+          payoff.style.display = 'none';
+          if (lowBox) lowBox.style.display = 'none';
+          return;
+        }
+
+        var CR = crVal / 10;
+        var tiers = [
+          { cost:197, leads:0, label:'Starter', m:'roi-s-math2', e:'roi-s-eq2', r:'roi-s-result2', p:'roi-s-roi2', noGuarantee:true },
+          { cost:497, leads:3, label:'Foundation', m:'roi-f-math2', e:'roi-f-eq2', r:'roi-f-result2', p:'roi-f-roi2' },
+          { cost:1297, leads:8, label:'Momentum', m:'roi-m-math2', e:'roi-m-eq2', r:'roi-m-result2', p:'roi-m-roi2' },
+          { cost:1997, leads:15, label:'Authority', m:'roi-a-math2', e:'roi-a-eq2', r:'roi-a-result2', p:'roi-a-roi2' }
+        ];
+
+        disc.textContent = 'Based on your numbers: $' + _fmt2(Math.round(val)) + ' per customer, closing ' + crVal + ' out of every 10 leads.';
+
+        var allLoss = true;
+        var res = [];
+        for (var i = 0; i < tiers.length; i++) {
+          var t = tiers[i];
+          if (t.noGuarantee) {
+            var be = Math.ceil(t.cost / val);
+            var beLeads = CR > 0 ? Math.ceil(be / CR) : 999;
+            res.push({ t:t, closed:0, rev:0, profit:-t.cost, roiPct:-100, be:be, beLeads:beLeads, isStarter:true });
+          } else {
+            var closed = Math.round(t.leads * CR * 10) / 10;
+            var rev = Math.round(closed * val);
+            var profit = rev - t.cost;
+            var roiPct = Math.round((profit / t.cost) * 100);
+            var be = Math.ceil(t.cost / val);
+            if (profit >= 0) allLoss = false;
+            res.push({ t:t, closed:closed, rev:rev, profit:profit, roiPct:roiPct, be:be });
+          }
+        }
+
+        document.getElementById('roi-headline-text').innerHTML = 'At <span style="color:#2ecc71">$' + _fmt2(Math.round(val)) + '</span> per customer, here\u2019s what the math looks like.';
+        document.getElementById('roi-sub-text').textContent = 'Closing ' + crVal + ' out of every 10 inbound leads.';
+
+        for (var j = 0; j < res.length; j++) {
+          var r = res[j];
+          var clickHint = '<span style="display:block;font-family:Inter,sans-serif;font-size:0.6875rem;color:#2E75B6;margin-top:10px;font-weight:600;">See what\u2019s included \u2192</span>';
+          if (r.isStarter) {
+            document.getElementById(r.t.m).textContent = 'No lead guarantee \u2014 website + AI chat + dashboard';
+            document.getElementById(r.t.e).textContent = 'At $' + _fmt2(Math.round(val)) + '/customer, you need ~' + r.be + ' customers/mo to cover $197/mo';
+            if (val >= 249) {
+              document.getElementById(r.t.r).innerHTML = '<strong style="color:#2ecc71">Pays for itself with ' + r.be + ' customer' + (r.be > 1 ? 's' : '') + '/mo</strong>';
+              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest risk entry point \u2014 no commitment required</span>' + clickHint;
+            } else {
+              document.getElementById(r.t.r).innerHTML = '<strong style="color:#6b7a8d">' + r.be + ' customers/mo to break even</strong>';
+              document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">Lowest cost option at $8/day</span>' + clickHint;
+            }
+            continue;
+          }
+          document.getElementById(r.t.m).textContent = r.t.leads + ' guaranteed leads \u00d7 ' + (CR*100) + '% close rate = ~' + r.closed + ' est. customers';
+          document.getElementById(r.t.e).textContent = '$' + _fmt2(Math.round(val)) + ' LTV \u00d7 ' + r.closed + ' customers = $' + _fmt2(r.rev) + ' est. revenue \u2212 $' + _fmt2(r.t.cost) + ' cost';
+          if (r.profit > 0 && r.roiPct >= 50) {
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#2ecc71">+$' + _fmt2(r.profit) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = 'Estimated ROI: <strong>' + r.roiPct + '%</strong> with ' + r.t.label + ' lead guarantee' + clickHint;
+          } else if (r.profit >= -50 && r.profit <= 0) {
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">-$' + _fmt2(Math.abs(r.profit)) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Tight margin \u2014 one extra close flips this positive.</span>' + clickHint;
+          } else if (r.profit > 0 && r.roiPct < 50) {
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e67e22">+$' + _fmt2(r.profit) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#e67e22">Positive but tight.</span>' + clickHint;
+          } else {
+            document.getElementById(r.t.r).innerHTML = 'Est. net gain: <strong style="color:#e74c3c">-$' + _fmt2(Math.abs(r.profit)) + '/mo</strong>';
+            document.getElementById(r.t.p).innerHTML = '<span style="color:#6b7a8d">You\u2019d need ~' + r.be + ' customers/mo to break even</span>';
+          }
+        }
+        if (allLoss && lowBox) {
+          var beHtml = '';
+          for (var k = 0; k < res.length; k++) {
+            if (res[k].isStarter) continue;
+            var beLeads = CR > 0 ? Math.ceil(res[k].be / CR) : 999;
+            beHtml += '<strong style="color:#e67e22">' + res[k].t.label + ':</strong> ~' + res[k].be + ' customers/mo (~' + beLeads + ' leads at ' + (CR*100) + '% close)<br>';
+          }
+          document.getElementById('roi-low-honest2').textContent = 'At $' + _fmt2(Math.round(val)) + ' per customer closing ' + crVal + ' out of 10, our guaranteed plans may not be the most efficient investment right now.';
+          document.getElementById('roi-low-be2').innerHTML = beHtml;
+          lowBox.style.display = 'block';
+        } else if (lowBox) { lowBox.style.display = 'none'; }
+        var recEl = document.getElementById('roi-rec2');
+        var recTxt = document.getElementById('roi-rec-text2');
+        if (recEl && recTxt) {
+          var bestTier = null; var bestProfit = -Infinity;
+          var profitCount = 0; var profitNames = [];
+          for (var b = 1; b < res.length; b++) {
+            if (res[b].profit > bestProfit) { bestProfit = res[b].profit; bestTier = res[b]; }
+            if (res[b].profit > 0) { profitCount++; profitNames.push(res[b].t.label); }
+          }
+          if (allLoss) {
+            recTxt.innerHTML = 'At this customer value, <strong>Starter at $197/mo</strong> is the best way to get started \u2014 a professional website with an AI chat assistant, no commitment, and you only need ' + res[0].be + ' customer' + (res[0].be > 1 ? 's' : '') + '/mo to cover it.';
+            recEl.style.display = 'block';
+          } else if (profitCount === 3) {
+            recTxt.innerHTML = 'All three guaranteed systems are net positive. <strong style="color:#2ecc71">' + bestTier.t.label + '</strong> delivers the strongest return at <strong style="color:#2ecc71">+$' + _fmt2(bestTier.profit) + '/mo</strong>. Click any tier above to see what\u2019s included.';
+            recEl.style.display = 'block';
+          } else if (profitCount === 2) {
+            recTxt.innerHTML = '<strong style="color:#2ecc71">' + profitNames[0] + '</strong> and <strong style="color:#2ecc71">' + profitNames[1] + '</strong> are both net positive. ' + bestTier.t.label + ' leads with <strong style="color:#2ecc71">+$' + _fmt2(bestTier.profit) + '/mo</strong>.';
+            recEl.style.display = 'block';
+          } else if (profitCount === 1) {
+            recTxt.innerHTML = '<strong style="color:#2ecc71">' + bestTier.t.label + '</strong> is the tier where the numbers work \u2014 <strong style="color:#2ecc71">+$' + _fmt2(bestTier.profit) + '/mo</strong> with our ' + bestTier.t.leads + '-lead guarantee.';
+            recEl.style.display = 'block';
+          } else { recEl.style.display = 'none'; }
+        }
+        var cardIds2 = ['roi-card2-starter', 'roi-card2-foundation', 'roi-card2-momentum', 'roi-card2-authority'];
+        for (var h = 0; h < cardIds2.length; h++) {
+          var card = document.getElementById(cardIds2[h]);
+          if (card) { card.style.border = '2px solid transparent'; card.style.background = '#f0f4f8'; }
+        }
+        if (bestTier && bestTier.profit > 0) {
+          var bc2 = document.getElementById('roi-card2-' + bestTier.t.label.toLowerCase());
+          if (bc2) { bc2.style.border = '2px solid #2E75B6'; bc2.style.background = '#f0f7ff'; }
+        } else if (allLoss) {
+          var sc2 = document.getElementById('roi-card2-starter');
+          if (sc2) { sc2.style.border = '2px solid #2E75B6'; sc2.style.background = '#f0f7ff'; }
+        }
+        payoff.style.display = 'block';
+        window._roiRevealed2 = true;
+        btn.style.display = 'none';
+      };
+      document.getElementById('close-rate2').onchange = function() {
+        if (parseFloat(document.getElementById('avg-val').value) >= 1) window.roiCalc2();
+      };
+      document.getElementById('avg-val').oninput = function() {
+        if (window._roiRevealed2) window.roiCalc2();
+      };
+    })();
+  </script>
+</body>
+</html>
