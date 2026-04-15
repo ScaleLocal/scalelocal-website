@@ -537,6 +537,15 @@
             }
             .mobile-bottom-bar .mbb-text:active { background: #990000; }
             body { padding-bottom: 52px; }
+            /* Push GHL widget launcher above our bottom bar */
+            chat-widget {
+                --lc-widget-bottom: 70px !important;
+            }
+            /* When chat is open, unstick header so it doesn't cover the chat window */
+            header.chat-open {
+                position: relative !important;
+                z-index: 1 !important;
+            }
         }
         @media (min-width: 769px) {
             .mobile-bottom-bar { display: none; }
@@ -794,6 +803,52 @@
 <script src="https://widgets.leadconnectorhq.com/loader.js"
     data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
     data-widget-id="69d9496fc41f60a7fa93719d"></script>
+
+<script>
+// Mobile: push widget above bottom bar & unstick header when chat opens
+(function() {
+    if (window.innerWidth > 768) return;
+
+    function fixWidget() {
+        var widget = document.querySelector('chat-widget');
+        if (!widget || !widget.shadowRoot) {
+            setTimeout(fixWidget, 500);
+            return;
+        }
+        var sr = widget.shadowRoot;
+
+        // Inject style into shadow DOM to move launcher above bottom bar
+        var style = document.createElement('style');
+        style.textContent = [
+            '@media (max-width: 768px) {',
+            '  #lc_text-widget--btn { bottom: 70px !important; }',
+            '  #lc_text-widget { bottom: 70px !important; }',
+            '  .lc_text-widget--container { bottom: 0 !important; top: 0 !important; height: 100% !important; max-height: 100vh !important; z-index: 999999999 !important; }',
+            '  .lc_text-widget--container iframe { height: 100% !important; }',
+            '}'
+        ].join('\n');
+        sr.appendChild(style);
+
+        // Watch for chat open/close to toggle header stickiness
+        var header = document.querySelector('header');
+        var observer = new MutationObserver(function() {
+            var container = sr.querySelector('.lc_text-widget--container');
+            if (container) {
+                var display = window.getComputedStyle(container).display;
+                if (display !== 'none') {
+                    header.classList.add('chat-open');
+                } else {
+                    header.classList.remove('chat-open');
+                }
+            }
+        });
+        observer.observe(sr, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+    }
+
+    // Wait for widget to load
+    setTimeout(fixWidget, 1000);
+})();
+</script>
 
 <!-- MOBILE STICKY BOTTOM BAR -->
 <div class="mobile-bottom-bar">
