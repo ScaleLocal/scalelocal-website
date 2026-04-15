@@ -882,32 +882,37 @@
         }
         var sr = widget.shadowRoot;
 
-        // Inject style into shadow DOM to move launcher above bottom bar
+        // Inject style into shadow DOM to fix mobile positioning
         var style = document.createElement('style');
         style.textContent = [
             '@media (max-width: 768px) {',
-            '  #lc_text-widget--btn { bottom: 70px !important; }',
-            '  #lc_text-widget { bottom: 70px !important; }',
-            '  .lc_text-widget--container { bottom: 0 !important; top: 0 !important; height: 100% !important; max-height: 100vh !important; z-index: 999999999 !important; }',
-            '  .lc_text-widget--container iframe { height: 100% !important; }',
+            '  #lc_text-widget--btn { bottom: 62px !important; }',
+            '  #lc_text-widget { bottom: 62px !important; }',
+            '  #lc_text-widget.lc_text-widget--active {',
+            '    bottom: 52px !important;',
+            '    top: auto !important;',
+            '    max-height: calc(100vh - 56px) !important;',
+            '    height: calc(100vh - 56px) !important;',
+            '    left: 0 !important;',
+            '    right: 0 !important;',
+            '    width: 100% !important;',
+            '    border-radius: 0 !important;',
+            '  }',
             '}'
         ].join('\n');
         sr.appendChild(style);
 
         // Watch for chat open/close to toggle header stickiness
         var header = document.querySelector('header');
+        var widgetEl = sr.querySelector('#lc_text-widget');
         var observer = new MutationObserver(function() {
-            var container = sr.querySelector('.lc_text-widget--container');
-            if (container) {
-                var display = window.getComputedStyle(container).display;
-                if (display !== 'none') {
-                    header.classList.add('chat-open');
-                } else {
-                    header.classList.remove('chat-open');
-                }
+            if (widgetEl && widgetEl.classList.contains('lc_text-widget--active')) {
+                header.classList.add('chat-open');
+            } else {
+                header.classList.remove('chat-open');
             }
         });
-        observer.observe(sr, { childList: true, subtree: true, attributes: true, attributeFilter: ['style', 'class'] });
+        observer.observe(widgetEl || sr, { attributes: true, attributeFilter: ['class'], childList: true, subtree: true });
     }
 
     // Wait for widget to load
