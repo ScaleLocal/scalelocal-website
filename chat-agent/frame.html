@@ -69,11 +69,19 @@
   allow="microphone"
 ></iframe>
 
-<!-- Clear ALL storage so every demo visitor gets a fresh conversation -->
+<!-- Clear stale GHL chat history so every visitor sees a fresh greeting -->
 <script>
 (function(){
-  try{ localStorage.clear(); }catch(e){}
-  try{ sessionStorage.clear(); }catch(e){}
+  try {
+    var keysToNuke = [];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k&&(k.indexOf('lc_')===0||k.indexOf('leadconnector')!==-1||k.indexOf('msgsndr')!==-1||k.indexOf('chat_')===0||k.indexOf('widget_')===0||k.indexOf('conversation')!==-1||k.indexOf('contact_id')!==-1||k.indexOf('session')!==-1)){
+        keysToNuke.push(k);
+      }
+    }
+    keysToNuke.forEach(function(k){localStorage.removeItem(k);});
+  }catch(e){}
 })();
 </script>
 
@@ -84,33 +92,23 @@
   data-widget-id="69c34fd013ad14bdd250aace"
 ></script>
 
-<!-- Auto-open the widget — let user choose voice or chat -->
+<!-- Auto-open the widget using the real Stencil component .open() method -->
 <script>
 (function(){
-  var openAttempts = 0;
-  var widgetOpened = false;
-
+  var attempts = 0;
   function tryOpen(){
+    // The GHL widget is a <chat-widget> Stencil custom element.
+    // Its public API methods (open, close, toggle) are exposed directly
+    // on the DOM element once the component has hydrated.
     var el = document.querySelector('chat-widget');
-    if(!el){ if(++openAttempts < 75) setTimeout(tryOpen, 200); return; }
-
-    // Try the Stencil .open() API first
-    if(typeof el.open === 'function'){
-      try{ el.open(); widgetOpened = true; }catch(e){}
+    if(el && typeof el.open === 'function'){
+      el.open();
+      return;
     }
-
-    // Fallback: click the bubble button inside shadow DOM
-    if(!widgetOpened && el.shadowRoot){
-      var bubble = el.shadowRoot.querySelector('button') ||
-                   el.shadowRoot.querySelector('.lc_text-widget--bubble') ||
-                   el.shadowRoot.querySelector('[class*="bubble"]');
-      if(bubble){ bubble.click(); widgetOpened = true; }
-    }
-
-    if(!widgetOpened && ++openAttempts < 75) setTimeout(tryOpen, 200);
+    // Not ready yet — keep polling (max 15s)
+    if(++attempts < 75) setTimeout(tryOpen, 200);
   }
-
-  /* ─── Boot: auto-open widget after page loads ─── */
+  // Give widget 1.5s head start to load, then start polling
   window.addEventListener('load', function(){ setTimeout(tryOpen, 1500); });
 })();
 </script>
