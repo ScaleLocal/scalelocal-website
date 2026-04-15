@@ -479,8 +479,13 @@
 
         /* ===== MOBILE ===== */
         @media (max-width: 768px) {
-            .utility-bar .container { justify-content: center; text-align: center; }
-            .utility-left { justify-content: center; }
+            .utility-bar .container { justify-content: space-between; text-align: center; }
+            .utility-bar { padding: 5px 0; font-size: 12px; }
+            .utility-left { justify-content: center; gap: 12px; }
+            .utility-bar .utility-left a[href^="mailto"],
+            .utility-bar .utility-left span { display: none; }
+            .logo-link img { height: 50px; }
+            .header-inner { padding: 4px 16px; }
             .nav-links { display: none; }
             .mobile-toggle { display: block; }
             .nav-links.open {
@@ -491,9 +496,15 @@
                 box-shadow: var(--shadow-lg);
                 gap: 16px;
             }
-            .hero { min-height: 400px; }
-            .hero-content { padding: 48px 0; }
+            .nav-cta { display: none; }
+            .hero { min-height: 380px; }
+            .hero-content { padding: 36px 0; }
+            .hero-badge { font-size: 11px; padding: 4px 12px; margin-bottom: 14px; }
+            .hero h1 { margin-bottom: 14px; }
+            .hero p { font-size: 15px; margin-bottom: 24px; }
             .hero-btns { flex-direction: column; }
+            .hero-btns .btn-primary,
+            .hero-btns .btn-secondary { padding: 12px 24px; font-size: 13px; justify-content: center; }
             .section { padding: 56px 0; }
             .story-section {
                 grid-template-columns: 1fr;
@@ -524,13 +535,59 @@
             .footer-grid { grid-template-columns: 1fr; gap: 32px; }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size: 28px; }
+            .hero h1 { font-size: 26px; }
+            .demo-banner { font-size: 10px; padding: 5px 10px; }
             .story-text h2 {
                 font-size: 24px;
             }
             .why-choose-number {
                 font-size: 48px;
             }
+        }
+
+        /* ===== MOBILE STICKY BOTTOM BAR ===== */
+        @media (max-width: 768px) {
+            .mobile-bottom-bar {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                background: var(--charcoal-dark);
+                padding: 0;
+                box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            }
+            .mobile-bottom-bar a {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 12px 8px;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 12px;
+                font-weight: 800;
+                text-transform: uppercase;
+                letter-spacing: 0.03em;
+                text-decoration: none;
+                transition: background 0.2s;
+            }
+            .mobile-bottom-bar a svg { width: 16px; height: 16px; flex-shrink: 0; }
+            .mobile-bottom-bar .mbb-call {
+                background: var(--gold);
+                color: var(--charcoal-dark);
+            }
+            .mobile-bottom-bar .mbb-call:active { background: var(--gold-dark); }
+            .mobile-bottom-bar .mbb-text {
+                background: #CC0000;
+                color: var(--white);
+            }
+            .mobile-bottom-bar .mbb-text:active { background: #990000; }
+            body { padding-bottom: 52px; }
+        }
+        @media (min-width: 769px) {
+            .mobile-bottom-bar { display: none; }
         }
     </style>
 </head>
@@ -806,6 +863,18 @@
 <script src="https://widgets.leadconnectorhq.com/loader.js"
     data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
     data-widget-id="69d9496fc41f60a7fa93719d"></script>
+
+<!-- MOBILE STICKY BOTTOM BAR -->
+<div class="mobile-bottom-bar">
+    <a href="tel:7818792922" class="mbb-call">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
+        Call Now
+    </a>
+    <a href="sms:7818792922" class="mbb-text">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H5.17L4 17.17V4h16v12z"/><path d="M7 9h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2z"/></svg>
+        24/7 Emergency Text
+    </a>
+</div>
 
 </body>
 </html>
