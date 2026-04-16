@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summit Pro Services | Trusted Home Services in Concord, NH</title>
+    <meta name="description" content="Professional plumbing, HVAC, electrical, and home repair services in Concord, NH. Licensed, insured, and trusted by 2,000+ homeowners. Call (603) 555-0192.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS CUSTOM PROPERTIES (THEMING)
+           ======================================== */
+        :root {
+            --primary: #0F1923;
+            --primary-light: #1A2A3A;
+            --accent: #F5A623;
+            --accent-hover: #E09000;
+            --accent-secondary: #3B82F6;
+            --surface: #FFFFFF;
+            --surface-alt: #F7F8FA;
+            --surface-dark: #0B1219;
+            --text: #1A1A2E;
+            --text-light: #6B7280;
+            --text-inverse: #FFFFFF;
+            --border: #E5E7EB;
+            --gradient-start: rgba(15, 25, 35, 0.92);
+            --gradient-end: rgba(15, 25, 35, 0.7);
+            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            --card-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.15);
+            --radius: 12px;
+            --radius-lg: 20px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --font-heading: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--surface);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+        button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ========================================
+           LOADING SCREEN
+           ======================================== */
+        .loader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-inner {
+            text-align: center;
+        }
+
+        .loader-bar {
+            width: 120px;
+            height: 3px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .loader-bar-fill {
+            height: 100%;
+            width: 0%;
+            background: var(--accent);
+            border-radius: 3px;
+            animation: loaderFill 1.2s ease forwards;
+        }
+
+        @keyframes loaderFill {
+            to { width: 100%; }
+        }
+
+        .loader-text {
+            color: var(--accent);
+            font-family: var(--font-heading);
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            transition: all 0.4s ease;
+        }
+
+        .nav.scrolled {
+            background: rgba(15, 25, 35, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 12px 0;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-logo {
+            font-family: var(--font-heading);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-inverse);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-logo-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--primary);
+        }
+
+        .nav-links {
+            display: none;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+            font-weight: 500;
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover { color: #fff; }
+        .nav-links a:hover::after { width: 100%; }
+
+        .nav-cta {
+            display: none;
+            padding: 10px 24px;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all var(--transition);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(245, 166, 35, 0.4);
+        }
+
+        .nav-mobile-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+        }
+
+        .nav-mobile-toggle span {
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .nav-mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .nav-mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 999;
+            transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+        }
+
+        .mobile-menu.open { right: 0; }
+
+        .mobile-menu a {
+            color: #fff;
+            font-family: var(--font-heading);
+            font-size: 28px;
+            font-weight: 600;
+            transition: color var(--transition);
+        }
+
+        .mobile-menu a:hover { color: var(--accent); }
+
+        .mobile-menu-phone {
+            margin-top: 16px;
+            padding: 16px 40px;
+            background: var(--accent);
+            color: var(--primary);
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            border-radius: 12px;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links { display: flex; }
+            .nav-cta { display: inline-flex; }
+            .nav-mobile-toggle { display: none; }
+        }
+
+        /* ========================================
+           HERO SECTION
+           ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: var(--primary);
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            padding: 120px 0 80px;
+            width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(245, 166, 35, 0.15);
+            border: 1px solid rgba(245, 166, 35, 0.3);
+            border-radius: 100px;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero-badge span {
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            color: var(--text-inverse);
+            line-height: 1.08;
+            margin-bottom: 20px;
+            max-width: 800px;
+        }
+
+        .hero h1 .accent { color: var(--accent); }
+
+        .hero-word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .hero-sub {
+            font-size: clamp(16px, 2vw, 20px);
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 560px;
+            margin-bottom: 36px;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 0;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 16px;
+            border-radius: 10px;
+            transition: all var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            background: transparent;
+            color: #fff;
+            font-weight: 600;
+            font-size: 16px;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.25);
+            transition: all var(--transition);
+        }
+
+        .btn-secondary:hover {
+            border-color: #fff;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .trust-strip {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .trust-strip-inner {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 24px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        .trust-number {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .trust-label {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+        }
+
+        .scroll-indicator span {
+            font-size: 11px;
+            color: rgba(255,255,255,0.4);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .scroll-mouse {
+            width: 24px;
+            height: 38px;
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-mouse::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 3px;
+            animation: scrollDown 1.5s ease infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+            100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+        }
+
+        /* ========================================
+           SECTION SHARED STYLES
+           ======================================== */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .section-label::before {
+            content: '';
+            width: 32px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .section-subtitle {
+            font-size: 17px;
+            color: var(--text-light);
+            max-width: 560px;
+            line-height: 1.7;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ========================================
+           SERVICES SECTION
+           ======================================== */
+        .services {
+            background: var(--surface-alt);
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            position: relative;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 36px 28px;
+            transition: all 0.4s ease;
+            transform-style: preserve-3d;
+            cursor: default;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius);
+            padding: 2px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover {
+            box-shadow: var(--card-shadow-hover);
+            border-color: transparent;
+        }
+
+        .service-card-number {
+            font-family: var(--font-heading);
+            font-size: 48px;
+            font-weight: 800;
+            color: rgba(0,0,0,0.04);
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            line-height: 1;
+        }
+
+        .service-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(245,166,35,0.1), rgba(59,130,246,0.08));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            transform: scale(1.05);
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.4s ease;
+        }
+
+        .service-card:hover .service-icon svg {
+            stroke: #fff;
+        }
+
+        .service-card h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        .service-card p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            transition: gap var(--transition);
+        }
+
+        .service-link:hover { gap: 10px; }
+
+        .service-link svg {
+            width: 16px;
+            height: 16px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        @media (min-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .services-grid .service-card:nth-child(1) {
+                grid-row: span 1;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ========================================
+           WHY CHOOSE US SECTION
+           ======================================== */
+        .why-us {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 10px,
+                var(--primary) 10px,
+                var(--primary) 11px
+            );
+            pointer-events: none;
+        }
+
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+
+        .why-us-visual {
+            position: relative;
+        }
+
+        .why-us-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .why-us-image-inner {
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect fill="%231a2a3a" width="800" height="600"/><text x="400" y="300" font-family="Inter,sans-serif" font-size="24" fill="%23ffffff30" text-anchor="middle">Professional at Work</text></svg>') center/cover;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: #fff;
+            border-radius: 12px;
+            padding: 14px 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .floating-badge.badge-rating {
+            bottom: -20px;
+            left: 20px;
+        }
+
+        .floating-badge.badge-certified {
+            top: 20px;
+            right: -10px;
+        }
+
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .badge-icon.gold { background: rgba(245,166,35,0.12); }
+        .badge-icon.blue { background: rgba(59,130,246,0.12); }
+
+        .badge-icon svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .badge-text strong {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        .badge-text span {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .why-us-content {
+            position: relative;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            margin-top: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(245,166,35,0.1), rgba(59,130,246,0.06));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .feature-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .feature-text h4 {
+            font-family: var(--font-heading);
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--text);
+        }
+
+        .feature-text p {
+            font-size: 14px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .why-us-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 64px;
+            }
+            .why-us-image { height: 500px; }
+        }
+
+        /* ========================================
+           PROCESS TIMELINE SECTION
+           ======================================== */
+        .process {
+            background: var(--surface-alt);
+        }
+
+        .process-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .process-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .process-track {
+            position: relative;
+        }
+
+        /* Mobile: vertical timeline */
+        .process-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .process-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .process-line-fill {
+            position: absolute;
+            left: 15px;
+            top: 0;
+            width: 2px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.1s linear;
+        }
+
+        .process-step {
+            position: relative;
+            padding: 0 0 48px 24px;
+        }
+
+        .process-step:last-child { padding-bottom: 0; }
+
+        .process-dot {
+            position: absolute;
+            left: -32px;
+            top: 4px;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--surface-alt);
+            border: 2px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s ease;
+            z-index: 2;
+        }
+
+        .process-dot::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border);
+            transition: background 0.4s ease;
+        }
+
+        .process-step.active .process-dot {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 6px rgba(245,166,35,0.15);
+        }
+
+        .process-step.active .process-dot::after {
+            background: var(--accent);
+        }
+
+        .process-step-number {
+            font-family: var(--font-heading);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .process-step h3 {
+            font-family: var(--font-heading);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .process-step p {
+            font-size: 15px;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        @media (min-width: 768px) {
+            .process-timeline {
+                flex-direction: row;
+                padding-left: 0;
+                gap: 0;
+            }
+
+            .process-timeline::before {
+                left: 0;
+                right: 0;
+                top: 12px;
+                bottom: auto;
+                width: auto;
+                height: 2px;
+            }
+
+            .process-line-fill {
+                left: 0;
+                top: 12px;
+                height: 2px !important;
+                width: 0;
+                transition: width 0.1s linear;
+            }
+
+            .process-step {
+                flex: 1;
+                padding: 48px 20px 0 0;
+            }
+
+            .process-step:last-child { padding-right: 0; }
+
+            .process-dot {
+                left: 0;
+                top: -44px;
+            }
+        }
+
+        /* ========================================
+           REVIEWS SECTION
+           ======================================== */
+        .reviews {
+            background: var(--primary);
+            overflow: hidden;
+        }
+
+        .reviews .section-label { color: var(--accent); }
+        .reviews .section-title { color: var(--text-inverse); }
+        .reviews .section-subtitle { color: rgba(255,255,255,0.6); }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header .section-subtitle {
+            margin: 0 auto;
+        }
+
+        .reviews-track {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .reviews-carousel {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 24px;
+        }
+
+        .review-card {
+            flex: 0 0 calc(100% - 48px);
+            background: var(--primary-light);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px;
+            transition: all 0.5s ease;
+        }
+
+        .review-card.center {
+            transform: scale(1.03);
+            background: linear-gradient(135deg, var(--primary-light), rgba(245,166,35,0.06));
+            border-color: rgba(245,166,35,0.15);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 20px;
+        }
+
+        .review-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .review-card blockquote {
+            font-size: 16px;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: normal;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .review-author-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .review-service {
+            font-size: 13px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        .review-source {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .review-source svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .reviews-nav {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 36px;
+        }
+
+        .reviews-nav button {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all var(--transition);
+        }
+
+        .reviews-nav button:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .reviews-nav button svg {
+            width: 18px;
+            height: 18px;
+            stroke: #fff;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .reviews-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .reviews-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transition: all var(--transition);
+        }
+
+        .reviews-dots span.active {
+            width: 24px;
+            border-radius: 4px;
+            background: var(--accent);
+        }
+
+        @media (min-width: 768px) {
+            .review-card {
+                flex: 0 0 calc(50% - 12px);
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .review-card {
+                flex: 0 0 calc(33.333% - 16px);
+            }
+        }
+
+        /* ========================================
+           SERVICE AREA SECTION
+           ======================================== */
+        .service-area {
+            background: var(--surface-alt);
+        }
+
+        .area-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .area-map {
+            width: 100%;
+            height: 360px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            background: var(--primary);
+            border: 1px solid var(--border);
+        }
+
+        .area-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(1) contrast(1.1) brightness(0.8);
+        }
+
+        .area-info { }
+
+        .area-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(245,166,35,0.08);
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+
+        .area-badge svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--accent);
+        }
+
+        .area-badge span {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .town-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .town-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 8px;
+            transition: all var(--transition);
+            font-size: 14px;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .town-item:hover {
+            background: rgba(245,166,35,0.06);
+            color: var(--accent);
+        }
+
+        .town-item::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            flex-shrink: 0;
+            opacity: 0.4;
+            transition: opacity var(--transition);
+        }
+
+        .town-item:hover::before { opacity: 1; }
+
+        @media (min-width: 768px) {
+            .area-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+            .area-map { height: 440px; }
+            .town-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (min-width: 1200px) {
+            .town-grid { grid-template-columns: 1fr 1fr 1fr; }
+        }
+
+        /* ========================================
+           CTA BAND
+           ======================================== */
+        .cta-band {
+            position: relative;
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            overflow: hidden;
+        }
+
+        .cta-band-bg {
+            position: absolute;
+            inset: 0;
+            opacity: 0.04;
+            background:
+                radial-gradient(circle at 20% 50%, var(--accent) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, var(--accent-secondary) 0%, transparent 50%);
+        }
+
+        .cta-band-content {
+            position: relative;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .cta-band h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            color: var(--text-inverse);
+            margin-bottom: 12px;
+            line-height: 1.15;
+        }
+
+        .cta-band-sub {
+            font-size: 17px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 32px;
+        }
+
+        .cta-phone {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-heading);
+            font-size: clamp(28px, 4vw, 48px);
+            font-weight: 800;
+            color: var(--accent);
+            transition: all var(--transition);
+            padding: 16px 0;
+        }
+
+        .cta-phone:hover {
+            transform: scale(1.03);
+            text-shadow: 0 0 40px rgba(245,166,35,0.3);
+        }
+
+        .cta-phone svg {
+            width: 40px;
+            height: 40px;
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 2;
+            animation: phoneRing 2s ease infinite;
+        }
+
+        @keyframes phoneRing {
+            0%, 100% { transform: rotate(0deg); }
+            10% { transform: rotate(-12deg); }
+            20% { transform: rotate(12deg); }
+            30% { transform: rotate(-8deg); }
+            40% { transform: rotate(8deg); }
+            50% { transform: rotate(0deg); }
+        }
+
+        .cta-alt {
+            margin-top: 20px;
+            font-size: 14px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .cta-alt a {
+            color: var(--accent);
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: border-color var(--transition);
+        }
+
+        .cta-alt a:hover { border-bottom-color: var(--accent); }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background: var(--surface-dark);
+            padding: 64px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            padding-bottom: 48px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .footer-brand .nav-logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            transition: color var(--transition);
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent);
+        }
+
+        .footer-col ul li a:hover::after { width: 100%; }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .footer-contact-item svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--accent);
+            fill: none;
+            stroke-width: 2;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .footer-contact-item span,
+        .footer-contact-item a {
+            font-size: 14px;
+            color: rgba(255,255,255,0.5);
+            transition: color var(--transition);
+        }
+
+        .footer-contact-item a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            padding: 24px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .footer-copyright {
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .footer-powered {
+            font-size: 12px;
+            color: rgba(255,255,255,0.2);
+        }
+
+        .footer-powered a {
+            color: rgba(255,255,255,0.35);
+            transition: color var(--transition);
+        }
+
+        .footer-powered a:hover { color: var(--accent); }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            }
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* ========================================
+           MAGNETIC BUTTON EFFECT
+           ======================================== */
+        .magnetic { transition: transform 0.2s ease; }
+
+        /* ========================================
+           ACCESSIBILITY
+           ======================================== */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal { opacity: 1; transform: none; }
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-text">Summit Pro</div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#services" onclick="closeMobileMenu()">Services</a>
+        <a href="#why-us" onclick="closeMobileMenu()">Why Us</a>
+        <a href="#process" onclick="closeMobileMenu()">Process</a>
+        <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+        <a href="#area" onclick="closeMobileMenu()">Service Area</a>
+        <a href="tel:+16035550192" class="mobile-menu-phone">(603) 555-0192</a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar">
+        <div class="container nav-inner">
+            <a href="#" class="nav-logo">
+                <div class="nav-logo-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 21L12 3L21 21H3Z"/></svg>
+                </div>
+                Summit Pro Services
+            </a>
+            <ul class="nav-links">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#area">Service Area</a></li>
+            </ul>
+            <a href="tel:+16035550192" class="nav-cta magnetic">(603) 555-0192</a>
+            <button class="nav-mobile-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="container">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    <span>Licensed &amp; Insured Professionals</span>
+                </div>
+                <h1>
+                    <span class="hero-word">Home </span>
+                    <span class="hero-word">Services </span>
+                    <span class="hero-word">You </span>
+                    <span class="hero-word">Can </span>
+                    <span class="hero-word accent">Trust.</span>
+                </h1>
+                <p class="hero-sub">
+                    From emergency plumbing to full HVAC installs, Concord homeowners have counted on Summit Pro for over 25 years. Quality work, honest pricing, guaranteed.
+                </p>
+                <div class="hero-ctas">
+                    <a href="tel:+16035550192" class="btn-primary magnetic">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        Call Now
+                    </a>
+                    <a href="#services" class="btn-secondary">
+                        View Services
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="trust-strip">
+            <div class="trust-strip-inner">
+                <div class="trust-item">
+                    <div class="trust-number" data-target="25">0</div>
+                    <div class="trust-label">Years of<br>Experience</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-target="2000" data-suffix="+">0</div>
+                    <div class="trust-label">Projects<br>Completed</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-target="4.9" data-decimal="true">0</div>
+                    <div class="trust-label">Google<br>Rating</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number" data-target="100" data-suffix="%">0</div>
+                    <div class="trust-label">Satisfaction<br>Guarantee</div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <span>Scroll</span>
+            <div class="scroll-mouse"></div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="services-header reveal">
+                <div class="section-label">What We Do</div>
+                <h2 class="section-title">Expert Solutions for<br>Every Home Need</h2>
+                <p class="section-subtitle">From routine maintenance to emergency repairs, our licensed technicians deliver quality workmanship on every job.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">01</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/><path d="M6 12h12M12 6v12"/></svg>
+                    </div>
+                    <h3>Plumbing</h3>
+                    <p>Leak repairs, drain clearing, water heater installs, pipe replacements, and full bathroom remodels. Licensed master plumber on every job.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">02</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/><circle cx="12" cy="12" r="4"/></svg>
+                    </div>
+                    <h3>Heating &amp; Cooling</h3>
+                    <p>Furnace repair, AC installs, heat pump systems, ductwork, and 24/7 emergency service. Keep your home comfortable year-round.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">03</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3>Electrical</h3>
+                    <p>Panel upgrades, rewiring, generator installs, EV charger setup, and smart home wiring. Code-compliant work with full permits.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">04</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M3 21h18M4 21V10l8-6 8 6v11"/><path d="M9 21v-6h6v6"/></svg>
+                    </div>
+                    <h3>Roofing</h3>
+                    <p>Shingle replacement, flat roof repair, storm damage restoration, gutter installs, and annual inspections. Certified installers.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">05</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M12 6v12M2 12h20"/></svg>
+                    </div>
+                    <h3>Remodeling</h3>
+                    <p>Kitchen renovations, bathroom overhauls, basement finishing, and room additions. Full design-build service from concept to completion.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="service-card reveal" data-tilt>
+                    <div class="service-card-number">06</div>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3>Maintenance Plans</h3>
+                    <p>Preventive maintenance packages covering HVAC tune-ups, plumbing inspections, and electrical safety checks. Avoid costly emergencies.</p>
+                    <a href="#" class="service-link">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US SECTION -->
+    <section class="section why-us" id="why-us">
+        <div class="why-us-bg"></div>
+        <div class="container">
+            <div class="why-us-grid">
+                <div class="why-us-visual reveal">
+                    <div class="why-us-image" data-parallax>
+                        <div class="why-us-image-inner"></div>
+                    </div>
+                    <div class="floating-badge badge-rating">
+                        <div class="badge-icon gold">
+                            <svg viewBox="0 0 24 24" fill="#F5A623" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <div class="badge-text">
+                            <strong>4.9 / 5.0</strong>
+                            <span>347 Google Reviews</span>
+                        </div>
+                    </div>
+                    <div class="floating-badge badge-certified">
+                        <div class="badge-icon blue">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="badge-text">
+                            <strong>Fully Licensed</strong>
+                            <span>NH State Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-us-content">
+                    <div class="reveal">
+                        <div class="section-label">Why Summit Pro</div>
+                        <h2 class="section-title">Built on Trust.<br>Backed by Results.</h2>
+                        <p class="section-subtitle">We are not the cheapest option, and that is by design. When you hire Summit Pro, you get craftsmen who take pride in their work and stand behind every job.</p>
+                    </div>
+                    <div class="feature-list">
+                        <div class="feature-item reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Licensed &amp; Insured</h4>
+                                <p>Every technician carries full state licensing and $2M in liability coverage. Your home is protected.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Same-Day Response</h4>
+                                <p>Emergency call? We dispatch within 60 minutes. Non-urgent jobs quoted within 24 hours.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Upfront Pricing</h4>
+                                <p>No surprise fees. No hidden charges. You approve the quote before we start, and that number does not change.</p>
+                            </div>
+                        </div>
+                        <div class="feature-item reveal">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 00-3-3l-4 9v11h11.28a2 2 0 002-1.7l1.38-9a2 2 0 00-2-2.3H14z"/><path d="M7 22H4a2 2 0 01-2-2v-7a2 2 0 012-2h3"/></svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Satisfaction Guaranteed</h4>
+                                <p>Not happy? We come back and make it right at no additional cost. That is our promise, in writing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS TIMELINE SECTION -->
+    <section class="section process" id="process">
+        <div class="container">
+            <div class="process-header reveal">
+                <div class="section-label">How It Works</div>
+                <h2 class="section-title">Simple Process.<br>Exceptional Results.</h2>
+                <p class="section-subtitle">From your first call to the final walkthrough, we make every step seamless.</p>
+            </div>
+            <div class="process-track">
+                <div class="process-timeline">
+                    <div class="process-line-fill" id="processLineFill"></div>
+                    <div class="process-step reveal">
+                        <div class="process-dot"></div>
+                        <div class="process-step-number">Step 01</div>
+                        <h3>Call or Book Online</h3>
+                        <p>Reach out by phone or schedule through our website. We will confirm your appointment within the hour.</p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="process-dot"></div>
+                        <div class="process-step-number">Step 02</div>
+                        <h3>Free On-Site Assessment</h3>
+                        <p>A licensed technician visits your home, diagnoses the issue, and provides a clear, written estimate on the spot.</p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="process-dot"></div>
+                        <div class="process-step-number">Step 03</div>
+                        <h3>Expert Execution</h3>
+                        <p>Our team completes the work on schedule, keeping your home clean and you informed at every stage.</p>
+                    </div>
+                    <div class="process-step reveal">
+                        <div class="process-dot"></div>
+                        <div class="process-step-number">Step 04</div>
+                        <h3>Final Walkthrough</h3>
+                        <p>We walk you through everything we did, answer your questions, and do not leave until you are 100% satisfied.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="reviews-header reveal">
+                <div class="section-label">Testimonials</div>
+                <h2 class="section-title">What Our Clients Say</h2>
+                <p class="section-subtitle">Real reviews from real homeowners. No filters, no edits.</p>
+            </div>
+            <div class="reviews-track">
+                <div class="reviews-carousel" id="reviewsCarousel">
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote>Our basement flooded at 2 AM and Summit Pro had a technician at our door within 45 minutes. They fixed the burst pipe, set up drying equipment, and followed up the next morning. Genuinely saved us from a disaster.</blockquote>
+                        <div class="review-author">
+                            <div class="review-author-info">
+                                <div class="review-avatar">MR</div>
+                                <div>
+                                    <div class="review-name">Michael R.</div>
+                                    <div class="review-service">Emergency Plumbing</div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote>Had them install a new furnace and central air system. The crew was professional, on time, and cleaned up like they were never here. Price came in exactly at the estimate. Will use them for everything going forward.</blockquote>
+                        <div class="review-author">
+                            <div class="review-author-info">
+                                <div class="review-avatar">SK</div>
+                                <div>
+                                    <div class="review-name">Sarah K.</div>
+                                    <div class="review-service">HVAC Installation</div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote>We hired Summit Pro for a full kitchen renovation. They managed everything from permits to final inspection. The attention to detail was impressive and they communicated every step of the way. Our kitchen looks incredible.</blockquote>
+                        <div class="review-author">
+                            <div class="review-author-info">
+                                <div class="review-avatar">DT</div>
+                                <div>
+                                    <div class="review-name">David T.</div>
+                                    <div class="review-service">Kitchen Remodel</div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <svg viewBox="0 0 24 24" fill="#AF0606"><path d="M21.54 7.91c-.2-1.57-1.51-2.78-3.09-2.78H5.55c-1.58 0-2.89 1.21-3.09 2.78L2 18h20l-.46-10.09z"/><text x="12" y="16" font-size="8" fill="white" text-anchor="middle" font-weight="bold">Y</text></svg>
+                                Yelp
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote>Called about a panel upgrade and they had an electrician out the next day. He explained everything, showed me the code requirements, and finished the job in one day. Fair price, great work. Highly recommended.</blockquote>
+                        <div class="review-author">
+                            <div class="review-author-info">
+                                <div class="review-avatar">JP</div>
+                                <div>
+                                    <div class="review-name">Jennifer P.</div>
+                                    <div class="review-service">Electrical Upgrade</div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google
+                            </div>
+                        </div>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <blockquote>Summit Pro replaced our entire roof after a storm. Insurance process was painless because they handled all the documentation. The new roof looks fantastic and they finished two days ahead of schedule.</blockquote>
+                        <div class="review-author">
+                            <div class="review-author-info">
+                                <div class="review-avatar">RB</div>
+                                <div>
+                                    <div class="review-name">Robert B.</div>
+                                    <div class="review-service">Roof Replacement</div>
+                                </div>
+                            </div>
+                            <div class="review-source">
+                                <svg viewBox="0 0 24 24" fill="#4285F4"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18A10.96 10.96 0 001 12c0 1.77.42 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+                                Google
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="reviews-nav">
+                <button id="reviewPrev" aria-label="Previous review"><svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+                <button id="reviewNext" aria-label="Next review"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="reviews-dots" id="reviewsDots"></div>
+        </div>
+    </section>
+
+    <!-- SERVICE AREA SECTION -->
+    <section class="section service-area" id="area">
+        <div class="container">
+            <div class="area-grid">
+                <div class="area-map reveal">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d92347.09289451988!2d-71.61!3d43.20!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89e26a0f0e8b9e77%3A0x1cff5b2c45b0e8d!2sConcord%2C+NH!5e0!3m2!1sen!2sus!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Service area map centered on Concord, New Hampshire"></iframe>
+                </div>
+                <div class="area-info reveal">
+                    <div class="area-badge">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>Proudly Serving 18 Communities</span>
+                    </div>
+                    <div class="section-label">Coverage Area</div>
+                    <h2 class="section-title">Serving Greater<br>Concord, NH</h2>
+                    <p class="section-subtitle">Fast response times across the region. Most calls answered same-day within our primary service radius.</p>
+                    <div class="town-grid">
+                        <div class="town-item">Concord</div>
+                        <div class="town-item">Bow</div>
+                        <div class="town-item">Pembroke</div>
+                        <div class="town-item">Hooksett</div>
+                        <div class="town-item">Loudon</div>
+                        <div class="town-item">Canterbury</div>
+                        <div class="town-item">Chichester</div>
+                        <div class="town-item">Epsom</div>
+                        <div class="town-item">Pittsfield</div>
+                        <div class="town-item">Hopkinton</div>
+                        <div class="town-item">Henniker</div>
+                        <div class="town-item">Warner</div>
+                        <div class="town-item">Dunbarton</div>
+                        <div class="town-item">Weare</div>
+                        <div class="town-item">Salisbury</div>
+                        <div class="town-item">Boscawen</div>
+                        <div class="town-item">Webster</div>
+                        <div class="town-item">Bradford</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BAND -->
+    <section class="cta-band" id="cta">
+        <div class="cta-band-bg"></div>
+        <div class="container">
+            <div class="cta-band-content reveal">
+                <h2>Ready to Get It Done Right?</h2>
+                <p class="cta-band-sub">Talk to a real person. No automated systems, no runaround.</p>
+                <a href="tel:+16035550192" class="cta-phone magnetic">
+                    <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    (603) 555-0192
+                </a>
+                <p class="cta-alt">Prefer to write? <a href="mailto:info@summitproservices.com">Send us an email</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <div class="nav-logo-icon">
+                            <svg viewBox="0 0 24 24"><path d="M3 21L12 3L21 21H3Z"/></svg>
+                        </div>
+                        Summit Pro
+                    </a>
+                    <p>Professional home services backed by 25 years of experience. Licensed, insured, and committed to quality craftsmanship on every project.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Plumbing</a></li>
+                        <li><a href="#">Heating &amp; Cooling</a></li>
+                        <li><a href="#">Electrical</a></li>
+                        <li><a href="#">Roofing</a></li>
+                        <li><a href="#">Remodeling</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Reviews</a></li>
+                        <li><a href="#">Service Area</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                        <a href="tel:+16035550192">(603) 555-0192</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:info@summitproservices.com">info@summitproservices.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        <span>147 Main Street<br>Concord, NH 03301</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">2026 Summit Pro Services. All rights reserved.</div>
+                <div class="footer-powered">Website by <a href="https://scalelocal.net" target="_blank" rel="noopener">ScaleLocal</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- THREE.JS (async, non-blocking) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
+    <!-- GSAP + ScrollTrigger (defer) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <script>
+        /* ========================================
+           LOADING SCREEN
+           ======================================== */
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                initHeroAnimations();
+            }, 1400);
+        });
+
+        /* ========================================
+           NAVIGATION
+           ======================================== */
+        const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        });
+
+        function closeMobileMenu() {
+            menuToggle.classList.remove('active');
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        /* ========================================
+           THREE.JS HERO PARTICLES
+           ======================================== */
+        function initThreeJS() {
+            if (typeof THREE === 'undefined') {
+                setTimeout(initThreeJS, 100);
+                return;
+            }
+
+            const canvas = document.getElementById('hero-canvas');
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+            // Determine particle count based on device
+            const isMobile = window.innerWidth < 768;
+            const particleCount = isMobile ? 600 : 1800;
+
+            // Create particles
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const velocities = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            const color1 = new THREE.Color('#F5A623');
+            const color2 = new THREE.Color('#3B82F6');
+            const color3 = new THREE.Color('#FFFFFF');
+
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                positions[i3] = (Math.random() - 0.5) * 20;
+                positions[i3 + 1] = (Math.random() - 0.5) * 20;
+                positions[i3 + 2] = (Math.random() - 0.5) * 15;
+
+                velocities[i3] = (Math.random() - 0.5) * 0.01;
+                velocities[i3 + 1] = (Math.random() - 0.5) * 0.01;
+                velocities[i3 + 2] = (Math.random() - 0.5) * 0.005;
+
+                const colorChoice = Math.random();
+                let c;
+                if (colorChoice < 0.2) c = color1;
+                else if (colorChoice < 0.35) c = color2;
+                else c = color3;
+
+                colors[i3] = c.r;
+                colors[i3 + 1] = c.g;
+                colors[i3 + 2] = c.b;
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: isMobile ? 0.03 : 0.04,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.6,
+                sizeAttenuation: true,
+            });
+
+            const particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Create connecting lines for nearby particles (desktop only)
+            let lineMesh;
+            if (!isMobile) {
+                const lineGeometry = new THREE.BufferGeometry();
+                const linePositions = new Float32Array(particleCount * 6);
+                lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
+                const lineMaterial = new THREE.LineBasicMaterial({
+                    color: 0xF5A623,
+                    transparent: true,
+                    opacity: 0.04,
+                });
+                lineMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
+                scene.add(lineMesh);
+            }
+
+            camera.position.z = 8;
+
+            let mouseX = 0, mouseY = 0;
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
+
+            function animate() {
+                requestAnimationFrame(animate);
+
+                const pos = particles.geometry.attributes.position.array;
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    pos[i3] += velocities[i3];
+                    pos[i3 + 1] += velocities[i3 + 1];
+                    pos[i3 + 2] += velocities[i3 + 2];
+
+                    // Boundary wrap
+                    if (Math.abs(pos[i3]) > 10) velocities[i3] *= -1;
+                    if (Math.abs(pos[i3 + 1]) > 10) velocities[i3 + 1] *= -1;
+                    if (Math.abs(pos[i3 + 2]) > 7.5) velocities[i3 + 2] *= -1;
+                }
+                particles.geometry.attributes.position.needsUpdate = true;
+
+                // Subtle mouse follow
+                particles.rotation.y += (mouseX * 0.1 - particles.rotation.y) * 0.02;
+                particles.rotation.x += (mouseY * 0.05 - particles.rotation.x) * 0.02;
+
+                // Update connecting lines
+                if (lineMesh) {
+                    const lp = lineMesh.geometry.attributes.position.array;
+                    let lineIndex = 0;
+                    const maxDist = 1.8;
+                    const maxLines = 400;
+
+                    for (let i = 0; i < Math.min(particleCount, 200) && lineIndex < maxLines * 6; i++) {
+                        for (let j = i + 1; j < Math.min(particleCount, 200) && lineIndex < maxLines * 6; j++) {
+                            const dx = pos[i * 3] - pos[j * 3];
+                            const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
+                            const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
+                            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
+
+                            if (dist < maxDist) {
+                                lp[lineIndex++] = pos[i * 3];
+                                lp[lineIndex++] = pos[i * 3 + 1];
+                                lp[lineIndex++] = pos[i * 3 + 2];
+                                lp[lineIndex++] = pos[j * 3];
+                                lp[lineIndex++] = pos[j * 3 + 1];
+                                lp[lineIndex++] = pos[j * 3 + 2];
+                            }
+                        }
+                    }
+
+                    // Clear remaining
+                    for (let i = lineIndex; i < lp.length; i++) lp[i] = 0;
+                    lineMesh.geometry.attributes.position.needsUpdate = true;
+                    lineMesh.geometry.setDrawRange(0, lineIndex / 3);
+                }
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+
+        initThreeJS();
+
+        /* ========================================
+           HERO TEXT ANIMATION
+           ======================================== */
+        function initHeroAnimations() {
+            const badge = document.querySelector('.hero-badge');
+            const words = document.querySelectorAll('.hero-word');
+            const sub = document.querySelector('.hero-sub');
+            const ctas = document.querySelector('.hero-ctas');
+            const scrollInd = document.getElementById('scrollIndicator');
+
+            // Simple sequential animation using CSS transitions
+            badge.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            badge.style.opacity = '1';
+            badge.style.transform = 'translateY(0)';
+
+            words.forEach((word, i) => {
+                setTimeout(() => {
+                    word.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    word.style.opacity = '1';
+                    word.style.transform = 'translateY(0)';
+                }, 200 + i * 100);
+            });
+
+            setTimeout(() => {
+                sub.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                sub.style.opacity = '1';
+                sub.style.transform = 'translateY(0)';
+            }, 800);
+
+            setTimeout(() => {
+                ctas.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                ctas.style.opacity = '1';
+                ctas.style.transform = 'translateY(0)';
+            }, 1000);
+
+            setTimeout(() => {
+                scrollInd.style.transition = 'opacity 0.6s ease';
+                scrollInd.style.opacity = '1';
+            }, 1400);
+        }
+
+        /* ========================================
+           COUNTER ANIMATION
+           ======================================== */
+        function animateCounters() {
+            const counters = document.querySelectorAll('.trust-number');
+            counters.forEach(counter => {
+                if (counter.dataset.animated) return;
+                const target = parseFloat(counter.dataset.target);
+                const isDecimal = counter.dataset.decimal === 'true';
+                const suffix = counter.dataset.suffix || '';
+                const duration = 2000;
+                const start = performance.now();
+
+                function update(now) {
+                    const elapsed = now - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    // Ease out cubic
+                    const eased = 1 - Math.pow(1 - progress, 3);
+                    const current = target * eased;
+
+                    if (isDecimal) {
+                        counter.textContent = current.toFixed(1) + suffix;
+                    } else {
+                        counter.textContent = Math.floor(current).toLocaleString() + suffix;
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        if (isDecimal) {
+                            counter.textContent = target.toFixed(1) + suffix;
+                        } else {
+                            counter.textContent = target.toLocaleString() + suffix;
+                        }
+                    }
+                }
+
+                counter.dataset.animated = 'true';
+                requestAnimationFrame(update);
+            });
+        }
+
+        // Trigger counters when trust strip is visible
+        const trustObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    trustObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        trustObserver.observe(document.querySelector('.trust-strip'));
+
+        /* ========================================
+           GSAP SCROLL ANIMATIONS
+           ======================================== */
+        function initGSAP() {
+            if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+                setTimeout(initGSAP, 100);
+                return;
+            }
+
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Reveal animations
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach((el, i) => {
+                gsap.fromTo(el, {
+                    opacity: 0,
+                    y: 30,
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.7,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 88%',
+                        toggleActions: 'play none none none',
+                    }
+                });
+            });
+
+            // Process timeline line fill
+            const processTimeline = document.querySelector('.process-timeline');
+            const lineFill = document.getElementById('processLineFill');
+            const isDesktop = window.innerWidth >= 768;
+
+            ScrollTrigger.create({
+                trigger: processTimeline,
+                start: 'top 70%',
+                end: 'bottom 40%',
+                onUpdate: (self) => {
+                    const progress = self.progress;
+                    if (isDesktop) {
+                        lineFill.style.width = (progress * 100) + '%';
+                        lineFill.style.height = '2px';
+                    } else {
+                        lineFill.style.height = (progress * 100) + '%';
+                        lineFill.style.width = '2px';
+                    }
+
+                    // Activate steps based on progress
+                    const steps = document.querySelectorAll('.process-step');
+                    steps.forEach((step, i) => {
+                        const stepProgress = (i + 0.5) / steps.length;
+                        step.classList.toggle('active', progress > stepProgress);
+                    });
+                }
+            });
+
+            // Floating badges parallax
+            gsap.to('.badge-rating', {
+                y: -20,
+                scrollTrigger: {
+                    trigger: '.why-us',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1,
+                }
+            });
+
+            gsap.to('.badge-certified', {
+                y: 20,
+                scrollTrigger: {
+                    trigger: '.why-us',
+                    start: 'top bottom',
+                    end: 'bottom top',
+                    scrub: 1,
+                }
+            });
+
+            // Hide scroll indicator on scroll
+            ScrollTrigger.create({
+                trigger: '.hero',
+                start: 'top top',
+                end: '+=200',
+                onLeave: () => {
+                    gsap.to('#scrollIndicator', { opacity: 0, duration: 0.3 });
+                },
+                onEnterBack: () => {
+                    gsap.to('#scrollIndicator', { opacity: 1, duration: 0.3 });
+                }
+            });
+        }
+
+        initGSAP();
+
+        /* ========================================
+           3D CARD TILT (Desktop only)
+           ======================================== */
+        if (window.innerWidth >= 768) {
+            document.querySelectorAll('[data-tilt]').forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -6;
+                    const rotateY = ((x - centerX) / centerX) * 6;
+
+                    card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                    card.style.transition = 'transform 0.5s ease';
+                });
+
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'transform 0.1s ease';
+                });
+            });
+        }
+
+        /* ========================================
+           REVIEWS CAROUSEL
+           ======================================== */
+        const carousel = document.getElementById('reviewsCarousel');
+        const prevBtn = document.getElementById('reviewPrev');
+        const nextBtn = document.getElementById('reviewNext');
+        const dotsContainer = document.getElementById('reviewsDots');
+        const cards = carousel.querySelectorAll('.review-card');
+        let currentIndex = 0;
+        let cardsVisible = 1;
+        let autoRotate;
+
+        function getCardsVisible() {
+            if (window.innerWidth >= 1200) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function updateCarousel() {
+            cardsVisible = getCardsVisible();
+            const maxIndex = Math.max(cards.length - cardsVisible, 0);
+            currentIndex = Math.min(currentIndex, maxIndex);
+
+            const cardWidth = cards[0].offsetWidth + 24; // gap
+            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+            // Update center class
+            cards.forEach((card, i) => {
+                card.classList.toggle('center', i === currentIndex + Math.floor(cardsVisible / 2));
+            });
+
+            // Update dots
+            updateDots();
+        }
+
+        function updateDots() {
+            const maxIndex = Math.max(cards.length - cardsVisible, 0);
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('span');
+                dot.classList.toggle('active', i === currentIndex);
+                dot.addEventListener('click', () => {
+                    currentIndex = i;
+                    updateCarousel();
+                    resetAutoRotate();
+                });
+                dotsContainer.appendChild(dot);
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            const maxIndex = Math.max(cards.length - cardsVisible, 0);
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : maxIndex;
+            updateCarousel();
+            resetAutoRotate();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            const maxIndex = Math.max(cards.length - cardsVisible, 0);
+            currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+            updateCarousel();
+            resetAutoRotate();
+        });
+
+        function resetAutoRotate() {
+            clearInterval(autoRotate);
+            autoRotate = setInterval(() => {
+                const maxIndex = Math.max(cards.length - cardsVisible, 0);
+                currentIndex = currentIndex < maxIndex ? currentIndex + 1 : 0;
+                updateCarousel();
+            }, 5000);
+        }
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', () => clearInterval(autoRotate));
+        carousel.addEventListener('mouseleave', () => resetAutoRotate());
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            const diff = touchStartX - touchEndX;
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) nextBtn.click();
+                else prevBtn.click();
+            }
+        }, { passive: true });
+
+        window.addEventListener('resize', updateCarousel);
+        updateCarousel();
+        resetAutoRotate();
+
+        /* ========================================
+           MAGNETIC BUTTON EFFECT (Desktop only)
+           ======================================== */
+        if (window.innerWidth >= 768) {
+            document.querySelectorAll('.magnetic').forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = `translate(${x * 0.15}px, ${y * 0.15}px)`;
+                });
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translate(0, 0)';
+                    btn.style.transition = 'transform 0.3s ease';
+                });
+                btn.addEventListener('mouseenter', () => {
+                    btn.style.transition = 'transform 0.1s ease';
+                });
+            });
+        }
+
+        /* ========================================
+           SMOOTH SCROLL
+           ======================================== */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
