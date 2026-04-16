@@ -304,16 +304,23 @@
             background: var(--primary);
         }
 
-        #hero-canvas {
+        .hero-bg {
             position: absolute;
             inset: 0;
             z-index: 1;
+            background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            transform: scale(1.05);
+            transition: transform 8s ease;
+        }
+
+        .hero.loaded .hero-bg {
+            transform: scale(1);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            background: linear-gradient(160deg, rgba(15,25,35,0.92) 0%, rgba(15,25,35,0.78) 50%, rgba(15,25,35,0.65) 100%);
             z-index: 2;
         }
 
@@ -719,6 +726,80 @@
         }
 
         /* ========================================
+           PHOTO BREAK DIVIDER
+           ======================================== */
+        .photo-break {
+            position: relative;
+            height: 320px;
+            overflow: hidden;
+        }
+
+        .photo-break-img {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .photo-break-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(15,25,35,0.8) 0%, rgba(15,25,35,0.6) 100%);
+        }
+
+        .photo-break-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .photo-break-stat {
+            display: flex;
+            gap: 48px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo-break-stat-item {
+            text-align: center;
+        }
+
+        .photo-break-stat-number {
+            font-family: var(--font-heading);
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .photo-break-stat-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 767px) {
+            .photo-break {
+                height: auto;
+                padding: 60px 0;
+            }
+            .photo-break-img {
+                background-attachment: scroll;
+            }
+            .photo-break-stat {
+                gap: 32px;
+            }
+        }
+
+        /* ========================================
            WHY CHOOSE US SECTION
            ======================================== */
         .why-us {
@@ -763,11 +844,7 @@
         .why-us-image-inner {
             width: 100%;
             height: 100%;
-            background:
-                linear-gradient(135deg, rgba(26,42,58,0.85) 0%, rgba(15,25,35,0.6) 100%),
-                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"%3E%3Cdefs%3E%3ClinearGradient id="g" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" stop-color="%231a2a3a"/%3E%3Cstop offset="100%25" stop-color="%230f1923"/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill="url(%23g)" width="800" height="600"/%3E%3Ccircle cx="200" cy="200" r="120" fill="%23F5A62308"/%3E%3Ccircle cx="600" cy="400" r="180" fill="%233B82F605"/%3E%3Crect x="140" y="280" width="200" height="240" rx="8" fill="%23ffffff06"/%3E%3Crect x="380" y="200" width="260" height="320" rx="8" fill="%23ffffff04"/%3E%3Ccircle cx="240" cy="220" r="45" fill="%23ffffff05"/%3E%3Cpath d="M160 360h160M160 390h120M160 420h140M160 450h100" stroke="%23ffffff08" stroke-width="2"/%3E%3Cpath d="M420 280h180M420 310h160M420 340h170M420 370h140M420 400h155" stroke="%23ffffff06" stroke-width="2"/%3E%3C/svg%3E');
-            background-size: cover;
-            background-position: center;
+            background: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
         }
 
         .floating-badge {
@@ -1613,7 +1690,7 @@
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
-        <canvas id="hero-canvas"></canvas>
+        <div class="hero-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="container">
@@ -1735,6 +1812,30 @@
             </div>
         </div>
     </section>
+
+    <!-- PHOTO BREAK: WORKMANSHIP -->
+    <div class="photo-break reveal">
+        <div class="photo-break-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="photo-break-overlay"></div>
+        <div class="photo-break-content">
+            <div class="container">
+                <div class="photo-break-stat">
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">24/7</div>
+                        <div class="photo-break-stat-label">Emergency Service</div>
+                    </div>
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">60 min</div>
+                        <div class="photo-break-stat-label">Average Response</div>
+                    </div>
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">0</div>
+                        <div class="photo-break-stat-label">Hidden Fees, Ever</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- WHY CHOOSE US SECTION -->
     <section class="section why-us" id="why-us">
@@ -2028,6 +2129,30 @@
         </div>
     </section>
 
+    <!-- PHOTO BREAK: TEAM -->
+    <div class="photo-break reveal">
+        <div class="photo-break-img" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="photo-break-overlay"></div>
+        <div class="photo-break-content">
+            <div class="container">
+                <div class="photo-break-stat">
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">A+</div>
+                        <div class="photo-break-stat-label">BBB Rating</div>
+                    </div>
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">347</div>
+                        <div class="photo-break-stat-label">5-Star Reviews</div>
+                    </div>
+                    <div class="photo-break-stat-item">
+                        <div class="photo-break-stat-number">98%</div>
+                        <div class="photo-break-stat-label">Referral Rate</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA BAND -->
     <section class="cta-band" id="cta">
         <div class="cta-band-bg"></div>
@@ -2100,8 +2225,6 @@
         </div>
     </footer>
 
-    <!-- THREE.JS (async, non-blocking) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" async></script>
     <!-- GSAP + ScrollTrigger (defer) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -2141,163 +2264,12 @@
         }
 
         /* ========================================
-           THREE.JS HERO PARTICLES
-           ======================================== */
-        function initThreeJS() {
-            if (typeof THREE === 'undefined') {
-                setTimeout(initThreeJS, 100);
-                return;
-            }
-
-            const canvas = document.getElementById('hero-canvas');
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-            renderer.setSize(window.innerWidth, window.innerHeight);
-            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-
-            // Determine particle count based on device
-            const isMobile = window.innerWidth < 768;
-            const particleCount = isMobile ? 600 : 1800;
-
-            // Create particles
-            const geometry = new THREE.BufferGeometry();
-            const positions = new Float32Array(particleCount * 3);
-            const velocities = new Float32Array(particleCount * 3);
-            const colors = new Float32Array(particleCount * 3);
-
-            const color1 = new THREE.Color('#F5A623');
-            const color2 = new THREE.Color('#3B82F6');
-            const color3 = new THREE.Color('#FFFFFF');
-
-            for (let i = 0; i < particleCount; i++) {
-                const i3 = i * 3;
-                positions[i3] = (Math.random() - 0.5) * 20;
-                positions[i3 + 1] = (Math.random() - 0.5) * 20;
-                positions[i3 + 2] = (Math.random() - 0.5) * 15;
-
-                velocities[i3] = (Math.random() - 0.5) * 0.01;
-                velocities[i3 + 1] = (Math.random() - 0.5) * 0.01;
-                velocities[i3 + 2] = (Math.random() - 0.5) * 0.005;
-
-                const colorChoice = Math.random();
-                let c;
-                if (colorChoice < 0.2) c = color1;
-                else if (colorChoice < 0.35) c = color2;
-                else c = color3;
-
-                colors[i3] = c.r;
-                colors[i3 + 1] = c.g;
-                colors[i3 + 2] = c.b;
-            }
-
-            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-            const material = new THREE.PointsMaterial({
-                size: isMobile ? 0.03 : 0.04,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.6,
-                sizeAttenuation: true,
-            });
-
-            const particles = new THREE.Points(geometry, material);
-            scene.add(particles);
-
-            // Create connecting lines for nearby particles (desktop only)
-            let lineMesh;
-            if (!isMobile) {
-                const lineGeometry = new THREE.BufferGeometry();
-                const linePositions = new Float32Array(particleCount * 6);
-                lineGeometry.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
-                const lineMaterial = new THREE.LineBasicMaterial({
-                    color: 0xF5A623,
-                    transparent: true,
-                    opacity: 0.04,
-                });
-                lineMesh = new THREE.LineSegments(lineGeometry, lineMaterial);
-                scene.add(lineMesh);
-            }
-
-            camera.position.z = 8;
-
-            let mouseX = 0, mouseY = 0;
-            document.addEventListener('mousemove', (e) => {
-                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-            });
-
-            function animate() {
-                requestAnimationFrame(animate);
-
-                const pos = particles.geometry.attributes.position.array;
-                for (let i = 0; i < particleCount; i++) {
-                    const i3 = i * 3;
-                    pos[i3] += velocities[i3];
-                    pos[i3 + 1] += velocities[i3 + 1];
-                    pos[i3 + 2] += velocities[i3 + 2];
-
-                    // Boundary wrap
-                    if (Math.abs(pos[i3]) > 10) velocities[i3] *= -1;
-                    if (Math.abs(pos[i3 + 1]) > 10) velocities[i3 + 1] *= -1;
-                    if (Math.abs(pos[i3 + 2]) > 7.5) velocities[i3 + 2] *= -1;
-                }
-                particles.geometry.attributes.position.needsUpdate = true;
-
-                // Subtle mouse follow
-                particles.rotation.y += (mouseX * 0.1 - particles.rotation.y) * 0.02;
-                particles.rotation.x += (mouseY * 0.05 - particles.rotation.x) * 0.02;
-
-                // Update connecting lines
-                if (lineMesh) {
-                    const lp = lineMesh.geometry.attributes.position.array;
-                    let lineIndex = 0;
-                    const maxDist = 1.8;
-                    const maxLines = 400;
-
-                    for (let i = 0; i < Math.min(particleCount, 200) && lineIndex < maxLines * 6; i++) {
-                        for (let j = i + 1; j < Math.min(particleCount, 200) && lineIndex < maxLines * 6; j++) {
-                            const dx = pos[i * 3] - pos[j * 3];
-                            const dy = pos[i * 3 + 1] - pos[j * 3 + 1];
-                            const dz = pos[i * 3 + 2] - pos[j * 3 + 2];
-                            const dist = Math.sqrt(dx * dx + dy * dy + dz * dz);
-
-                            if (dist < maxDist) {
-                                lp[lineIndex++] = pos[i * 3];
-                                lp[lineIndex++] = pos[i * 3 + 1];
-                                lp[lineIndex++] = pos[i * 3 + 2];
-                                lp[lineIndex++] = pos[j * 3];
-                                lp[lineIndex++] = pos[j * 3 + 1];
-                                lp[lineIndex++] = pos[j * 3 + 2];
-                            }
-                        }
-                    }
-
-                    // Clear remaining
-                    for (let i = lineIndex; i < lp.length; i++) lp[i] = 0;
-                    lineMesh.geometry.attributes.position.needsUpdate = true;
-                    lineMesh.geometry.setDrawRange(0, lineIndex / 3);
-                }
-
-                renderer.render(scene, camera);
-            }
-
-            animate();
-
-            window.addEventListener('resize', () => {
-                camera.aspect = window.innerWidth / window.innerHeight;
-                camera.updateProjectionMatrix();
-                renderer.setSize(window.innerWidth, window.innerHeight);
-            });
-        }
-
-        initThreeJS();
-
-        /* ========================================
            HERO TEXT ANIMATION
            ======================================== */
         function initHeroAnimations() {
+            // Trigger slow Ken Burns zoom on hero background
+            document.getElementById('hero').classList.add('loaded');
+
             const badge = document.querySelector('.hero-badge');
             const words = document.querySelectorAll('.hero-word');
             const sub = document.querySelector('.hero-sub');
