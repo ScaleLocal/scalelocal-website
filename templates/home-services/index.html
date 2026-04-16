@@ -152,29 +152,14 @@
         }
 
         .nav-logo {
-            font-family: var(--font-heading);
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--text-inverse);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 0;
         }
 
-        .nav-logo-icon {
-            width: 36px;
+        .nav-logo svg {
             height: 36px;
-            background: var(--accent);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-logo-icon svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--primary);
+            width: auto;
         }
 
         .nav-links {
@@ -309,7 +294,7 @@
             position: absolute;
             inset: 0;
             z-index: 1;
-            background: url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
             transform: scale(1.05);
             transition: transform 8s ease;
         }
@@ -845,7 +830,7 @@
         .why-us-image-inner {
             width: 100%;
             height: 100%;
-            background: url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
+            background: url('https://images.unsplash.com/photo-1540553016722-983e48a2cd10?auto=format&fit=crop&w=800&q=80') center/cover no-repeat;
         }
 
         .floating-badge {
@@ -1651,7 +1636,7 @@
     <!-- LOADING SCREEN -->
     <div class="loader" id="loader">
         <div class="loader-inner">
-            <div class="loader-text">Summit Pro</div>
+            <div class="loader-text">Summit Pro Services</div>
             <div class="loader-bar"><div class="loader-bar-fill"></div></div>
         </div>
     </div>
@@ -1670,10 +1655,16 @@
     <nav class="nav" id="navbar">
         <div class="container nav-inner">
             <a href="#" class="nav-logo">
-                <div class="nav-logo-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                </div>
-                Summit Pro Services
+                <svg viewBox="0 0 240 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Logomark: mountain peak / roofline -->
+                    <rect width="36" height="36" rx="8" fill="#2563EB"/>
+                    <path d="M8 26L18 10L28 26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M13 26L18 18L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                    <line x1="10" y1="26" x2="26" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                    <!-- Wordmark -->
+                    <text x="44" y="16" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="16" fill="white" letter-spacing="-0.3">SUMMIT</text>
+                    <text x="44" y="30" font-family="'Space Grotesk',sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.7)" letter-spacing="2.5">PRO SERVICES</text>
+                </svg>
             </a>
             <ul class="nav-links">
                 <li><a href="#services">Services</a></li>
@@ -1816,7 +1807,7 @@
 
     <!-- PHOTO BREAK: WORKMANSHIP -->
     <div class="photo-break reveal">
-        <div class="photo-break-img" style="background-image: url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="photo-break-img" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80')"></div>
         <div class="photo-break-overlay"></div>
         <div class="photo-break-content">
             <div class="container">
@@ -2176,10 +2167,14 @@
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo">
-                        <div class="nav-logo-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                        </div>
-                        Summit Pro
+                        <svg viewBox="0 0 240 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="36" height="36" rx="8" fill="#2563EB"/>
+                            <path d="M8 26L18 10L28 26" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 26L18 18L23 26" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/>
+                            <line x1="10" y1="26" x2="26" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+                            <text x="44" y="16" font-family="'Space Grotesk',sans-serif" font-weight="700" font-size="16" fill="white" letter-spacing="-0.3">SUMMIT</text>
+                            <text x="44" y="30" font-family="'Space Grotesk',sans-serif" font-weight="500" font-size="11" fill="rgba(255,255,255,0.7)" letter-spacing="2.5">PRO SERVICES</text>
+                        </svg>
                     </a>
                     <p>Professional home services backed by 25 years of experience. Licensed, insured, and committed to quality craftsmanship on every project.</p>
                 </div>
