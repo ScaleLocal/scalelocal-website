@@ -423,8 +423,10 @@
             .utility-bar { display: none; }
             .logo-link img { height: 42px; }
             .header-inner { padding: 2px 12px; }
+            .header-inner nav { flex: 0; }
             .nav-links { display: none; }
-            .mobile-toggle { display: block; }
+            .mobile-toggle { display: block; order: 3; }
+            .mobile-header-emergency { order: 2; flex: 1; justify-content: center; }
             .nav-links.open {
                 display: flex; flex-direction: column;
                 position: absolute; top: 100%; left: 0; right: 0;
