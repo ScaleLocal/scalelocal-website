@@ -637,7 +637,7 @@
         <div class="contact-layout">
             <!-- CONTACT FORM -->
             <div class="contact-form-wrapper">
-                <form method="POST" action="#">
+                <form id="contactForm" method="POST" action="#">
                     <div class="form-group">
                         <label for="fullname">Full Name</label>
                         <input type="text" id="fullname" name="fullname" placeholder="John Smith" required>
@@ -657,14 +657,14 @@
                         <label for="service">Service Needed</label>
                         <select id="service" name="service" required>
                             <option value="">Select a service...</option>
-                            <option value="general-plumbing">General Plumbing</option>
-                            <option value="boiler-services">Boiler Services</option>
-                            <option value="water-heater">Water Heater</option>
-                            <option value="faucet-fixture">Faucet/Fixture Repair</option>
-                            <option value="heating-systems">Heating Systems</option>
-                            <option value="drain-cleaning">Drain Cleaning</option>
-                            <option value="emergency-service">Emergency Service</option>
-                            <option value="other">Other</option>
+                            <option value="General Plumbing">General Plumbing</option>
+                            <option value="Boiler Services">Boiler Services</option>
+                            <option value="Water Heater">Water Heater</option>
+                            <option value="Faucet/Fixture Repair">Faucet/Fixture Repair</option>
+                            <option value="Heating Systems">Heating Systems</option>
+                            <option value="Drain Cleaning">Drain Cleaning</option>
+                            <option value="Emergency Service">Emergency Service</option>
+                            <option value="Other">Other</option>
                         </select>
                     </div>
 
@@ -674,6 +674,7 @@
                     </div>
 
                     <button type="submit" class="form-submit">Send Message</button>
+                    <div id="formStatus" style="margin-top:16px;text-align:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;display:none;"></div>
                 </form>
             </div>
 
@@ -817,6 +818,67 @@
         </div>
     </div>
 </footer>
+
+<!-- CONTACT FORM HANDLER -->
+<script>
+(function() {
+    // GHL Inbound Webhook URL — create a workflow in GHL with "Inbound Webhook" trigger
+    // then paste the webhook URL here. The workflow should: create/update contact, send
+    // internal notification to rick@opusplumbingandheating.com, and optionally send
+    // a confirmation email to the submitter.
+    var GHL_WEBHOOK = 'https://services.leadconnectorhq.com/hooks/REPLACE_WITH_WEBHOOK_ID';
+
+    var form = document.getElementById('contactForm');
+    var status = document.getElementById('formStatus');
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var btn = form.querySelector('.form-submit');
+        var originalText = btn.textContent;
+        btn.textContent = 'Sending...';
+        btn.disabled = true;
+
+        var data = {
+            full_name: form.fullname.value,
+            first_name: form.fullname.value.split(' ')[0],
+            last_name: form.fullname.value.split(' ').slice(1).join(' ') || '',
+            email: form.email.value,
+            phone: form.phone.value,
+            service_needed: form.service.value,
+            message: form.message.value,
+            source: 'Opus Plumbing Website - Contact Form',
+            page_url: window.location.href
+        };
+
+        fetch(GHL_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(function(response) {
+            if (response.ok || response.status === 200 || response.status === 201) {
+                status.style.display = 'block';
+                status.style.color = '#007A33';
+                status.textContent = 'Thank you! We have received your message and will be in touch shortly.';
+                form.reset();
+            } else {
+                throw new Error('Server error');
+            }
+        })
+        .catch(function() {
+            status.style.display = 'block';
+            status.style.color = '#CC0000';
+            status.textContent = 'Something went wrong. Please call us at (781) 879-2922 instead.';
+        })
+        .finally(function() {
+            btn.textContent = originalText;
+            btn.disabled = false;
+            setTimeout(function() { status.style.display = 'none'; }, 8000);
+        });
+    });
+})();
+</script>
 
 <!-- CHAT WIDGET -->
 <script src="https://widgets.leadconnectorhq.com/loader.js"
