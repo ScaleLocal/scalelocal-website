@@ -72,20 +72,13 @@
             background: var(--surface);
             line-height: 1.7;
             overflow-x: hidden;
-            cursor: none;
-        }
-
-        @media (max-width: 768px) {
-            body { cursor: auto; }
         }
 
         img { max-width: 100%; display: block; }
         a { text-decoration: none; color: inherit; }
         button { cursor: none; border: none; background: none; font-family: inherit; }
 
-        @media (max-width: 768px) {
-            a, button { cursor: auto; }
-        }
+        /* cursor overrides removed */
 
         .container {
             width: 100%;
@@ -141,52 +134,7 @@
             will-change: transform, opacity;
         }
 
-        /* ========================================
-           CUSTOM CURSOR
-           ======================================== */
-        .cursor-dot {
-            position: fixed;
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99999;
-            mix-blend-mode: difference;
-            transition: width 0.3s, height 0.3s, background 0.3s, transform 0.3s;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor-ring {
-            position: fixed;
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 99998;
-            opacity: 0.5;
-            transition: width 0.4s, height 0.4s, border-color 0.4s, opacity 0.3s;
-            transform: translate(-50%, -50%);
-        }
-
-        .cursor-dot.hovering {
-            width: 48px;
-            height: 48px;
-            background: rgba(196, 149, 106, 0.15);
-            border: 1px solid var(--accent);
-            mix-blend-mode: normal;
-        }
-
-        .cursor-ring.hovering {
-            width: 64px;
-            height: 64px;
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            .cursor-dot, .cursor-ring { display: none !important; }
-        }
+        /* Custom cursor removed for performance */
 
         /* ========================================
            GRADIENT MESH BACKGROUND
@@ -883,12 +831,12 @@
             color: var(--text-light);
             border: 1px solid transparent;
             background: transparent;
-            cursor: none;
+            cursor: pointer;
             transition: all var(--transition);
             position: relative;
         }
 
-        @media (max-width: 768px) { .services-tab { cursor: auto; } }
+
 
         .services-tab.active {
             background: var(--charcoal);
@@ -922,12 +870,12 @@
             align-items: flex-start;
             gap: 20px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: none;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        @media (max-width: 768px) { .service-item { cursor: auto; } }
+
 
         .service-item::before {
             content: '';
@@ -1291,11 +1239,11 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            cursor: none;
+            cursor: pointer;
             aspect-ratio: 1;
         }
 
-        @media (max-width: 768px) { .gallery-item { cursor: auto; } }
+
         @media (min-width: 768px) { .gallery-item { aspect-ratio: auto; } }
 
         .gallery-item img {
@@ -2343,7 +2291,7 @@
             user-select: none;
         }
 
-        @media (max-width: 768px) { .toggle-option { cursor: auto; } }
+
 
         .toggle-option.active {
             background: var(--charcoal);
@@ -2983,9 +2931,7 @@
     <!-- SCROLL PROGRESS -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- CUSTOM CURSOR -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
+    <!-- Cursor removed for performance -->
 
     <!-- LOADING SCREEN -->
     <div class="loader" id="loader">
@@ -3583,46 +3529,9 @@
     (function() {
         'use strict';
 
-        /* ========================================
-           CUSTOM CURSOR
-           ======================================== */
-        const cursorDot = document.getElementById('cursorDot');
-        const cursorRing = document.getElementById('cursorRing');
+        /* Cursor removed for performance */
         let mouseX = 0, mouseY = 0;
-        let ringX = 0, ringY = 0;
-
-        if (window.innerWidth >= 768) {
-            document.addEventListener('mousemove', e => {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
-                cursorDot.style.left = mouseX + 'px';
-                cursorDot.style.top = mouseY + 'px';
-            });
-
-            function animateRing() {
-                ringX += (mouseX - ringX) * 0.12;
-                ringY += (mouseY - ringY) * 0.12;
-                cursorRing.style.left = ringX + 'px';
-                cursorRing.style.top = ringY + 'px';
-                requestAnimationFrame(animateRing);
-            }
-            animateRing();
-
-            // Hover states
-            const hoverTargets = 'a, button, .service-item, .gallery-item, .team-card, .insta-item, input, select, textarea';
-            document.addEventListener('mouseover', e => {
-                if (e.target.closest(hoverTargets)) {
-                    cursorDot.classList.add('hovering');
-                    cursorRing.classList.add('hovering');
-                }
-            });
-            document.addEventListener('mouseout', e => {
-                if (e.target.closest(hoverTargets)) {
-                    cursorDot.classList.remove('hovering');
-                    cursorRing.classList.remove('hovering');
-                }
-            });
-        }
+        document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
         /* ========================================
            PARTICLE SYSTEM
@@ -3630,7 +3539,7 @@
         const canvas = document.getElementById('particleCanvas');
         const ctx = canvas.getContext('2d');
         let particles = [];
-        const PARTICLE_COUNT = window.innerWidth >= 768 ? 50 : 20;
+        const PARTICLE_COUNT = window.innerWidth >= 768 ? 30 : 12;
 
         function resizeCanvas() {
             canvas.width = window.innerWidth;
@@ -3686,24 +3595,6 @@
 
         function animateParticles() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Draw connections
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-                    if (dist < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(196, 149, 106, ${0.04 * (1 - dist / 150)})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-
             particles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(animateParticles);
         }
