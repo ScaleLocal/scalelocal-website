@@ -286,13 +286,13 @@
           <button class="ao-tg" id="ao-react-tg" aria-label="Toggle Reactivation"></button>
           <span class="ao-inc" id="ao-react-inc" style="display:none">Included</span>
         </div>
-        <div class="ao-r" id="ao-agent" style="display:none">
+        <div class="ao-r" id="ao-agent">
           <div class="ao-inf">
-            <div class="ao-nm">AI Chat &amp; Voice Agent</div>
-            <div class="ao-ds">AI agent trained on your business. 24/7.</div>
+            <div class="ao-nm">AgentCopyAI Chat Widget</div>
+            <div class="ao-ds">AI chat agent trained on your business. Answers questions, captures leads, and books appointments 24/7.</div>
             <div class="ao-pr" id="ao-agent-pr">+ $50/mo</div>
           </div>
-          <button class="ao-tg" id="ao-agent-tg" aria-label="Toggle AI Agent"></button>
+          <button class="ao-tg" id="ao-agent-tg" aria-label="Toggle AgentCopyAI"></button>
           <span class="ao-inc" id="ao-agent-inc" style="display:none">Included</span>
         </div>
       </div>
@@ -486,10 +486,10 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('ao-react-inc').style.display = hasFullPlan ? '' : 'none';
     document.getElementById('ao-react-pr').textContent = hasFullPlan ? 'Included with your plan' : '$' + fmt(REACT_COST) + ' one-time';
     if (hasFullPlan) { S.react = false; document.getElementById('ao-react-tg').classList.remove('on'); }
-    var agentRow = document.getElementById('ao-agent'), agentInc = document.getElementById('ao-agent-inc');
-    if (S.plan === 'starter') { agentRow.style.display = ''; if (agentInc) agentInc.style.display = 'none'; document.getElementById('ao-agent-tg').style.display = ''; }
-    else if (hasFullPlan) { agentRow.style.display = ''; if (agentInc) agentInc.style.display = ''; document.getElementById('ao-agent-tg').style.display = 'none'; S.agent = false; document.getElementById('ao-agent-tg').classList.remove('on'); }
-    else { agentRow.style.display = 'none'; S.agent = false; }
+    var agentRow = document.getElementById('ao-agent'), agentInc = document.getElementById('ao-agent-inc'), agentTg = document.getElementById('ao-agent-tg'), agentPr = document.getElementById('ao-agent-pr');
+    if (S.plan === 'starter') { agentRow.style.display = ''; agentTg.style.display = ''; if (agentInc) agentInc.style.display = 'none'; agentPr.textContent = '+ $50/mo'; }
+    else if (hasFullPlan) { agentRow.style.display = ''; agentTg.style.display = 'none'; if (agentInc) agentInc.style.display = ''; agentPr.textContent = 'Included with your plan'; S.agent = false; agentTg.classList.remove('on'); }
+    else { agentRow.style.display = ''; agentTg.style.display = ''; if (agentInc) agentInc.style.display = 'none'; agentPr.textContent = '$149/mo'; }
   }
   ['recep','site','react','agent'].forEach(function(k) {
     document.getElementById('ao-' + k + '-tg').addEventListener('click', function() {
@@ -515,7 +515,8 @@ document.addEventListener('DOMContentLoaded', function() {
       d.inc.forEach(function(i) { html += '<div>' + i + '</div>'; });
       html += '</div></div></div>';
     }
-    if (S.agent && S.plan === 'starter') { monthlyTotal += 50; todayTotal += 50; html += '<div class="os-item"><div class="os-row"><span>AI Chat &amp; Voice Agent</span><span>$50/mo</span></div></div>'; }
+    if (S.agent && S.plan === 'starter') { monthlyTotal += 50; todayTotal += 50; html += '<div class="os-item"><div class="os-row"><span>AgentCopyAI Chat Widget</span><span>$50/mo</span></div></div>'; }
+    else if (S.agent && (!S.plan || S.plan === 'none')) { monthlyTotal += 149; todayTotal += 149; html += '<div class="os-item"><div class="os-row"><span>AgentCopyAI Chat Widget</span><span>$149/mo</span></div></div>'; }
     if (S.recep) { var rMo = recepMo[S.plan||'none']; monthlyTotal += rMo; todayTotal += rMo + RECEP_SETUP; html += '<div class="os-item"><div class="os-row"><span>AI Receptionist</span><span>' + (rMo > 0 ? '$'+fmt(rMo)+'/mo' : '$0/mo') + '</span></div><div class="os-row sub"><span>Setup</span><span>$' + fmt(RECEP_SETUP) + '</span></div></div>'; }
     if (S.site) { todayTotal += SITE_COST; html += '<div class="os-item"><div class="os-row"><span>Website Build</span><span>$' + fmt(SITE_COST) + '</span></div></div>'; }
     if (S.react) { todayTotal += REACT_COST; html += '<div class="os-item"><div class="os-row"><span>Reactivation Program</span><span>$' + fmt(REACT_COST) + '</span></div></div>'; }
@@ -564,7 +565,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function updPayBtn(today) {
-    if (today === undefined) { today = 0; if (S.plan && S.plan !== 'none') { today += plans[S.plan].mo; if (S.term === 'nc' && plans[S.plan].setup > 0) today += plans[S.plan].setup; } if (S.agent && S.plan === 'starter') today += 50; if (S.recep) today += RECEP_SETUP + recepMo[S.plan||'none']; if (S.site) today += SITE_COST; if (S.react) today += REACT_COST; }
+    if (today === undefined) { today = 0; if (S.plan && S.plan !== 'none') { today += plans[S.plan].mo; if (S.term === 'nc' && plans[S.plan].setup > 0) today += plans[S.plan].setup; } if (S.agent && S.plan === 'starter') today += 50; else if (S.agent && (!S.plan || S.plan === 'none')) today += 149; if (S.recep) today += RECEP_SETUP + recepMo[S.plan||'none']; if (S.site) today += SITE_COST; if (S.react) today += REACT_COST; }
     document.getElementById('pay-total').textContent = '$' + fmt(today);
     var hasItem = (S.plan && S.plan !== 'none') || S.recep || S.site || S.react || S.agent;
     var hasSub = (S.plan && S.plan !== 'none') || S.recep || S.agent;
@@ -589,7 +590,7 @@ document.addEventListener('DOMContentLoaded', function() {
   };
   function getStripeLink() {
     var hasPlan = S.plan && S.plan !== 'none';
-    if (!hasPlan) { if (S.recep) return stripeLinks['recep_standalone']; if (S.site && S.react) return null; if (S.site) return stripeLinks['site_only']; if (S.react) return stripeLinks['react_only']; return null; }
+    if (!hasPlan) { if (S.recep) return stripeLinks['recep_standalone']; if (S.agent) return stripeLinks['agent_standalone']||null; if (S.site && S.react) return null; if (S.site) return stripeLinks['site_only']; if (S.react) return stripeLinks['react_only']; return null; }
     if (S.plan === 'starter' && S.agent) return stripeLinks['starter_agent_'+S.term]||null;
     if (S.recep && S.plan === 'momentum') return stripeLinks['momentum_recep_'+S.term];
     return stripeLinks[S.plan+'_'+S.term];
@@ -612,9 +613,9 @@ document.addEventListener('DOMContentLoaded', function() {
   var focusedMode = prm.get('plan')==='none' && prm.get('addon') && prm.get('addon').split(',').length===1;
   if (focusedMode) {
     var fa = prm.get('addon');
-    var pNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist'};
-    var pPrices = {site:'$497',react:'$497',recep:'$497/mo'};
-    var pSetup = {site:'',react:'',recep:' + $997 setup'};
+    var pNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist',agent:'AgentCopyAI Chat Widget'};
+    var pPrices = {site:'$497',react:'$497',recep:'$497/mo',agent:'$149/mo'};
+    var pSetup = {site:'',react:'',recep:' + $997 setup',agent:''};
     document.querySelector('.hdr h1').textContent = 'Complete your purchase.';
     document.querySelector('.hdr p').innerHTML = pNames[fa]+'<span style="margin:0 8px;color:rgba(255,255,255,0.15)">|</span>'+pPrices[fa]+pSetup[fa];
     ['step-plan','step-commit','step-timeline'].forEach(function(id){document.getElementById(id).style.display='none';});
