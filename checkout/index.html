@@ -190,7 +190,7 @@
           <div class="pln-rad"></div>
           <div class="pln-top">
             <div><div class="pln-name">Starter</div><div class="pln-tag">A real website that works for you.</div></div>
-            <div class="pln-rt"><div class="pln-price" id="pr-starter">$197<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived &bull; Month-to-month</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-starter">$197<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived</div></div>
           </div>
         </div>
         <div class="pln" data-p="foundation">
@@ -388,7 +388,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     var plans = {
-      starter: {mo:197, setup:497, leads:0, guar:'', m2mOnly:true,
+      starter: {mo:197, setup:497, leads:0, guar:'', m2mOnly:false,
         inc:['Professional website, live and hosted','ScaleLocal Dashboard (website traffic + chat)','5 content updates per month','SSL, mobile optimization, speed monitoring']},
       foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
         inc:['Everything in Starter','Google Business Profile optimization','Review generation system','Call tracking + lead source reporting','Full ScaleLocal Dashboard','Citation building (50+ directories)','Named account manager','Client Reactivation Program']},
@@ -426,10 +426,8 @@
           su.textContent='Setup fee waived';su.className='pln-setup green';
         }
       });
-      // Starter always shows M2M note — always show setup fee since Starter is M2M-only
-      var suS=document.getElementById('su-starter');
-      suS.textContent='$'+fmt(plans.starter.setup)+' one-time setup \u2022 Month-to-month';
-      suS.className='pln-setup gray';
+      // Starter follows same commitment logic as other tiers
+      // (no special override needed — handled by the loop above)
       // Update cancel badge based on commitment
       var cb=document.getElementById('cancel-badge');
       if(cb){
