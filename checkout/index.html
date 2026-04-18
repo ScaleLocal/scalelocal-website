@@ -34,12 +34,21 @@
     .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
     .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#4a9eed}
 
-    /* ── Single-column layout ── */
-    .wrap{max-width:680px;margin:0 auto;padding:32px 20px 60px}
+    /* ── Two-column layout with sticky sidebar ── */
+    .wrap{max-width:1100px;margin:0 auto;padding:32px 20px 60px}
     .hdr{text-align:center;margin-bottom:28px}
     .hdr h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:1.625rem;line-height:1.2;margin-bottom:6px;letter-spacing:-0.02em}
     .hdr p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#7a8ba3}
     @media(min-width:768px){.hdr h1{font-size:2rem}}
+    .layout{display:flex;flex-direction:column;gap:24px}
+    @media(min-width:900px){.layout{flex-direction:row;gap:32px;align-items:flex-start}}
+    .layout-main{flex:1;min-width:0}
+    .layout-side{width:100%}
+    @media(min-width:900px){.layout-side{width:340px;flex-shrink:0;position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto}
+      .layout-side::-webkit-scrollbar{width:4px}
+      .layout-side::-webkit-scrollbar-track{background:transparent}
+      .layout-side::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.08);border-radius:2px}
+    }
 
     /* ── Section titles ── */
     .stitle{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:0.9375rem;margin-bottom:12px;display:flex;align-items:center;gap:10px}
@@ -107,8 +116,8 @@
     .fr input::placeholder{color:#3a4a60}
     .fr input:focus{border-color:#4a9eed;background:rgba(74,158,237,0.04);box-shadow:0 0 0 3px rgba(74,158,237,0.08)}
 
-    /* ── Order Summary (inline, not sidebar) ── */
-    .os{background:#131f36;border-radius:14px;padding:24px;border:1px solid rgba(255,255,255,0.08);margin-bottom:24px}
+    /* ── Order Summary (sticky sidebar on desktop, inline on mobile) ── */
+    .os{background:#162340;border-radius:14px;padding:24px;border:1px solid rgba(255,255,255,0.12);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
     .os-t{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:1rem;margin-bottom:14px}
     .os-empty{font-family:'Inter',sans-serif;font-size:0.8125rem;color:#3a4a60;padding:8px 0;text-align:center}
     .os-item{padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.04)}
@@ -204,6 +213,9 @@
       <h1>Build your ScaleLocal plan.</h1>
       <p>Transparent pricing. Written guarantees. No phone call required.</p>
     </div>
+
+    <div class="layout">
+    <div class="layout-main">
 
     <!-- STEP 1: PLAN -->
     <div class="section" id="step-plan">
@@ -311,20 +323,6 @@
       </div>
     </div>
 
-    <!-- ORDER SUMMARY (inline, flows with content) -->
-    <div class="os" id="os">
-      <h3 class="os-t">Order Summary</h3>
-      <div id="os-body"><p class="os-empty">Select a plan or product to get started.</p></div>
-      <div id="os-footer" style="display:none">
-        <hr class="os-div">
-        <div class="os-total"><span>Due today</span><span id="os-today">$0</span></div>
-        <div class="os-then" id="os-then-row"><span>Then monthly</span><span id="os-mo">$0/mo</span></div>
-        <div id="os-credit-wrap"></div>
-        <div id="os-bonus-wrap"></div>
-        <div id="os-guar-wrap"></div>
-      </div>
-    </div>
-
     <!-- STEP 5: AGREEMENT + PAYMENT -->
     <div class="section" id="step-pay">
       <h2 class="stitle"><span class="snum">5</span>Agreement &amp; payment</h2>
@@ -378,6 +376,26 @@
       <h2 id="suc-h">You're in.</h2>
       <p id="suc-b"></p>
     </div>
+
+    </div><!-- /.layout-main -->
+
+    <!-- STICKY ORDER SUMMARY SIDEBAR -->
+    <div class="layout-side">
+      <div class="os" id="os">
+        <h3 class="os-t">Order Summary</h3>
+        <div id="os-body"><p class="os-empty">Select a plan or product to get started.</p></div>
+        <div id="os-footer" style="display:none">
+          <hr class="os-div">
+          <div class="os-total"><span>Due today</span><span id="os-today">$0</span></div>
+          <div class="os-then" id="os-then-row"><span>Then monthly</span><span id="os-mo">$0/mo</span></div>
+          <div id="os-credit-wrap"></div>
+          <div id="os-bonus-wrap"></div>
+          <div id="os-guar-wrap"></div>
+        </div>
+      </div>
+    </div><!-- /.layout-side -->
+
+    </div><!-- /.layout -->
   </div>
 
   <!-- Mobile sticky CTA -->
