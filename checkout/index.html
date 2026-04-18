@@ -468,16 +468,13 @@ document.addEventListener('DOMContentLoaded', function() {
   function updAddons() {
     var rMo = recepMo[S.plan || 'none'];
     var recepPrEl = document.getElementById('ao-recep-pr');
-    if (S.plan === 'authority') recepPrEl.textContent = 'Included with Authority';
+    if (S.plan === 'authority') recepPrEl.textContent = '$' + fmt(RECEP_SETUP) + ' setup \u2014 $0/mo with Authority';
     else recepPrEl.textContent = '$' + fmt(RECEP_SETUP) + ' setup + $' + fmt(rMo) + '/mo';
     var hasPlan = S.plan && S.plan !== 'none';
     var hasFullPlan = hasPlan && S.plan !== 'starter';
     var recepTg = document.getElementById('ao-recep-tg');
-    if (S.plan === 'authority') {
-      recepTg.style.display = 'none'; S.recep = false; recepTg.classList.remove('on');
-      var ri = document.getElementById('ao-recep-inc'); if (!ri) { ri = document.createElement('span'); ri.className = 'ao-inc'; ri.id = 'ao-recep-inc'; ri.textContent = 'Included'; document.getElementById('ao-recep').appendChild(ri); }
-      ri.style.display = '';
-    } else { recepTg.style.display = ''; var ri2 = document.getElementById('ao-recep-inc'); if (ri2) ri2.style.display = 'none'; }
+    recepTg.style.display = '';
+    var ri2 = document.getElementById('ao-recep-inc'); if (ri2) ri2.style.display = 'none';
     document.getElementById('ao-site-tg').style.display = hasPlan ? 'none' : '';
     document.getElementById('ao-site-inc').style.display = hasPlan ? '' : 'none';
     document.getElementById('ao-site-pr').textContent = hasPlan ? 'Included with your plan' : '$' + fmt(SITE_COST) + ' one-time';
