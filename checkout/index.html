@@ -288,8 +288,8 @@
         </div>
         <div class="ao-r" id="ao-agent">
           <div class="ao-inf">
-            <div class="ao-nm">AgentCopyAI Chat Widget</div>
-            <div class="ao-ds">AI chat agent trained on your business. Answers questions, captures leads, and books appointments 24/7.</div>
+            <div class="ao-nm">Talking Website: AgentCopy AI</div>
+            <div class="ao-ds">Chat and voice, live on your site 24/7. Answers questions, captures leads, and books appointments.</div>
             <div class="ao-pr" id="ao-agent-pr">+ $50/mo</div>
           </div>
           <button class="ao-tg" id="ao-agent-tg" aria-label="Toggle AgentCopyAI"></button>
@@ -512,8 +512,8 @@ document.addEventListener('DOMContentLoaded', function() {
       d.inc.forEach(function(i) { html += '<div>' + i + '</div>'; });
       html += '</div></div></div>';
     }
-    if (S.agent && S.plan === 'starter') { monthlyTotal += 50; todayTotal += 50; html += '<div class="os-item"><div class="os-row"><span>AgentCopyAI Chat Widget</span><span>$50/mo</span></div></div>'; }
-    else if (S.agent && (!S.plan || S.plan === 'none')) { monthlyTotal += 149; todayTotal += 149; html += '<div class="os-item"><div class="os-row"><span>AgentCopyAI Chat Widget</span><span>$149/mo</span></div></div>'; }
+    if (S.agent && S.plan === 'starter') { monthlyTotal += 50; todayTotal += 50; html += '<div class="os-item"><div class="os-row"><span>Talking Website: AgentCopy AI</span><span>$50/mo</span></div></div>'; }
+    else if (S.agent && (!S.plan || S.plan === 'none')) { monthlyTotal += 149; todayTotal += 149; html += '<div class="os-item"><div class="os-row"><span>Talking Website: AgentCopy AI</span><span>$149/mo</span></div></div>'; }
     if (S.recep) { var rMo = recepMo[S.plan||'none']; monthlyTotal += rMo; todayTotal += rMo + RECEP_SETUP; html += '<div class="os-item"><div class="os-row"><span>AI Receptionist</span><span>' + (rMo > 0 ? '$'+fmt(rMo)+'/mo' : '$0/mo') + '</span></div><div class="os-row sub"><span>Setup</span><span>$' + fmt(RECEP_SETUP) + '</span></div></div>'; }
     if (S.site) { todayTotal += SITE_COST; html += '<div class="os-item"><div class="os-row"><span>Website Build</span><span>$' + fmt(SITE_COST) + '</span></div></div>'; }
     if (S.react) { todayTotal += REACT_COST; html += '<div class="os-item"><div class="os-row"><span>Reactivation Program</span><span>$' + fmt(REACT_COST) + '</span></div></div>'; }
@@ -610,7 +610,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var focusedMode = prm.get('plan')==='none' && prm.get('addon') && prm.get('addon').split(',').length===1;
   if (focusedMode) {
     var fa = prm.get('addon');
-    var pNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist',agent:'AgentCopyAI Chat Widget'};
+    var pNames = {site:'Professional Website Build',react:'Client Reactivation Program',recep:'ScaleLocal AI Receptionist',agent:'Talking Website: AgentCopy AI'};
     var pPrices = {site:'$497',react:'$497',recep:'$497/mo',agent:'$149/mo'};
     var pSetup = {site:'',react:'',recep:' + $997 setup',agent:''};
     document.querySelector('.hdr h1').textContent = 'Complete your purchase.';
