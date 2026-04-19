@@ -246,11 +246,11 @@
     <div class="section" id="step-plan">
       <h2 class="stitle"><span class="snum">1</span>Choose your system<span class="sopt">or skip for standalone</span></h2>
       <div class="plans" id="plan-sel">
-        <div class="pln" data-p="starter">
+        <div class="pln" data-p="presence">
           <div class="pln-rad"></div>
           <div class="pln-top">
-            <div class="pln-left"><div class="pln-name">Starter</div><div class="pln-tag">A real website that works for you.</div></div>
-            <div class="pln-rt"><div class="pln-price" id="pr-starter">$197<span>/mo</span></div><div class="pln-setup green" id="su-starter">Setup fee waived</div></div>
+            <div class="pln-left"><div class="pln-name">Presence</div><div class="pln-tag">Professional online presence with AI chat.</div></div>
+            <div class="pln-rt"><div class="pln-price" id="pr-presence">$297<span>/mo</span></div><div class="pln-setup green" id="su-presence">Setup fee waived</div></div>
           </div>
         </div>
         <div class="pln" data-p="foundation">
@@ -450,8 +450,8 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var plans = {
-    starter: {mo:197, setup:497, leads:0, guar:'',
-      inc:['Professional 5-page website','ScaleLocal Dashboard','5 content updates/month','SSL + mobile optimization','Google Analytics + tracking']},
+    presence: {mo:297, setup:497, leads:0, guar:'',
+      inc:['Professional 5-page website','ScaleLocal Chat \u2014 AI chat widget 24/7','ScaleLocal Dashboard (traffic + chats + leads)','5 content updates/month','SSL + mobile optimization','Google Analytics + tracking','Monthly visibility snapshot report']},
     foundation: {mo:497, setup:497, leads:3, guar:'3 leads/month by day 60 \u2014 or we work free',
       inc:['Professional 5-page website','ScaleLocal Dashboard','SSL + mobile optimization','Google Analytics + tracking','Google Business Profile optimization','Monthly GBP posts','Automated review request system','ScaleLocal Chat \u2014 live chat','ScaleLocal Booking \u2014 online scheduling','Call tracking + lead pipeline','Citation building (50+ directories)','Named account manager','Client Reactivation Program','Missed call text back','spendlocal.net listing','Monthly performance reports','50 content updates/month','1 blog post/month']},
     momentum: {mo:1297, setup:497, leads:8, guar:'8 leads/month by day 90 \u2014 or we work free',
@@ -459,7 +459,7 @@ document.addEventListener('DOMContentLoaded', function() {
     authority: {mo:1997, setup:497, leads:15, guar:'15 leads/month by day 90 \u2014 or we work free',
       inc:['Professional 8-page website','ScaleLocal Dashboard','SSL + mobile optimization','Google Analytics + tracking','Google Business Profile optimization','Daily GBP management + weekly posts','Automated review request system','Daily review monitoring + response','ScaleLocal Chat \u2014 live chat','ScaleLocal Booking \u2014 online scheduling','Call tracking + lead pipeline','Citation building (50+ directories)','Named account manager','Client Reactivation Program','Missed call text back','Featured spendlocal.net listing','Monthly performance reports','Google Ads (spend included)','Google Guaranteed badge','Meta Ads (Facebook + Instagram)','Retargeting campaigns','Advanced SEO + content strategy','AI-powered search visibility','Schema markup + entity optimization','AI Receptionist \u2014 24/7 phone, text, chat','AI-powered follow-up sequences','Competitive monitoring','Custom landing pages','Quarterly strategy sessions','Priority support (4-hr SLA)','Full dashboard with cost-per-lead','Unlimited content updates','4 blog posts/month']}
   };
-  var recepMo = {starter:497, foundation:497, momentum:297, authority:0, none:497};
+  var recepMo = {presence:497, foundation:497, momentum:297, authority:0, none:497};
   var RECEP_SETUP = 997, SITE_COST = 497, REACT_COST = 497;
   var S = {term:'6m', plan:null, recep:false, site:false, react:false, agent:false, agreed:false};
   var prm = new URLSearchParams(location.search);
@@ -496,7 +496,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updCards() {
-    ['starter','foundation','momentum','authority'].forEach(function(p) {
+    ['presence','foundation','momentum','authority'].forEach(function(p) {
       document.getElementById('pr-' + p).innerHTML = '$' + fmt(plans[p].mo) + '<span>/mo</span>';
       var su = document.getElementById('su-' + p);
       if (S.term === 'nc') { su.textContent = '$' + fmt(plans[p].setup) + ' setup'; su.className = 'pln-setup gray'; }
@@ -526,7 +526,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (S.plan === 'authority') recepPrEl.textContent = '$' + fmt(RECEP_SETUP) + ' setup \u2014 $0/mo with Authority';
     else recepPrEl.textContent = '$' + fmt(RECEP_SETUP) + ' setup + $' + fmt(rMo) + '/mo';
     var hasPlan = S.plan && S.plan !== 'none';
-    var hasFullPlan = hasPlan && S.plan !== 'starter';
+    var hasFullPlan = hasPlan && S.plan !== 'presence';
     var recepTg = document.getElementById('ao-recep-tg');
     recepTg.style.display = '';
     var ri2 = document.getElementById('ao-recep-inc'); if (ri2) ri2.style.display = 'none';
@@ -539,7 +539,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('ao-react-pr').textContent = hasFullPlan ? 'Included with your plan' : '$' + fmt(REACT_COST) + ' one-time';
     if (hasFullPlan) { S.react = false; document.getElementById('ao-react-tg').classList.remove('on'); }
     var agentRow = document.getElementById('ao-agent'), agentInc = document.getElementById('ao-agent-inc'), agentTg = document.getElementById('ao-agent-tg'), agentPr = document.getElementById('ao-agent-pr');
-    if (S.plan === 'starter') { agentRow.style.display = ''; agentTg.style.display = ''; if (agentInc) agentInc.style.display = 'none'; agentPr.textContent = '+ $50/mo'; }
+    if (S.plan === 'presence') { agentRow.style.display = ''; agentTg.style.display = 'none'; if (agentInc) agentInc.style.display = ''; agentPr.textContent = 'Included with Presence'; S.agent = false; agentTg.classList.remove('on'); }
     else if (hasFullPlan) { agentRow.style.display = ''; agentTg.style.display = 'none'; if (agentInc) agentInc.style.display = ''; agentPr.textContent = 'Included with your plan'; S.agent = false; agentTg.classList.remove('on'); }
     else { agentRow.style.display = ''; agentTg.style.display = ''; if (agentInc) agentInc.style.display = 'none'; agentPr.textContent = '$149/mo'; }
   }
@@ -567,7 +567,7 @@ document.addEventListener('DOMContentLoaded', function() {
       d.inc.forEach(function(i) { html += '<div>' + i + '</div>'; });
       html += '</div></div></div>';
     }
-    if (S.agent && S.plan === 'starter') { monthlyTotal += 50; todayTotal += 50; html += '<div class="os-item"><div class="os-row"><span>Talking Website: AgentCopy AI</span><span>$50/mo</span></div></div>'; }
+    /* AgentCopy is included in Presence and all higher tiers — no separate line item */
     else if (S.agent && (!S.plan || S.plan === 'none')) { monthlyTotal += 149; todayTotal += 149; html += '<div class="os-item"><div class="os-row"><span>Talking Website: AgentCopy AI</span><span>$149/mo</span></div></div>'; }
     if (S.recep) { var rMo = recepMo[S.plan||'none']; monthlyTotal += rMo; todayTotal += rMo + RECEP_SETUP; html += '<div class="os-item"><div class="os-row"><span>AI Receptionist</span><span>' + (rMo > 0 ? '$'+fmt(rMo)+'/mo' : '$0/mo') + '</span></div><div class="os-row sub"><span>Setup</span><span>$' + fmt(RECEP_SETUP) + '</span></div></div>'; }
     if (S.site) { todayTotal += SITE_COST; html += '<div class="os-item"><div class="os-row"><span>Website Build</span><span>$' + fmt(SITE_COST) + '</span></div></div>'; }
@@ -689,7 +689,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   function updPayBtn(today) {
-    if (today === undefined) { today = 0; if (S.plan && S.plan !== 'none') { today += plans[S.plan].mo; if (S.term === 'nc' && plans[S.plan].setup > 0) today += plans[S.plan].setup; } if (S.agent && S.plan === 'starter') today += 50; else if (S.agent && (!S.plan || S.plan === 'none')) today += 149; if (S.recep) today += RECEP_SETUP + recepMo[S.plan||'none']; if (S.site) today += SITE_COST; if (S.react) today += REACT_COST; }
+    if (today === undefined) { today = 0; if (S.plan && S.plan !== 'none') { today += plans[S.plan].mo; if (S.term === 'nc' && plans[S.plan].setup > 0) today += plans[S.plan].setup; } if (S.agent && S.plan === 'presence') today += 0; else if (S.agent && (!S.plan || S.plan === 'none')) today += 149; if (S.recep) today += RECEP_SETUP + recepMo[S.plan||'none']; if (S.site) today += SITE_COST; if (S.react) today += REACT_COST; }
     document.getElementById('pay-total').textContent = '$' + fmt(today);
     var hasItem = (S.plan && S.plan !== 'none') || S.recep || S.site || S.react || S.agent;
     var hasSub = (S.plan && S.plan !== 'none') || S.recep || S.agent;
@@ -703,11 +703,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // STRIPE LINKS
   var stripeLinks = {
-    'starter_nc':'https://buy.stripe.com/4gMeVeg3N6nB6EYeEB3Je0y','starter_agent_nc':'https://buy.stripe.com/4gMfZi5p96nB0gA6853Je0E',
+    'presence_nc':'https://buy.stripe.com/4gMeVeg3N6nB6EYeEB3Je0y',
     'foundation_nc':'https://buy.stripe.com/8x28wQ7xhh2f2oI3ZX3Je0e','momentum_nc':'https://buy.stripe.com/dRm5kEcRBfYb0gA9kh3Je0f','authority_nc':'https://buy.stripe.com/28EaEY9FpcLZe7qfIF3Je0g',
-    'starter_6m':'https://buy.stripe.com/28E28s7xh13h7J2eEB3Je0z','starter_agent_6m':'https://buy.stripe.com/6oUeVeg3N3bpbZigMJ3Je0F',
+    'presence_6m':'https://buy.stripe.com/28E28s7xh13h7J2eEB3Je0z',
     'foundation_6m':'https://buy.stripe.com/9B69AUeZJ3bpbZidAx3Je0i','momentum_6m':'https://buy.stripe.com/00wdRa4l5dQ39Ra8gd3Je0j','authority_6m':'https://buy.stripe.com/fZufZibNx13h5AUaol3Je0k',
-    'starter_12m':'https://buy.stripe.com/3cI9AU9Fp8vJbZieEB3Je0A','starter_agent_12m':'https://buy.stripe.com/7sYdRacRBcLZ6EY0NL3Je0G',
+    'presence_12m':'https://buy.stripe.com/3cI9AU9Fp8vJbZieEB3Je0A',
     'foundation_12m':'https://buy.stripe.com/7sYcN6dVF4ftbZi5413Je0m','momentum_12m':'https://buy.stripe.com/aFa14ocRB8vJ6EY6853Je0n','authority_12m':'https://buy.stripe.com/3cI5kE3h15jx1kE6853Je0o',
     'momentum_recep_nc':'https://buy.stripe.com/bJe8wQ5p913hd3m8gd3Je0p','momentum_recep_6m':'https://buy.stripe.com/28E8wQ6tddQ3fbu1RP3Je0q','momentum_recep_12m':'https://buy.stripe.com/fZubJ2dVFaDR3sMbsp3Je0r',
     'recep_standalone':'https://buy.stripe.com/9B26oI4l5eU72oIdAx3Je0s','recep_addon_momentum':'https://buy.stripe.com/14A14oaJt7rF6EYeEB3Je0t',
@@ -716,7 +716,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function getStripeLink() {
     var hasPlan = S.plan && S.plan !== 'none';
     if (!hasPlan) { if (S.recep) return stripeLinks['recep_standalone']; if (S.agent) return stripeLinks['agent_standalone']||null; if (S.site && S.react) return null; if (S.site) return stripeLinks['site_only']; if (S.react) return stripeLinks['react_only']; return null; }
-    if (S.plan === 'starter' && S.agent) return stripeLinks['starter_agent_'+S.term]||null;
+    /* AgentCopy included in Presence — no separate combo link needed */
     if (S.recep && S.plan === 'momentum') return stripeLinks['momentum_recep_'+S.term];
     return stripeLinks[S.plan+'_'+S.term];
   }
