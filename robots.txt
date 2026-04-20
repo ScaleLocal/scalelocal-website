@@ -4,6 +4,9 @@ Disallow: /checkout
 Disallow: /welcome
 Disallow: /free-website
 Disallow: /grow
+Disallow: /internal
+Disallow: /sniper
 Disallow: /ScaleLocalSalesSniper24769241
+Disallow: /snapshot/upgrade
 
 Sitemap: https://scalelocal.net/sitemap.xml
