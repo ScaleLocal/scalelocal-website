@@ -8,5 +8,7 @@ Disallow: /internal
 Disallow: /sniper
 Disallow: /ScaleLocalSalesSniper24769241
 Disallow: /snapshot/upgrade
+Disallow: /test-builds/
+Disallow: /templates/
 
-Sitemap: https://scalelocal.net/sitemap.xml
+Sitemap: https://www.scalelocal.net/sitemap.xml
