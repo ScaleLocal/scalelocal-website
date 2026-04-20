@@ -34,6 +34,15 @@
       padding: 0;
     }
 
+    :root {
+      --brand: #2E75B6;
+      --accent: #C75B12;
+      --dark: #1a2e4a;
+      --text: #1a1a2e;
+      --muted: #6b7a8d;
+      --green: #2ecc71;
+    }
+
     html {
       scroll-behavior: smooth;
       -webkit-font-smoothing: antialiased;
@@ -415,6 +424,83 @@
         transform: translateY(8px);
         opacity: 0.6;
       }
+    }
+
+    /* ========== ACCENT COLOR UTILITY ========== */
+    .accent-word { color: var(--accent); }
+    .accent-guarantee {
+      color: var(--accent) !important;
+      font-weight: 700 !important;
+    }
+
+    /* ========== PIVOT SECTION — "Not necessarily better than you" ========== */
+    .pivot-section {
+      background: #0F1419;
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .pivot-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .pivot-line1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: clamp(1.5rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+    .pivot-line2 {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      color: #a8b8cc;
+      font-size: clamp(1.0625rem, 2.5vw, 1.375rem);
+      line-height: 1.5;
+    }
+    @media (min-width: 768px) {
+      .pivot-section { padding: 120px 24px; }
+    }
+
+    /* ========== GUARANTEE TERMS DISCLOSURE ========== */
+    .guarantee-terms-disclosure {
+      margin-top: 16px;
+    }
+    .guarantee-terms-disclosure summary {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--brand);
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .guarantee-terms-disclosure summary:hover {
+      color: var(--dark);
+    }
+    .guarantee-contract-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.6875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .guarantee-industry-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.875rem;
+      color: var(--brand);
+      font-weight: 600;
+      margin-top: 16px;
+      font-style: italic;
+    }
+    .guarantee-tracking-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8125rem;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.6;
     }
 
     #authority-bar {
@@ -1013,7 +1099,7 @@
     .service-price-amount {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      font-size: 3rem;
+      font-size: clamp(3rem, 6vw, 4.25rem);
       line-height: 1;
     }
 
@@ -1581,8 +1667,8 @@
 
     /* ========== GUARANTEE SECTION ========== */
     #guarantee {
-      background: #ffffff;
-      padding: 64px 0;
+      background: #fafbfc;
+      padding: 96px 0;
     }
 
     .guarantee-inner {
@@ -1594,20 +1680,20 @@
     .guarantee-headline {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: #1a2e4a;
-      font-size: 1.625rem;
-      line-height: 1.1;
+      color: var(--dark);
+      font-size: clamp(1.75rem, 5vw, 3.5rem);
+      line-height: 1.05;
       text-align: center;
     }
 
     .guarantee-sub {
       font-family: 'Inter', sans-serif;
-      font-size: 1.125rem;
-      color: #6b7a8d;
+      font-size: 1.0625rem;
+      color: var(--muted);
       text-align: center;
-      max-width: 600px;
-      margin: 16px auto 64px;
-      line-height: 1.6;
+      max-width: 640px;
+      margin: 20px auto 72px;
+      line-height: 1.65;
     }
 
     .guarantee-cards {
@@ -1654,8 +1740,8 @@
     .guarantee-number {
       font-family: 'Montserrat', sans-serif;
       font-weight: 800;
-      color: #1a2e4a;
-      font-size: 4rem;
+      color: var(--accent);
+      font-size: clamp(4.5rem, 10vw, 7rem);
       line-height: 1;
       margin-bottom: 4px;
     }
@@ -1691,7 +1777,7 @@
       margin: 24px auto;
     }
 
-    .guarantee-or-free {
+    .guarantee-or-free.accent-guarantee {
       font-family: 'Montserrat', sans-serif;
       font-weight: 700;
       color: #1a2e4a;
@@ -2603,17 +2689,9 @@
         padding: 96px 0;
       }
 
-      .guarantee-headline {
-        font-size: 2.5rem;
-      }
-
       .guarantee-cards {
         grid-template-columns: 1fr 1fr 1fr;
         gap: 32px;
-      }
-
-      .guarantee-number {
-        font-size: 4rem;
       }
 
       .guarantee-statement {
@@ -2713,19 +2791,19 @@
         <p class="hero-eyebrow">Serving Rhode Island, Massachusetts &amp; New Hampshire</p>
         <h1 class="hero-headline">
           Right now, someone in your town is searching for exactly what you offer.
-          <span class="hero-headline-accent">Are they finding you — or your competitor?</span>
+          <span class="hero-headline-accent">Are they finding you &mdash; or your <span class="accent-word">competitor</span>?</span>
         </h1>
-        <p class="hero-sub">Most local businesses lose customers every single day — not because they're not good at what they do, but because someone else showed up first on Google. ScaleLocal is the local marketing agency that helps your business show up on Google, get more customers, and grow — with a written performance guarantee behind every dollar you invest.</p>
+        <p class="hero-sub">Your competitor shows up first on Google. That&rsquo;s why they got the call. We fix that &mdash; with a written lead guarantee, or we work free until we do.</p>
         <p class="hero-body">Tewksbury-based. Serving RI, MA, and NH.<br>Website live in 48 hours. Results guaranteed in writing — or we work free.</p>
         <div class="hero-buttons">
-          <a href="/snapshot" class="btn-primary">Get My Free Digital Audit &rarr;</a>
+          <a href="/snapshot" class="btn-primary">Get the Audit. See Where You Really Rank. &rarr;</a>
           <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
         </div>
         <div class="trust-row">
           <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Website Live in 48 Hours</span></div>
           <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Written Results Guarantee</span></div>
           <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">$0 Setup on 6-Month Plans</span></div>
-          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">personal account manager</span></div>
+          <div class="trust-item"><span class="trust-check">&#10003;</span><span class="trust-text">Personal Account Manager</span></div>
         </div>
       </div>
       <!-- Bouncing scroll arrow removed — not functional
@@ -2806,13 +2884,16 @@
             <p class="pain-card-body">A slow, outdated, or mobile-unfriendly site doesn&rsquo;t just fail to convert &mdash; it actively sends visitors to someone else. Google ranks it lower. Customers distrust it. You lose the lead before they ever call.</p>
           </div>
         </div>
-        <div class="problem-bottom-box">
-          <p class="problem-bottom-line1">The businesses winning in your town right now<br>aren&rsquo;t necessarily better than you.</p>
-          <p class="problem-bottom-line2">They just have better visibility. That&rsquo;s fixable.<br>And it doesn&rsquo;t take six months.</p>
-        </div>
         <div class="problem-cta-wrap">
-          <a href="#growth-system" class="problem-cta">See How ScaleLocal Fixes This &rarr;</a>
+          <a href="#pivot" class="problem-cta">See How ScaleLocal Fixes This &rarr;</a>
         </div>
+      </div>
+    </section>
+
+    <section id="pivot" class="pivot-section">
+      <div class="pivot-inner">
+        <p class="pivot-line1">The businesses winning in your town right now aren&rsquo;t necessarily better than you.</p>
+        <p class="pivot-line2">They just have <span class="accent-word">better visibility</span>. That&rsquo;s fixable. And it doesn&rsquo;t take six months.</p>
       </div>
     </section>
 
@@ -2825,7 +2906,7 @@
           <div class="stage-card stage-card--foundation">
             <p class="stage-number" style="color:#2ecc71;">STAGE 1</p>
             <h3 class="stage-title">Foundation</h3>
-            <p class="stage-subtitle">Your digital foundation, built right.</p>
+            <p class="stage-subtitle">Customers can actually find you online.</p>
             <ul class="stage-deliverables">
               <li>Professional website live in 48 hours</li>
               <li>Google Business Profile fully optimized</li>
@@ -2838,7 +2919,7 @@
           <div class="stage-card stage-card--visibility">
             <p class="stage-number" style="color:#2E75B6;">STAGE 2</p>
             <h3 class="stage-title">Visibility</h3>
-            <p class="stage-subtitle">Own the map. Own the reviews.</p>
+            <p class="stage-subtitle">You show up before your competitors do.</p>
             <ul class="stage-deliverables">
               <li>Google Maps / map pack ranking campaign</li>
               <li>Automated review generation system</li>
@@ -2851,7 +2932,7 @@
           <div class="stage-card stage-card--acceleration">
             <p class="stage-number" style="color:#f39c12;">STAGE 3</p>
             <h3 class="stage-title">Acceleration</h3>
-            <p class="stage-subtitle">Paid reach. AI search. Unstoppable pipeline.</p>
+            <p class="stage-subtitle">The phone rings. The leads come in. Consistently.</p>
             <ul class="stage-deliverables">
               <li>Google Ads and/or Meta Ads managed campaigns</li>
               <li>ScaleLocal AI Visibility &mdash; optimized for ChatGPT, Gemini, and Perplexity results</li>
@@ -2864,7 +2945,7 @@
           <div class="stage-card stage-card--retention">
             <p class="stage-number" style="color:#9b59b6;">STAGE 4</p>
             <h3 class="stage-title">Retention</h3>
-            <p class="stage-subtitle">You always know exactly what we&rsquo;re doing.</p>
+            <p class="stage-subtitle">You see every lead, every call, every result &mdash; in real time.</p>
             <ul class="stage-deliverables">
               <li>Live ScaleLocal Dashboard &mdash; real-time lead tracking</li>
               <li>Personal account manager, direct line, no ticket system</li>
@@ -2954,7 +3035,7 @@
           <div class="roi-low-ltv" id="roi-low-ltv" style="display:none;">
             <div class="roi-low-ltv-inner">
               <p class="roi-low-ltv-honest" id="roi-low-honest"></p>
-              <p class="roi-low-ltv-but">That said &mdash; if you close customers at a higher rate than 30%, the math shifts fast. But based on our lead guarantees alone, here&rsquo;s what you&rsquo;d need to break even:</p>
+              <p class="roi-low-ltv-but">These numbers only count our guaranteed minimums. Most clients close at higher rates and see additional leads beyond the guarantee. Here&rsquo;s the breakeven math at your current numbers:</p>
               <div class="roi-low-breakeven" id="roi-low-be"></div>
               <p class="roi-low-ltv-redirect">We&rsquo;d rather be upfront about that than take your money. But we do have standalone services that deliver value at any customer lifetime value:</p>
               <div class="roi-low-products">
@@ -2978,7 +3059,7 @@
           </div>
         </div>
         <div class="pricing-cta-wrap">
-          <a href="/snapshot" class="pricing-cta">Get Started &mdash; It&rsquo;s $0 to Set Up &rarr;</a>
+          <a href="/snapshot" class="pricing-cta">Show Me What My Competitors Are Doing &rarr;</a>
           <p style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:#6b7a8d;text-align:center;margin-top:12px;">Free audit. No credit card. No commitment.</p>
         </div>
       </div>
@@ -2988,8 +3069,8 @@
     <section id="guarantee">
       <div class="guarantee-inner">
         <p class="section-label">THE GUARANTEE</p>
-        <h2 class="guarantee-headline">We put our money where<br>our mouth is. In writing.</h2>
-        <p class="guarantee-sub">Every ScaleLocal client receives a written performance guarantee in their service agreement. Not a talking point &mdash; a legal commitment. If we don&rsquo;t hit your number, we work for free until we do.</p>
+        <h2 class="guarantee-headline">Miss the number. We work free. Period.</h2>
+        <p class="guarantee-sub">Not a refund. Not a credit. Not a satisfaction guarantee. An actual work guarantee &mdash; written into your contract before you pay a dollar. Hit your lead target every month, or billing pauses and we keep working until we do.</p>
         <div class="guarantee-cards">
           <div class="guarantee-card">
             <div class="guarantee-card-accent guarantee-card-accent--green"></div>
@@ -2999,7 +3080,7 @@
             <p class="guarantee-ramp">Guaranteed by day 60</p>
             <p class="guarantee-ad-note">No ad spend required</p>
             <hr class="guarantee-card-divider">
-            <p class="guarantee-or-free">Or we work for free until we do.</p>
+            <p class="guarantee-or-free accent-guarantee">Or we work for free until we do.</p>
           </div>
           <div class="guarantee-card">
             <div class="guarantee-card-accent guarantee-card-accent--blue"></div>
@@ -3009,7 +3090,7 @@
             <p class="guarantee-ramp">Guaranteed by day 90</p>
             <p class="guarantee-ad-note">Ad spend included through your guarantee period</p>
             <hr class="guarantee-card-divider">
-            <p class="guarantee-or-free">Or we work for free until we do.</p>
+            <p class="guarantee-or-free accent-guarantee">Or we work for free until we do.</p>
           </div>
           <div class="guarantee-card">
             <div class="guarantee-card-accent guarantee-card-accent--purple"></div>
@@ -3019,16 +3100,21 @@
             <p class="guarantee-ramp">Guaranteed by day 90</p>
             <p class="guarantee-ad-note">Ad spend included through your guarantee period</p>
             <hr class="guarantee-card-divider">
-            <p class="guarantee-or-free">Or we work for free until we do.</p>
+            <p class="guarantee-or-free accent-guarantee">Or we work for free until we do.</p>
           </div>
         </div>
         <div class="guarantee-statement">
-          <span class="guarantee-quote-mark">&ldquo;</span>
-          <p class="guarantee-quote-text">We guarantee a specific number of new leads every month &mdash; tracked in real time in your live ScaleLocal Dashboard. Miss the target within the ramp period and we keep working at no charge until we hit it. That&rsquo;s not a policy &mdash; it&rsquo;s written into your contract before you pay a dollar.</p>
+          <p class="guarantee-contract-label">FROM THE ACTUAL SERVICE AGREEMENT:</p>
+          <p class="guarantee-quote-text">&ldquo;If qualifying leads in any month after activation fall below the guaranteed minimum, billing for the subsequent month is automatically paused, and ScaleLocal continues full service at no charge until the guarantee is met.&rdquo;</p>
           <p class="guarantee-attribution">&mdash; Included in every ScaleLocal service agreement</p>
-          <p class="guarantee-fine-print">A &ldquo;lead&rdquo; is defined as a tracked inbound call, form submission, or booking request originating from ScaleLocal-managed channels. Guarantee ramp period begins on your official launch date. The performance guarantee applies on all commitment terms &mdash; month-to-month, 6-month, and 12-month. The guarantee activates after the ramp period for your tier (Foundation: day 60, Momentum: day 90, Authority: day 90). Momentum and Authority include a minimum managed ad budget through the guarantee period. Scaling beyond the minimum is available and agreed on before any budget changes.</p>
+          <p class="guarantee-industry-note">Guarantee targets are calibrated by industry &mdash; see your specific numbers during your free audit.</p>
+          <p class="guarantee-tracking-note">Leads are tracked through a dedicated phone number and email routing we set up for your business, logged in your live dashboard in real time. You see every inquiry, including the ones that don&rsquo;t count.</p>
+          <details class="guarantee-terms-disclosure">
+            <summary>See guarantee terms</summary>
+            <p class="guarantee-fine-print">A &ldquo;lead&rdquo; is defined as a tracked inbound call, form submission, or booking request originating from ScaleLocal-managed channels. Excluded from the guarantee: spam, wrong-industry contacts, out-of-service-area requests, duplicate inquiries from the same contact within 30 days, abandoned calls under 15 seconds, and contacts flagged as solicitation or recruiting. You have 5 business days to flag any lead&rsquo;s categorization for review. Guarantee ramp period begins on your official launch date. The performance guarantee applies on all commitment terms &mdash; month-to-month, 6-month, and 12-month. The guarantee activates after the ramp period for your tier (Foundation: day 60, Momentum/Authority: day 90). Momentum and Authority include a minimum managed ad budget through the guarantee period.</p>
+          </details>
           <div class="guarantee-cta-wrap">
-            <a href="/snapshot" class="guarantee-cta">Get My Guarantee in Writing &rarr;</a>
+            <a href="/snapshot" class="guarantee-cta">Lock In My Guarantee &rarr;</a>
           </div>
         </div>
       </div>
@@ -3038,15 +3124,15 @@
     <section id="services">
       <div class="services-inner">
         <p class="section-label">OUR SYSTEMS</p>
-        <h2 class="services-headline">Three systems. One goal.<br>More customers finding you first.</h2>
-        <p class="services-sub">Starting at $497/mo. Every plan includes a live dashboard and a professional website. Billed monthly &mdash; no lump sum, ever.</p>
+        <h2 class="services-headline">Three systems. Three prices. No negotiation.</h2>
+        <p class="services-sub">Every ScaleLocal client pays the same rate for the same system. We don&rsquo;t charge dentists more because they look profitable. Same work, same number, every time. Pick the tier that matches where you are &mdash; change it when you outgrow it.</p>
         <div class="service-cards">
           <!-- Starter card removed — Starter is hidden from public site. Foundation is the lowest visible plan. -->
           <div class="service-card service-card--standard">
             <p class="service-tier-label">FOUNDATION SYSTEM</p>
             <h3 class="service-card-title">Foundation</h3>
             <p class="service-tagline">Get found. Get reviewed. Get calls.</p>
-            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses starting from zero online presence</p>
+            <p style="font-family:'Inter',sans-serif;font-size:0.75rem;color:#2E75B6;font-weight:600;margin-top:6px;">Best for: businesses that need to start showing up before spending on ads</p>
             <div class="service-price-block">
               <span class="service-price-amount">$497</span><span class="service-price-period">/mo</span>
             </div>
@@ -3058,13 +3144,13 @@
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Chat on your website</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Tracking (call + lead tracking)</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">ScaleLocal Dashboard &mdash; live reporting</span></li>
-              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">personal account manager</span></li>
+              <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Personal Account Manager</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Monthly performance report</span></li>
               <li class="service-feature"><span class="service-feature-check">&check;</span><span class="service-feature-text">Minimum 3 new leads/month &mdash; or we work for free</span></li>
             </ul>
             <div class="service-guarantee service-guarantee--light">Minimum 3 leads/month guaranteed by day 60. No ad spend required.</div>
             <div class="service-cta-wrap">
-              <a href="/checkout?plan=foundation" class="service-cta">Start with Foundation &rarr;</a>
+              <a href="/checkout?plan=foundation" class="service-cta">Lock In My Guarantee &rarr;</a>
             </div>
           </div>
           <div class="service-card service-card--featured">
@@ -3089,7 +3175,7 @@
             </ul>
             <div class="service-guarantee service-guarantee--dark">Minimum 8 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="service-cta-wrap">
-              <a href="/checkout?plan=momentum" class="service-cta">Start with Momentum &rarr;</a>
+              <a href="/checkout?plan=momentum" class="service-cta">Lock In My Guarantee &rarr;</a>
             </div>
           </div>
           <div class="service-card service-card--standard">
@@ -3113,7 +3199,7 @@
             </ul>
             <div class="service-guarantee service-guarantee--light">Minimum 15 leads/month guaranteed by day 90. Ad spend included through your guarantee period.</div>
             <div class="service-cta-wrap">
-              <a href="/checkout?plan=authority" class="service-cta">Start with Authority &rarr;</a>
+              <a href="/checkout?plan=authority" class="service-cta">Lock In My Guarantee &rarr;</a>
             </div>
           </div>
         </div>
@@ -4031,11 +4117,11 @@
     <h2 class="founder-headline">Every account gets a personal point of contact.<br>Not a ticket system.</h2>
 
     <div class="founder-letter">
-      <p class="founder-intro">I started ScaleLocal because I kept seeing the same thing &mdash; good local businesses losing customers to competitors who just showed up better online. Not because they were better. Because they were more visible.</p>
+      <p class="founder-intro">I started ScaleLocal because good businesses were losing to worse ones that just showed up better online. That&rsquo;s a fixable problem &mdash; and I got tired of watching agencies charge $3,000/mo to not fix it.</p>
 
-      <p class="founder-body">I&rsquo;ve spent years building the exact system that fixes that. Not a bundle of tools you manage yourself &mdash; a done-for-you engine with a person behind it. Me, or someone I&rsquo;ve trained and trust, on your account every single month.</p>
+      <p class="founder-body">So we built the opposite agency. Published pricing. Written guarantees. Live reporting. You own everything. And I&rsquo;m either on your account or the person who is reports to me.</p>
 
-      <p class="founder-body">ScaleLocal is intentionally small. We don&rsquo;t take on more clients than we can serve at the level I&rsquo;d want if I were the client. Every account gets the same thing: real work, real results, and a written guarantee that puts my money on the line if we don&rsquo;t deliver.</p>
+      <p class="founder-body">We don&rsquo;t take on more clients than we can serve at the level I&rsquo;d want if I were the client. That&rsquo;s not a tagline &mdash; it&rsquo;s why there&rsquo;s a cap.</p>
 
       <div class="signature-block">
         <div class="signature-line">Matt</div>
@@ -4199,10 +4285,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <label for="cf-town">Town</label>
         <input type="text" id="cf-town" name="town" required placeholder="Your town, RI, MA or NH">
 
-        <!-- Phone field temporarily removed for A2P compliance (multiple opt-in conflict with chat widget)
         <label for="cf-phone">Phone</label>
         <input type="tel" id="cf-phone" name="phone" required>
-        -->
 
         <label for="cf-email">Email</label>
         <input type="email" id="cf-email" name="email" required>
