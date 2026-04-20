@@ -33,13 +33,28 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-font-smoothing:antialiased}
     body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.7;color:#1a1a2e;background:#f0f4f8}
-    .topbar{background:#1a2e4a;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-    .topbar a{text-decoration:none}
-    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
-    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
-    .topbar-cta{display:inline-flex;padding:8px 20px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;border-radius:6px;text-decoration:none}
-    .topbar-cta:hover{opacity:0.9}
-    .hero{background:#1a2e4a;padding:64px 24px;text-align:center}
+    body.menu-open{overflow:hidden}
+    .site-nav{position:fixed;top:0;left:0;width:100%;height:60px;background:#1a2e4a;border-bottom:1px solid rgba(255,255,255,0.08);z-index:1000;display:flex;align-items:center;transition:box-shadow 0.3s ease}
+    .site-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.4)}
+    .nav-inner{width:100%;max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+    .nav-logo{text-decoration:none;display:flex;align-items:center;flex-shrink:0}
+    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff;line-height:1}
+    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6;line-height:1}
+    .nav-links{display:none;list-style:none;gap:20px;align-items:center}
+    .nav-links a{color:#fff;text-decoration:none;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;transition:color 0.2s}
+    .nav-links a:hover,.nav-links a.active{color:#2E75B6}
+    .nav-cta-desktop{display:none;align-items:center;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-size:0.875rem;font-weight:700;padding:10px 16px;border-radius:6px;text-decoration:none;transition:all 0.2s;flex-shrink:0}
+    .nav-cta-desktop:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(46,204,113,0.3)}
+    .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:12px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
+    .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px}
+    .mobile-menu{position:fixed;top:0;right:0;width:100%;height:100%;background:#1a2e4a;z-index:1001;display:flex;flex-direction:column;padding:80px 24px 32px;transform:translateX(100%);transition:transform 0.3s ease}
+    .mobile-menu.open{transform:translateX(0)}
+    .mobile-menu-close{position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
+    .mobile-menu nav{display:flex;flex-direction:column;flex:1}
+    .mobile-menu a{color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:500;min-height:48px;display:flex;align-items:center}
+    .mobile-menu .mobile-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;background:#2ecc71;color:#1a2e4a;height:56px;width:100%;font-family:'Montserrat',sans-serif;font-size:1.0625rem;font-weight:700;border:none;border-radius:8px;text-decoration:none}
+    @media(min-width:768px){.site-nav{height:72px}.nav-links{display:flex}.nav-cta-desktop{display:inline-flex}.hamburger{display:none}}
+    .hero{background:#1a2e4a;padding:100px 24px 64px;text-align:center}
     .hero-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:12px}
     .hero h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:2rem;line-height:1.2;max-width:700px;margin:0 auto 20px}
     @media(min-width:768px){.hero h1{font-size:2.5rem}}
@@ -76,11 +91,30 @@
   </style>
 </head>
 <body>
-  <div class="topbar">
-    <a href="/" style="display:flex;align-items:center;gap:4px">
-      <span class="logo-s">Scale</span><span class="logo-l">Local</span>
-    </a>
-    <a href="/snapshot" class="topbar-cta">Free Snapshot</a>
+  <header class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo"><span class="logo-scale">Scale</span><span class="logo-local">Local</span></a>
+      <nav class="nav-links">
+        <a href="/#growth-system">How We Help</a>
+        <a href="/pricing">Pricing</a>
+        <a href="/demos">AI Demos</a>
+        <a href="/#founder">About</a>
+      </nav>
+      <a href="/snapshot" class="nav-cta-desktop">Get Your Free Digital Audit &rarr;</a>
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close">&times;</button>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/#growth-system">How We Help</a>
+      <a href="/pricing">Pricing</a>
+      <a href="/demos">AI Demos</a>
+      <a href="/#founder">About</a>
+      <a href="/snapshot" class="mobile-cta">Get Your Free Digital Audit &rarr;</a>
+    </nav>
   </div>
 
   <div class="hero">
@@ -143,5 +177,17 @@
   <footer>
     <p style="margin:0;">&copy; 2026 ScaleLocal. All rights reserved. 10 Leisa G, Tewksbury, MA 01876. Serving Rhode Island, Massachusetts &amp; New Hampshire. <a href="/industries">Industries</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a></p>
   </footer>
+<script>
+(function(){
+  var btn=document.getElementById('hamburger-btn'),menu=document.getElementById('mobile-menu'),cls=document.getElementById('mobile-menu-close');
+  if(btn&&menu&&cls){
+    btn.addEventListener('click',function(){menu.classList.add('open');document.body.classList.add('menu-open');});
+    cls.addEventListener('click',function(){menu.classList.remove('open');document.body.classList.remove('menu-open');});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');document.body.classList.remove('menu-open');});});
+  }
+  var nav=document.getElementById('site-nav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);});}
+})();
+</script>
 </body>
 </html>

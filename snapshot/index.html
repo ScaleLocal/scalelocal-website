@@ -136,7 +136,6 @@
     if (prm.get('name')) {
       var parts = decodeURIComponent(prm.get('name')).split(' ');
       document.getElementById('s-fn').value = parts[0] || '';
-      document.getElementById('s-ln').value = parts.slice(1).join(' ') || '';
     }
     if (prm.get('email')) document.getElementById('s-email').value = decodeURIComponent(prm.get('email'));
     if (prm.get('phone')) document.getElementById('s-phone').value = decodeURIComponent(prm.get('phone'));
@@ -149,20 +148,16 @@
       btn.textContent = 'Submitting...';
 
       var fn       = document.getElementById('s-fn').value.trim();
-      var ln       = '';
       var email    = document.getElementById('s-email').value.trim();
       var phone    = document.getElementById('s-phone').value.trim();
       var biz      = document.getElementById('s-biz').value.trim();
       var city     = document.getElementById('s-city').value.trim();
-      var industry = document.getElementById('s-industry').value;
 
       var redirectUrl = '/snapshot/upgrade/?fn=' + encodeURIComponent(fn)
-        + '&ln=' + encodeURIComponent(ln)
         + '&e='  + encodeURIComponent(email)
         + '&p='  + encodeURIComponent(phone)
         + '&b='  + encodeURIComponent(biz)
-        + '&c='  + encodeURIComponent(city)
-        + '&i='  + encodeURIComponent(industry);
+        + '&c='  + encodeURIComponent(city);
 
       // POST to our Vercel serverless function — it handles GHL server-side
       fetch('/api/submit-snapshot', {
@@ -170,12 +165,10 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           first_name:    fn,
-          last_name:     ln,
           email:         email,
           phone:         phone,
           business_name: biz,
-          city:          city,
-          industry:      industry
+          city:          city
         })
       })
       .then(function() { window.location.href = redirectUrl; })
