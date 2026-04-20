@@ -596,14 +596,29 @@
 
     /* ========== PROBLEM SECTION ========== */
     .section-label {
-      color: #2ecc71;
       text-transform: uppercase;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.6875rem;
-      letter-spacing: 0.22em;
-      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.875rem;
+      letter-spacing: 0.18em;
+      font-weight: 700;
       margin-bottom: 16px;
       text-align: center;
+      color: #2ecc71;
+    }
+    /* On white/light backgrounds, section labels use dark navy for contrast */
+    #problem .section-label,
+    #growth-system .section-label,
+    #pricing .section-label,
+    #guarantee .section-label,
+    #services .section-label,
+    #how-it-works .section-label,
+    #founder .section-label,
+    #faq .section-label {
+      color: var(--dark);
+    }
+    /* On dark backgrounds, keep green */
+    #dashboard .section-label {
+      color: #2ecc71;
     }
 
     #problem {
@@ -792,10 +807,10 @@
       transform: translateY(-2px);
     }
 
-    .stage-card--foundation { border-top-color: #2ecc71; }
-    .stage-card--visibility { border-top-color: #2E75B6; }
-    .stage-card--acceleration { border-top-color: #f39c12; }
-    .stage-card--retention { border-top-color: #9b59b6; }
+    .stage-card--build { border-top-color: #2ecc71; }
+    .stage-card--rank { border-top-color: #2E75B6; }
+    .stage-card--grow { border-top-color: #f39c12; }
+    .stage-card--track { border-top-color: #9b59b6; }
 
     .stage-number {
       font-family: 'Montserrat', sans-serif;
@@ -1274,7 +1289,7 @@
     /* ========== PRICING SECTION ========== */
     #pricing {
       background: #f0f4f8;
-      padding: 64px 0;
+      padding: 40px 0 64px;
     }
 
     .pricing-inner {
@@ -2794,9 +2809,8 @@
           <span class="hero-headline-accent">Are they finding you &mdash; or your <span class="accent-word">competitor</span>?</span>
         </h1>
         <p class="hero-sub">Your competitor shows up first on Google. That&rsquo;s why they got the call. We fix that &mdash; with a written lead guarantee, or we work free until we do.</p>
-        <p class="hero-body">Tewksbury-based. Serving RI, MA, and NH.<br>Website live in 48 hours. Results guaranteed in writing — or we work free.</p>
         <div class="hero-buttons">
-          <a href="/snapshot" class="btn-primary">Get the Audit. See Where You Really Rank. &rarr;</a>
+          <a href="/snapshot" class="btn-primary">Get Your Free Audit &rarr;</a>
           <a href="#how-it-works" class="btn-secondary">See How It Works &darr;</a>
         </div>
         <div class="trust-row">
@@ -2903,9 +2917,9 @@
         <h2 class="gs-headline">A proven 4-stage system built<br>for local businesses in RI, MA, and NH.</h2>
         <p class="gs-sub">Not a bundle of tools. Not a one-size-fits-all package. A deliberate sequence &mdash; each stage builds on the last, compounding your results every month.</p>
         <div class="stage-cards">
-          <div class="stage-card stage-card--foundation">
+          <div class="stage-card stage-card--build">
             <p class="stage-number" style="color:#2ecc71;">STAGE 1</p>
-            <h3 class="stage-title">Foundation</h3>
+            <h3 class="stage-title">Build</h3>
             <p class="stage-subtitle">Customers can actually find you online.</p>
             <ul class="stage-deliverables">
               <li>Professional website live in 48 hours</li>
@@ -2916,9 +2930,9 @@
             </ul>
             <span class="tier-badge tier-badge--green">ALL TIERS</span>
           </div>
-          <div class="stage-card stage-card--visibility">
+          <div class="stage-card stage-card--rank">
             <p class="stage-number" style="color:#2E75B6;">STAGE 2</p>
-            <h3 class="stage-title">Visibility</h3>
+            <h3 class="stage-title">Rank</h3>
             <p class="stage-subtitle">You show up before your competitors do.</p>
             <ul class="stage-deliverables">
               <li>Google Maps / map pack ranking campaign</li>
@@ -2929,9 +2943,9 @@
             </ul>
             <span class="tier-badge tier-badge--blue">MOMENTUM &middot; AUTHORITY</span>
           </div>
-          <div class="stage-card stage-card--acceleration">
+          <div class="stage-card stage-card--grow">
             <p class="stage-number" style="color:#f39c12;">STAGE 3</p>
-            <h3 class="stage-title">Acceleration</h3>
+            <h3 class="stage-title">Grow</h3>
             <p class="stage-subtitle">The phone rings. The leads come in. Consistently.</p>
             <ul class="stage-deliverables">
               <li>Google Ads and/or Meta Ads managed campaigns</li>
@@ -2942,9 +2956,9 @@
             </ul>
             <span class="tier-badge tier-badge--amber">MOMENTUM &middot; AUTHORITY</span>
           </div>
-          <div class="stage-card stage-card--retention">
+          <div class="stage-card stage-card--track">
             <p class="stage-number" style="color:#9b59b6;">STAGE 4</p>
-            <h3 class="stage-title">Retention</h3>
+            <h3 class="stage-title">Track</h3>
             <p class="stage-subtitle">You see every lead, every call, every result &mdash; in real time.</p>
             <ul class="stage-deliverables">
               <li>Live ScaleLocal Dashboard &mdash; real-time lead tracking</li>
@@ -2958,9 +2972,9 @@
         <div class="gs-bottom-bar">
           <div class="gs-bottom-text">
             <p class="gs-bottom-headline">Every tier starts at Stage 1.</p>
-            <p class="gs-bottom-desc">Foundation and Retention are included in every plan &mdash; no matter which tier you choose. Growth and Authority clients get all four stages running simultaneously.</p>
+            <p class="gs-bottom-desc">Build and Track are included in every plan &mdash; no matter which tier you choose. Momentum and Authority clients get all four stages running simultaneously.</p>
           </div>
-          <a href="#services" class="gs-bottom-cta">See Plans &amp; Pricing &rarr;</a>
+          <a href="#services" class="gs-bottom-cta">See the Systems &rarr;</a>
         </div>
       </div>
     </section>
@@ -2993,7 +3007,7 @@
             </div>
           </div>
           <p class="roi-disclosure" id="roi-disclosure">Default: 3 out of 10 (the average across all local service industries). Adjust to match your business.</p>
-          <button type="button" id="roi-calc-btn" onclick="window.roiCalc()" style="display:block;margin:12px auto 0;padding:12px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9375rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;">See My Numbers &rarr;</button>
+          <button type="button" id="roi-calc-btn" onclick="window.roiCalc()" style="display:block;width:100%;margin:16px auto 0;padding:14px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:8px;cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(46,204,113,0.2);">See My Numbers &rarr;</button>
           <div class="roi-payoff" id="roi-payoff" style="display:none;">
             <div class="roi-payoff-headline" id="roi-payoff-headline"></div>
             <p class="roi-payoff-sub" id="roi-payoff-sub"></p>
@@ -3204,6 +3218,7 @@
           </div>
         </div>
         <p class="services-footer-note">Foundation, Momentum, and Authority available month-to-month, 6-month, or 12-month. 6-month and 12-month commitments waive setup fees. 12-month gets your 12th month free.</p>
+        <p style="text-align:center;margin-top:16px;"><a href="/pricing" style="font-family:'Inter',sans-serif;font-size:0.8125rem;color:var(--brand);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(46,117,182,0.3);">Looking for a lighter option? See all plans &rarr;</a></p>
       </div>
     </section>
 
