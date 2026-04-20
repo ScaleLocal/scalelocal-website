@@ -451,64 +451,6 @@
         .star-btn.selected .star-num { color: var(--charcoal); }
         .review-prompt { font-size: 14px; color: var(--gray-400); margin-top: 24px; margin-bottom: 0; }
 
-        /* Review Form Modal (1-3 stars) */
-        .review-modal-overlay {
-            display: none; position: fixed; inset: 0; z-index: 999;
-            background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
-            align-items: center; justify-content: center; padding: 24px;
-        }
-        .review-modal-overlay.active { display: flex; }
-        .review-modal {
-            background: var(--white); border-radius: 16px; padding: 40px;
-            max-width: 520px; width: 100%; box-shadow: var(--shadow-xl);
-            position: relative; animation: modalIn 0.3s ease;
-        }
-        @keyframes modalIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        .review-modal-close {
-            position: absolute; top: 16px; right: 16px;
-            background: none; border: none; cursor: pointer; padding: 4px;
-        }
-        .review-modal-close svg { width: 24px; height: 24px; fill: var(--gray-400); }
-        .review-modal-close:hover svg { fill: var(--charcoal); }
-        .review-modal h3 {
-            font-size: 22px; font-weight: 800; color: var(--charcoal);
-            margin-bottom: 6px; text-align: center;
-        }
-        .review-modal .modal-subtitle {
-            font-size: 14px; color: var(--gray-600); margin-bottom: 28px; text-align: center;
-        }
-        .review-form-group { margin-bottom: 18px; }
-        .review-form-group label {
-            display: block; font-family: 'Montserrat', sans-serif;
-            font-size: 12px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.06em; color: var(--gray-600); margin-bottom: 6px;
-        }
-        .review-form-group input, .review-form-group textarea {
-            width: 100%; padding: 12px 16px; border: 2px solid var(--gray-200);
-            border-radius: var(--radius); font-family: 'Open Sans', sans-serif;
-            font-size: 15px; color: var(--charcoal); transition: border-color 0.2s;
-            background: var(--gray-50);
-        }
-        .review-form-group input:focus, .review-form-group textarea:focus {
-            outline: none; border-color: var(--green); background: var(--white);
-        }
-        .review-form-group textarea { resize: vertical; min-height: 100px; }
-        .review-submit {
-            width: 100%; padding: 14px; border: none; border-radius: var(--radius);
-            background: var(--green); color: var(--white);
-            font-family: 'Montserrat', sans-serif; font-size: 15px;
-            font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em;
-            cursor: pointer; transition: background 0.2s;
-        }
-        .review-submit:hover { background: var(--green-dark); }
-        .review-thank-you {
-            display: none; text-align: center; padding: 40px 20px;
-        }
-        .review-thank-you.active { display: block; }
-        .review-thank-you svg { width: 56px; height: 56px; fill: var(--green); margin-bottom: 16px; }
-        .review-thank-you h3 { font-size: 22px; margin-bottom: 8px; color: var(--charcoal); }
-        .review-thank-you p { font-size: 15px; color: var(--gray-600); }
-
         /* Follow Us */
         .follow-us { display: flex; justify-content: center; gap: 16px; margin-top: 20px; }
         .follow-us a {
@@ -1144,54 +1086,12 @@
     </div>
 </section>
 
-<!-- Review Modal (1-3 Stars) -->
-<div class="review-modal-overlay" id="reviewModal">
-    <div class="review-modal">
-        <button class="review-modal-close" id="reviewModalClose">
-            <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-        <div id="reviewFormView">
-            <h3>Please Tell Bobby About Your Experience</h3>
-            <p class="modal-subtitle">We appreciate your honest feedback. Bobby reads every response personally.</p>
-            <form id="reviewForm" action="https://formsubmit.co/7832e4bc847d79760fd09eef0137583e" method="POST">
-                <input type="hidden" name="_subject" value="High Line Tree - LOW REVIEW INTERCEPT">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
-                <input type="hidden" name="_next" value="https://www.scalelocal.net/test-builds/high-line-tree/reviews.html#leave-review">
-                <input type="hidden" name="Rating" id="formRating" value="">
-                <div class="review-form-group">
-                    <label for="reviewName">First Name</label>
-                    <input type="text" id="reviewName" name="Name" placeholder="Your first name" required>
-                </div>
-                <div class="review-form-group">
-                    <label for="reviewPhone">Phone Number</label>
-                    <input type="tel" id="reviewPhone" name="Phone" placeholder="(978) 555-1234" required>
-                </div>
-                <div class="review-form-group">
-                    <label for="reviewEmail">Email Address</label>
-                    <input type="email" id="reviewEmail" name="Email" placeholder="your@email.com" required>
-                </div>
-                <div class="review-form-group">
-                    <label for="reviewText">Your Review</label>
-                    <textarea id="reviewText" name="Review" placeholder="Tell us about your experience with High Line Tree Service..." required></textarea>
-                </div>
-                <button type="submit" class="review-submit">Submit Your Feedback</button>
-            </form>
-        </div>
-        <div class="review-thank-you" id="reviewThankYou">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-            <h3>Thank You for Your Feedback</h3>
-            <p>Bobby will review your message and may reach out to you directly. We appreciate you taking the time to share your experience.</p>
-        </div>
-    </div>
-</div>
-
-<!-- 4-5 Star Notification Form (hidden, auto-submits) -->
+<!-- Review Notification Form (hidden, auto-submits on any star click) -->
 <form id="highStarNotify" action="https://formsubmit.co/7832e4bc847d79760fd09eef0137583e" method="POST" style="display:none;" target="notifyFrame">
-    <input type="hidden" name="_subject" value="High Line Tree - 4/5 Star Review Incoming!">
+    <input type="hidden" name="_subject" value="High Line Tree - Google Review Incoming!">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="Message" value="Keep an eye out - a 4 or 5 star review may be incoming on Google. Someone just clicked to leave a positive review from the demo site.">
+    <input type="hidden" name="Message" value="Someone just clicked to leave a Google review from the demo site.">
     <input type="hidden" name="Rating" id="highStarRating" value="">
 </form>
 <iframe name="notifyFrame" style="display:none;"></iframe>
@@ -1268,13 +1168,7 @@
 <script>
 (function() {
     var starBtns = document.querySelectorAll('.star-btn');
-    var modal = document.getElementById('reviewModal');
-    var modalClose = document.getElementById('reviewModalClose');
-    var formView = document.getElementById('reviewFormView');
-    var thankYou = document.getElementById('reviewThankYou');
-    var formRating = document.getElementById('formRating');
     var highStarRating = document.getElementById('highStarRating');
-    var reviewForm = document.getElementById('reviewForm');
     var highStarNotify = document.getElementById('highStarNotify');
 
     var googleReviewURL = 'https://www.google.com/search?sca_esv=b04edf4c6777ddf8&si=APYL9bs7Hg2KMLB-4tSoTdxuOx8BdRvHbByC_AuVpNyh0x2KzUTuZbpZc4aMKarugUTlCx752hA80yyw1RCiW1hLdqQPCVv8Ttt6qS_kRE3HJLEOuSm3paOA2uQblf0RrPO5AN2lQr1KBV2tjBqB5T0GFz2r2r3kjQ%3D%3D&q=High+Line+Tree+Service+Reviews&sa=X&ved=2ahUKEwjt2qWgv_OLAxUnAHkGHbhwCo4Q0bkNegQILRAD&biw=1890&bih=1136&dpr=2#lrd=0x89e3a7d829e5ba51:0xdd538bbe690a8550,3,,,,';
@@ -1288,59 +1182,16 @@
                 b.classList.toggle('selected', i < rating);
             });
 
-            if (rating <= 3) {
-                // 1-3 stars: open feedback form
-                formRating.value = rating + ' star' + (rating > 1 ? 's' : '');
-                formView.style.display = 'block';
-                thankYou.classList.remove('active');
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            } else {
-                // 4-5 stars: send notification email, then redirect to Google
-                highStarRating.value = rating + ' stars';
-                highStarNotify.submit();
+            // All ratings go to Google reviews
+            highStarRating.value = rating + ' star' + (rating > 1 ? 's' : '');
+            highStarNotify.submit();
 
-                // Small delay then redirect to Google review
-                setTimeout(function() {
-                    window.open(googleReviewURL, '_blank');
-                }, 500);
-            }
-        });
-    });
-
-    // Close modal
-    modalClose.addEventListener('click', function() {
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-    });
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    });
-
-    // Handle form submission (show thank you before redirect)
-    reviewForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        var formData = new FormData(reviewForm);
-
-        fetch(reviewForm.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-        }).then(function() {
-            formView.style.display = 'none';
-            thankYou.classList.add('active');
             setTimeout(function() {
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-            }, 3000);
-        }).catch(function() {
-            // Fallback: just submit the form normally
-            reviewForm.submit();
+                window.open(googleReviewURL, '_blank');
+            }, 500);
         });
     });
+
 })();
 </script>
 
