@@ -253,3 +253,7 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 .g-tag{position:absolute;bottom:10px;left:10px;background:rgba(11,15,20,.82);color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:3px;backdrop-filter:blur(4px)}
 @media (max-width:980px){.g-grid{grid-template-columns:repeat(3,1fr);gap:10px}}
 @media (max-width:640px){.g-grid{grid-template-columns:repeat(2,1fr);gap:8px}}
+
+
+/* When .pillar has no .pillar-img (services.html subcategory tiles), give it more padding */
+.pillar:not(:has(.pillar-img)) .pillar-body{padding:28px 26px}
