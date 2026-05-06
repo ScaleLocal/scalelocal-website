@@ -29,9 +29,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .topbar .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);padding:3px 10px;border-radius:999px;font-size:12px}
 
 header{position:sticky;top:0;z-index:80;background:#EBEBEB;border-bottom:1px solid rgba(11,15,20,.08)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1240px;margin:0 auto}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;max-width:1240px;margin:0 auto;gap:16px}
 .brand{display:flex;align-items:center;gap:14px}
-.brand img{height:62px;width:auto}
+.brand img{height:88px;width:auto;display:block}
 nav ul{display:flex;align-items:center;gap:30px}
 nav a{font-size:14.5px;font-weight:500;color:var(--ink-2);transition:color .2s;position:relative;padding:6px 0}
 nav a:hover,nav a.active{color:var(--tnj-blue-d)}
@@ -129,7 +129,7 @@ section.s.tight{padding:72px 0}
 
 footer{background:#111012;color:rgba(255,255,255,.6);padding:72px 0 0;border-top:1px solid rgba(255,255,255,.08)}
 .f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
-.f-brand img{height:64px;margin-bottom:18px}
+.f-brand img{height:96px;margin-bottom:18px;display:block}
 .f-brand p{font-size:14px;line-height:1.7;max-width:300px}
 footer h4{color:#fff;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
 footer ul li{margin-bottom:10px}
@@ -196,7 +196,10 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 }
 @media (max-width:720px){
   nav ul{display:none}
-  nav ul.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#fff;padding:18px 24px;gap:14px;box-shadow:var(--shadow-md);align-items:flex-start}
+  nav ul.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#EBEBEB;padding:18px 24px;gap:14px;box-shadow:var(--shadow-md);align-items:flex-start}
+  .brand img{height:74px}
+  .f-brand img{height:88px}
+  .header-inner{padding:14px 18px;gap:12px}
   .menu-toggle{display:inline-flex}
   .pillars,.choose-grid,.towns-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr;gap:20px}
