@@ -1,19 +1,56 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/chat-agent/:slug([a-zA-Z0-9][a-zA-Z0-9-]*)", "destination": "/chat-agent/index.html" }
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(tnj-landscape|TNJ-Landscape|TNJ-LANDSCAPE|tnj-Landscape|Tnj-Landscape|tnj-landscape)/(.*)",
+      "destination": "/test-builds/tnj-landscape/$3"
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(tnj-landscape|TNJ-Landscape|TNJ-LANDSCAPE|tnj-Landscape|Tnj-Landscape|tnj-landscape)",
+      "destination": "/test-builds/tnj-landscape/index.html"
+    },
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/chat-agent/:slug([a-zA-Z0-9][a-zA-Z0-9-]*)",
+      "destination": "/chat-agent/index.html"
+    }
   ],
   "redirects": [
-    { "source": "/menu", "destination": "/pricing", "permanent": true },
-    { "source": "/(.*)", "has": [{ "type": "host", "value": "scalelocal.net" }], "destination": "https://www.scalelocal.net/$1", "permanent": true }
+    {
+      "source": "/menu",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "scalelocal.net"
+        }
+      ],
+      "destination": "https://www.scalelocal.net/$1",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     }
   ]
