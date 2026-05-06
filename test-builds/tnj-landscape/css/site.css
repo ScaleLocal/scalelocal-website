@@ -128,7 +128,7 @@ section.s.tight{padding:72px 0}
 .cta-band p{color:rgba(255,255,255,.78);font-size:17px;max-width:580px;margin:0 auto 32px}
 
 footer{background:var(--ink);color:rgba(255,255,255,.6);padding:72px 0 0;border-top:1px solid rgba(255,255,255,.08)}
-.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
+.f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
 .f-brand img{height:64px;margin-bottom:18px}
 .f-brand p{font-size:14px;line-height:1.7;max-width:300px}
 footer h4{color:#fff;font-family:'Inter',sans-serif;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:18px}
