@@ -28,7 +28,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .topbar a:hover{color:var(--tnj-blue-l)}
 .topbar .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);padding:3px 10px;border-radius:999px;font-size:12px}
 
-header{position:sticky;top:0;z-index:80;background:rgba(255,255,255,.96);backdrop-filter:saturate(160%) blur(10px);border-bottom:1px solid rgba(11,15,20,.06)}
+header{position:sticky;top:0;z-index:80;background:#EBEBEB;border-bottom:1px solid rgba(11,15,20,.08)}
 .header-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1240px;margin:0 auto}
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{height:62px;width:auto}
@@ -127,7 +127,7 @@ section.s.tight{padding:72px 0}
 .cta-band h2{color:#fff;font-size:clamp(28px,3.5vw,44px);margin-bottom:16px}
 .cta-band p{color:rgba(255,255,255,.78);font-size:17px;max-width:580px;margin:0 auto 32px}
 
-footer{background:var(--ink);color:rgba(255,255,255,.6);padding:72px 0 0;border-top:1px solid rgba(255,255,255,.08)}
+footer{background:#111012;color:rgba(255,255,255,.6);padding:72px 0 0;border-top:1px solid rgba(255,255,255,.08)}
 .f-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.1)}
 .f-brand img{height:64px;margin-bottom:18px}
 .f-brand p{font-size:14px;line-height:1.7;max-width:300px}
