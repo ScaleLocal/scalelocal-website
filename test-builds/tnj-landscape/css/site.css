@@ -257,3 +257,6 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 
 /* When .pillar has no .pillar-img (services.html subcategory tiles), give it more padding */
 .pillar:not(:has(.pillar-img)) .pillar-body{padding:28px 26px}
+
+/* When .split has no .split-img sibling (image stripped for honesty), let body span full width */
+.split:not(:has(.split-img)) .split-body{max-width:780px;margin:0 auto}
