@@ -1,0 +1,1 @@
+(function(){document.addEventListener('DOMContentLoaded',function(){var p=window.location.pathname.split('/').pop()||'index.html';document.querySelectorAll('nav a').forEach(function(a){var h=a.getAttribute('href');if(!h)return;var hf=h.split('/').pop();if(hf===p)a.classList.add('active');});});})();
