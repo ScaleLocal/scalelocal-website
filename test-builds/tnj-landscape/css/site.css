@@ -29,7 +29,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .topbar .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);padding:3px 10px;border-radius:999px;font-size:12px}
 
 header{position:sticky;top:0;z-index:80;background:#EBEBEB;border-bottom:1px solid rgba(11,15,20,.08)}
-.header-inner{display:flex;align-items:center;justify-content:space-between;padding:0 28px;max-width:1240px;margin:0 auto;gap:20px}
+.header-inner{display:flex;align-items:center;justify-content:space-between;padding:2px 28px;max-width:1240px;margin:0 auto;gap:20px}
 .brand{display:flex;align-items:center;gap:14px}
 .brand img{height:115px;width:auto;display:block}
 nav ul{display:flex;align-items:center;gap:30px}
@@ -200,7 +200,7 @@ footer ul a:hover{color:var(--tnj-blue-l)}
   nav ul.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#EBEBEB;padding:18px 24px;gap:14px;box-shadow:var(--shadow-md);align-items:flex-start}
   .brand img{height:100px}
   .f-brand img{height:80px}
-  .header-inner{padding:0 18px;gap:12px}
+  .header-inner{padding:2px 18px;gap:12px}
   .menu-toggle{display:inline-flex}
   .pillars,.choose-grid,.towns-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr;gap:20px}
