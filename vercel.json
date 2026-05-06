@@ -19,6 +19,16 @@
   ],
   "redirects": [
     {
+      "source": "/test-builds/tnj-landscape",
+      "destination": "/test-builds/tnj-landscape/",
+      "permanent": true
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(tnj-landscape|TNJ-Landscape|TNJ-LANDSCAPE|tnj-Landscape|Tnj-Landscape)",
+      "destination": "/test-builds/tnj-landscape/",
+      "permanent": true
+    },
+    {
       "source": "/menu",
       "destination": "/pricing",
       "permanent": true
