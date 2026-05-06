@@ -1,0 +1,25 @@
+# TNJ Landscape Masonry & Asphalt
+
+> Owner-operated residential masonry, asphalt, and landscape construction company based in Wakefield, MA. Serves homeowners across Massachusetts and New Hampshire. Owner: Thomas Shidlow. Phone: 781-844-0482.
+
+## Services
+- Masonry: paver patios, walkways, retaining walls, stone steps, fire pits, chimney rebuilds and capping
+- Asphalt: new driveways, sealcoating, crack repair, edge work
+- Landscape construction: drainage, grading, shed pads, playground installation, sod, yard prep
+
+## Service area
+Wakefield, Reading, Stoneham, Melrose, Lynnfield, Saugus, Winchester, Woburn, Burlington, North Reading, and homeowners across Massachusetts and New Hampshire.
+
+## Pages
+- [Home](https://[REAL-DOMAIN]/): brand overview
+- [Services](https://[REAL-DOMAIN]/services.html): masonry, asphalt, landscape disciplines
+- [Portfolio](https://[REAL-DOMAIN]/portfolio.html): recent work gallery
+- [About](https://[REAL-DOMAIN]/about.html): owner story + project process
+- [Contact](https://[REAL-DOMAIN]/contact.html): free estimate request
+
+## Key facts
+- Owner-led: Thomas Shidlow on every site
+- Fully insured (general liability + workers' comp)
+- Personalized proposals, no template quotes
+- Free on-site estimates
+- Mon–Sat 7a–6p

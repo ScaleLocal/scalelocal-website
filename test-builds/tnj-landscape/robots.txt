@@ -1,5 +1,9 @@
-# TNJ Landscape Masonry & Asphalt
+# TNJ Landscape Masonry & Asphalt — DEMO SITE (not for indexing)
+# This is a pre-launch demo on a working domain.
+# When the real domain launches, replace this file with the production version
+# (see: AI_Search_Visibility_Strategy.md, Part 1.4).
+
 User-agent: *
-Allow: /
+Disallow: /
 
 Sitemap: https://www.scalelocal.net/test-builds/tnj-landscape/sitemap.xml
