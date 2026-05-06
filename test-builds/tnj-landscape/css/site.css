@@ -44,7 +44,7 @@ nav a:hover,nav a.active{color:var(--tnj-blue-d)}
 .menu-toggle span::before{top:-7px}.menu-toggle span::after{top:7px}
 
 .hero{position:relative;padding:40px 0 90px;background:#0B0F14 url('../images/hero-stone.jpg') center/cover;color:#fff;overflow:hidden;min-height:520px}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,15,20,.78) 0%,rgba(11,15,20,.55) 55%,rgba(11,15,20,.3) 100%)}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,15,20,.55) 0%,rgba(11,15,20,.35) 35%,rgba(11,15,20,.65) 75%,rgba(11,15,20,.85) 100%);pointer-events:none;z-index:1}
 .hero .container{position:relative;z-index:2;max-width:920px}
 .hero .eyebrow{color:var(--tnj-blue-l)}
 .hero h1{font-size:clamp(38px,5.6vw,72px);color:#fff;margin:18px 0 22px;font-weight:600}
