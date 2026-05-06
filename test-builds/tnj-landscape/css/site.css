@@ -23,7 +23,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .container-narrow{max-width:880px;margin:0 auto;padding:0 24px}
 
 .topbar{background:var(--ink);color:rgba(255,255,255,.78);font-size:13px;padding:9px 0}
-.topbar .container{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.topbar .container{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;text-align:center}
 .topbar a{color:rgba(255,255,255,.92);transition:color .2s}
 .topbar a:hover{color:var(--tnj-blue-l)}
 .topbar .pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.06);padding:3px 10px;border-radius:999px;font-size:12px}
@@ -43,7 +43,7 @@ nav a:hover,nav a.active{color:var(--tnj-blue-d)}
 .menu-toggle span::before,.menu-toggle span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--ink)}
 .menu-toggle span::before{top:-7px}.menu-toggle span::after{top:7px}
 
-.hero{position:relative;padding:96px 0 110px;background:#0B0F14 url('../images/hero-stone.jpg') center/cover;color:#fff;overflow:hidden;min-height:560px}
+.hero{position:relative;padding:40px 0 90px;background:#0B0F14 url('../images/hero-stone.jpg') center/cover;color:#fff;overflow:hidden;min-height:520px}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(120deg,rgba(11,15,20,.78) 0%,rgba(11,15,20,.55) 55%,rgba(11,15,20,.3) 100%)}
 .hero .container{position:relative;z-index:2;max-width:920px}
 .hero .eyebrow{color:var(--tnj-blue-l)}
@@ -207,7 +207,7 @@ footer ul a:hover{color:var(--tnj-blue-l)}
   .stats .num{font-size:42px}
   .f-grid{grid-template-columns:1fr;gap:36px}
   section.s{padding:72px 0}
-  .hero{padding:72px 0 96px}
+  .hero{padding:32px 0 80px}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{justify-content:center}
   .topbar{font-size:12px}
