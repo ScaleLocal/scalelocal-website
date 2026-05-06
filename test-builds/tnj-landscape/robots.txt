@@ -1,0 +1,5 @@
+# TNJ Landscape Masonry & Asphalt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.scalelocal.net/test-builds/tnj-landscape/sitemap.xml
