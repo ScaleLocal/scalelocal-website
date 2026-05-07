@@ -22,9 +22,15 @@
 
   // CSS hides the GHL bubble by default. When we open the widget programmatically
   // we add data-tnj-chat-open=true on documentElement, which switches visibility on.
+  // Defense-in-depth: hide GHL bubble entirely most of the time. Even if a
+  // flash slips through during script load, force the GHL widget's host
+  // element behind the custom launcher and shrink any bubble inside its
+  // shadow DOM by re-styling chat-widget to occupy the same corner but with
+  // very low z-index. When we explicitly open the chat, html[data-tnj-chat-open]
+  // is set and we restore display + raise z-index so the open panel renders.
   var HIDE_GHL_BUBBLE_CSS = ''
-    + 'chat-widget{display:none !important;}'
-    + 'html[data-tnj-chat-open="true"] chat-widget{display:block !important;}';
+    + 'chat-widget{position:fixed !important;right:24px !important;bottom:24px !important;width:0 !important;height:0 !important;opacity:0 !important;pointer-events:none !important;z-index:1 !important;overflow:hidden !important;}'
+    + 'html[data-tnj-chat-open="true"] chat-widget{width:auto !important;height:auto !important;opacity:1 !important;pointer-events:auto !important;z-index:9999 !important;overflow:visible !important;}';
 
   function injectStyles(){
     if(document.getElementById('tnj-ghl-bubble-hide'))return;
