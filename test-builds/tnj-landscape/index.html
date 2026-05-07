@@ -33,7 +33,7 @@
 </div></div></section>
 
 <section class="s"><div class="container">
-<div class="s-head"><span class="eyebrow">Three trades, one crew</span><h2>Everything we do, done by us.</h2><p>We're one of the few shops in the area that handles the masonry, the asphalt, and the landscape work ourselves. No subbing it out, no finger-pointing if something settles wrong — the same crew builds the patio, lays the driveway, and finishes the grade. Means the whole property comes together looking like one project, not three.</p></div>
+<div class="s-head"><span class="eyebrow">Three disciplines, one crew</span><h2>Everything we do, done by us.</h2><p>We're one of the few shops in the area that handles the masonry, the asphalt, and the landscape work ourselves. No subbing it out, no finger-pointing if something settles wrong — the same crew builds the patio, lays the driveway, and finishes the grade — so the whole property comes together looking like one project, not three.</p></div>
 <div class="pillars">
 <a href="services.html#masonry" class="pillar"><div class="pillar-img" style="background-image:url('images/pillar-masonry.jpg')"><span class="pillar-tag">Masonry</span></div><div class="pillar-body"><h3>Masonry &amp; Hardscape</h3><p>Paver patios, walkways, retaining walls, stone steps, and the kind of outdoor living spaces you actually want to spend time in. Built to last decades, not seasons.</p><span class="arrow-link">View Masonry →</span></div></a>
 <a href="services.html#asphalt" class="pillar"><div class="pillar-img" style="background-image:url('images/pillar-asphalt.jpg')"><span class="pillar-tag">Asphalt</span></div><div class="pillar-body"><h3>Asphalt &amp; Driveways</h3><p>New driveways, repairs, and sealcoating. Hot-mix asphalt, the right grade, edges finished by hand. The kind of driveway your neighbor asks who you used.</p><span class="arrow-link">View Asphalt →</span></div></a>
@@ -43,8 +43,8 @@
 <section class="s" style="background:var(--stone-50)"><div class="container">
 <div class="split"><div class="split-img" style="background-image:url('images/about-thomas.jpg')"></div><div class="split-body"><span class="eyebrow">Our approach</span>
 <h2>Over a decade of work. The same crew. The same standards.</h2>
-<p>TNJ has been building outdoor spaces across Massachusetts and New Hampshire for over a decade. The work is exclusively residential. Standards stay high because Thomas is personally responsible for every project, and the same small crew sees each one through from first dig to final walkthrough.</p>
-<p>Thomas walks every property himself. He prices the work, he runs the install, and he's the one who picks up if you call with a question two months after we're done. That's the whole pitch — and it's the reason most of our work comes from the neighbor of someone we built for last summer.</p>
+<p>TNJ has built outdoor spaces across Massachusetts and New Hampshire for over a decade. The work is exclusively residential, and the standards stay high because every project is owner-led — owner Thomas Shidlow walks each property himself before quoting and is personally accountable for the result.</p>
+<p>That accountability is the foundation of how TNJ works. The same in-house crew sees every project from first dig to final walkthrough, and most new work comes from neighbors of homeowners we built for the season before.</p>
 <ul class="split-list">
 <li><span class="dot"></span>Thomas is on-site every day — no foreman handoffs.</li>
 <li><span class="dot"></span>Personalized proposals — clear scope, timeline, and pricing tailored to your project.</li>
@@ -62,6 +62,81 @@
 <section class="s"><div class="container">
 <div class="s-head"><span class="eyebrow">Recent work</span><h2>The work speaks for itself.</h2><p>A selection of recent projects across Massachusetts and New Hampshire.</p><div style="text-align:center;margin-top:28px"><a href="portfolio.html" class="btn btn-dark">See Recent Work →</a></div></div>
 </div></section>
+
+<section class="s reviews"><div class="container">
+<div class="s-head"><span class="eyebrow">Reviews</span><h2>What our customers are saying about TNJ.</h2><p>Five-star reviews from homeowners we&rsquo;ve built for. Carousel auto-rotates &mdash; use the arrows to navigate.</p></div>
+
+<div class="rv-carousel" aria-roledescription="carousel">
+<button class="rv-arrow rv-prev" aria-label="Previous reviews">&larr;</button>
+<div class="rv-track">
+<article class="rv-card">
+<div class="rv-stars" aria-label="5 stars">★★★★★</div>
+<p class="rv-text">Tom is a pro!! Did an amazing patio and front walk for us as well as a small driveway extension. Would recommend him to all my friends and family.</p>
+<div class="rv-meta"><span class="rv-name">Dan</span><span class="rv-source">Verified Google review</span></div>
+</article><article class="rv-card">
+<div class="rv-stars" aria-label="5 stars">★★★★★</div>
+<p class="rv-text">I hired Tom to fix my foundation that had been leaking lately. Not only was it done in a spectacular time frame, but the work was on another level! After seeing the work done on this, my wife and I plan on hiring him to do more jobs. We had a few companies come price the job, and Tom was BY FAR the best price and did more than the others wanted for the price they quoted. I can’t wait to work with him again. If you need work done, I highly recommend him. Thanks again Tom!</p>
+<div class="rv-meta"><span class="rv-name">Christopher</span><span class="rv-source">Verified Google review</span></div>
+</article><article class="rv-card">
+<div class="rv-stars" aria-label="5 stars">★★★★★</div>
+<p class="rv-text">Tom took my ugly looking front yard and made it look like brand new! He was honest about his pricing and what he said he could do. Honesty and professionalism! Tom and his team were here when they said they would be and they did an amazing job! I have recommended him to my family and neighbors and I will continue to recommend him!</p>
+<div class="rv-meta"><span class="rv-name">lisa</span><span class="rv-source">Verified Google review</span></div>
+</article>
+</div>
+<button class="rv-arrow rv-next" aria-label="Next reviews">&rarr;</button>
+<div class="rv-dots" aria-hidden="true"></div>
+</div>
+</div></section>
+
+<script>
+(function(){
+  var track = document.querySelector('.rv-track');
+  var cards = document.querySelectorAll('.rv-card');
+  var prev  = document.querySelector('.rv-prev');
+  var next  = document.querySelector('.rv-next');
+  var dots  = document.querySelector('.rv-dots');
+  if(!track || cards.length === 0) return;
+
+  function visibleCount(){
+    return window.innerWidth < 720 ? 1 : (window.innerWidth < 1080 ? 2 : 3);
+  }
+  var idx = 0;
+  function update(){
+    var n = visibleCount();
+    var maxIdx = Math.max(0, cards.length - n);
+    if(idx > maxIdx) idx = maxIdx;
+    if(idx < 0) idx = 0;
+    track.style.transform = 'translateX(-' + (idx * (100/n)) + '%)';
+    cards.forEach(function(c){ c.style.flex = '0 0 ' + (100/n) + '%'; });
+    var dotCount = maxIdx + 1;
+    dots.innerHTML = '';
+    for(var i=0;i<dotCount;i++){
+      var d = document.createElement('button');
+      d.className = 'rv-dot' + (i === idx ? ' is-active' : '');
+      d.setAttribute('aria-label', 'Go to slide ' + (i+1));
+      d.dataset.i = i;
+      dots.appendChild(d);
+    }
+  }
+  prev.addEventListener('click', function(){ idx--; update(); });
+  next.addEventListener('click', function(){ idx++; update(); });
+  dots.addEventListener('click', function(e){
+    var t = e.target;
+    if(t.classList.contains('rv-dot')){ idx = parseInt(t.dataset.i, 10); update(); }
+  });
+  window.addEventListener('resize', update);
+  update();
+  // auto-advance every 7s, pause on hover
+  var timer = setInterval(function(){
+    var n = visibleCount();
+    var maxIdx = Math.max(0, cards.length - n);
+    idx = (idx >= maxIdx) ? 0 : idx + 1;
+    update();
+  }, 7000);
+  var car = document.querySelector('.rv-carousel');
+  car.addEventListener('mouseenter', function(){ clearInterval(timer); });
+})();
+</script>
 
 <section class="s choose"><div class="container">
 <div class="s-head"><span class="eyebrow">How we work</span><h2>How we run a job site.</h2><p>Six things you'll notice on our jobs — and keep noticing for years to come.</p></div>
@@ -82,9 +157,9 @@
 </div></section>
 
 <footer><div class="container"><div class="f-grid"><div class="f-brand"><img src="images/logo-tnj-dark.png" alt="TNJ Landscape Masonry & Asphalt"><p>Owner-operated masonry, asphalt, and landscape construction. Serving Massachusetts and New Hampshire. Free estimates. Fully insured.</p></div>
-<div><h4>Services</h4><ul><li><a href="services.html#masonry">Masonry &amp; hardscape</a></li><li><a href="services.html#asphalt">Asphalt &amp; driveways</a></li><li><a href="services.html#landscape">Landscape construction</a></li></ul></div>
+<div><h4>Services</h4><ul><li><a href="services.html#masonry">Masonry &amp; Hardscape</a></li><li><a href="services.html#asphalt">Asphalt &amp; Driveways</a></li><li><a href="services.html#landscape">Landscape Construction</a></li></ul></div>
 
-<div><h4>Contact</h4><ul><li><a href="tel:7818440482"><strong style="color:#fff">781-844-0482</strong></a></li><li>Wakefield, MA 01880</li><li>Mon–Sat · 7a – 6p</li><li style="margin-top:14px"><a href="contact.html#estimate" style="color:var(--tnj-blue-l);font-weight:600">Free estimate →</a></li></ul></div></div>
+<div><h4>Contact</h4><ul><li><a href="tel:7818440482"><strong style="color:#fff">781-844-0482</strong></a></li><li>Wakefield, MA 01880</li><li>Mon–Sat · 7a – 6p</li><li style="margin-top:14px"><a href="contact.html#estimate" style="color:var(--tnj-blue-l);font-weight:600">Free Estimate →</a></li></ul></div></div>
 <div class="f-bottom"><span>© 2026 TNJ Landscape Masonry &amp; Asphalt. All rights reserved.</span><span>Serving Massachusetts & New Hampshire</span></div></div></footer>
 <div class="tnj-launcher" role="dialog" aria-label="Get help">
 <div class="tnj-launcher-panel"><div class="tnj-launcher-head"><h4>How can we help?</h4><p>Thomas responds personally — usually within an hour.</p></div>
