@@ -261,29 +261,32 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 /* When .split has no .split-img sibling (image stripped for honesty), let body span full width */
 .split:not(:has(.split-img)) .split-body{max-width:780px;margin:0 auto}
 
-/* Reviews carousel */
-.reviews{background:var(--stone-50);padding:80px 0}
-.rv-carousel{position:relative;margin-top:36px;overflow:hidden;padding:0 60px}
-.rv-track{display:flex;transition:transform .5s cubic-bezier(.22,.61,.36,1)}
-.rv-card{flex:0 0 calc(33.333% - 24px);margin:0 12px;background:#fff;border:1px solid var(--stone-100);border-radius:10px;padding:30px 28px;box-sizing:border-box;display:flex;flex-direction:column}
-.rv-stars{color:#FFB400;font-size:18px;letter-spacing:2px;margin-bottom:14px}
-.rv-text{font-size:15px;line-height:1.7;color:var(--ink-2);margin-bottom:18px;font-style:italic;flex-grow:1}
-.rv-text::before{content:"C";color:var(--tnj-blue);font-size:32px;font-weight:600;margin-right:4px;vertical-align:-6px;line-height:1}
-.rv-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--stone-100);padding-top:14px;margin-top:auto}
-.rv-name{font-weight:600;color:var(--ink);font-size:14px}
+/* Reviews carousel — 3-up large cards, centered, prominent */
+.reviews{background:var(--stone-50);padding:96px 0}
+.reviews .container{max-width:1280px}
+.rv-carousel{position:relative;margin-top:48px;padding:0 70px;overflow:hidden}
+.rv-track{display:flex;transition:transform .5s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.rv-card{flex:0 0 calc(33.333% - 24px);margin:0 12px;background:#fff;border:1px solid var(--stone-100);border-radius:12px;padding:38px 34px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(11,15,20,.04),0 4px 12px rgba(11,15,20,.04);min-height:340px}
+.rv-stars{color:#FFB400;font-size:22px;letter-spacing:3px;margin-bottom:18px}
+.rv-text{font-size:16px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;flex-grow:1}
+.rv-text::before{content:"C";color:var(--tnj-blue);font-family:'Playfair Display',Georgia,serif;font-size:54px;font-weight:600;float:left;margin:-6px 8px -8px 0;line-height:1}
+.rv-meta{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--stone-100);padding-top:16px;margin-top:auto}
+.rv-name{font-weight:600;color:var(--ink);font-size:15px}
 .rv-source{font-size:11.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;font-weight:500}
-.rv-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;border-radius:50%;background:#fff;border:1px solid var(--stone-200);box-shadow:var(--shadow-sm);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);cursor:pointer;transition:all .2s;z-index:2}
-.rv-arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rv-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--stone-200);box-shadow:0 4px 14px rgba(11,15,20,.08);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--ink);cursor:pointer;transition:all .2s;z-index:2}
+.rv-arrow:hover{background:var(--ink);color:#fff;border-color:var(--ink);box-shadow:0 6px 20px rgba(11,15,20,.18)}
 .rv-prev{left:8px}
 .rv-next{right:8px}
-.rv-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
-.rv-dot{width:8px;height:8px;border-radius:50%;background:var(--stone-200);border:none;cursor:pointer;padding:0;transition:background .2s}
+.rv-dots{display:flex;justify-content:center;gap:8px;margin-top:28px}
+.rv-dot{width:9px;height:9px;border-radius:50%;background:var(--stone-200);border:none;cursor:pointer;padding:0;transition:background .2s}
 .rv-dot.is-active{background:var(--ink)}
 @media (max-width:1080px){
   .rv-card{flex:0 0 calc(50% - 24px)}
+  .rv-carousel{padding:0 56px}
 }
 @media (max-width:720px){
-  .rv-carousel{padding:0 44px}
-  .rv-card{flex:0 0 calc(100% - 24px)}
+  .reviews{padding:64px 0}
+  .rv-carousel{padding:0 44px;margin-top:32px}
+  .rv-card{flex:0 0 calc(100% - 24px);padding:32px 26px;min-height:auto}
   .rv-prev{left:0}.rv-next{right:0}
 }
