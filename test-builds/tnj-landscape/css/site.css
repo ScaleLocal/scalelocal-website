@@ -307,3 +307,39 @@ footer ul a:hover{color:var(--tnj-blue-l)}
   .demo-banner{font-size:11.5px;padding:7px 0}
   .demo-banner .container{gap:4px}
 }
+
+/* ============================================================
+   NAV BUTTON FONT UPGRADE — bump weight + letter-spacing
+   for a more confident, premium feel.
+   ============================================================ */
+nav a{font-size:15.5px;font-weight:600;letter-spacing:.02em;text-transform:none}
+nav a.active::after{content:'';display:block;height:2px;background:var(--tnj-blue);border-radius:2px;margin-top:4px;width:100%}
+
+/* ============================================================
+   SUB-HERO PHOTO BACKGROUND VARIANT
+   For nav pages (Services, Portfolio, About, Contact).
+   Each page sets background-image inline + adds .has-photo class.
+   Dark gradient overlay keeps white text legible.
+   ============================================================ */
+.sub-hero.has-photo{
+  position:relative;
+  background-color:var(--ink);
+  background-size:cover;
+  background-position:center center;
+  background-repeat:no-repeat;
+  padding:96px 0 80px;
+  isolation:isolate;
+}
+.sub-hero.has-photo::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(11,15,20,.55) 0%, rgba(11,15,20,.72) 60%, rgba(11,15,20,.88) 100%);
+  z-index:-1;
+}
+.sub-hero.has-photo h1,
+.sub-hero.has-photo .eyebrow,
+.sub-hero.has-photo p,
+.sub-hero.has-photo .crumbs{
+  text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
