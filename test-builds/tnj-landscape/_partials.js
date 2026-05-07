@@ -9,7 +9,7 @@
      leadConnector.chatWidget.openWidget() we temporarily allow visibility.
    ============================================================ */
 (function(){
-  var GHL_WIDGET_ID = '69fca8c4d663de791a43a50c';
+  var GHL_WIDGET_ID = '69fcd6a6d663de65e9565ab7';
 
   var LAUNCHER_HTML = '<div class="tnj-launcher" role="dialog" aria-label="Get help">'
     + '<div class="tnj-launcher-panel"><div class="tnj-launcher-head"><h4>How can we help?</h4><p>Thomas responds personally &mdash; usually within an hour.</p></div>'
