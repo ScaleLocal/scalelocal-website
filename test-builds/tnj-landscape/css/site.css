@@ -264,9 +264,10 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 /* Reviews carousel — 3-up large cards, centered, prominent */
 .reviews{background:var(--stone-50);padding:96px 0}
 .reviews .container{max-width:1280px}
-.rv-carousel{position:relative;margin-top:48px;padding:0 70px;overflow:hidden}
-.rv-track{display:flex;transition:transform .5s cubic-bezier(.22,.61,.36,1);will-change:transform}
-.rv-card{flex:0 0 calc(33.333% - 24px);margin:0 12px;background:#fff;border:1px solid var(--stone-100);border-radius:12px;padding:38px 34px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(11,15,20,.04),0 4px 12px rgba(11,15,20,.04);min-height:340px}
+.rv-carousel{position:relative;margin-top:48px}
+.rv-viewport{overflow:hidden;margin:0 70px}
+.rv-track{display:flex;gap:24px;transition:transform .5s cubic-bezier(.22,.61,.36,1);will-change:transform}
+.rv-card{flex:0 0 calc((100% - 48px) / 3);background:#fff;border:1px solid var(--stone-100);border-radius:12px;padding:38px 34px;box-sizing:border-box;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(11,15,20,.04),0 4px 12px rgba(11,15,20,.04);min-height:340px}
 .rv-stars{color:#FFB400;font-size:22px;letter-spacing:3px;margin-bottom:18px}
 .rv-text{font-size:16px;line-height:1.7;color:var(--ink-2);margin-bottom:24px;flex-grow:1}
 .rv-text::before{content:"C";color:var(--tnj-blue);font-family:'Playfair Display',Georgia,serif;font-size:54px;font-weight:600;float:left;margin:-6px 8px -8px 0;line-height:1}
@@ -281,12 +282,13 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 .rv-dot{width:9px;height:9px;border-radius:50%;background:var(--stone-200);border:none;cursor:pointer;padding:0;transition:background .2s}
 .rv-dot.is-active{background:var(--ink)}
 @media (max-width:1080px){
-  .rv-card{flex:0 0 calc(50% - 24px)}
-  .rv-carousel{padding:0 56px}
+  .rv-card{flex:0 0 calc((100% - 24px) / 2)}
+  .rv-viewport{margin:0 56px}
 }
 @media (max-width:720px){
   .reviews{padding:64px 0}
-  .rv-carousel{padding:0 44px;margin-top:32px}
-  .rv-card{flex:0 0 calc(100% - 24px);padding:32px 26px;min-height:auto}
+  .rv-carousel{margin-top:32px}
+  .rv-viewport{margin:0 44px}
+  .rv-card{flex:0 0 100%;padding:32px 26px;min-height:auto}
   .rv-prev{left:0}.rv-next{right:0}
 }
