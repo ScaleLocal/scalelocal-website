@@ -106,8 +106,8 @@
     var maxIdx = Math.max(0, cards.length - n);
     if(idx > maxIdx) idx = maxIdx;
     if(idx < 0) idx = 0;
-    track.style.transform = 'translateX(-' + (idx * (100/n)) + '%)';
-    cards.forEach(function(c){ c.style.flex = '0 0 ' + (100/n) + '%'; });
+    var cw = cards[0].getBoundingClientRect().width + 24;
+    track.style.transform = 'translateX(-' + (idx * cw) + 'px)';
     var dotCount = maxIdx + 1;
     dots.innerHTML = '';
     for(var i=0;i<dotCount;i++){
