@@ -43,7 +43,15 @@
     + '.lc_chat-prompt--container,'
     + '[class*="bubble"]:not([class*="message"]):not([class*="agent"]):not([class*="visitor"]),'
     + '[id*="bubble"]'
-    + '{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;width:0 !important;height:0 !important;}';
+    + '{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;width:0 !important;height:0 !important;}'
+    // Shrink the chat panel ~25% — GHL builder forces minimum 645, but
+    // CSS override at runtime brings the visual height down to a more
+    // comfortable size that fits cleanly on mobile and looks less
+    // overwhelming on desktop.
+    + '#lc_text-widget{max-height:443px !important;height:443px !important;}'
+    + '#lc_text-widget--box{max-height:443px !important;height:443px !important;}'
+    + '#lc_text-widget--box.active{max-height:443px !important;height:443px !important;}'
+    + '.lc_text-widget--formContainer{max-height:336px !important;}';
 
   function injectShadowCSS(){
     var cw = document.querySelector('chat-widget');
