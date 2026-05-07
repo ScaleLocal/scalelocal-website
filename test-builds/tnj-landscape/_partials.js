@@ -2,10 +2,15 @@
    - Sets active nav state
    - Injects the custom contact launcher (with GHL chat handoff) if not already present
    - Loads the GHL AIO chat widget (hidden bubble — opens via custom launcher)
-   - Injects CSS to hide the GHL bubble (we use custom launcher as the visible UX)
+   - Injects CSS to hide the GHL native bubble (we use the custom launcher as the
+     visible UX). Verified: the GHL widget renders as <chat-widget> with the
+     bubble drawn by its shadow DOM. Hiding the host element hides the bubble;
+     the open chat panel is positioned by the same component, so when we call
+     leadConnector.chatWidget.openWidget() we temporarily allow visibility.
    ============================================================ */
 (function(){
   var GHL_WIDGET_ID = '69fca8c4d663de791a43a50c';
+
   var LAUNCHER_HTML = '<div class="tnj-launcher" role="dialog" aria-label="Get help">'
     + '<div class="tnj-launcher-panel"><div class="tnj-launcher-head"><h4>How can we help?</h4><p>Thomas responds personally &mdash; usually within an hour.</p></div>'
     + '<a href="sms:7818440482?body=Emergency%20at%20" class="tnj-launcher-action"><div class="tnj-action-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div><div class="tnj-action-text"><p class="t">Urgent &mdash; text Thomas</p><p class="s">Direct line to the owner</p></div></a>'
@@ -15,16 +20,11 @@
     + '<div class="tnj-launcher-foot">Powered by ScaleLocal</div></div>'
     + '<button class="tnj-launcher-btn" aria-label="Open contact options"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg><span class="tnj-launcher-badge">3</span></button></div>';
 
+  // CSS hides the GHL bubble by default. When we open the widget programmatically
+  // we add data-tnj-chat-open=true on documentElement, which switches visibility on.
   var HIDE_GHL_BUBBLE_CSS = ''
-    + 'lc-chat-widget,'
-    + 'lc-chat-widget * ,'
-    + '#lc-chat-bubble,'
-    + 'div[class*="lc-chat-bubble"],'
-    + 'iframe[src*="leadconnectorhq.com/chat-widget"]:not([data-tnj-allow-iframe]),'
-    + 'div[id*="leadconnector"][class*="bubble"]'
-    + '{ display: none !important; visibility: hidden !important; }'
-    + '/* But keep the open chat panel iframe visible when we open it programmatically */'
-    + 'iframe[src*="leadconnectorhq.com/chat-widget"][data-tnj-active="true"]{display:block !important;visibility:visible !important;}';
+    + 'chat-widget{display:none !important;}'
+    + 'html[data-tnj-chat-open="true"] chat-widget{display:block !important;}';
 
   function injectStyles(){
     if(document.getElementById('tnj-ghl-bubble-hide'))return;
