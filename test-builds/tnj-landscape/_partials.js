@@ -22,15 +22,53 @@
 
   // CSS hides the GHL bubble by default. When we open the widget programmatically
   // we add data-tnj-chat-open=true on documentElement, which switches visibility on.
-  // Defense-in-depth: hide GHL bubble entirely most of the time. Even if a
-  // flash slips through during script load, force the GHL widget's host
-  // element behind the custom launcher and shrink any bubble inside its
-  // shadow DOM by re-styling chat-widget to occupy the same corner but with
-  // very low z-index. When we explicitly open the chat, html[data-tnj-chat-open]
-  // is set and we restore display + raise z-index so the open panel renders.
+  // The GHL chat-widget is a shadow-DOM web component. We need to:
+  //   1) Hide its bubble button (#lc_text-widget--btn) and chat prompt
+  //      ALWAYS — outer CSS can't reach into shadow DOM, so we inject
+  //      a <style> tag inside the shadow root once it's loaded.
+  //   2) Keep the chat-widget HOST element visible so when we call
+  //      openWidget() the chat panel renders normally — it lives inside
+  //      the same shadow root.
+  // Result: visitor only ever sees the custom TNJ launcher. The GHL
+  // chat panel opens on top when triggered, but its bubble never shows.
   var HIDE_GHL_BUBBLE_CSS = ''
-    + 'chat-widget{position:fixed !important;right:24px !important;bottom:24px !important;width:0 !important;height:0 !important;opacity:0 !important;pointer-events:none !important;z-index:1 !important;overflow:hidden !important;}'
-    + 'html[data-tnj-chat-open="true"] chat-widget{width:auto !important;height:auto !important;opacity:1 !important;pointer-events:auto !important;z-index:9999 !important;overflow:visible !important;}';
+    + 'chat-widget{z-index:9999 !important;}';
+
+  // CSS to inject INTO the shadow root of <chat-widget>
+  var SHADOW_HIDE_CSS = ''
+    + '#lc_text-widget--btn,'
+    + '.lc_text-widget--bubble,'
+    + '.lc_chat-bubble,'
+    + '.lc_chat-prompt,'
+    + '.lc_chat-prompt--container,'
+    + '[class*="bubble"]:not([class*="message"]):not([class*="agent"]):not([class*="visitor"]),'
+    + '[id*="bubble"]'
+    + '{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;width:0 !important;height:0 !important;}';
+
+  function injectShadowCSS(){
+    var cw = document.querySelector('chat-widget');
+    if(!cw || !cw.shadowRoot){ return false; }
+    if(cw.shadowRoot.querySelector('#tnj-shadow-hide')){ return true; } // already injected
+    var s = document.createElement('style');
+    s.id = 'tnj-shadow-hide';
+    s.textContent = SHADOW_HIDE_CSS;
+    cw.shadowRoot.appendChild(s);
+    return true;
+  }
+
+  // Poll until chat-widget's shadow root exists, then inject. Also keep
+  // re-checking periodically because GHL sometimes recreates DOM internally.
+  function startShadowCSSWatcher(){
+    var attempts = 0;
+    var watch = setInterval(function(){
+      attempts++;
+      injectShadowCSS();
+      if(attempts > 60){ clearInterval(watch); }
+    }, 250); // 250ms x 60 = ~15s of polling
+    // Also long-lived sentinel: re-inject every 3s in case shadow DOM gets re-rendered
+    setInterval(injectShadowCSS, 3000);
+  }
+
 
   function injectStyles(){
     if(document.getElementById('tnj-ghl-bubble-hide'))return;
@@ -70,6 +108,7 @@
     injectLauncher();
     injectGHLWidget();
     setActiveNav();
+    startShadowCSSWatcher();
   }
 
   if(document.readyState==='loading'){
