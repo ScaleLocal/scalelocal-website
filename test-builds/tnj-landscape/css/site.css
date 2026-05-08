@@ -197,17 +197,26 @@ footer ul a:hover{color:var(--tnj-blue-l)}
 }
 @media (max-width:720px){
   nav ul{display:none}
-  nav ul.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#EBEBEB;padding:18px 24px;gap:14px;box-shadow:var(--shadow-md);align-items:flex-start}
-  .brand img{height:100px}
+  nav ul.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:#EBEBEB;padding:18px 24px;gap:14px;box-shadow:var(--shadow-md);align-items:flex-start;z-index:90}
+  /* Mobile header: shrink logo, hide CTA (still in hamburger), enlarge hamburger */
+  .brand img{height:60px}
   .f-brand img{height:80px}
-  .header-inner{padding:2px 18px;gap:12px}
-  .menu-toggle{display:inline-flex}
+  .header-inner{padding:8px 14px;gap:10px}
+  .nav-cta{display:none}
+  .menu-toggle{display:inline-flex;width:44px;height:44px;align-items:center;justify-content:center;margin-right:-8px}
   .pillars,.choose-grid,.towns-grid{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr;gap:20px}
   .stats .num{font-size:42px}
   .f-grid{grid-template-columns:1fr;gap:36px}
+  /* Mobile footer: bigger tap targets */
+  footer ul li{margin-bottom:14px}
+  footer ul a{display:inline-block;padding:8px 0;min-height:44px;line-height:1.4}
   section.s{padding:72px 0}
   .hero{padding:32px 0 80px}
+  /* Mobile hero h1: smaller for cleaner 2-line wrap */
+  .hero h1{font-size:32px}
+  .sub-hero h1{font-size:32px}
+  .sub-hero.has-photo{padding:64px 0 56px}
   .hero-cta{flex-direction:column;align-items:stretch}
   .hero-cta .btn{justify-content:center}
   .topbar{font-size:12px}
