@@ -852,3 +852,35 @@ Dassault Systèmes
 Hexagon
 Trimble
 Bentley Systems
+
+## ONE-WORD / SHORT-NAME PUBLICLY-TRADED THAT SLIP THROUGH
+Senior plc
+Senior Aerospace
+Senior PLC
+Halma plc
+Halma
+Spirax-Sarco
+Spirax Sarco
+Spirax
+Smiths Group
+Smiths Industries
+Renishaw
+Rotork
+IMI plc
+IMI
+Weir Group
+Weir
+Diploma plc
+Diploma
+RHI Magnesita
+RHI
+Bodycote
+Tate & Lyle
+Coats Group
+Coats
+Vesuvius
+Spectris
+Croda
+Cohu
+Belden
+Coherent

@@ -68,6 +68,12 @@ CONTRACT_TYPE_WORDS = {"contract", "contractor", "temp", "temporary", "freelance
 CONTRACT_TITLE_WORDS = ["contract", "contractor", "1099", "c2c", "corp to corp", "corp-to-corp",
                         "temp ", "temporary", "freelance", "consultant ", "consulting "]
 
+# Co-op / internship indicators
+INTERN_TITLE_WORDS = ["intern", "internship", "co-op", "coop", "co op", "(fall ", "(spring ", "(summer ",
+                       "fall 20", "spring 20", "summer 20", "fall semester", "spring semester",
+                       "rotational program", "early career program", "graduate program", "trainee"]
+INTERN_TYPE_WORDS = {"internship", "intern", "co-op", "coop"}
+
 # JD-text patterns indicating the posting is from a recruiter/staffing agency
 RECRUITER_JD_PHRASES = [
     "our client is", "we are recruiting for", "on behalf of our client",
@@ -87,6 +93,20 @@ PUBLIC_COMPANY_PHRASES = [
     "shareholders", "shareholder value", "shareholder return",
     "annual report", "proxy statement", "10-k filing",
 ]
+
+
+def _is_intern_role(posting: dict) -> tuple[bool, str]:
+    """Return (True, reason) if posting is an internship or co-op."""
+    jt = (posting.get("job_type") or "").lower()
+    if jt:
+        for w in INTERN_TYPE_WORDS:
+            if w in jt:
+                return True, f"job_type={jt}"
+    title = (posting.get("bd_job_title") or "").lower()
+    for w in INTERN_TITLE_WORDS:
+        if w in title:
+            return True, f"title contains {w!r}"
+    return False, ""
 
 
 def _is_contract_role(posting: dict) -> tuple[bool, str]:
@@ -150,6 +170,10 @@ def qualify_postings(postings, *, exclude_fortune500, max_active_postings, max_o
 
         # 2. Contract / temp role exclusion
         if _is_contract_role(p)[0]:
+            continue
+
+        # 2b. Internship / co-op exclusion
+        if _is_intern_role(p)[0]:
             continue
 
         # 3. Recruiter / staffing-agency JD exclusion
