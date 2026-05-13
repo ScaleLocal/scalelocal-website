@@ -699,3 +699,156 @@ Sana Biotechnology
 Verve Therapeutics
 Prime Medicine
 Generation Bio
+
+## RECRUITING / STAFFING AGENCIES — they post on behalf of clients, not for themselves
+Aerotek
+Robert Half
+Kelly Services
+Adecco
+Insight Global
+ManpowerGroup
+Manpower
+Randstad
+ASGN
+Apex Systems
+Kforce
+TEKsystems
+Allegis Group
+Cynet Systems
+The Judge Group
+Beacon Hill
+Beacon Hill Staffing
+ABACUS Service
+Akkodis
+Artech
+Compunnel
+Genpact
+HCLTech
+HCL Technologies
+HARMAN
+Infogain
+Mphasis
+Mindtree
+LTI Mindtree
+NTT DATA
+Tech Mahindra
+LTIMindtree
+Hexaware
+Maintec
+ALOIS Solutions
+JobsForHumanity
+Vaco
+Hays
+Hudson Group
+Lucas Group
+Spencer Stuart
+Korn Ferry
+Egon Zehnder
+Heidrick & Struggles
+Russell Reynolds
+Volt Information Sciences
+SNI Companies
+Bayside Solutions
+Yoh
+DeWinter Group
+Diversant
+First Tek
+GTT
+JobOptio
+LanceSoft
+Pyramid Consulting
+Princeton Information
+Russell Tobin
+Tata Consultancy Services
+TCS
+Genuent
+Lensa
+Smart IT Frame
+Software Guidance & Assistance
+Talent Group
+The Mom Project
+Toptal
+Triumph Services
+Workway
+
+## CONSULTING / PROFESSIONAL SERVICES — large consultancies, not actual hiring companies
+Accenture
+Deloitte
+PricewaterhouseCoopers
+PwC
+Ernst & Young
+EY
+KPMG
+McKinsey
+Boston Consulting Group
+Bain & Company
+Cognizant
+Wipro
+Infosys
+Capgemini
+Atos
+DXC Technology
+CGI Group
+CGI
+NTT
+Oliver Wyman
+Bain Capital
+A.T. Kearney
+Kearney
+Roland Berger
+ZS Associates
+ZS
+Slalom
+West Monroe
+LiquidHub
+Mu Sigma
+ThoughtWorks
+Pivotal Labs
+Sapient
+Sapient Corporation
+Crowe LLP
+Crowe Horwath
+RSM
+Grant Thornton
+BDO USA
+Marsh McLennan
+Aon
+Willis Towers Watson
+Mercer
+Gallagher
+Arthur J. Gallagher
+EXL Service
+Conduent
+Wipro Limited
+
+## OTHER GIANT EMPLOYERS (500+ certainty) commonly posting through Indeed
+Booz Allen Hamilton
+SAIC
+Leidos
+General Atomics
+Aerojet Rocketdyne
+Honeywell International
+GE Aerospace
+GE Vernova
+GE
+General Electric
+Microchip Technology
+Micron Technology
+Analog Devices
+On Semiconductor
+ON Semiconductor
+Wolfspeed
+Skyworks Solutions
+Qorvo
+Marvell Technology
+Broadcom
+Lattice Semiconductor
+Synopsys
+Cadence Design Systems
+Ansys
+Autodesk
+PTC
+Dassault Systèmes
+Hexagon
+Trimble
+Bentley Systems

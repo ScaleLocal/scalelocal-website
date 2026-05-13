@@ -108,5 +108,6 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
             "bd_job_url": row.get("job_url") or "",
             "bd_job_description": (row.get("description") or "")[:8000],
             "bd_job_posted_at": row.get("date_posted_dt"),
+            "job_type": (row.get("job_type") or "").lower(),
         })
     return out

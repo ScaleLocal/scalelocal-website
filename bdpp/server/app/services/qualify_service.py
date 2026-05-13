@@ -59,6 +59,72 @@ def is_blacklisted(name, blacklist):
     return False, ""
 
 
+
+
+# ---- ADDITIONAL EXCLUSION RULES ---------------------------------------------
+
+# Contract / temporary indicators in job_type or title
+CONTRACT_TYPE_WORDS = {"contract", "contractor", "temp", "temporary", "freelance", "1099", "c2c", "corp-to-corp"}
+CONTRACT_TITLE_WORDS = ["contract", "contractor", "1099", "c2c", "corp to corp", "corp-to-corp",
+                        "temp ", "temporary", "freelance", "consultant ", "consulting "]
+
+# JD-text patterns indicating the posting is from a recruiter/staffing agency
+RECRUITER_JD_PHRASES = [
+    "our client is", "we are recruiting for", "on behalf of our client",
+    "client is seeking", "our client seeks", "client is looking for",
+    "we have an opening with our client", "our client, a", "for our client",
+    "looking for someone for our client", "this is a contract role",
+    "this is a contract opportunity", "via our staffing", "staffing agency",
+    "talent acquisition partner", "recruitment partner",
+]
+
+# JD-text patterns indicating the posting is at a publicly-traded company
+PUBLIC_COMPANY_PHRASES = [
+    "publicly traded", "publicly-traded", "publicly held",
+    "fortune 500", "fortune 1000", "fortune 100",
+    "nyse:", "nasdaq:", "(nyse:", "(nasdaq:",
+    "s&p 500", "russell 1000", "russell 3000",
+    "shareholders", "shareholder value", "shareholder return",
+    "annual report", "proxy statement", "10-k filing",
+]
+
+
+def _is_contract_role(posting: dict) -> tuple[bool, str]:
+    """Return (True, reason) if posting is a contract/temp/freelance role."""
+    jt = (posting.get("job_type") or "").lower()
+    if jt:
+        for w in CONTRACT_TYPE_WORDS:
+            if w in jt:
+                return True, f"job_type={jt}"
+    title = (posting.get("bd_job_title") or "").lower()
+    for w in CONTRACT_TITLE_WORDS:
+        if w in title:
+            return True, f"title contains {w!r}"
+    return False, ""
+
+
+def _is_recruiter_posting(posting: dict) -> tuple[bool, str]:
+    """Return (True, reason) if JD body suggests this is a recruiter / staffing posting."""
+    desc = (posting.get("bd_job_description") or "").lower()
+    if not desc:
+        return False, ""
+    for phrase in RECRUITER_JD_PHRASES:
+        if phrase in desc:
+            return True, f"JD contains {phrase!r}"
+    return False, ""
+
+
+def _is_public_company(posting: dict) -> tuple[bool, str]:
+    """Return (True, reason) if JD body or company name signals publicly-traded employer."""
+    desc = (posting.get("bd_job_description") or "").lower()
+    if not desc:
+        return False, ""
+    for phrase in PUBLIC_COMPANY_PHRASES:
+        if phrase in desc:
+            return True, f"JD contains {phrase!r}"
+    return False, ""
+
+
 def qualify_postings(postings, *, exclude_fortune500, max_active_postings, max_office_locations):
     """In: list of dict postings from discovery_service. Out: list of qualifying dicts."""
     bl = load_blacklist() if exclude_fortune500 else []
@@ -75,16 +141,35 @@ def qualify_postings(postings, *, exclude_fortune500, max_active_postings, max_o
         key = cname.lower()
         if key in seen:
             continue  # one row per company
+
+        # 1. Blacklist (Fortune 500 / 500+ headcount / staffing / consulting)
         if exclude_fortune500:
             blocked, _hit = is_blacklisted(cname, bl)
             if blocked:
                 continue
+
+        # 2. Contract / temp role exclusion
+        if _is_contract_role(p)[0]:
+            continue
+
+        # 3. Recruiter / staffing-agency JD exclusion
+        if _is_recruiter_posting(p)[0]:
+            continue
+
+        # 4. Publicly-traded company JD exclusion
+        if _is_public_company(p)[0]:
+            continue
+
+        # 5. Posting-count cap (size proxy)
         same = by_company.get(key, [])
         if len(same) > max_active_postings:
             continue
+
+        # 6. Office-locations cap (size proxy)
         cities = {(x.get("bd_job_city") or "").strip().lower() for x in same if x.get("bd_job_city")}
         if len(cities) > max_office_locations:
             continue
+
         seen.add(key)
         # Keep the richest description out of all same-company postings
         same.sort(key=lambda x: -len(x.get("bd_job_description") or ""))
