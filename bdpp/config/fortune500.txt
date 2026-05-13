@@ -1,0 +1,701 @@
+# Fortune 500 + Known >500-Employee Companies (used as a hard blacklist by BD++)
+# One company name per line, case-insensitive substring match against discovered company names.
+# Last refreshed: 2026-05-13
+
+## FORTUNE 500
+Walmart
+Amazon
+Apple
+UnitedHealth
+Berkshire Hathaway
+CVS Health
+ExxonMobil
+Alphabet
+McKesson
+Cencora
+Costco
+JPMorgan Chase
+Microsoft
+Cardinal Health
+Chevron
+Cigna
+Ford Motor
+Bank of America
+General Motors
+Elevance Health
+Citigroup
+Centene
+Home Depot
+Marathon Petroleum
+Kroger
+Phillips 66
+Fannie Mae
+Walgreens
+Valero Energy
+Meta Platforms
+Verizon
+AT&T
+Comcast
+Wells Fargo
+Goldman Sachs
+Freddie Mac
+Target
+Humana
+State Farm
+Tesla
+Morgan Stanley
+Johnson & Johnson
+Archer Daniels Midland
+PepsiCo
+UPS
+FedEx
+Disney
+Dell Technologies
+Lowe's
+Procter & Gamble
+Boeing
+Sysco
+RTX
+General Electric
+Lockheed Martin
+American Express
+Caterpillar
+MetLife
+HCA Healthcare
+IBM
+John Deere
+Nvidia
+Merck
+ConocoPhillips
+Pfizer
+Delta Air Lines
+Intel
+Allstate
+Best Buy
+Charter Communications
+TJX
+Bristol-Myers Squibb
+Cisco Systems
+Dow
+General Dynamics
+Northrop Grumman
+Northwestern Mutual
+Goodyear Tire
+American International Group
+Liberty Mutual
+Nationwide
+Plains
+Performance Food Group
+Capital One
+Nike
+Honeywell
+Oracle
+Abbott Laboratories
+Gilead Sciences
+Thermo Fisher Scientific
+HP
+Hewlett Packard Enterprise
+Synchrony
+Mondelez
+Sherwin-Williams
+3M
+Texas Instruments
+Devon Energy
+Kimberly-Clark
+Stanley Black & Decker
+Otis Worldwide
+Mastercard
+Discover Financial
+DuPont
+ADP
+Estee Lauder
+General Mills
+Whirlpool
+Williams
+S&P Global
+Becton Dickinson
+Emerson Electric
+US Bancorp
+Visa
+First American
+Halliburton
+PG&E
+Kinder Morgan
+NextEra Energy
+EOG Resources
+LyondellBasell
+Olin
+Eli Lilly
+Amgen
+Yum! Brands
+Ross Stores
+DTE Energy
+Tyson Foods
+JBS USA
+Smithfield Foods
+Conagra
+Anheuser-Busch
+Constellation Brands
+Diageo
+Coca-Cola
+PepsiCo
+Hershey
+Mars Wrigley
+Mondelez
+Cargill
+Land O'Lakes
+Hormel Foods
+Perdue Farms
+Pilgrim's Pride
+Foster Farms
+Butterball
+StarKist
+Crown Holdings
+Sealed Air
+Berry Global
+Amcor
+WestRock
+Smurfit Kappa
+Packaging Corporation of America
+Owens-Illinois
+International Paper
+Domtar
+Georgia-Pacific
+Weyerhaeuser
+Boise Cascade
+DR Horton
+Lennar
+PulteGroup
+NVR
+KB Home
+Mohawk Industries
+Andersen
+Pella
+Marvin Windows
+JELD-WEN
+GAF Materials
+Johns Manville
+Carlisle Companies
+PPG Industries
+Sherwin-Williams
+RPM International
+Henkel
+Dow Chemical
+DuPont
+Eastman Chemical
+Westlake
+LyondellBasell
+Celanese
+Huntsman
+Chemours
+Albemarle
+Cabot
+Avantor
+Bio-Rad Laboratories
+QIAGEN
+Mettler-Toledo
+Eppendorf
+Sartorius
+Cytiva
+Pall Corporation
+Beckman Coulter
+Leica Microsystems
+
+## OVER 500 EMPLOYEES — MANUFACTURING
+Raytheon Technologies
+Pratt & Whitney
+GE Aerospace
+GE Vernova
+Collins Aerospace
+Sikorsky Aircraft
+Lockheed Martin
+Northrop Grumman
+BAE Systems
+L3Harris
+Textron
+Bell Textron
+Parker Hannifin
+Parker Aerospace
+Honeywell Aerospace
+Rockwell Automation
+Schneider Electric
+Siemens USA
+Siemens Energy
+Siemens Healthineers
+ABB Inc
+Bosch USA
+Bosch Rexroth
+Solar Turbines
+Progress Rail
+Stryker
+Medtronic
+Boston Scientific
+Edwards Lifesciences
+Baxter International
+Waters Corporation
+PerkinElmer
+Revvity
+Pall Corporation
+SCIEX
+Cytiva
+Sanofi
+Bristol Myers Squibb
+Novartis
+Roche
+Genentech
+AbbVie
+Janssen
+Ethicon
+DePuy Synthes
+Unilever
+Nestle
+Kraft Heinz
+Tyson Foods
+JBS
+Conagra
+Coca-Cola
+PepsiCo
+Frito-Lay
+Quaker Oats
+Anheuser-Busch
+Diageo
+Brown-Forman
+Beam Suntory
+Hershey
+Mars
+Mondelez
+Cargill
+Land O'Lakes
+Schreiber Foods
+Saputo
+Lactalis
+Danone
+Chobani
+Fairlife
+Perdue Farms
+Pilgrim's
+Sanderson Farms
+Foster Farms
+Butterball
+Bumble Bee
+Chicken of the Sea
+StarKist
+Ball Corporation
+Crown Holdings
+Sealed Air
+Berry Global
+Amcor
+Graphic Packaging
+Packaging Corporation
+WestRock
+Smurfit Kappa
+Pactiv
+Reynolds Consumer
+Owens-Illinois
+Ardagh
+Silgan
+TriMas
+AptarGroup
+Greif
+Sonoco
+International Paper
+Domtar
+Kimberly-Clark
+Georgia-Pacific
+Weyerhaeuser
+Boise Cascade
+Sappi
+Resolute Forest
+ITW
+Illinois Tool Works
+Dover Corporation
+Fortive
+Roper Technologies
+Ametek
+IDEX Corporation
+Graco
+Lincoln Electric
+ESAB
+Miller Electric
+Atlas Copco
+Sandvik
+Kennametal
+SKF
+Timken
+NSK
+NTN Bearing
+Schaeffler
+Rexnord
+Regal Rexnord
+Nidec
+Baldor Electric
+WEG
+Franklin Electric
+A.O. Smith
+Pentair
+Xylem
+Mueller Industries
+Mueller Water
+Sloan Valve
+Kohler
+American Standard
+Masco
+Behr Paint
+Delta Faucet
+Moen
+Andersen
+Pella
+Marvin
+JELD-WEN
+Milgard
+PGT
+American Woodmark
+KraftMaid
+Mohawk
+Shaw Industries
+Interface
+Tarkett
+Armstrong Flooring
+Mannington
+CertainTeed
+Owens Corning
+GAF Materials
+Johns Manville
+Knauf
+Carlisle SynTec
+PPG Industries
+Sherwin-Williams
+Benjamin Moore
+RPM International
+Rust-Oleum
+Valspar
+HB Fuller
+3M Industrial
+Henkel
+Lord Corporation
+Dow Chemical
+DuPont
+Eastman Chemical
+Olin
+Westlake
+LyondellBasell
+Celanese
+Huntsman
+Chemours
+Tronox
+Albemarle
+Avient
+Trinseo
+Kraton
+Cabot
+Ashland
+Element Solutions
+Stepan
+Ingevity
+Wacker Chemical
+BASF
+Evonik
+Covestro
+Lanxess
+Clariant
+Solvay
+Arkema
+Air Products
+Air Liquide
+Linde
+Praxair
+Matheson Tri-Gas
+Goodyear
+Bridgestone
+Michelin
+Cooper Tire
+Pirelli
+Yokohama
+Hankook
+Cummins
+Detroit Diesel
+Navistar
+PACCAR
+Kenworth
+Peterbilt
+Mack Trucks
+Volvo Trucks
+Freightliner
+Daimler Truck
+Allison Transmission
+Eaton Corporation
+Dana Incorporated
+American Axle
+BorgWarner
+PHINIA
+Aptiv
+Lear Corporation
+Adient
+Magna International
+Faurecia
+Forvia
+Continental Automotive
+ZF North America
+Denso
+Aisin
+Yazaki
+Sumitomo Wiring
+Toyoda Gosei
+Tower International
+Cooper-Standard
+Martinrea
+Gentex
+Visteon
+Garrett Motion
+Autoliv
+Joyson Safety
+Modine
+Tenneco
+DRiV
+Hutchinson
+Curtiss-Wright
+Moog Inc
+Heico
+TransDigm
+Spirit AeroSystems
+Triumph Group
+Kratos
+AeroVironment
+Mercury Systems
+CACI
+Leidos
+Booz Allen
+SAIC
+ManTech
+Peraton
+Vectrus
+KBR
+Amentum
+Parsons
+Battelle
+Draper Laboratory
+MITRE
+HII
+Huntington Ingalls
+Newport News Shipbuilding
+Bath Iron Works
+Electric Boat
+General Atomics
+Leonardo DRS
+Elbit Systems
+Aerojet Rocketdyne
+Blue Origin
+SpaceX
+Rocket Lab
+Sierra Nevada Corporation
+Maxar Technologies
+Viasat
+Hughes Network Systems
+EchoStar
+Intelsat
+Cobham
+Ultra Electronics
+Astronics
+Ducommun
+Smith & Wesson
+Sig Sauer
+FN America
+Daniel Defense
+Springfield Armory
+Magpul
+Vista Outdoor
+Day & Zimmermann
+BWX Technologies
+Westinghouse Electric
+GE Hitachi
+Holtec
+Framatome
+Centrus
+Energy Solutions
+Mitsubishi Heavy Industries
+Toshiba America
+Hitachi America
+Generac
+Briggs & Stratton
+Bloom Energy
+Plug Power
+Ballard Power
+FuelCell Energy
+First Solar
+SunPower
+Enphase Energy
+SolarEdge
+Sunrun
+Sunnova
+Vestas
+TPI Composites
+Hexcel
+Toray Composites
+Owens Corning Composites
+ATI
+Carpenter Technology
+Haynes International
+Materion
+Precision Castparts
+Wyman-Gordon
+TIMET
+Howmet
+Arconic
+Constellium
+Kaiser Aluminum
+Alcoa
+Novelis
+Sapa Extrusions
+Steel Dynamics
+Nucor
+United States Steel
+Cleveland-Cliffs
+ArcelorMittal
+Commercial Metals
+Olympic Steel
+Worthington Industries
+TimkenSteel
+Reliance Steel
+Ryerson
+O'Neal Industries
+Southwire
+Prysmian
+Nexans
+Belden
+CommScope
+Corning Incorporated
+Zebra Technologies
+Datalogic
+Cognex
+Keyence
+Keysight
+Tektronix
+Fluke
+Anritsu
+Teledyne
+Teradyne
+Advantest
+National Instruments
+MKS Instruments
+Coherent
+IPG Photonics
+nLight
+Lumentum
+Viavi
+Newport
+Edmund Optics
+Thorlabs
+Excelitas
+Hamamatsu
+KLA Corporation
+Applied Materials
+Lam Research
+ASML
+Axcelis
+Onto Innovation
+FormFactor
+Veeco
+Brooks Automation
+Entegris
+JSR Micro
+Air Liquide Electronics
+Linde Electronics
+EMD Performance
+MilliporeSigma
+Avantor
+Bio-Techne
+Bio-Rad
+QIAGEN
+Mettler-Toledo
+Eppendorf
+Sartorius
+Cytiva
+Pall
+Beckman Coulter
+Leica
+Lonza
+Catalent
+Patheon
+Samsung Biologics
+Fujifilm Diosynth
+WuXi Biologics
+WuXi AppTec
+Charles River Laboratories
+Labcorp
+Quest Diagnostics
+Eurofins
+ICON
+IQVIA
+Syneos
+Parexel
+PPD
+Medpace
+Premier Research
+Worldwide Clinical Trials
+Pfizer
+Sanofi
+Sanofi Genzyme
+Sanofi Pasteur
+Novartis
+Bristol Myers Squibb
+Eli Lilly
+AbbVie
+Merck
+GSK
+AstraZeneca
+Takeda
+Bayer
+Boehringer Ingelheim
+Bausch Health
+Bausch + Lomb
+Alcon
+Cooper Companies
+Allergan
+Glaukos
+Iridex
+Carl Zeiss
+EssilorLuxottica
+Hoya
+SEIKO
+Marchon
+Safilo
+Magic Leap
+Moderna
+Vertex Pharmaceuticals
+Biogen
+Stryker
+Medtronic
+Boston Scientific
+Edwards Lifesciences
+Hologic
+Insulet
+DexCom
+Penumbra
+Globus Medical
+Integra LifeSciences
+ICU Medical
+Haemonetics
+Natera
+Illumina
+10x Genomics
+Twist Bioscience
+Pacific Biosciences
+Quanterix
+Olink
+Adaptive Biotechnologies
+Personalis
+NeoGenomics
+CareDx
+Myriad Genetics
+Invitae
+Fulgent
+Veracyte
+Caribou Biosciences
+Editas Medicine
+Intellia Therapeutics
+CRISPR Therapeutics
+Beam Therapeutics
+Sana Biotechnology
+Verve Therapeutics
+Prime Medicine
+Generation Bio

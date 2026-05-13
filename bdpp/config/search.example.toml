@@ -1,0 +1,31 @@
+# BD++ Search Config — first demo: Controls/Electrical + adjacent Engineering / 5-state NE
+# In the GUI version, all of these are tunable per-run.
+
+[search]
+industry = "Manufacturing"
+job_titles = [
+    "Controls Engineer",
+    "Electrical Engineer",
+]
+locations = ["Massachusetts", "Rhode Island", "New Hampshire", "Vermont", "Maine"]
+skills = []
+hours_old = 336              # 14 days for demo. GUI exposes: 24h / 72h / 7d / 14d / 30d / 90d
+results_per_query = 60       # JobSpy results_wanted per (title, state) combo
+
+[intel]
+position_intel = false
+company_intel = false
+contact_intel = false
+
+[filters]
+exclude_fortune500 = true
+max_active_postings = 100
+max_office_locations = 3
+preferred_max_employees = 500
+
+[budget]
+max_spend_usd = 6.0
+
+[output]
+csv_path = "output/manufacturing_controls_electrical_NE_{timestamp}.csv"
+tag = "Manufacturing-NE-Engineering"

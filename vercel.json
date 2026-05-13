@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/sniper",
+      "destination": "/sniper.html"
+    },
+    {
+      "source": "/sniper/api/:path*",
+      "destination": "https://BDPP_RENDER_URL_PLACEHOLDER.onrender.com/api/:path*"
+    },
+    {
       "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(tnj-landscape|TNJ-Landscape|TNJ-LANDSCAPE|tnj-Landscape|Tnj-Landscape|tnj-landscape)/(.*)",
       "destination": "/test-builds/tnj-landscape/$3"
     },

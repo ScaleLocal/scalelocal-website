@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/sniper",
+      "destination": "/sniper.html"
+    },
+    {
+      "source": "/sniper/api/:path*",
+      "destination": "https://bdpp-api.onrender.com/api/:path*"
+    }
+  ]
+}

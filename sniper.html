@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+<meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate">
+<title>BD++ Sniper — ScaleLocal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg: radial-gradient(1200px 600px at 10% -10%, rgba(99,102,241,.10), transparent 60%),
+          radial-gradient(900px 500px at 110% 10%, rgba(139,92,246,.08), transparent 60%),
+          radial-gradient(700px 400px at 50% 110%, rgba(20,184,166,.07), transparent 60%),
+          linear-gradient(180deg, #fafbff 0%, #f4f6fb 100%);
+    --card: rgba(255,255,255,.78);
+    --card-brd: rgba(226,232,240,.85);
+    --shadow: 0 1px 2px rgba(15,23,42,.04), 0 20px 50px -20px rgba(99,102,241,.18), 0 8px 24px -12px rgba(15,23,42,.08);
+    --ink: #0f172a; --muted: #64748b;
+    --hair: rgba(15,23,42,.06);
+    --field: rgba(248,250,252,.85); --field-brd: rgba(226,232,240,.9);
+    --accent: #6366f1; --accent2: #8b5cf6; --accent3: #14b8a6;
+  }
+  * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea, select { -webkit-user-select: text; -moz-user-select: text; -ms-user-select: text; user-select: text; }
+  body {
+    background: var(--bg); color: var(--ink); min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased; transition: filter .35s ease;
+  }
+  body.blurred { filter: blur(8px); }
+  .glow-card {
+    background: var(--card); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--card-brd); border-radius: 24px; box-shadow: var(--shadow);
+    position: relative; overflow: hidden;
+  }
+  .glow-card::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 24px;
+    background: linear-gradient(135deg, rgba(99,102,241,.06), transparent 40%, rgba(20,184,166,.04));
+  }
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.72); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--card-brd);
+  }
+  .logo-mark {
+    width: 38px; height: 38px; border-radius: 12px;
+    background: conic-gradient(from 210deg, #6366f1, #8b5cf6, #14b8a6, #6366f1);
+    color: #fff; font-weight: 800; font-size: 18px; display: flex; align-items: center; justify-content: center;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.4), 0 6px 16px -6px rgba(99,102,241,.4);
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #7c3aed 100%);
+    color: #fff; padding: 13px 26px; border-radius: 14px;
+    font-weight: 600; font-size: 14px; letter-spacing: .005em;
+    box-shadow: 0 10px 30px -10px rgba(99,102,241,.55), inset 0 1px 0 rgba(255,255,255,.2);
+    transition: transform .15s ease, box-shadow .15s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 40px -10px rgba(99,102,241,.7); }
+  .btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+  .btn-ghost {
+    background: var(--field); color: var(--ink);
+    padding: 13px 22px; border-radius: 14px; border: 1px solid var(--field-brd);
+    font-weight: 600; font-size: 14px; transition: all .15s ease;
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .input-pill {
+    background: var(--field); border: 1px solid var(--field-brd);
+    padding: 10px 14px; border-radius: 11px; font-size: 14px; color: var(--ink);
+    width: 100%; transition: all .15s ease;
+  }
+  .input-pill:focus { outline: none; border-color: var(--accent); background: #fff; box-shadow: 0 0 0 4px rgba(99,102,241,.08); }
+  .lbl { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 6px; display: block; }
+  .section-num {
+    width: 28px; height: 28px; border-radius: 9px;
+    background: linear-gradient(135deg, rgba(99,102,241,.15), rgba(139,92,246,.18));
+    color: var(--accent); font-weight: 800; font-size: 13px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(99,102,241,.22);
+  }
+  .kicker {
+    font-size: 10.5px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 2px;
+  }
+  .stat-chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--field); border: 1px solid var(--field-brd);
+    padding: 7px 14px; border-radius: 11px;
+  }
+  .stat-chip .lbl2 { font-size: 11px; color: var(--muted); font-weight: 500; }
+  .stat-chip .val { font-size: 13.5px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 10px; border-radius: 999px;
+    font-size: 10.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+    border: 1px solid transparent;
+  }
+  .pill .d { width: 6px; height: 6px; border-radius: 999px; }
+  .pill-DISCOVERED { background: #fef3c7; color: #92400e; border-color: #fde68a; }
+  .pill-DISCOVERED .d { background: #f59e0b; }
+  .pill-ENRICHING  { background: #dbeafe; color: #1e40af; border-color: #bfdbfe; }
+  .pill-ENRICHING .d { background: #3b82f6; animation: pulse 1.4s infinite; }
+  .pill-ENRICHED   { background: #d1fae5; color: #065f46; border-color: #a7f3d0; }
+  .pill-ENRICHED .d { background: #10b981; }
+  .pill-EXPORTED   { background: #e5e7eb; color: #4b5563; border-color: #d1d5db; }
+  .pill-EXPORTED .d { background: #9ca3af; }
+  @keyframes pulse { 0%,100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.4); opacity: .6; } }
+  .chk-pill {
+    display: inline-flex; align-items: center; gap: 8px; cursor: pointer;
+    padding: 8px 14px; border-radius: 11px;
+    background: var(--field); border: 1px solid var(--field-brd);
+    font-size: 13px; font-weight: 600; transition: all .12s ease;
+  }
+  .chk-pill input { display: none; }
+  .chk-pill.active { background: rgba(99,102,241,.10); border-color: var(--accent); color: var(--accent); }
+  .chk-pill .ic { width: 14px; height: 14px; border-radius: 4px; border: 1.5px solid currentColor; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
+  .chk-pill.active .ic { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .chk-pill.active .ic::after { content: "✓"; }
+  table { border-collapse: separate; border-spacing: 0; }
+  thead th { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 12px 14px; text-align: left; background: rgba(248,250,252,.7); border-bottom: 1px solid var(--card-brd); }
+  tbody td { padding: 12px 14px; font-size: 13px; border-bottom: 1px solid var(--hair); color: var(--ink); }
+  tbody tr:hover { background: rgba(99,102,241,.025); }
+  .avatar-tile { width: 28px; height: 28px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 11px; flex-shrink: 0; }
+  .wm-layer {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 24px; z-index: 1;
+    opacity: .055; mix-blend-mode: multiply;
+    background-image: var(--wm); background-repeat: repeat;
+  }
+  .footer-ribbon {
+    margin-top: 36px; padding: 14px 20px; text-align: center;
+    font-size: 11px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+    background: linear-gradient(90deg, rgba(99,102,241,.08), rgba(139,92,246,.10), rgba(20,184,166,.08));
+    border-top: 1px solid var(--card-brd); color: var(--muted); border-radius: 0 0 24px 24px;
+  }
+  @media print { body::before { content: "Printing disabled — Property of ScaleLocal BD"; display: block; padding: 60px; font-size: 28px; text-align: center; font-weight: 800; } body > * { display: none !important; } }
+  .row-enter { animation: rowIn .25s ease both; }
+  @keyframes rowIn { from { opacity: 0; transform: translateY(2px); } to { opacity: 1; transform: none; } }
+  .badge-pro {
+    font-size: 9.5px; font-weight: 800; letter-spacing: .15em;
+    padding: 2px 7px; border-radius: 6px;
+    background: rgba(99,102,241,.12); color: var(--accent); border: 1px solid rgba(99,102,241,.25);
+  }
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="topbar px-6 md:px-10 py-4 flex items-center justify-between gap-4">
+  <div class="flex items-center gap-3 min-w-0">
+    <div class="logo-mark">B</div>
+    <div class="min-w-0">
+      <div class="flex items-center gap-2">
+        <h1 class="font-bold text-[15px] tracking-tight">BD++ Sniper</h1>
+        <span class="badge-pro">PRO</span>
+      </div>
+      <p class="text-[11.5px] -mt-0.5" style="color:var(--muted)">Business development prospecting</p>
+    </div>
+  </div>
+  <div class="flex items-center gap-3">
+    <div class="stat-chip hidden sm:flex">
+      <span class="lbl2">Today</span>
+      <span class="val" id="spend-today">$0.0000</span>
+    </div>
+    <div class="stat-chip hidden md:flex">
+      <span class="lbl2">Queue</span>
+      <span class="val" id="queue-count">— / — / —</span>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-6 md:px-10 py-8 md:py-10 space-y-7">
+
+  <!-- SEARCH CARD -->
+  <section class="glow-card p-6 md:p-8">
+    <div class="flex items-start gap-3 mb-6 relative z-10">
+      <span class="section-num mt-0.5">1</span>
+      <div>
+        <div class="kicker">Discover</div>
+        <h2 class="text-[19px] font-bold tracking-tight">Search the market</h2>
+        <p class="text-[13px] mt-1" style="color:var(--muted)">Find fresh job postings matching your target. Adds rows to the queue.</p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
+      <div><label class="lbl">Industry</label><input id="f-industry" class="input-pill" value="Manufacturing" /></div>
+      <div><label class="lbl">Date Posted Window</label>
+        <select id="f-hours" class="input-pill">
+          <option value="24">Last 24 hours</option>
+          <option value="72" selected>Last 72 hours</option>
+          <option value="168">Last 7 days</option>
+          <option value="336">Last 14 days</option>
+          <option value="720">Last 30 days</option>
+          <option value="2160">Last 90 days</option>
+        </select>
+      </div>
+      <div class="md:col-span-2"><label class="lbl">Job Titles (comma-separated)</label><input id="f-titles" class="input-pill" value="Controls Engineer, Electrical Engineer" /></div>
+      <div class="md:col-span-2"><label class="lbl">Locations (states, comma-separated)</label><input id="f-states" class="input-pill" value="Massachusetts, Rhode Island, New Hampshire, Vermont, Maine" /></div>
+      <div><label class="lbl">Tag</label><input id="f-tag" class="input-pill" value="NE-Engineering" /></div>
+      <div><label class="lbl">Results per Query</label><input id="f-rpq" type="number" class="input-pill" value="60" min="10" max="200" /></div>
+    </div>
+    <div class="flex items-center gap-4 mt-6 relative z-10">
+      <button onclick="runSearch()" class="btn-primary"><span>▶</span> Run Search</button>
+      <span id="search-status" class="text-[13px]" style="color:var(--muted)"></span>
+    </div>
+  </section>
+
+  <!-- ENRICH + QUEUE -->
+  <section class="glow-card p-6 md:p-8 relative">
+    <div class="wm-layer" id="wm-layer"></div>
+    <div class="flex items-start gap-3 mb-6 relative z-10">
+      <span class="section-num mt-0.5">2</span>
+      <div class="flex-1">
+        <div class="kicker">Enrich</div>
+        <h2 class="text-[19px] font-bold tracking-tight">Resolve contacts &amp; verify emails</h2>
+        <p class="text-[13px] mt-1" style="color:var(--muted)">Process DISCOVERED rows — find hiring manager + HR contact + verified email.</p>
+      </div>
+      <div class="flex gap-2 flex-wrap">
+        <label class="chk-pill" id="lbl-pos"><input type="checkbox" id="f-intel-position" onchange="toggleChip('lbl-pos', this)"><span class="ic"></span>Position Intel</label>
+        <label class="chk-pill" id="lbl-co"><input type="checkbox" id="f-intel-company" onchange="toggleChip('lbl-co', this)"><span class="ic"></span>Company Intel</label>
+        <label class="chk-pill" id="lbl-con"><input type="checkbox" id="f-intel-contact" onchange="toggleChip('lbl-con', this)"><span class="ic"></span>Contact Intel</label>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-3 items-end mb-6 relative z-10">
+      <div class="flex-shrink-0"><label class="lbl">Budget (USD)</label><input id="f-budget" type="number" step="0.5" class="input-pill" value="6.0" /></div>
+      <div class="flex-shrink-0"><label class="lbl">Max companies</label><input id="f-max-companies" type="number" class="input-pill" value="100" /></div>
+      <button onclick="runEnrich()" class="btn-primary"><span>⚡</span> Enrich Queue</button>
+      <span id="enrich-status" class="text-[13px]" style="color:var(--muted)"></span>
+    </div>
+
+    <div class="relative z-10 rounded-2xl border" style="border-color: var(--card-brd); background: rgba(255,255,255,.6); overflow: hidden;">
+      <table class="w-full">
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="select-all" onchange="toggleAll(this)"></th>
+            <th>Status</th>
+            <th>Company</th>
+            <th>BD Job Title</th>
+            <th>Location</th>
+            <th>Hiring Mgr</th>
+            <th>HR Contact</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="queue-tbody">
+          <tr><td colspan="9" class="text-center py-12" style="color:var(--muted)">Queue is empty. Run a search to start.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- EXPORT -->
+  <section class="glow-card p-6 md:p-8">
+    <div class="flex items-start gap-3 mb-6 relative z-10">
+      <span class="section-num mt-0.5">3</span>
+      <div>
+        <div class="kicker">Export</div>
+        <h2 class="text-[19px] font-bold tracking-tight">Download CSV</h2>
+        <p class="text-[13px] mt-1" style="color:var(--muted)">In BD++ format. Choose which rows to include.</p>
+      </div>
+    </div>
+    <div class="flex gap-3 flex-wrap relative z-10">
+      <button onclick="exportCSV('ENRICHED')" class="btn-primary"><span>⬇</span> Export ENRICHED</button>
+      <button onclick="exportCSV('DISCOVERED')" class="btn-ghost">Export DISCOVERED</button>
+      <button onclick="exportCSV('ENRICHED_AND_DISCOVERED')" class="btn-ghost">Export all active</button>
+      <button onclick="exportSelected()" class="btn-ghost">Export selected</button>
+    </div>
+  </section>
+
+  <footer class="footer-ribbon">Do not share — Property of ScaleLocal BD · <span id="footer-time"></span></footer>
+</main>
+
+<script>
+// ──── API CONFIG ───────────────────────────────────────────────────────────────
+// Production: served via Vercel rewrite, API_BASE is /sniper/api which proxies to Render.
+// Dev: load with ?api=http://127.0.0.1:8765 to override.
+const urlParams = new URLSearchParams(location.search);
+const API_BASE = urlParams.get("api") || window.BDPP_API_BASE || (location.hostname === "localhost" ? "http://127.0.0.1:8765" : "/sniper/api");
+const TOKEN_KEY = "bdpp_token";
+
+function getToken() {
+  let t = localStorage.getItem(TOKEN_KEY);
+  if (!t) {
+    t = prompt("Enter BD++ access token:");
+    if (t) localStorage.setItem(TOKEN_KEY, t.trim());
+  }
+  return t || "";
+}
+
+async function api(path, opts = {}) {
+  const headers = Object.assign({"X-BDPP-Token": getToken()}, opts.headers || {});
+  if (opts.body && typeof opts.body !== "string") {
+    headers["Content-Type"] = "application/json";
+    opts.body = JSON.stringify(opts.body);
+  }
+  const r = await fetch(API_BASE + path, {...opts, headers});
+  if (r.status === 401) { localStorage.removeItem(TOKEN_KEY); throw new Error("Invalid token — refresh page."); }
+  if (!r.ok) throw new Error(`${r.status} ${await r.text()}`);
+  return (r.headers.get("content-type") || "").includes("json") ? r.json() : r.blob();
+}
+
+// ──── HEADER + QUEUE LIVE UPDATES ──────────────────────────────────────────────
+async function refreshHeader() {
+  try {
+    const [c, s] = await Promise.all([api("/api/queue/counts"), api("/api/spend")]);
+    const d = c.DISCOVERED || 0, en = c.ENRICHED || 0, ex = c.EXPORTED || 0;
+    document.getElementById("queue-count").textContent = `${d} / ${en} / ${ex}`;
+    document.getElementById("spend-today").textContent = "$" + (s.today_usd || 0).toFixed(4);
+  } catch (e) {}
+}
+
+function avatarGradient(name) {
+  let h = 0; for (let i = 0; i < name.length; i++) h = (h * 31 + name.charCodeAt(i)) >>> 0;
+  const a = h % 360, b = (a + 60) % 360;
+  return `linear-gradient(135deg, hsl(${a},70%,55%), hsl(${b},65%,50%))`;
+}
+
+function esc(s) {
+  if (!s) return "";
+  return String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+async function refreshQueue() {
+  try {
+    const items = await api("/api/queue?status=ALL&limit=500");
+    const tb = document.getElementById("queue-tbody");
+    if (!items.length) {
+      tb.innerHTML = '<tr><td colspan="9" class="text-center py-12" style="color:var(--muted)">Queue is empty. Run a search to start.</td></tr>';
+      return;
+    }
+    tb.innerHTML = items.map(it => {
+      const hm = it.hiring_manager, hr = it.hr_contact;
+      const hmN = hm ? `${hm.first_name||""} ${hm.last_name||""}`.trim() : "";
+      const hrN = hr ? `${hr.first_name||""} ${hr.last_name||""}`.trim() : "";
+      const em = (hm && hm.email) || (hr && hr.email) || "";
+      const initial = (it.company_name||"").trim().slice(0,2).toUpperCase();
+      return `<tr class="row-enter">
+        <td><input type="checkbox" class="row-cb" data-id="${it.id}"></td>
+        <td><span class="pill pill-${it.status}"><span class="d"></span>${it.status}</span></td>
+        <td><div class="flex items-center gap-2"><div class="avatar-tile" style="background:${avatarGradient(it.company_name||"X")}">${esc(initial)}</div><span class="font-semibold">${esc(it.company_name)}</span></div></td>
+        <td style="color:var(--ink)">${esc((it.bd_job_title||"").slice(0,55))}</td>
+        <td style="color:var(--muted); font-size:12px;">${esc(it.bd_job_location||"")}</td>
+        <td style="font-size:12.5px;">${esc(hmN) || '<span style="color:#cbd5e1">—</span>'}</td>
+        <td style="font-size:12.5px;">${esc(hrN) || '<span style="color:#cbd5e1">—</span>'}</td>
+        <td style="font-size:12px; font-family:ui-monospace,monospace;">${esc(em) || '<span style="color:#cbd5e1">—</span>'}</td>
+        <td><button onclick="deleteItem(${it.id})" style="color:#94a3b8; font-size:18px; line-height:1;" title="Delete">×</button></td>
+      </tr>`;
+    }).join("");
+  } catch (e) { console.error(e); }
+}
+
+// ──── ACTIONS ──────────────────────────────────────────────────────────────────
+function setStatus(id, txt) { document.getElementById(id).textContent = txt; }
+
+function toggleChip(labelId, cb) {
+  document.getElementById(labelId).classList.toggle("active", cb.checked);
+}
+
+function toggleAll(cb) {
+  document.querySelectorAll(".row-cb").forEach(x => x.checked = cb.checked);
+}
+
+async function runSearch() {
+  const titles = document.getElementById("f-titles").value.split(",").map(s => s.trim()).filter(Boolean);
+  const states = document.getElementById("f-states").value.split(",").map(s => s.trim()).filter(Boolean);
+  const body = {
+    industry: document.getElementById("f-industry").value,
+    job_titles: titles, locations: states,
+    hours_old: parseInt(document.getElementById("f-hours").value),
+    results_per_query: parseInt(document.getElementById("f-rpq").value),
+    tag: document.getElementById("f-tag").value,
+  };
+  setStatus("search-status", "Starting search…");
+  try {
+    const job = await api("/api/search", {method: "POST", body});
+    await pollJob(job.id, "search-status");
+    await refreshQueue(); await refreshHeader();
+  } catch (e) { setStatus("search-status", "Error: " + e.message); }
+}
+
+async function runEnrich() {
+  const sel = Array.from(document.querySelectorAll(".row-cb:checked")).map(x => parseInt(x.dataset.id));
+  const body = {
+    queue_item_ids: sel.length ? sel : null,
+    max_spend_usd: parseFloat(document.getElementById("f-budget").value),
+    max_companies: parseInt(document.getElementById("f-max-companies").value),
+    use_apollo_fallback: true,
+    intel_position: document.getElementById("f-intel-position").checked,
+    intel_company: document.getElementById("f-intel-company").checked,
+    intel_contact: document.getElementById("f-intel-contact").checked,
+  };
+  setStatus("enrich-status", "Enriching…");
+  try {
+    const job = await api("/api/enrich", {method: "POST", body});
+    await pollJob(job.id, "enrich-status");
+    await refreshQueue(); await refreshHeader();
+  } catch (e) { setStatus("enrich-status", "Error: " + e.message); }
+}
+
+async function pollJob(jobId, statusEl) {
+  while (true) {
+    const j = await api(`/api/jobs/${jobId}`);
+    setStatus(statusEl, `${j.status} (${j.progress_done}/${j.progress_total})`);
+    if (j.status === "DONE") { setStatus(statusEl, `Done: ${JSON.stringify(j.result)}`); await refreshQueue(); return; }
+    if (j.status === "ERROR") { setStatus(statusEl, `Error: ${j.error}`); return; }
+    await new Promise(r => setTimeout(r, 1500));
+  }
+}
+
+function exportCSV(status) {
+  const t = getToken();
+  const tag = encodeURIComponent(document.getElementById("f-tag").value);
+  const ind = encodeURIComponent(document.getElementById("f-industry").value);
+  const ip = document.getElementById("f-intel-position").checked;
+  const ic = document.getElementById("f-intel-company").checked;
+  const ix = document.getElementById("f-intel-contact").checked;
+  window.location = `${API_BASE}/api/export?status=${status}&tag=${tag}&industry=${ind}&intel_position=${ip}&intel_company=${ic}&intel_contact=${ix}&token=${encodeURIComponent(t)}`;
+}
+
+function exportSelected() {
+  const ids = Array.from(document.querySelectorAll(".row-cb:checked")).map(x => x.dataset.id);
+  if (!ids.length) { alert("Select rows first."); return; }
+  const t = getToken();
+  const tag = encodeURIComponent(document.getElementById("f-tag").value);
+  const ind = encodeURIComponent(document.getElementById("f-industry").value);
+  window.location = `${API_BASE}/api/export?${ids.map(i=>"ids="+i).join("&")}&tag=${tag}&industry=${ind}&token=${encodeURIComponent(t)}`;
+}
+
+async function deleteItem(id) {
+  if (!confirm("Delete from queue?")) return;
+  await api("/api/queue/delete", {method: "POST", body: [id]});
+  await refreshQueue(); await refreshHeader();
+}
+
+// ──── ANTI-EXTRACTION LAYER ────────────────────────────────────────────────────
+const sessionId = (() => {
+  let s = sessionStorage.getItem("bdpp_sess");
+  if (!s) { s = "S" + Math.random().toString(36).slice(2, 10).toUpperCase(); sessionStorage.setItem("bdpp_sess", s); }
+  return s;
+})();
+
+function buildWatermark() {
+  const user = (getToken() || "anon").slice(0, 8);
+  const ts = new Date().toISOString();
+  const text = `${user} · ${sessionId} · ${ts} · DO NOT SHARE`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="540" height="180" viewBox="0 0 540 180"><g transform="rotate(-22 270 90)"><text x="0" y="60" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" font-weight="700" fill="#0f172a" letter-spacing="1.5">${text}</text><text x="0" y="120" font-family="-apple-system,BlinkMacSystemFont,sans-serif" font-size="14" font-weight="700" fill="#0f172a" letter-spacing="1.5">${text}</text></g></svg>`;
+  const url = `url("data:image/svg+xml;utf8,${encodeURIComponent(svg)}")`;
+  document.documentElement.style.setProperty("--wm", url);
+  document.getElementById("footer-time").textContent = `Session ${sessionId} · ${ts}`;
+}
+buildWatermark();
+setInterval(buildWatermark, 5000);
+
+// Disable copy/cut on non-input
+document.addEventListener("copy", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  e.preventDefault();
+  e.clipboardData && e.clipboardData.setData("text/plain", "[BD++ Sniper — content protected]");
+}, true);
+document.addEventListener("cut", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  e.preventDefault();
+}, true);
+
+// Disable keyboard shortcuts: F12, Ctrl+Shift+I/J/C, Ctrl+U/S/P/A
+document.addEventListener("keydown", e => {
+  const cmd = e.ctrlKey || e.metaKey;
+  const inField = e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA";
+  if (e.key === "F12") { e.preventDefault(); return; }
+  if (cmd && e.shiftKey && ["I", "J", "C", "i", "j", "c"].includes(e.key)) { e.preventDefault(); return; }
+  if (cmd && ["u", "U", "s", "S", "p", "P"].includes(e.key)) { e.preventDefault(); return; }
+  if (cmd && !inField && ["a", "A", "c", "C", "x", "X"].includes(e.key)) { e.preventDefault(); return; }
+}, true);
+
+// Blur on window-blur (deters screenshot tools that capture the whole desktop)
+window.addEventListener("blur", () => document.body.classList.add("blurred"));
+window.addEventListener("focus", () => document.body.classList.remove("blurred"));
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) document.body.classList.add("blurred");
+  else document.body.classList.remove("blurred");
+});
+
+// DevTools detection — soft signal only
+setInterval(() => {
+  const threshold = 200;
+  if ((window.outerWidth - window.innerWidth > threshold) || (window.outerHeight - window.innerHeight > threshold)) {
+    document.body.classList.add("blurred");
+  }
+}, 1500);
+
+// Boot
+refreshHeader();
+refreshQueue();
+setInterval(refreshHeader, 5000);
+setInterval(refreshQueue, 8000);
+</script>
+</body>
+</html>
