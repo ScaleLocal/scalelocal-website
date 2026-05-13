@@ -183,7 +183,14 @@
       </div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 relative z-10">
-      <div><label class="lbl">Industry</label><input id="f-industry" class="input-pill" value="Manufacturing" /></div>
+      <div>
+        <label class="lbl">Industry (type to search)</label>
+        <div class="chip-input-wrap" id="industry-wrap" onclick="document.getElementById('industry-search').focus()">
+          <input id="industry-search" class="chip-search" type="text" placeholder="Manufacturing" autocomplete="off"/>
+          <input type="hidden" id="f-industry" value="Manufacturing"/>
+          <div class="chip-dropdown" id="industry-dropdown"></div>
+        </div>
+      </div>
       <div><label class="lbl">Date Posted Window</label>
         <select id="f-hours" class="input-pill">
           <option value="24">Last 24 hours</option>
@@ -358,6 +365,53 @@ async function refreshQueue() {
   } catch (e) { console.error(e); }
 }
 
+
+
+// ──── INDUSTRY AUTOCOMPLETE WIDGET ────────────────────────────────────────────
+const INDUSTRY_LIST = ["Manufacturing","Semiconductor Manufacturing","Aerospace Manufacturing","Defense & Aerospace","Automotive Manufacturing","Industrial Machinery Manufacturing","Industrial Automation","Robotics","Medical Device Manufacturing","Pharmaceutical Manufacturing","Biotechnology","Chemical Manufacturing","Plastics & Rubber Manufacturing","Metal Fabrication","Precision Machining","Tool & Die Manufacturing","Electronics Manufacturing","Electrical Equipment Manufacturing","Power Equipment Manufacturing","Renewable Energy Manufacturing","Energy Storage / Batteries","Clean Energy","Food & Beverage Manufacturing","Packaging","Textile Manufacturing","Apparel Manufacturing","Furniture Manufacturing","Building Products","Construction Materials","Paper & Pulp Manufacturing","Printing","Glass Manufacturing","Ceramics Manufacturing","Composites Manufacturing","Additive Manufacturing / 3D Printing","HVAC Manufacturing","Consumer Goods Manufacturing","Sporting Goods Manufacturing","Toy Manufacturing","Aerospace","Automotive","Construction","Engineering Services","Information Technology","Software","SaaS","Computer Hardware","Telecommunications","Internet","Cloud Computing","Cybersecurity","AI / Machine Learning","Data & Analytics","FinTech","Banking","Insurance","Investment Management","Real Estate","Property Management","Architecture & Planning","Civil Engineering","Mechanical Engineering","Electrical Engineering","Chemical Engineering","Healthcare","Hospitals","Medical Practice","Mental Health Care","Veterinary","Biotech R&D","Pharmaceuticals","Education","Higher Education","K-12 Education","EdTech","Retail","E-commerce","Wholesale","Consumer Products","Logistics & Supply Chain","Warehousing","Transportation","Trucking","Aviation","Maritime / Shipping","Rail","Energy","Oil & Gas","Utilities","Mining","Agriculture","AgTech","Food Production","Hospitality","Restaurants","Hotels","Travel","Entertainment","Media & Publishing","Marketing & Advertising","Public Relations","Legal Services","Accounting","Consulting","Staffing & Recruiting","Human Resources","Non-Profit","Government / Public Sector","Defense Contracting","Aerospace & Defense"];
+let industryDropHi = 0;
+
+function filteredIndustries(q) {
+  q = (q||"").trim().toLowerCase();
+  if (!q) return INDUSTRY_LIST.slice(0, 12);
+  // Prioritize startsWith, then includes
+  const starts = INDUSTRY_LIST.filter(i => i.toLowerCase().startsWith(q));
+  const includes = INDUSTRY_LIST.filter(i => !i.toLowerCase().startsWith(q) && i.toLowerCase().includes(q));
+  return [...starts, ...includes].slice(0, 12);
+}
+function renderIndustryDropdown(q) {
+  const drop = document.getElementById("industry-dropdown");
+  const opts = filteredIndustries(q);
+  if (!opts.length) { drop.classList.remove("open"); return; }
+  industryDropHi = 0;
+  drop.innerHTML = opts.map((o,i) => `<div class="chip-option ${i===0?'highlight':''}" data-name="${esc(o)}" onclick="selectIndustry('${esc(o)}')">${esc(o)}</div>`).join("");
+  drop.classList.add("open");
+}
+function selectIndustry(name) {
+  document.getElementById("f-industry").value = name;
+  document.getElementById("industry-search").value = name;
+  document.getElementById("industry-dropdown").classList.remove("open");
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const inp = document.getElementById("industry-search");
+  const drop = document.getElementById("industry-dropdown");
+  if (!inp) return;
+  // Init from hidden input
+  inp.value = document.getElementById("f-industry").value || "";
+  inp.addEventListener("input", e => {
+    document.getElementById("f-industry").value = e.target.value;
+    renderIndustryDropdown(e.target.value);
+  });
+  inp.addEventListener("focus", e => renderIndustryDropdown(e.target.value));
+  inp.addEventListener("blur", () => setTimeout(() => drop.classList.remove("open"), 180));
+  inp.addEventListener("keydown", e => {
+    const opts = drop.querySelectorAll(".chip-option");
+    if (e.key === "ArrowDown") { e.preventDefault(); industryDropHi = Math.min(industryDropHi+1, opts.length-1); opts.forEach((o,i)=>o.classList.toggle("highlight", i===industryDropHi)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); industryDropHi = Math.max(industryDropHi-1, 0); opts.forEach((o,i)=>o.classList.toggle("highlight", i===industryDropHi)); }
+    else if (e.key === "Enter" && opts[industryDropHi]) { e.preventDefault(); selectIndustry(opts[industryDropHi].dataset.name); }
+    else if (e.key === "Escape") { drop.classList.remove("open"); }
+  });
+});
 
 // ──── STATE MULTI-SELECT WIDGET ───────────────────────────────────────────────
 const US_STATES = [
