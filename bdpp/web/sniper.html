@@ -195,7 +195,14 @@
         </select>
       </div>
       <div class="md:col-span-2"><label class="lbl">Job Titles (comma-separated)</label><input id="f-titles" class="input-pill" value="Controls Engineer, Electrical Engineer" /></div>
-      <div class="md:col-span-2"><label class="lbl">Locations (states, comma-separated)</label><input id="f-states" class="input-pill" value="Massachusetts, Rhode Island, New Hampshire, Vermont, Maine" /></div>
+      <div class="md:col-span-2">
+        <label class="lbl">Locations (type to search states)</label>
+        <div class="chip-input-wrap" id="states-wrap" onclick="document.getElementById('states-search').focus()">
+          <div id="states-chips" style="display:contents"></div>
+          <input id="states-search" class="chip-search" type="text" placeholder="Type a state name…" autocomplete="off"/>
+          <div class="chip-dropdown" id="states-dropdown"></div>
+        </div>
+      </div>
       <div><label class="lbl">Tag</label><input id="f-tag" class="input-pill" value="NE-Engineering" /></div>
       <div><label class="lbl">Results per Query</label><input id="f-rpq" type="number" class="input-pill" value="60" min="10" max="200" /></div>
     </div>
@@ -277,7 +284,7 @@
 // Production: served via Vercel rewrite, API_BASE is /sniper/api which proxies to Render.
 // Dev: load with ?api=http://127.0.0.1:8765 to override.
 const urlParams = new URLSearchParams(location.search);
-const API_BASE = urlParams.get("api") || window.BDPP_API_BASE || (location.hostname === "localhost" ? "http://127.0.0.1:8765" : "/sniper");
+const API_BASE = urlParams.get("api") || window.BDPP_API_BASE || (location.hostname === "localhost" ? "http://127.0.0.1:8765" : "/sniper/api");
 const TOKEN_KEY = "bdpp_token";
 
 function getToken() {
@@ -304,7 +311,7 @@ async function api(path, opts = {}) {
 // ──── HEADER + QUEUE LIVE UPDATES ──────────────────────────────────────────────
 async function refreshHeader() {
   try {
-    const [c, s] = await Promise.all([api("/api/queue/counts"), api("/api/spend")]);
+    const [c, s] = await Promise.all([api("/queue/counts"), api("/spend")]);
     const d = c.DISCOVERED || 0, en = c.ENRICHED || 0, ex = c.EXPORTED || 0;
     document.getElementById("queue-count").textContent = `${d} / ${en} / ${ex}`;
     document.getElementById("spend-today").textContent = "$" + (s.today_usd || 0).toFixed(4);
@@ -324,7 +331,7 @@ function esc(s) {
 
 async function refreshQueue() {
   try {
-    const items = await api("/api/queue?status=ALL&limit=500");
+    const items = await api("/queue?status=ALL&limit=500");
     const tb = document.getElementById("queue-tbody");
     if (!items.length) {
       tb.innerHTML = '<tr><td colspan="9" class="text-center py-12" style="color:var(--muted)">Queue is empty. Run a search to start.</td></tr>';
@@ -351,6 +358,70 @@ async function refreshQueue() {
   } catch (e) { console.error(e); }
 }
 
+
+// ──── STATE MULTI-SELECT WIDGET ───────────────────────────────────────────────
+const US_STATES = [
+  ["AL","Alabama"],["AK","Alaska"],["AZ","Arizona"],["AR","Arkansas"],["CA","California"],
+  ["CO","Colorado"],["CT","Connecticut"],["DE","Delaware"],["FL","Florida"],["GA","Georgia"],
+  ["HI","Hawaii"],["ID","Idaho"],["IL","Illinois"],["IN","Indiana"],["IA","Iowa"],
+  ["KS","Kansas"],["KY","Kentucky"],["LA","Louisiana"],["ME","Maine"],["MD","Maryland"],
+  ["MA","Massachusetts"],["MI","Michigan"],["MN","Minnesota"],["MS","Mississippi"],["MO","Missouri"],
+  ["MT","Montana"],["NE","Nebraska"],["NV","Nevada"],["NH","New Hampshire"],["NJ","New Jersey"],
+  ["NM","New Mexico"],["NY","New York"],["NC","North Carolina"],["ND","North Dakota"],["OH","Ohio"],
+  ["OK","Oklahoma"],["OR","Oregon"],["PA","Pennsylvania"],["RI","Rhode Island"],["SC","South Carolina"],
+  ["SD","South Dakota"],["TN","Tennessee"],["TX","Texas"],["UT","Utah"],["VT","Vermont"],
+  ["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"],
+  ["DC","District of Columbia"]
+];
+let selectedStates = ["Massachusetts","Rhode Island","New Hampshire","Vermont","Maine"];
+let dropHighlight = 0;
+
+function renderChips() {
+  const c = document.getElementById("states-chips");
+  c.innerHTML = selectedStates.map(s => `<span class="state-chip">${esc(s)}<span class="x" onclick="removeState('${esc(s)}'); event.stopPropagation()">×</span></span>`).join("");
+}
+function removeState(name) {
+  selectedStates = selectedStates.filter(s => s !== name);
+  renderChips();
+}
+function filteredStates(q) {
+  q = (q||"").trim().toLowerCase();
+  if (!q) return US_STATES.filter(([a,n]) => !selectedStates.includes(n)).slice(0,10);
+  return US_STATES.filter(([a,n]) => (n.toLowerCase().startsWith(q) || a.toLowerCase() === q) && !selectedStates.includes(n)).slice(0,10);
+}
+function renderDropdown(q) {
+  const drop = document.getElementById("states-dropdown");
+  const opts = filteredStates(q);
+  if (!opts.length) { drop.classList.remove("open"); return; }
+  dropHighlight = 0;
+  drop.innerHTML = opts.map((o,i) => `<div class="chip-option ${i===0?'highlight':''}" data-name="${esc(o[1])}" onclick="addState('${esc(o[1])}')"><span class="abbr">${o[0]}</span>${esc(o[1])}</div>`).join("");
+  drop.classList.add("open");
+}
+function addState(name) {
+  if (!selectedStates.includes(name)) selectedStates.push(name);
+  document.getElementById("states-search").value = "";
+  document.getElementById("states-dropdown").classList.remove("open");
+  renderChips();
+  document.getElementById("states-search").focus();
+}
+document.addEventListener("DOMContentLoaded", () => {
+  renderChips();
+  const inp = document.getElementById("states-search");
+  const drop = document.getElementById("states-dropdown");
+  if (!inp) return;
+  inp.addEventListener("input", e => renderDropdown(e.target.value));
+  inp.addEventListener("focus", e => renderDropdown(e.target.value));
+  inp.addEventListener("blur", () => setTimeout(() => drop.classList.remove("open"), 180));
+  inp.addEventListener("keydown", e => {
+    const opts = drop.querySelectorAll(".chip-option");
+    if (e.key === "ArrowDown") { e.preventDefault(); dropHighlight = Math.min(dropHighlight+1, opts.length-1); opts.forEach((o,i)=>o.classList.toggle("highlight", i===dropHighlight)); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); dropHighlight = Math.max(dropHighlight-1, 0); opts.forEach((o,i)=>o.classList.toggle("highlight", i===dropHighlight)); }
+    else if (e.key === "Enter" && opts[dropHighlight]) { e.preventDefault(); addState(opts[dropHighlight].dataset.name); }
+    else if (e.key === "Backspace" && !inp.value && selectedStates.length) { selectedStates.pop(); renderChips(); }
+    else if (e.key === "Escape") { drop.classList.remove("open"); }
+  });
+});
+
 // ──── ACTIONS ──────────────────────────────────────────────────────────────────
 function setStatus(id, txt) { document.getElementById(id).textContent = txt; }
 
@@ -364,7 +435,7 @@ function toggleAll(cb) {
 
 async function runSearch() {
   const titles = document.getElementById("f-titles").value.split(",").map(s => s.trim()).filter(Boolean);
-  const states = document.getElementById("f-states").value.split(",").map(s => s.trim()).filter(Boolean);
+  const states = selectedStates.slice();
   const body = {
     industry: document.getElementById("f-industry").value,
     job_titles: titles, locations: states,
@@ -374,7 +445,7 @@ async function runSearch() {
   };
   setStatus("search-status", "Starting search…");
   try {
-    const job = await api("/api/search", {method: "POST", body});
+    const job = await api("/search", {method: "POST", body});
     await pollJob(job.id, "search-status");
     await refreshQueue(); await refreshHeader();
   } catch (e) { setStatus("search-status", "Error: " + e.message); }
@@ -393,7 +464,7 @@ async function runEnrich() {
   };
   setStatus("enrich-status", "Enriching…");
   try {
-    const job = await api("/api/enrich", {method: "POST", body});
+    const job = await api("/enrich", {method: "POST", body});
     await pollJob(job.id, "enrich-status");
     await refreshQueue(); await refreshHeader();
   } catch (e) { setStatus("enrich-status", "Error: " + e.message); }
@@ -401,7 +472,7 @@ async function runEnrich() {
 
 async function pollJob(jobId, statusEl) {
   while (true) {
-    const j = await api(`/api/jobs/${jobId}`);
+    const j = await api(`/jobs/${jobId}`);
     setStatus(statusEl, `${j.status} (${j.progress_done}/${j.progress_total})`);
     if (j.status === "DONE") { setStatus(statusEl, `Done: ${JSON.stringify(j.result)}`); await refreshQueue(); return; }
     if (j.status === "ERROR") { setStatus(statusEl, `Error: ${j.error}`); return; }
@@ -416,7 +487,7 @@ function exportCSV(status) {
   const ip = document.getElementById("f-intel-position").checked;
   const ic = document.getElementById("f-intel-company").checked;
   const ix = document.getElementById("f-intel-contact").checked;
-  window.location = `${API_BASE}/api/export?status=${status}&tag=${tag}&industry=${ind}&intel_position=${ip}&intel_company=${ic}&intel_contact=${ix}&token=${encodeURIComponent(t)}`;
+  window.location = `${API_BASE}/export?status=${status}&tag=${tag}&industry=${ind}&intel_position=${ip}&intel_company=${ic}&intel_contact=${ix}&token=${encodeURIComponent(t)}`;
 }
 
 function exportSelected() {
@@ -425,12 +496,12 @@ function exportSelected() {
   const t = getToken();
   const tag = encodeURIComponent(document.getElementById("f-tag").value);
   const ind = encodeURIComponent(document.getElementById("f-industry").value);
-  window.location = `${API_BASE}/api/export?${ids.map(i=>"ids="+i).join("&")}&tag=${tag}&industry=${ind}&token=${encodeURIComponent(t)}`;
+  window.location = `${API_BASE}/export?${ids.map(i=>"ids="+i).join("&")}&tag=${tag}&industry=${ind}&token=${encodeURIComponent(t)}`;
 }
 
 async function deleteItem(id) {
   if (!confirm("Delete from queue?")) return;
-  await api("/api/queue/delete", {method: "POST", body: [id]});
+  await api("/queue/delete", {method: "POST", body: [id]});
   await refreshQueue(); await refreshHeader();
 }
 
