@@ -277,7 +277,7 @@
 // Production: served via Vercel rewrite, API_BASE is /sniper/api which proxies to Render.
 // Dev: load with ?api=http://127.0.0.1:8765 to override.
 const urlParams = new URLSearchParams(location.search);
-const API_BASE = urlParams.get("api") || window.BDPP_API_BASE || (location.hostname === "localhost" ? "http://127.0.0.1:8765" : "/sniper/api");
+const API_BASE = urlParams.get("api") || window.BDPP_API_BASE || (location.hostname === "localhost" ? "http://127.0.0.1:8765" : "/sniper");
 const TOKEN_KEY = "bdpp_token";
 
 function getToken() {
