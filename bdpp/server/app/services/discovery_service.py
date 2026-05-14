@@ -88,7 +88,20 @@ def _norm_state(s):
 
 
 def run_discovery(industry, job_titles, locations, hours_old, results_per_query, **kwargs):
-    """Returns list of dicts (one per posting). Drop empty/'nan' companies upstream."""
+    """Returns list of dicts (one per posting). Drop empty/'nan' companies upstream.
+
+    Defensive: wrapped in try/except so a single bad title-state combo can't take
+    the whole search down. Returns [] on any unrecoverable parse error.
+    """
+    try:
+        return _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, **kwargs)
+    except Exception as e:
+        import logging
+        logging.warning(f"[discovery] failed cleanly with {type(e).__name__}: {e}")
+        return []
+
+
+def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, **kwargs):
     from jobspy import scrape_jobs
     all_dfs = []
     for state in locations:
@@ -102,6 +115,8 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
                     hours_old=hours_old,
                     country_indeed="USA",
                 )
+                if df is None or len(df) == 0:
+                    continue
                 all_dfs.append(df)
             except Exception:
                 continue
