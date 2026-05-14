@@ -234,7 +234,7 @@
           <option value="2160">Last 90 days</option>
         </select>
       </div>
-      <div class="md:col-span-2"><label class="lbl">Job Titles (comma-separated)</label><input id="f-titles" class="input-pill" value="Controls Engineer, Electrical Engineer" /></div>
+      <div class="md:col-span-2"><label class="lbl">Job Titles (comma-separated)</label><input id="f-titles" class="input-pill" value="" placeholder="e.g. Controls Engineer, &quot;Electrical Engineer&quot;" /></div>
       <div class="md:col-span-2">
         <label class="lbl">Locations (type to search states)</label>
         <div class="chip-input-wrap" id="states-wrap" onclick="document.getElementById('states-search').focus()">
@@ -243,7 +243,7 @@
           <div class="chip-dropdown" id="states-dropdown"></div>
         </div>
       </div>
-      <div><label class="lbl">Tag</label><input id="f-tag" class="input-pill" value="NE-Engineering" /></div>
+      <div><label class="lbl">Tag</label><input id="f-tag" class="input-pill" value="" placeholder="e.g. NE-Engineering" /></div>
       <div><label class="lbl">Results per Query</label><input id="f-rpq" type="number" class="input-pill" value="60" min="10" max="200" /></div>
     </div>
     <div class="flex items-center gap-4 mt-6 relative z-10">
@@ -468,7 +468,7 @@ const US_STATES = [
   ["VA","Virginia"],["WA","Washington"],["WV","West Virginia"],["WI","Wisconsin"],["WY","Wyoming"],
   ["DC","District of Columbia"]
 ];
-let selectedStates = ["Massachusetts","Rhode Island","New Hampshire","Vermont","Maine"];
+let selectedStates = [];
 let dropHighlight = 0;
 
 function renderChips() {
@@ -594,11 +594,28 @@ function toggleRow(cb, id) {
 }
 
 async function runSearch() {
-  const titles = document.getElementById("f-titles").value.split(",").map(s => s.trim()).filter(Boolean);
+  // Smart title parser:
+  //   "Controls Engineer", Electrical Engineer
+  //   -> [{title:"Controls Engineer", exact:true}, {title:"Electrical Engineer", exact:false}]
+  const rawTitles = document.getElementById("f-titles").value;
+  const titleEntries = [];
+  {
+    // Split on commas that are NOT inside quotes
+    const re = /(?:"([^"]+)")|([^,]+)/g;
+    let m;
+    while ((m = re.exec(rawTitles)) !== null) {
+      if (m[1]) titleEntries.push({title: m[1].trim(), exact: true});
+      else if (m[2] && m[2].trim()) titleEntries.push({title: m[2].trim(), exact: false});
+    }
+  }
+  const titles = titleEntries.map(e => e.title);
+  const exactFlags = titleEntries.map(e => e.exact);
   const states = selectedStates.slice();
   const body = {
     industry: document.getElementById("f-industry").value,
-    job_titles: titles, locations: states,
+    job_titles: titles,
+    job_title_exact: exactFlags,
+    locations: states,
     hours_old: parseInt(document.getElementById("f-hours").value),
     results_per_query: parseInt(document.getElementById("f-rpq").value),
     tag: document.getElementById("f-tag").value,

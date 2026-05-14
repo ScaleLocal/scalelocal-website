@@ -26,40 +26,46 @@ def _city_from_loc(loc):
     return parts[0].strip() if parts else None
 
 
-def _build_title_rx(titles):
-    """Build a flexible regex from target title phrases.
+def _build_title_rx(titles, exact_flags=None):
+    """Build a regex from target title phrases.
 
-    For each title like "Controls Engineer":
-      - lowercase, split into words
-      - require each word to appear as a whole word in the job title (in any order would be too loose,
-        but in original order with anything between is right)
-      - allow common engineering modifiers between words (Sr/Senior/Principal/Staff/Lead/Associate/etc.)
-    Examples that should match for "Controls Engineer":
+    exact_flags: optional list[bool] parallel to titles. If True, that title is matched as
+                 an EXACT phrase (word-boundaries around it, no modifiers allowed between
+                 words). If False/missing, uses the loose-match pattern.
+
+    Loose match for "Controls Engineer" matches:
       - "Controls Engineer"
       - "Senior Controls Engineer"
-      - "Principal Controls Engineering"
+      - "Principal Controls Engineering Manager"
       - "Controls and Automation Engineer"
       - "Lead Controls Engineer III"
+
+    Exact match for "Controls Engineer" matches ONLY:
+      - "Controls Engineer" (with optional whole-word boundaries on either side)
     """
+    if exact_flags is None:
+        exact_flags = []
     parts = []
-    for t in titles:
+    for i, t in enumerate(titles):
         words = [re.escape(w) for w in t.lower().split() if w]
         if not words:
             continue
-        # Require each word to appear (in order) as a whole word, with anything between
-        # The last word allows an optional "s" or "ing" suffix for plural/gerund variants
-        seq = []
-        for i, w in enumerate(words):
-            if i == len(words) - 1:
-                # final word: allow engineer/engineering/engineers, etc.
-                seq.append(rf"\b{w}(?:s|ing|ers|ering)?\b")
-            else:
-                seq.append(rf"\b{w}s?\b")
-        # Join with ".{0,40}?" — anything (up to 40 chars) can appear between consecutive words
-        pattern = ".{0,40}?".join(seq)
+        exact = exact_flags[i] if i < len(exact_flags) else False
+        if exact:
+            # Strict: exact phrase, word-boundary on both sides
+            pattern = r"\b" + r"\s+".join(words) + r"\b"
+        else:
+            # Loose match (existing flexible logic)
+            seq = []
+            for j, w in enumerate(words):
+                if j == len(words) - 1:
+                    seq.append(rf"\b{w}(?:s|ing|ers|ering)?\b")
+                else:
+                    seq.append(rf"\b{w}s?\b")
+            pattern = ".{0,40}?".join(seq)
         parts.append(pattern)
     if not parts:
-        return r"^$"  # match nothing if no titles
+        return r"^$"
     return r"(?i)(" + "|".join(parts) + ")"
 
 
@@ -87,21 +93,21 @@ def _norm_state(s):
     return _STATE_NAME_TO_ABBR.get(s2)
 
 
-def run_discovery(industry, job_titles, locations, hours_old, results_per_query, **kwargs):
+def run_discovery(industry, job_titles, locations, hours_old, results_per_query, job_title_exact=None, **kwargs):
     """Returns list of dicts (one per posting). Drop empty/'nan' companies upstream.
 
     Defensive: wrapped in try/except so a single bad title-state combo can't take
     the whole search down. Returns [] on any unrecoverable parse error.
     """
     try:
-        return _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, **kwargs)
+        return _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, job_title_exact=job_title_exact, **kwargs)
     except Exception as e:
         import logging
         logging.warning(f"[discovery] failed cleanly with {type(e).__name__}: {e}")
         return []
 
 
-def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, **kwargs):
+def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, job_title_exact=None, **kwargs):
     from jobspy import scrape_jobs
     all_dfs = []
     for state in locations:
@@ -135,7 +141,7 @@ def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per
     df = df[df["date_posted_dt"] >= cutoff]
     if df.empty or "company" not in df.columns:
         return []
-    title_rx = _build_title_rx(job_titles)
+    title_rx = _build_title_rx(job_titles, exact_flags=job_title_exact)
     df = df[df["title"].fillna("").str.contains(title_rx, regex=True, na=False)]
     if df.empty or "company" not in df.columns:
         return []

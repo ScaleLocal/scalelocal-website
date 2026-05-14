@@ -6,8 +6,9 @@ from pydantic import BaseModel
 
 
 class SearchRequest(BaseModel):
-    industry: str
+    industry: str = ""
     job_titles: list[str]
+    job_title_exact: list[bool] = []   # parallel to job_titles; true = exact-phrase match
     locations: list[str]
     skills: list[str] = []
     hours_old: int = 72

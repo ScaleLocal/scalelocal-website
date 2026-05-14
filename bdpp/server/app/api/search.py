@@ -30,6 +30,7 @@ async def _run_search_job(job_id: int, params: dict):
             postings = run_discovery(
                 industry=params["industry"],
                 job_titles=params["job_titles"],
+                job_title_exact=params.get("job_title_exact") or [],
                 locations=params["locations"],
                 hours_old=params["hours_old"],
                 results_per_query=params["results_per_query"],
