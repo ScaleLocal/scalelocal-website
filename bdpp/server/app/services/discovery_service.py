@@ -110,12 +110,21 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
 def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, job_title_exact=None, **kwargs):
     from jobspy import scrape_jobs
     all_dfs = []
+    exact_flags = job_title_exact or []
     for state in locations:
-        for term in job_titles:
+        for idx, term in enumerate(job_titles):
             try:
+                # ALWAYS pass quoted phrase to Indeed. Without quotes, Indeed treats the
+                # term as independent keywords and returns scattershot results (Software,
+                # Manufacturing, Senior, etc.) — our post-filter then catches 0.
+                # The user-facing exact_flag only governs post-filter strictness:
+                #   exact:false (default) → loose regex catches "Senior Controls Engineer III"
+                #                            "Process Controls Engineering Manager", etc.
+                #   exact:true            → tight \bphrase\b regex
+                search_term = f"\"{term}\""
                 df = scrape_jobs(
                     site_name=["indeed"],
-                    search_term=term,
+                    search_term=search_term,
                     location=state,
                     results_wanted=results_per_query,
                     hours_old=hours_old,
