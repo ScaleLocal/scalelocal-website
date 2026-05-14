@@ -230,6 +230,55 @@ async def google_cse_linkedin_search(client, company: str, target_role: str) -> 
     return out
 
 
+
+
+async def bing_linkedin_search(client, company: str, target_role: str) -> list[dict]:
+    """Bing Web Search API — same purpose as Google CSE, independent service.
+
+    Requires BING_SEARCH_KEY env var. Free tier: 1000 transactions/month, no billing required.
+    Endpoint: https://api.bing.microsoft.com/v7.0/search
+    """
+    key = os.environ.get("BING_SEARCH_KEY", "")
+    if not key:
+        return []
+    q = f'"{target_role}" "{company}" site:linkedin.com/in'
+    try:
+        r = await client.get(
+            "https://api.bing.microsoft.com/v7.0/search",
+            params={"q": q, "count": 5, "mkt": "en-US"},
+            headers={"Ocp-Apim-Subscription-Key": key},
+            timeout=15.0,
+        )
+        if r.status_code != 200:
+            return []
+        items = r.json().get("webPages", {}).get("value", []) or []
+    except Exception:
+        return []
+    out = []
+    for it in items:
+        title_str = it.get("name", "") or ""
+        link = it.get("url", "") or ""
+        snippet = it.get("snippet", "") or ""
+        m = re.match(r"^([A-Z][a-zA-Z\.\-]+(?:\s+[A-Z][a-zA-Z\.\-]+){1,3})\s*[-\u2013|]\s*(.+?)\s+at\s+", title_str)
+        if not m:
+            nm = _NAME_RE.search(title_str)
+            if not nm:
+                continue
+            full = nm.group(1)
+            inferred_title = target_role
+        else:
+            full = m.group(1).strip()
+            inferred_title = m.group(2).strip() or target_role
+        first, last = _split_name(full)
+        out.append({
+            "first_name": first, "last_name": last,
+            "title": inferred_title, "role_class": _classify_title(inferred_title),
+            "linkedin_url": link, "source": "bing_search",
+            "confidence": "MEDIUM",
+        })
+    return out
+
+
 # ── ATTEMPT 4 (paid): APOLLO ─────────────────────────────────────────────────
 async def apollo_search(client, api_key: str, company: str, domain: Optional[str]) -> list[dict]:
     if not api_key:
@@ -301,13 +350,22 @@ async def resolve_contacts_for_company(
             attempts.append("site_scrape")
             candidates.extend(await scrape_company_team(client, website))
 
-        # 3) Free: Google CSE LinkedIn search — search separately for engineering vs HR
+        # 3a) Free: Google CSE LinkedIn search
         if os.environ.get("GOOGLE_CSE_ID") and os.environ.get("GOOGLE_API_KEY"):
             attempts.append("google_cse")
             for target in ["Engineering Manager", "Director of Engineering",
                            "VP Engineering", "HR Manager", "Talent Acquisition",
                            "Human Resources Manager"]:
                 hits = await google_cse_linkedin_search(client, company_name, target)
+                candidates.extend(hits)
+
+        # 3b) Free: Bing Web Search (parallel to Google CSE; independent free quota)
+        if os.environ.get("BING_SEARCH_KEY"):
+            attempts.append("bing_search")
+            for target in ["Engineering Manager", "Director of Engineering",
+                           "VP Engineering", "HR Manager", "Talent Acquisition",
+                           "Human Resources Manager"]:
+                hits = await bing_linkedin_search(client, company_name, target)
                 candidates.extend(hits)
 
         hiring = _pick_best(candidates, "HIRING_MANAGER")
