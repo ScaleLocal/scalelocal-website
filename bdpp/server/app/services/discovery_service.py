@@ -94,12 +94,16 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_old)
     df["date_posted_dt"] = pd.to_datetime(df["date_posted"], errors="coerce", utc=True)
     df = df[df["date_posted_dt"] >= cutoff]
-    if df.empty:
+    if df.empty or "company" not in df.columns:
         return []
     title_rx = _build_title_rx(job_titles)
     df = df[df["title"].fillna("").str.contains(title_rx, regex=True, na=False)]
+    if df.empty or "company" not in df.columns:
+        return []
     target = {_norm_state(s) for s in locations}
     df = df[df["location"].fillna("").apply(lambda L: _state_from_loc(L) in target)]
+    if df.empty or "company" not in df.columns:
+        return []
     # Drop empties / NaNs
     df = df[df["company"].fillna("").apply(lambda c: str(c).strip().lower() not in {"", "nan", "none"})]
     if df.empty:
