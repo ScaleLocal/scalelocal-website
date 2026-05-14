@@ -151,6 +151,30 @@
     border: 1px solid var(--field-brd); border-radius: 11px;
   }
 
+
+  /* === Dropdown overlay hardening === */
+  .chip-input-wrap { position: relative; }
+  .chip-dropdown {
+    position: absolute !important; top: calc(100% + 4px) !important; left: 0 !important; right: 0 !important;
+    background: #fff !important; border: 1px solid var(--field-brd); border-radius: 12px;
+    box-shadow: 0 14px 36px -12px rgba(15,23,42,.2);
+    max-height: 280px; overflow-y: auto; z-index: 50;
+    display: none;
+  }
+  .chip-dropdown.open { display: block !important; }
+  .chip-option {
+    padding: 10px 14px; font-size: 13.5px; color: var(--ink);
+    cursor: pointer; border-bottom: 1px solid rgba(15,23,42,.04);
+    background: #fff;
+  }
+  .chip-option:last-child { border-bottom: none; }
+  .chip-option.highlight, .chip-option:hover { background: rgba(99,102,241,.08); color: var(--accent); }
+  .chip-option .abbr {
+    font-weight: 700; font-size: 11px; margin-right: 8px;
+    color: var(--accent); background: rgba(99,102,241,.12);
+    padding: 1px 6px; border-radius: 4px; display: inline-block; min-width: 28px; text-align: center;
+  }
+
 </style>
 </head>
 <body>
@@ -623,6 +647,19 @@ setInterval(() => {
     document.body.classList.add("blurred");
   }
 }, 1500);
+
+
+// Global outside-click closes both dropdowns
+document.addEventListener("click", e => {
+  if (!e.target.closest("#states-wrap") && !e.target.closest("#states-dropdown")) {
+    const d = document.getElementById("states-dropdown");
+    if (d) d.classList.remove("open");
+  }
+  if (!e.target.closest("#industry-wrap") && !e.target.closest("#industry-dropdown")) {
+    const d = document.getElementById("industry-dropdown");
+    if (d) d.classList.remove("open");
+  }
+});
 
 // Boot
 refreshHeader();

@@ -84,16 +84,26 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
     if not all_dfs:
         return []
     df = pd.concat(all_dfs, ignore_index=True)
+    if df.empty:
+        return []
+    # Guard: JobSpy occasionally drops columns when no rows match. Ensure required columns exist.
+    for col in ["company", "title", "location", "date_posted", "job_url", "description", "job_type", "site"]:
+        if col not in df.columns:
+            df[col] = ""
 
     cutoff = datetime.now(timezone.utc) - timedelta(hours=hours_old)
     df["date_posted_dt"] = pd.to_datetime(df["date_posted"], errors="coerce", utc=True)
     df = df[df["date_posted_dt"] >= cutoff]
+    if df.empty:
+        return []
     title_rx = _build_title_rx(job_titles)
     df = df[df["title"].fillna("").str.contains(title_rx, regex=True, na=False)]
     target = {_norm_state(s) for s in locations}
     df = df[df["location"].fillna("").apply(lambda L: _state_from_loc(L) in target)]
     # Drop empties / NaNs
-    df = df[df["company"].fillna("").apply(lambda c: c.strip().lower() not in {"", "nan", "none"})]
+    df = df[df["company"].fillna("").apply(lambda c: str(c).strip().lower() not in {"", "nan", "none"})]
+    if df.empty:
+        return []
 
     out = []
     for _, row in df.iterrows():
@@ -108,6 +118,6 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
             "bd_job_url": row.get("job_url") or "",
             "bd_job_description": (row.get("description") or "")[:8000],
             "bd_job_posted_at": row.get("date_posted_dt"),
-            "job_type": (row.get("job_type") or "").lower(),
+            "job_type": (str(row.get("job_type") or "") if not isinstance(row.get("job_type"), list) else " ".join(str(x) for x in (row.get("job_type") or []))).lower(),
         })
     return out
