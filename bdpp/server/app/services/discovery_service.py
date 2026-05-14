@@ -8,6 +8,9 @@ import warnings
 from datetime import datetime, timedelta, timezone
 
 import pandas as pd
+import os
+import httpx
+import re as _re
 
 warnings.filterwarnings("ignore", message="This pattern is interpreted as a regular expression")
 
@@ -107,6 +110,66 @@ def run_discovery(industry, job_titles, locations, hours_old, results_per_query,
         return []
 
 
+
+
+def _google_cse_jobs(search_term, state, hours_old, max_results=10):
+    """Use Google Programmable Search Engine to find job postings on major ATS/job boards.
+
+    Returns a pandas DataFrame compatible with the JobSpy schema. Requires:
+      - GOOGLE_API_KEY env var (you already have this)
+      - GOOGLE_CSE_ID env var (Programmable Search Engine ID — set this up at
+        https://programmablesearchengine.google.com/, restrict to indeed.com,
+        linkedin.com/jobs, glassdoor.com, ziprecruiter.com, jobs.google.com)
+    """
+    api_key = os.environ.get("GOOGLE_API_KEY", "")
+    cse_id = os.environ.get("GOOGLE_CSE_ID", "")
+    if not api_key or not cse_id:
+        return None  # not configured
+
+    # Google CSE supports `sort=date` and date-restrict via tbs/dateRestrict
+    days = max(1, (hours_old + 23) // 24)
+    params = {
+        "key": api_key,
+        "cx": cse_id,
+        "q": f"{search_term} {state}",
+        "num": min(max_results, 10),  # CSE max per call
+        "dateRestrict": f"d{days}",
+    }
+    try:
+        r = httpx.get("https://www.googleapis.com/customsearch/v1", params=params, timeout=15.0)
+        if r.status_code != 200:
+            return None
+        items = r.json().get("items", [])
+    except Exception:
+        return None
+
+    if not items:
+        return None
+
+    # Convert CSE results to a DataFrame matching JobSpy's shape
+    rows = []
+    for it in items:
+        title = it.get("title", "")
+        snippet = it.get("snippet", "") or ""
+        link = it.get("link", "")
+        # Parse company from title — most ATS pages format like "Title at Company - LinkedIn"
+        m = _re.search(r"\bat\s+([A-Z][^|\-—]+?)(?:\s*[\-—|]|$)", title)
+        company = m.group(1).strip() if m else (it.get("displayLink") or "Unknown").split(".")[0]
+        rows.append({
+            "id": link,
+            "site": "google_cse",
+            "job_url": link,
+            "title": title.split(" - ")[0].split(" | ")[0].strip(),
+            "company": company,
+            "location": state,
+            "date_posted": None,  # CSE doesn't give us this reliably
+            "job_type": "",
+            "description": snippet,
+        })
+    import pandas as pd
+    return pd.DataFrame(rows)
+
+
 def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per_query, job_title_exact=None, **kwargs):
     from jobspy import scrape_jobs
     all_dfs = []
@@ -114,25 +177,34 @@ def _run_discovery_inner(industry, job_titles, locations, hours_old, results_per
     for state in locations:
         for idx, term in enumerate(job_titles):
             try:
-                # ALWAYS pass quoted phrase to Indeed. Without quotes, Indeed treats the
-                # term as independent keywords and returns scattershot results (Software,
-                # Manufacturing, Senior, etc.) — our post-filter then catches 0.
-                # The user-facing exact_flag only governs post-filter strictness:
-                #   exact:false (default) → loose regex catches "Senior Controls Engineer III"
-                #                            "Process Controls Engineering Manager", etc.
-                #   exact:true            → tight \bphrase\b regex
+                # Always quote the phrase so each source returns phrase matches, not keywords.
                 search_term = f"\"{term}\""
-                df = scrape_jobs(
-                    site_name=["indeed"],
-                    search_term=search_term,
-                    location=state,
-                    results_wanted=results_per_query,
-                    hours_old=hours_old,
-                    country_indeed="USA",
-                )
-                if df is None or len(df) == 0:
-                    continue
-                all_dfs.append(df)
+                # Multi-source fan-out. Each source is tried independently; if one fails
+                # (blocking, rate-limit), the others still contribute. We catch per-source
+                # so a LinkedIn 429 doesn't kill an Indeed run.
+                for site in ["indeed", "linkedin", "glassdoor", "zip_recruiter"]:
+                    try:
+                        df = scrape_jobs(
+                            site_name=[site],
+                            search_term=search_term,
+                            location=state,
+                            results_wanted=results_per_query,
+                            hours_old=hours_old,
+                            country_indeed="USA",
+                        )
+                        if df is None or len(df) == 0:
+                            continue
+                        all_dfs.append(df)
+                    except Exception:
+                        continue
+                # Google Programmable Search Engine fallback (queries the indexed pages of all
+                # major ATS sites at once). Activates only when GOOGLE_CSE_ID is set in env.
+                try:
+                    cse_df = _google_cse_jobs(search_term, state, hours_old)
+                    if cse_df is not None and len(cse_df) > 0:
+                        all_dfs.append(cse_df)
+                except Exception:
+                    pass
             except Exception:
                 continue
     if not all_dfs:
