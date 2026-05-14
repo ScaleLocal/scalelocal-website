@@ -27,16 +27,40 @@ def _city_from_loc(loc):
 
 
 def _build_title_rx(titles):
+    """Build a flexible regex from target title phrases.
+
+    For each title like "Controls Engineer":
+      - lowercase, split into words
+      - require each word to appear as a whole word in the job title (in any order would be too loose,
+        but in original order with anything between is right)
+      - allow common engineering modifiers between words (Sr/Senior/Principal/Staff/Lead/Associate/etc.)
+    Examples that should match for "Controls Engineer":
+      - "Controls Engineer"
+      - "Senior Controls Engineer"
+      - "Principal Controls Engineering"
+      - "Controls and Automation Engineer"
+      - "Lead Controls Engineer III"
+    """
     parts = []
     for t in titles:
-        toks = t.lower().split()
-        if "engineer" in toks:
-            base = toks[toks.index("engineer") - 1] if toks.index("engineer") > 0 else ""
-            parts.append(rf"\b{base}s?\s+engineer")
-            parts.append(rf"\b{base}s?\s+engineering")
-        else:
-            parts.append(re.escape(t.lower()))
-    return r"(?i)" + "|".join(parts)
+        words = [re.escape(w) for w in t.lower().split() if w]
+        if not words:
+            continue
+        # Require each word to appear (in order) as a whole word, with anything between
+        # The last word allows an optional "s" or "ing" suffix for plural/gerund variants
+        seq = []
+        for i, w in enumerate(words):
+            if i == len(words) - 1:
+                # final word: allow engineer/engineering/engineers, etc.
+                seq.append(rf"\b{w}(?:s|ing|ers|ering)?\b")
+            else:
+                seq.append(rf"\b{w}s?\b")
+        # Join with ".{0,40}?" — anything (up to 40 chars) can appear between consecutive words
+        pattern = ".{0,40}?".join(seq)
+        parts.append(pattern)
+    if not parts:
+        return r"^$"  # match nothing if no titles
+    return r"(?i)(" + "|".join(parts) + ")"
 
 
 _STATE_NAME_TO_ABBR = {
