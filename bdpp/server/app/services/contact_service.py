@@ -94,10 +94,17 @@ def parse_jd_for_contact(jd_text: str) -> list[dict]:
             if not name_m:
                 continue
             full = name_m.group(1)
-            # Look for a title that follows the name within 60 chars
-            after_name = tail[name_m.end(): name_m.end() + 80]
-            title_m = re.search(r"[,\s\-]+\s*(([A-Z][a-z]+\s*){1,5})", after_name)
-            title = title_m.group(1).strip() if title_m else "Hiring Manager (named in JD)"
+            # Look for a title that follows the name within 80 chars
+            after_name = tail[name_m.end(): name_m.end() + 120]
+            # Capture sequences of (Title-cased words) plus optional connectors like 'of', 'and', '&'
+            title_m = re.search(
+                r"[,\s\-:]+\s*((?:[A-Z][a-zA-Z\-&]+|of|and|&|\s)+(?:Manager|Director|VP|Lead|Head|Officer|Engineer|Recruiter|Specialist|Coordinator|Partner|Generalist|Architect))",
+                after_name
+            )
+            if title_m:
+                title = title_m.group(1).strip().rstrip(",.;:")
+            else:
+                title = "Hiring Manager (named in JD)"
             first, last = _split_name(full)
             found.append({
                 "first_name": first, "last_name": last,
