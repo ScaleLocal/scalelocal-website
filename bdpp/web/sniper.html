@@ -276,7 +276,15 @@
       <span id="enrich-status" class="text-[13px]" style="color:var(--muted)"></span>
     </div>
 
-    <div class="relative z-10 rounded-2xl border" style="border-color: var(--card-brd); background: rgba(255,255,255,.6); overflow: hidden;">
+    
+        <div id="bulk-banner" style="display:none; padding: 12px 16px; margin-bottom: 12px; background: linear-gradient(90deg, rgba(99,102,241,.10), rgba(139,92,246,.08)); border: 1px solid rgba(99,102,241,.25); border-radius: 12px; align-items: center; gap: 12px;">
+          <span style="font-weight: 700; color: var(--accent); font-size: 13.5px;"><span id="bulk-count">0</span> selected</span>
+          <button onclick="bulkEnrich()" class="btn-primary" style="padding: 8px 18px; font-size: 13px;">⚡ Enrich selected</button>
+          <button onclick="bulkDelete()" class="btn-ghost" style="padding: 8px 18px; font-size: 13px; border-color: rgba(239,68,68,.35); color: #dc2626;">🗑 Delete selected</button>
+          <button onclick="selectedIds.clear(); refreshQueue(); updateBulkActions();" style="margin-left: auto; background: transparent; border: none; color: var(--muted); font-size: 12px; cursor: pointer;">Clear selection</button>
+        </div>
+
+        <div class="relative z-10 rounded-2xl border" style="border-color: var(--card-brd); background: rgba(255,255,255,.6); overflow: hidden;">
       <table class="w-full">
         <thead>
           <tr>
@@ -384,7 +392,7 @@ async function refreshQueue() {
       const em = (hm && hm.email) || (hr && hr.email) || "";
       const initial = (it.company_name||"").trim().slice(0,2).toUpperCase();
       return `<tr class="row-enter">
-        <td><input type="checkbox" class="row-cb" data-id="${it.id}"></td>
+        <td><input type="checkbox" class="row-cb" data-id="${it.id}" ${selectedIds.has(it.id) ? "checked" : ""} onchange="toggleRow(this, ${it.id})"></td>
         <td><span class="pill pill-${it.status}"><span class="d"></span>${it.status}</span></td>
         <td><div class="flex items-center gap-2"><div class="avatar-tile" style="background:${avatarGradient(it.company_name||"X")}">${esc(initial)}</div><span class="font-semibold">${esc(it.company_name)}</span></div></td>
         <td style="color:var(--ink)">${esc((it.bd_job_title||"").slice(0,55))}</td>
@@ -516,8 +524,73 @@ function toggleChip(labelId, cb) {
   document.getElementById(labelId).classList.toggle("active", cb.checked);
 }
 
+
+// ──── Selection state — persists across queue refreshes ────────────────────────
+let selectedIds = new Set();
+
+function isAllSelected(visibleIds) {
+  return visibleIds.length > 0 && visibleIds.every(id => selectedIds.has(id));
+}
+
+function updateBulkActions() {
+  const banner = document.getElementById("bulk-banner");
+  if (!banner) return;
+  if (selectedIds.size === 0) {
+    banner.style.display = "none";
+  } else {
+    banner.style.display = "flex";
+    document.getElementById("bulk-count").textContent = selectedIds.size;
+  }
+}
+
+async function bulkDelete() {
+  if (selectedIds.size === 0) return;
+  if (!confirm(`Delete ${selectedIds.size} row(s) from queue?`)) return;
+  const ids = Array.from(selectedIds);
+  await api("/queue/delete", {method: "POST", body: ids});
+  selectedIds.clear();
+  await refreshQueue();
+  await refreshHeader();
+  updateBulkActions();
+}
+
+async function bulkEnrich() {
+  if (selectedIds.size === 0) { alert("Select rows first."); return; }
+  const body = {
+    queue_item_ids: Array.from(selectedIds),
+    max_spend_usd: parseFloat(document.getElementById("f-budget").value),
+    max_companies: selectedIds.size,
+    use_apollo_fallback: true,
+    intel_position: document.getElementById("f-intel-position").checked,
+    intel_company: document.getElementById("f-intel-company").checked,
+    intel_contact: document.getElementById("f-intel-contact").checked,
+  };
+  setStatus("enrich-status", "Enriching selected…");
+  try {
+    const job = await api("/enrich", {method: "POST", body});
+    await pollJob(job.id, "enrich-status");
+    await refreshQueue();
+    await refreshHeader();
+  } catch (e) { setStatus("enrich-status", "Error: " + e.message); }
+}
+
 function toggleAll(cb) {
-  document.querySelectorAll(".row-cb").forEach(x => x.checked = cb.checked);
+  const checkboxes = document.querySelectorAll(".row-cb");
+  checkboxes.forEach(x => {
+    x.checked = cb.checked;
+    const id = parseInt(x.dataset.id);
+    if (cb.checked) selectedIds.add(id); else selectedIds.delete(id);
+  });
+  updateBulkActions();
+}
+
+function toggleRow(cb, id) {
+  if (cb.checked) selectedIds.add(id); else selectedIds.delete(id);
+  // Update select-all checkbox state to match
+  const all = document.querySelectorAll(".row-cb");
+  const sa = document.getElementById("select-all");
+  if (sa) sa.checked = all.length > 0 && Array.from(all).every(x => x.checked);
+  updateBulkActions();
 }
 
 async function runSearch() {
