@@ -7,6 +7,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 
 from ..db import get_session
 from ..db.models import SpendLedger
+from sqlalchemy import delete
 
 router = APIRouter(prefix="/api", tags=["spend"])
 
@@ -42,3 +43,15 @@ async def spend_summary(db: AsyncSession = Depends(get_session)):
         "lifetime_usd": round(float(lifetime), 4),
         "by_service": {row[0]: round(float(row[1]), 4) for row in by_svc},
     }
+
+
+@router.post("/spend/refund_today")
+async def refund_today(db: AsyncSession = Depends(get_session)):
+    """Wipe today's spend ledger entries — used after a no-result enrichment run."""
+    now = datetime.utcnow()
+    today_start = datetime(now.year, now.month, now.day)
+    res = await db.execute(
+        delete(SpendLedger).where(SpendLedger.created_at >= today_start)
+    )
+    await db.commit()
+    return {"refunded": res.rowcount}

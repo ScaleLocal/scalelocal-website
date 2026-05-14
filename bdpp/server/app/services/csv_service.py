@@ -13,13 +13,16 @@ BD_COLUMNS = [
 ]
 
 
-def queue_items_to_csv_bytes(items, *, tag, industry, intel_position=False, intel_company=False, intel_contact=False):
+def queue_items_to_csv_bytes(items, *, tag, industry, intel_position=False, intel_company=False, intel_contact=False, only_with_contact=False):
     """Convert a list of QueueItem ORM rows into CSV bytes."""
     buf = io.StringIO()
     w = csv.writer(buf)
     w.writerow(BD_COLUMNS)
 
     for it in items:
+        # Skip rows without contacts when filtering
+        if only_with_contact and not (it.hiring_manager or it.hr_contact):
+            continue
         hiring = it.hiring_manager or None
         hr = it.hr_contact or None
         skills = list(it.skills or [])
