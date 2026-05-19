@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A roof with Roof Maxx rejuvenation application in progress">
+  <defs>
+    <linearGradient id="rm-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7fb6d6"/>
+      <stop offset="100%" stop-color="#cfe2ec"/>
+    </linearGradient>
+    <pattern id="rm-shingles-old" x="0" y="0" width="60" height="28" patternUnits="userSpaceOnUse">
+      <rect width="60" height="28" fill="#4a4438"/>
+      <rect x="0" y="0" width="30" height="14" fill="#3a352b" stroke="#1a1812" stroke-width="0.4"/>
+      <rect x="30" y="0" width="30" height="14" fill="#4f4838" stroke="#1a1812" stroke-width="0.4"/>
+      <rect x="15" y="14" width="30" height="14" fill="#42392c" stroke="#1a1812" stroke-width="0.4"/>
+    </pattern>
+    <pattern id="rm-shingles-new" x="0" y="0" width="60" height="28" patternUnits="userSpaceOnUse">
+      <rect width="60" height="28" fill="#2a2418"/>
+      <rect x="0" y="0" width="30" height="14" fill="#1f1c14" stroke="#0a0805" stroke-width="0.4"/>
+      <rect x="30" y="0" width="30" height="14" fill="#2c281c" stroke="#0a0805" stroke-width="0.4"/>
+      <rect x="15" y="14" width="30" height="14" fill="#252116" stroke="#0a0805" stroke-width="0.4"/>
+    </pattern>
+  </defs>
+  <rect width="800" height="600" fill="url(#rm-sky)"/>
+
+  <!-- Wide roof angle -->
+  <polygon points="0,160 800,260 800,600 0,600" fill="url(#rm-shingles-old)"/>
+
+  <!-- Wet/treated portion (darker, rejuvenated) on the right half, with transition -->
+  <polygon points="380,210 800,260 800,600 420,600" fill="url(#rm-shingles-new)" opacity="0.95"/>
+
+  <!-- Soft mist/treatment edge -->
+  <polygon points="380,210 420,600 480,600 440,210" fill="#1a3142" opacity="0.18"/>
+  <polygon points="380,210 420,600 460,600 410,210" fill="#1a3142" opacity="0.15"/>
+
+  <!-- Sprayer wand -->
+  <g transform="translate(440, 240) rotate(60)">
+    <rect x="0" y="-3" width="160" height="6" fill="#3a4654"/>
+    <rect x="160" y="-6" width="20" height="12" fill="#5a6c7e"/>
+    <!-- Spray fan -->
+    <g fill="#a8c8db" opacity="0.5">
+      <polygon points="180,0 240,-30 240,30"/>
+    </g>
+    <g fill="#a8c8db" opacity="0.3">
+      <polygon points="180,0 260,-50 260,50"/>
+    </g>
+  </g>
+
+  <!-- Worker silhouette -->
+  <g transform="translate(540, 350)">
+    <ellipse cx="0" cy="40" rx="20" ry="34" fill="#1a242e"/>
+    <circle cx="0" cy="-2" r="13" fill="#1a242e"/>
+    <path d="M -16 -2 Q 0 -20 16 -2 L 16 4 L -16 4 Z" fill="#3a7898"/>
+    <!-- Arm -->
+    <line x1="-2" y1="20" x2="-30" y2="0" stroke="#1a242e" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Roof Maxx-style canister at bottom -->
+  <g transform="translate(80, 460)">
+    <rect x="0" y="0" width="80" height="100" rx="6" fill="#3a7898" stroke="#1e4156" stroke-width="2"/>
+    <rect x="6" y="20" width="68" height="50" fill="#ffffff"/>
+    <text x="40" y="50" font-family="Montserrat, sans-serif" font-weight="900" font-size="13" fill="#1e4156" text-anchor="middle">ROOF</text>
+    <text x="40" y="64" font-family="Montserrat, sans-serif" font-weight="900" font-size="13" fill="#1e4156" text-anchor="middle">REJUV</text>
+    <rect x="20" y="-10" width="40" height="14" rx="2" fill="#1e4156"/>
+  </g>
+</svg>
