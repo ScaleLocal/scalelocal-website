@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Standing-seam metal roof on a New England farmhouse">
+  <defs>
+    <linearGradient id="mr-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a8db0"/>
+      <stop offset="100%" stop-color="#b8d4e3"/>
+    </linearGradient>
+    <linearGradient id="mr-metal" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#5a6c7e"/>
+      <stop offset="50%" stop-color="#8a9caf"/>
+      <stop offset="100%" stop-color="#5a6c7e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#mr-sky)"/>
+
+  <!-- Background trees -->
+  <g fill="#2c4a3a">
+    <ellipse cx="100" cy="380" rx="120" ry="80"/>
+    <ellipse cx="700" cy="370" rx="140" ry="90"/>
+    <ellipse cx="240" cy="400" rx="80" ry="60"/>
+    <ellipse cx="600" cy="395" rx="90" ry="65"/>
+  </g>
+
+  <!-- House body (white farmhouse) -->
+  <rect x="120" y="350" width="560" height="200" fill="#f0ede5"/>
+  <g stroke="#c8c0aa" stroke-width="1">
+    <line x1="120" y1="380" x2="680" y2="380"/>
+    <line x1="120" y1="410" x2="680" y2="410"/>
+    <line x1="120" y1="440" x2="680" y2="440"/>
+    <line x1="120" y1="470" x2="680" y2="470"/>
+    <line x1="120" y1="500" x2="680" y2="500"/>
+    <line x1="120" y1="530" x2="680" y2="530"/>
+  </g>
+
+  <!-- Windows -->
+  <g fill="#3a4654" stroke="#2a2a2a" stroke-width="2">
+    <rect x="180" y="400" width="60" height="80"/>
+    <rect x="320" y="400" width="60" height="80"/>
+    <rect x="460" y="400" width="60" height="80"/>
+    <rect x="580" y="400" width="60" height="80"/>
+  </g>
+  <g stroke="#2a2a2a" stroke-width="1.5">
+    <line x1="210" y1="400" x2="210" y2="480"/>
+    <line x1="350" y1="400" x2="350" y2="480"/>
+    <line x1="490" y1="400" x2="490" y2="480"/>
+    <line x1="610" y1="400" x2="610" y2="480"/>
+    <line x1="180" y1="440" x2="240" y2="440"/>
+    <line x1="320" y1="440" x2="380" y2="440"/>
+    <line x1="460" y1="440" x2="520" y2="440"/>
+    <line x1="580" y1="440" x2="640" y2="440"/>
+  </g>
+
+  <!-- Metal roof (the star) -->
+  <polygon points="80,350 400,140 720,350" fill="url(#mr-metal)"/>
+  <!-- Standing seams -->
+  <g stroke="#2a3543" stroke-width="2.5" fill="none">
+    <line x1="130" y1="320" x2="400" y2="155"/>
+    <line x1="180" y1="290" x2="400" y2="155"/>
+    <line x1="230" y1="260" x2="400" y2="155"/>
+    <line x1="280" y1="230" x2="400" y2="155"/>
+    <line x1="330" y1="200" x2="400" y2="155"/>
+    <line x1="380" y1="170" x2="400" y2="155"/>
+    <line x1="670" y1="320" x2="400" y2="155"/>
+    <line x1="620" y1="290" x2="400" y2="155"/>
+    <line x1="570" y1="260" x2="400" y2="155"/>
+    <line x1="520" y1="230" x2="400" y2="155"/>
+    <line x1="470" y1="200" x2="400" y2="155"/>
+    <line x1="420" y1="170" x2="400" y2="155"/>
+  </g>
+  <!-- Highlight gleam along center seam -->
+  <line x1="400" y1="155" x2="400" y2="155" stroke="#fff" stroke-width="3" opacity="0.5"/>
+  <polygon points="395,160 405,160 480,300 470,300" fill="#cfe0ec" opacity="0.5"/>
+
+  <!-- Ridge cap -->
+  <rect x="395" y="148" width="10" height="20" fill="#2a3543"/>
+  <!-- Gutter -->
+  <rect x="80" y="350" width="640" height="10" fill="#6a7888"/>
+</svg>
