@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ice dam and icicles forming on a New England roof in winter">
+  <defs>
+    <linearGradient id="id-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8aa6b8"/>
+      <stop offset="100%" stop-color="#cfd9e0"/>
+    </linearGradient>
+    <linearGradient id="id-ice" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#dceaf2"/>
+      <stop offset="100%" stop-color="#9cb8ca"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#id-sky)"/>
+
+  <!-- Falling snowflakes -->
+  <g fill="#ffffff" opacity="0.8">
+    <circle cx="80" cy="60" r="2"/>
+    <circle cx="200" cy="100" r="1.5"/>
+    <circle cx="340" cy="40" r="2"/>
+    <circle cx="500" cy="80" r="1.8"/>
+    <circle cx="640" cy="50" r="2.2"/>
+    <circle cx="120" cy="180" r="1.5"/>
+    <circle cx="280" cy="200" r="2"/>
+    <circle cx="450" cy="160" r="1.5"/>
+    <circle cx="620" cy="220" r="2"/>
+    <circle cx="720" cy="140" r="1.5"/>
+    <circle cx="60" cy="280" r="1.5"/>
+    <circle cx="380" cy="280" r="1.5"/>
+  </g>
+
+  <!-- House body -->
+  <rect x="100" y="380" width="600" height="220" fill="#a8836a"/>
+  <g stroke="#7a5a42" stroke-width="1" opacity="0.5">
+    <line x1="100" y1="420" x2="700" y2="420"/>
+    <line x1="100" y1="460" x2="700" y2="460"/>
+    <line x1="100" y1="500" x2="700" y2="500"/>
+    <line x1="100" y1="540" x2="700" y2="540"/>
+  </g>
+  <!-- Snow on roof -->
+  <polygon points="60,380 400,160 740,380" fill="#3a4654"/>
+  <polygon points="60,375 400,160 740,375" fill="#ffffff" opacity="0.92"/>
+
+  <!-- Ice dam at eave -->
+  <g>
+    <rect x="60" y="370" width="680" height="20" fill="url(#id-ice)" stroke="#5a7888" stroke-width="1"/>
+    <!-- Icicles -->
+    <g fill="url(#id-ice)" stroke="#5a7888" stroke-width="0.8">
+      <polygon points="90,390 86,440 94,440"/>
+      <polygon points="140,390 134,460 146,460"/>
+      <polygon points="190,390 184,420 196,420"/>
+      <polygon points="240,390 232,470 248,470"/>
+      <polygon points="290,390 284,430 296,430"/>
+      <polygon points="340,390 332,490 348,490"/>
+      <polygon points="390,390 384,440 396,440"/>
+      <polygon points="440,390 432,470 448,470"/>
+      <polygon points="490,390 484,430 496,430"/>
+      <polygon points="540,390 532,500 548,500"/>
+      <polygon points="590,390 584,450 596,450"/>
+      <polygon points="640,390 632,440 648,440"/>
+      <polygon points="690,390 684,460 696,460"/>
+    </g>
+  </g>
+
+  <!-- Gutter overflow stain on siding -->
+  <g fill="#7a5a42" opacity="0.5">
+    <rect x="230" y="430" width="6" height="80"/>
+    <rect x="380" y="440" width="6" height="100"/>
+    <rect x="530" y="440" width="6" height="90"/>
+  </g>
+
+  <!-- Windows -->
+  <g fill="#3a4654" stroke="#2a2a2a" stroke-width="2">
+    <rect x="160" y="450" width="50" height="80"/>
+    <rect x="300" y="450" width="50" height="80"/>
+    <rect x="450" y="450" width="50" height="80"/>
+    <rect x="590" y="450" width="50" height="80"/>
+  </g>
+
+  <!-- Snow ground -->
+  <rect x="0" y="560" width="800" height="40" fill="#f8fbfd"/>
+  <g fill="#e2eaef" opacity="0.6">
+    <circle cx="100" cy="580" r="20"/>
+    <circle cx="280" cy="585" r="24"/>
+    <circle cx="500" cy="580" r="22"/>
+    <circle cx="700" cy="582" r="26"/>
+  </g>
+</svg>
