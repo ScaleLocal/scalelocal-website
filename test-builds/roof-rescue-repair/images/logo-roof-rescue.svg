@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Roof Rescue Repair — Dover, NH">
+  <defs>
+    <linearGradient id="rr-roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a7898"/>
+      <stop offset="100%" stop-color="#1e4156"/>
+    </linearGradient>
+    <linearGradient id="rr-roof-side" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#264f68"/>
+      <stop offset="100%" stop-color="#16344a"/>
+    </linearGradient>
+    <linearGradient id="rr-house" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- House icon (left) -->
+  <g transform="translate(20, 30)">
+    <!-- House body -->
+    <rect x="22" y="74" width="116" height="56" rx="2" fill="url(#rr-house)" stroke="#1e4156" stroke-width="2.5"/>
+    <!-- Door -->
+    <rect x="68" y="92" width="24" height="38" rx="1" fill="#1e4156"/>
+    <circle cx="86" cy="111" r="1.6" fill="#f8d050"/>
+    <!-- Window -->
+    <rect x="38" y="92" width="20" height="18" fill="#a8c8db" stroke="#1e4156" stroke-width="1.5"/>
+    <line x1="48" y1="92" x2="48" y2="110" stroke="#1e4156" stroke-width="1.2"/>
+    <line x1="38" y1="101" x2="58" y2="101" stroke="#1e4156" stroke-width="1.2"/>
+    <rect x="102" y="92" width="20" height="18" fill="#a8c8db" stroke="#1e4156" stroke-width="1.5"/>
+    <line x1="112" y1="92" x2="112" y2="110" stroke="#1e4156" stroke-width="1.2"/>
+    <line x1="102" y1="101" x2="122" y2="101" stroke="#1e4156" stroke-width="1.2"/>
+
+    <!-- Roof (main pitched, with two color planes for depth) -->
+    <polygon points="14,76 80,12 146,76 80,46" fill="url(#rr-roof-side)"/>
+    <polygon points="80,12 146,76 80,46" fill="url(#rr-roof)"/>
+    <!-- Shingle lines -->
+    <line x1="36" y1="56" x2="124" y2="56" stroke="#0f2a3c" stroke-width="1" opacity="0.45"/>
+    <line x1="50" y1="40" x2="110" y2="40" stroke="#0f2a3c" stroke-width="1" opacity="0.45"/>
+    <line x1="62" y1="26" x2="98" y2="26" stroke="#0f2a3c" stroke-width="1" opacity="0.45"/>
+    <!-- Chimney -->
+    <rect x="100" y="20" width="14" height="32" fill="#1e4156"/>
+    <rect x="98" y="18" width="18" height="6" fill="#0f2a3c"/>
+
+    <!-- Wrench overlay (rescue/repair symbol) - white circle behind it for contrast -->
+    <circle cx="138" cy="44" r="22" fill="#f8d050" stroke="#1e4156" stroke-width="3"/>
+    <!-- Wrench glyph -->
+    <g transform="translate(138, 44) rotate(-35)">
+      <path d="M -10 -2.5 L 4 -2.5 L 4 -6 L 11 0 L 4 6 L 4 2.5 L -10 2.5 Z M -14 -6 a 4 4 0 1 0 0 12 a 4 4 0 1 0 0 -12 Z M -14 -2 a 2 2 0 1 1 0 4 a 2 2 0 1 1 0 -4 Z"
+            fill="#1e4156" stroke="#1e4156" stroke-width="0.6" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(195, 0)">
+    <text x="0" y="86" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="58" letter-spacing="-0.5" fill="#1e4156">ROOF<tspan fill="#3a7898" font-weight="900"> RESCUE</tspan></text>
+    <text x="0" y="130" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="800" font-size="42" letter-spacing="6" fill="#3a7898">REPAIR</text>
+    <!-- Tagline rule + tag -->
+    <line x1="0" y1="148" x2="350" y2="148" stroke="#1e4156" stroke-width="2"/>
+    <text x="0" y="172" font-family="'Open Sans', 'Helvetica', sans-serif" font-weight="700" font-size="14" letter-spacing="3.5" fill="#1e4156">REPAIR FIRST. REPLACE WHEN YOU MUST.</text>
+  </g>
+</svg>
