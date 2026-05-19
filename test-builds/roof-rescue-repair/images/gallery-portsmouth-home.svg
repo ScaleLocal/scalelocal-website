@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A renovated colonial home in Portsmouth, NH with a fresh shingle roof">
+  <defs>
+    <linearGradient id="ph-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6b9cbf"/>
+      <stop offset="100%" stop-color="#c2d6e2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#ph-sky)"/>
+
+  <!-- Trees -->
+  <g fill="#2c4a3a">
+    <ellipse cx="80" cy="320" rx="100" ry="180"/>
+    <ellipse cx="720" cy="320" rx="120" ry="200"/>
+  </g>
+  <g fill="#3a5a48">
+    <ellipse cx="120" cy="370" rx="50" ry="80"/>
+    <ellipse cx="680" cy="370" rx="55" ry="85"/>
+  </g>
+
+  <!-- Lawn -->
+  <rect x="0" y="500" width="800" height="100" fill="#5a7d3a"/>
+
+  <!-- Colonial house (two story) -->
+  <rect x="180" y="280" width="440" height="240" fill="#f3eedf"/>
+  <g stroke="#c8c0aa" stroke-width="1" opacity="0.6">
+    <line x1="180" y1="310" x2="620" y2="310"/>
+    <line x1="180" y1="340" x2="620" y2="340"/>
+    <line x1="180" y1="370" x2="620" y2="370"/>
+    <line x1="180" y1="400" x2="620" y2="400"/>
+    <line x1="180" y1="430" x2="620" y2="430"/>
+    <line x1="180" y1="460" x2="620" y2="460"/>
+    <line x1="180" y1="490" x2="620" y2="490"/>
+  </g>
+
+  <!-- Windows top floor -->
+  <g>
+    <rect x="220" y="320" width="50" height="70" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="220" y="320" width="50" height="70" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="245" y1="320" x2="245" y2="390" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="220" y1="355" x2="270" y2="355" stroke="#2a2a2a" stroke-width="1.5"/>
+    <!-- shutters -->
+    <rect x="206" y="320" width="10" height="70" fill="#1e4156"/>
+    <rect x="274" y="320" width="10" height="70" fill="#1e4156"/>
+  </g>
+  <g>
+    <rect x="330" y="320" width="50" height="70" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="330" y="320" width="50" height="70" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="355" y1="320" x2="355" y2="390" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="330" y1="355" x2="380" y2="355" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="316" y="320" width="10" height="70" fill="#1e4156"/>
+    <rect x="384" y="320" width="10" height="70" fill="#1e4156"/>
+  </g>
+  <g>
+    <rect x="440" y="320" width="50" height="70" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="440" y="320" width="50" height="70" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="465" y1="320" x2="465" y2="390" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="440" y1="355" x2="490" y2="355" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="426" y="320" width="10" height="70" fill="#1e4156"/>
+    <rect x="494" y="320" width="10" height="70" fill="#1e4156"/>
+  </g>
+  <g>
+    <rect x="550" y="320" width="50" height="70" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="550" y="320" width="50" height="70" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="575" y1="320" x2="575" y2="390" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="550" y1="355" x2="600" y2="355" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="536" y="320" width="10" height="70" fill="#1e4156"/>
+    <rect x="604" y="320" width="10" height="70" fill="#1e4156"/>
+  </g>
+
+  <!-- Door (center) -->
+  <rect x="375" y="420" width="60" height="100" fill="#1e4156"/>
+  <rect x="382" y="430" width="20" height="40" fill="#a8c8db" opacity="0.5"/>
+  <rect x="408" y="430" width="20" height="40" fill="#a8c8db" opacity="0.5"/>
+  <circle cx="425" cy="475" r="3" fill="#f8d050"/>
+  <!-- Windows bottom floor (sides of door) -->
+  <g>
+    <rect x="240" y="420" width="60" height="80" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="240" y="420" width="60" height="80" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="270" y1="420" x2="270" y2="500" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="240" y1="460" x2="300" y2="460" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="226" y="420" width="10" height="80" fill="#1e4156"/>
+    <rect x="304" y="420" width="10" height="80" fill="#1e4156"/>
+  </g>
+  <g>
+    <rect x="500" y="420" width="60" height="80" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="500" y="420" width="60" height="80" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="530" y1="420" x2="530" y2="500" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="500" y1="460" x2="560" y2="460" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="486" y="420" width="10" height="80" fill="#1e4156"/>
+    <rect x="564" y="420" width="10" height="80" fill="#1e4156"/>
+  </g>
+
+  <!-- Fresh shingle roof -->
+  <polygon points="140,280 400,140 660,280" fill="#2a3543"/>
+  <!-- Roof shingle texture -->
+  <g stroke="#0d1419" stroke-width="0.8" opacity="0.6">
+    <line x1="170" y1="260" x2="630" y2="260"/>
+    <line x1="190" y1="240" x2="610" y2="240"/>
+    <line x1="210" y1="220" x2="590" y2="220"/>
+    <line x1="230" y1="200" x2="570" y2="200"/>
+    <line x1="250" y1="180" x2="550" y2="180"/>
+    <line x1="270" y1="160" x2="530" y2="160"/>
+  </g>
+  <!-- Side gable shadow plane -->
+  <polygon points="140,280 180,280 400,160 400,140" fill="#1a242e" opacity="0.5"/>
+  <!-- Ridge -->
+  <line x1="140" y1="280" x2="660" y2="280" stroke="#0d1419" stroke-width="3"/>
+  <line x1="140" y1="280" x2="140" y2="285" stroke="#0d1419" stroke-width="3"/>
+  <line x1="660" y1="280" x2="660" y2="285" stroke="#0d1419" stroke-width="3"/>
+
+  <!-- Chimney -->
+  <rect x="500" y="180" width="36" height="100" fill="#9c5a3d"/>
+  <rect x="496" y="176" width="44" height="8" fill="#7a4329"/>
+
+  <!-- Gutter -->
+  <rect x="140" y="278" width="520" height="6" fill="#cccccc"/>
+
+  <!-- Walkway -->
+  <polygon points="380,520 430,520 470,600 340,600" fill="#a8a098"/>
+</svg>
