@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A roofing inspector inspecting a residential roof up close">
+  <defs>
+    <linearGradient id="oo-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5a89aa"/>
+      <stop offset="100%" stop-color="#bbd3e2"/>
+    </linearGradient>
+    <linearGradient id="oo-roof" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a4654"/>
+      <stop offset="100%" stop-color="#1c2530"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#oo-sky)"/>
+
+  <!-- Distant trees -->
+  <g fill="#2c4a3a" opacity="0.65">
+    <ellipse cx="60" cy="280" rx="120" ry="180"/>
+    <ellipse cx="740" cy="290" rx="140" ry="180"/>
+    <ellipse cx="200" cy="320" rx="80" ry="100"/>
+    <ellipse cx="600" cy="320" rx="100" ry="120"/>
+  </g>
+
+  <!-- Roof angle (close perspective) -->
+  <polygon points="0,260 800,420 800,600 0,600" fill="url(#oo-roof)"/>
+
+  <!-- Shingle texture -->
+  <g fill="#2c3845" stroke="#0d1419" stroke-width="0.8">
+    <rect x="0" y="280" width="80" height="44"/>
+    <rect x="80" y="296" width="80" height="44"/>
+    <rect x="160" y="312" width="80" height="44"/>
+    <rect x="240" y="328" width="80" height="44"/>
+    <rect x="320" y="344" width="80" height="44"/>
+    <rect x="400" y="360" width="80" height="44"/>
+    <rect x="480" y="376" width="80" height="44"/>
+    <rect x="560" y="392" width="80" height="44"/>
+    <rect x="640" y="408" width="80" height="44"/>
+    <rect x="720" y="424" width="80" height="44"/>
+  </g>
+  <g fill="#36424f" stroke="#0d1419" stroke-width="0.8" transform="translate(40, 44)">
+    <rect x="0" y="280" width="80" height="44"/>
+    <rect x="80" y="296" width="80" height="44"/>
+    <rect x="160" y="312" width="80" height="44"/>
+    <rect x="240" y="328" width="80" height="44"/>
+    <rect x="320" y="344" width="80" height="44"/>
+    <rect x="400" y="360" width="80" height="44"/>
+    <rect x="480" y="376" width="80" height="44"/>
+    <rect x="560" y="392" width="80" height="44"/>
+    <rect x="640" y="408" width="80" height="44"/>
+  </g>
+  <g fill="#2c3845" stroke="#0d1419" stroke-width="0.8" transform="translate(0, 88)">
+    <rect x="0" y="280" width="80" height="44"/>
+    <rect x="80" y="296" width="80" height="44"/>
+    <rect x="160" y="312" width="80" height="44"/>
+    <rect x="240" y="328" width="80" height="44"/>
+    <rect x="320" y="344" width="80" height="44"/>
+    <rect x="400" y="360" width="80" height="44"/>
+    <rect x="480" y="376" width="80" height="44"/>
+    <rect x="560" y="392" width="80" height="44"/>
+    <rect x="640" y="408" width="80" height="44"/>
+    <rect x="720" y="424" width="80" height="44"/>
+  </g>
+
+  <!-- Inspector kneeling on roof -->
+  <g transform="translate(420, 220)">
+    <!-- Tool belt + body -->
+    <ellipse cx="0" cy="80" rx="60" ry="22" fill="#1a242e" opacity="0.5"/>
+    <!-- Bent legs -->
+    <path d="M -30 65 Q -50 80 -56 110 L -40 110 Q -38 88 -22 78 Z" fill="#3a4e62"/>
+    <path d="M 30 65 Q 50 80 56 110 L 40 110 Q 38 88 22 78 Z" fill="#3a4e62"/>
+    <!-- Boots -->
+    <ellipse cx="-50" cy="115" rx="14" ry="6" fill="#1a242e"/>
+    <ellipse cx="50" cy="115" rx="14" ry="6" fill="#1a242e"/>
+    <!-- Torso (kneeling, body forward) -->
+    <ellipse cx="0" cy="40" rx="34" ry="40" fill="#3a7898"/>
+    <!-- Vest stripes (high-vis style) -->
+    <rect x="-32" y="30" width="64" height="8" fill="#f8d050" opacity="0.85"/>
+    <rect x="-32" y="55" width="64" height="6" fill="#f8d050" opacity="0.85"/>
+    <!-- Arm reaching down -->
+    <path d="M -30 28 Q -50 50 -56 76 L -40 76 Q -36 56 -16 38 Z" fill="#3a7898"/>
+    <!-- Hand -->
+    <circle cx="-50" cy="78" r="8" fill="#d4a878"/>
+    <!-- Other arm holding a tool -->
+    <path d="M 26 30 Q 46 36 60 50 L 50 60 Q 38 48 18 40 Z" fill="#3a7898"/>
+    <!-- Notepad / clipboard -->
+    <rect x="48" y="44" width="24" height="32" fill="#f3eedf" stroke="#3a3a3a" stroke-width="1.5"/>
+    <rect x="52" y="48" width="16" height="2" fill="#5a5a5a"/>
+    <rect x="52" y="54" width="16" height="2" fill="#5a5a5a"/>
+    <rect x="52" y="60" width="16" height="2" fill="#5a5a5a"/>
+
+    <!-- Head with hard hat -->
+    <circle cx="0" cy="-8" r="16" fill="#d4a878"/>
+    <path d="M -22 -10 Q 0 -32 22 -10 L 22 -2 L -22 -2 Z" fill="#f8d050"/>
+    <rect x="-22" y="-4" width="44" height="4" fill="#d4a836"/>
+  </g>
+
+  <!-- Soft sunlight glow -->
+  <ellipse cx="650" cy="80" rx="160" ry="60" fill="#ffffff" opacity="0.25"/>
+</svg>
