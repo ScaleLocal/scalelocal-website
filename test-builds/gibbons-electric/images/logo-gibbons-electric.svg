@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" role="img" aria-label="Gibbons Electric">
+  <defs>
+    <linearGradient id="boltGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFD93D"/>
+      <stop offset="100%" stop-color="#F9B814"/>
+    </linearGradient>
+  </defs>
+  <!-- Logo mark: shield with lightning bolt -->
+  <g transform="translate(6,6)">
+    <path d="M34 0 L66 8 L66 36 C66 52 50 64 34 68 C18 64 2 52 2 36 L2 8 Z"
+          fill="#1B7A3A" stroke="#0E5025" stroke-width="2"/>
+    <path d="M38 14 L22 38 L32 38 L28 58 L48 32 L36 32 Z"
+          fill="url(#boltGrad)" stroke="#0E5025" stroke-width="1.2" stroke-linejoin="round"/>
+  </g>
+  <!-- Wordmark -->
+  <g font-family="Montserrat, Arial, sans-serif" font-weight="900" letter-spacing="0.5">
+    <text x="92" y="40" font-size="28" fill="#1B7A3A">GIBBONS</text>
+    <text x="92" y="65" font-size="20" fill="#0E5025" font-weight="700" letter-spacing="2.5">ELECTRIC</text>
+  </g>
+</svg>
