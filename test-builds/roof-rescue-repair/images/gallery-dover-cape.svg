@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A cape-style home in Dover, NH with new architectural shingles">
+  <defs>
+    <linearGradient id="dc-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8aafce"/>
+      <stop offset="100%" stop-color="#d2e0ec"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#dc-sky)"/>
+
+  <!-- Clouds -->
+  <g fill="#ffffff" opacity="0.6">
+    <ellipse cx="180" cy="100" rx="80" ry="20"/>
+    <ellipse cx="220" cy="90" rx="60" ry="18"/>
+    <ellipse cx="600" cy="120" rx="100" ry="22"/>
+    <ellipse cx="640" cy="110" rx="70" ry="18"/>
+  </g>
+
+  <!-- Trees -->
+  <g fill="#2c4a3a">
+    <ellipse cx="50" cy="380" rx="100" ry="130"/>
+    <ellipse cx="750" cy="380" rx="100" ry="140"/>
+  </g>
+
+  <!-- Lawn -->
+  <rect x="0" y="500" width="800" height="100" fill="#5a7d3a"/>
+
+  <!-- Cape Cod house body (low-set, dormered) -->
+  <rect x="160" y="380" width="480" height="140" fill="#dcd5c0"/>
+  <g stroke="#a89e84" stroke-width="1" opacity="0.5">
+    <line x1="160" y1="410" x2="640" y2="410"/>
+    <line x1="160" y1="440" x2="640" y2="440"/>
+    <line x1="160" y1="470" x2="640" y2="470"/>
+    <line x1="160" y1="500" x2="640" y2="500"/>
+  </g>
+
+  <!-- Main pitched roof -->
+  <polygon points="120,380 400,200 680,380" fill="#3a4e62"/>
+  <!-- Shingle rows -->
+  <g stroke="#1a2530" stroke-width="0.8" opacity="0.6">
+    <line x1="150" y1="360" x2="650" y2="360"/>
+    <line x1="170" y1="340" x2="630" y2="340"/>
+    <line x1="190" y1="320" x2="610" y2="320"/>
+    <line x1="210" y1="300" x2="590" y2="300"/>
+    <line x1="230" y1="280" x2="570" y2="280"/>
+    <line x1="250" y1="260" x2="550" y2="260"/>
+    <line x1="270" y1="240" x2="530" y2="240"/>
+    <line x1="290" y1="220" x2="510" y2="220"/>
+  </g>
+  <!-- Side gable shadow plane -->
+  <polygon points="120,380 160,380 400,210 400,200" fill="#1a242e" opacity="0.5"/>
+  <!-- Ridge -->
+  <line x1="120" y1="380" x2="680" y2="380" stroke="#1a242e" stroke-width="3"/>
+
+  <!-- Two dormers -->
+  <g transform="translate(250, 290)">
+    <rect x="0" y="0" width="60" height="50" fill="#dcd5c0"/>
+    <polygon points="-8,0 30,-30 68,0" fill="#3a4e62"/>
+    <rect x="14" y="14" width="32" height="32" fill="#1a242e"/>
+    <rect x="14" y="14" width="32" height="32" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="30" y1="14" x2="30" y2="46" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="14" y1="30" x2="46" y2="30" stroke="#2a2a2a" stroke-width="1.5"/>
+  </g>
+  <g transform="translate(490, 290)">
+    <rect x="0" y="0" width="60" height="50" fill="#dcd5c0"/>
+    <polygon points="-8,0 30,-30 68,0" fill="#3a4e62"/>
+    <rect x="14" y="14" width="32" height="32" fill="#1a242e"/>
+    <rect x="14" y="14" width="32" height="32" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="30" y1="14" x2="30" y2="46" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="14" y1="30" x2="46" y2="30" stroke="#2a2a2a" stroke-width="1.5"/>
+  </g>
+
+  <!-- Front door (center) -->
+  <rect x="370" y="430" width="60" height="90" fill="#7d2e2e"/>
+  <rect x="378" y="440" width="44" height="30" fill="#a8c8db" opacity="0.4"/>
+  <circle cx="420" cy="475" r="3" fill="#f8d050"/>
+
+  <!-- Front windows -->
+  <g>
+    <rect x="220" y="430" width="60" height="60" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="220" y="430" width="60" height="60" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="250" y1="430" x2="250" y2="490" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="220" y1="460" x2="280" y2="460" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="206" y="430" width="10" height="60" fill="#1e4156"/>
+    <rect x="284" y="430" width="10" height="60" fill="#1e4156"/>
+  </g>
+  <g>
+    <rect x="520" y="430" width="60" height="60" fill="#1a242e" stroke="#2a2a2a" stroke-width="2"/>
+    <rect x="520" y="430" width="60" height="60" fill="#7eb1d0" opacity="0.6"/>
+    <line x1="550" y1="430" x2="550" y2="490" stroke="#2a2a2a" stroke-width="1.5"/>
+    <line x1="520" y1="460" x2="580" y2="460" stroke="#2a2a2a" stroke-width="1.5"/>
+    <rect x="506" y="430" width="10" height="60" fill="#1e4156"/>
+    <rect x="584" y="430" width="10" height="60" fill="#1e4156"/>
+  </g>
+
+  <!-- Chimney -->
+  <rect x="420" y="240" width="32" height="80" fill="#7a7a7a"/>
+  <rect x="416" y="236" width="40" height="6" fill="#3a3a3a"/>
+
+  <!-- Walkway -->
+  <polygon points="380,520 420,520 470,600 340,600" fill="#b8b0a4"/>
+</svg>
