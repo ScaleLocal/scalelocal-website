@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Close-up of asphalt shingle repair with new flashing">
+  <defs>
+    <linearGradient id="sr-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7fb6d6"/>
+      <stop offset="100%" stop-color="#c8dde9"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#sr-sky)"/>
+  <!-- Roof slope (wide low angle) -->
+  <polygon points="0,160 800,360 800,600 0,600" fill="#2a3543"/>
+  <!-- Existing weathered shingles in rows -->
+  <g>
+    <g fill="#2c3845" stroke="#0d1419" stroke-width="1">
+      <rect x="0" y="180" width="60" height="36"/>
+      <rect x="60" y="190" width="60" height="36"/>
+      <rect x="120" y="200" width="60" height="36"/>
+      <rect x="180" y="210" width="60" height="36"/>
+      <rect x="240" y="220" width="60" height="36"/>
+      <rect x="300" y="230" width="60" height="36"/>
+      <rect x="360" y="240" width="60" height="36"/>
+      <rect x="420" y="250" width="60" height="36"/>
+      <rect x="480" y="260" width="60" height="36"/>
+      <rect x="540" y="270" width="60" height="36"/>
+      <rect x="600" y="280" width="60" height="36"/>
+      <rect x="660" y="290" width="60" height="36"/>
+      <rect x="720" y="300" width="80" height="36"/>
+    </g>
+    <g fill="#36424f" stroke="#0d1419" stroke-width="1" transform="translate(30,32)">
+      <rect x="0" y="180" width="60" height="36"/>
+      <rect x="60" y="190" width="60" height="36"/>
+      <rect x="120" y="200" width="60" height="36"/>
+      <rect x="180" y="210" width="60" height="36"/>
+      <rect x="240" y="220" width="60" height="36"/>
+      <rect x="300" y="230" width="60" height="36"/>
+      <rect x="360" y="240" width="60" height="36"/>
+      <rect x="420" y="250" width="60" height="36"/>
+      <rect x="480" y="260" width="60" height="36"/>
+      <rect x="540" y="270" width="60" height="36"/>
+      <rect x="600" y="280" width="60" height="36"/>
+      <rect x="660" y="290" width="100" height="36"/>
+    </g>
+    <g fill="#2c3845" stroke="#0d1419" stroke-width="1" transform="translate(0,64)">
+      <rect x="0" y="180" width="60" height="36"/>
+      <rect x="60" y="190" width="60" height="36"/>
+      <rect x="120" y="200" width="60" height="36"/>
+      <rect x="180" y="210" width="60" height="36"/>
+      <rect x="240" y="220" width="60" height="36"/>
+      <rect x="300" y="230" width="60" height="36"/>
+      <rect x="360" y="240" width="60" height="36"/>
+      <rect x="420" y="250" width="60" height="36"/>
+      <rect x="480" y="260" width="60" height="36"/>
+      <rect x="540" y="270" width="60" height="36"/>
+      <rect x="600" y="280" width="60" height="36"/>
+      <rect x="660" y="290" width="60" height="36"/>
+      <rect x="720" y="300" width="80" height="36"/>
+    </g>
+  </g>
+
+  <!-- New repair patch (lighter brand-blue tinted shingles) -->
+  <g transform="translate(280, 260)">
+    <rect x="0" y="0" width="240" height="180" fill="#4a6378"/>
+    <g fill="#5a7388" stroke="#1e4156" stroke-width="1">
+      <rect x="0" y="0" width="50" height="30"/>
+      <rect x="50" y="0" width="50" height="30"/>
+      <rect x="100" y="0" width="50" height="30"/>
+      <rect x="150" y="0" width="50" height="30"/>
+      <rect x="200" y="0" width="50" height="30"/>
+      <rect x="25" y="30" width="50" height="30" fill="#516a82"/>
+      <rect x="75" y="30" width="50" height="30" fill="#516a82"/>
+      <rect x="125" y="30" width="50" height="30" fill="#516a82"/>
+      <rect x="175" y="30" width="50" height="30" fill="#516a82"/>
+      <rect x="0" y="60" width="50" height="30"/>
+      <rect x="50" y="60" width="50" height="30"/>
+      <rect x="100" y="60" width="50" height="30"/>
+      <rect x="150" y="60" width="50" height="30"/>
+      <rect x="200" y="60" width="50" height="30"/>
+      <rect x="25" y="90" width="50" height="30" fill="#516a82"/>
+      <rect x="75" y="90" width="50" height="30" fill="#516a82"/>
+      <rect x="125" y="90" width="50" height="30" fill="#516a82"/>
+      <rect x="175" y="90" width="50" height="30" fill="#516a82"/>
+      <rect x="0" y="120" width="50" height="30"/>
+      <rect x="50" y="120" width="50" height="30"/>
+      <rect x="100" y="120" width="50" height="30"/>
+      <rect x="150" y="120" width="50" height="30"/>
+      <rect x="200" y="120" width="50" height="30"/>
+    </g>
+    <!-- Flashing strip -->
+    <rect x="-10" y="-10" width="260" height="14" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+  </g>
+
+  <!-- A few tools resting -->
+  <g transform="translate(580, 440)">
+    <rect x="0" y="0" width="60" height="14" fill="#d49a36" stroke="#7a5818" stroke-width="1"/>
+    <rect x="60" y="-4" width="22" height="22" fill="#3a4654" stroke="#1a242e" stroke-width="1"/>
+  </g>
+  <g transform="translate(120, 480) rotate(-10)">
+    <rect x="0" y="0" width="120" height="6" fill="#5a4a32"/>
+    <polygon points="120,3 132,-2 132,8" fill="#5a4a32"/>
+  </g>
+</svg>
