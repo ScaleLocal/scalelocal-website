@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A cedar shake roof in mature New England woodland">
+  <defs>
+    <linearGradient id="cs-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a3c4d8"/>
+      <stop offset="100%" stop-color="#d2e3eb"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#cs-sky)"/>
+
+  <!-- Background trees -->
+  <g fill="#1f3a2a">
+    <ellipse cx="80" cy="350" rx="120" ry="220"/>
+    <ellipse cx="200" cy="380" rx="110" ry="240"/>
+    <ellipse cx="700" cy="360" rx="130" ry="230"/>
+    <ellipse cx="780" cy="380" rx="100" ry="250"/>
+  </g>
+  <g fill="#2c4a3a">
+    <ellipse cx="120" cy="340" rx="60" ry="100"/>
+    <ellipse cx="720" cy="340" rx="60" ry="120"/>
+  </g>
+
+  <!-- Wide roof angle -->
+  <polygon points="0,200 800,260 800,600 0,600" fill="#6b5237"/>
+
+  <!-- Cedar shakes - rough textured rows -->
+  <g stroke="#3d2c18" stroke-width="0.6">
+    <!-- Row 1 -->
+    <g fill="#7d6042">
+      <path d="M 0,220 L 32,222 L 35,260 L -3,258 Z"/>
+      <path d="M 32,222 L 68,224 L 71,262 L 35,260 Z"/>
+      <path d="M 68,224 L 100,226 L 103,264 L 71,262 Z"/>
+      <path d="M 100,226 L 140,228 L 143,266 L 103,264 Z"/>
+      <path d="M 140,228 L 175,230 L 178,268 L 143,266 Z"/>
+      <path d="M 175,230 L 215,232 L 218,270 L 178,268 Z"/>
+      <path d="M 215,232 L 250,234 L 253,272 L 218,270 Z"/>
+      <path d="M 250,234 L 290,236 L 293,274 L 253,272 Z"/>
+      <path d="M 290,236 L 325,238 L 328,276 L 293,274 Z"/>
+      <path d="M 325,238 L 365,240 L 368,278 L 328,276 Z"/>
+      <path d="M 365,240 L 400,242 L 403,280 L 368,278 Z"/>
+      <path d="M 400,242 L 440,244 L 443,282 L 403,280 Z"/>
+      <path d="M 440,244 L 475,246 L 478,284 L 443,282 Z"/>
+      <path d="M 475,246 L 515,248 L 518,286 L 478,284 Z"/>
+      <path d="M 515,248 L 550,250 L 553,288 L 518,286 Z"/>
+      <path d="M 550,250 L 590,252 L 593,290 L 553,288 Z"/>
+      <path d="M 590,252 L 625,254 L 628,292 L 593,290 Z"/>
+      <path d="M 625,254 L 665,256 L 668,294 L 628,292 Z"/>
+      <path d="M 665,256 L 700,258 L 703,296 L 668,294 Z"/>
+      <path d="M 700,258 L 740,260 L 743,298 L 703,296 Z"/>
+      <path d="M 740,260 L 800,262 L 800,302 L 743,298 Z"/>
+    </g>
+    <!-- Row 2 (offset, darker shade) -->
+    <g fill="#6b5237" transform="translate(18, 38)">
+      <path d="M 0,220 L 32,222 L 35,260 L -3,258 Z"/>
+      <path d="M 32,222 L 68,224 L 71,262 L 35,260 Z"/>
+      <path d="M 68,224 L 100,226 L 103,264 L 71,262 Z"/>
+      <path d="M 100,226 L 140,228 L 143,266 L 103,264 Z"/>
+      <path d="M 140,228 L 175,230 L 178,268 L 143,266 Z"/>
+      <path d="M 175,230 L 215,232 L 218,270 L 178,268 Z"/>
+      <path d="M 215,232 L 250,234 L 253,272 L 218,270 Z"/>
+      <path d="M 250,234 L 290,236 L 293,274 L 253,272 Z"/>
+      <path d="M 290,236 L 325,238 L 328,276 L 293,274 Z"/>
+      <path d="M 325,238 L 365,240 L 368,278 L 328,276 Z"/>
+      <path d="M 365,240 L 400,242 L 403,280 L 368,278 Z"/>
+      <path d="M 400,242 L 440,244 L 443,282 L 403,280 Z"/>
+      <path d="M 440,244 L 475,246 L 478,284 L 443,282 Z"/>
+      <path d="M 475,246 L 515,248 L 518,286 L 478,284 Z"/>
+      <path d="M 515,248 L 550,250 L 553,288 L 518,286 Z"/>
+      <path d="M 550,250 L 590,252 L 593,290 L 553,288 Z"/>
+      <path d="M 590,252 L 625,254 L 628,292 L 593,290 Z"/>
+      <path d="M 625,254 L 665,256 L 668,294 L 628,292 Z"/>
+      <path d="M 665,256 L 700,258 L 703,296 L 668,294 Z"/>
+    </g>
+    <!-- Row 3 -->
+    <g fill="#7d6042" transform="translate(0, 76)">
+      <path d="M 0,220 L 32,222 L 35,260 L -3,258 Z"/>
+      <path d="M 32,222 L 68,224 L 71,262 L 35,260 Z"/>
+      <path d="M 68,224 L 100,226 L 103,264 L 71,262 Z"/>
+      <path d="M 100,226 L 140,228 L 143,266 L 103,264 Z"/>
+      <path d="M 140,228 L 175,230 L 178,268 L 143,266 Z"/>
+      <path d="M 175,230 L 215,232 L 218,270 L 178,268 Z"/>
+      <path d="M 215,232 L 250,234 L 253,272 L 218,270 Z"/>
+      <path d="M 250,234 L 290,236 L 293,274 L 253,272 Z"/>
+      <path d="M 290,236 L 325,238 L 328,276 L 293,274 Z"/>
+      <path d="M 325,238 L 365,240 L 368,278 L 328,276 Z"/>
+      <path d="M 365,240 L 400,242 L 403,280 L 368,278 Z"/>
+      <path d="M 400,242 L 440,244 L 443,282 L 403,280 Z"/>
+      <path d="M 440,244 L 475,246 L 478,284 L 443,282 Z"/>
+      <path d="M 475,246 L 515,248 L 518,286 L 478,284 Z"/>
+      <path d="M 515,248 L 550,250 L 553,288 L 518,286 Z"/>
+      <path d="M 550,250 L 590,252 L 593,290 L 553,288 Z"/>
+      <path d="M 590,252 L 625,254 L 628,292 L 593,290 Z"/>
+      <path d="M 625,254 L 665,256 L 668,294 L 628,292 Z"/>
+      <path d="M 665,256 L 700,258 L 703,296 L 668,294 Z"/>
+      <path d="M 700,258 L 740,260 L 743,298 L 703,296 Z"/>
+      <path d="M 740,260 L 800,262 L 800,302 L 743,298 Z"/>
+    </g>
+  </g>
+
+  <!-- Wood grain hints -->
+  <g stroke="#3d2c18" stroke-width="0.4" opacity="0.4" fill="none">
+    <path d="M 50,228 L 80,260"/>
+    <path d="M 180,232 L 220,266"/>
+    <path d="M 310,238 L 350,274"/>
+    <path d="M 460,244 L 500,280"/>
+    <path d="M 600,250 L 640,288"/>
+    <path d="M 100,300 L 130,340"/>
+    <path d="M 280,312 L 320,348"/>
+    <path d="M 480,322 L 520,358"/>
+  </g>
+
+  <!-- Gutter -->
+  <rect x="0" y="200" width="800" height="10" fill="#3a3a3a"/>
+</svg>
