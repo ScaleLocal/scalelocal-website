@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="A chimney flashing repair with fresh sealant and step flashing">
+  <defs>
+    <linearGradient id="fl-sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a3c4d8"/>
+      <stop offset="100%" stop-color="#d9e6ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#fl-sky)"/>
+  <!-- Distant treeline -->
+  <g fill="#2c4a3a" opacity="0.7">
+    <ellipse cx="120" cy="220" rx="160" ry="50"/>
+    <ellipse cx="600" cy="210" rx="200" ry="60"/>
+  </g>
+
+  <!-- Roof angle -->
+  <polygon points="0,260 800,360 800,600 0,600" fill="#3a4654"/>
+  <!-- Shingles -->
+  <g fill="#2c3845" stroke="#0d1419" stroke-width="0.8">
+    <g>
+      <rect x="0" y="280" width="60" height="32"/>
+      <rect x="60" y="288" width="60" height="32"/>
+      <rect x="120" y="296" width="60" height="32"/>
+      <rect x="180" y="304" width="60" height="32"/>
+      <rect x="240" y="312" width="60" height="32"/>
+      <rect x="300" y="320" width="60" height="32"/>
+      <rect x="360" y="328" width="60" height="32"/>
+      <rect x="420" y="336" width="60" height="32"/>
+      <rect x="480" y="344" width="60" height="32"/>
+      <rect x="540" y="352" width="60" height="32"/>
+      <rect x="600" y="360" width="60" height="32"/>
+      <rect x="660" y="368" width="60" height="32"/>
+      <rect x="720" y="376" width="80" height="32"/>
+    </g>
+    <g transform="translate(30,28)" fill="#37434f">
+      <rect x="0" y="280" width="60" height="32"/>
+      <rect x="60" y="288" width="60" height="32"/>
+      <rect x="120" y="296" width="60" height="32"/>
+      <rect x="180" y="304" width="60" height="32"/>
+      <rect x="240" y="312" width="60" height="32"/>
+      <rect x="300" y="320" width="60" height="32"/>
+      <rect x="360" y="328" width="60" height="32"/>
+      <rect x="420" y="336" width="60" height="32"/>
+      <rect x="480" y="344" width="60" height="32"/>
+      <rect x="540" y="352" width="60" height="32"/>
+      <rect x="600" y="360" width="60" height="32"/>
+      <rect x="660" y="368" width="120" height="32"/>
+    </g>
+    <g transform="translate(0,56)">
+      <rect x="0" y="280" width="60" height="32"/>
+      <rect x="60" y="288" width="60" height="32"/>
+      <rect x="120" y="296" width="60" height="32"/>
+      <rect x="180" y="304" width="60" height="32"/>
+      <rect x="240" y="312" width="60" height="32"/>
+      <rect x="300" y="320" width="60" height="32"/>
+      <rect x="360" y="328" width="60" height="32"/>
+      <rect x="420" y="336" width="60" height="32"/>
+      <rect x="480" y="344" width="60" height="32"/>
+      <rect x="540" y="352" width="60" height="32"/>
+      <rect x="600" y="360" width="60" height="32"/>
+      <rect x="660" y="368" width="60" height="32"/>
+      <rect x="720" y="376" width="80" height="32"/>
+    </g>
+  </g>
+
+  <!-- Brick chimney -->
+  <g transform="translate(360, 80)">
+    <rect x="0" y="0" width="160" height="240" fill="#9c5a3d"/>
+    <!-- Brick pattern -->
+    <g stroke="#6e3d28" stroke-width="1.2">
+      <line x1="0" y1="30" x2="160" y2="30"/>
+      <line x1="0" y1="60" x2="160" y2="60"/>
+      <line x1="0" y1="90" x2="160" y2="90"/>
+      <line x1="0" y1="120" x2="160" y2="120"/>
+      <line x1="0" y1="150" x2="160" y2="150"/>
+      <line x1="0" y1="180" x2="160" y2="180"/>
+      <line x1="0" y1="210" x2="160" y2="210"/>
+      <line x1="40" y1="0" x2="40" y2="30"/>
+      <line x1="80" y1="0" x2="80" y2="30"/>
+      <line x1="120" y1="0" x2="120" y2="30"/>
+      <line x1="20" y1="30" x2="20" y2="60"/>
+      <line x1="60" y1="30" x2="60" y2="60"/>
+      <line x1="100" y1="30" x2="100" y2="60"/>
+      <line x1="140" y1="30" x2="140" y2="60"/>
+      <line x1="40" y1="60" x2="40" y2="90"/>
+      <line x1="80" y1="60" x2="80" y2="90"/>
+      <line x1="120" y1="60" x2="120" y2="90"/>
+      <line x1="20" y1="90" x2="20" y2="120"/>
+      <line x1="60" y1="90" x2="60" y2="120"/>
+      <line x1="100" y1="90" x2="100" y2="120"/>
+      <line x1="140" y1="90" x2="140" y2="120"/>
+      <line x1="40" y1="120" x2="40" y2="150"/>
+      <line x1="80" y1="120" x2="80" y2="150"/>
+      <line x1="120" y1="120" x2="120" y2="150"/>
+      <line x1="20" y1="150" x2="20" y2="180"/>
+      <line x1="60" y1="150" x2="60" y2="180"/>
+      <line x1="100" y1="150" x2="100" y2="180"/>
+      <line x1="140" y1="150" x2="140" y2="180"/>
+      <line x1="40" y1="180" x2="40" y2="210"/>
+      <line x1="80" y1="180" x2="80" y2="210"/>
+      <line x1="120" y1="180" x2="120" y2="210"/>
+      <line x1="20" y1="210" x2="20" y2="240"/>
+      <line x1="60" y1="210" x2="60" y2="240"/>
+      <line x1="100" y1="210" x2="100" y2="240"/>
+      <line x1="140" y1="210" x2="140" y2="240"/>
+    </g>
+    <!-- Cap -->
+    <rect x="-8" y="-12" width="176" height="20" fill="#7a4329"/>
+
+    <!-- Step flashing -->
+    <g transform="translate(-12, 220)">
+      <polygon points="0,0 24,0 24,18 12,30 0,30" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="22,8 50,8 50,28 38,40 22,40" fill="#b8b8b8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="48,16 76,16 76,36 64,48 48,48" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="74,24 102,24 102,44 90,56 74,56" fill="#b8b8b8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="100,32 128,32 128,52 116,64 100,64" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="126,40 154,40 154,60 142,72 126,72" fill="#b8b8b8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="152,48 180,48 180,68 168,80 152,80" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+      <polygon points="178,56 206,56 206,76 194,88 178,88" fill="#b8b8b8" stroke="#5a5a5a" stroke-width="1"/>
+    </g>
+    <!-- Counter flashing along brick -->
+    <rect x="-12" y="218" width="184" height="6" fill="#a8a8a8" stroke="#5a5a5a" stroke-width="1"/>
+    <!-- Sealant bead -->
+    <path d="M -12 218 q 90 -3 184 0" stroke="#3a3a3a" stroke-width="2" fill="none"/>
+  </g>
+</svg>
