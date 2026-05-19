@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Services | Gervais Heating &amp; A/C &mdash; Andover, MA</title>
+    <meta name="description" content="Furnace repair, AC installation, heat pumps, ductless mini-splits, boiler service, and HVAC tune-ups in Andover, MA. Family-owned, 25+ years.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HVAC Services | Gervais Heating &amp; A/C &mdash; Andover, MA">
+    <meta property="og:description" content="Furnace repair, AC installation, heat pumps, ductless mini-splits, boiler service, and HVAC tune-ups in Andover, MA.">
+    <meta property="og:site_name" content="Gervais Heating &amp; A/C">
+    <style>
+        :root {
+            --orange: #ea580c; --orange-dark: #9a3412; --orange-light: #fb923c;
+            --blue: #0ea5e9; --blue-light: #38bdf8;
+            --navy: #0c1929; --navy-deep: #060f1a;
+            --black: #0A0A0A; --charcoal: #1A1A1A; --white: #ffffff; --off-white: #f7f5f2;
+            --gray-100: #e9ecf1; --gray-200: #d1d6dd; --gray-400: #9ca3af;
+            --gray-600: #4b5563; --gray-700: #374151;
+            --gold: #FFD93D;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08); --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 30px rgba(0,0,0,0.12); --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --radius: 6px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', -apple-system, sans-serif; color: var(--gray-700); line-height: 1.7; background: var(--white); -webkit-font-smoothing: antialiased; }
+        h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; line-height: 1.2; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .demo-banner { background: #1A1A1A; color: #fff; text-align: center; padding: 8px 16px; font-size: 13px; }
+        .demo-banner strong { color: #FFD100; font-weight: 700; }
+        .demo-banner a { color: #FFD100; text-decoration: underline; }
+
+        .utility-bar { background: var(--navy-deep); color: rgba(255,255,255,0.7); font-size: 13px; padding: 8px 0; }
+        .utility-bar .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+        .utility-bar a { color: rgba(255,255,255,0.9); }
+        .utility-bar a:hover { color: var(--orange-light); }
+        .utility-bar .highlight { color: var(--orange-light); font-weight: 600; }
+        .utility-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+        .utility-left span { display: flex; align-items: center; gap: 6px; }
+        .utility-left svg { width: 14px; height: 14px; fill: currentColor; opacity: 0.8; }
+
+        header { background: var(--white); position: sticky; top: 0; z-index: 100; box-shadow: var(--shadow-md); }
+        .header-inner { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; max-width: 1200px; margin: 0 auto; gap: 24px; }
+        .logo-link { display: flex; align-items: center; gap: 14px; flex-shrink: 0; }
+        .logo-link img { height: 64px; width: auto; }
+        .logo-text { display: flex; flex-direction: column; line-height: 1.1; }
+        .logo-text .name { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 18px; color: var(--navy); }
+        .logo-text .tag { font-family: 'Open Sans', sans-serif; font-size: 11px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+        .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+        .nav-links a { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 700; color: var(--gray-700); text-transform: uppercase; letter-spacing: 0.04em; position: relative; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--orange); transition: width 0.25s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
+        .nav-cta { background: var(--orange); color: var(--white) !important; padding: 10px 22px; border-radius: var(--radius); font-weight: 800 !important; font-size: 13px !important; border: 2px solid var(--orange-dark); }
+        .nav-cta:hover { background: var(--orange-dark); }
+        .nav-cta::after { display: none !important; }
+        .nav-phone { display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; color: var(--navy) !important; }
+        .nav-phone svg { width: 18px; height: 18px; fill: var(--orange); }
+        .menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+        .menu-toggle svg { width: 28px; height: 28px; fill: var(--gray-700); }
+        .mobile-overlay { display: none; }
+
+        .page-hero { background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%); color: white; padding: 80px 0 90px; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: url('images/hero-main.jpg') center/cover; opacity: 0.18; }
+        .page-hero .container { position: relative; z-index: 1; text-align: center; }
+        .page-hero .overline { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--orange-light); margin-bottom: 12px; }
+        .page-hero h1 { font-size: clamp(34px, 4.5vw, 52px); font-weight: 900; margin-bottom: 16px; }
+        .page-hero p { font-size: 18px; opacity: 0.92; max-width: 680px; margin: 0 auto; }
+
+        .btn-primary { background: var(--orange); color: var(--white); padding: 16px 36px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid var(--orange-dark); display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+        .btn-primary:hover { background: var(--orange-dark); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+        .btn-primary svg { width: 18px; height: 18px; fill: currentColor; }
+        .btn-ghost { background: transparent; color: var(--white); padding: 16px 36px; border-radius: var(--radius); font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; letter-spacing: 0.04em; transition: all 0.3s; border: 2px solid rgba(255,255,255,0.5); display: inline-flex; align-items: center; gap: 10px; }
+        .btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: white; }
+        .btn-ghost svg { width: 18px; height: 18px; fill: currentColor; }
+
+        .section { padding: 84px 0; }
+        .section-dark { background: var(--off-white); }
+        .section-header { text-align: center; margin-bottom: 56px; }
+        .section-header .overline { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--orange); margin-bottom: 12px; }
+        .section-header h2 { font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; color: var(--charcoal); margin-bottom: 16px; }
+        .section-header p { font-size: 17px; color: var(--gray-600); max-width: 660px; margin: 0 auto; }
+
+        .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; }
+        .service-card { background: white; border-radius: var(--radius); border: 1px solid var(--gray-100); overflow: hidden; transition: all 0.3s; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--orange); }
+        .service-card-img { width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+        .service-card-body { padding: 32px; flex: 1; display: flex; flex-direction: column; }
+        .service-card h3 { font-size: 22px; font-weight: 800; color: var(--charcoal); margin-bottom: 14px; }
+        .service-card p { font-size: 15px; color: var(--gray-600); line-height: 1.75; margin-bottom: 20px; flex: 1; }
+        .service-card .learn-link { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 700; color: var(--orange); text-transform: uppercase; letter-spacing: 0.06em; display: inline-flex; align-items: center; gap: 6px; }
+        .service-card .learn-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+        .process-step { text-align: center; padding: 24px; }
+        .process-num { width: 64px; height: 64px; border-radius: 50%; background: var(--orange); color: white; font-family: 'Montserrat', sans-serif; font-size: 26px; font-weight: 900; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; box-shadow: var(--shadow-md); }
+        .process-step h3 { font-size: 17px; font-weight: 800; color: var(--charcoal); margin-bottom: 10px; }
+        .process-step p { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+
+        .cta-band { background: linear-gradient(135deg, rgba(6,15,26,0.92) 0%, rgba(12,25,41,0.88) 100%), url('images/service-ac-installation.jpg') center/cover no-repeat; padding: 88px 0; text-align: center; color: var(--white); }
+        .cta-band h2 { font-size: clamp(28px, 3.5vw, 38px); font-weight: 800; margin-bottom: 16px; }
+        .cta-band p { font-size: 18px; opacity: 0.9; margin-bottom: 32px; max-width: 560px; margin-left: auto; margin-right: auto; }
+        .cta-band-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+        .cta-band .btn-primary { background: var(--orange-light); border-color: var(--white); color: var(--navy); }
+        .cta-band .btn-primary:hover { background: white; }
+
+        footer { background: var(--navy-deep); color: rgba(255,255,255,0.7); padding: 64px 0 0; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .footer-brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+        .footer-brand-row img { height: 58px; }
+        .footer-brand-name { font-family: 'Montserrat', sans-serif; font-weight: 900; color: white; font-size: 18px; line-height: 1.1; }
+        .footer-brand-tag { font-size: 11px; color: var(--orange-light); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
+        .footer-brand p { font-size: 14px; line-height: 1.8; max-width: 320px; }
+        footer h4 { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; color: white; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 20px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); }
+        .footer-links a:hover { color: var(--orange-light); }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 14px; font-size: 14px; }
+        .footer-contact-item svg { width: 16px; height: 16px; fill: var(--orange-light); flex-shrink: 0; margin-top: 3px; }
+        .footer-contact-item a { color: rgba(255,255,255,0.85); }
+        .footer-contact-item a:hover { color: var(--orange-light); }
+        .footer-bottom { padding: 24px 0; text-align: center; font-size: 13px; color: rgba(255,255,255,0.4); }
+        .footer-bottom a { color: rgba(255,255,255,0.6); text-decoration: underline; }
+
+        .sticky-mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 99; background: var(--orange); padding: 12px 24px; text-align: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.15); }
+        .sticky-mobile-cta a { color: white; font-family: 'Montserrat', sans-serif; font-size: 16px; font-weight: 800; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .sticky-mobile-cta svg { width: 20px; height: 20px; fill: white; }
+
+        .chat-launcher { position: fixed; bottom: 24px; right: 24px; z-index: 9990; width: 60px; height: 60px; border-radius: 50%; background: var(--orange); color: white; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(234,88,12,0.4); transition: all 0.25s; }
+        .chat-launcher:hover { transform: scale(1.07); box-shadow: 0 8px 30px rgba(234,88,12,0.5); }
+        .chat-launcher svg { width: 28px; height: 28px; fill: white; }
+        .chat-launcher .chat-dot { position: absolute; top: 8px; right: 8px; width: 12px; height: 12px; background: #FF4D4D; border-radius: 50%; border: 2px solid white; }
+        .chat-window { position: fixed; bottom: 100px; right: 24px; z-index: 9991; width: 360px; max-width: calc(100vw - 32px); height: 520px; max-height: calc(100vh - 140px); background: white; border-radius: 12px; box-shadow: 0 24px 64px rgba(0,0,0,0.25); display: none; flex-direction: column; overflow: hidden; animation: chat-pop 0.22s ease-out; }
+        .chat-window.open { display: flex; }
+        @keyframes chat-pop { from { transform: scale(0.8) translateY(20px); opacity: 0; } to { transform: scale(1) translateY(0); opacity: 1; } }
+        .chat-header { background: linear-gradient(135deg, var(--navy) 0%, var(--orange) 100%); color: white; padding: 16px 20px; display: flex; align-items: center; gap: 12px; }
+        .chat-avatar { width: 40px; height: 40px; border-radius: 50%; background: white; padding: 4px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,0.2); overflow: hidden; }
+        .chat-avatar img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+        .chat-header-info { flex: 1; min-width: 0; }
+        .chat-header-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 15px; line-height: 1.2; }
+        .chat-header-status { font-size: 12px; opacity: 0.85; display: flex; align-items: center; gap: 6px; }
+        .chat-status-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block; }
+        .chat-close { background: rgba(255,255,255,0.15); border: none; cursor: pointer; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .chat-close:hover { background: rgba(255,255,255,0.25); }
+        .chat-close svg { width: 16px; height: 16px; fill: white; }
+        .chat-body { flex: 1; overflow-y: auto; padding: 20px; background: var(--off-white); display: flex; flex-direction: column; gap: 12px; }
+        .chat-msg { max-width: 82%; padding: 12px 16px; border-radius: 16px; font-size: 14px; line-height: 1.5; background: white; color: var(--gray-700); box-shadow: 0 1px 2px rgba(0,0,0,0.05); border-bottom-left-radius: 4px; }
+        .chat-msg.bot { align-self: flex-start; }
+        .chat-quick-replies { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+        .chat-quick { background: white; border: 1.5px solid var(--orange); color: var(--orange); padding: 10px 16px; border-radius: 100px; font-family: 'Open Sans', sans-serif; font-size: 13px; font-weight: 600; text-align: left; cursor: pointer; transition: all 0.2s; }
+        .chat-quick:hover { background: var(--orange); color: white; }
+        .chat-input-row { display: flex; gap: 8px; padding: 12px 16px; background: white; border-top: 1px solid var(--gray-100); }
+        .chat-input { flex: 1; padding: 10px 14px; border: 1px solid var(--gray-200); border-radius: 100px; font-family: 'Open Sans', sans-serif; font-size: 14px; outline: none; }
+        .chat-input:focus { border-color: var(--orange); }
+        .chat-send { width: 40px; height: 40px; border-radius: 50%; background: var(--orange); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .chat-send:hover { background: var(--orange-dark); }
+        .chat-send svg { width: 18px; height: 18px; fill: white; }
+        .chat-footer { padding: 8px 16px; text-align: center; font-size: 11px; color: var(--gray-400); background: white; border-top: 1px solid var(--gray-100); }
+
+        @media (max-width: 1024px) { .services-grid { grid-template-columns: 1fr; } .process-grid { grid-template-columns: repeat(2, 1fr); } .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) {
+            .nav-links, .nav-phone, .logo-text { display: none; }
+            .menu-toggle { display: block; }
+            .mobile-overlay.active { display: flex; position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+            .mobile-menu { background: white; width: 300px; height: 100%; padding: 24px; margin-left: auto; display: flex; flex-direction: column; overflow-y: auto; }
+            .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--gray-100); }
+            .mobile-menu-header img { height: 48px; }
+            .mobile-close { background: none; border: none; cursor: pointer; padding: 4px; }
+            .mobile-close svg { width: 28px; height: 28px; fill: var(--gray-600); }
+            .mobile-nav-links { list-style: none; }
+            .mobile-nav-links li { border-bottom: 1px solid var(--gray-100); }
+            .mobile-nav-links a { display: block; padding: 14px 0; font-family: 'Montserrat', sans-serif; font-size: 15px; font-weight: 700; color: var(--gray-700); text-transform: uppercase; }
+            .mobile-nav-links a.active { color: var(--orange); }
+            .mobile-cta-phone { margin-top: 24px; }
+            .mobile-cta-phone a { display: block; background: var(--orange); color: white; padding: 14px; border-radius: var(--radius); text-align: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 16px; }
+            .utility-bar { display: none; }
+            .section { padding: 56px 0; }
+            .process-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .sticky-mobile-cta { display: block; }
+            body { padding-bottom: 52px; }
+            .chat-launcher { bottom: 70px; right: 16px; width: 56px; height: 56px; }
+            .chat-launcher svg { width: 26px; height: 26px; }
+            .chat-window { bottom: 70px; right: 8px; left: 8px; width: auto; height: calc(100vh - 90px); }
+            .logo-link img { height: 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="demo-banner">This is a <strong>demo website</strong> built for Gervais Heating &amp; A/C by <a href="https://scalelocal.net" target="_blank" rel="noopener">ScaleLocal</a>. All information is for demonstration purposes only.</div>
+
+<div class="utility-bar">
+    <div class="container">
+        <div class="utility-left">
+            <span><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Andover, MA &amp; Surrounding Towns</span>
+            <span><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:jghvac@hotmail.com">jghvac@hotmail.com</a></span>
+        </div>
+        <div><span class="highlight">Family-Owned &amp; Operated &mdash; Same-Day Service Available</span></div>
+    </div>
+</div>
+
+<header>
+    <div class="header-inner">
+        <a href="index.html" class="logo-link">
+            <img src="images/logo-gervais-hvac.png" alt="Gervais Heating &amp; A/C" loading="eager">
+            <span class="logo-text">
+                <span class="name">Gervais Heating &amp; A/C</span>
+                <span class="tag">Andover &middot; Family-Owned</span>
+            </span>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="why-us.html">Why Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="nav-cta">Request Service</a></li>
+            </ul>
+        </nav>
+        <a href="tel:+19784909165" class="nav-phone">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            (978) 490-9165
+        </a>
+        <button class="menu-toggle" onclick="document.querySelector('.mobile-overlay').classList.add('active')" aria-label="Open menu"><svg viewBox="0 0 24 24"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></button>
+    </div>
+</header>
+
+<div class="mobile-overlay" onclick="if(event.target===this)this.classList.remove('active')">
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <img src="images/logo-gervais-hvac.png" alt="Gervais Heating &amp; A/C">
+            <button class="mobile-close" onclick="document.querySelector('.mobile-overlay').classList.remove('active')" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+        </div>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html" class="active">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="why-us.html">Why Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="mobile-cta-phone"><a href="tel:+19784909165">(978) 490-9165 &mdash; Call Now</a></div>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="overline">What We Do</div>
+        <h1>HVAC Services for Every Home</h1>
+        <p>Furnace and boiler repair, central A/C, heat pumps, ductless mini-splits, and full system replacements &mdash; all from Andover's family-owned HVAC team.</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">Heating &amp; Cooling, Done Right</div>
+            <h2>Every System. Every Season.</h2>
+            <p>From a no-heat call in January to a high-efficiency mini-split install in July, Gervais Heating &amp; A/C handles the complete range of residential HVAC work across the Merrimack Valley.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/service-furnace-repair.jpg" alt="Boiler and furnace repair service" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Furnace &amp; Boiler Repair</h3>
+                    <p>Fast diagnosis and repair when the heat goes out. We service all major brands &mdash; gas, oil, and high-efficiency furnaces, plus steam and hot-water boilers. Same-day calls get priority, and we'll tell you straight whether it makes sense to repair or replace.</p>
+                    <a href="contact.html" class="learn-link">Request Service <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="images/service-ac-installation.jpg" alt="Central air conditioning condenser unit" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Central A/C Installation &amp; Repair</h3>
+                    <p>From a refrigerant top-off to a full system replacement, we keep central A/C running cool all summer. Proper sizing, clean install, and an honest answer on whether your existing system has life left in it &mdash; no upsell pressure.</p>
+                    <a href="contact.html" class="learn-link">Get a Quote <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="images/service-heat-pump.jpg" alt="Residential air-source heat pump" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Heat Pump Installation</h3>
+                    <p>Air-source heat pumps for whole-home heating and cooling in one efficient system. We walk you through Mass Save rebates and federal tax credits, size the system to your home, and install it right so you get the efficiency the spec sheet promises.</p>
+                    <a href="contact.html" class="learn-link">Heat Pump Consultation <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="images/service-mini-split.jpg" alt="Ductless mini-split installation" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Ductless Mini-Splits</h3>
+                    <p>The right solution for additions, finished attics, sunrooms, and homes without ductwork. Multi-zone systems give you room-by-room control with quiet, high-efficiency comfort. We size each zone, plan the line-set routing, and install clean.</p>
+                    <a href="contact.html" class="learn-link">Mini-Split Quote <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="images/service-ductwork.jpg" alt="HVAC ductwork installation" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Ductwork &amp; Indoor Air Quality</h3>
+                    <p>New duct runs, modifications for additions, sealing leaky returns, and balancing rooms that never seem to heat or cool right. We also install whole-home air purifiers, humidifiers, and high-MERV filtration for healthier indoor air.</p>
+                    <a href="contact.html" class="learn-link">Ductwork Estimate <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+            <div class="service-card">
+                <img src="images/gallery-technician.jpg" alt="HVAC technician performing tune-up" class="service-card-img" loading="lazy">
+                <div class="service-card-body">
+                    <h3>Heating &amp; Cooling Tune-Ups</h3>
+                    <p>Annual maintenance is what keeps a system running safely and efficiently &mdash; and what catches small problems before they become no-heat calls in January. We offer fall heating and spring cooling tune-ups that pay for themselves in lower bills and longer system life.</p>
+                    <a href="contact.html" class="learn-link">Schedule Tune-Up <svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-dark">
+    <div class="container">
+        <div class="section-header">
+            <div class="overline">How We Work</div>
+            <h2>Our 4-Step Process</h2>
+            <p>The same straightforward approach that's kept Andover homeowners coming back for over 25 years &mdash; no surprises, no pressure, no upsell.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="process-num">1</div>
+                <h3>Call &amp; Schedule</h3>
+                <p>You call (or use the request form). We confirm the issue, schedule the visit, and get a real person out &mdash; often the same day for no-heat or no-A/C calls.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">2</div>
+                <h3>Honest Diagnosis</h3>
+                <p>We diagnose the issue, walk through what's actually wrong, and lay out the options. No vague "your whole system is bad" upsell &mdash; just the real picture.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">3</div>
+                <h3>Fix It Right</h3>
+                <p>Repairs done with quality parts, installs done to manufacturer spec. We clean up after ourselves, walk you through what we did, and answer your questions.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-num">4</div>
+                <h3>Standing Behind It</h3>
+                <p>Workmanship guarantee on every job, plus the manufacturer warranty on parts and equipment. If something isn't right, you call us and we make it right.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container">
+        <h2>Need Service Today?</h2>
+        <p>Same-day calls for no-heat and no-A/C. Free in-home estimates on installations. One phone call away.</p>
+        <div class="cta-band-btns">
+            <a href="contact.html" class="btn-primary"><svg viewBox="0 0 24 24"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>Request Service</a>
+            <a href="tel:+19784909165" class="btn-ghost"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Call (978) 490-9165</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="footer-brand-row">
+                    <img src="images/logo-gervais-hvac.png" alt="Gervais Heating &amp; A/C">
+                    <span><span class="footer-brand-name">Gervais Heating &amp; A/C</span><br><span class="footer-brand-tag">Andover &middot; Family-Owned</span></span>
+                </div>
+                <p>Family-owned heating and air conditioning serving Andover, MA and the Merrimack Valley for over 25 years. Same-day service, honest pricing, and quality workmanship on every job.</p>
+            </div>
+            <div>
+                <h4>Services</h4>
+                <ul class="footer-links">
+                    <li><a href="services.html">Furnace Repair</a></li>
+                    <li><a href="services.html">AC Installation</a></li>
+                    <li><a href="services.html">Heat Pumps</a></li>
+                    <li><a href="services.html">Ductless Mini-Splits</a></li>
+                    <li><a href="services.html">Boiler Service</a></li>
+                    <li><a href="services.html">Heating Tune-Ups</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Service Area</h4>
+                <ul class="footer-links">
+                    <li><a href="contact.html">Andover, MA</a></li>
+                    <li><a href="contact.html">North Andover, MA</a></li>
+                    <li><a href="contact.html">Methuen, MA</a></li>
+                    <li><a href="contact.html">Haverhill, MA</a></li>
+                    <li><a href="contact.html">Lawrence, MA</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contact</h4>
+                <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg><span>Andover, MA<br>&amp; Surrounding Towns</span></div>
+                <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg><a href="tel:+19784909165">(978) 490-9165</a></div>
+                <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg><a href="mailto:jghvac@hotmail.com">jghvac@hotmail.com</a></div>
+                <div class="footer-contact-item"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg><span>Same-Day Service Available</span></div>
+            </div>
+        </div>
+        <div class="footer-bottom">&copy; 2026 Gervais Heating &amp; A/C &middot; Andover, MA &middot; Licensed &amp; Insured &middot; Site built by <a href="https://scalelocal.net" target="_blank" rel="noopener">ScaleLocal</a></div>
+    </div>
+</footer>
+
+<div class="sticky-mobile-cta"><a href="tel:+19784909165"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>Call Now: Same-Day Service</a></div>
+
+<button class="chat-launcher" id="chatLauncher" aria-label="Open chat"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg><span class="chat-dot"></span></button>
+
+<div class="chat-window" id="chatWindow" role="dialog" aria-label="Chat with Gervais Heating &amp; A/C">
+    <div class="chat-header">
+        <div class="chat-avatar"><img src="images/logo-gervais-hvac.png" alt="Gervais Heating &amp; A/C"></div>
+        <div class="chat-header-info"><div class="chat-header-title">Gervais Heating &amp; A/C</div><div class="chat-header-status"><span class="chat-status-dot"></span> Typically replies in a few minutes</div></div>
+        <button class="chat-close" id="chatClose" aria-label="Close chat"><svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg></button>
+    </div>
+    <div class="chat-body" id="chatBody">
+        <div class="chat-msg bot">&#128075; Hi! I'm the Gervais Heating &amp; A/C assistant. How can I help today?</div>
+        <div class="chat-msg bot">Quick options &mdash; or tell me what's going on:</div>
+        <div class="chat-quick-replies">
+            <button class="chat-quick" data-reply="noheat">No Heat / No A/C &mdash; Same Day</button>
+            <button class="chat-quick" data-reply="install">New System / Installation Quote</button>
+            <button class="chat-quick" data-reply="tuneup">Schedule a Tune-Up</button>
+            <button class="chat-quick" data-reply="question">Ask a Question</button>
+        </div>
+    </div>
+    <div class="chat-input-row">
+        <input class="chat-input" type="text" placeholder="Type your message&hellip;" aria-label="Chat message">
+        <button class="chat-send" aria-label="Send"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
+    </div>
+    <div class="chat-footer">Powered by ScaleLocal</div>
+</div>
+
+<script>
+    const launcher = document.getElementById('chatLauncher');
+    const chatWin = document.getElementById('chatWindow');
+    const chatClose = document.getElementById('chatClose');
+    const chatBody = document.getElementById('chatBody');
+    launcher.addEventListener('click', () => { chatWin.classList.add('open'); launcher.style.display = 'none'; });
+    chatClose.addEventListener('click', () => { chatWin.classList.remove('open'); launcher.style.display = 'flex'; });
+    document.querySelectorAll('.chat-quick').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const reply = btn.dataset.reply;
+            const userMsg = document.createElement('div');
+            userMsg.className = 'chat-msg';
+            userMsg.style.cssText = 'align-self:flex-end;background:var(--orange);color:white;border-bottom-right-radius:4px;border-bottom-left-radius:16px;';
+            userMsg.textContent = btn.textContent;
+            chatBody.appendChild(userMsg);
+            const replies = {
+                noheat: "Sorry to hear that — no-heat and no-A/C calls get priority. What town are you in, and can you give me your address and a callback number?",
+                install: "Happy to help! Are you looking at a furnace, A/C, heat pump, or ductless mini-split? In-home consultations are free.",
+                tuneup: "Great choice — annual tune-ups catch problems before they leave you without heat or A/C. What town are you in, heating or cooling?",
+                question: "Of course! Type your question below and one of the Gervais team will get back to you shortly."
+            };
+            setTimeout(() => {
+                const botMsg = document.createElement('div');
+                botMsg.className = 'chat-msg bot';
+                botMsg.textContent = replies[reply] || replies.question;
+                chatBody.appendChild(botMsg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 600);
+            btn.parentElement.style.display = 'none';
+            chatBody.scrollTop = chatBody.scrollHeight;
+        });
+    });
+</script>
+
+</body>
+</html>
