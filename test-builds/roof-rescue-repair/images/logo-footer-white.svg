@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 200" role="img" aria-label="Roof Rescue Repair">
+  <!-- House icon -->
+  <g transform="translate(20, 30)">
+    <rect x="22" y="74" width="116" height="56" rx="2" fill="#ffffff" stroke="#ffffff" stroke-width="2.5" opacity="0.95"/>
+    <rect x="68" y="92" width="24" height="38" rx="1" fill="#1e4156"/>
+    <rect x="38" y="92" width="20" height="18" fill="#a8c8db" stroke="#1e4156" stroke-width="1.5"/>
+    <line x1="48" y1="92" x2="48" y2="110" stroke="#1e4156" stroke-width="1.2"/>
+    <line x1="38" y1="101" x2="58" y2="101" stroke="#1e4156" stroke-width="1.2"/>
+    <rect x="102" y="92" width="20" height="18" fill="#a8c8db" stroke="#1e4156" stroke-width="1.5"/>
+    <line x1="112" y1="92" x2="112" y2="110" stroke="#1e4156" stroke-width="1.2"/>
+    <line x1="102" y1="101" x2="122" y2="101" stroke="#1e4156" stroke-width="1.2"/>
+    <polygon points="14,76 80,12 146,76 80,46" fill="#ffffff" opacity="0.7"/>
+    <polygon points="80,12 146,76 80,46" fill="#ffffff"/>
+    <line x1="36" y1="56" x2="124" y2="56" stroke="#1e4156" stroke-width="1" opacity="0.4"/>
+    <line x1="50" y1="40" x2="110" y2="40" stroke="#1e4156" stroke-width="1" opacity="0.4"/>
+    <line x1="62" y1="26" x2="98" y2="26" stroke="#1e4156" stroke-width="1" opacity="0.4"/>
+    <rect x="100" y="20" width="14" height="32" fill="#ffffff" opacity="0.7"/>
+    <rect x="98" y="18" width="18" height="6" fill="#ffffff"/>
+    <circle cx="138" cy="44" r="22" fill="#f8d050" stroke="#ffffff" stroke-width="3"/>
+    <g transform="translate(138, 44) rotate(-35)">
+      <path d="M -10 -2.5 L 4 -2.5 L 4 -6 L 11 0 L 4 6 L 4 2.5 L -10 2.5 Z M -14 -6 a 4 4 0 1 0 0 12 a 4 4 0 1 0 0 -12 Z M -14 -2 a 2 2 0 1 1 0 4 a 2 2 0 1 1 0 -4 Z"
+            fill="#1e4156" stroke="#1e4156" stroke-width="0.6" stroke-linejoin="round"/>
+    </g>
+  </g>
+
+  <!-- Wordmark all-white -->
+  <g transform="translate(195, 0)">
+    <text x="0" y="86" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="900" font-size="58" letter-spacing="-0.5" fill="#ffffff">ROOF<tspan fill="#ffffff" opacity="0.85" font-weight="900"> RESCUE</tspan></text>
+    <text x="0" y="130" font-family="'Montserrat', 'Arial Black', sans-serif" font-weight="800" font-size="42" letter-spacing="6" fill="#f8d050">REPAIR</text>
+    <line x1="0" y1="148" x2="350" y2="148" stroke="#ffffff" stroke-width="2" opacity="0.6"/>
+    <text x="0" y="172" font-family="'Open Sans', 'Helvetica', sans-serif" font-weight="700" font-size="14" letter-spacing="3.5" fill="#ffffff" opacity="0.85">REPAIR FIRST. REPLACE WHEN YOU MUST.</text>
+  </g>
+</svg>
