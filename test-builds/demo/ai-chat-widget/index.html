@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Chat Widget — Live Demo · ScaleLocal</title>
+<meta name="description" content="See the ScaleLocal AI chat widget in action. A live AI that answers visitor questions, captures leads, and books jobs — 24/7.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../tier-pages/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.08s;} .rise.d2{transition-delay:.16s;} .rise.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+/* hero */
+.demo-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:72px 0 56px; position:relative; overflow:hidden; }
+.demo-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.demo-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 2s infinite; }
+@keyframes lpulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.demo-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 16px; max-width:20ch; }
+.demo-hero h1 em { font-style:normal; color:var(--brand); }
+.demo-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto; line-height:1.6; }
+
+/* the live stage: a browser frame with the widget */
+.stage-wrap { max-width:1080px; margin:46px auto 0; padding:0 28px; }
+.bizframe { background:#fff; border-radius:14px; box-shadow:0 40px 90px rgba(8,14,26,.5); overflow:hidden; border:1px solid rgba(255,255,255,.06); }
+.bizbar { background:#e9eef4; padding:11px 16px; display:flex; align-items:center; gap:8px; }
+.bizbar .dot { width:11px;height:11px;border-radius:50%; }
+.bizbar .r{background:#ff5f57;} .bizbar .y{background:#febc2e;} .bizbar .g{background:#28c840;}
+.bizbar .url { margin-left:12px; background:#fff; border-radius:6px; padding:5px 16px; font-size:0.76rem; color:var(--muted); font-family:Inter; flex:1; max-width:340px; }
+/* a mock "customer website" behind the widget so the demo has context */
+.bizbody { position:relative; min-height:480px; background:linear-gradient(180deg,#f4f7fb,#e8eef5); padding:0; }
+.mocksite { padding:38px 44px 60px; }
+.mocksite .mh { display:flex; align-items:center; justify-content:space-between; padding-bottom:24px; border-bottom:1px solid #dce4ee; }
+.mocksite .mlogo { font-family:Montserrat; font-weight:700; font-size:1.15rem; color:#1a2e4a; }
+.mocksite .mnav { display:flex; gap:22px; }
+.mocksite .mnav span { font-family:Inter; font-size:0.82rem; color:#6b7a8d; font-weight:500; }
+.mocksite .mhero { padding:46px 0 30px; max-width:62%; }
+.mocksite .mhero .mk { font-family:Inter; font-weight:700; font-size:0.68rem; letter-spacing:.12em; text-transform:uppercase; color:#2E75B6; }
+.mocksite .mhero h3 { font-family:Montserrat; font-weight:700; font-size:1.85rem; color:#1a2e4a; line-height:1.15; margin:10px 0 12px; }
+.mocksite .mhero p { font-size:0.92rem; color:#6b7a8d; line-height:1.55; }
+.mocksite .mbtn { display:inline-block; margin-top:18px; background:#2E75B6; color:#fff; font-family:Inter; font-weight:600; font-size:0.85rem; padding:11px 22px; border-radius:7px; }
+.mocksite .mrow { display:flex; gap:16px; margin-top:34px; }
+.mocksite .mcard { flex:1; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:20px; }
+.mocksite .mcard .mi { width:34px;height:34px;border-radius:8px;background:#eef4fb;margin-bottom:12px; }
+.mocksite .mcard h4 { font-family:Montserrat;font-weight:700;font-size:0.92rem;color:#1a2e4a; }
+.mocksite .mcard p { font-size:0.8rem;color:#6b7a8d;margin-top:5px;line-height:1.5; }
+.demo-note { text-align:center; font-size:0.84rem; color:rgba(255,255,255,.5); margin-top:18px; }
+.demo-note b { color:rgba(255,255,255,.8); font-weight:600; }
+
+/* explainer strip */
+.feat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.feat { text-align:left; }
+.feat .fi { width:44px;height:44px;border-radius:11px;background:rgba(46,117,182,.10);display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+.feat .fi svg { width:22px;height:22px;fill:var(--brand); }
+.feat h3 { font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:7px; }
+.feat p { font-size:0.93rem;color:var(--muted);line-height:1.58; }
+
+@media(max-width:880px){
+  .feat-row { grid-template-columns:1fr; }
+  .mocksite .mhero { max-width:100%; }
+  .mocksite .mrow { flex-direction:column; }
+  .mocksite { padding:26px 22px 48px; }
+  .bizbody { min-height:420px; }
+}
+</style>
+</head>
+<body>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="../../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="../../home/">Home</a>
+      <a href="../ai-receptionist/">AI Receptionist</a>
+      <a href="../../tier-pages/services/">Pricing</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<section class="demo-hero">
+  <div class="wrap">
+    <span class="tag rise"><span class="d"></span> Live demo &mdash; this AI is real</span>
+    <h1 class="rise d1">Every visitor gets answered. <em>Even at 11pm on a Sunday.</em></h1>
+    <p class="rise d2">This is the ScaleLocal AI Chat Widget &mdash; the same one we put on your website. Ask it anything a real customer would. It answers, it captures the lead, and it can book the job. Try it right now.</p>
+  </div>
+  <div class="stage-wrap rise d2">
+    <div class="bizframe">
+      <div class="bizbar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">yourbusiness.com</span>
+      </div>
+      <div class="bizbody">
+        <div class="mocksite">
+          <div class="mh">
+            <div class="mlogo">Riverside Plumbing Co.</div>
+            <div class="mnav"><span>Services</span><span>About</span><span>Reviews</span><span>Contact</span></div>
+          </div>
+          <div class="mhero">
+            <div class="mk">Licensed &middot; Insured &middot; Local</div>
+            <h3>Fast, reliable plumbing &mdash; done right the first time.</h3>
+            <p>Serving homeowners across the region with honest pricing and same-week scheduling. From a leaky faucet to a full repipe, we handle it.</p>
+            <span class="mbtn">Get a Free Estimate</span>
+          </div>
+          <div class="mrow">
+            <div class="mcard"><div class="mi"></div><h4>Emergency Repairs</h4><p>Burst pipes and leaks handled fast, any day of the week.</p></div>
+            <div class="mcard"><div class="mi"></div><h4>Water Heaters</h4><p>Repair, replacement, and tankless upgrades.</p></div>
+            <div class="mcard"><div class="mi"></div><h4>Drain &amp; Sewer</h4><p>Clogs cleared and sewer lines restored.</p></div>
+          </div>
+        </div>
+        <!-- The real ScaleLocal GHL chat widget loads here, bottom-right -->
+      </div>
+    </div>
+    <p class="demo-note">This is a <b>sample customer website</b> &mdash; the chat bubble in the corner is the <b>real, live ScaleLocal AI</b>. Click it and ask a question.</p>
+  </div>
+</section>
+
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center rise" style="margin:0 auto 8px;">
+      <div class="kicker">What it's doing while you sleep</div>
+      <h2>Not a chatbot. A capture-and-book layer.</h2>
+    </div>
+    <div class="feat-row">
+      <div class="feat rise d1">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8 8 0 0 1-6-2.7c0-2.7 4-4.1 6-4.1s6 1.4 6 4.1A8 8 0 0 1 12 20Z"/></svg></div>
+        <h3>Answers like your best employee</h3>
+        <p>It knows your services, your hours, your service area and your pricing approach &mdash; and answers every visitor instantly, in your business's voice.</p>
+      </div>
+      <div class="feat rise d2">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5Z"/></svg></div>
+        <h3>Captures the lead automatically</h3>
+        <p>Name, number, what they need &mdash; it collects the details and drops a new lead straight into your CRM. Nothing slips through.</p>
+      </div>
+      <div class="feat rise d3">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14Zm-7-7 4.2 4.2-1.4 1.4L12 15.8 9.2 18.6 7.8 17.2 12 13Z"/></svg></div>
+        <h3>Books the job on the spot</h3>
+        <p>When the visitor's ready, it puts a real appointment on your calendar &mdash; while their interest is highest, not three days later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-tight s-dark" style="text-align:center;">
+  <div class="wrap measure" style="margin:0 auto;">
+    <h2 style="font-size:clamp(1.7rem,3vw,2.5rem);">Want this AI on your website?</h2>
+    <p style="color:var(--muted-light);margin:12px 0 26px;font-size:1.0625rem;">The AI Chat Widget is included from Basecamp &mdash; the first level of the ScaleLocal climb.</p>
+    <div class="hero-cta-row" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="../../tier-pages/services/" class="btn btn-primary btn-lg">See pricing &amp; tiers</a>
+      <a href="tel:+19786627580" class="btn btn-line-light btn-lg">Talk to ScaleLocal</a>
+    </div>
+  </div>
+</section>
+
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="../../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Demos</h4>
+        <a href="../ai-chat-widget/">AI Chat Widget</a>
+        <a href="../ai-receptionist/">AI Receptionist</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="../../tier-pages/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  var rises=document.querySelectorAll('.rise');
+  var vh=window.innerHeight||800;
+  rises.forEach(function(el){
+    if(el.getBoundingClientRect().top<vh*0.92){ el.classList.add('in'); } else { io.observe(el); }
+  });
+})();
+</script>
+
+<!-- ===== Real ScaleLocal AI Chat Widget (live GHL widget) ===== -->
+<script
+  src="https://beta.leadconnectorhq.com/loader.js"
+  data-resources-url="https://beta.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69c34fd013ad14bdd250aace">
+</script>
+</body>
+</html>
