@@ -117,24 +117,41 @@ html, body { overflow-x:hidden; max-width:100%; }
 .cmp-card .cl { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--brand);font-weight:600; }
 
 /* ===== MOBILE: mountain on top, card below, still pinned ===== */
+/* ===== MOBILE: mountain on top, card below — both inside the pinned stage ===== */
 @media(max-width:920px){
-  .climb { height:520vh; }
-  .climb-pin { top:56px; height:calc(100vh - 56px); }
-  .climb-grid { grid-template-columns:1fr; gap:0; padding:0 16px; align-content:start; padding-top:14px; }
-  .mtn-svg-wrap { max-width:300px; margin:0 auto; }
+  .climb-pin { top:56px; height:calc(100vh - 56px); padding:12px 0 14px; }
+  /* stack: mountain row, then card row */
+  .climb-grid {
+    display:flex; flex-direction:column; gap:0;
+    max-width:100%; padding:0 14px; height:100%;
+  }
+  /* mountain — compact, fixed share of the height at the top */
+  .mtn-stage { flex:0 0 auto; }
+  .mtn-svg-wrap { max-width:none; width:auto; height:32vh; }
+  .mtn-svg { width:auto; height:100%; margin:0 auto; }
   .mtn-hint { display:none; }
-  .card-stage { min-height:0; flex:1; margin-top:6px; }
-  .tp-card { padding:24px 20px 22px; box-shadow:0 20px 44px rgba(8,14,26,.45); }
-  .tp-name { font-size:1.5rem; }
-  .tp-pricebox { text-align:left; }
-  .climb-dots { bottom:14px; }
+  /* card area — fills remaining height; cards overlay, one shown at a time */
+  .card-stage { flex:1 1 auto; min-height:0; position:relative; display:block; margin-top:8px; }
+  .tp-card {
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    height:auto; max-height:100%;
+    transform:translateY(20px);
+    padding:22px 20px 18px; box-shadow:0 18px 40px rgba(8,14,26,.4);
+    overflow-y:auto;
+  }
+  .tp-card.is-active { transform:translateY(0); }
+  .tp-card.is-past   { transform:translateY(-20px); }
+  .tp-name { font-size:1.45rem; }
+  .tp-pricebox { text-align:right; }
+  .tp-tag { font-size:0.88rem; margin:8px 0 10px; }
+  .tp-offer { padding:9px 11px; margin-bottom:10px; }
+  .tp-add { padding:8px 11px; font-size:0.82rem; }
   .cmp { grid-template-columns:1fr 1fr; }
 }
-@media(max-width:560px){ .cmp{ grid-template-columns:1fr; } }
-/* very short viewports: let the card scroll inside itself */
-@media(max-height:720px){
-  .tp-card { padding:22px 22px 20px; }
-  .tp-tag { margin:10px 0 10px; }
+@media(max-width:560px){
+  .cmp{ grid-template-columns:1fr; }
+  .mtn-svg-wrap { height:27vh; }
+  .tp-card { padding:20px 18px 18px; }
 }
 </style>
 </head>
@@ -473,4 +490,4 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+           
