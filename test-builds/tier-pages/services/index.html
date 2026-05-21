@@ -17,87 +17,87 @@ html, body { overflow-x:hidden; max-width:100%; }
 .mtn-hero h1 em { font-style:normal; color:var(--brand); }
 .mtn-hero p { color:rgba(255,255,255,.80); font-size:1.0625rem; max-width:58ch; margin:0 auto; }
 
-.climb { background:var(--dark); position:relative; }
-.climb-inner { display:grid; grid-template-columns:1.02fr .98fr; }
+/* ===== PINNED SCROLL-JACK CLIMB ===== */
+/* .climb is a tall runway; .climb-pin sticks for its whole length */
+.climb { background:var(--dark); position:relative; height:500vh; }
+.climb-pin {
+  position:sticky; top:60px; height:calc(100vh - 60px);
+  overflow:hidden; display:flex; align-items:center;
+}
+.climb-grid {
+  width:100%; max-width:1240px; margin:0 auto; padding:0 32px;
+  display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
+}
 
-/* sticky mountain stage */
-.mtn-stage { position:sticky; top:60px; height:calc(100vh - 60px); display:flex; align-items:center; justify-content:center; overflow:hidden; }
-.mtn-svg-wrap { width:100%; max-width:580px; padding:0 24px; }
+/* mountain side */
+.mtn-stage { display:flex; align-items:center; justify-content:center; }
+.mtn-svg-wrap { width:100%; max-width:540px; }
 .mtn-svg { width:100%; height:auto; display:block; overflow:visible; }
-.mtn-hint { text-align:center; margin-top:16px; color:rgba(255,255,255,.46); font-size:0.82rem; }
-
-#climber { transition:transform .12s linear; }
-#trailFill { transition:stroke-dasharray .12s linear; }
+.mtn-hint { text-align:center; margin-top:14px; color:rgba(255,255,255,.46); font-size:0.82rem; }
+#climber { transition:transform .15s linear; }
 #climber .pulse { animation:cpulse 2.4s ease-in-out infinite; transform-origin:center; }
 @keyframes cpulse { 0%,100%{ opacity:.5; } 50%{ opacity:0; } }
+#trailFill { transition:stroke-dasharray .15s linear; }
 .flag { cursor:pointer; }
-.flag-dot { transition:r .4s ease, fill .4s ease; }
-.flag-glow { transition:opacity .5s ease; }
+.flag-dot { transition:r .35s ease, fill .35s ease; }
+.flag-glow { transition:opacity .45s ease; }
 .flag-hit { fill:transparent; cursor:pointer; }
-.flag-lbl { pointer-events:none; transition:fill .4s ease; }
+.flag-lbl { pointer-events:none; transition:fill .35s ease; }
 
-/* tier detail column */
-.tiers-col { padding:64px 0; }
-.tier-panel {
-  min-height:84vh; display:flex; align-items:center;
-  padding:40px 56px;
-  min-width:0;
-}
+/* card side — all 4 cards stacked, only one visible at a time */
+.card-stage { position:relative; min-height:560px; }
 .tp-card {
-  width:100%; min-width:0; max-width:100%; background:#fff; border-radius:var(--radius-lg);
-  border:1px solid var(--line);
-  box-shadow:0 18px 46px rgba(8,14,26,.34);
-  padding:38px 38px 34px;
-  opacity:.82; transform:translateY(26px) scale(.975);
-  transition:opacity .55s var(--ease), transform .55s var(--ease), box-shadow .55s var(--ease);
+  position:absolute; inset:0; margin:auto; height:max-content;
+  width:100%; background:#fff; border-radius:var(--radius-lg);
+  border:1px solid var(--line); box-shadow:0 30px 70px rgba(8,14,26,.5);
+  padding:34px 34px 30px;
+  opacity:0; transform:translateY(40px); pointer-events:none;
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
   overflow-wrap:break-word;
 }
-.tier-panel.active .tp-card {
-  opacity:1; transform:translateY(0) scale(1);
-  box-shadow:0 30px 70px rgba(8,14,26,.55), 0 0 0 2px var(--brand);
-}
-.tp-num { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); margin-bottom:12px; }
+.tp-card.is-active { opacity:1; transform:translateY(0); pointer-events:auto; }
+.tp-card.is-past   { opacity:0; transform:translateY(-40px); }
+.tp-num { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); margin-bottom:10px; }
 .tp-num .dot { width:6px;height:6px;border-radius:50%;background:var(--brand); }
-.tp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+.tp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
 .tp-head > div { min-width:0; }
-.tp-name { font-family:Montserrat; font-weight:700; color:var(--dark); font-size:clamp(1.9rem,2.8vw,2.5rem); letter-spacing:-0.02em; line-height:1.08; }
+.tp-name { font-family:Montserrat; font-weight:700; color:var(--dark); font-size:clamp(1.7rem,2.6vw,2.3rem); letter-spacing:-0.02em; line-height:1.08; }
 .tp-pricebox { text-align:right; flex:none; }
-.tp-pricebox .amt { font-family:Montserrat;font-weight:700;font-size:1.7rem;color:var(--dark);display:block;line-height:1; }
+.tp-pricebox .amt { font-family:Montserrat;font-weight:700;font-size:1.6rem;color:var(--dark);display:block;line-height:1; }
 .tp-pricebox .per { font-size:0.78rem;color:var(--muted); }
-.tp-badge { display:inline-block; font-family:Inter; font-weight:700; font-size:0.66rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--accent); padding:4px 10px; border-radius:999px; margin-top:8px; }
-.tp-tag { font-size:1rem;color:var(--text);margin:14px 0 16px;line-height:1.6; }
 .tp-pricebox .per .setup { display:block; font-size:0.72rem; color:var(--muted-light); margin-top:2px; }
+.tp-badge { display:inline-block; font-family:Inter; font-weight:700; font-size:0.66rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--accent); padding:4px 10px; border-radius:999px; margin-top:8px; }
+.tp-tag { font-size:0.97rem;color:var(--text);margin:12px 0 14px;line-height:1.55; }
 .tp-offer {
-  display:flex; align-items:center; gap:12px;
+  display:flex; align-items:center; gap:11px;
   background:linear-gradient(135deg, rgba(46,204,113,.10), rgba(46,117,182,.08));
   border:1px solid rgba(46,204,113,.30); border-radius:var(--radius-sm);
-  padding:12px 14px; margin-bottom:18px;
+  padding:11px 13px; margin-bottom:14px;
 }
-.tp-offer .of-ic { width:30px;height:30px;border-radius:8px;flex:none;background:var(--green);display:flex;align-items:center;justify-content:center; }
-.tp-offer .of-ic svg { width:16px;height:16px;fill:#fff; }
-.tp-offer .of-tx { font-size:0.86rem; line-height:1.4; color:var(--text); }
+.tp-offer .of-ic { width:28px;height:28px;border-radius:8px;flex:none;background:var(--green);display:flex;align-items:center;justify-content:center; }
+.tp-offer .of-ic svg { width:15px;height:15px;fill:#fff; }
+.tp-offer .of-tx { font-size:0.83rem; line-height:1.38; color:var(--text); }
 .tp-offer .of-tx b { font-family:Montserrat; font-weight:700; color:var(--green-deep); }
-.tp-offer .of-tx .of-sub { display:block; font-size:0.76rem; color:var(--muted); margin-top:1px; }
-.tp-prev { display:flex;align-items:center;gap:9px;font-size:0.84rem;color:var(--muted);font-weight:600;padding:11px 14px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:6px; }
-.tp-prev .chk { width:18px;height:18px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center; }
-.tp-prev .chk svg { width:10px;height:10px;fill:#fff; }
-.tp-plus { display:flex;align-items:center;gap:10px;margin:16px 0 12px; }
-.tp-plus .psign { width:26px;height:26px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:16px;color:#fff; }
-.tp-plus .ptext { font-family:Montserrat;font-weight:700;font-size:0.78rem;color:var(--dark);letter-spacing:.05em;text-transform:uppercase; }
-.tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:24px; }
-.tp-add { display:flex;align-items:flex-start;gap:11px;font-size:0.9rem;color:var(--text);background:#fff;padding:12px 14px;line-height:1.45;min-width:0;overflow-wrap:break-word; }
-.tp-add .ad { width:20px;height:20px;border-radius:5px;flex:none;margin-top:1px;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
-.tp-add .ad svg { width:11px;height:11px;fill:var(--brand); }
+.tp-offer .of-tx .of-sub { display:block; font-size:0.74rem; color:var(--muted); margin-top:1px; }
+.tp-prev { display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted);font-weight:600;padding:9px 13px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:6px; }
+.tp-prev .chk { width:17px;height:17px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center; }
+.tp-prev .chk svg { width:9px;height:9px;fill:#fff; }
+.tp-plus { display:flex;align-items:center;gap:9px;margin:12px 0 9px; }
+.tp-plus .psign { width:24px;height:24px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:15px;color:#fff; }
+.tp-plus .ptext { font-family:Montserrat;font-weight:700;font-size:0.76rem;color:var(--dark);letter-spacing:.05em;text-transform:uppercase; }
+.tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px; }
+.tp-add { display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--text);background:#fff;padding:10px 13px;line-height:1.42;min-width:0;overflow-wrap:break-word; }
+.tp-add .ad { width:19px;height:19px;border-radius:5px;flex:none;margin-top:1px;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
+.tp-add .ad svg { width:10px;height:10px;fill:var(--brand); }
 .tp-cta { display:flex;gap:12px;flex-wrap:wrap; }
 
-/* side progress rail */
-.climb-rail { position:fixed; right:22px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:6px; z-index:50; }
-.climb-rail .rdot-wrap { display:flex; align-items:center; gap:9px; cursor:pointer; padding:5px 0; }
-.climb-rail .rlabel { font-family:Inter; font-size:0.7rem; font-weight:600; color:rgba(255,255,255,.4); opacity:0; transform:translateX(6px); transition:all .25s ease; white-space:nowrap; }
-.climb-rail .rdot-wrap:hover .rlabel,.climb-rail .rdot-wrap.on .rlabel { opacity:1; transform:translateX(0); }
-.climb-rail .rdot-wrap.on .rlabel { color:var(--green); }
-.climb-rail .rdot { width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.4);transition:all .3s ease;flex:none; }
-.climb-rail .rdot-wrap.on .rdot { background:var(--green);border-color:var(--green);transform:scale(1.45); }
+/* progress dots — bottom centre of the pinned stage */
+.climb-dots { position:absolute; left:50%; bottom:22px; transform:translateX(-50%); display:flex; gap:10px; z-index:6; }
+.climb-dots .cd { display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer; }
+.climb-dots .cd .ci { width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);transition:all .3s ease; }
+.climb-dots .cd.on .ci { background:var(--green);border-color:var(--green);transform:scale(1.4); }
+.climb-dots .cd .cl { font-family:Inter;font-size:0.62rem;font-weight:600;color:rgba(255,255,255,.4);transition:color .3s ease; }
+.climb-dots .cd.on .cl { color:var(--green); }
 
 /* compare strip */
 .cmp { display:grid;grid-template-columns:repeat(4,1fr);gap:16px; }
@@ -108,69 +108,26 @@ html, body { overflow-x:hidden; max-width:100%; }
 .cmp-card .cs { font-size:0.8rem;color:var(--muted);margin-bottom:14px;line-height:1.4; }
 .cmp-card .cl { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--brand);font-weight:600; }
 
-/* mobile tier stepper — hidden on desktop, shown under 920px */
-.mstep { display:none; }
-
+/* ===== MOBILE: mountain on top, card below, still pinned ===== */
 @media(max-width:920px){
-  .climb-inner { display:block; }
-  /* kill the tall portrait mountain on mobile — it can't be "compact" */
-  .mtn-stage { display:none; }
-  .climb-rail { display:none; }
-
-  /* sticky horizontal tier stepper replaces the mountain */
-  .mstep {
-    display:block; position:sticky; top:60px; z-index:30;
-    background:linear-gradient(180deg,var(--navy-2),var(--dark));
-    border-bottom:1px solid rgba(255,255,255,.08);
-    padding:16px 0 14px;
-  }
-  .mstep-track {
-    display:flex; align-items:flex-start; justify-content:space-between;
-    position:relative; max-width:440px; width:100%; margin:0 auto; padding:0 24px;
-  }
-  /* connecting line behind the chips */
-  .mstep-line {
-    position:absolute; left:46px; right:46px; top:13px; height:3px;
-    background:rgba(255,255,255,.16); border-radius:2px;
-  }
-  .mstep-fill {
-    position:absolute; left:46px; top:13px; height:3px;
-    background:var(--green); border-radius:2px; width:0;
-    transition:width .5s var(--ease);
-  }
-  .mstep-node {
-    position:relative; z-index:2; display:flex; flex-direction:column;
-    align-items:center; gap:6px; cursor:pointer; flex:none; width:62px;
-  }
-  .mstep-dot {
-    width:28px; height:28px; border-radius:50%;
-    background:#3a5680; border:2.5px solid rgba(255,255,255,.5);
-    display:flex; align-items:center; justify-content:center;
-    font-family:Montserrat; font-weight:700; font-size:13px; color:#fff;
-    transition:all .35s var(--ease);
-  }
-  .mstep-node.done .mstep-dot { background:var(--green); border-color:var(--green); }
-  .mstep-node.on .mstep-dot {
-    background:var(--green); border-color:#fff; transform:scale(1.18);
-    box-shadow:0 0 0 5px rgba(46,204,113,.22);
-  }
-  .mstep-lbl {
-    font-family:Inter; font-weight:600; font-size:0.66rem;
-    color:rgba(255,255,255,.55); white-space:nowrap;
-  }
-  .mstep-node.on .mstep-lbl { color:var(--green); }
-
-  .tiers-col { padding:6px 0 28px; }
-  .tier-panel { min-height:auto; padding:20px 16px; }
-  .tp-card { transform:translateY(10px) scale(.99); padding:26px 20px; opacity:1; }
-  .tier-panel.active .tp-card { transform:translateY(0) scale(1); }
-  .tp-head { gap:10px; }
-  .tp-name { font-size:1.65rem; }
+  .climb { height:520vh; }
+  .climb-pin { top:56px; height:calc(100vh - 56px); }
+  .climb-grid { grid-template-columns:1fr; gap:0; padding:0 16px; align-content:start; padding-top:14px; }
+  .mtn-svg-wrap { max-width:300px; margin:0 auto; }
+  .mtn-hint { display:none; }
+  .card-stage { min-height:0; flex:1; margin-top:6px; }
+  .tp-card { padding:24px 20px 22px; box-shadow:0 20px 44px rgba(8,14,26,.45); }
+  .tp-name { font-size:1.5rem; }
   .tp-pricebox { text-align:left; }
-  .tp-pricebox .amt { font-size:1.45rem; }
+  .climb-dots { bottom:14px; }
   .cmp { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:560px){ .cmp{ grid-template-columns:1fr; } }
+/* very short viewports: let the card scroll inside itself */
+@media(max-height:720px){
+  .tp-card { padding:22px 22px 20px; }
+  .tp-tag { margin:10px 0 10px; }
+}
 </style>
 </head>
 <body>
@@ -190,44 +147,19 @@ html, body { overflow-x:hidden; max-width:100%; }
     <p>Four levels. Each one builds on the last. Start at Basecamp and ascend at your own pace &mdash; with the tools, the AI, and the partnership to reach whatever summit you're after.</p>
   </div>
 </section>
-<section class="climb">
-  <div class="climb-rail">
-    <span class="rdot-wrap" data-go="0"><span class="rdot"></span><span class="rlabel">Basecamp</span></span>
-    <span class="rdot-wrap" data-go="1"><span class="rdot"></span><span class="rlabel">Ascent</span></span>
-    <span class="rdot-wrap" data-go="2"><span class="rdot"></span><span class="rlabel">Summit</span></span>
-    <span class="rdot-wrap" data-go="3"><span class="rdot"></span><span class="rlabel">Apex</span></span>
-  </div>
-  <div class="mstep">
-    <div class="mstep-track">
-      <div class="mstep-line"></div>
-      <div class="mstep-fill" id="mstepFill"></div>
-      <span class="mstep-node" data-go="0"><span class="mstep-dot">1</span><span class="mstep-lbl">Basecamp</span></span>
-      <span class="mstep-node" data-go="1"><span class="mstep-dot">2</span><span class="mstep-lbl">Ascent</span></span>
-      <span class="mstep-node" data-go="2"><span class="mstep-dot">3</span><span class="mstep-lbl">Summit</span></span>
-      <span class="mstep-node" data-go="3"><span class="mstep-dot">4</span><span class="mstep-lbl">Apex</span></span>
-    </div>
-  </div>
-  <div class="wrap" style="max-width:1280px;">
-    <div class="climb-inner">
+
+<section class="climb" id="climb">
+  <div class="climb-pin">
+    <div class="climb-grid">
       <div class="mtn-stage">
         <div class="mtn-svg-wrap">
           <svg class="mtn-svg" viewBox="0 0 540 600" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#46659a"/><stop offset="1" stop-color="#1c2f4f"/>
-              </linearGradient>
-              <linearGradient id="rockShade" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0" stop-color="#14233c"/><stop offset="1" stop-color="#22375c"/>
-              </linearGradient>
-              <linearGradient id="snowG" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c7daef"/>
-              </linearGradient>
-              <radialGradient id="peakGlow" cx="0.5" cy="0.5" r="0.5">
-                <stop offset="0" stop-color="#2ecc71" stop-opacity="0.4"/><stop offset="1" stop-color="#2ecc71" stop-opacity="0"/>
-              </radialGradient>
-              <linearGradient id="ridgeBack" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#2c456c"/><stop offset="1" stop-color="#1a2c49"/>
-              </linearGradient>
+              <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46659a"/><stop offset="1" stop-color="#1c2f4f"/></linearGradient>
+              <linearGradient id="rockShade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14233c"/><stop offset="1" stop-color="#22375c"/></linearGradient>
+              <linearGradient id="snowG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c7daef"/></linearGradient>
+              <radialGradient id="peakGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2ecc71" stop-opacity="0.4"/><stop offset="1" stop-color="#2ecc71" stop-opacity="0"/></radialGradient>
+              <linearGradient id="ridgeBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c456c"/><stop offset="1" stop-color="#1a2c49"/></linearGradient>
             </defs>
             <rect x="0" y="0" width="540" height="600" fill="#1a2e4a"/>
             <ellipse cx="270" cy="540" rx="360" ry="200" fill="#22375c" opacity=".6"/>
@@ -281,108 +213,96 @@ html, body { overflow-x:hidden; max-width:100%; }
           <div class="mtn-hint">Scroll to climb &mdash; or tap any level on the mountain.</div>
         </div>
       </div>
-      <div class="tiers-col">
-        <div class="tier-panel" id="panel-0">
-          <div class="tp-card">
-            <div class="tp-num"><span class="dot"></span> Level 1 &middot; Where the climb begins</div>
-            <div class="tp-head">
-              <div>
-                <div class="tp-name">Basecamp</div>
-              </div>
-              <div class="tp-pricebox"><span class="amt">$249</span><span class="per">/mo<span class="setup">$497 one-time setup</span></span></div>
-            </div>
-            <div class="tp-tag">Get discovered and capture every visitor. A modern web presence and an always-on AI capture layer &mdash; so no lead who finds you is ever lost.</div>
-            <div class="tp-offer">
-              <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-              <span class="of-tx"><b>Commit &amp; save up to $941.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
-            </div>
-            <div class="tp-adds">
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern website, built &amp; managed</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI chat widget &mdash; text + voice</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Tracked phone number + missed-call alerts</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Lead capture into your CRM</div>
-            </div>
-            <div class="tp-cta"><a href="../basecamp/" class="btn btn-primary">Explore Basecamp</a></div>
+      <div class="card-stage">
+        <article class="tp-card" id="card-0">
+          <div class="tp-num"><span class="dot"></span> Level 1 &middot; Where the climb begins</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Basecamp</div></div>
+            <div class="tp-pricebox"><span class="amt">$249</span><span class="per">/mo<span class="setup">$497 one-time setup</span></span></div>
           </div>
-        </div>
-        <div class="tier-panel" id="panel-1">
-          <div class="tp-card">
-            <div class="tp-num"><span class="dot"></span> Level 2 &middot; The growth engine</div>
-            <div class="tp-head">
-              <div>
-                <div class="tp-name">Ascent</div>
-                <span class="tp-badge">Most Popular</span>
-              </div>
-              <div class="tp-pricebox"><span class="amt">$597</span><span class="per">/mo<span class="setup">$797 one-time setup</span></span></div>
-            </div>
-            <div class="tp-tag">Own the search results and convert visitors into booked appointments &mdash; across Google and every AI engine.</div>
-            <div class="tp-offer">
-              <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-              <span class="of-tx"><b>Commit &amp; save up to $1,877.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
-            </div>
-            <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, plus:</div>
-            <div class="tp-plus"><span class="psign">+</span><span class="ptext">Ascent adds</span></div>
-            <div class="tp-adds">
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Search positioning &mdash; ChatGPT, Gemini, Perplexity, AI Overviews</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile management</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Local SEO foundation &amp; calendar booking</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine + quarterly strategy review</div>
-            </div>
-            <div class="tp-cta"><a href="../ascent/" class="btn btn-primary">Explore Ascent</a></div>
+          <div class="tp-tag">Get discovered and capture every visitor. A modern web presence and an always-on AI capture layer &mdash; so no lead who finds you is ever lost.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; save up to $941.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
           </div>
-        </div>
-        <div class="tier-panel" id="panel-2">
-          <div class="tp-card">
-            <div class="tp-num"><span class="dot"></span> Level 3 &middot; The AI conversion layer</div>
-            <div class="tp-head">
-              <div>
-                <div class="tp-name">Summit</div>
-              </div>
-              <div class="tp-pricebox"><span class="amt">$997</span><span class="per">/mo<span class="setup">$1,497 one-time setup</span></span></div>
-            </div>
-            <div class="tp-tag">Answer every call and close every lead. A full AI Receptionist on every call, 24/7 &mdash; booking the job before the caller hangs up.</div>
-            <div class="tp-offer">
-              <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-              <span class="of-tx"><b>Commit &amp; save up to $3,297.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
-            </div>
-            <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp &amp; Ascent, plus:</div>
-            <div class="tp-plus"><span class="psign">+</span><span class="ptext">Summit adds</span></div>
-            <div class="tp-adds">
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist &mdash; full voice, answers &amp; books 24/7</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine (full) &mdash; AI-drafted responses</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Follow-Up Engine &mdash; recovers stalled leads</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Priority support</div>
-            </div>
-            <div class="tp-cta"><a href="../summit/" class="btn btn-primary">Explore Summit</a></div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern website, built &amp; managed</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI chat widget &mdash; text + voice</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Tracked phone number + missed-call alerts</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Lead capture into your CRM</div>
           </div>
-        </div>
-        <div class="tier-panel" id="panel-3">
-          <div class="tp-card">
-            <div class="tp-num"><span class="dot"></span> Level 4 &middot; The peak. The flagship.</div>
-            <div class="tp-head">
-              <div>
-                <div class="tp-name">Apex</div>
-                <span class="tp-badge">The Flagship</span>
-              </div>
-              <div class="tp-pricebox"><span class="amt">$1,497</span><span class="per">/mo<span class="setup">$1,997 one-time setup</span></span></div>
-            </div>
-            <div class="tp-tag">The complete growth engine &mdash; in your pocket. Every lead, call, review, job and payment, run from your own branded mobile app.</div>
-            <div class="tp-offer">
-              <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-              <span class="of-tx"><b>Commit &amp; save up to $4,697.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
-            </div>
-            <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, Ascent &amp; Summit, plus:</div>
-            <div class="tp-plus"><span class="psign">+</span><span class="ptext">Apex adds</span></div>
-            <div class="tp-adds">
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your own branded mobile app</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent &mdash; qualifies &amp; closes leads</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Re-Engagement &amp; Referral Engine</div>
-              <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Monthly strategy + priority partnership support</div>
-            </div>
-            <div class="tp-cta"><a href="../apex/" class="btn btn-primary">Explore Apex</a></div>
+          <div class="tp-cta"><a href="../basecamp/" class="btn btn-primary">Explore Basecamp</a></div>
+        </article>
+        <article class="tp-card" id="card-1">
+          <div class="tp-num"><span class="dot"></span> Level 2 &middot; The growth engine</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Ascent</div><span class="tp-badge">Most Popular</span></div>
+            <div class="tp-pricebox"><span class="amt">$597</span><span class="per">/mo<span class="setup">$797 one-time setup</span></span></div>
           </div>
-        </div>
+          <div class="tp-tag">Own the search results and convert visitors into booked appointments &mdash; across Google and every AI engine.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; save up to $1,877.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, plus:</div>
+          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Ascent adds</span></div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Search positioning &mdash; ChatGPT, Gemini, Perplexity, AI Overviews</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile management</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Local SEO foundation &amp; calendar booking</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine + quarterly strategy review</div>
+          </div>
+          <div class="tp-cta"><a href="../ascent/" class="btn btn-primary">Explore Ascent</a></div>
+        </article>
+        <article class="tp-card" id="card-2">
+          <div class="tp-num"><span class="dot"></span> Level 3 &middot; The AI conversion layer</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Summit</div></div>
+            <div class="tp-pricebox"><span class="amt">$997</span><span class="per">/mo<span class="setup">$1,497 one-time setup</span></span></div>
+          </div>
+          <div class="tp-tag">Answer every call and close every lead. A full AI Receptionist on every call, 24/7 &mdash; booking the job before the caller hangs up.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; save up to $3,297.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp &amp; Ascent, plus:</div>
+          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Summit adds</span></div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist &mdash; full voice, answers &amp; books 24/7</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine (full) &mdash; AI-drafted responses</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Follow-Up Engine &mdash; recovers stalled leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Priority support</div>
+          </div>
+          <div class="tp-cta"><a href="../summit/" class="btn btn-primary">Explore Summit</a></div>
+        </article>
+        <article class="tp-card" id="card-3">
+          <div class="tp-num"><span class="dot"></span> Level 4 &middot; The peak. The flagship.</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Apex</div><span class="tp-badge">The Flagship</span></div>
+            <div class="tp-pricebox"><span class="amt">$1,497</span><span class="per">/mo<span class="setup">$1,997 one-time setup</span></span></div>
+          </div>
+          <div class="tp-tag">The complete growth engine &mdash; in your pocket. Every lead, call, review, job and payment, run from your own branded mobile app.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; save up to $4,697.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, Ascent &amp; Summit, plus:</div>
+          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Apex adds</span></div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your own branded mobile app</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent &mdash; qualifies &amp; closes leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Re-Engagement &amp; Referral Engine</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Monthly strategy + priority partnership support</div>
+          </div>
+          <div class="tp-cta"><a href="../apex/" class="btn btn-primary">Explore Apex</a></div>
+        </article>
       </div>
+    </div>
+    <div class="climb-dots">
+      <span class="cd" data-go="0"><span class="ci"></span><span class="cl">Basecamp</span></span>
+      <span class="cd" data-go="1"><span class="ci"></span><span class="cl">Ascent</span></span>
+      <span class="cd" data-go="2"><span class="ci"></span><span class="cl">Summit</span></span>
+      <span class="cd" data-go="3"><span class="ci"></span><span class="cl">Apex</span></span>
     </div>
   </div>
 </section>
@@ -435,102 +355,94 @@ html, body { overflow-x:hidden; max-width:100%; }
 </footer>
 <script>
 (function(){
-  var trail=document.getElementById('trail'), trailFill=document.getElementById('trailFill'), climber=document.getElementById('climber');
-  if(!trail||!climber) return;
-  var panels=[0,1,2,3].map(function(i){return document.getElementById('panel-'+i);});
+  var climb=document.getElementById('climb');
+  var trail=document.getElementById('trail');
+  var trailFill=document.getElementById('trailFill');
+  var climber=document.getElementById('climber');
+  if(!climb||!trail||!climber) return;
+  var cards=[0,1,2,3].map(function(i){return document.getElementById('card-'+i);});
   var flags=[0,1,2,3].map(function(i){return document.getElementById('flag-'+i);});
-  var rdots=Array.prototype.slice.call(document.querySelectorAll('.rdot-wrap'));
-  var msteps=Array.prototype.slice.call(document.querySelectorAll('.mstep-node'));
-  var mstepFill=document.getElementById('mstepFill');
+  var dots=Array.prototype.slice.call(document.querySelectorAll('.cd'));
   var len=trail.getTotalLength();
-  var stops=[0.0,0.40,0.70,1.0];
-  var current=-1, clickLock=0;
-  // label offsets: x,y per flag. Apex sits at the peak — push it well clear above.
+  var N=4;
+
+  // place each flag along the trail (evenly spaced 0,1/3,2/3,1)
+  var flagFrac=[0, 1/3, 2/3, 1];
   var lblOff=[[0,30],[-46,4],[52,4],[0,-56]];
   flags.forEach(function(f,i){
-    var p=trail.getPointAtLength(stops[i]*len);
+    var p=trail.getPointAtLength(flagFrac[i]*len);
     ['.flag-dot','.flag-glow','.flag-hit'].forEach(function(sel){
-      var el=f.querySelector(sel);
-      el.setAttribute('cx',p.x); el.setAttribute('cy',p.y);
+      var el=f.querySelector(sel); el.setAttribute('cx',p.x); el.setAttribute('cy',p.y);
     });
     var lbl=f.querySelector('.flag-lbl');
-    lbl.setAttribute('x', p.x+lblOff[i][0]);
-    lbl.setAttribute('y', p.y+lblOff[i][1]);
+    lbl.setAttribute('x',p.x+lblOff[i][0]);
+    lbl.setAttribute('y',p.y+lblOff[i][1]);
   });
-  // ---- continuous climb: place climber at any fractional position 0..1 ----
+
   function placeClimber(frac){
     frac=Math.max(0,Math.min(1,frac));
     var pt=trail.getPointAtLength(frac*len);
     climber.setAttribute('transform','translate('+pt.x+','+pt.y+')');
     trailFill.setAttribute('stroke-dasharray',(frac*len)+' 9999');
   }
-  // milestone state: flags + cards + rail + stepper light up at each tier
-  function setActive(idx){
-    if(idx===current) return;
-    current=idx;
+
+  var activeTier=-1;
+  function setTier(idx){
+    if(idx===activeTier) return;
+    activeTier=idx;
     flags.forEach(function(f,i){
       var dot=f.querySelector('.flag-dot'), glow=f.querySelector('.flag-glow'), lbl=f.querySelector('.flag-lbl');
       if(i<idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','8');glow.setAttribute('opacity','0');lbl.setAttribute('fill','#fff'); }
       else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','11');glow.setAttribute('opacity','0.34');lbl.setAttribute('fill','#2ecc71'); }
       else { dot.setAttribute('fill','#3a5680');dot.setAttribute('r','7');glow.setAttribute('opacity','0');lbl.setAttribute('fill','rgba(255,255,255,.78)'); }
     });
-    rdots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
-    panels.forEach(function(p,i){ p.classList.toggle('active',i===idx); });
-    msteps.forEach(function(m,i){
-      m.classList.toggle('done',i<idx);
-      m.classList.toggle('on',i===idx);
+    dots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
+  }
+
+  // card crossfade/slide: each tier owns a slice of progress.
+  // within a slice, near the boundary we hand off to the next card.
+  function updateCards(prog){
+    // prog 0..N-1 fractional tier position
+    var idx=Math.round(prog);
+    if(idx<0)idx=0; if(idx>N-1)idx=N-1;
+    cards.forEach(function(c,i){
+      c.classList.remove('is-active','is-past');
+      if(i===idx) c.classList.add('is-active');
+      else if(i<idx) c.classList.add('is-past');
     });
-    if(mstepFill && msteps.length===4){
-      var track=mstepFill.parentNode.getBoundingClientRect();
-      var c0=msteps[0].getBoundingClientRect();
-      var ci=msteps[idx].getBoundingClientRect();
-      mstepFill.style.width=Math.max(0,(ci.left+ci.width/2)-(c0.left+c0.width/2))+'px';
-    }
   }
-  // Continuous progress: one smooth 0..(n-1) sweep across the whole tiers
-  // column. Uses the column's own scroll range so the climber moves the
-  // entire time you scroll the section — not just near panel centres.
-  function climbProgress(){
-    var n=panels.length;
-    var col=document.querySelector('.tiers-col');
-    var r=col.getBoundingClientRect();
-    var vh=window.innerHeight||document.documentElement.clientHeight||800;
-    // progress 0 when column top reaches viewport centre,
-    // progress 1 when column bottom reaches viewport centre.
-    var mid=vh*0.5;
-    var span=r.height; // total scrollable height of the column
-    var travelled=mid - r.top; // how far the centre is into the column
-    var p=span>0 ? travelled/span : 0;
-    p=Math.max(0,Math.min(1,p));
-    return p*(n-1); // 0..n-1 fractional tier index
-  }
+
   var raf=0;
   function render(){
     raf=0;
-    var fi=climbProgress();
-    var frac=fi/(panels.length-1);
-    placeClimber(frac);
-    setActive(Math.round(fi));
+    var rect=climb.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight||800;
+    // total scroll distance the pinned section occupies
+    var total=climb.offsetHeight - vh;
+    var scrolled=-rect.top;
+    var p=total>0 ? scrolled/total : 0;
+    p=Math.max(0,Math.min(1,p));     // 0..1 across the whole pinned section
+    var prog=p*(N-1);                // 0..3 fractional tier
+    placeClimber(prog/(N-1));
+    setTier(Math.round(prog));
+    updateCards(prog);
   }
-  function onScroll(){
-    if(Date.now()<clickLock) return;
-    if(!raf) raf=requestAnimationFrame(render);
-  }
+  function onScroll(){ if(!raf) raf=requestAnimationFrame(render); }
+
+  // clicking a flag or dot scrolls to that tier's slice of the runway
   function jumpTo(i){
-    clickLock=Date.now()+900;
-    placeClimber(i/(panels.length-1));
-    setActive(i);
-    panels[i].scrollIntoView({behavior:'smooth',block:'center'});
-    setTimeout(function(){ clickLock=0; onScroll(); }, 950);
+    var vh=window.innerHeight||800;
+    var total=climb.offsetHeight - vh;
+    var target=climb.offsetTop + (i/(N-1))*total;
+    window.scrollTo({top:target, behavior:'smooth'});
   }
-  rdots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
   flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
+  dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
+
   window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',function(){
-    var c=current; current=-1; setActive(Math.max(c,0));
-    render();
-  });
-  placeClimber(0); setActive(0); render();
+  window.addEventListener('resize',onScroll);
+  // init
+  placeClimber(0); setTier(0); updateCards(0); render();
 })();
 </script>
 </body>
