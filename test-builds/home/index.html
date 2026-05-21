@@ -471,10 +471,22 @@ html, body { overflow-x:hidden; max-width:100%; }
 <script>
 (function(){
   // reveal-on-scroll
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:.15, rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+  var rises=Array.prototype.slice.call(document.querySelectorAll('.rise'));
+  var vh=window.innerHeight||document.documentElement.clientHeight||800;
+  // 1) anything already in (or near) the viewport on load reveals immediately
+  rises.forEach(function(el){
+    var r=el.getBoundingClientRect();
+    if(r.top < vh*0.92){ el.classList.add('in'); }
+  });
+  // 2) everything below the fold reveals as it scrolls in
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12, rootMargin:'0px 0px -6% 0px'});
+    rises.forEach(function(el){ if(!el.classList.contains('in')) io.observe(el); });
+  } else {
+    rises.forEach(function(el){ el.classList.add('in'); });
+  }
 
   // hero climber: walks the trail as the hero scrolls past
   var trail=document.getElementById('hTrail');
@@ -496,23 +508,3 @@ html, body { overflow-x:hidden; max-width:100%; }
         dot.setAttribute('fill', reached?'#2ecc71':(i===0?'#2ecc71':'#3a5680'));
       });
     }
-    var raf=0;
-    function onScroll(){
-      if(raf) return;
-      raf=requestAnimationFrame(function(){
-        raf=0;
-        var r=hero.getBoundingClientRect();
-        // progress: 0 when hero fully in view, 1 when hero scrolled out
-        var vh=window.innerHeight||800;
-        var prog=(vh*0.5 - r.top)/(r.height*0.72);
-        place(prog);
-      });
-    }
-    window.addEventListener('scroll',onScroll,{passive:true});
-    window.addEventListener('resize',onScroll);
-    place(0); onScroll();
-  }
-})();
-</script>
-</body>
-</html>
