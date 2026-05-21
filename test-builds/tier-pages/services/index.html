@@ -490,4 +490,13 @@ html, body { overflow-x:hidden; max-width:100%; }
     var target=climb.offsetTop + (i/(N-1))*total;
     window.scrollTo({top:target, behavior:'smooth'});
   }
+  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
   dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){ sizeRunway(); onScroll(); });
+  sizeRunway();
+  placeClimber(0); setTier(0); updateCards(0); render();
+})();
+</script>
+</body>
+</html>
