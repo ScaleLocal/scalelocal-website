@@ -4,40 +4,108 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Apex — $1,497/mo | ScaleLocal · The Full Growth Engine. In Your Pocket.</title>
-<meta name="description" content="ScaleLocal Apex ($1,497/mo): the complete always-on growth engine — everything in Summit plus an AI Sales Agent, an AI Re-Engagement & Referral Engine, and your own branded mobile app where every lead, call, review, job and payment lives in one place.">
+<title>Apex — ScaleLocal · The complete growth engine, in your pocket.</title>
+<meta name="description" content="ScaleLocal Apex: the full AI growth system for local service businesses — a branded mobile app, AI receptionist, AI sales agent, and live dashboard, all in one place.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../shared/tier.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../shared/tier-v2.css">
 <style>
-  /* Apex-only flagship accents */
-  .tier-hero.apex {
-    background:
-      radial-gradient(1100px 520px at 78% -12%, rgba(199,91,18,0.30), transparent 60%),
-      radial-gradient(900px 480px at 6% 112%, rgba(46,117,182,0.22), transparent 55%),
-      var(--darkest);
-  }
-  .tier-hero.apex h1 .accent-word { color: var(--accent-light); }
-  .flagship-band {
-    background: linear-gradient(135deg, #1a2e4a, #0F1419);
-    color:#fff; border-radius: var(--radius-xl); padding: 48px;
-    box-shadow: var(--sh-xl);
-  }
-  .phone-mock {
-    width: 270px; background:#0a0f15; border-radius:38px; padding:12px;
-    box-shadow: 0 30px 70px rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.08);
-    margin: 0 auto;
-  }
-  .phone-screen { background:#f1f5f9; border-radius:28px; overflow:hidden; }
+/* ---- Apex page-specific UI ---- */
+.apex-grid-2 { display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+@media(max-width:900px){ .apex-grid-2{ grid-template-columns:1fr; gap:36px; } }
+
+/* DASHBOARD UI (lives inside browser frame) */
+.dash { display:flex; min-height:430px; font-size:13px; }
+.dash-rail { width:188px; background:var(--dark); padding:18px 0; flex:none; }
+.dash-rail .dl { display:flex; align-items:center; padding:8px 20px; }
+.dash-rail .dl .lg-scale{font-family:Montserrat;font-weight:700;font-size:16px;color:#fff;}
+.dash-rail .dl .lg-local{font-family:Montserrat;font-weight:400;font-size:16px;color:var(--brand);}
+.dash-rail nav { margin-top:18px; }
+.dash-rail nav a {
+  display:flex; align-items:center; gap:10px; padding:9px 20px;
+  font-size:12.5px; color:rgba(255,255,255,0.6); font-weight:500;
+}
+.dash-rail nav a.on { color:#fff; background:rgba(46,117,182,0.22); border-left:3px solid var(--brand); padding-left:17px; }
+.dash-rail nav a .ic { width:15px; height:15px; opacity:.85; }
+.dash-rail nav a.on .ic { opacity:1; }
+.dash-main { flex:1; padding:22px 26px; background:var(--mist); overflow:hidden; }
+.dash-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:18px; }
+.dash-top h3 { font-size:1.05rem; color:var(--dark); }
+.dash-top .who { display:flex; align-items:center; gap:8px; font-size:11.5px; color:var(--muted); }
+.dash-top .who .av { width:26px; height:26px; border-radius:50%; background:linear-gradient(135deg,var(--brand),var(--brand-deep)); }
+.kpi-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
+.kpi { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px; }
+.kpi .lbl { font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600; }
+.kpi .big { font-family:Montserrat; font-weight:700; font-size:1.45rem; color:var(--dark); margin:5px 0 2px; }
+.kpi .delta { font-size:10.5px; font-weight:600; }
+.kpi .delta.up { color:var(--green-deep); }
+.dash-low { display:grid; grid-template-columns:1.4fr 1fr; gap:12px; }
+.panel { background:#fff; border:1px solid var(--line); border-radius:10px; padding:14px 16px; }
+.panel h4 { font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:10px; }
+.feed-row { display:flex; gap:9px; align-items:center; padding:7px 0; border-bottom:1px solid #eef2f6; }
+.feed-row:last-child { border-bottom:none; }
+.feed-row .dot { width:7px; height:7px; border-radius:50%; flex:none; }
+.feed-row .t { font-size:11.5px; color:var(--text); flex:1; }
+.feed-row .tm { font-size:10px; color:var(--muted-light); }
+/* mini bar chart */
+.spark { display:flex; align-items:flex-end; gap:5px; height:74px; padding-top:6px; }
+.spark span { flex:1; background:linear-gradient(180deg,var(--brand),#5a9ad0); border-radius:3px 3px 0 0; }
+
+/* APP SCREEN (inside phone) */
+.app { font-size:13px; }
+.app-hd { background:linear-gradient(160deg,var(--dark),var(--brand-deep)); padding:20px 18px 16px; color:#fff; }
+.app-hd .eyebrow2 { font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; opacity:.65; font-weight:700; }
+.app-hd .biz { font-family:Montserrat; font-weight:700; font-size:1.05rem; margin-top:2px; }
+.app-bd { padding:14px; }
+.app-kpis { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-bottom:11px; }
+.app-kpi { background:#fff; border-radius:11px; padding:12px; box-shadow:0 1px 4px rgba(15,20,25,.06); }
+.app-kpi .n { font-family:Montserrat; font-weight:700; font-size:1.25rem; }
+.app-kpi .l { font-size:9.5px; color:var(--muted); }
+.app-card { background:#fff; border-radius:11px; padding:11px 13px; box-shadow:0 1px 4px rgba(15,20,25,.06); margin-bottom:9px; }
+.app-card h5 { font-size:9px; letter-spacing:.07em; text-transform:uppercase; color:var(--muted); margin-bottom:7px; }
+.app-feed { display:flex; gap:8px; align-items:center; padding:5px 0; border-bottom:1px solid #f0f4f8; }
+.app-feed:last-child { border-bottom:none; }
+.app-feed .d { width:6px; height:6px; border-radius:50%; flex:none; }
+.app-feed .x { font-size:10.5px; color:var(--text); }
+.app-tab { display:flex; justify-content:space-around; padding:9px 0 13px; background:#fff; border-top:1px solid var(--line); }
+.app-tab span { font-size:9px; color:#9aa5b4; font-weight:600; }
+.app-tab span.on { color:var(--brand); }
+
+/* feature strip */
+.feat-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+.feat-cell { background:#fff; padding:32px 28px; }
+.feat-cell .fi { width:42px; height:42px; border-radius:10px; background:var(--mist-blue); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+.feat-cell .fi svg { width:21px; height:21px; fill:var(--brand); }
+.feat-cell h3 { font-size:1.0625rem; margin-bottom:7px; }
+.feat-cell p { font-size:0.9rem; color:var(--muted); }
+
+/* included list */
+.inc { display:grid; grid-template-columns:1fr 1fr; gap:10px 28px; }
+.inc div { display:flex; gap:11px; align-items:flex-start; font-size:0.9375rem; }
+.inc .ck { flex:none; width:20px; height:20px; border-radius:50%; background:rgba(46,204,113,.12); display:flex; align-items:center; justify-content:center; margin-top:1px; }
+.inc .ck svg { width:11px; height:11px; fill:var(--green-deep); }
+@media(max-width:680px){ .inc{ grid-template-columns:1fr; } .feat-strip{ grid-template-columns:1fr; } }
+
+/* receptionist call card */
+.call-card { background:#fff; border-radius:var(--radius); box-shadow:0 30px 70px rgba(15,20,25,.4); overflow:hidden; }
+.call-hd { background:var(--dark); padding:14px 18px; color:#fff; display:flex; align-items:center; gap:9px; }
+.call-hd .live { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 0 3px rgba(46,204,113,.3); }
+.call-hd .nm { font-family:Montserrat; font-weight:600; font-size:0.85rem; }
+.call-hd .tm { margin-left:auto; font-size:0.72rem; color:rgba(255,255,255,.5); }
+.call-bd { padding:18px; display:flex; flex-direction:column; gap:10px; }
+.bub { padding:10px 13px; font-size:0.82rem; max-width:86%; line-height:1.45; }
+.bub.them { background:var(--mist); color:var(--text); border-radius:13px 13px 13px 4px; }
+.bub.ai { background:var(--brand); color:#fff; border-radius:13px 13px 4px 13px; align-self:flex-end; }
 </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="container">
-    <a href="#" class="brand-wordmark">Scale<span>Local</span></a>
-    <nav class="header-nav">
+<!-- HEADER -->
+<header class="sl-header">
+  <div class="wrap">
+    <a href="#" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
       <a href="../basecamp/">Basecamp</a>
       <a href="../ascent/">Ascent</a>
       <a href="../summit/">Summit</a>
@@ -48,307 +116,225 @@
 </header>
 
 <!-- HERO -->
-<section class="tier-hero apex">
-  <div class="container">
-    <div class="tier-badge"><span class="dot" style="background:var(--accent-light);"></span> Apex · The Flagship · Tier 4 of 4</div>
-    <h1>The full growth engine. <span class="accent-word">In your pocket.</span></h1>
-    <p class="lede">Apex is the complete system — every channel covered, every lead worked, every past customer remembered. And it all lives inside your own branded mobile app, with your name on the icon and your business in one place.</p>
-    <div class="hero-price">
-      <span class="amt">$1,497</span>
-      <span class="per">/ month · no setup fee · or $1,272/mo billed annually</span>
-    </div>
-    <div class="hero-value">Total build value $5,180/mo — you save $3,683 every month.</div>
-    <div class="hero-ctas">
-      <a href="#start" class="btn btn-primary btn-lg">Book an Apex Strategy Call →</a>
-      <a href="#included" class="btn btn-ghost btn-lg">See everything included</a>
-    </div>
-    <p class="hero-microcopy">Apex begins with a strategy call — it's the full system, and we build it around your business.</p>
+<section class="tier-hero">
+  <div class="hero-arc a1"></div>
+  <div class="hero-arc a2"></div>
+  <div class="wrap">
+    <div class="apex-grid-2">
+      <div>
+        <div class="tier-tag"><span class="d"></span> Apex · The Flagship System</div>
+        <h1>The complete growth engine. <em>In your pocket.</em></h1>
+        <p class="lede">Every lead, every call, every review, every job and every payment — captured by AI, handled around the clock, and living inside your own branded mobile app.</p>
+        <div class="hero-price-chip">
+          <span class="amt">$1,497</span>
+          <span class="per">/mo &nbsp;·&nbsp;</span>
+          <span class="save">$1,272/mo billed annually</span>
+        </div>
+        <div class="hero-cta-row">
+          <a href="#start" class="btn btn-primary btn-lg">Book an Apex Strategy Call</a>
+          <a href="#system" class="btn btn-line-light btn-lg">See the system</a>
+        </div>
+        <p class="hero-fine">No setup fee · No contract · The full system, built around your business.</p>
+      </div>
 
-    <div class="trust-strip">
-      <div class="stat"><div class="num">Your app</div><div class="lbl">Your name on the icon</div></div>
-      <div class="stat"><div class="num">All-in-one</div><div class="lbl">Leads · calls · reviews · jobs · payments</div></div>
-      <div class="stat"><div class="num">$0</div><div class="lbl">Setup fee, ever</div></div>
+      <!-- LIVE PRODUCT: branded app inside phone -->
+      <div style="display:flex;justify-content:center;">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <div class="app">
+              <div class="app-hd">
+                <div class="eyebrow2">Apex Account · Good morning</div>
+                <div class="biz">ScaleLocal</div>
+              </div>
+              <div class="app-bd">
+                <div class="app-kpis">
+                  <div class="app-kpi"><div class="n" style="color:var(--brand)">14</div><div class="l">New leads today</div></div>
+                  <div class="app-kpi"><div class="n" style="color:var(--green-deep)">$11,400</div><div class="l">Booked this week</div></div>
+                </div>
+                <div class="app-card">
+                  <h5>Live Activity</h5>
+                  <div class="app-feed"><span class="d" style="background:var(--green)"></span><span class="x">AI Receptionist booked a call</span></div>
+                  <div class="app-feed"><span class="d" style="background:var(--brand)"></span><span class="x">New 5★ review · auto-replied</span></div>
+                  <div class="app-feed"><span class="d" style="background:var(--accent)"></span><span class="x">Invoice paid · $1,850</span></div>
+                  <div class="app-feed"><span class="d" style="background:#9b59b6"></span><span class="x">Referral won back · re-engagement</span></div>
+                </div>
+                <div class="app-card">
+                  <h5>This Week</h5>
+                  <div class="spark" style="height:54px">
+                    <span style="height:42%"></span><span style="height:60%"></span><span style="height:48%"></span>
+                    <span style="height:78%"></span><span style="height:66%"></span><span style="height:90%"></span><span style="height:72%"></span>
+                  </div>
+                </div>
+              </div>
+              <div class="app-tab">
+                <span class="on">Home</span><span>Calls</span><span>Jobs</span><span>Reviews</span><span>Pay</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- THE PROBLEM -->
-<section class="section">
-  <div class="container narrow">
-    <div class="section-head">
-      <div class="eyebrow">Why Apex exists</div>
-      <h2>Running a growing business out of seven disconnected apps is its own full-time job.</h2>
+<!-- THE DASHBOARD — real product, browser frame -->
+<section class="s s-ink" id="system">
+  <div class="wrap">
+    <div class="s-head center">
+      <div class="kicker on-dark">The command center</div>
+      <h2>Your whole business, one screen.</h2>
+      <p>This is the live ScaleLocal dashboard every Apex client runs their business from — leads, calls, revenue, and AI activity, updating in real time.</p>
     </div>
-    <div class="problem-grid">
-      <div class="problem-block">
-        <h3>Your business is scattered across tools that don't talk.</h3>
-        <p>Calls in one app, texts in another, the calendar somewhere else, invoices in a fourth, reviews you check when you remember. Nothing connects, and the full picture lives only in your head.</p>
+    <div style="margin-top:48px;max-width:980px;margin-left:auto;margin-right:auto;">
+      <div class="browser">
+        <div class="browser-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="url">app.scalelocal.net/dashboard</span>
+        </div>
+        <div class="browser-body">
+          <div class="dash">
+            <!-- side rail -->
+            <aside class="dash-rail">
+              <div class="dl"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></div>
+              <nav>
+                <a class="on"><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>Dashboard</a>
+                <a><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg>Calls</a>
+                <a><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>Conversations</a>
+                <a><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M19 3h-4.2C14.4 1.8 13.3 1 12 1s-2.4.8-2.8 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>Pipeline</a>
+                <a><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M12 17.3 6.2 21l1.5-6.7L2.5 9.8l6.9-.6L12 3l2.6 6.2 6.9.6-5.2 4.5L17.8 21z"/></svg>Reviews</a>
+                <a><svg class="ic" viewBox="0 0 24 24" fill="#fff"><path d="M11.8 11c-2.3-.6-3-1.2-3-2.1 0-1.1 1-1.8 2.6-1.8 1.7 0 2.4.8 2.4 2.1h2.1c-.1-1.8-1.2-3.4-3.3-3.9V3h-2.9v2.3C7.8 5.7 6.4 7 6.4 8.9c0 2.3 1.9 3.4 4.6 4.1 2.5.6 3 1.5 3 2.4 0 .7-.5 1.8-2.6 1.8-2 0-2.8-.9-2.9-2.1H6.4c.1 2.3 1.8 3.5 3.8 3.9V21h2.9v-2.3c2.1-.4 3.7-1.6 3.7-3.6 0-2.8-2.4-3.8-4.7-4.4z"/></svg>Invoices</a>
+              </nav>
+            </aside>
+            <!-- main -->
+            <div class="dash-main">
+              <div class="dash-top">
+                <h3>Good morning, ScaleLocal</h3>
+                <div class="who"><span>ScaleLocal HQ · Tewksbury, MA</span><span class="av"></span></div>
+              </div>
+              <div class="kpi-row">
+                <div class="kpi"><div class="lbl">New Leads</div><div class="big">38</div><div class="delta up">▲ 11 this week</div></div>
+                <div class="kpi"><div class="lbl">Calls Answered</div><div class="big">100%</div><div class="delta up">0 to voicemail</div></div>
+                <div class="kpi"><div class="lbl">Booked Revenue</div><div class="big">$24.8k</div><div class="delta up">▲ 19% vs last mo</div></div>
+                <div class="kpi"><div class="lbl">Review Score</div><div class="big">4.9★</div><div class="delta up">▲ 22 new reviews</div></div>
+              </div>
+              <div class="dash-low">
+                <div class="panel">
+                  <h4>Lead Volume · Last 14 Days</h4>
+                  <div class="spark">
+                    <span style="height:40%"></span><span style="height:55%"></span><span style="height:48%"></span>
+                    <span style="height:70%"></span><span style="height:62%"></span><span style="height:80%"></span>
+                    <span style="height:58%"></span><span style="height:72%"></span><span style="height:66%"></span>
+                    <span style="height:88%"></span><span style="height:76%"></span><span style="height:94%"></span>
+                    <span style="height:82%"></span><span style="height:100%"></span>
+                  </div>
+                </div>
+                <div class="panel">
+                  <h4>Recent Activity</h4>
+                  <div class="feed-row"><span class="dot" style="background:var(--green)"></span><span class="t">AI Receptionist · booked estimate</span><span class="tm">2m</span></div>
+                  <div class="feed-row"><span class="dot" style="background:var(--brand)"></span><span class="t">Chat widget · captured lead</span><span class="tm">19m</span></div>
+                  <div class="feed-row"><span class="dot" style="background:var(--accent)"></span><span class="t">Review · auto-responded</span><span class="tm">1h</span></div>
+                  <div class="feed-row"><span class="dot" style="background:#9b59b6"></span><span class="t">Re-engagement · win-back</span><span class="tm">3h</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="problem-block">
-        <h3>Inbound leads need a salesperson — and you're already maxed out.</h3>
-        <p>Qualifying leads, handling objections, nudging the on-the-fence ones to commit — that's real sales work. Done well it wins jobs; skipped, those leads quietly evaporate.</p>
+      <p style="text-align:center;color:rgba(255,255,255,0.45);font-size:0.8125rem;margin-top:16px;">The live ScaleLocal Apex dashboard — the same system that runs ScaleLocal itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE AI RECEPTIONIST -->
+<section class="s">
+  <div class="wrap">
+    <div class="apex-grid-2">
+      <div class="call-card">
+        <div class="call-hd">
+          <span class="live"></span>
+          <span class="nm">ScaleLocal AI Receptionist · Live</span>
+          <span class="tm">0:34</span>
+        </div>
+        <div class="call-bd">
+          <div class="bub them">Hi — do you build websites for contractors? I run an HVAC company.</div>
+          <div class="bub ai">We do — that's exactly who we work with. I can have a specialist walk you through it. What's the best name and number to reach you?</div>
+          <div class="bub them">It's Mark, 978-555-0140.</div>
+          <div class="bub ai">Thanks, Mark. I've got an opening tomorrow at 10am or 2pm for a quick strategy call. Which works better?</div>
+          <div class="bub them">10am is great.</div>
+          <div class="bub ai">Booked — you'll get a confirmation text in a moment. Talk tomorrow, Mark. 👍</div>
+        </div>
       </div>
-      <div class="problem-block">
-        <h3>Your past customers are your best customers — and they're being ignored.</h3>
-        <p>The people who already paid you trust you most. But almost no business systematically asks them for referrals or brings them back. That's the highest-ROI revenue source in local business, sitting untouched.</p>
+      <div>
+        <div class="kicker">Answers every call · 24/7</div>
+        <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin:12px 0 14px;">A receptionist that never misses, never sleeps, never quits.</h2>
+        <p style="color:var(--muted);font-size:1.0625rem;margin-bottom:10px;">The ScaleLocal AI Receptionist picks up every call in your business's voice — qualifies the caller, answers their questions, and books the job straight onto your calendar.</p>
+        <p style="color:var(--muted);font-size:1.0625rem;">That call above came in after hours. Instead of a voicemail nobody returns, it's a confirmed appointment — booked in 34 seconds, with zero effort from you.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- WHAT'S INCLUDED -->
-<section class="section section-tint" id="included">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">What's included</div>
-      <h2>Everything in Summit — plus the full AI suite and your branded app.</h2>
-      <p>We show you the standalone value of every component, because we have nothing to hide.</p>
+<section class="s s-mist">
+  <div class="wrap">
+    <div class="s-head center">
+      <div class="kicker">Everything in Apex</div>
+      <h2>The full stack — nothing left to add.</h2>
     </div>
-    <div class="included-wrap">
-      <div class="included-list">
-        <div class="included-row">
-          <div class="feat"><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
-            <span class="name">Everything in Summit — site, search, GBP, AI Receptionist, follow-up</span></div>
-          <div class="val">$3,310/mo value</div>
-        </div>
-        <div class="included-row">
-          <div class="feat"><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
-            <span class="name">Your own branded mobile app — your name, your logo, your business in one place</span></div>
-          <div class="val">$700/mo value</div>
-        </div>
-        <div class="included-row">
-          <div class="feat"><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
-            <span class="name">AI Sales Agent — qualifies leads, handles objections, books appointments</span></div>
-          <div class="val">$297/mo value</div>
-        </div>
-        <div class="included-row">
-          <div class="feat"><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
-            <span class="name">AI Re-Engagement &amp; Referral Engine — works your past customers every month</span></div>
-          <div class="val">$297/mo value</div>
-        </div>
-        <div class="included-row">
-          <div class="feat"><span class="tick"><svg viewBox="0 0 24 24"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
-            <span class="name">Monthly strategy + priority support (4-hour response SLA)</span></div>
-          <div class="val">$276/mo value</div>
-        </div>
-      </div>
-
-      <aside class="value-card">
-        <div class="vc-eyebrow">The Apex math</div>
-        <div class="vc-row"><span class="vc-lbl">Total build value</span><span class="vc-amt">$5,180/mo</span></div>
-        <div class="vc-row total"><span class="vc-lbl">Your price</span><span class="vc-amt">$1,497/mo</span></div>
-        <div class="vc-price">$1,497<span style="font-size:1rem;color:rgba(255,255,255,0.5);font-weight:400;">/mo</span></div>
-        <div class="vc-save">You save $3,683 every month</div>
-        <a href="#start" class="btn btn-primary">Book an Apex Strategy Call →</a>
-        <p class="vc-note">$1,272/mo billed annually · No setup fee · Cancel anytime</p>
-      </aside>
-    </div>
-  </div>
-</section>
-
-<!-- FLAGSHIP: THE BRANDED APP -->
-<section class="section section-dark">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow on-dark">The flagship deliverable</div>
-      <h2>Your entire business — one app, your name on it.</h2>
-      <p>Apex clients get a real, branded mobile app. Not a portal, not a login page. Your app, on your phone and your team's phones, with everything in one place.</p>
-    </div>
-    <div class="flagship-band">
-      <div style="display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:center;">
-        <!-- phone mockup -->
-        <div class="phone-mock">
-          <div class="phone-screen">
-            <div style="background:linear-gradient(160deg,#1a2e4a,#2E75B6);padding:20px 18px 16px;color:#fff;">
-              <div style="font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;opacity:0.7;font-family:Inter;font-weight:700;">Good morning</div>
-              <div style="font-family:Montserrat;font-weight:800;font-size:1.15rem;margin-top:2px;">Your Business</div>
-            </div>
-            <div style="padding:16px;">
-              <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px;">
-                <div style="background:#fff;border-radius:12px;padding:13px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                  <div style="font-family:Montserrat;font-weight:800;font-size:1.35rem;color:#2E75B6;">7</div>
-                  <div style="font-size:0.62rem;color:#6b7a8d;">New leads today</div>
-                </div>
-                <div style="background:#fff;border-radius:12px;padding:13px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
-                  <div style="font-family:Montserrat;font-weight:800;font-size:1.35rem;color:#2ecc71;">$4,820</div>
-                  <div style="font-size:0.62rem;color:#6b7a8d;">Booked this week</div>
-                </div>
-              </div>
-              <div style="background:#fff;border-radius:12px;padding:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:10px;">
-                <div style="font-size:0.6rem;letter-spacing:0.08em;text-transform:uppercase;color:#6b7a8d;font-weight:700;margin-bottom:8px;">Recent Activity</div>
-                <div style="display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                  <span style="width:7px;height:7px;border-radius:50%;background:#2ecc71;flex:none;"></span>
-                  <span style="font-size:0.68rem;color:#1a1a2e;">AI Receptionist booked Dana T.</span>
-                </div>
-                <div style="display:flex;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #f1f5f9;">
-                  <span style="width:7px;height:7px;border-radius:50%;background:#2E75B6;flex:none;"></span>
-                  <span style="font-size:0.68rem;color:#1a1a2e;">New 5★ review · auto-replied</span>
-                </div>
-                <div style="display:flex;gap:8px;align-items:center;padding:6px 0;">
-                  <span style="width:7px;height:7px;border-radius:50%;background:#C75B12;flex:none;"></span>
-                  <span style="font-size:0.68rem;color:#1a1a2e;">Referral won back · Marcus R.</span>
-                </div>
-              </div>
-            </div>
-            <div style="display:flex;justify-content:space-around;padding:10px 0 14px;border-top:1px solid #e5e7eb;background:#fff;">
-              <span style="font-size:0.58rem;color:#2E75B6;font-weight:700;">Home</span>
-              <span style="font-size:0.58rem;color:#9ca3af;">Calls</span>
-              <span style="font-size:0.58rem;color:#9ca3af;">Jobs</span>
-              <span style="font-size:0.58rem;color:#9ca3af;">Pay</span>
-            </div>
-          </div>
-        </div>
-        <!-- app feature list -->
-        <div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Home Dashboard</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Today's leads, calls, reviews and revenue — the moment you open it.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Calls &amp; Conversations</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Every call with AI summary and recording; SMS, chat and email in one inbox.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Jobs &amp; Pipeline</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Track every job — status, photos, notes, customer history — drag stage to stage.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Invoices &amp; Payments</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Send an invoice, take a card, get paid — all from your phone, on the job.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Reviews</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Every review, with AI-drafted responses ready for your one-tap approval.</div>
-            </div>
-            <div style="background:rgba(255,255,255,0.05);border-radius:12px;padding:16px 18px;">
-              <div style="color:#2ecc71;font-family:Montserrat;font-weight:700;font-size:0.85rem;margin-bottom:4px;">Your Team</div>
-              <div style="font-size:0.78rem;color:rgba(255,255,255,0.65);">Add staff with role-based access — everyone sees what they need, nothing they don't.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <p class="demo-note">QA NOTE — visual representation. The live branded-app demo is generated per business by the ScaleLocal app-demo pipeline (business name + logo → personalized app preview video); this static mockup is for design QA only.</p>
-  </div>
-</section>
-
-<!-- THE THREE THINGS -->
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">What Apex does for you</div>
-      <h2>Every lead. Every customer. Every channel. Covered.</h2>
-    </div>
-    <div class="trio">
-      <div class="trio-card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg></div>
-        <h3>An AI Sales Agent that closes</h3>
-        <p>Qualifies inbound leads, handles the common objections, and books appointments at the moment of peak interest — sales work, running on its own.</p>
-      </div>
-      <div class="trio-card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
-        <h3>Past customers, working for you</h3>
-        <p>The Re-Engagement &amp; Referral Engine touches your database every month — birthdays, check-ins, referral asks — turning old jobs into new ones.</p>
-      </div>
-      <div class="trio-card">
-        <div class="ic"><svg viewBox="0 0 24 24"><path d="M17 1.01 7 1c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-1.99-2-1.99zM17 19H7V5h10v14z"/></svg></div>
-        <h3>The whole business, in your pocket</h3>
-        <p>Your own branded app ties it all together — leads, calls, reviews, jobs, payments — one tap away, for you and your team.</p>
+    <div style="max-width:880px;margin:44px auto 0;">
+      <div class="inc">
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your own branded mobile app</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist — 24/7 call answering &amp; booking</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent — qualifies &amp; closes leads</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Re-Engagement &amp; Referral Engine</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern website + AI Search positioning</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile management</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine — drafted responses</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Live dashboard — leads, calls, revenue</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Invoicing &amp; payments built in</div>
+        <div><span class="ck"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Monthly strategy + priority support</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- THE PARTNERSHIP -->
-<section class="section section-tint">
-  <div class="container narrow" style="text-align:center;">
-    <div class="eyebrow">More than a vendor</div>
-    <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:16px;">Apex isn't a subscription. It's a partnership.</h2>
-    <p style="color:var(--muted);font-size:1.0625rem;margin-bottom:14px;">When you're at Apex, you're an extension of the ScaleLocal ecosystem. You get a monthly strategy touchpoint, priority support, and first access to every new AI tool we build. We don't promise you a ranking or a magic lead number — we promise the full toolkit, real partnership, and honest work. As ScaleLocal grows, your business gets everything we develop.</p>
-    <p style="color:var(--muted);font-size:0.95rem;">No contracts. Month-to-month, or save 15% on an annual term. The relationship holds because the work holds — not because the paperwork traps you.</p>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Common questions</div>
-      <h2>Everything worth knowing before you start.</h2>
+<!-- THE THREE PILLARS -->
+<section class="s">
+  <div class="wrap">
+    <div class="s-head center" style="margin-bottom:44px;">
+      <div class="kicker">Why Apex</div>
+      <h2>One partner. The whole engine.</h2>
     </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-q">Is the branded app really mine, with my name on it? <span class="chev">+</span></button>
-        <div class="faq-a"><p>Yes. It carries your business name and logo, your branding, and your team installs it like any other app. It's published under ScaleLocal's developer infrastructure — which is what makes it possible without a developer or a five-figure build — and it's a living part of your Apex partnership.</p></div>
+    <div class="feat-strip">
+      <div class="feat-cell">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14z"/></svg></div>
+        <h3>In your pocket</h3>
+        <p>Your branded app puts leads, calls, jobs, reviews and payments one tap away — for you and every member of your team.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">How long does it take to get the app live? <span class="chev">+</span></button>
-        <div class="faq-a"><p>The core Apex system deploys in 7–10 business days. The branded app follows shortly after — the timeline depends in part on the App Store and Google Play review process, which is outside our control, but we handle the entire submission for you.</p></div>
+      <div class="feat-cell">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-2 15-5-5 1.4-1.4L10 14.2l7.6-7.6L19 8z"/></svg></div>
+        <h3>Always working</h3>
+        <p>AI answers every call, replies to every review, and follows up with every lead — 24/7, without a salary or a day off.</p>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">What happens to the app if I cancel? <span class="chev">+</span></button>
-        <div class="faq-a"><p>We're honest about this: the app runs on ScaleLocal's infrastructure, so if you cancel, it stops connecting to your data. You keep your website content, your design files, and your customer records — but the app itself is part of the ScaleLocal product, not something portable. There are no contracts holding you, just a clear understanding of what's yours.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Why does Apex start with a strategy call instead of instant signup? <span class="chev">+</span></button>
-        <div class="faq-a"><p>Apex is the full system, built around your specific business. The strategy call lets us understand your services, your team, and your goals so the deployment is right the first time. It's a working conversation, not a sales pitch.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Do you guarantee a specific number of leads or sales? <span class="chev">+</span></button>
-        <div class="faq-a"><p>No. We never promise a ranking, a lead count, or a revenue figure — anyone who does is misleading you. What Apex guarantees is the complete system, genuine partnership, transparent month-to-month terms, and honest infrastructure-level commitments. We may also work with other businesses in your space, and we're upfront about that — every client gets the full toolkit, fairly.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Can my whole team use it? <span class="chev">+</span></button>
-        <div class="faq-a"><p>Yes. Apex includes team sub-users with role-based permissions — your office manager, your techs, your dispatcher each get the access that fits their role, on the app and the dashboard.</p></div>
+      <div class="feat-cell">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
+        <h3>A real partner</h3>
+        <p>You're an extension of the ScaleLocal ecosystem — monthly strategy, priority support, and first access to every new tool we build.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-band" id="start" style="background:radial-gradient(800px 400px at 80% 120%, rgba(46,204,113,0.16), transparent 60%), linear-gradient(135deg,#1a2e4a,#0F1419);">
-  <div class="container">
-    <h2>The complete growth engine. With your name on it.</h2>
-    <p>Apex begins with a strategy call. No setup fee. No contract. The full system — built around your business.</p>
-    <div class="hero-ctas">
-      <a href="tel:+16173948707" class="btn btn-primary btn-lg">Book an Apex Strategy Call →</a>
-      <a href="../basecamp/" class="btn btn-ghost btn-lg">Compare all tiers</a>
+<!-- FAQ -->
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center" style="margin-bottom:36px;">
+      <div class="kicker">Common questions</div>
+      <h2>Straight answers.</h2>
     </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <div class="brand-wordmark">Scale<span>Local</span></div>
-        <p>AI-powered growth infrastructure for local service businesses.</p>
+    <div class="faq">
+      <div class="faq-row">
+        <button class="faq-q">Is the app really mine, with my name on it? <span class="pm">+</span></button>
+        <div class="faq-a"><p>Yes. It carries your business name and logo and your team installs it like any other app. It's published under ScaleLocal's developer infrastructure, which is what makes it possible without a developer or a five-figure build.</p></div>
       </div>
-      <div class="footer-col">
-        <h4>The Four Tiers</h4>
-        <a href="../basecamp/">Basecamp — $249/mo</a>
-        <a href="../ascent/">Ascent — $597/mo</a>
-        <a href="../summit/">Summit — $997/mo</a>
-        <a href="../apex/">Apex — $1,497/mo</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <a href="tel:+16173948707">617.394.8707</a>
-        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      © 2026 ScaleLocal — AI-powered growth for local service businesses. · This is a QA preview page.
-    </div>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('.faq-q').forEach(function(q){
-  q.addEventListener('click', function(){ q.parentElement.classList.toggle('open'); });
-});
-</script>
-</body>
-</html>
