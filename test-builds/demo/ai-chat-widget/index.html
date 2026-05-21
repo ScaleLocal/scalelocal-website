@@ -264,12 +264,30 @@ html, body { overflow-x:hidden; max-width:100%; }
   .slcw-row .rc { color:var(--muted-light); font-size:1.1rem; flex:none; }
   .slcw-foot { padding:10px 16px; text-align:center; font-size:0.72rem; color:var(--muted-light); background:#fff; border-top:1px solid var(--line); }
   .slcw-foot b { color:var(--brand); font-weight:600; }
-  /* hide GHL's own auto-rendered launcher bubble — our custom widget IS the launcher.
-     The GHL chat panel still opens programmatically via the Chat with Us row. */
+  /* ===== GHL widget control =====
+     The GHL <chat-widget> auto-renders its own launcher bubble. We do NOT want it.
+     Default: the whole GHL host is pushed BEHIND everything and not interactive.
+     When the visitor taps "Chat with Us" we add .ghl-live to <html>, which lifts
+     ONLY the GHL chat panel to the front. The launcher bubble stays killed always. */
+  chat-widget {
+    position:fixed !important; z-index:1 !important;
+  }
+  /* kill GHL's own launcher bubble at every plausible selector, always */
   chat-widget::part(launcher),
-  chat-widget .lc_text-widget--bubble,
-  chat-widget [class*="bubble"],
-  #lc_text-widget--root .lc_text-widget--bubble { display:none !important; }
+  chat-widget::part(bubble),
+  .lc_text-widget--bubble,
+  [id^="lc_text-widget"] [class*="bubble"],
+  [class*="leadConnector"] [class*="bubble"],
+  [class*="chat-widget"] [class*="launcher"] {
+    display:none !important; visibility:hidden !important;
+    opacity:0 !important; pointer-events:none !important;
+  }
+  /* while NOT in live-chat mode, the whole GHL host is invisible + inert */
+  html:not(.ghl-live) chat-widget {
+    opacity:0 !important; pointer-events:none !important;
+  }
+  /* in live-chat mode, the GHL chat panel comes to the front */
+  html.ghl-live chat-widget { opacity:1 !important; pointer-events:auto !important; z-index:9995 !important; }
 </style>
 
 <div class="slcw-panel" id="slcwPanel">
@@ -337,9 +355,27 @@ html, body { overflow-x:hidden; max-width:100%; }
   }
   launcher.addEventListener('click',function(){ toggle(!panel.classList.contains('open')); });
 
-  /* "Chat with Us" -> close our menu, open the real GHL AI widget */
+  /* "Chat with Us" -> close our menu, open the real GHL AI chat panel.
+     GHL's own launcher bubble is killed at every layer (CSS + shadow-DOM scrub
+     + a permanent MutationObserver) so the visitor only ever sees:
+     our custom menu -> the AI chat panel. Never a stray GHL bubble. */
   var chatRow=document.getElementById('slcwChatRow');
   var ghlLoaded=false;
+
+  /* deep-scrub GHL's launcher out of its shadow DOM, repeatedly + forever */
+  function scrubGhl(){
+    try{
+      var el=document.querySelector('chat-widget');
+      if(!el) return;
+      var sr=el.shadowRoot;
+      if(sr){
+        sr.querySelectorAll('[class*="bubble"],[class*="launcher"],[class*="Launcher"],[class*="Bubble"]').forEach(function(n){
+          n.style.setProperty('display','none','important');
+          n.style.setProperty('visibility','hidden','important');
+        });
+      }
+    }catch(e){}
+  }
   function loadGHL(){
     if(ghlLoaded) return; ghlLoaded=true;
     var s=document.createElement('script');
@@ -347,17 +383,11 @@ html, body { overflow-x:hidden; max-width:100%; }
     s.setAttribute('data-resources-url','https://beta.leadconnectorhq.com/chat-widget/loader.js');
     s.setAttribute('data-widget-id','69c34fd013ad14bdd250aace');
     document.body.appendChild(s);
-  }
-  /* Hide GHL's own launcher bubble — our ScaleLocal widget is the launcher.
-     GHL renders inside shadow DOM, so reach in and hide the bubble parts. */
-  function hideGhlLauncher(el){
+    var t0=Date.now();
+    var iv=setInterval(function(){ scrubGhl(); if(Date.now()-t0>30000) clearInterval(iv); },200);
     try{
-      var sr=el.shadowRoot;
-      if(sr){
-        sr.querySelectorAll('[class*="bubble"],[class*="launcher"],[class*="Launcher"]').forEach(function(n){
-          n.style.display='none';
-        });
-      }
+      var mo=new MutationObserver(scrubGhl);
+      mo.observe(document.body,{childList:true,subtree:true});
     }catch(e){}
   }
   function openGHL(){
@@ -365,12 +395,13 @@ html, body { overflow-x:hidden; max-width:100%; }
     (function tryOpen(){
       var el=document.querySelector('chat-widget');
       if(el && typeof el.open==='function'){
-        hideGhlLauncher(el);
+        scrubGhl();
+        document.documentElement.classList.add('ghl-live');
         el.open();
-        var k=0,iv=setInterval(function(){ hideGhlLauncher(el); if(++k>20) clearInterval(iv); },300);
+        var k=0,iv=setInterval(function(){ scrubGhl(); if(++k>30) clearInterval(iv); },200);
         return;
       }
-      if(++attempts<60) setTimeout(tryOpen,200);
+      if(++attempts<70) setTimeout(tryOpen,200);
     })();
   }
   chatRow.addEventListener('click',function(){
