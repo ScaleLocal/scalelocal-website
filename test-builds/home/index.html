@@ -508,3 +508,22 @@ html, body { overflow-x:hidden; max-width:100%; }
         dot.setAttribute('fill', reached?'#2ecc71':(i===0?'#2ecc71':'#3a5680'));
       });
     }
+    var raf=0;
+    function onScroll(){
+      if(raf) return;
+      raf=requestAnimationFrame(function(){
+        raf=0;
+        var r=hero.getBoundingClientRect();
+        var vh2=window.innerHeight||800;
+        var prog=(vh2*0.5 - r.top)/(r.height*0.72);
+        place(prog);
+      });
+    }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    place(0); onScroll();
+  }
+})();
+</script>
+</body>
+</html>
