@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ScaleLocal — SEO Web Design + AI Growth Systems for Local Service Businesses</title>
+<meta name="description" content="ScaleLocal builds local service businesses a website that gets found on Google and AI search — then layers in the AI that captures every lead and books every job.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tier-pages/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+
+/* ===== reveal-on-scroll: things rise into place (the climb motif) ===== */
+.rise { opacity:0; transform:translateY(34px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1 { transition-delay:.08s; } .rise.d2 { transition-delay:.16s; }
+.rise.d3 { transition-delay:.24s; } .rise.d4 { transition-delay:.32s; }
+@media (prefers-reduced-motion:reduce){ .rise{ opacity:1; transform:none; transition:none; } }
+
+/* ===== HERO — cinematic mountain establishing shot ===== */
+.hero { position:relative; background:radial-gradient(ellipse at 50% 116%, var(--navy-1) 0%, var(--dark) 72%); color:#fff; overflow:hidden; }
+.hero-inner { position:relative; z-index:3; max-width:1180px; margin:0 auto; padding:84px 28px 0; text-align:center; }
+.hero .eyebrow { font-family:Inter; font-weight:700; font-size:0.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--green); }
+.hero h1 {
+  letter-spacing:-0.025em; line-height:1.06; margin:18px auto 18px; max-width:18ch;
+  font-size:clamp(2.3rem,5vw,4rem);
+}
+.hero h1 .l1 { display:block; color:#fff; font-weight:600; }
+.hero h1 .l2 { display:block; color:var(--brand); font-weight:700; }
+.hero .lede { font-size:clamp(1rem,1.5vw,1.22rem); line-height:1.6; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto 30px; }
+.hero-cta { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.hero-fine { font-size:0.82rem; color:rgba(255,255,255,.5); margin-top:18px; }
+/* the mountain sits below the copy, half-bleeding off the bottom */
+.hero-mtn { position:relative; z-index:2; max-width:1000px; margin:46px auto -2px; padding:0 20px; }
+.hero-mtn svg { width:100%; height:auto; display:block; overflow:visible; }
+.hero-arc { position:absolute; border-radius:50%; border:1.5px solid rgba(46,204,113,.07); pointer-events:none; }
+.hero-arc.a1 { width:840px; height:840px; top:-280px; right:-220px; }
+.hero-arc.a2 { width:520px; height:520px; bottom:-200px; left:-180px; border-color:rgba(46,117,182,.10); }
+#heroClimber { transition:transform 1.1s cubic-bezier(.4,0,.2,1); }
+#heroClimber .pls { animation:hpulse 2.6s ease-in-out infinite; transform-origin:center; }
+@keyframes hpulse { 0%,100%{ opacity:.4; } 50%{ opacity:0; } }
+
+/* ===== generic section heads ===== */
+.sec { padding:104px 0; }
+.sec-sm { padding:76px 0; }
+.lead-head { max-width:740px; }
+.lead-head.center { margin:0 auto; text-align:center; }
+.lead-head h2 { font-size:clamp(1.9rem,3.4vw,2.85rem); font-weight:700; line-height:1.14; margin:13px 0 16px; letter-spacing:-0.02em; }
+.lead-head p { font-size:1.0625rem; color:var(--muted); line-height:1.65; }
+.s-dark .lead-head p, .s-ink .lead-head p { color:var(--muted-light); }
+
+/* ===== PROBLEM section — three honest pain points ===== */
+.pain-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.pain { background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:30px 28px; }
+.pain .pic { width:46px; height:46px; border-radius:12px; background:rgba(199,91,18,.10); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+.pain .pic svg { width:23px; height:23px; fill:var(--accent); }
+.pain h3 { font-size:1.18rem; font-weight:700; color:var(--dark); margin-bottom:9px; }
+.pain p { font-size:0.95rem; color:var(--muted); line-height:1.6; }
+
+/* ===== POSITIONING — who ScaleLocal is ===== */
+.pos-split { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+.pos-stack { display:flex; flex-direction:column; gap:18px; }
+.pos-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.10); border-radius:var(--radius); padding:22px 24px; }
+.pos-card .pc-k { display:flex; align-items:center; gap:11px; }
+.pos-card .pc-ic { width:38px;height:38px;border-radius:10px;flex:none;background:rgba(46,204,113,.14);display:flex;align-items:center;justify-content:center; }
+.pos-card .pc-ic svg { width:19px;height:19px;fill:var(--green); }
+.pos-card h3 { font-size:1.12rem; font-weight:700; color:#fff; }
+.pos-card p { font-size:0.94rem; color:var(--muted-light); line-height:1.6; margin-top:9px; }
+
+/* ===== CLIMB TEASER — the four levels, compact ===== */
+.climb-teaser { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; }
+.tier-list { display:flex; flex-direction:column; gap:12px; }
+.tier-row { display:flex; align-items:center; gap:16px; padding:18px 20px; background:var(--white); border:1px solid var(--line); border-radius:var(--radius); transition:transform .2s var(--ease), box-shadow .2s var(--ease); }
+.tier-row:hover { transform:translateX(5px); box-shadow:0 12px 30px rgba(8,14,26,.10); }
+.tier-row .tr-lv { width:34px;height:34px;border-radius:50%;flex:none;background:var(--mist);display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:0.9rem;color:var(--brand); }
+.tier-row:last-child .tr-lv { background:var(--green); color:#fff; }
+.tier-row .tr-tx { flex:1; min-width:0; }
+.tier-row .tr-tx h4 { font-size:1.05rem; font-weight:700; color:var(--dark); }
+.tier-row .tr-tx p { font-size:0.86rem; color:var(--muted); margin-top:2px; }
+.tier-row .tr-pr { font-family:Montserrat; font-weight:700; font-size:1rem; color:var(--brand); flex:none; }
+.teaser-mtn svg { width:100%; height:auto; display:block; overflow:visible; }
+
+/* ===== PRODUCT PROOF — real system screens ===== */
+.proof-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:46px; }
+.proof { background:var(--navy-2); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius-lg); overflow:hidden; }
+.proof .pv { height:188px; background:var(--navy-3); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.proof .pv .mock { width:86%; }
+.proof .pt { padding:22px 24px 26px; }
+.proof .pt h3 { font-size:1.08rem; font-weight:700; color:#fff; }
+.proof .pt p { font-size:0.9rem; color:var(--muted-light); line-height:1.58; margin-top:7px; }
+
+/* ===== METHOD — 3 steps ===== */
+.method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:50px; counter-reset:step; }
+.step { position:relative; padding:34px 28px 30px; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); }
+.step::before { counter-increment:step; content:"0" counter(step); font-family:Montserrat; font-weight:700; font-size:2.6rem; color:var(--mist-blue); line-height:1; display:block; margin-bottom:14px; }
+.step h3 { font-size:1.16rem; font-weight:700; color:var(--dark); margin-bottom:9px; }
+.step p { font-size:0.95rem; color:var(--muted); line-height:1.6; }
+
+/* ===== AUDIENCE chips ===== */
+.aud-wrap { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; justify-content:center; }
+.aud-chip { font-family:Inter; font-weight:600; font-size:0.9rem; color:var(--dark); background:var(--white); border:1px solid var(--line); border-radius:999px; padding:11px 20px; }
+
+/* ===== OFFER band ===== */
+.offer-band { background:linear-gradient(135deg, var(--navy-1), var(--navy-3)); border-radius:var(--radius-lg); padding:54px 48px; text-align:center; position:relative; overflow:hidden; }
+.offer-band .ob-k { font-family:Inter; font-weight:700; font-size:0.76rem; letter-spacing:.14em; text-transform:uppercase; color:var(--green); }
+.offer-band h2 { color:#fff; font-size:clamp(1.7rem,2.8vw,2.4rem); font-weight:700; margin:12px 0 12px; letter-spacing:-0.02em; }
+.offer-band p { color:var(--muted-light); font-size:1.0625rem; max-width:60ch; margin:0 auto 26px; line-height:1.6; }
+
+/* ===== FINAL CTA — the summit ===== */
+.summit-cta { background:radial-gradient(ellipse at 50% 0%, var(--navy-1), var(--dark) 74%); color:#fff; text-align:center; padding:104px 0 116px; position:relative; overflow:hidden; }
+.summit-cta .sc-mtn { max-width:340px; margin:0 auto 30px; }
+.summit-cta .sc-mtn svg { width:100%; height:auto; }
+.summit-cta h2 { color:#fff; font-size:clamp(2rem,3.6vw,3rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px; }
+.summit-cta p { color:rgba(255,255,255,.78); font-size:1.0625rem; max-width:54ch; margin:0 auto 30px; }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .sec { padding:68px 0; } .sec-sm { padding:52px 0; }
+  .pain-grid, .proof-grid, .method-grid { grid-template-columns:1fr; }
+  .pos-split, .climb-teaser { grid-template-columns:1fr; gap:36px; }
+  .hero-inner { padding:60px 22px 0; }
+  .offer-band { padding:40px 24px; }
+  .hero-mtn { margin-top:32px; }
+}
+</style>
+</head>
+<body>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="#" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="#problem">Why ScaleLocal</a>
+      <a href="#climb">The Climb</a>
+      <a href="#proof">The System</a>
+      <a href="../tier-pages/services/">Pricing</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <span class="hero-arc a1"></span><span class="hero-arc a2"></span>
+  <div class="hero-inner">
+    <div class="eyebrow rise">SEO Web Design + AI Growth Systems</div>
+    <h1 class="rise d1"><span class="l1">Your business is ready to climb.</span><span class="l2">We're the team that gets you to the top.</span></h1>
+    <p class="lede rise d2">ScaleLocal builds local service businesses a website that actually gets found &mdash; on Google and the new AI search engines &mdash; then layers in the AI that captures every lead and books every job. One partner. One system. Every level of the climb.</p>
+    <div class="hero-cta rise d3">
+      <a href="../tier-pages/services/" class="btn btn-primary btn-lg">See how the climb works</a>
+      <a href="tel:+19786627580" class="btn btn-line-light btn-lg">Talk to ScaleLocal</a>
+    </div>
+    <p class="hero-fine rise d3">Built for local service businesses &mdash; trades, home services, and the people who run them.</p>
+  </div>
+  <div class="hero-mtn rise d2">
+    <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="hrock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46659a"/><stop offset="1" stop-color="#1c2f4f"/></linearGradient>
+        <linearGradient id="hshade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14233c"/><stop offset="1" stop-color="#22375c"/></linearGradient>
+        <linearGradient id="hsnow" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c7daef"/></linearGradient>
+        <radialGradient id="hglow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2ecc71" stop-opacity="0.42"/><stop offset="1" stop-color="#2ecc71" stop-opacity="0"/></radialGradient>
+        <linearGradient id="hridge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c456c"/><stop offset="1" stop-color="#1a2c49"/></linearGradient>
+      </defs>
+      <circle cx="150" cy="60" r="1.6" fill="#fff" opacity=".5"/>
+      <circle cx="840" cy="44" r="1.5" fill="#fff" opacity=".45"/>
+      <circle cx="640" cy="92" r="1.1" fill="#fff" opacity=".5"/>
+      <circle cx="300" cy="110" r="1.1" fill="#fff" opacity=".35"/>
+      <circle cx="910" cy="140" r="1.6" fill="#fff" opacity=".4"/>
+      <circle cx="70" cy="170" r="1.1" fill="#fff" opacity=".3"/>
+      <path d="M0,320 L180,180 L330,270 L470,140 L600,250 L760,120 L1000,240 L1000,420 L0,420 Z" fill="#243a5e" opacity=".5"/>
+      <path d="M0,360 L240,230 L420,320 L620,210 L820,300 L1000,250 L1000,420 L0,420 Z" fill="url(#hridge)" opacity=".7"/>
+      <circle cx="500" cy="120" r="120" fill="url(#hglow)"/>
+      <path d="M500,52 L760,396 L240,396 Z" fill="url(#hrock)"/>
+      <path d="M500,52 L760,396 L500,396 Z" fill="url(#hshade)" opacity=".55"/>
+      <path d="M500,52 L556,196 L524,176 L500,214 L476,176 L444,196 Z" fill="url(#hsnow)"/>
+      <path d="M500,214 L490,272 L510,272 Z" fill="#dce8f5" opacity=".5"/>
+      <path id="hTrail" d="M328,378 C392,338 360,300 432,286 C508,272 462,228 512,210 C566,190 512,150 522,108 C528,82 510,68 500,58" fill="none" stroke="rgba(255,255,255,.32)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+      <path id="hTrailFill" d="M328,378 C392,338 360,300 432,286 C508,272 462,228 512,210 C566,190 512,150 522,108 C528,82 510,68 500,58" fill="none" stroke="#2ecc71" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 9999"/>
+      <g id="hcamp0"><circle cx="328" cy="378" r="7" fill="#2ecc71" stroke="#fff" stroke-width="2.5"/><text x="328" y="404" text-anchor="middle" fill="rgba(255,255,255,.78)" font-family="Montserrat,sans-serif" font-weight="700" font-size="13">Basecamp</text></g>
+      <g id="hcamp1"><circle cx="432" cy="286" r="6" fill="#3a5680" stroke="#fff" stroke-width="2.5"/><text x="372" y="290" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="Montserrat,sans-serif" font-weight="700" font-size="12">Ascent</text></g>
+      <g id="hcamp2"><circle cx="512" cy="210" r="6" fill="#3a5680" stroke="#fff" stroke-width="2.5"/><text x="572" y="214" text-anchor="middle" fill="rgba(255,255,255,.7)" font-family="Montserrat,sans-serif" font-weight="700" font-size="12">Summit</text></g>
+      <g id="hcamp3"><circle cx="500" cy="58" r="6" fill="#3a5680" stroke="#fff" stroke-width="2.5"/><text x="500" y="38" text-anchor="middle" fill="rgba(255,255,255,.78)" font-family="Montserrat,sans-serif" font-weight="700" font-size="13">Apex</text></g>
+      <g id="heroClimber" transform="translate(328,378)">
+        <circle class="pls" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
+        <circle cx="0" cy="0" r="14" fill="#2E75B6" stroke="#fff" stroke-width="2.5"/>
+        <path d="M0,-7 a2.8,2.8 0 1,0 0.1,0 M-4,7 L0,-1 L4,7 M-5,1 L5,1" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== PROBLEM ===== -->
+<section class="sec s-paper" id="problem">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker">The climb most businesses never finish</div>
+      <h2>Your next customer is looking for you right now. Most of them never find you.</h2>
+      <p>You're good at the work. But the path from "someone needs this" to "they hired you" runs straight through the internet &mdash; and that's where local service businesses lose ground every single day.</p>
+    </div>
+    <div class="pain-grid">
+      <div class="pain rise d1">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-2h2Zm0-4h-2V7h2Z"/></svg></div>
+        <h3>Invisible where it counts</h3>
+        <p>If your site doesn't rank on Google &mdash; and now isn't surfaced by ChatGPT, Gemini, and AI Overviews &mdash; you're not in the race. Customers can't hire a business they never see.</p>
+      </div>
+      <div class="pain rise d2">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M20 15.5a12.5 12.5 0 0 1-3.9-.6 1 1 0 0 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6L8.5 8.5a1 1 0 0 0 .2-1A12.5 12.5 0 0 1 8.1 3.6 1 1 0 0 0 7.1 3H4a1 1 0 0 0-1 1A17 17 0 0 0 20 21a1 1 0 0 0 1-1v-3.1a1 1 0 0 0-1-1.4Z"/></svg></div>
+        <h3>The phone rings and nobody answers</h3>
+        <p>A missed call is a missed job &mdash; and most of those callers don't leave a message, they just call the next business on the list. After-hours and weekends, the leak is worst.</p>
+      </div>
+      <div class="pain rise d3">
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M3 3h18v2H3Zm2 4h14v14H5Zm3 3v8h2v-8Zm4 0v8h2v-8Zm4 0v8h2v-8Z"/></svg></div>
+        <h3>Leads slip through the cracks</h3>
+        <p>A form fill at 9pm, a question that never got a reply, a quote that was never followed up. Without a system catching every one, your marketing spend quietly leaks out the bottom.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== POSITIONING ===== -->
+<section class="sec s-ink">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker on-dark">Who ScaleLocal is</div>
+      <h2>A web design agency and an AI growth partner &mdash; in one team.</h2>
+      <p>Your website is the gateway. It's the thing customers see first, and the thing Google and AI engines read to decide whether to recommend you. We build it right &mdash; then we connect the system behind it that turns that visibility into booked work.</p>
+    </div>
+    <div class="pos-split" style="margin-top:52px;">
+      <div class="rise">
+        <h2 style="color:#fff;font-size:clamp(1.5rem,2.4vw,2rem);font-weight:700;letter-spacing:-0.02em;line-height:1.2;">The website is what they see. The system is what makes you money.</h2>
+        <p style="color:var(--muted-light);font-size:1.0625rem;line-height:1.65;margin-top:16px;">Most agencies hand you a website and walk away. Most "AI tools" hand you software and leave you to figure it out. ScaleLocal does neither. We build the site, we run the SEO, we set up the AI, and we stay on the rope with you &mdash; one accountable partner for the whole climb.</p>
+      </div>
+      <div class="pos-stack rise d2">
+        <div class="pos-card">
+          <div class="pc-k"><span class="pc-ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3Zm2 4v12h14V7Zm2 2h10v2H7Zm0 4h7v2H7Z"/></svg></span><h3>SEO-optimized web design</h3></div>
+          <p>A fast, modern, professionally built website &mdash; engineered from the first line of code to rank on Google and be surfaced by AI search.</p>
+        </div>
+        <div class="pos-card">
+          <div class="pc-k"><span class="pc-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9Z"/></svg></span><h3>AI that captures &amp; closes</h3></div>
+          <p>An AI layer that answers every call and message, qualifies the lead, and books the job &mdash; 24/7, in your business's voice.</p>
+        </div>
+        <div class="pos-card">
+          <div class="pc-k"><span class="pc-ic"><svg viewBox="0 0 24 24"><path d="M16 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm-8 0a4 4 0 1 0-4-4 4 4 0 0 0 4 4Zm0 2c-3 0-8 1.5-8 4.5V20h10v-2.5C2 16 4.7 13 8 13Zm8 0c-.6 0-1.3.1-2 .2 1.6 1.1 2 2.6 2 4.3V20h8v-2.5c0-3-5-4.5-8-4.5Z"/></svg></span><h3>One accountable partner</h3></div>
+          <p>Not software you manage. Not a vendor you chase. A team that owns the result and reports the numbers back to you.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CLIMB TEASER ===== -->
+<section class="sec s-mist" id="climb">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker">The ScaleLocal Climb</div>
+      <h2>Four levels. Start where you are. Climb when you're ready.</h2>
+      <p>Every business is at a different altitude. ScaleLocal meets you at yours &mdash; and each level builds on the last, so you're never starting over.</p>
+    </div>
+    <div class="climb-teaser" style="margin-top:52px;">
+      <div class="teaser-mtn rise">
+        <svg viewBox="0 0 460 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="trock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdd9e8"/><stop offset="1" stop-color="#9fb2cb"/></linearGradient>
+            <linearGradient id="tshade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8499b6"/><stop offset="1" stop-color="#aebfd4"/></linearGradient>
+          </defs>
+          <path d="M230,40 L420,392 L40,392 Z" fill="url(#trock)"/>
+          <path d="M230,40 L420,392 L230,392 Z" fill="url(#tshade)" opacity=".6"/>
+          <path d="M230,40 L268,150 L246,134 L230,160 L214,134 L192,150 Z" fill="#fff"/>
+          <path id="tTrail" d="M118,372 C168,338 146,300 206,288 C268,276 230,236 268,214 C306,192 262,140 244,86 C238,68 234,56 230,46" fill="none" stroke="rgba(46,117,182,.30)" stroke-width="3" stroke-dasharray="1 8" stroke-linecap="round"/>
+          <circle cx="118" cy="372" r="8" fill="#2ecc71" stroke="#fff" stroke-width="3"/>
+          <circle cx="206" cy="288" r="7" fill="#2E75B6" stroke="#fff" stroke-width="3"/>
+          <circle cx="268" cy="214" r="7" fill="#2E75B6" stroke="#fff" stroke-width="3"/>
+          <circle cx="230" cy="46" r="8" fill="#C75B12" stroke="#fff" stroke-width="3"/>
+        </svg>
+      </div>
+      <div class="tier-list rise d2">
+        <a class="tier-row" href="../tier-pages/basecamp/"><span class="tr-lv">1</span><span class="tr-tx"><h4>Basecamp</h4><p>Get discovered and capture every visitor.</p></span><span class="tr-pr">$249/mo</span></a>
+        <a class="tier-row" href="../tier-pages/ascent/"><span class="tr-lv">2</span><span class="tr-tx"><h4>Ascent</h4><p>Own the search results &mdash; Google and AI.</p></span><span class="tr-pr">$597/mo</span></a>
+        <a class="tier-row" href="../tier-pages/summit/"><span class="tr-lv">3</span><span class="tr-tx"><h4>Summit</h4><p>Answer every call. Close every lead.</p></span><span class="tr-pr">$997/mo</span></a>
+        <a class="tier-row" href="../tier-pages/apex/"><span class="tr-lv">4</span><span class="tr-tx"><h4>Apex</h4><p>The complete growth engine, in your pocket.</p></span><span class="tr-pr">$1,497/mo</span></a>
+        <div style="margin-top:8px;"><a href="../tier-pages/services/" class="btn btn-primary">See the full climb &rarr;</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT PROOF ===== -->
+<section class="sec s-dark" id="proof">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker on-dark">This isn't a promise &mdash; it's a system</div>
+      <h2>Real software. Running your business while you run the job.</h2>
+      <p>Every ScaleLocal client runs on a real platform &mdash; not a slide deck. Here's the system that captures your leads, answers your calls, and shows you the numbers.</p>
+    </div>
+    <div class="proof-grid">
+      <div class="proof rise d1">
+        <div class="pv">
+          <svg class="mock" viewBox="0 0 320 188" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="188" rx="8" fill="#f4f7fb"/>
+            <rect width="320" height="30" rx="8" fill="#1a2e4a"/><rect y="22" width="320" height="8" fill="#1a2e4a"/>
+            <circle cx="18" cy="15" r="4" fill="#2ecc71"/><rect x="32" y="11" width="74" height="8" rx="4" fill="rgba(255,255,255,.5)"/>
+            <rect x="16" y="44" width="138" height="58" rx="7" fill="#fff" stroke="#e2e8f0"/>
+            <rect x="28" y="56" width="44" height="7" rx="3.5" fill="#6b7a8d"/>
+            <text x="28" y="90" font-family="Montserrat,sans-serif" font-weight="700" font-size="20" fill="#2E75B6">$18,450</text>
+            <rect x="166" y="44" width="138" height="58" rx="7" fill="#fff" stroke="#e2e8f0"/>
+            <rect x="178" y="56" width="40" height="7" rx="3.5" fill="#6b7a8d"/>
+            <text x="178" y="90" font-family="Montserrat,sans-serif" font-weight="700" font-size="20" fill="#2ecc71">37 leads</text>
+            <rect x="16" y="114" width="288" height="58" rx="7" fill="#fff" stroke="#e2e8f0"/>
+            <rect x="28" y="126" width="60" height="7" rx="3.5" fill="#6b7a8d"/>
+            <rect x="28" y="142" width="240" height="6" rx="3" fill="#e8eef5"/>
+            <rect x="28" y="142" width="168" height="6" rx="3" fill="#2E75B6"/>
+            <rect x="28" y="156" width="200" height="6" rx="3" fill="#e8eef5"/>
+            <rect x="28" y="156" width="118" height="6" rx="3" fill="#2ecc71"/>
+          </svg>
+        </div>
+        <div class="pt"><h3>Your growth dashboard</h3><p>Leads, calls, booked jobs, and revenue &mdash; every number in one place, updating in real time. You always know what's working.</p></div>
+      </div>
+      <div class="proof rise d2">
+        <div class="pv">
+          <svg class="mock" viewBox="0 0 320 188" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="188" rx="8" fill="#0f1c2e"/>
+            <circle cx="160" cy="60" r="30" fill="none" stroke="#2ecc71" stroke-width="2.5" opacity=".5"/>
+            <circle cx="160" cy="60" r="20" fill="#2ecc71"/>
+            <path d="M153,60 a4,4 0 1,0 0.1,0 M147,72 L160,53 L173,72 M145,62 L175,62" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <rect x="40" y="108" width="240" height="20" rx="10" fill="#1a2e4a"/>
+            <rect x="52" y="114" width="150" height="8" rx="4" fill="rgba(255,255,255,.55)"/>
+            <rect x="40" y="136" width="200" height="20" rx="10" fill="#1a2e4a"/>
+            <rect x="52" y="142" width="120" height="8" rx="4" fill="rgba(255,255,255,.55)"/>
+            <rect x="80" y="164" width="160" height="16" rx="8" fill="#2E75B6"/>
+            <rect x="94" y="169" width="100" height="6" rx="3" fill="rgba(255,255,255,.7)"/>
+          </svg>
+        </div>
+        <div class="pt"><h3>The AI Receptionist</h3><p>A real voice agent that answers every call 24/7, holds a real conversation, and books the job &mdash; before the caller hangs up and dials someone else.</p></div>
+      </div>
+      <div class="proof rise d3">
+        <div class="pv">
+          <svg class="mock" viewBox="0 0 320 188" xmlns="http://www.w3.org/2000/svg">
+            <rect width="320" height="188" rx="8" fill="#f4f7fb"/>
+            <rect x="108" y="14" width="104" height="160" rx="14" fill="#0c1116"/>
+            <rect x="116" y="22" width="88" height="144" rx="8" fill="#fff"/>
+            <rect x="116" y="22" width="88" height="26" rx="8" fill="#1a2e4a"/>
+            <rect x="124" y="32" width="40" height="6" rx="3" fill="rgba(255,255,255,.6)"/>
+            <rect x="124" y="56" width="72" height="22" rx="6" fill="#f0f4f8"/>
+            <rect x="130" y="63" width="30" height="5" rx="2.5" fill="#6b7a8d"/>
+            <rect x="124" y="84" width="72" height="22" rx="6" fill="#f0f4f8"/>
+            <rect x="130" y="91" width="44" height="5" rx="2.5" fill="#6b7a8d"/>
+            <rect x="124" y="112" width="72" height="22" rx="6" fill="#eafaf963"/>
+            <rect x="124" y="112" width="72" height="22" rx="6" fill="none" stroke="#2ecc71"/>
+            <rect x="130" y="119" width="36" height="5" rx="2.5" fill="#27ae60"/>
+            <rect x="124" y="142" width="72" height="16" rx="8" fill="#2E75B6"/>
+          </svg>
+        </div>
+        <div class="pt"><h3>Your own branded mobile app</h3><p>At the flagship level, every lead, call, review and payment lives in an app with your name on it &mdash; your whole business, in your pocket.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== METHOD ===== -->
+<section class="sec s-paper">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker">How the partnership works</div>
+      <h2>Three steps. Then the system runs &mdash; and you get back to the work.</h2>
+    </div>
+    <div class="method-grid">
+      <div class="step rise d1">
+        <h3>We build the foundation</h3>
+        <p>A fast, modern, SEO-engineered website &mdash; built to rank on Google and be surfaced by AI search. This is the gateway every customer walks through.</p>
+      </div>
+      <div class="step rise d2">
+        <h3>We connect the AI</h3>
+        <p>We layer in the capture-and-close system: AI chat, the voice receptionist, review and follow-up engines &mdash; configured in your business's voice.</p>
+      </div>
+      <div class="step rise d3">
+        <h3>It runs &mdash; we report</h3>
+        <p>The system works around the clock catching leads and booking jobs. You get clear reporting on the numbers, and a partner who stays on the rope.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUDIENCE ===== -->
+<section class="sec-sm s-mist">
+  <div class="wrap">
+    <div class="lead-head center rise">
+      <div class="kicker">Built for</div>
+      <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem);">Local service businesses &mdash; and the people who run them.</h2>
+    </div>
+    <div class="aud-wrap rise d1">
+      <span class="aud-chip">Electricians</span>
+      <span class="aud-chip">Plumbers</span>
+      <span class="aud-chip">Roofers</span>
+      <span class="aud-chip">HVAC</span>
+      <span class="aud-chip">Masonry &amp; Concrete</span>
+      <span class="aud-chip">Landscaping</span>
+      <span class="aud-chip">Remodeling &amp; Construction</span>
+      <span class="aud-chip">Home Services</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OFFER BAND ===== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="offer-band rise">
+      <div class="ob-k">The partnership offer</div>
+      <h2>Commit to the climb &mdash; we invest in it with you.</h2>
+      <p>Choose a 6 or 12-month partnership and we waive your setup fee &mdash; up to $1,997 &mdash; and take up to 15% off every month. The deeper the commitment, the more we put in alongside you.</p>
+      <div class="hero-cta" style="justify-content:center;">
+        <a href="../tier-pages/services/" class="btn btn-primary btn-lg">See pricing &amp; the offer</a>
+        <a href="tel:+19786627580" class="btn btn-line-light btn-lg">Talk it through</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA — THE SUMMIT ===== -->
+<section class="summit-cta">
+  <span class="hero-arc a1"></span>
+  <div class="wrap" style="position:relative;z-index:2;">
+    <div class="sc-mtn rise">
+      <svg viewBox="0 0 340 220" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="scg" cx="0.5" cy="0.4" r="0.5"><stop offset="0" stop-color="#2ecc71" stop-opacity="0.5"/><stop offset="1" stop-color="#2ecc71" stop-opacity="0"/></radialGradient>
+        <linearGradient id="scr" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46659a"/><stop offset="1" stop-color="#1c2f4f"/></linearGradient></defs>
+        <circle cx="170" cy="70" r="80" fill="url(#scg)"/>
+        <path d="M170,40 L300,200 L40,200 Z" fill="url(#scr)"/>
+        <path d="M170,40 L300,200 L170,200 Z" fill="#14233c" opacity=".5"/>
+        <path d="M170,40 L198,118 L182,104 L170,124 L158,104 L142,118 Z" fill="#fff"/>
+        <circle cx="170" cy="70" r="9" fill="#2ecc71" stroke="#fff" stroke-width="3"/>
+        <path d="M170,64 a2.6,2.6 0 1,0 0.1,0 M166,75 L170,68 L174,75 M165,69 L175,69" stroke="#fff" stroke-width="1.7" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h2 class="rise d1">Every climb starts with a conversation.</h2>
+    <p class="rise d2">Tell us where your business is today. We'll show you the climb from here &mdash; and exactly what it takes to reach the top.</p>
+    <div class="hero-cta rise d3" style="justify-content:center;">
+      <a href="tel:+19786627580" class="btn btn-primary btn-lg">Talk to ScaleLocal</a>
+      <a href="../tier-pages/services/" class="btn btn-line-light btn-lg">Explore the four levels</a>
+    </div>
+  </div>
+</section>
+
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="#" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>The Climb</h4>
+        <a href="../tier-pages/basecamp/">Basecamp &mdash; $249/mo</a>
+        <a href="../tier-pages/ascent/">Ascent &mdash; $597/mo</a>
+        <a href="../tier-pages/summit/">Summit &mdash; $997/mo</a>
+        <a href="../tier-pages/apex/">Apex &mdash; $1,497/mo</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="#problem">Why ScaleLocal</a>
+        <a href="../tier-pages/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // reveal-on-scroll
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.15, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+  // hero climber: walks the trail as the hero scrolls past
+  var trail=document.getElementById('hTrail');
+  var fill=document.getElementById('hTrailFill');
+  var climber=document.getElementById('heroClimber');
+  var hero=document.querySelector('.hero');
+  var camps=[0,1,2,3].map(function(i){return document.getElementById('hcamp'+i);});
+  if(trail&&climber){
+    var len=trail.getTotalLength();
+    function place(frac){
+      frac=Math.max(0,Math.min(1,frac));
+      var p=trail.getPointAtLength(frac*len);
+      climber.setAttribute('transform','translate('+p.x+','+p.y+')');
+      fill.setAttribute('stroke-dasharray',(frac*len)+' 9999');
+      // light camps the climber has passed
+      camps.forEach(function(c,i){
+        var dot=c.querySelector('circle');
+        var reached=frac>=[0,0.34,0.66,1][i]-0.02;
+        dot.setAttribute('fill', reached?'#2ecc71':(i===0?'#2ecc71':'#3a5680'));
+      });
+    }
+    var raf=0;
+    function onScroll(){
+      if(raf) return;
+      raf=requestAnimationFrame(function(){
+        raf=0;
+        var r=hero.getBoundingClientRect();
+        // progress: 0 when hero fully in view, 1 when hero scrolled out
+        var vh=window.innerHeight||800;
+        var prog=(vh*0.5 - r.top)/(r.height*0.72);
+        place(prog);
+      });
+    }
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    place(0); onScroll();
+  }
+})();
+</script>
+</body>
+</html>
