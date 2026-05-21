@@ -26,7 +26,8 @@ html, body { overflow-x:hidden; max-width:100%; }
 .mtn-svg { width:100%; height:auto; display:block; overflow:visible; }
 .mtn-hint { text-align:center; margin-top:16px; color:rgba(255,255,255,.46); font-size:0.82rem; }
 
-#climber { transition:transform .95s cubic-bezier(.45,.05,.2,1); }
+#climber { transition:transform .12s linear; }
+#trailFill { transition:stroke-dasharray .12s linear; }
 #climber .pulse { animation:cpulse 2.4s ease-in-out infinite; transform-origin:center; }
 @keyframes cpulse { 0%,100%{ opacity:.5; } 50%{ opacity:0; } }
 .flag { cursor:pointer; }
@@ -428,19 +429,21 @@ html, body { overflow-x:hidden; max-width:100%; }
     lbl.setAttribute('x', p.x+lblOff[i][0]);
     lbl.setAttribute('y', p.y+lblOff[i][1]);
   });
+  // ---- continuous climb: place climber at any fractional position 0..1 ----
   function placeClimber(frac){
+    frac=Math.max(0,Math.min(1,frac));
     var pt=trail.getPointAtLength(frac*len);
     climber.setAttribute('transform','translate('+pt.x+','+pt.y+')');
     trailFill.setAttribute('stroke-dasharray',(frac*len)+' 9999');
   }
+  // milestone state: flags + cards + rail + stepper light up at each tier
   function setActive(idx){
     if(idx===current) return;
     current=idx;
-    placeClimber(stops[idx]);
     flags.forEach(function(f,i){
       var dot=f.querySelector('.flag-dot'), glow=f.querySelector('.flag-glow'), lbl=f.querySelector('.flag-lbl');
       if(i<idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','8');glow.setAttribute('opacity','0');lbl.setAttribute('fill','#fff'); }
-      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','10');glow.setAttribute('opacity','0.3');lbl.setAttribute('fill','#2ecc71'); }
+      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','11');glow.setAttribute('opacity','0.34');lbl.setAttribute('fill','#2ecc71'); }
       else { dot.setAttribute('fill','#3a5680');dot.setAttribute('r','7');glow.setAttribute('opacity','0');lbl.setAttribute('fill','rgba(255,255,255,.78)'); }
     });
     rdots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
@@ -453,34 +456,59 @@ html, body { overflow-x:hidden; max-width:100%; }
       var track=mstepFill.parentNode.getBoundingClientRect();
       var c0=msteps[0].getBoundingClientRect();
       var ci=msteps[idx].getBoundingClientRect();
-      var startX=(c0.left+c0.width/2)-track.left;
-      var endX=(ci.left+ci.width/2)-track.left;
-      mstepFill.style.width=Math.max(0,endX-startX)+'px';
+      mstepFill.style.width=Math.max(0,(ci.left+ci.width/2)-(c0.left+c0.width/2))+'px';
     }
+  }
+  // map overall scroll progress through the climb section -> trail fraction 0..1.
+  // each panel owns an equal slice of the trail; the climber moves continuously
+  // as that panel travels through the viewport centre.
+  function climbProgress(){
+    var n=panels.length, mid=window.innerHeight/2;
+    // fractional panel index: where is the viewport centre relative to panels?
+    var fi=0;
+    var first=panels[0].getBoundingClientRect();
+    var last=panels[n-1].getBoundingClientRect();
+    var firstC=first.top+first.height/2;
+    var lastC=last.top+last.height/2;
+    if(mid<=firstC){ fi=0; }
+    else if(mid>=lastC){ fi=n-1; }
+    else {
+      for(var i=0;i<n-1;i++){
+        var a=panels[i].getBoundingClientRect(); var b=panels[i+1].getBoundingClientRect();
+        var ca=a.top+a.height/2, cb=b.top+b.height/2;
+        if(mid>=ca && mid<=cb){ fi=i+(mid-ca)/(cb-ca); break; }
+      }
+    }
+    return fi; // 0..n-1
+  }
+  var raf=0;
+  function render(){
+    raf=0;
+    var fi=climbProgress();              // 0..3 fractional
+    var frac=fi/(panels.length-1);       // 0..1 along trail
+    placeClimber(frac);
+    setActive(Math.round(fi));
   }
   function onScroll(){
     if(Date.now()<clickLock) return;
-    var mid=window.innerHeight/2, best=0, bd=Infinity;
-    panels.forEach(function(p,i){
-      var r=p.getBoundingClientRect(), c=r.top+r.height/2, d=Math.abs(c-mid);
-      if(d<bd){ bd=d; best=i; }
-    });
-    setActive(best);
+    if(!raf) raf=requestAnimationFrame(render);
   }
   function jumpTo(i){
-    clickLock=Date.now()+1000;
+    clickLock=Date.now()+900;
+    placeClimber(i/(panels.length-1));
     setActive(i);
     panels[i].scrollIntoView({behavior:'smooth',block:'center'});
+    setTimeout(function(){ clickLock=0; onScroll(); }, 950);
   }
   rdots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
   flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
   msteps.forEach(function(m){ m.addEventListener('click',function(){ jumpTo(parseInt(m.getAttribute('data-go'),10)); }); });
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',function(){
-    placeClimber(stops[Math.max(current,0)]);
     var c=current; current=-1; setActive(Math.max(c,0));
+    render();
   });
-  placeClimber(stops[0]); setActive(0); onScroll();
+  placeClimber(0); setActive(0); render();
 })();
 </script>
 </body>
