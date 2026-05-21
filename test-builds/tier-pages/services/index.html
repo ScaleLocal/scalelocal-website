@@ -487,23 +487,22 @@ html, body { overflow-x:hidden; max-width:100%; }
       mstepFill.style.width=Math.max(0,(ci.left+ci.width/2)-(c0.left+c0.width/2))+'px';
     }
   }
+  // Continuous progress: one smooth 0..(n-1) sweep across the whole tiers
+  // column. Uses the column's own scroll range so the climber moves the
+  // entire time you scroll the section — not just near panel centres.
   function climbProgress(){
-    var n=panels.length, mid=window.innerHeight/2;
-    var fi=0;
-    var first=panels[0].getBoundingClientRect();
-    var last=panels[n-1].getBoundingClientRect();
-    var firstC=first.top+first.height/2;
-    var lastC=last.top+last.height/2;
-    if(mid<=firstC){ fi=0; }
-    else if(mid>=lastC){ fi=n-1; }
-    else {
-      for(var i=0;i<n-1;i++){
-        var a=panels[i].getBoundingClientRect(); var b=panels[i+1].getBoundingClientRect();
-        var ca=a.top+a.height/2, cb=b.top+b.height/2;
-        if(mid>=ca && mid<=cb){ fi=i+(mid-ca)/(cb-ca); break; }
-      }
-    }
-    return fi;
+    var n=panels.length;
+    var col=document.querySelector('.tiers-col');
+    var r=col.getBoundingClientRect();
+    var vh=window.innerHeight||document.documentElement.clientHeight||800;
+    // progress 0 when column top reaches viewport centre,
+    // progress 1 when column bottom reaches viewport centre.
+    var mid=vh*0.5;
+    var span=r.height; // total scrollable height of the column
+    var travelled=mid - r.top; // how far the centre is into the column
+    var p=span>0 ? travelled/span : 0;
+    p=Math.max(0,Math.min(1,p));
+    return p*(n-1); // 0..n-1 fractional tier index
   }
   var raf=0;
   function render(){
@@ -526,7 +525,6 @@ html, body { overflow-x:hidden; max-width:100%; }
   }
   rdots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
   flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
-  msteps.forEach(function(m){ m.addEventListener('click',function(){ jumpTo(parseInt(m.getAttribute('data-go'),10)); }); });
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',function(){
     var c=current; current=-1; setActive(Math.max(c,0));
