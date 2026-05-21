@@ -357,4 +357,28 @@ html, body { overflow-x:hidden; max-width:100%; }
         sr.querySelectorAll('[class*="bubble"],[class*="launcher"],[class*="Launcher"]').forEach(function(n){
           n.style.display='none';
         });
- 
+      }
+    }catch(e){}
+  }
+  function openGHL(){
+    var attempts=0;
+    (function tryOpen(){
+      var el=document.querySelector('chat-widget');
+      if(el && typeof el.open==='function'){
+        hideGhlLauncher(el);
+        el.open();
+        var k=0,iv=setInterval(function(){ hideGhlLauncher(el); if(++k>20) clearInterval(iv); },300);
+        return;
+      }
+      if(++attempts<60) setTimeout(tryOpen,200);
+    })();
+  }
+  chatRow.addEventListener('click',function(){
+    toggle(false);
+    loadGHL();
+    setTimeout(openGHL,1400);
+  });
+})();
+</script>
+</body>
+</html>
