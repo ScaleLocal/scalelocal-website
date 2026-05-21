@@ -52,20 +52,22 @@ html, body { overflow-x:hidden; max-width:100%; }
 .flag-lbl { pointer-events:none; transition:fill .35s ease; }
 
 /* card side — all 4 cards stacked, only one visible at a time.
-   fixed height so every tier card is the same size as you climb. */
-.card-stage { position:relative; width:100%; height:600px; max-height:84vh; }
+   height = whatever fits, capped to the pinned stage so nothing clips. */
+.card-stage { position:relative; width:100%; height:100%; display:flex; align-items:center; }
 .tp-card {
-  position:absolute; top:0; left:0; right:0; bottom:0;
+  position:absolute; top:50%; left:0; right:0;
+  transform:translateY(calc(-50% + 40px));
+  max-height:100%;
   display:flex; flex-direction:column;
   background:#fff; border-radius:var(--radius-lg);
   border:1px solid var(--line); box-shadow:0 30px 70px rgba(8,14,26,.5);
   padding:30px 32px 28px;
-  opacity:0; transform:translateY(40px); pointer-events:none;
+  opacity:0; pointer-events:none;
   transition:opacity .45s var(--ease), transform .45s var(--ease);
   overflow-wrap:break-word;
 }
-.tp-card.is-active { opacity:1; transform:translateY(0); pointer-events:auto; }
-.tp-card.is-past   { opacity:0; transform:translateY(-40px); }
+.tp-card.is-active { opacity:1; transform:translateY(-50%); pointer-events:auto; }
+.tp-card.is-past   { opacity:0; transform:translateY(calc(-50% - 40px)); }
 .tp-num { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); margin-bottom:10px; }
 .tp-num .dot { width:6px;height:6px;border-radius:50%;background:var(--brand); }
 .tp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
@@ -91,7 +93,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 .tp-prev { display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted);font-weight:600;padding:9px 13px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:10px; }
 .tp-prev .chk { width:17px;height:17px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center; }
 .tp-prev .chk svg { width:9px;height:9px;fill:#fff; }
-.tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px; }
+.tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow-y:auto;min-height:0;margin-bottom:18px; }
 .tp-add { display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--text);background:#fff;padding:10px 13px;line-height:1.42;min-width:0;overflow-wrap:break-word; }
 .tp-add .ad { width:19px;height:19px;border-radius:5px;flex:none;margin-top:1px;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
 .tp-add .ad svg { width:10px;height:10px;fill:var(--brand); }
@@ -471,4 +473,4 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
