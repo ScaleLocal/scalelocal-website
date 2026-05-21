@@ -108,21 +108,30 @@
 @media(max-width:920px){ .recept-scene{ grid-template-columns:1fr;gap:32px; } }
 .scene-card {
   background:linear-gradient(165deg,#1f3554,#16243a);
-  border-radius:var(--radius-lg);padding:36px;
+  border-radius:var(--radius-lg);padding:34px 32px;
   box-shadow:0 30px 70px rgba(15,20,25,.4);
-  position:relative;overflow:hidden;
 }
-.scene-card .ring-anim {
-  position:absolute;top:34px;right:34px;
-  display:flex;flex-direction:column;align-items:center;gap:4px;
+.scene-card .scene-top {
+  display:flex;align-items:center;justify-content:space-between;
+  padding-bottom:20px;margin-bottom:22px;
+  border-bottom:1px solid rgba(255,255,255,.1);
 }
-.scene-card .ring-anim .ph {
-  width:46px;height:46px;border-radius:50%;
-  background:rgba(46,204,113,.16);border:1px solid rgba(46,204,113,.4);
+.scene-card .scene-top .st-title {
+  font-family:Montserrat;font-weight:700;font-size:0.95rem;color:#fff;
+}
+.scene-card .scene-top .ph-badge {
+  display:flex;align-items:center;gap:8px;
+  background:rgba(46,204,113,.14);border:1px solid rgba(46,204,113,.35);
+  border-radius:999px;padding:6px 14px 6px 8px;
+}
+.scene-card .scene-top .ph-badge .pd {
+  width:26px;height:26px;border-radius:50%;background:rgba(46,204,113,.22);
   display:flex;align-items:center;justify-content:center;
 }
-.scene-card .ring-anim .ph svg { width:22px;height:22px;fill:var(--green); }
-.scene-card .ring-anim .lbl { font-size:9px;color:rgba(255,255,255,.55);letter-spacing:.06em;text-transform:uppercase;font-weight:700; }
+.scene-card .scene-top .ph-badge .pd svg { width:14px;height:14px;fill:var(--green); }
+.scene-card .scene-top .ph-badge .pl {
+  font-size:10px;color:var(--green);font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+}
 .scene-step { display:flex;gap:14px;align-items:flex-start;margin-bottom:18px; }
 .scene-step:last-child{margin-bottom:0;}
 .scene-step .n {
@@ -135,25 +144,40 @@
 .scene-step .tx h4 { color:#fff;font-size:0.95rem;font-weight:700;margin-bottom:2px; }
 .scene-step .tx p { color:rgba(255,255,255,.6);font-size:0.85rem;line-height:1.5; }
 
-/* live call card */
+/* live call transcript card */
 .live-call { background:#fff;border-radius:var(--radius-lg);box-shadow:0 30px 70px rgba(15,20,25,.4);overflow:hidden; }
-.lc-hd { background:var(--dark);padding:14px 18px;display:flex;align-items:center;gap:9px;color:#fff; }
-.lc-hd .liv { width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(46,204,113,.3); }
-.lc-hd .nm { font-family:Montserrat;font-weight:600;font-size:0.85rem; }
-.lc-hd .tm { margin-left:auto;font-size:0.72rem;color:rgba(255,255,255,.5); }
-.lc-bd { padding:18px;display:flex;flex-direction:column;gap:10px; }
-.vbub { padding:9px 13px;font-size:0.8rem;max-width:88%;line-height:1.45;display:flex;gap:8px;align-items:flex-start; }
-.vbub .tag { font-size:8.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;flex:none;margin-top:2px; }
-.vbub.caller { background:var(--mist);color:var(--text);border-radius:12px 12px 12px 3px; }
-.vbub.caller .tag { color:#8a96a4; }
-.vbub.ai { background:var(--brand);color:#fff;border-radius:12px 12px 3px 12px;align-self:flex-end; }
-.vbub.ai .tag { color:rgba(255,255,255,.65); }
-.lc-result {
-  background:#f0faf4;border-top:1px solid #d6f0e0;padding:14px 18px;
-  display:flex;align-items:center;gap:10px;
+.lc-hd { background:var(--dark);padding:15px 20px;display:flex;align-items:center;gap:10px;color:#fff; }
+.lc-hd .liv {
+  width:9px;height:9px;border-radius:50%;background:var(--green);
+  box-shadow:0 0 0 3px rgba(46,204,113,.3);flex:none;
 }
-.lc-result svg { width:18px;height:18px;fill:var(--green-deep);flex:none; }
-.lc-result .r { font-size:0.82rem;color:#1a3326; }
+.lc-hd .nm { font-family:Montserrat;font-weight:600;font-size:0.875rem; }
+.lc-hd .tm {
+  margin-left:auto;font-size:0.72rem;color:rgba(255,255,255,.6);
+  display:flex;align-items:center;gap:5px;
+}
+.lc-hd .tm svg { width:12px;height:12px;fill:rgba(255,255,255,.6); }
+/* transcript = clean rows, NOT chat bubbles */
+.lc-bd { padding:6px 0; }
+.vrow {
+  display:flex;gap:14px;padding:13px 20px;
+  border-bottom:1px solid #f1f4f7;align-items:flex-start;
+}
+.vrow:last-child { border-bottom:none; }
+.vrow .who2 {
+  flex:none;width:64px;font-size:0.6875rem;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;padding-top:1px;
+}
+.vrow.caller .who2 { color:#8a96a4; }
+.vrow.ai .who2 { color:var(--brand); }
+.vrow .said { font-size:0.84rem;line-height:1.5;color:var(--text); }
+.vrow.ai { background:#f7fafd; }
+.lc-result {
+  background:#f0faf4;border-top:1px solid #d6f0e0;padding:15px 20px;
+  display:flex;align-items:center;gap:11px;
+}
+.lc-result svg { width:20px;height:20px;fill:var(--green-deep);flex:none; }
+.lc-result .r { font-size:0.84rem;color:#1a3326;line-height:1.45; }
 .lc-result .r strong { color:var(--green-deep); }
 
 /* included list */
@@ -357,9 +381,12 @@
     </div>
     <div class="recept-scene">
       <div class="scene-card">
-        <div class="ring-anim">
-          <span class="ph"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></span>
-          <span class="lbl">Ringing</span>
+        <div class="scene-top">
+          <span class="st-title">How it works</span>
+          <span class="ph-badge">
+            <span class="pd"><svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.3 0 .7-.2 1l-2.3 2.2z"/></svg></span>
+            <span class="pl">Incoming Call</span>
+          </span>
         </div>
         <div class="scene-step">
           <span class="n">1</span>
@@ -381,16 +408,16 @@
       <div class="live-call">
         <div class="lc-hd">
           <span class="liv"></span>
-          <span class="nm">ScaleLocal AI Receptionist &middot; Live Call</span>
-          <span class="tm">0:34</span>
+          <span class="nm">ScaleLocal AI Receptionist &middot; Live Call Transcript</span>
+          <span class="tm"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 11h-5v-2h3V7h2v6z"/></svg> 0:34</span>
         </div>
         <div class="lc-bd">
-          <div class="vbub caller"><span class="tag">Caller</span><span>Hi &mdash; my roof's leaking. Can someone come take a look this week?</span></div>
-          <div class="vbub ai"><span class="tag">AI</span><span>Absolutely &mdash; sorry to hear about the leak. I can get a specialist out to you. What's the best name and number to reach you?</span></div>
-          <div class="vbub caller"><span class="tag">Caller</span><span>It's Dana, 978-555-0140.</span></div>
-          <div class="vbub ai"><span class="tag">AI</span><span>Thanks, Dana. We have an opening today between 1 and 3, or tomorrow at 8am. Which works better?</span></div>
-          <div class="vbub caller"><span class="tag">Caller</span><span>Today, 1 to 3 would be great.</span></div>
-          <div class="vbub ai"><span class="tag">AI</span><span>Booked. You'll get a confirmation text in a moment. We'll see you this afternoon, Dana.</span></div>
+          <div class="vrow caller"><span class="who2">Caller</span><span class="said">Hi &mdash; my roof's leaking. Can someone come take a look this week?</span></div>
+          <div class="vrow ai"><span class="who2">AI</span><span class="said">Absolutely &mdash; sorry to hear about the leak. I can get a specialist out to you. What's the best name and number to reach you?</span></div>
+          <div class="vrow caller"><span class="who2">Caller</span><span class="said">It's Dana, 978-555-0140.</span></div>
+          <div class="vrow ai"><span class="who2">AI</span><span class="said">Thanks, Dana. We have an opening today between 1 and 3, or tomorrow at 8am. Which works better?</span></div>
+          <div class="vrow caller"><span class="who2">Caller</span><span class="said">Today, 1 to 3 would be great.</span></div>
+          <div class="vrow ai"><span class="who2">AI</span><span class="said">Booked. You'll get a confirmation text in a moment. We'll see you this afternoon, Dana.</span></div>
         </div>
         <div class="lc-result">
           <svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>
@@ -506,25 +533,4 @@
       </div>
       <div class="ft-col">
         <h4>The Four Tiers</h4>
-        <a href="../basecamp/">Basecamp &mdash; $249/mo</a>
-        <a href="../ascent/">Ascent &mdash; $597/mo</a>
-        <a href="../summit/">Summit &mdash; $997/mo</a>
-        <a href="../apex/">Apex &mdash; $1,497/mo</a>
-      </div>
-      <div class="ft-col">
-        <h4>Contact</h4>
-        <a href="tel:+16173948707">617.394.8707</a>
-        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
-      </div>
-    </div>
-    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
-  </div>
-</footer>
-
-<script>
-document.querySelectorAll('.faq-q').forEach(function(q){
-  q.addEventListener('click', function(){ q.parentElement.classList.toggle('open'); });
-});
-</script>
-</body>
-</html>
+        <a href="../
