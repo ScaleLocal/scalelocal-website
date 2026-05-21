@@ -412,17 +412,25 @@ html, body { overflow-x:hidden; max-width:100%; }
     });
   }
 
+  function vH(){ return window.innerHeight||document.documentElement.clientHeight||800; }
+
+  // Explicitly size the runway in pixels so it never depends on vh units
+  // resolving correctly. Each tier gets ~1.15 screens of scroll travel.
+  function sizeRunway(){
+    var vh=vH();
+    climb.style.height=Math.round(vh*1.15*N + vh*0.15)+'px';
+  }
+
   var raf=0;
   function render(){
     raf=0;
     var rect=climb.getBoundingClientRect();
-    var vh=window.innerHeight||document.documentElement.clientHeight||800;
-    // total scroll distance the pinned section occupies
-    var total=climb.offsetHeight - vh;
+    var vh=vH();
+    var total=climb.offsetHeight - vh;       // scroll distance the pin occupies
     var scrolled=-rect.top;
     var p=total>0 ? scrolled/total : 0;
-    p=Math.max(0,Math.min(1,p));     // 0..1 across the whole pinned section
-    var prog=p*(N-1);                // 0..3 fractional tier
+    p=Math.max(0,Math.min(1,p));             // 0..1 across the pinned section
+    var prog=p*(N-1);                        // 0..3 fractional tier
     placeClimber(prog/(N-1));
     setTier(Math.round(prog));
     updateCards(prog);
@@ -431,17 +439,15 @@ html, body { overflow-x:hidden; max-width:100%; }
 
   // clicking a flag or dot scrolls to that tier's slice of the runway
   function jumpTo(i){
-    var vh=window.innerHeight||800;
-    var total=climb.offsetHeight - vh;
+    var total=climb.offsetHeight - vH();
     var target=climb.offsetTop + (i/(N-1))*total;
     window.scrollTo({top:target, behavior:'smooth'});
   }
-  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
   dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
 
   window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',onScroll);
-  // init
+  window.addEventListener('resize',function(){ sizeRunway(); onScroll(); });
+  sizeRunway();
   placeClimber(0); setTier(0); updateCards(0); render();
 })();
 </script>
