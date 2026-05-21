@@ -42,8 +42,8 @@ html, body { overflow-x:hidden; max-width:100%; }
 .mtn-svg { width:100%; height:auto; display:block; overflow:visible; }
 .mtn-hint { text-align:center; margin-top:14px; color:rgba(255,255,255,.46); font-size:0.82rem; }
 #climber { transition:transform .15s linear; }
-#climber .pulse { animation:cpulse 2.4s ease-in-out infinite; transform-origin:center; }
-@keyframes cpulse { 0%,100%{ opacity:.5; } 50%{ opacity:0; } }
+#climber .pulse { animation:cpulse 2.6s ease-in-out infinite; transform-origin:center; }
+@keyframes cpulse { 0%,100%{ opacity:.35; } 50%{ opacity:0; } }
 #trailFill { transition:stroke-dasharray .15s linear; }
 .flag { cursor:pointer; }
 .flag-dot { transition:r .35s ease, fill .35s ease; }
@@ -51,13 +51,15 @@ html, body { overflow-x:hidden; max-width:100%; }
 .flag-hit { fill:transparent; cursor:pointer; }
 .flag-lbl { pointer-events:none; transition:fill .35s ease; }
 
-/* card side — all 4 cards stacked, only one visible at a time */
-.card-stage { position:relative; width:100%; min-height:470px; max-height:80vh; }
+/* card side — all 4 cards stacked, only one visible at a time.
+   fixed height so every tier card is the same size as you climb. */
+.card-stage { position:relative; width:100%; height:600px; max-height:84vh; }
 .tp-card {
-  position:absolute; inset:0; margin:auto; height:max-content;
-  width:100%; background:#fff; border-radius:var(--radius-lg);
+  position:absolute; top:0; left:0; right:0; bottom:0;
+  display:flex; flex-direction:column;
+  background:#fff; border-radius:var(--radius-lg);
   border:1px solid var(--line); box-shadow:0 30px 70px rgba(8,14,26,.5);
-  padding:30px 30px 26px;
+  padding:30px 32px 28px;
   opacity:0; transform:translateY(40px); pointer-events:none;
   transition:opacity .45s var(--ease), transform .45s var(--ease);
   overflow-wrap:break-word;
@@ -70,9 +72,9 @@ html, body { overflow-x:hidden; max-width:100%; }
 .tp-head > div { min-width:0; }
 .tp-name { font-family:Montserrat; font-weight:700; color:var(--dark); font-size:clamp(1.7rem,2.6vw,2.3rem); letter-spacing:-0.02em; line-height:1.08; }
 .tp-pricebox { text-align:right; flex:none; }
-.tp-pricebox .amt { font-family:Montserrat;font-weight:700;font-size:1.6rem;color:var(--dark);display:block;line-height:1; }
-.tp-pricebox .per { font-size:0.78rem;color:var(--muted); }
-.tp-pricebox .per .setup { display:block; font-size:0.72rem; color:var(--muted-light); margin-top:2px; }
+.tp-pricebox .amt { font-family:Montserrat;font-weight:700;font-size:1.7rem;color:var(--dark);line-height:1; }
+.tp-pricebox .per { font-family:Inter;font-size:0.8rem;font-weight:600;color:var(--muted); }
+.tp-pricebox .setup { display:block; font-size:0.72rem; font-weight:500; color:var(--muted-light); margin-top:5px; }
 .tp-badge { display:inline-block; font-family:Inter; font-weight:700; font-size:0.66rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--accent); padding:4px 10px; border-radius:999px; margin-top:8px; }
 .tp-tag { font-size:0.97rem;color:var(--text);margin:12px 0 14px;line-height:1.55; }
 .tp-offer {
@@ -86,17 +88,14 @@ html, body { overflow-x:hidden; max-width:100%; }
 .tp-offer .of-tx { font-size:0.83rem; line-height:1.38; color:var(--text); }
 .tp-offer .of-tx b { font-family:Montserrat; font-weight:700; color:var(--green-deep); }
 .tp-offer .of-tx .of-sub { display:block; font-size:0.74rem; color:var(--muted); margin-top:1px; }
-.tp-prev { display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted);font-weight:600;padding:9px 13px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:6px; }
+.tp-prev { display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted);font-weight:600;padding:9px 13px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:10px; }
 .tp-prev .chk { width:17px;height:17px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center; }
 .tp-prev .chk svg { width:9px;height:9px;fill:#fff; }
-.tp-plus { display:flex;align-items:center;gap:9px;margin:12px 0 9px; }
-.tp-plus .psign { width:24px;height:24px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:15px;color:#fff; }
-.tp-plus .ptext { font-family:Montserrat;font-weight:700;font-size:0.76rem;color:var(--dark);letter-spacing:.05em;text-transform:uppercase; }
 .tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:18px; }
 .tp-add { display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--text);background:#fff;padding:10px 13px;line-height:1.42;min-width:0;overflow-wrap:break-word; }
 .tp-add .ad { width:19px;height:19px;border-radius:5px;flex:none;margin-top:1px;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
 .tp-add .ad svg { width:10px;height:10px;fill:var(--brand); }
-.tp-cta { display:flex;gap:12px;flex-wrap:wrap; }
+.tp-cta { display:flex;gap:12px;flex-wrap:wrap;margin-top:auto; }
 
 /* progress dots — bottom-left, clear of both the mountain labels and the card */
 .climb-dots { position:absolute; left:0; bottom:14px; width:54%; display:flex; justify-content:center; gap:16px; z-index:6; }
@@ -212,7 +211,7 @@ html, body { overflow-x:hidden; max-width:100%; }
               <circle class="flag-hit" cx="0" cy="0" r="26"/>
             </g>
             <g id="climber">
-              <circle class="pulse" cx="0" cy="0" r="26" fill="#2ecc71" opacity="0"/>
+              <circle class="pulse" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
               <circle cx="0" cy="0" r="16" fill="#2E75B6" stroke="#fff" stroke-width="2.5"/>
               <path d="M0,-8 a3.2,3.2 0 1,0 0.1,0 M-4.5,8 L0,-1 L4.5,8 M-5.5,1.5 L5.5,1.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
             </g>
@@ -224,18 +223,18 @@ html, body { overflow-x:hidden; max-width:100%; }
           <div class="tp-num"><span class="dot"></span> Level 1 &middot; Where the climb begins</div>
           <div class="tp-head">
             <div><div class="tp-name">Basecamp</div></div>
-            <div class="tp-pricebox"><span class="amt">$249</span><span class="per">/mo<span class="setup">$497 one-time setup</span></span></div>
+            <div class="tp-pricebox"><span class="amt">$249</span><span class="per">/mo</span><span class="setup">$497 one-time setup</span></div>
           </div>
           <div class="tp-tag">Get discovered and capture every visitor. A modern web presence and an always-on AI capture layer &mdash; so no lead who finds you is ever lost.</div>
           <div class="tp-offer">
             <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-            <span class="of-tx"><b>Commit &amp; save up to $941.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $941.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
           </div>
           <div class="tp-adds">
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern website, built &amp; managed</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI chat widget &mdash; text + voice</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Tracked phone number + missed-call alerts</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Lead capture into your CRM</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern Website, Built &amp; Managed</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Chat Widget &mdash; Text + Voice</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Tracked Phone Number + Missed-Call Alerts</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Lead Capture Into Your CRM</div>
           </div>
           <div class="tp-cta"><a href="../basecamp/" class="btn btn-primary">Explore Basecamp</a></div>
         </article>
@@ -243,20 +242,19 @@ html, body { overflow-x:hidden; max-width:100%; }
           <div class="tp-num"><span class="dot"></span> Level 2 &middot; The growth engine</div>
           <div class="tp-head">
             <div><div class="tp-name">Ascent</div><span class="tp-badge">Most Popular</span></div>
-            <div class="tp-pricebox"><span class="amt">$597</span><span class="per">/mo<span class="setup">$797 one-time setup</span></span></div>
+            <div class="tp-pricebox"><span class="amt">$597</span><span class="per">/mo</span><span class="setup">$797 one-time setup</span></div>
           </div>
           <div class="tp-tag">Own the search results and convert visitors into booked appointments &mdash; across Google and every AI engine.</div>
           <div class="tp-offer">
             <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-            <span class="of-tx"><b>Commit &amp; save up to $1,877.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $1,877.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
           </div>
           <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, plus:</div>
-          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Ascent adds</span></div>
           <div class="tp-adds">
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Search positioning &mdash; ChatGPT, Gemini, Perplexity, AI Overviews</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile management</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Local SEO foundation &amp; calendar booking</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine + quarterly strategy review</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Search Positioning &mdash; ChatGPT, Gemini, Perplexity, AI Overviews</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile Management</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Local SEO Foundation &amp; Calendar Booking</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine + Quarterly Diagnostic Report</div>
           </div>
           <div class="tp-cta"><a href="../ascent/" class="btn btn-primary">Explore Ascent</a></div>
         </article>
@@ -264,20 +262,19 @@ html, body { overflow-x:hidden; max-width:100%; }
           <div class="tp-num"><span class="dot"></span> Level 3 &middot; The AI conversion layer</div>
           <div class="tp-head">
             <div><div class="tp-name">Summit</div></div>
-            <div class="tp-pricebox"><span class="amt">$997</span><span class="per">/mo<span class="setup">$1,497 one-time setup</span></span></div>
+            <div class="tp-pricebox"><span class="amt">$997</span><span class="per">/mo</span><span class="setup">$1,497 one-time setup</span></div>
           </div>
           <div class="tp-tag">Answer every call and close every lead. A full AI Receptionist on every call, 24/7 &mdash; booking the job before the caller hangs up.</div>
           <div class="tp-offer">
             <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-            <span class="of-tx"><b>Commit &amp; save up to $3,297.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $3,297.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
           </div>
           <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp &amp; Ascent, plus:</div>
-          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Summit adds</span></div>
           <div class="tp-adds">
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist &mdash; full voice, answers &amp; books 24/7</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine (full) &mdash; AI-drafted responses</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Follow-Up Engine &mdash; recovers stalled leads</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Priority support</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist &mdash; Full Voice, Answers &amp; Books 24/7</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine (Full) &mdash; AI-Drafted Responses</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Follow-Up Engine &mdash; Recovers Stalled Leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Priority Support</div>
           </div>
           <div class="tp-cta"><a href="../summit/" class="btn btn-primary">Explore Summit</a></div>
         </article>
@@ -285,20 +282,19 @@ html, body { overflow-x:hidden; max-width:100%; }
           <div class="tp-num"><span class="dot"></span> Level 4 &middot; The peak. The flagship.</div>
           <div class="tp-head">
             <div><div class="tp-name">Apex</div><span class="tp-badge">The Flagship</span></div>
-            <div class="tp-pricebox"><span class="amt">$1,497</span><span class="per">/mo<span class="setup">$1,997 one-time setup</span></span></div>
+            <div class="tp-pricebox"><span class="amt">$1,497</span><span class="per">/mo</span><span class="setup">$1,997 one-time setup</span></div>
           </div>
           <div class="tp-tag">The complete growth engine &mdash; in your pocket. Every lead, call, review, job and payment, run from your own branded mobile app.</div>
           <div class="tp-offer">
             <span class="of-ic"><svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
-            <span class="of-tx"><b>Commit &amp; save up to $4,697.</b><span class="of-sub">Setup waived + up to 15% off &mdash; with a 6 or 12-month partnership.</span></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $4,697.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
           </div>
           <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, Ascent &amp; Summit, plus:</div>
-          <div class="tp-plus"><span class="psign">+</span><span class="ptext">Apex adds</span></div>
           <div class="tp-adds">
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your own branded mobile app</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent &mdash; qualifies &amp; closes leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your Own Branded Mobile App</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent &mdash; Qualifies &amp; Closes Leads</div>
             <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Re-Engagement &amp; Referral Engine</div>
-            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Monthly strategy + priority partnership support</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>24/7 AI-Powered Customer Support + Monthly Performance Report</div>
           </div>
           <div class="tp-cta"><a href="../apex/" class="btn btn-primary">Explore Apex</a></div>
         </article>
@@ -393,7 +389,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     flags.forEach(function(f,i){
       var dot=f.querySelector('.flag-dot'), glow=f.querySelector('.flag-glow'), lbl=f.querySelector('.flag-lbl');
       if(i<idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','8');glow.setAttribute('opacity','0');lbl.setAttribute('fill','#fff'); }
-      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','11');glow.setAttribute('opacity','0.34');lbl.setAttribute('fill','#2ecc71'); }
+      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','10');glow.setAttribute('opacity','0.2');lbl.setAttribute('fill','#2ecc71'); }
       else { dot.setAttribute('fill','#3a5680');dot.setAttribute('r','7');glow.setAttribute('opacity','0');lbl.setAttribute('fill','rgba(255,255,255,.78)'); }
     });
     dots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
@@ -475,4 +471,4 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
