@@ -189,7 +189,7 @@ a { color: inherit; text-decoration: none; }
   border-radius: 0 0 16px 16px; margin: 0 auto -26px;
   position: relative; z-index: 3;
 }
-.phone-screen { background: #f0f4f8; border-radius: 32px; overflow: hidden; }
+.phone-screen { background: #f0f4f8; border-radius: 32px; overflow: hidden; height: 600px; display: flex; flex-direction: column; }
 
 /* ===== FOOTER ===== */
 .sl-footer { background: var(--dark); color: rgba(255,255,255,0.6); padding: 60px 0 30px; }
@@ -219,6 +219,4 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 900px) {
   .sl-nav { display: none; }
-  .s { padding: 64px 0; }
-  .tier-hero { padding: 64px 0 72px; }
-}
+  .s { paddin
