@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../shared/tier-v2.css">
 <style>
+html, body { overflow-x:hidden; max-width:100%; }
 .mtn-hero { background:radial-gradient(ellipse at 50% 130%, var(--navy-1) 0%, var(--dark) 78%); color:#fff; text-align:center; padding:72px 0 40px; }
 .mtn-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.02em; font-size:clamp(2rem,3.4vw,3rem); margin:14px 0 14px; }
 .mtn-hero h1 em { font-style:normal; color:var(--brand); }
@@ -109,7 +110,7 @@
   }
   .mstep-track {
     display:flex; align-items:flex-start; justify-content:space-between;
-    position:relative; max-width:440px; margin:0 auto; padding:0 28px;
+    position:relative; max-width:440px; width:100%; margin:0 auto; padding:0 24px;
   }
   /* connecting line behind the chips */
   .mstep-line {
@@ -476,8 +477,4 @@
     placeClimber(stops[Math.max(current,0)]);
     var c=current; current=-1; setActive(Math.max(c,0));
   });
-  placeClimber(stops[0]); setActive(0); onScroll();
-})();
-</script>
-</body>
-</html>
+  placeClimber(stops[0
