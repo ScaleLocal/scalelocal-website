@@ -91,18 +91,69 @@
 .cmp-card .cs { font-size:0.8rem;color:var(--muted);margin-bottom:14px;line-height:1.4; }
 .cmp-card .cl { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--brand);font-weight:600; }
 
+/* mobile tier stepper — hidden on desktop, shown under 920px */
+.mstep { display:none; }
+
 @media(max-width:920px){
   .climb-inner { display:block; }
-  .mtn-stage { position:sticky; top:60px; height:auto; background:linear-gradient(180deg,var(--navy-2),var(--dark)); border-bottom:1px solid rgba(255,255,255,.08); padding:14px 0 10px; z-index:20; }
-  .mtn-svg-wrap { max-width:320px; padding:0 16px; }
-  .mtn-hint { margin-top:6px; font-size:0.74rem; }
-  .tiers-col { padding:8px 0 32px; }
-  .tier-panel { min-height:auto; padding:30px 18px; }
-  .tp-card { transform:translateY(14px) scale(.99); padding:28px 22px; opacity:.92; }
+  /* kill the tall portrait mountain on mobile — it can't be "compact" */
+  .mtn-stage { display:none; }
   .climb-rail { display:none; }
+
+  /* sticky horizontal tier stepper replaces the mountain */
+  .mstep {
+    display:block; position:sticky; top:60px; z-index:30;
+    background:linear-gradient(180deg,var(--navy-2),var(--dark));
+    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:16px 0 14px;
+  }
+  .mstep-track {
+    display:flex; align-items:flex-start; justify-content:space-between;
+    position:relative; max-width:440px; margin:0 auto; padding:0 28px;
+  }
+  /* connecting line behind the chips */
+  .mstep-line {
+    position:absolute; left:46px; right:46px; top:13px; height:3px;
+    background:rgba(255,255,255,.16); border-radius:2px;
+  }
+  .mstep-fill {
+    position:absolute; left:46px; top:13px; height:3px;
+    background:var(--green); border-radius:2px; width:0;
+    transition:width .5s var(--ease);
+  }
+  .mstep-node {
+    position:relative; z-index:2; display:flex; flex-direction:column;
+    align-items:center; gap:6px; cursor:pointer; flex:none; width:62px;
+  }
+  .mstep-dot {
+    width:28px; height:28px; border-radius:50%;
+    background:#3a5680; border:2.5px solid rgba(255,255,255,.5);
+    display:flex; align-items:center; justify-content:center;
+    font-family:Montserrat; font-weight:700; font-size:13px; color:#fff;
+    transition:all .35s var(--ease);
+  }
+  .mstep-node.done .mstep-dot { background:var(--green); border-color:var(--green); }
+  .mstep-node.on .mstep-dot {
+    background:var(--green); border-color:#fff; transform:scale(1.18);
+    box-shadow:0 0 0 5px rgba(46,204,113,.22);
+  }
+  .mstep-lbl {
+    font-family:Inter; font-weight:600; font-size:0.66rem;
+    color:rgba(255,255,255,.55); white-space:nowrap;
+  }
+  .mstep-node.on .mstep-lbl { color:var(--green); }
+
+  .tiers-col { padding:6px 0 28px; }
+  .tier-panel { min-height:auto; padding:20px 16px; }
+  .tp-card { transform:translateY(10px) scale(.99); padding:26px 20px; opacity:1; }
+  .tier-panel.active .tp-card { transform:translateY(0) scale(1); }
+  .tp-head { gap:10px; }
+  .tp-name { font-size:1.65rem; }
+  .tp-pricebox { text-align:left; }
+  .tp-pricebox .amt { font-size:1.45rem; }
   .cmp { grid-template-columns:1fr 1fr; }
 }
-@media(max-width:560px){ .cmp{ grid-template-columns:1fr; } .tp-pricebox{ text-align:left; } }
+@media(max-width:560px){ .cmp{ grid-template-columns:1fr; } }
 </style>
 </head>
 <body>
@@ -128,6 +179,16 @@
     <span class="rdot-wrap" data-go="1"><span class="rdot"></span><span class="rlabel">Ascent</span></span>
     <span class="rdot-wrap" data-go="2"><span class="rdot"></span><span class="rlabel">Summit</span></span>
     <span class="rdot-wrap" data-go="3"><span class="rdot"></span><span class="rlabel">Apex</span></span>
+  </div>
+  <div class="mstep">
+    <div class="mstep-track">
+      <div class="mstep-line"></div>
+      <div class="mstep-fill" id="mstepFill"></div>
+      <span class="mstep-node" data-go="0"><span class="mstep-dot">1</span><span class="mstep-lbl">Basecamp</span></span>
+      <span class="mstep-node" data-go="1"><span class="mstep-dot">2</span><span class="mstep-lbl">Ascent</span></span>
+      <span class="mstep-node" data-go="2"><span class="mstep-dot">3</span><span class="mstep-lbl">Summit</span></span>
+      <span class="mstep-node" data-go="3"><span class="mstep-dot">4</span><span class="mstep-lbl">Apex</span></span>
+    </div>
   </div>
   <div class="wrap" style="max-width:1280px;">
     <div class="climb-inner">
@@ -346,59 +407,8 @@
   var panels=[0,1,2,3].map(function(i){return document.getElementById('panel-'+i);});
   var flags=[0,1,2,3].map(function(i){return document.getElementById('flag-'+i);});
   var rdots=Array.prototype.slice.call(document.querySelectorAll('.rdot-wrap'));
+  var msteps=Array.prototype.slice.call(document.querySelectorAll('.mstep-node'));
+  var mstepFill=document.getElementById('mstepFill');
   var len=trail.getTotalLength();
   var stops=[0.0,0.40,0.70,1.0];
-  var current=-1, clickLock=0;
-  // label offsets: x,y per flag. Apex sits at the peak — push it well clear above.
-  var lblOff=[[0,30],[-46,4],[52,4],[0,-56]];
-  flags.forEach(function(f,i){
-    var p=trail.getPointAtLength(stops[i]*len);
-    ['.flag-dot','.flag-glow','.flag-hit'].forEach(function(sel){
-      var el=f.querySelector(sel);
-      el.setAttribute('cx',p.x); el.setAttribute('cy',p.y);
-    });
-    var lbl=f.querySelector('.flag-lbl');
-    lbl.setAttribute('x', p.x+lblOff[i][0]);
-    lbl.setAttribute('y', p.y+lblOff[i][1]);
-  });
-  function placeClimber(frac){
-    var pt=trail.getPointAtLength(frac*len);
-    climber.setAttribute('transform','translate('+pt.x+','+pt.y+')');
-    trailFill.setAttribute('stroke-dasharray',(frac*len)+' 9999');
-  }
-  function setActive(idx){
-    if(idx===current) return;
-    current=idx;
-    placeClimber(stops[idx]);
-    flags.forEach(function(f,i){
-      var dot=f.querySelector('.flag-dot'), glow=f.querySelector('.flag-glow'), lbl=f.querySelector('.flag-lbl');
-      if(i<idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','8');glow.setAttribute('opacity','0');lbl.setAttribute('fill','#fff'); }
-      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','10');glow.setAttribute('opacity','0.3');lbl.setAttribute('fill','#2ecc71'); }
-      else { dot.setAttribute('fill','#3a5680');dot.setAttribute('r','7');glow.setAttribute('opacity','0');lbl.setAttribute('fill','rgba(255,255,255,.78)'); }
-    });
-    rdots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
-    panels.forEach(function(p,i){ p.classList.toggle('active',i===idx); });
-  }
-  function onScroll(){
-    if(Date.now()<clickLock) return;
-    var mid=window.innerHeight/2, best=0, bd=Infinity;
-    panels.forEach(function(p,i){
-      var r=p.getBoundingClientRect(), c=r.top+r.height/2, d=Math.abs(c-mid);
-      if(d<bd){ bd=d; best=i; }
-    });
-    setActive(best);
-  }
-  function jumpTo(i){
-    clickLock=Date.now()+1000;
-    setActive(i);
-    panels[i].scrollIntoView({behavior:'smooth',block:'center'});
-  }
-  rdots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
-  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',function(){ placeClimber(stops[Math.max(current,0)]); });
-  placeClimber(stops[0]); setActive(0); onScroll();
-})();
-</script>
-</body>
-</html>
+  var current=-1, clickLo
