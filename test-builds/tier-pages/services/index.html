@@ -116,42 +116,47 @@ html, body { overflow-x:hidden; max-width:100%; }
 .cmp-card .cs { font-size:0.8rem;color:var(--muted);margin-bottom:14px;line-height:1.4; }
 .cmp-card .cl { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--brand);font-weight:600; }
 
-/* ===== MOBILE: mountain on top, card below, still pinned ===== */
 /* ===== MOBILE: mountain on top, card below — both inside the pinned stage ===== */
 @media(max-width:920px){
-  .climb-pin { top:56px; height:calc(100vh - 56px); padding:12px 0 14px; }
-  /* stack: mountain row, then card row */
+  /* dvh = dynamic viewport height: excludes the phone browser bar so
+     content never hides behind it (vh fallback for old browsers). */
+  .climb-pin { top:56px; height:calc(100vh - 56px); height:calc(100dvh - 56px); padding:10px 0 12px; }
   .climb-grid {
     display:flex; flex-direction:column; gap:0;
     max-width:100%; padding:0 14px; height:100%;
   }
-  /* mountain — compact, fixed share of the height at the top */
+  /* mountain — bigger, fixed share at the top */
   .mtn-stage { flex:0 0 auto; }
-  .mtn-svg-wrap { max-width:none; width:auto; height:32vh; }
+  .mtn-svg-wrap { max-width:none; width:auto; height:38vh; height:38dvh; }
   .mtn-svg { width:auto; height:100%; margin:0 auto; }
   .mtn-hint { display:none; }
   /* card area — fills remaining height; cards overlay, one shown at a time */
-  .card-stage { flex:1 1 auto; min-height:0; position:relative; display:block; margin-top:8px; }
+  .card-stage { flex:1 1 auto; min-height:0; position:relative; display:block; margin-top:6px; }
   .tp-card {
     position:absolute; top:0; left:0; right:0; bottom:0;
     height:auto; max-height:100%;
     transform:translateY(20px);
-    padding:22px 20px 18px; box-shadow:0 18px 40px rgba(8,14,26,.4);
+    padding:18px 18px 16px; box-shadow:0 18px 40px rgba(8,14,26,.4);
     overflow-y:auto;
   }
   .tp-card.is-active { transform:translateY(0); }
   .tp-card.is-past   { transform:translateY(-20px); }
-  .tp-name { font-size:1.45rem; }
+  .tp-num { margin-bottom:7px; font-size:0.66rem; }
+  .tp-name { font-size:1.35rem; }
   .tp-pricebox { text-align:right; }
-  .tp-tag { font-size:0.88rem; margin:8px 0 10px; }
-  .tp-offer { padding:9px 11px; margin-bottom:10px; }
-  .tp-add { padding:8px 11px; font-size:0.82rem; }
+  .tp-pricebox .amt { font-size:1.4rem; }
+  .tp-tag { font-size:0.85rem; margin:7px 0 9px; }
+  .tp-offer { padding:8px 10px; margin-bottom:9px; }
+  .tp-prev { padding:7px 11px; margin-bottom:8px; }
+  .tp-adds { margin-bottom:12px; }
+  .tp-add { padding:7px 10px; font-size:0.8rem; }
+  .tp-cta .btn { padding:12px 22px; font-size:0.9rem; }
   .cmp { grid-template-columns:1fr 1fr; }
 }
 @media(max-width:560px){
   .cmp{ grid-template-columns:1fr; }
-  .mtn-svg-wrap { height:27vh; }
-  .tp-card { padding:20px 18px 18px; }
+  .mtn-svg-wrap { height:33vh; height:33dvh; }
+  .tp-card { padding:16px 16px 14px; }
 }
 </style>
 </head>
@@ -479,9 +484,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     var target=climb.offsetTop + (i/(N-1))*total;
     window.scrollTo({top:target, behavior:'smooth'});
   }
-  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
   dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
-
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',function(){ sizeRunway(); onScroll(); });
   sizeRunway();
@@ -490,4 +493,3 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
-           
