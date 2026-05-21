@@ -18,12 +18,19 @@ html, body { overflow-x:hidden; max-width:100%; }
 .mtn-hero p { color:rgba(255,255,255,.80); font-size:1.0625rem; max-width:58ch; margin:0 auto; }
 
 /* ===== PINNED SCROLL-JACK CLIMB ===== */
-/* .climb is a tall runway; .climb-pin sticks for its whole length */
+/* .climb is a tall runway; .climb-pin is JS-locked via position:fixed
+   so it truly stays on screen for the whole climb (sticky can't do this). */
 .climb { background:var(--dark); position:relative; height:500vh; }
 .climb-pin {
-  position:sticky; top:60px; height:calc(100vh - 60px);
+  width:100%; height:calc(100vh - 60px);
   overflow:hidden; display:flex; align-items:center;
+  /* default state = pinned to viewport */
+  position:fixed; top:60px; left:0; right:0;
 }
+/* before the runway: rest at the top of the section */
+.climb-pin.is-before { position:absolute; top:0; }
+/* after the runway: rest at the bottom of the section */
+.climb-pin.is-after  { position:absolute; top:auto; bottom:0; }
 .climb-grid {
   width:100%; max-width:1240px; margin:0 auto; padding:0 32px;
   display:grid; grid-template-columns:1.05fr .95fr; gap:40px; align-items:center;
@@ -45,7 +52,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 .flag-lbl { pointer-events:none; transition:fill .35s ease; }
 
 /* card side — all 4 cards stacked, only one visible at a time */
-.card-stage { position:relative; min-height:560px; }
+.card-stage { position:relative; min-height:500px; max-height:78vh; }
 .tp-card {
   position:absolute; inset:0; margin:auto; height:max-content;
   width:100%; background:#fff; border-radius:var(--radius-lg);
@@ -414,11 +421,17 @@ html, body { overflow-x:hidden; max-width:100%; }
 
   function vH(){ return window.innerHeight||document.documentElement.clientHeight||800; }
 
-  // Explicitly size the runway in pixels so it never depends on vh units
-  // resolving correctly. Each tier gets ~1.15 screens of scroll travel.
+  var pin=climb.querySelector('.climb-pin');
+  var HEADER=60; // sticky header height the pin sits below
+
+  // Explicitly size the runway in pixels. Total section height =
+  // pinned-stage height + header + (scroll travel for all tiers).
+  // Each tier transition gets ~1.0 screen of scroll.
   function sizeRunway(){
     var vh=vH();
-    climb.style.height=Math.round(vh*1.15*N + vh*0.15)+'px';
+    var pinH=vh-HEADER;
+    var runway=pinH*(N-1)*1.05;        // travel: 3 transitions, ~1 screen each
+    climb.style.height=Math.round(pinH + HEADER + runway)+'px';
   }
 
   var raf=0;
@@ -426,23 +439,39 @@ html, body { overflow-x:hidden; max-width:100%; }
     raf=0;
     var rect=climb.getBoundingClientRect();
     var vh=vH();
-    var total=climb.offsetHeight - vh;       // scroll distance the pin occupies
-    var scrolled=-rect.top;
+    var pinH=vh-HEADER;                       // pinned stage height
+    // runway = the scroll distance over which the pin stays fixed
+    var total=climb.offsetHeight - pinH - HEADER;
+    var scrolled=HEADER - rect.top;           // how far we are into the runway
+
+
+    // ---- pin state machine ----
+    if(scrolled<=0){
+      pin.classList.add('is-before');
+      pin.classList.remove('is-after');
+    } else if(scrolled>=total){
+      pin.classList.remove('is-before');
+      pin.classList.add('is-after');
+    } else {
+      pin.classList.remove('is-before','is-after');
+    }
+
     var p=total>0 ? scrolled/total : 0;
-    p=Math.max(0,Math.min(1,p));             // 0..1 across the pinned section
-    var prog=p*(N-1);                        // 0..3 fractional tier
+    p=Math.max(0,Math.min(1,p));              // 0..1 across the runway
+    var prog=p*(N-1);                         // 0..3 fractional tier
     placeClimber(prog/(N-1));
     setTier(Math.round(prog));
     updateCards(prog);
   }
   function onScroll(){ if(!raf) raf=requestAnimationFrame(render); }
 
-  // clicking a flag or dot scrolls to that tier's slice of the runway
   function jumpTo(i){
-    var total=climb.offsetHeight - vH();
+    var vh=vH();
+    var total=climb.offsetHeight - (vh-HEADER) - HEADER;
     var target=climb.offsetTop + (i/(N-1))*total;
     window.scrollTo({top:target, behavior:'smooth'});
   }
+  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
   dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
 
   window.addEventListener('scroll',onScroll,{passive:true});
