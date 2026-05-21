@@ -264,6 +264,12 @@ html, body { overflow-x:hidden; max-width:100%; }
   .slcw-row .rc { color:var(--muted-light); font-size:1.1rem; flex:none; }
   .slcw-foot { padding:10px 16px; text-align:center; font-size:0.72rem; color:var(--muted-light); background:#fff; border-top:1px solid var(--line); }
   .slcw-foot b { color:var(--brand); font-weight:600; }
+  /* hide GHL's own auto-rendered launcher bubble — our custom widget IS the launcher.
+     The GHL chat panel still opens programmatically via the Chat with Us row. */
+  chat-widget::part(launcher),
+  chat-widget .lc_text-widget--bubble,
+  chat-widget [class*="bubble"],
+  #lc_text-widget--root .lc_text-widget--bubble { display:none !important; }
 </style>
 
 <div class="slcw-panel" id="slcwPanel">
@@ -342,20 +348,13 @@ html, body { overflow-x:hidden; max-width:100%; }
     s.setAttribute('data-widget-id','69c34fd013ad14bdd250aace');
     document.body.appendChild(s);
   }
-  function openGHL(){
-    var attempts=0;
-    (function tryOpen(){
-      var el=document.querySelector('chat-widget');
-      if(el && typeof el.open==='function'){ el.open(); return; }
-      if(++attempts<60) setTimeout(tryOpen,200);
-    })();
-  }
-  chatRow.addEventListener('click',function(){
-    toggle(false);
-    loadGHL();
-    setTimeout(openGHL,1400);
-  });
-})();
-</script>
-</body>
-</html>
+  /* Hide GHL's own launcher bubble — our ScaleLocal widget is the launcher.
+     GHL renders inside shadow DOM, so reach in and hide the bubble parts. */
+  function hideGhlLauncher(el){
+    try{
+      var sr=el.shadowRoot;
+      if(sr){
+        sr.querySelectorAll('[class*="bubble"],[class*="launcher"],[class*="Launcher"]').forEach(function(n){
+          n.style.display='none';
+        });
+ 
