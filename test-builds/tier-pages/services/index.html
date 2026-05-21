@@ -13,9 +13,15 @@
 <style>
 html, body { overflow-x:hidden; max-width:100%; }
 .mtn-hero { background:radial-gradient(ellipse at 50% 130%, var(--navy-1) 0%, var(--dark) 78%); color:#fff; text-align:center; padding:72px 0 40px; }
-.mtn-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.02em; font-size:clamp(2rem,3.4vw,3rem); margin:14px 0 14px; }
-.mtn-hero h1 em { font-style:normal; color:var(--brand); }
-.mtn-hero p { color:rgba(255,255,255,.80); font-size:1.0625rem; max-width:58ch; margin:0 auto; }
+.mtn-hero h1 {
+  letter-spacing:-0.02em; line-height:1.08;
+  font-size:clamp(2rem,3.6vw,3rem); margin:16px 0 16px;
+}
+/* line 1 — the metaphor: white, semibold */
+.mtn-hero h1 .l1 { display:block; color:#fff; font-weight:600; }
+/* line 2 — the promise: blue accent, bold, the line that closes */
+.mtn-hero h1 .l2 { display:block; color:var(--brand); font-weight:700; margin-top:2px; }
+.mtn-hero p { color:rgba(255,255,255,.80); font-size:1.0625rem; max-width:56ch; margin:0 auto; }
 
 /* ===== PINNED SCROLL-JACK CLIMB ===== */
 /* .climb is a tall runway; .climb-pin is JS-locked via position:fixed
@@ -173,7 +179,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 <section class="mtn-hero">
   <div class="wrap">
     <div class="kicker on-dark">The ScaleLocal Climb</div>
-    <h1>Scaling a business is a climb. <em>We give you the gear.</em></h1>
+    <h1><span class="l1">Scaling a business is a climb.</span><span class="l2">We give you the gear.</span></h1>
     <p>Four levels. Each one builds on the last. Start at Basecamp and ascend at your own pace &mdash; with the tools, the AI, and the partnership to reach whatever summit you're after.</p>
   </div>
 </section>
@@ -485,11 +491,3 @@ html, body { overflow-x:hidden; max-width:100%; }
     window.scrollTo({top:target, behavior:'smooth'});
   }
   dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
-  window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',function(){ sizeRunway(); onScroll(); });
-  sizeRunway();
-  placeClimber(0); setTier(0); updateCards(0); render();
-})();
-</script>
-</body>
-</html>
