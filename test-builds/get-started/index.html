@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get Your Custom Plan — ScaleLocal</title>
+<meta name="description" content="Tell us about your business and we'll build you a tailored growth plan — your site audited, your market sized, your competitors mapped. No cost, no obligation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tier-pages/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(26px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.07s;} .rise.d2{transition-delay:.14s;} .rise.d3{transition-delay:.21s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.gs-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:72px 0 200px; }
+.gs-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.gs-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green); }
+.gs-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.12; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 14px; max-width:20ch; }
+.gs-hero h1 em { font-style:normal; color:var(--brand); }
+.gs-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:56ch; margin:0 auto; line-height:1.6; }
+
+.gs-wrap { max-width:1040px; margin:-160px auto 0; padding:0 24px 30px; position:relative; z-index:2; }
+.gs-grid { display:grid; grid-template-columns:1.35fr .85fr; gap:24px; align-items:start; }
+
+/* form card */
+.gs-card { background:#fff; border-radius:18px; box-shadow:0 40px 90px rgba(8,14,26,.22); border:1px solid var(--line); overflow:hidden; }
+.gs-card-head { padding:26px 30px 0; }
+.gs-card-head h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.3rem; color:var(--text); }
+.gs-card-head p { font-family:Inter; font-size:0.9rem; color:var(--muted); margin-top:5px; }
+.gs-form { padding:22px 30px 30px; display:flex; flex-direction:column; gap:15px; }
+.gs-field label { display:block; font-family:Inter; font-size:0.74rem; font-weight:700; color:var(--muted); margin-bottom:5px; text-transform:uppercase; letter-spacing:.04em; }
+.gs-field label .opt { color:var(--muted-light); font-weight:600; text-transform:none; letter-spacing:0; }
+.gs-field input, .gs-field select, .gs-field textarea {
+  width:100%; border:1.5px solid var(--line); border-radius:10px;
+  padding:11px 13px; font-family:Inter; font-size:0.92rem; color:var(--text);
+  background:#fff; transition:border-color .15s var(--ease);
+}
+.gs-field textarea { resize:vertical; min-height:74px; }
+.gs-field input:focus, .gs-field select:focus, .gs-field textarea:focus { outline:none; border-color:var(--brand); }
+.gs-row { display:grid; grid-template-columns:1fr 1fr; gap:13px; }
+.gs-submit {
+  border:none; border-radius:11px; padding:14px; margin-top:4px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.96rem; color:#fff;
+  background:var(--brand); cursor:pointer; box-shadow:0 10px 26px -8px var(--brand);
+  transition:transform .12s var(--ease), box-shadow .2s var(--ease);
+}
+.gs-submit:hover { transform:translateY(-2px); box-shadow:0 14px 32px -8px var(--brand); }
+.gs-fineprint { font-family:Inter; font-size:0.76rem; color:var(--muted-light); text-align:center; margin-top:2px; line-height:1.5; }
+
+/* confirmation */
+.gs-confirm { padding:46px 34px; text-align:center; }
+.gs-check { width:66px;height:66px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 12px 32px -8px var(--green);animation:pop .4s var(--ease); }
+@keyframes pop { 0%{transform:scale(.4);opacity:0;} 60%{transform:scale(1.08);} 100%{transform:scale(1);opacity:1;} }
+.gs-confirm h2 { font-family:'Montserrat',sans-serif; font-size:1.4rem; color:var(--text); margin-bottom:8px; }
+.gs-confirm p { font-family:Inter; font-size:0.95rem; color:var(--muted); line-height:1.6; max-width:42ch; margin:0 auto 22px; }
+.gs-confirm .gc-next { background:var(--mist); border-radius:12px; padding:18px 20px; text-align:left; font-family:Inter; font-size:0.88rem; color:var(--text); }
+.gs-confirm .gc-next b { font-family:'Montserrat',sans-serif; }
+.gs-confirm .gc-next ol { margin:8px 0 0 18px; color:var(--muted); line-height:1.7; }
+
+/* side rail */
+.gs-side { display:flex; flex-direction:column; gap:16px; }
+.gs-aside { background:#fff; border-radius:16px; border:1px solid var(--line); box-shadow:0 20px 50px rgba(8,14,26,.10); padding:24px 24px; }
+.gs-aside h3 { font-family:'Montserrat',sans-serif; font-size:1.02rem; color:var(--text); margin-bottom:12px; }
+.gs-promise { display:flex; gap:11px; margin-bottom:13px; }
+.gs-promise:last-child { margin-bottom:0; }
+.gs-promise .gp-ic { width:30px;height:30px;border-radius:8px;flex:none;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
+.gs-promise .gp-ic svg { width:16px;height:16px;fill:var(--brand); }
+.gs-promise p { font-family:Inter; font-size:0.86rem; color:var(--muted); line-height:1.5; }
+.gs-promise p b { color:var(--text); font-family:'Montserrat',sans-serif; font-weight:700; display:block; font-size:0.9rem; margin-bottom:1px; }
+.gs-alt { background:linear-gradient(135deg,var(--dark),var(--navy-1)); border-radius:16px; padding:24px; color:#fff; }
+.gs-alt h3 { font-family:'Montserrat',sans-serif; font-size:1.02rem; color:#fff; margin-bottom:6px; }
+.gs-alt p { font-family:Inter; font-size:0.85rem; color:rgba(255,255,255,.74); line-height:1.55; margin-bottom:14px; }
+.gs-alt-btn { display:block; text-align:center; text-decoration:none; border-radius:10px; padding:11px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.86rem; margin-bottom:9px; transition:transform .12s var(--ease); }
+.gs-alt-btn:hover { transform:translateY(-1px); }
+.gs-alt-btn.solid { background:#fff; color:var(--dark); }
+.gs-alt-btn.line { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.22); margin-bottom:0; }
+
+@media (max-width:820px){
+  .gs-grid { grid-template-columns:1fr; }
+  .gs-hero { padding-bottom:170px; }
+  .gs-row { grid-template-columns:1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sl-header">
+  <div class="wrap">
+    <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="../home/">Home</a>
+      <a href="../demo/">Demos</a>
+      <a href="../tier-pages/services/">Pricing</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="gs-hero">
+  <div class="container">
+    <span class="tag rise"><span class="d"></span> Get your custom plan</span>
+    <h1 class="rise d1">Tell us about your business. We&rsquo;ll show you <em>exactly</em> what we&rsquo;d do.</h1>
+    <p class="rise d2">No generic pitch. We look at your site, your market, and your competitors first &mdash; then walk you through a plan built for your business. No cost, no obligation.</p>
+  </div>
+</section>
+
+<!-- ===== INTAKE ===== -->
+<div class="gs-wrap">
+  <div class="gs-grid">
+
+    <!-- form -->
+    <div class="gs-card rise d1">
+      <div id="gsFormView">
+        <div class="gs-card-head">
+          <h2>Request your growth plan</h2>
+          <p>Takes about a minute. A real person reviews every request.</p>
+        </div>
+        <!--
+          GHL INTEGRATION POINT
+          ----------------------------------------------------------------
+          Replace this <form> with the embedded HighLevel form/iframe once
+          the GHL form is built (see operational spec). Field names below
+          are written to map 1:1 onto GHL custom fields:
+            full_name, business_name, vertical, website_url, phone,
+            email, primary_need, monthly_marketing_comfort, message
+          Keep the data-attributes — GTM reads them for event tracking.
+        -->
+        <form class="gs-form" id="gsForm" data-form="growth-plan-intake" novalidate>
+          <div class="gs-row">
+            <div class="gs-field">
+              <label for="f_name">Your name</label>
+              <input type="text" id="f_name" name="full_name" required placeholder="Jordan Avery">
+            </div>
+            <div class="gs-field">
+              <label for="f_biz">Business name</label>
+              <input type="text" id="f_biz" name="business_name" required placeholder="Avery Electric">
+            </div>
+          </div>
+          <div class="gs-row">
+            <div class="gs-field">
+              <label for="f_phone">Phone</label>
+              <input type="tel" id="f_phone" name="phone" required placeholder="(978) 555-0142">
+            </div>
+            <div class="gs-field">
+              <label for="f_email">Email</label>
+              <input type="email" id="f_email" name="email" required placeholder="you@business.com">
+            </div>
+          </div>
+          <div class="gs-row">
+            <div class="gs-field">
+              <label for="f_vertical">Your trade</label>
+              <select id="f_vertical" name="vertical" required>
+                <option value="">Select one&hellip;</option>
+                <option>Electrical</option>
+                <option>Plumbing</option>
+                <option>Roofing</option>
+                <option>HVAC</option>
+                <option>Masonry &amp; Concrete</option>
+                <option>Landscaping</option>
+                <option>Remodeling &amp; Construction</option>
+                <option>Other home service</option>
+              </select>
+            </div>
+            <div class="gs-field">
+              <label for="f_site">Current website <span class="opt">(optional)</span></label>
+              <input type="text" id="f_site" name="website_url" placeholder="averyelectric.com">
+            </div>
+          </div>
+          <div class="gs-field">
+            <label for="f_need">What are you most looking for?</label>
+            <select id="f_need" name="primary_need" required>
+              <option value="">Select one&hellip;</option>
+              <option>A new website built</option>
+              <option>An SEO overhaul &mdash; get found on Google &amp; AI search</option>
+              <option>AI tools &mdash; chat widget, receptionist, follow-up</option>
+              <option>The complete growth system</option>
+              <option>Not sure yet &mdash; I want a recommendation</option>
+            </select>
+          </div>
+          <div class="gs-field">
+            <label for="f_comfort">Roughly what do you spend on marketing now? <span class="opt">(optional)</span></label>
+            <select id="f_comfort" name="monthly_marketing_comfort">
+              <option value="">Prefer not to say</option>
+              <option>Under $1,000 / month</option>
+              <option>$1,000 &ndash; $3,000 / month</option>
+              <option>$3,000 &ndash; $7,500 / month</option>
+              <option>$7,500+ / month</option>
+              <option>Nothing structured yet</option>
+            </select>
+          </div>
+          <div class="gs-field">
+            <label for="f_msg">Anything else we should know? <span class="opt">(optional)</span></label>
+            <textarea id="f_msg" name="message" placeholder="Goals, current frustrations, a deadline you're working toward&hellip;"></textarea>
+          </div>
+          <button type="submit" class="gs-submit">Get my custom plan &rarr;</button>
+          <p class="gs-fineprint">We&rsquo;ll only use your details to prepare your plan and reach out. No spam, ever.</p>
+        </form>
+      </div>
+
+      <!-- confirmation (shown after submit) -->
+      <div class="gs-confirm" id="gsConfirmView" style="display:none;">
+        <div class="gs-check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>
+        <h2>Got it &mdash; your plan is in the works.</h2>
+        <p>A ScaleLocal specialist is reviewing your business now. Here&rsquo;s what happens next.</p>
+        <div class="gc-next">
+          <b>What to expect</b>
+          <ol>
+            <li>We audit your current site, market, and competitors.</li>
+            <li>We build a plan tailored to your business &mdash; not a template.</li>
+            <li>We reach out within one business day to walk you through it.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- side rail -->
+    <div class="gs-side rise d2">
+      <div class="gs-aside">
+        <h3>What you&rsquo;ll get back</h3>
+        <div class="gs-promise">
+          <span class="gp-ic"><svg viewBox="0 0 24 24"><path d="M11 2a9 9 0 1 0 6.32 15.39l4.14 4.14 1.42-1.42-4.14-4.14A9 9 0 0 0 11 2Zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14Z"/></svg></span>
+          <p><b>An honest audit</b>What&rsquo;s working on your site today, and what&rsquo;s quietly costing you customers.</p>
+        </div>
+        <div class="gs-promise">
+          <span class="gp-ic"><svg viewBox="0 0 24 24"><path d="M3 13h2v8H3Zm6-6h2v14H9Zm6-4h2v18h-2Zm6 9h2v9h-2Z"/></svg></span>
+          <p><b>Your market, sized</b>Who&rsquo;s searching for your service, and where you stand against the competition.</p>
+        </div>
+        <div class="gs-promise">
+          <span class="gp-ic"><svg viewBox="0 0 24 24"><path d="M9 11H7v2h2Zm0-4H7v2h2Zm0 8H7v2h2Zm12-2v8H3V3h12v6h6Zm-8 4h-2v2h2Zm4 0h-2v2h2Zm0-4h-2v2h2Z"/></svg></span>
+          <p><b>A real plan, not a quote</b>The exact steps we&rsquo;d take &mdash; and which tier fits where you are.</p>
+        </div>
+      </div>
+      <div class="gs-alt">
+        <h3>Rather just talk?</h3>
+        <p>Skip the form &mdash; grab a time or give us a call. Either way, a real person, no pressure.</p>
+        <a href="../demo/booking-calendar/" class="gs-alt-btn solid">Book a strategy call</a>
+        <a href="tel:+19786627580" class="gs-alt-btn line">Call 978.662.7580</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>The Climb</h4>
+        <a href="../tier-pages/basecamp/">Basecamp &mdash; $249/mo</a>
+        <a href="../tier-pages/ascent/">Ascent &mdash; $597/mo</a>
+        <a href="../tier-pages/summit/">Summit &mdash; $997/mo</a>
+        <a href="../tier-pages/apex/">Apex &mdash; $1,497/mo</a>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* scroll reveal */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+  /* form handling — demo only. On the live build this is replaced by the
+     embedded HighLevel form, which posts straight into the GHL pipeline. */
+  var form=document.getElementById('gsForm');
+  if(form){
+    form.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      /* basic required-field check */
+      var ok=true;
+      form.querySelectorAll('[required]').forEach(function(el){
+        if(!el.value.trim()){ el.style.borderColor='#e0463e'; ok=false; }
+        else { el.style.borderColor=''; }
+      });
+      if(!ok){ return; }
+      /* GTM hook: a real submission would push a dataLayer event here, e.g.
+         window.dataLayer.push({event:'generate_lead', form:'growth-plan-intake'}); */
+      document.getElementById('gsFormView').style.display='none';
+      document.getElementById('gsConfirmView').style.display='block';
+      window.scrollTo({top:document.querySelector('.gs-wrap').offsetTop-30,behavior:'smooth'});
+    });
+  }
+})();
+</script>
+</body>
+</html>
