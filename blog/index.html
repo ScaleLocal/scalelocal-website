@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <title>ScaleLocal Blog | Local Marketing Tips for Small Businesses</title>
   <meta name="description" content="Actionable local marketing strategies for small businesses in Massachusetts, New Hampshire, and Rhode Island. SEO, Google reviews, AI search, and more.">
   <link rel="canonical" href="https://www.scalelocal.net/blog">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScaleLocal">
   <meta property="og:title" content="ScaleLocal Blog — Local Marketing Strategies for Small Businesses">
@@ -18,129 +18,203 @@
   <meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/tier-v2.css">
   <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-font-smoothing:antialiased}
-    body{font-family:'Inter',sans-serif;color:#1a1a2e;background:#f0f4f8}
-    .topbar{background:#1a2e4a;padding:16px 24px;display:flex;justify-content:space-between;align-items:center}
-    .topbar a{text-decoration:none}
-    .logo-s{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff}
-    .logo-l{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6}
-    .topbar-cta{display:inline-flex;padding:8px 20px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8125rem;border-radius:6px;text-decoration:none}
-    .blog-wrap{max-width:800px;margin:0 auto;padding:48px 24px 80px}
-    .blog-header{margin-bottom:48px}
-    .blog-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:12px}
-    .blog-header h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#1a2e4a;font-size:2rem;line-height:1.2;margin-bottom:12px}
-    .blog-header p{font-family:'Inter',sans-serif;font-size:1rem;color:#6b7a8d;line-height:1.6}
-    .post-card{background:#fff;border-radius:12px;padding:28px;border:1px solid #e2e8f0;margin-bottom:16px;text-decoration:none;display:block;transition:border-color 0.2s,box-shadow 0.2s}
-    .post-card:hover{border-color:#2E75B6;box-shadow:0 4px 16px rgba(26,46,74,0.08)}
-    .post-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.25rem;line-height:1.3;margin-bottom:8px}
-    .post-card p{font-family:'Inter',sans-serif;font-size:0.9375rem;color:#6b7a8d;line-height:1.6;margin-bottom:8px}
-    .post-card .meta{font-family:'Inter',sans-serif;font-size:0.75rem;color:#9aa5b4}
+  html,body{overflow-x:hidden;max-width:100%}
+  body{background:var(--mist,#eef2f7)}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--brand);color:#fff;padding:12px 20px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  main{display:block}
+  /* --- article + content body --- */
+  .article,.content,.blog-wrap{max-width:760px;margin:0 auto;padding:56px 24px 84px;background:var(--white,#fff)}
+  .blog-wrap{max-width:820px}
+  .hero{background:radial-gradient(ellipse at 50% 120%,var(--navy-1,#22375c) 0%,var(--dark,#0e1726) 78%);color:#fff;padding:84px 24px 64px;text-align:center}
+  .hero-eyebrow,.article-eyebrow,.blog-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;color:var(--green,#2ecc71);text-transform:uppercase;letter-spacing:0.15em;font-weight:700;margin-bottom:12px}
+  .hero h1{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:clamp(2rem,4vw,2.7rem);line-height:1.18;max-width:760px;margin:0 auto 18px;letter-spacing:-0.02em}
+  .hero p{font-family:'Inter',sans-serif;font-size:1.06rem;color:rgba(255,255,255,.8);max-width:620px;margin:0 auto;line-height:1.65}
+  .article h1,.blog-header h1{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:clamp(1.9rem,3.4vw,2.5rem);line-height:1.18;margin-bottom:18px;letter-spacing:-0.02em}
+  .article-meta{font-family:'Inter',sans-serif;font-size:0.82rem;color:var(--muted,#6b7a8d);margin-bottom:36px;padding-bottom:18px;border-bottom:1px solid var(--line,#e2e8f0)}
+  .article h2,.content h2,.blog-header+*  {}
+  .article h2,.content h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.42rem;line-height:1.3;margin:40px 0 16px;letter-spacing:-0.01em}
+  .article h3,.content h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--brand,#2E75B6);font-size:1.14rem;margin:30px 0 12px}
+  .article p,.content p,.blog-header p{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--muted,#4a5a6e);line-height:1.78;margin-bottom:20px}
+  .article ul,.article ol,.content ul,.content ol{margin:0 0 20px 24px;color:var(--muted,#4a5a6e)}
+  .article li,.content li{margin-bottom:8px;line-height:1.7}
+  .article strong,.content strong{color:var(--dark,#1a2e4a)}
+  .article a,.content a{color:var(--brand,#2E75B6);text-decoration:underline}
+  .article blockquote{border-left:4px solid var(--green,#2ecc71);padding:16px 24px;margin:24px 0;background:var(--mist,#f0f4f8);border-radius:0 8px 8px 0}
+  .article blockquote p{color:var(--dark,#1a2e4a);font-weight:500;margin-bottom:0}
+  .blog-header{margin-bottom:44px}
+  .cta-box{background:var(--dark,#1a2e4a);border-radius:14px;padding:34px;margin:48px 0;text-align:center}
+  .cta-box h3{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 12px}
+  .cta-box p{color:rgba(255,255,255,.78);font-family:'Inter',sans-serif;font-size:0.95rem;margin-bottom:20px}
+  .cta-btn,.cta-button{display:inline-flex;align-items:center;padding:14px 32px;background:var(--green,#2ecc71);color:var(--dark,#1a2e4a);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;border-radius:8px;text-decoration:none}
+  .cta-btn:hover,.cta-button:hover{filter:brightness(1.06)}
+  .related,.industry-links{margin-top:48px;padding-top:32px;border-top:1px solid var(--line,#e2e8f0)}
+  .related h3,.industry-links h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1rem;margin-bottom:14px}
+  .related a{display:block;font-family:'Inter',sans-serif;font-size:0.94rem;color:var(--brand,#2E75B6);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--mist,#f0f4f8)}
+  .post-card{background:var(--white,#fff);border-radius:12px;padding:26px;border:1px solid var(--line,#e2e8f0);margin-bottom:14px;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s}
+  .post-card:hover{border-color:var(--brand,#2E75B6);box-shadow:0 6px 18px rgba(8,14,26,.08)}
+  .post-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.2rem;line-height:1.3;margin-bottom:8px}
+  .post-card p{font-family:'Inter',sans-serif;font-size:0.93rem;color:var(--muted,#6b7a8d);line-height:1.6;margin-bottom:8px}
+  .post-card .meta{font-family:'Inter',sans-serif;font-size:0.78rem;color:#9aa5b4}
+  .tier-card{background:var(--mist,#f5f8fb);border:1px solid var(--line,#e2e8f0);border-radius:12px;padding:24px;margin-bottom:16px}
+  .tier-card h3{margin-top:0;color:var(--dark,#1a2e4a)}
+  .tier-label{font-family:'Montserrat',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--green,#2ecc71);margin-bottom:4px}
+  .tier-expect{font-family:'Inter',sans-serif;font-size:0.86rem;color:var(--brand,#2E75B6);font-weight:600;margin-bottom:12px;line-height:1.6}
+  .tier-description{color:var(--muted,#4a5a6e);margin-bottom:0}
+  .qa-box,.economics-section{background:var(--mist,#f5f8fb);border-left:4px solid var(--brand,#2E75B6);padding:20px 24px;border-radius:0 8px 8px 0;margin:28px 0}
+  .qa-box h3{color:var(--dark,#1a2e4a);margin-top:0;font-size:1rem}
+  .qa-box ol,.qa-box ul{margin:12px 0 0 24px;color:var(--muted,#4a5a6e)}
+  .industry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:24px 0}
+  .industry-card{background:var(--white,#fff);border:1px solid var(--line,#e2e8f0);border-radius:12px;padding:20px;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s}
+  .industry-card:hover{border-color:var(--brand,#2E75B6);box-shadow:0 6px 18px rgba(8,14,26,.08)}
+  .industry-card h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.02rem;margin-bottom:6px}
+  .industry-card p{font-size:0.88rem;color:var(--muted,#6b7a8d);line-height:1.55;margin-bottom:10px}
+  .industry-card-link{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;color:var(--brand,#2E75B6)}
+  .industry-links-grid{display:flex;flex-wrap:wrap;gap:8px}
+  .industry-links-grid a{display:inline-block;padding:6px 14px;background:var(--mist,#f5f8fb);border:1px solid var(--line,#e2e8f0);border-radius:6px;font-size:0.8rem;color:var(--brand,#2E75B6);text-decoration:none}
+  .cta-section{background:var(--dark,#1a2e4a);border-radius:14px;padding:40px 32px;margin:48px 0 0;text-align:center}
+  .cta-section h2{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;margin:0 0 12px}
+  .cta-section p{color:rgba(255,255,255,.78);max-width:54ch;margin:0 auto 22px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--brand,#2E75B6);outline-offset:2px}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <a href="/"><span class="logo-s">Scale</span><span class="logo-l">Local</span></a>
-    <a href="/snapshot" class="topbar-cta">Free Digital Audit</a>
-  </header>
-  <div class="blog-wrap">
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+<main id="main">
+<div class="blog-wrap">
     <div class="blog-header">
       <p class="blog-eyebrow">ScaleLocal Blog</p>
       <h1>Local marketing strategies that actually work.</h1>
       <p>Actionable tips for small businesses in Massachusetts, New Hampshire, and Rhode Island. No fluff. No jargon. Just the things that move the needle.</p>
     </div>
-    <a href="/blog/local-seo-checklist-small-business-2026" class="post-card">
+    <a href="/blog/local-seo-checklist-small-business-2026/" class="post-card">
       <h2>The complete local SEO checklist for small businesses (2026)</h2>
       <p>Everything you need to rank on Google — Google Business Profile, reviews, website speed, citations, and AI search visibility.</p>
-      <span class="meta">March 2026 &middot; 12 min read</span>
+      <span class="meta">12 min read</span>
     </a>
-    <a href="/blog/ai-for-small-business-practical-guide-2026" class="post-card">
+    <a href="/blog/ai-for-small-business-practical-guide-2026/" class="post-card">
       <h2>Should your small business use AI? A practical guide for 2026</h2>
       <p>Cut through the hype. Which AI tools actually save time and make money for local businesses — and which ones are not worth it yet.</p>
-      <span class="meta">March 2026 &middot; 10 min read</span>
+      <span class="meta">10 min read</span>
     </a>
-    <a href="/blog/law-firm-marketing-get-more-cases" class="post-card">
+    <a href="/blog/law-firm-marketing-get-more-cases/" class="post-card">
       <h2>Law firm marketing: how to get more cases without buying leads</h2>
       <p>Why Avvo and FindLaw leads are leaving money on the table, and what actually works for law firms in MA, NH, and RI.</p>
-      <span class="meta">March 2026 &middot; 10 min read</span>
+      <span class="meta">10 min read</span>
     </a>
-    <a href="/blog/cpa-accounting-firm-marketing-more-clients" class="post-card">
+    <a href="/blog/cpa-accounting-firm-marketing-more-clients/" class="post-card">
       <h2>Marketing for CPA firms: how to attract high-value clients without cold calling</h2>
       <p>The digital engine that generates new client inquiries on autopilot — so referrals become the bonus, not the entire pipeline.</p>
-      <span class="meta">March 2026 &middot; 9 min read</span>
+      <span class="meta">9 min read</span>
     </a>
-    <a href="/blog/wealth-management-financial-advisor-marketing" class="post-card">
+    <a href="/blog/wealth-management-financial-advisor-marketing/" class="post-card">
       <h2>Marketing for wealth management firms and financial advisors</h2>
       <p>How to attract high-net-worth clients through Google visibility and AI search — without cold calling or buying leads.</p>
-      <span class="meta">March 2026 &middot; 9 min read</span>
+      <span class="meta">9 min read</span>
     </a>
-    <a href="/blog/professional-services-marketing-digital-presence" class="post-card">
+    <a href="/blog/professional-services-marketing-digital-presence/" class="post-card">
       <h2>Why professional service firms are losing clients to Google</h2>
       <p>CPAs, attorneys, and financial advisors are losing high-value clients to competitors who show up first. Here is how to fix it.</p>
-      <span class="meta">March 2026 &middot; 8 min read</span>
+      <span class="meta">8 min read</span>
     </a>
-    <a href="/blog/insurance-agency-marketing-more-policies" class="post-card">
+    <a href="/blog/insurance-agency-marketing-more-policies/" class="post-card">
       <h2>Insurance agency marketing: how to write more policies without buying leads</h2>
       <p>The lifetime value of a bundled home + auto + life client exceeds $50,000. Here is how to capture them through Google.</p>
-      <span class="meta">March 2026 &middot; 9 min read</span>
+      <span class="meta">9 min read</span>
     </a>
-    <a href="/blog/plumber-marketing-get-found-google" class="post-card">
+    <a href="/blog/plumber-marketing-get-found-google/" class="post-card">
       <h2>Plumber marketing: how to get found on Google and stop losing emergency calls</h2>
       <p>The first plumber that answers gets the $2,000 job. Everyone else does not even know the call happened.</p>
-      <span class="meta">March 2026 &middot; 7 min read</span>
+      <span class="meta">7 min read</span>
     </a>
-    <a href="/blog/electrician-marketing-more-service-calls" class="post-card">
+    <a href="/blog/electrician-marketing-more-service-calls/" class="post-card">
       <h2>Electrician marketing: how to fill your schedule without relying on word of mouth</h2>
       <p>Emergency calls, project work, and EV charger installations — the strategies that keep the schedule full.</p>
-      <span class="meta">March 2026 &middot; 7 min read</span>
+      <span class="meta">7 min read</span>
     </a>
-    <a href="/blog/contractor-marketing-roofing-remodeling-leads" class="post-card">
+    <a href="/blog/contractor-marketing-roofing-remodeling-leads/" class="post-card">
       <h2>Contractor marketing: how roofers, remodelers, and home builders get more leads</h2>
       <p>High-ticket lead generation for $10K-$100K+ jobs. Portfolio-driven Google presence and why shared leads are dead.</p>
-      <span class="meta">March 2026 &middot; 9 min read</span>
+      <span class="meta">9 min read</span>
     </a>
-    <a href="/blog/dental-practice-marketing-new-patients" class="post-card">
+    <a href="/blog/dental-practice-marketing-new-patients/" class="post-card">
       <h2>Dental practice marketing: how to get new patients without spending a fortune</h2>
       <p>One new patient family is worth $15,000+ over the life of the relationship. Here is how to acquire them through Google.</p>
-      <span class="meta">March 2026 &middot; 8 min read</span>
+      <span class="meta">8 min read</span>
     </a>
-    <a href="/blog/ai-receptionist-small-business-guide" class="post-card">
+    <a href="/blog/ai-receptionist-small-business-guide/" class="post-card">
       <h2>AI receptionist for small business: what it is, what it costs, and whether you need one</h2>
       <p>A practical guide with real numbers from HVAC, dental, legal, and contractor businesses.</p>
-      <span class="meta">March 2026 &middot; 9 min read</span>
+      <span class="meta">9 min read</span>
     </a>
-    <a href="/blog/how-to-get-more-google-reviews-local-business" class="post-card">
+    <a href="/blog/how-to-get-more-google-reviews-local-business/" class="post-card">
       <h2>How to get more Google reviews for your local business (without begging)</h2>
       <p>The automated review system that takes businesses from 15 reviews to 100+ in under six months.</p>
-      <span class="meta">March 2026 &middot; 8 min read</span>
+      <span class="meta">8 min read</span>
     </a>
-    <a href="/blog/hvac-marketing-strategies-more-calls" class="post-card">
+    <a href="/blog/hvac-marketing-strategies-more-calls/" class="post-card">
       <h2>HVAC marketing: 7 strategies that actually get your phone ringing</h2>
       <p>Proven strategies for HVAC contractors in Massachusetts, New Hampshire, and Rhode Island.</p>
-      <span class="meta">March 2026 &middot; 8 min read</span>
+      <span class="meta">8 min read</span>
     </a>
-    <a href="/blog/ai-search-local-business-chatgpt-gemini" class="post-card">
+    <a href="/blog/ai-search-local-business-chatgpt-gemini/" class="post-card">
       <h2>AI search is changing how customers find local businesses</h2>
       <p>ChatGPT, Gemini, and Perplexity are recommending businesses by name. Here is how to be in the answer.</p>
-      <span class="meta">March 2026 &middot; 7 min read</span>
+      <span class="meta">7 min read</span>
     </a>
-    <a href="/blog/google-business-profile-optimization-guide" class="post-card">
+    <a href="/blog/google-business-profile-optimization-guide/" class="post-card">
       <h2>How to optimize your Google Business Profile (the complete 2026 guide)</h2>
       <p>Step-by-step guide covering every field, photos, posts, reviews, and AI-driven features.</p>
-      <span class="meta">March 2026 &middot; 11 min read</span>
+      <span class="meta">11 min read</span>
     </a>
-    <a href="/blog/missed-calls-costing-local-business-money" class="post-card">
+    <a href="/blog/missed-calls-costing-local-business-money/" class="post-card">
       <h2>How missed calls are costing your local business real money</h2>
       <p>The average local business misses 27% of calls during business hours. Here is what that costs you annually.</p>
-      <span class="meta">March 2026 &middot; 6 min read</span>
+      <span class="meta">6 min read</span>
     </a>
   </div>
-
-<footer style="background:#1a2e4a;padding:32px 20px 24px;text-align:center;margin-top:48px;">
-  <p style="color:#6b7a8d;font-family:Inter,sans-serif;font-size:13px;margin:0;">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA &middot; MA Business Certificate BC-26-28 &middot; Serving Rhode Island, Massachusetts &amp; New Hampshire &middot; All rights reserved. <a href="/industries" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Industries</a> &middot; <a href="/terms" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Terms</a> &middot; <a href="/privacy" style="color:#6b7a8d;text-decoration:none;border-bottom:1px solid #3a4a5c;">Privacy</a></p>
+</main>
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>The Climb</h4>
+        <a href="/basecamp/">Basecamp &mdash; $249/mo</a>
+        <a href="/ascent/">Ascent &mdash; $597/mo</a>
+        <a href="/summit/">Summit &mdash; $997/mo</a>
+        <a href="/apex/">Apex &mdash; $1,497/mo</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; ScaleLocal&trade; &middot; Tewksbury, MA &middot; Serving Massachusetts, New Hampshire &amp; Rhode Island</div>
+  </div>
 </footer>
-
 </body>
 </html>
