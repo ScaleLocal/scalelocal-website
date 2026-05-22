@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>AI Receptionist — Live Demo | ScaleLocal</title>
+<meta name="description" content="Hear the ScaleLocal AI Receptionist answer a call, qualify the caller, and book the job 24/7. Watch a simulated call or talk to the AI live yourself.">
+<link rel="canonical" href="https://www.scalelocal.net/demos/ai-receptionist/">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Receptionist — Live Demo | ScaleLocal">
+<meta property="og:description" content="Hear the ScaleLocal AI Receptionist answer a call, qualify the caller, and book the job 24/7. Watch a simulated call or talk to the AI live yourself.">
+<meta property="og:url" content="https://www.scalelocal.net/demos/ai-receptionist/">
+<meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Receptionist — Live Demo | ScaleLocal">
+<meta name="twitter:description" content="Hear the ScaleLocal AI Receptionist answer a call, qualify the caller, and book the job 24/7. Watch a simulated call or talk to the AI live yourself.">
+<meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.08s;} .rise.d2{transition-delay:.16s;} .rise.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.demo-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:72px 0 56px; }
+.demo-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.demo-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 2s infinite; }
+@keyframes lpulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.demo-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 16px; max-width:18ch; }
+.demo-hero h1 em { font-style:normal; color:var(--brand); }
+.demo-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:58ch; margin:0 auto; line-height:1.6; }
+
+/* ===== the call stage ===== */
+.call-stage { max-width:560px; margin:42px auto 0; padding:0 24px; }
+.phone-shell { background:#0c1116; border-radius:40px; padding:16px; box-shadow:0 40px 90px rgba(8,14,26,.6); position:relative; }
+.phone-shell::before { content:""; position:absolute; top:9px; left:50%; transform:translateX(-50%); width:7px;height:7px;border-radius:50%;background:#2a323c; }
+.phone-screen { background:#f0f4f8; border-radius:30px; overflow:hidden; min-height:540px; display:flex; flex-direction:column; }
+/* call header */
+.call-top { background:linear-gradient(160deg,#1a2e4a,#0f1c2e); color:#fff; padding:26px 22px 20px; text-align:center; flex:none; }
+.call-avatar { width:74px;height:74px;border-radius:50%;margin:0 auto 12px;background:linear-gradient(140deg,#2E75B6,#1a5fa0);display:flex;align-items:center;justify-content:center;position:relative; }
+.call-avatar svg { width:34px;height:34px;fill:#fff; }
+.call-avatar.ringing::after { content:""; position:absolute; inset:-7px; border-radius:50%; border:2px solid var(--green); animation:ring 1.4s ease-out infinite; }
+@keyframes ring { 0%{opacity:.8;transform:scale(.9);} 100%{opacity:0;transform:scale(1.35);} }
+.call-name { font-family:Montserrat; font-weight:700; font-size:1.15rem; }
+.call-sub { font-size:0.82rem; color:rgba(255,255,255,.6); margin-top:3px; }
+.call-status { display:inline-flex; align-items:center; gap:7px; margin-top:11px; font-size:0.74rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--green); }
+.call-status .sd { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 1.6s infinite; }
+/* transcript */
+.transcript { flex:1; padding:20px 18px; overflow-y:auto; display:flex; flex-direction:column; gap:12px; background:#f0f4f8; }
+.tline { display:flex; gap:9px; max-width:90%; opacity:0; transform:translateY(10px); animation:tin .4s var(--ease) forwards; }
+@keyframes tin { to{opacity:1;transform:translateY(0);} }
+.tline.ai { align-self:flex-start; }
+.tline.caller { align-self:flex-end; flex-direction:row-reverse; }
+.tline .who { width:26px;height:26px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:0.6rem;color:#fff; }
+.tline.ai .who { background:var(--brand); }
+.tline.caller .who { background:var(--muted); }
+.tline .bub { padding:10px 13px; border-radius:13px; font-size:0.86rem; line-height:1.45; }
+.tline.ai .bub { background:#fff; color:var(--text); border:1px solid var(--line); border-bottom-left-radius:4px; }
+.tline.caller .bub { background:var(--brand); color:#fff; border-bottom-right-radius:4px; }
+.tline .typing { display:flex; gap:4px; padding:13px; }
+.tline .typing span { width:6px;height:6px;border-radius:50%;background:var(--muted-light);animation:tdot 1.2s infinite; }
+.tline .typing span:nth-child(2){animation-delay:.18s;} .tline .typing span:nth-child(3){animation-delay:.36s;}
+@keyframes tdot { 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
+/* call controls */
+.call-foot { flex:none; padding:16px 18px 20px; background:#fff; border-top:1px solid var(--line); display:flex; flex-direction:column; gap:10px; }
+.call-btn { width:100%; border:none; cursor:pointer; font-family:Inter; font-weight:700; font-size:0.95rem; padding:15px; border-radius:12px; transition:filter .15s ease; }
+.call-btn:hover { filter:brightness(1.07); }
+.call-btn.go { background:var(--green); color:#fff; }
+.call-btn.live { background:var(--brand); color:#fff; }
+.call-btn.ghost { background:var(--mist); color:var(--dark); }
+.call-result { display:none; padding:16px; background:rgba(46,204,113,.10); border:1px solid rgba(46,204,113,.3); border-radius:12px; }
+.call-result.show { display:block; }
+.call-result h4 { font-family:Montserrat; font-weight:700; font-size:0.92rem; color:var(--green-deep); display:flex; align-items:center; gap:7px; }
+.call-result p { font-size:0.82rem; color:var(--text); margin-top:5px; line-height:1.5; }
+
+/* ===== lead-capture gate modal ===== */
+.gate { position:fixed; inset:0; background:rgba(8,14,26,.72); display:none; align-items:center; justify-content:center; z-index:200; padding:24px; }
+.gate.show { display:flex; }
+.gate-card { background:#fff; border-radius:var(--radius-lg); max-width:430px; width:100%; padding:34px 32px 30px; box-shadow:0 40px 90px rgba(8,14,26,.5); }
+.gate-card .gk { font-family:Inter; font-weight:700; font-size:0.7rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
+.gate-card h3 { font-family:Montserrat; font-weight:700; font-size:1.4rem; color:var(--dark); margin:8px 0 8px; line-height:1.2; }
+.gate-card .gp { font-size:0.92rem; color:var(--muted); line-height:1.55; margin-bottom:20px; }
+.gate-field { margin-bottom:13px; }
+.gate-field label { display:block; font-family:Inter; font-weight:600; font-size:0.78rem; color:var(--dark); margin-bottom:5px; }
+.gate-field input { width:100%; font-family:Inter; font-size:0.95rem; padding:12px 14px; border:1.5px solid var(--line); border-radius:var(--radius-sm); transition:border-color .15s ease; }
+.gate-field input:focus { outline:none; border-color:var(--brand); }
+.gate-field .err { display:none; font-size:0.74rem; color:var(--accent); margin-top:4px; }
+.gate-field.invalid input { border-color:var(--accent); }
+.gate-field.invalid .err { display:block; }
+.gate-submit { width:100%; background:var(--brand); color:#fff; border:none; cursor:pointer; font-family:Inter; font-weight:700; font-size:0.95rem; padding:14px; border-radius:var(--radius-sm); margin-top:6px; }
+.gate-submit:hover { background:var(--brand-deep); }
+.gate-fine { font-size:0.74rem; color:var(--muted-light); text-align:center; margin-top:12px; line-height:1.5; }
+.gate-close { position:absolute; }
+.gate-card { position:relative; }
+.gate-x { position:absolute; top:14px; right:16px; width:30px;height:30px;border:none;background:var(--mist);border-radius:50%;cursor:pointer;font-size:1rem;color:var(--muted);line-height:1; }
+.gate-success { display:none; text-align:center; }
+.gate-success.show { display:block; }
+.gate-success .gs-ic { width:54px;height:54px;border-radius:50%;background:rgba(46,204,113,.14);display:flex;align-items:center;justify-content:center;margin:0 auto 14px; }
+.gate-success .gs-ic svg { width:26px;height:26px;fill:var(--green); }
+
+/* feature strip */
+.feat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.feat { text-align:left; }
+.feat .fi { width:44px;height:44px;border-radius:11px;background:rgba(46,117,182,.10);display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+.feat .fi svg { width:22px;height:22px;fill:var(--brand); }
+.feat h3 { font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:7px; }
+.feat p { font-size:0.93rem;color:var(--muted);line-height:1.58; }
+
+@media(max-width:880px){ .feat-row { grid-template-columns:1fr; } }
+
+/* ===== accessibility: visible keyboard focus + skip link ===== */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--brand);
+  outline-offset:2px;
+  border-radius:3px;
+}
+.skip-link {
+  position:absolute; left:-9999px; top:0; z-index:2000;
+  background:var(--brand); color:#fff; padding:12px 20px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  border-radius:0 0 8px 0; text-decoration:none;
+}
+.skip-link:focus { left:0; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.scalelocal.net/#organization",
+      "name": "ScaleLocal",
+      "legalName": "ScaleLocal™",
+      "url": "https://www.scalelocal.net/",
+      "logo": "https://www.scalelocal.net/og-image.png",
+      "email": "hello@scalelocal.net",
+      "telephone": "+1-978-662-7580",
+      "areaServed": "Massachusetts and New England",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.scalelocal.net/demos/ai-receptionist/#webpage",
+      "url": "https://www.scalelocal.net/demos/ai-receptionist/",
+      "name": "AI Receptionist — Live Demo | ScaleLocal",
+      "description": "Hear the ScaleLocal AI Receptionist answer a call, qualify the caller, and book the job 24/7. Watch a simulated call or talk to the AI live yourself.",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo" aria-label="ScaleLocal home"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav" aria-label="Primary">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/" class="active">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="demo-hero">
+  <div class="wrap">
+    <span class="tag rise"><span class="d"></span> Live demo</span>
+    <h1 class="rise d1">The call gets answered. <em>The job gets booked.</em></h1>
+    <p class="rise d2">This is the ScaleLocal AI Receptionist &mdash; a real voice agent that answers every call, qualifies the caller, and books the appointment. Watch a call play out, or talk to it live yourself.</p>
+  </div>
+  <div class="call-stage rise d2">
+    <div class="phone-shell">
+      <div class="phone-screen">
+        <div class="call-top">
+          <div class="call-avatar" id="callAvatar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5a12.5 12.5 0 0 1-3.9-.6 1 1 0 0 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6L8.5 8.5a1 1 0 0 0 .2-1A12.5 12.5 0 0 1 8.1 3.6 1 1 0 0 0 7.1 3H4a1 1 0 0 0-1 1A17 17 0 0 0 20 21a1 1 0 0 0 1-1v-3.1a1 1 0 0 0-1-1.4Z"/></svg>
+          </div>
+          <div class="call-name">Riverside Plumbing Co.</div>
+          <div class="call-sub" id="callSub">AI Receptionist &mdash; ready</div>
+          <div class="call-status" id="callStatus" style="display:none;"><span class="sd"></span> Call in progress</div>
+        </div>
+        <div class="transcript" id="transcript">
+          <div style="margin:auto;text-align:center;color:var(--muted);font-size:0.86rem;padding:30px 16px;">
+            Press <b>Watch a call</b> below to see how the AI Receptionist handles a real customer &mdash; live, line by line.
+          </div>
+        </div>
+        <div class="call-foot">
+          <div class="call-result" id="callResult">
+            <h4><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Appointment booked</h4>
+            <p>The AI captured the lead, qualified the job, and put a confirmed appointment on the calendar &mdash; in under two minutes, with no human involved.</p>
+          </div>
+          <button class="call-btn go" id="btnWatch">&#9654;&nbsp; Watch a call</button>
+          <button class="call-btn live" id="btnLive">&#128222;&nbsp; Experience it live</button>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:rgba(255,255,255,.5);margin-top:16px;">The simulation is a real example call. <b style="color:rgba(255,255,255,.8);font-weight:600;">Experience it live</b> to talk to the AI yourself.</p>
+  </div>
+</section>
+
+<!-- ===== lead-capture gate ===== -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <button class="gate-x" id="gateX">&times;</button>
+    <div class="gate-form" id="gateForm">
+      <div class="gk">Live experience</div>
+      <h3>Talk to the AI Receptionist yourself.</h3>
+      <p class="gp">Tell us where to send your call summary. You'll get a live line to the AI &mdash; plus a written transcript and synopsis of your call, emailed to you.</p>
+      <div class="gate-field" id="fName">
+        <label for="gName">Your name</label>
+        <input type="text" id="gName" placeholder="Jordan Reyes" autocomplete="name" aria-required="true">
+        <div class="err">Please enter your name.</div>
+      </div>
+      <div class="gate-field" id="fEmail">
+        <label for="gEmail">Email address</label>
+        <input type="email" id="gEmail" placeholder="jordan@yourbusiness.com" autocomplete="email" aria-required="true">
+        <div class="err">Please enter a valid email address.</div>
+      </div>
+      <button class="gate-submit" id="gateSubmit">Unlock the live AI &rarr;</button>
+      <p class="gate-fine">No spam. We use your email only to send your call summary and follow up about ScaleLocal.</p>
+    </div>
+    <div class="gate-success" id="gateSuccess">
+      <div class="gs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></div>
+      <h3>You're unlocked.</h3>
+      <p class="gp">Look for the phone icon in the bottom-right corner &mdash; tap it to start a live voice conversation with the AI Receptionist. Your transcript and synopsis will be emailed when you're done.</p>
+      <a href="/services/" class="gate-submit" style="display:block;text-decoration:none;text-align:center;" data-cta="demo-receptionist-gate-pricing">See AI Receptionist pricing &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center rise" style="margin:0 auto 8px;">
+      <div class="kicker">Why a missed call is a missed job</div>
+      <h2>It answers every call &mdash; so you never lose one.</h2>
+    </div>
+    <div class="feat-row">
+      <div class="feat rise d1">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2Zm0-8h-2V7h2Z"/></svg></div>
+        <h3>Picks up on the first ring &mdash; always</h3>
+        <p>After hours, weekends, holidays, or while you're already on a job. The AI answers 24/7/365 so a caller never hits voicemail and dials your competitor instead.</p>
+      </div>
+      <div class="feat rise d2">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6Zm-1 14-4-4 1.4-1.4L11 13.2l5.6-5.6L18 9Z"/></svg></div>
+        <h3>Qualifies the caller properly</h3>
+        <p>It asks the right questions &mdash; what they need, where they are, how urgent &mdash; so every lead that reaches you is real and ready, not a tire-kicker.</p>
+      </div>
+      <div class="feat rise d3">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14Zm-7-7 4.2 4.2-1.4 1.4L12 15.8 9.2 18.6 7.8 17.2 12 13Z"/></svg></div>
+        <h3>Books the job onto your calendar</h3>
+        <p>It doesn't just take a message &mdash; it puts a confirmed appointment on your calendar before the call ends, in your business's own voice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-tight s-dark" style="text-align:center;">
+  <div class="wrap measure" style="margin:0 auto;">
+    <h2 style="font-size:clamp(1.7rem,3vw,2.5rem);">Put an AI Receptionist on every call.</h2>
+    <p style="color:var(--muted-light);margin:12px 0 26px;font-size:1.0625rem;">The AI Receptionist is included from Summit &mdash; level three of the ScaleLocal climb.</p>
+    <div class="hero-cta-row" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="/services/" class="btn btn-primary btn-lg" data-cta="demo-receptionist-pricing">See pricing &amp; tiers</a>
+      <a href="tel:+19786627580" class="btn btn-line-light btn-lg" data-cta="book-call-demo-receptionist">Talk to ScaleLocal</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Demos</h4>
+        <a href="/ai-chat-widget/">AI Chat Widget</a>
+        <a href="/ai-receptionist/">AI Receptionist</a>
+        <a href="/sales-sniper-agent/">Sales Sniper Agent</a>
+        <a href="/booking-calendar/">Booking Calendar</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA 01876 &middot; MA Business Certificate BC-26-28 &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---- scroll reveal ---- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  var vh=window.innerHeight||800;
+  document.querySelectorAll('.rise').forEach(function(el){
+    if(el.getBoundingClientRect().top<vh*0.92){ el.classList.add('in'); } else { io.observe(el); }
+  });
+
+  /* ---- the simulated call ---- */
+  var script=[
+    {who:'ai', t:"Thanks for calling Riverside Plumbing, this is the front desk. How can I help you today?"},
+    {who:'caller', t:"Hi — my water heater stopped working and there's water on the floor."},
+    {who:'ai', t:"I'm sorry to hear that — let's get someone out to you. Is the water actively leaking right now, or has it stopped?"},
+    {who:'caller', t:"It's slow but still dripping."},
+    {who:'ai', t:"Got it. I'd recommend shutting the water supply valve to the heater if you can reach it safely. Can I get your name and the service address?"},
+    {who:'caller', t:"Sure — Dana Whitman, 14 Maple Street."},
+    {who:'ai', t:"Thank you, Dana. We have a technician who can be there between 2 and 4 this afternoon. Does that window work for you?"},
+    {who:'caller', t:"That works great."},
+    {who:'ai', t:"Perfect — you're booked for 2 to 4 PM today at 14 Maple Street. You'll get a text confirmation shortly. Anything else I can help with?"},
+    {who:'caller', t:"No, that's everything. Thank you!"},
+    {who:'ai', t:"You're all set, Dana. Help is on the way — have a good afternoon."}
+  ];
+  var transcript=document.getElementById('transcript');
+  var btnWatch=document.getElementById('btnWatch');
+  var avatar=document.getElementById('callAvatar');
+  var callSub=document.getElementById('callSub');
+  var callStatus=document.getElementById('callStatus');
+  var callResult=document.getElementById('callResult');
+  var running=false;
+
+  function line(item, cb){
+    var row=document.createElement('div');
+    row.className='tline '+item.who;
+    var who=document.createElement('div'); who.className='who'; who.textContent=item.who==='ai'?'AI':'👤';
+    var typ=document.createElement('div'); typ.className='bub';
+    typ.innerHTML='<div class="typing"><span></span><span></span><span></span></div>';
+    row.appendChild(who); row.appendChild(typ);
+    transcript.appendChild(row);
+    transcript.scrollTop=transcript.scrollHeight;
+    setTimeout(function(){
+      typ.innerHTML=''; typ.textContent=item.t;
+      transcript.scrollTop=transcript.scrollHeight;
+      cb && cb();
+    }, 700 + Math.min(item.t.length*16, 1400));
+  }
+  function runCall(){
+    if(running) return; running=true;
+    transcript.innerHTML='';
+    callResult.classList.remove('show');
+    btnWatch.textContent='☎ Call connecting…';
+    avatar.classList.add('ringing');
+    callSub.textContent='Incoming call…';
+    setTimeout(function(){
+      avatar.classList.remove('ringing');
+      callSub.style.display='none';
+      callStatus.style.display='inline-flex';
+      var i=0;
+      (function next(){
+        if(i>=script.length){
+          callStatus.innerHTML='Call ended · 1:54';
+          callStatus.style.color='var(--muted)';
+          callResult.classList.add('show');
+          btnWatch.textContent='↺ Replay the call';
+          running=false; return;
+        }
+        line(script[i++], function(){ setTimeout(next, 420); });
+      })();
+    }, 1500);
+  }
+  btnWatch.addEventListener('click', runCall);
+
+  /* ---- lead-capture gate ---- */
+  var gate=document.getElementById('gate');
+  var btnLive=document.getElementById('btnLive');
+  var gateX=document.getElementById('gateX');
+  var gateForm=document.getElementById('gateForm');
+  var gateSuccess=document.getElementById('gateSuccess');
+  var gateSubmit=document.getElementById('gateSubmit');
+  var gName=document.getElementById('gName'), gEmail=document.getElementById('gEmail');
+  var fName=document.getElementById('fName'), fEmail=document.getElementById('fEmail');
+
+  btnLive.addEventListener('click', function(){ gate.classList.add('show'); });
+  gateX.addEventListener('click', function(){ gate.classList.remove('show'); });
+  gate.addEventListener('click', function(e){ if(e.target===gate) gate.classList.remove('show'); });
+
+  function validEmail(v){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+  gateSubmit.addEventListener('click', function(){
+    var ok=true;
+    if(!gName.value.trim()){ fName.classList.add('invalid'); ok=false; } else fName.classList.remove('invalid');
+    if(!validEmail(gEmail.value.trim())){ fEmail.classList.add('invalid'); ok=false; } else fEmail.classList.remove('invalid');
+    if(!ok) return;
+    /* TODO(Matt): wire this submit to the GHL lead form / workflow that
+       emails the caller their transcript + synopsis. For now it captures
+       client-side and unlocks the live widget. */
+    try{ window.__slLead={name:gName.value.trim(),email:gEmail.value.trim(),ts:Date.now()}; }catch(e){}
+    gateForm.style.display='none';
+    gateSuccess.classList.add('show');
+  });
+})();
+</script>
+
+<!-- ===== Real ScaleLocal AI Receptionist voice widget (live GHL widget) ===== -->
+<script
+  src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69cdcf4d34c04489825322a1">
+</script>
+</body>
+</html>
