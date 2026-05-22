@@ -1,14 +1,41 @@
 User-agent: *
 Allow: /
+
+# Funnel / internal pages — not for indexing
 Disallow: /checkout
 Disallow: /welcome
 Disallow: /free-website
 Disallow: /grow
 Disallow: /internal
 Disallow: /sniper
-Disallow: /ScaleLocalSalesSniper24769241
 Disallow: /snapshot/upgrade
-Disallow: /test-builds/
 Disallow: /templates/
+Disallow: /test-builds/
+Disallow: /api/
+
+# AI search crawlers — explicitly welcomed (ScaleLocal sells AI-search visibility)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
 
 Sitemap: https://www.scalelocal.net/sitemap.xml
