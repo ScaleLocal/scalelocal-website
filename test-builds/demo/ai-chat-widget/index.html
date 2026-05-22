@@ -314,10 +314,15 @@ html, body { overflow-x:hidden; max-width:100%; }
   <svg class="slcw-x" viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12Z"/></svg>
 </button>
 
-<!-- The real GHL AI chat — opened when the visitor picks "Chat with Us" -->
+<!-- The real GHL AI chat — opened by "Chat with Us". Method copied verbatim
+     from the working TNJ Landscape build (_partials.js): the GHL bubble is
+     hidden by injecting a <style> INTO the chat-widget shadow root; the host
+     element is left untouched so the chat panel renders normally. -->
 <script>
 (function(){
-  /* fresh start: clear stale GHL history */
+  var GHL_WIDGET_ID='69c34fd013ad14bdd250aace';
+
+  /* fresh start: clear stale GHL history so every visitor sees a fresh greeting */
   try{
     var nuke=[];
     for(var i=0;i<localStorage.length;i++){
@@ -327,6 +332,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     nuke.forEach(function(k){ localStorage.removeItem(k); });
   }catch(e){}
 
+  /* ---- custom launcher toggle ---- */
   var launcher=document.getElementById('slcwLauncher');
   var panel=document.getElementById('slcwPanel');
   var dot=launcher.querySelector('.slcw-dot');
@@ -336,74 +342,75 @@ html, body { overflow-x:hidden; max-width:100%; }
     dot.style.display=open?'none':'block';
   }
   launcher.addEventListener('click',function(){ toggle(!panel.classList.contains('open')); });
+  document.addEventListener('click',function(e){
+    if(!launcher.contains(e.target) && !panel.contains(e.target)) toggle(false);
+  });
 
-  /* "Chat with Us" -> close our menu, open the real GHL AI chat panel.
-     Method verified on the TNJ Landscape build: GHL's chat panel opens via its
-     public API and renders bottom-right — the same corner as our menu — so it
-     covers the menu as one seamless flow. We only hide GHL's own launcher bubble. */
-  var chatRow=document.getElementById('slcwChatRow');
+  /* ===== GHL widget — TNJ verbatim method =====
+     Hide the GHL bubble by injecting a <style> INTO the shadow root.
+     Outer/page CSS cannot reach shadow DOM — this is the only thing that works. */
+  var SHADOW_HIDE_CSS=''
+    + '#lc_text-widget--btn,'
+    + '.lc_text-widget--bubble,'
+    + '.lc_chat-bubble,'
+    + '.lc_chat-prompt,'
+    + '.lc_chat-prompt--container,'
+    + '[class*="bubble"]:not([class*="message"]):not([class*="agent"]):not([class*="visitor"]),'
+    + '[id*="bubble"]'
+    + '{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;width:0 !important;height:0 !important;}';
+
+  function injectShadowCSS(){
+    var cw=document.querySelector('chat-widget');
+    if(!cw||!cw.shadowRoot){ return false; }
+    if(cw.shadowRoot.querySelector('#sl-shadow-hide')){ return true; }
+    var s=document.createElement('style');
+    s.id='sl-shadow-hide';
+    s.textContent=SHADOW_HIDE_CSS;
+    cw.shadowRoot.appendChild(s);
+    return true;
+  }
+  function startShadowCSSWatcher(){
+    var attempts=0;
+    var watch=setInterval(function(){
+      attempts++;
+      injectShadowCSS();
+      if(attempts>60){ clearInterval(watch); }
+    },250);
+    setInterval(injectShadowCSS,3000); /* long-lived re-inject sentinel */
+  }
+
   var ghlLoaded=false;
-
-  /* GHL widget's documented public API */
-  function ghlReady(){
-    return !!(window.leadConnector
-      && window.leadConnector.chatWidget
-      && typeof window.leadConnector.chatWidget.openWidget==='function'
-      && window.leadConnector.chatWidget.isLoaded);
-  }
-  /* GHL's launcher bubble lives in its shadow DOM — page CSS can't reach it,
-     so hide it directly inside the shadow root, repeatedly, while GHL hydrates. */
-  function killGhlBubble(){
-    try{
-      var cw=document.querySelector('chat-widget');
-      if(!cw||!cw.shadowRoot) return;
-      cw.shadowRoot.querySelectorAll('.lc_text-widget--bubble,[class*="bubble"],[class*="Bubble"],[class*="launcher"],[class*="Launcher"]').forEach(function(n){
-        n.style.setProperty('display','none','important');
-        n.style.setProperty('visibility','hidden','important');
-        n.style.setProperty('opacity','0','important');
-        n.style.setProperty('pointer-events','none','important');
-      });
-    }catch(e){}
-  }
-  function loadGHL(){
+  function injectGHLWidget(){
     if(ghlLoaded) return; ghlLoaded=true;
     var s=document.createElement('script');
     s.src='https://beta.leadconnectorhq.com/loader.js';
     s.setAttribute('data-resources-url','https://beta.leadconnectorhq.com/chat-widget/loader.js');
-    s.setAttribute('data-widget-id','69c34fd013ad14bdd250aace');
+    s.setAttribute('data-widget-id',GHL_WIDGET_ID);
     document.body.appendChild(s);
-    /* scrub GHL's bubble out as it loads + keep scrubbing 20s */
-    var t0=Date.now();
-    var iv=setInterval(function(){ killGhlBubble(); if(Date.now()-t0>20000) clearInterval(iv); }, 150);
+    startShadowCSSWatcher();
   }
+
+  /* open the GHL chat panel via its public API */
   function openGHLChat(retries){
-    retries=(retries==null)?28:retries;            // ~5.6s of polling
-    if(ghlReady()){
-      document.documentElement.setAttribute('data-sl-chat-open','true');
-      killGhlBubble();
-      var kb=0,kbi=setInterval(function(){ killGhlBubble(); if(++kb>40) clearInterval(kbi); }, 250);
-      var poll=setInterval(function(){
-        try{
-          if(window.leadConnector && window.leadConnector.chatWidget
-             && window.leadConnector.chatWidget.isActive===false){
-            clearInterval(poll);
-            document.documentElement.removeAttribute('data-sl-chat-open');
-          }
-        }catch(e){ clearInterval(poll); }
-      },500);
-      setTimeout(function(){ try{ clearInterval(poll); }catch(e){} }, 10*60*1000);
+    retries=(retries==null)?40:retries;  /* ~8s */
+    var cw=window.leadConnector && window.leadConnector.chatWidget;
+    if(cw && typeof cw.openWidget==='function' && cw.isLoaded){
+      injectShadowCSS();
+      try{ cw.openWidget(); }catch(e){}
       return;
     }
-    if(retries<=0){ toggle(true); return; }
+    if(retries<=0){ return; }
     setTimeout(function(){ openGHLChat(retries-1); }, 200);
   }
+
+  /* "Chat with Us" -> close our menu, load + open the GHL chat */
+  var chatRow=document.getElementById('slcwChatRow');
   chatRow.addEventListener('click',function(){
     toggle(false);
-    loadGHL();
+    injectGHLWidget();
     openGHLChat();
   });
 })();
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
