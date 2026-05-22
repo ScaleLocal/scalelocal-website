@@ -361,6 +361,20 @@ html, body { overflow-x:hidden; max-width:100%; }
       && typeof window.leadConnector.chatWidget.openWidget==='function'
       && window.leadConnector.chatWidget.isLoaded);
   }
+  /* GHL's launcher bubble lives in its shadow DOM — page CSS can't reach it,
+     so hide it directly inside the shadow root, repeatedly, while GHL hydrates. */
+  function killGhlBubble(){
+    try{
+      var cw=document.querySelector('chat-widget');
+      if(!cw||!cw.shadowRoot) return;
+      cw.shadowRoot.querySelectorAll('.lc_text-widget--bubble,[class*="bubble"],[class*="Bubble"],[class*="launcher"],[class*="Launcher"]').forEach(function(n){
+        n.style.setProperty('display','none','important');
+        n.style.setProperty('visibility','hidden','important');
+        n.style.setProperty('opacity','0','important');
+        n.style.setProperty('pointer-events','none','important');
+      });
+    }catch(e){}
+  }
   function loadGHL(){
     if(ghlLoaded) return; ghlLoaded=true;
     var s=document.createElement('script');
@@ -368,13 +382,16 @@ html, body { overflow-x:hidden; max-width:100%; }
     s.setAttribute('data-resources-url','https://beta.leadconnectorhq.com/chat-widget/loader.js');
     s.setAttribute('data-widget-id','69c34fd013ad14bdd250aace');
     document.body.appendChild(s);
+    /* scrub GHL's bubble out as it loads + keep scrubbing 20s */
+    var t0=Date.now();
+    var iv=setInterval(function(){ killGhlBubble(); if(Date.now()-t0>20000) clearInterval(iv); }, 150);
   }
   function openGHLChat(retries){
     retries=(retries==null)?28:retries;            // ~5.6s of polling
     if(ghlReady()){
       document.documentElement.setAttribute('data-sl-chat-open','true');
-      try{ window.leadConnector.chatWidget.openWidget(); }catch(e){}
-      /* when the visitor closes the GHL chat, re-hide the host */
+      killGhlBubble();
+      var kb=0,kbi=setInterval(function(){ killGhlBubble(); if(++kb>40) clearInterval(kbi); }, 250);
       var poll=setInterval(function(){
         try{
           if(window.leadConnector && window.leadConnector.chatWidget
@@ -387,11 +404,7 @@ html, body { overflow-x:hidden; max-width:100%; }
       setTimeout(function(){ try{ clearInterval(poll); }catch(e){} }, 10*60*1000);
       return;
     }
-    if(retries<=0){
-      /* GHL didn't load — graceful fallback: open our menu back up */
-      toggle(true);
-      return;
-    }
+    if(retries<=0){ toggle(true); return; }
     setTimeout(function(){ openGHLChat(retries-1); }, 200);
   }
   chatRow.addEventListener('click',function(){
@@ -403,4 +416,3 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
-                                                                                                                                                    
