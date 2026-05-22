@@ -52,6 +52,34 @@ html, body { overflow-x:hidden; max-width:100%; }
 .pc-reset { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--brand); background:none; border:none; cursor:pointer; margin-left:auto; }
 .pc-reset:hover { text-decoration:underline; }
 
+/* commitment term toggle */
+.term-bar {
+  max-width:1140px; margin:0 auto 16px; padding:0 20px;
+  display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap;
+}
+.term-seg {
+  display:inline-flex; background:#fff; border:1px solid var(--line); border-radius:11px;
+  padding:4px; box-shadow:0 6px 20px rgba(8,14,26,.07);
+}
+.term-seg button {
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.84rem; color:var(--muted);
+  background:none; border:none; cursor:pointer; padding:9px 18px; border-radius:8px;
+  transition:background .16s var(--ease), color .16s var(--ease);
+}
+.term-seg button.on { background:var(--brand); color:#fff; }
+.term-seg button:not(.on):hover { color:var(--text); }
+.term-save {
+  font-family:Inter; font-size:0.85rem; font-weight:600; color:var(--green);
+  display:inline-flex; align-items:center; gap:6px; min-height:20px;
+}
+.term-save.hide { opacity:0; }
+.term-save .ts-dot { width:6px;height:6px;border-radius:50%;background:var(--green); }
+.th-price.term-strike .num-was {
+  display:inline-block; font-size:0.86rem; color:var(--muted-light);
+  text-decoration:line-through; font-weight:600; margin-right:5px; vertical-align:2px;
+}
+.th-setup.is-waived { color:var(--green); font-weight:700; }
+
 /* the matrix */
 .matrix { border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 20px 50px rgba(8,14,26,.08); }
 .mx-table { width:100%; border-collapse:collapse; table-layout:fixed; }
@@ -93,13 +121,7 @@ col.col-tier.hidden-col { width:0; }
 th.hidden-col, td.hidden-col { width:0; max-width:0; padding:0 !important; border:none !important; overflow:hidden; }
 th.hidden-col *, td.hidden-col * { display:none !important; }
 
-/* spotlight: dim non-hovered columns */
-.matrix.spot .tier-hd { opacity:.5; }
-.matrix.spot .feat-row td.cell { opacity:.4; }
-.matrix.spot th.spot-on .tier-hd,
-.matrix.spot td.cell.spot-on { opacity:1; }
-.matrix.spot th.spot-on .tier-hd { transform:translateY(-3px); }
-.tier-hd, .feat-row td.cell { transition:opacity .18s var(--ease), transform .18s var(--ease); }
+.tier-hd, .feat-row td.cell { transition:transform .18s var(--ease); }
 
 /* category rows */
 .cat-row td { background:var(--dark); padding:0; }
@@ -119,10 +141,10 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 .feat-row td.cell { text-align:center; }
 .feat-row.zebra td { background:#fcfdfe; }
 .feat-row.diff-hi td.feat-name { box-shadow:inset 3px 0 0 var(--green); }
-.cell .ck { width:23px;height:23px;border-radius:50%;background:rgba(46,204,113,.15);display:inline-flex;align-items:center;justify-content:center;
-  opacity:0; transform:scale(.3); }
+.cell .ck { width:24px;height:24px;border-radius:50%;background:var(--green);display:inline-flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 6px -1px rgba(46,160,90,.5); opacity:0; transform:scale(.3); }
 .cell .ck.lit { opacity:1; transform:scale(1); transition:opacity .26s var(--ease), transform .32s cubic-bezier(.34,1.56,.64,1); }
-.cell .ck svg { width:13px;height:13px;fill:var(--green); }
+.cell .ck svg { width:14px;height:14px;fill:#fff; }
 .cell .dash { color:var(--line); font-weight:700; }
 .cell .val-tx { font-family:Inter; font-size:0.8rem; font-weight:600; color:var(--text); }
 .cell.collapsed-cell .ck { width:11px;height:11px;background:var(--green); }
@@ -209,6 +231,16 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
         <button class="cmp-btn" data-tier="3">Apex</button>
       </div>
       <button class="pc-reset" id="resetBtn">Reset view</button>
+    </div>
+
+    <!-- COMMITMENT TERM TOGGLE -->
+    <div class="term-bar rise">
+      <div class="term-seg" id="termSeg">
+        <button data-term="0" class="on">Month-to-month</button>
+        <button data-term="1">6-month</button>
+        <button data-term="2">12-month</button>
+      </div>
+      <span class="term-save hide" id="termSave"><span class="ts-dot"></span><span id="termSaveTx"></span></span>
     </div>
 
     <!-- MATRIX -->
@@ -328,14 +360,15 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   var priceIO=new IntersectionObserver(function(es){
     es.forEach(function(e){
       if(e.isIntersecting && !priced){
-        priced=true;
-        document.querySelectorAll('.th-price .num').forEach(function(el){
-          var to=+el.getAttribute('data-to'), t0=null, dur=900;
+        priced=true; pricesShown=true;
+        document.querySelectorAll('th[data-tier]').forEach(function(th){
+          var i=+th.getAttribute('data-tier');
+          var el=th.querySelector('.th-price .num');
+          var to=effMonthly(i), t0=null, dur=900;
           function step(ts){
             if(!t0) t0=ts;
-            var p=Math.min((ts-t0)/dur,1);
-            var eased=1-Math.pow(1-p,3);
-            el.textContent=Math.round(to*eased).toLocaleString();
+            var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+            el.textContent=Math.round(to*e).toLocaleString();
             if(p<1) requestAnimationFrame(step);
           }
           requestAnimationFrame(step);
@@ -345,6 +378,88 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
     });
   },{threshold:.3});
   priceIO.observe(matrixEl);
+
+  /* ---- commitment term toggle ----
+     monthly price is identical at every term (protects MRR); the term
+     changes the EFFECTIVE monthly via discount + whether setup is waived.
+       term 0 M2M  : full price, setup charged
+       term 1 6-mo : 10% off,   setup waived
+       term 2 12-mo: 15% off,   setup waived  */
+  var TIERMO=[249,597,997,1497];
+  var SETUP=[497,797,1497,1997];
+  var SAVE12=[941,1877,3297,4697];   /* "save up to" — full committed savings, 12-mo */
+  var SAVE6 =[647,1157,2097,2897];   /* 6-mo committed savings */
+  var DISC=[1,0.90,0.85];
+  var term=0;
+  var pricesShown=false;
+
+  function effMonthly(i){ return Math.round(TIERMO[i]*DISC[term]); }
+
+  function animatePrice(el,to){
+    var from=parseInt((el.textContent||'0').replace(/[^0-9]/g,''))||0;
+    var t0=null,dur=600;
+    function step(ts){
+      if(!t0)t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(from+(to-from)*e).toLocaleString();
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  function paintTerm(animate){
+    document.querySelectorAll('th[data-tier]').forEach(function(th){
+      var i=+th.getAttribute('data-tier');
+      var numEl=th.querySelector('.th-price .num');
+      var eff=effMonthly(i);
+      if(animate){ animatePrice(numEl,eff); } else { numEl.textContent=eff.toLocaleString(); }
+      /* strike-through original when discounted */
+      var priceEl=th.querySelector('.th-price');
+      var was=priceEl.querySelector('.num-was');
+      if(term>0){
+        priceEl.classList.add('term-strike');
+        if(!was){ was=document.createElement('span'); was.className='num-was'; priceEl.insertBefore(was, priceEl.querySelector('.cur')); }
+        was.textContent='$'+TIERMO[i].toLocaleString();
+      } else {
+        priceEl.classList.remove('term-strike');
+        if(was) was.remove();
+      }
+      /* setup line */
+      var setupEl=th.querySelector('.th-setup');
+      if(term>0){
+        setupEl.classList.add('is-waived');
+        setupEl.innerHTML='Setup fee waived &middot; save $'+SETUP[i].toLocaleString();
+      } else {
+        setupEl.classList.remove('is-waived');
+        setupEl.innerHTML='$'+SETUP[i].toLocaleString()+' setup &middot; waived on 6&ndash;12mo';
+      }
+    });
+    /* savings banner */
+    var saveEl=document.getElementById('termSave');
+    var saveTx=document.getElementById('termSaveTx');
+    if(term===0){
+      saveEl.classList.add('hide');
+    } else {
+      saveEl.classList.remove('hide');
+      var lo=term===2?SAVE12[0]:SAVE6[0];
+      var hi=term===2?SAVE12[3]:SAVE6[3];
+      var pct=term===2?'15%':'10%';
+      saveTx.textContent='Save '+pct+' every month plus your setup fee — $'+lo.toLocaleString()+' to $'+hi.toLocaleString()+' over the term.';
+    }
+  }
+
+  function setTerm(t){
+    term=t;
+    document.querySelectorAll('#termSeg button').forEach(function(b){
+      b.classList.toggle('on', +b.getAttribute('data-term')===t);
+    });
+    paintTerm(pricesShown);
+  }
+  document.getElementById('termSeg').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    setTerm(+b.getAttribute('data-term'));
+  });
+
 
   /* ---- feature matrix data (cumulative; tiers 0-3 = Basecamp/Ascent/Summit/Apex) ---- */
   var CATS=[
@@ -515,21 +630,6 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
     }
   });
 
-  function spot(tier){
-    matrixEl.classList.toggle('spot', tier!==null);
-    document.querySelectorAll('th[data-tier]').forEach(function(th){
-      th.classList.toggle('spot-on', +th.getAttribute('data-tier')===tier);
-    });
-    body.querySelectorAll('td.cell').forEach(function(td){
-      td.classList.toggle('spot-on', +td.getAttribute('data-tier')===tier);
-    });
-  }
-  document.querySelectorAll('th[data-tier]').forEach(function(th){
-    var t=+th.getAttribute('data-tier');
-    th.addEventListener('mouseenter',function(){ if(!hidden[t]&&!collapsed[t]) spot(t); });
-    th.addEventListener('mouseleave',function(){ spot(null); });
-  });
-
   document.getElementById('resetBtn').addEventListener('click',function(){
     collapsed=[false,false,false,false];
     hidden=[false,false,false,false];
@@ -537,10 +637,11 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
     catOpen=CATS.map(function(){ return true; });
     document.getElementById('diffToggle').checked=false;
     cmpBtns.querySelectorAll('.cmp-btn').forEach(function(b){ b.classList.remove('sel'); });
-    spot(null);
+    setTerm(0);
     render();
   });
 
+  setTerm(0);
   render();
 })();
 </script>
