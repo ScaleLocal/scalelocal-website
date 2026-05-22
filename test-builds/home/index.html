@@ -116,6 +116,17 @@ html, body { overflow-x:hidden; max-width:100%; }
 .summit-cta h2 { color:#fff; font-size:clamp(2rem,3.6vw,3rem); font-weight:700; letter-spacing:-0.02em; margin-bottom:14px; }
 .summit-cta p { color:rgba(255,255,255,.78); font-size:1.0625rem; max-width:54ch; margin:0 auto 30px; }
 
+/* ===== HOW-STRIP (folded method steps) ===== */
+.how-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:34px; padding-top:34px; border-top:1px solid rgba(255,255,255,.10); }
+.how-step { display:flex; gap:13px; }
+.how-step .hs-n { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.05rem; color:var(--green); flex:none; }
+.how-step h4 { font-size:0.98rem; font-weight:700; color:#fff; margin-bottom:4px; }
+.how-step p { font-size:0.88rem; color:var(--muted-light); line-height:1.55; }
+
+/* ===== OFFER-BAND audience strip ===== */
+.ob-aud { display:flex; flex-wrap:wrap; gap:9px; justify-content:center; align-items:center; margin-top:24px; padding-top:22px; border-top:1px solid var(--line); }
+.ob-aud-lbl { font-family:Inter; font-weight:700; font-size:0.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted-light); margin-right:4px; }
+
 /* ===== LEVERAGE / AD-ROI SECTION ===== */
 .lev-lede { max-width:62ch; margin:18px auto 0; }
 .cpl-flow { display:grid; grid-template-columns:1fr auto 1fr; gap:0; align-items:stretch; margin-top:54px; }
@@ -140,6 +151,60 @@ html, body { overflow-x:hidden; max-width:100%; }
 .choice-card h4 { font-size:1.06rem; font-weight:700; color:#fff; margin-bottom:8px; }
 .choice-card p { font-size:0.93rem; color:var(--muted-light); line-height:1.6; }
 
+/* ===== PATH SELECTOR ===== */
+.pathsel { max-width:900px; margin:40px auto 0; }
+.ps-q { font-family:Inter; font-weight:700; font-size:0.82rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.62); margin-bottom:16px; }
+.ps-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+.ps-card {
+  display:flex; flex-direction:column; text-align:left; text-decoration:none;
+  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  border-radius:14px; padding:20px 18px 16px;
+  transition:transform .18s var(--ease), background .18s var(--ease), border-color .18s var(--ease);
+}
+.ps-card:hover { transform:translateY(-4px); background:rgba(255,255,255,.09); border-color:rgba(46,204,113,.45); }
+.ps-ic { width:38px;height:38px;border-radius:10px;background:rgba(46,204,113,.16);display:flex;align-items:center;justify-content:center;margin-bottom:13px; }
+.ps-ic svg { width:20px;height:20px;fill:var(--green); }
+.ps-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; color:#fff; line-height:1.25; margin-bottom:6px; }
+.ps-card p { font-family:Inter; font-size:0.84rem; color:rgba(255,255,255,.66); line-height:1.5; flex:1; }
+.ps-go { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--green); margin-top:12px; }
+.ps-skip { display:inline-block; margin-top:18px; font-family:Inter; font-size:0.86rem; color:rgba(255,255,255,.55); text-decoration:none; transition:color .15s var(--ease); }
+.ps-skip:hover { color:rgba(255,255,255,.85); }
+/* collapsed state for returning visitors */
+.pathsel.collapsed .ps-grid, .pathsel.collapsed .ps-q, .pathsel.collapsed .ps-skip { display:none; }
+.pathsel.collapsed .ps-reopen { display:inline-flex; }
+.ps-reopen { display:none; align-items:center; gap:8px; margin:0 auto; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.16); border-radius:999px; padding:10px 20px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.84rem; color:#fff; cursor:pointer; }
+.ps-reopen:hover { background:rgba(255,255,255,.11); }
+
+/* ===== STICKY SUB-NAV ===== */
+.subnav {
+  position:fixed; top:0; left:0; right:0; z-index:60;
+  background:rgba(255,255,255,.97); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line); box-shadow:0 6px 24px rgba(8,14,26,.07);
+  transform:translateY(-100%); transition:transform .3s var(--ease);
+}
+.subnav.show { transform:translateY(0); }
+.subnav-inner { display:flex; align-items:center; gap:6px; height:54px; }
+.subnav-inner a {
+  font-family:'Montserrat',sans-serif; font-weight:600; font-size:0.86rem; color:var(--muted);
+  text-decoration:none; padding:8px 13px; border-radius:8px; transition:color .15s var(--ease), background .15s var(--ease);
+}
+.subnav-inner a:hover { color:var(--dark); background:var(--mist); }
+.subnav-inner a.active { color:var(--brand); }
+.subnav-inner .subnav-cta {
+  margin-left:auto; background:var(--brand); color:#fff; padding:9px 18px;
+}
+.subnav-inner .subnav-cta:hover { background:var(--brand-deep,#1f5f96); color:#fff; }
+
+/* ===== RETURNING-VISITOR BAR ===== */
+.rv-bar { background:var(--dark); color:#fff; }
+.rv-inner { display:flex; align-items:center; gap:14px; padding:9px 0; }
+.rv-msg { font-family:Inter; font-size:0.88rem; color:rgba(255,255,255,.85); }
+.rv-msg b { font-family:'Montserrat',sans-serif; color:#fff; }
+.rv-jump { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.84rem; color:var(--green); text-decoration:none; }
+.rv-jump:hover { text-decoration:underline; }
+.rv-x { margin-left:auto; background:none; border:none; color:rgba(255,255,255,.5); font-size:1.3rem; line-height:1; cursor:pointer; padding:2px 6px; }
+.rv-x:hover { color:#fff; }
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:900px){
   .sec { padding:68px 0; } .sec-sm { padding:52px 0; }
@@ -152,6 +217,10 @@ html, body { overflow-x:hidden; max-width:100%; }
   .cpl-arrow { flex-direction:row; padding:18px 0; gap:14px; }
   .cpl-arrow .ca-line { width:auto; height:2px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.18)); }
   .choice-grid { grid-template-columns:1fr; }
+  .how-strip { grid-template-columns:1fr; gap:18px; }
+  .ps-grid { grid-template-columns:1fr 1fr; }
+  .subnav-inner { gap:2px; overflow-x:auto; }
+  .subnav-inner a { padding:8px 9px; font-size:0.8rem; white-space:nowrap; }
 }
 </style>
 </head>
@@ -169,6 +238,27 @@ html, body { overflow-x:hidden; max-width:100%; }
   </div>
 </header>
 
+<!-- RETURNING-VISITOR BAR (cookie-driven, quiet, no popup) -->
+<div class="rv-bar" id="rvBar" hidden>
+  <div class="wrap rv-inner">
+    <span class="rv-msg" id="rvMsg">Welcome back.</span>
+    <a class="rv-jump" href="../get-started/">Pick up where you left off &rarr;</a>
+    <button class="rv-x" id="rvClose" aria-label="Dismiss">&times;</button>
+  </div>
+</div>
+
+<!-- STICKY SUB-NAV — appears on scroll past the hero -->
+<nav class="subnav" id="subnav" aria-label="Section navigation">
+  <div class="wrap subnav-inner">
+    <a href="#problem">The Problem</a>
+    <a href="#approach">Our Approach</a>
+    <a href="#climb">The Climb</a>
+    <a href="#proof">The System</a>
+    <a href="#results">The Payoff</a>
+    <a class="subnav-cta" href="../get-started/">Get a Plan</a>
+  </div>
+</nav>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
   <span class="hero-arc a1"></span><span class="hero-arc a2"></span>
@@ -180,7 +270,38 @@ html, body { overflow-x:hidden; max-width:100%; }
       <a href="../tier-pages/services/" class="btn btn-primary btn-lg">See how the climb works</a>
       <a href="tel:+19786627580" class="btn btn-line-light btn-lg">Talk to ScaleLocal</a>
     </div>
-    <p class="hero-fine rise d3">Built for local service businesses &mdash; trades, home services, and the people who run them.</p>
+
+    <!-- PATH SELECTOR — fast wayfinding, no popup -->
+    <div class="pathsel rise d3" id="pathsel">
+      <div class="ps-q">What brings you in today?</div>
+      <div class="ps-grid">
+        <a class="ps-card" href="#approach" data-path="visibility" data-need="An SEO overhaul &mdash; get found on Google &amp; AI search">
+          <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M11 2a9 9 0 1 0 6.32 15.39l4.14 4.14 1.42-1.42-4.14-4.14A9 9 0 0 0 11 2Zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14Z"/></svg></span>
+          <h3>Customers can&rsquo;t find me</h3>
+          <p>I&rsquo;m not showing up on Google or AI search.</p>
+          <span class="ps-go">See the fix &rsaquo;</span>
+        </a>
+        <a class="ps-card" href="#proof" data-path="leads" data-need="AI tools &mdash; chat widget, receptionist, follow-up">
+          <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1Z"/></svg></span>
+          <h3>I&rsquo;m losing leads</h3>
+          <p>Missed calls, slow follow-up &mdash; jobs slipping away.</p>
+          <span class="ps-go">See the fix &rsaquo;</span>
+        </a>
+        <a class="ps-card" href="#results" data-path="website" data-need="A new website built">
+          <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3Zm2 4v12h14V7Zm3 2h8v2H8Zm0 4h8v2H8Z"/></svg></span>
+          <h3>My site looks dated</h3>
+          <p>It doesn&rsquo;t convert &mdash; or doesn&rsquo;t reflect my work.</p>
+          <span class="ps-go">See the fix &rsaquo;</span>
+        </a>
+        <a class="ps-card" href="#climb" data-path="everything" data-need="The complete growth system">
+          <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5Zm0 12.2L4.2 10 2 11l10 5 10-5-2.2-1ZM2 16l10 5 10-5-2.2-1L12 18.8 4.2 15Z"/></svg></span>
+          <h3>I want it all handled</h3>
+          <p>Give me the whole growth system, done for me.</p>
+          <span class="ps-go">See the climb &rsaquo;</span>
+        </a>
+      </div>
+      <a class="ps-skip" href="#problem" data-path="browsing">Just browsing &mdash; show me everything &darr;</a>
+    </div>
   </div>
   <div class="hero-mtn rise d2">
     <svg viewBox="0 0 1000 420" xmlns="http://www.w3.org/2000/svg">
@@ -225,7 +346,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     <div class="lead-head center rise">
       <div class="kicker">The climb most businesses never finish</div>
       <h2>Your next customer is looking for you right now. Most of them never find you.</h2>
-      <p>You're good at the work. But the path from "someone needs this" to "they hired you" runs straight through the internet &mdash; and that's where local service businesses lose ground every single day.</p>
+      <p>You're good at the work. But the path from "someone needs this" to "they hired you" runs through the internet &mdash; and that's where local businesses lose ground every day.</p>
     </div>
     <div class="pain-grid">
       <div class="pain rise d1">
@@ -248,12 +369,12 @@ html, body { overflow-x:hidden; max-width:100%; }
 </section>
 
 <!-- ===== POSITIONING ===== -->
-<section class="sec s-ink">
+<section class="sec s-ink" id="approach">
   <div class="wrap">
     <div class="lead-head center rise">
       <div class="kicker on-dark">Who ScaleLocal is</div>
       <h2>A web design agency and an AI growth partner &mdash; in one team.</h2>
-      <p>Your website is the gateway. It's the thing customers see first, and the thing Google and AI engines read to decide whether to recommend you. We build it right &mdash; then we connect the system behind it that turns that visibility into booked work.</p>
+      <p>Your website is the gateway &mdash; what customers see first, and what Google and AI engines read to decide whether to recommend you. We build it right, then connect the system that turns visibility into booked work.</p>
     </div>
     <div class="pos-split" style="margin-top:52px;">
       <div class="rise">
@@ -274,6 +395,11 @@ html, body { overflow-x:hidden; max-width:100%; }
           <p>Not software you manage. Not a vendor you chase. A team that owns the result and reports the numbers back to you.</p>
         </div>
       </div>
+    </div>
+    <div class="how-strip rise d3">
+      <div class="how-step"><span class="hs-n">01</span><div><h4>We build the foundation</h4><p>A fast, SEO-engineered website built to rank on Google and surface in AI search.</p></div></div>
+      <div class="how-step"><span class="hs-n">02</span><div><h4>We connect the AI</h4><p>Chat, the voice receptionist, review and follow-up engines &mdash; set up in your voice.</p></div></div>
+      <div class="how-step"><span class="hs-n">03</span><div><h4>It runs &mdash; we report</h4><p>The system catches leads and books jobs around the clock. You get the numbers.</p></div></div>
     </div>
   </div>
 </section>
@@ -386,32 +512,9 @@ html, body { overflow-x:hidden; max-width:100%; }
   </div>
 </section>
 
-<!-- ===== METHOD ===== -->
-<section class="sec s-paper">
-  <div class="wrap">
-    <div class="lead-head center rise">
-      <div class="kicker">How the partnership works</div>
-      <h2>Three steps. Then the system runs &mdash; and you get back to the work.</h2>
-    </div>
-    <div class="method-grid">
-      <div class="step rise d1">
-        <h3>We build the foundation</h3>
-        <p>A fast, modern, SEO-engineered website &mdash; built to rank on Google and be surfaced by AI search. This is the gateway every customer walks through.</p>
-      </div>
-      <div class="step rise d2">
-        <h3>We connect the AI</h3>
-        <p>We layer in the capture-and-close system: AI chat, the voice receptionist, review and follow-up engines &mdash; configured in your business's voice.</p>
-      </div>
-      <div class="step rise d3">
-        <h3>It runs &mdash; we report</h3>
-        <p>The system works around the clock catching leads and booking jobs. You get clear reporting on the numbers, and a partner who stays on the rope.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== LEVERAGE / AD-ROI ===== -->
-<section class="sec s-ink">
+<section class="sec s-ink" id="results">
   <div class="wrap">
     <div class="lead-head center rise">
       <div class="kicker on-dark">The real return on your website</div>
@@ -463,28 +566,9 @@ html, body { overflow-x:hidden; max-width:100%; }
   </div>
 </section>
 
-<!-- ===== AUDIENCE ===== -->
-<section class="sec-sm s-mist">
-  <div class="wrap">
-    <div class="lead-head center rise">
-      <div class="kicker">Built for</div>
-      <h2 style="font-size:clamp(1.5rem,2.6vw,2.1rem);">Local service businesses &mdash; and the people who run them.</h2>
-    </div>
-    <div class="aud-wrap rise d1">
-      <span class="aud-chip">Electricians</span>
-      <span class="aud-chip">Plumbers</span>
-      <span class="aud-chip">Roofers</span>
-      <span class="aud-chip">HVAC</span>
-      <span class="aud-chip">Masonry &amp; Concrete</span>
-      <span class="aud-chip">Landscaping</span>
-      <span class="aud-chip">Remodeling &amp; Construction</span>
-      <span class="aud-chip">Home Services</span>
-    </div>
-  </div>
-</section>
 
 <!-- ===== OFFER BAND ===== -->
-<section class="sec">
+<section class="sec" id="offer">
   <div class="wrap">
     <div class="offer-band rise">
       <div class="ob-k">The partnership offer</div>
@@ -493,6 +577,10 @@ html, body { overflow-x:hidden; max-width:100%; }
       <div class="hero-cta" style="justify-content:center;">
         <a href="../get-started/" class="btn btn-primary btn-lg">Get your custom plan</a>
         <a href="tel:+19786627580" class="btn btn-line-light btn-lg">Talk it through</a>
+      </div>
+      <div class="ob-aud">
+        <span class="ob-aud-lbl">Built for</span>
+        <span class="aud-chip">Electricians</span><span class="aud-chip">Plumbers</span><span class="aud-chip">Roofers</span><span class="aud-chip">HVAC</span><span class="aud-chip">Masonry &amp; Concrete</span><span class="aud-chip">Landscaping</span><span class="aud-chip">Remodeling</span><span class="aud-chip">Home Services</span>
       </div>
     </div>
   </div>
@@ -603,6 +691,88 @@ html, body { overflow-x:hidden; max-width:100%; }
     window.addEventListener('scroll',onScroll,{passive:true});
     window.addEventListener('resize',onScroll);
     place(0); onScroll();
+  }
+})();
+</script>
+
+<script>
+/* ===== Wayfinding: path-selector, sticky sub-nav, returning-visitor bar ===== */
+(function(){
+  /* ---- path-selector: pre-tag the intake & track the choice ---- */
+  var cards=document.querySelectorAll('.ps-card, .ps-skip');
+  cards.forEach(function(c){
+    c.addEventListener('click',function(){
+      var path=c.getAttribute('data-path')||'';
+      var need=c.getAttribute('data-need')||'';
+      try{
+        if(path) sessionStorage.setItem('sl_path', path);
+        if(need) sessionStorage.setItem('sl_need', need);
+        localStorage.setItem('sl_seen','1');
+        localStorage.setItem('sl_last_path', path);
+      }catch(e){}
+      /* GTM hook */
+      window.dataLayer=window.dataLayer||[];
+      window.dataLayer.push({event:'path_select', path:path});
+      /* the href (#anchor) handles the scroll-jump itself */
+    });
+  });
+
+  /* ---- sticky sub-nav: show after hero, scroll-spy ---- */
+  var subnav=document.getElementById('subnav');
+  var hero=document.querySelector('.hero');
+  var links=subnav?Array.prototype.slice.call(subnav.querySelectorAll('a[href^="#"]')):[];
+  var sections=links.map(function(a){return document.querySelector(a.getAttribute('href'));});
+  var raf=0;
+  function onScroll(){
+    if(raf) return;
+    raf=requestAnimationFrame(function(){
+      raf=0;
+      if(!hero||!subnav) return;
+      var heroBottom=hero.getBoundingClientRect().bottom;
+      subnav.classList.toggle('show', heroBottom < 8);
+      /* scroll-spy */
+      var mid=window.innerHeight*0.32, best=-1;
+      sections.forEach(function(sec,i){
+        if(sec){ var t=sec.getBoundingClientRect().top; if(t<=mid) best=i; }
+      });
+      links.forEach(function(a,i){ a.classList.toggle('active', i===best); });
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',onScroll);
+  onScroll();
+
+  /* ---- returning-visitor bar: quiet, cookie/localStorage driven ---- */
+  var rvBar=document.getElementById('rvBar');
+  var rvMsg=document.getElementById('rvMsg');
+  var rvClose=document.getElementById('rvClose');
+  var pathsel=document.getElementById('pathsel');
+  try{
+    var seen=localStorage.getItem('sl_seen')==='1';
+    var dismissed=sessionStorage.getItem('sl_rv_dismissed')==='1';
+    if(seen && !dismissed && rvBar){
+      var name=localStorage.getItem('sl_name');
+      rvMsg.innerHTML = name ? ('Welcome back, <b>'+name+'</b>.') : 'Welcome back.';
+      rvBar.hidden=false;
+      /* returning visitors: collapse the path-selector to a quiet re-open chip */
+      if(pathsel){
+        pathsel.classList.add('collapsed');
+        var btn=document.createElement('button');
+        btn.className='ps-reopen';
+        btn.type='button';
+        btn.innerHTML='&#9776;&nbsp; What brings you in? Pick a path';
+        btn.addEventListener('click',function(){ pathsel.classList.remove('collapsed'); btn.remove(); });
+        pathsel.appendChild(btn);
+      }
+    }
+    /* mark as seen for next time */
+    localStorage.setItem('sl_seen','1');
+  }catch(e){}
+  if(rvClose){
+    rvClose.addEventListener('click',function(){
+      rvBar.hidden=true;
+      try{ sessionStorage.setItem('sl_rv_dismissed','1'); }catch(e){}
+    });
   }
 })();
 </script>
