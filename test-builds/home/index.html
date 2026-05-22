@@ -164,6 +164,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 .ps-card:hover { transform:translateY(-4px); background:rgba(255,255,255,.09); border-color:rgba(46,204,113,.45); }
 .ps-ic { width:38px;height:38px;border-radius:10px;background:rgba(46,204,113,.16);display:flex;align-items:center;justify-content:center;margin-bottom:13px; }
 .ps-ic svg { width:20px;height:20px;fill:var(--green); }
+.ps-tx { display:block; }
 .ps-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; color:#fff; line-height:1.25; margin-bottom:6px; }
 .ps-card p { font-family:Inter; font-size:0.84rem; color:rgba(255,255,255,.66); line-height:1.5; flex:1; }
 .ps-go { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--green); margin-top:12px; }
@@ -219,6 +220,34 @@ html, body { overflow-x:hidden; max-width:100%; }
   .choice-grid { grid-template-columns:1fr; }
   .how-strip { grid-template-columns:1fr; gap:18px; }
   .ps-grid { grid-template-columns:1fr 1fr; }
+}
+
+/* ===== PATH SELECTOR — phone: line-by-line row list ===== */
+@media(max-width:560px){
+  .pathsel { margin-top:22px; }
+  .ps-q { text-align:left; font-size:0.74rem; margin-bottom:10px; }
+  .ps-grid { grid-template-columns:1fr; gap:0; border:1px solid rgba(255,255,255,.12); border-radius:13px; overflow:hidden; background:rgba(255,255,255,.04); }
+  .ps-card {
+    flex-direction:row; align-items:center; gap:13px;
+    background:none; border:none; border-radius:0;
+    border-bottom:1px solid rgba(255,255,255,.09);
+    padding:15px 14px; min-height:64px;
+  }
+  .ps-card:last-child { border-bottom:none; }
+  .ps-card:hover { transform:none; background:rgba(255,255,255,.07); }
+  .ps-card:active { background:rgba(255,255,255,.10); }
+  .ps-ic { width:34px; height:34px; margin-bottom:0; flex:none; }
+  .ps-ic svg { width:18px; height:18px; }
+  .ps-card h3 { font-size:0.96rem; margin-bottom:2px; }
+  .ps-card p { font-size:0.8rem; flex:1; }
+  /* the whole row is the tap target — drop the inline link, add a chevron */
+  .ps-go { display:none; }
+  .ps-card .ps-tx { flex:1; min-width:0; }
+  .ps-card::after {
+    content:"\203A"; flex:none; color:var(--green);
+    font-size:1.4rem; font-weight:700; line-height:1; padding-left:4px;
+  }
+  .ps-skip { display:block; text-align:center; margin-top:14px; }
   .subnav-inner { gap:2px; overflow-x:auto; }
   .subnav-inner a { padding:8px 9px; font-size:0.8rem; white-space:nowrap; }
 }
@@ -277,26 +306,26 @@ html, body { overflow-x:hidden; max-width:100%; }
       <div class="ps-grid">
         <a class="ps-card" href="#approach" data-path="visibility" data-need="An SEO overhaul &mdash; get found on Google &amp; AI search">
           <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M11 2a9 9 0 1 0 6.32 15.39l4.14 4.14 1.42-1.42-4.14-4.14A9 9 0 0 0 11 2Zm0 2a7 7 0 1 1 0 14 7 7 0 0 1 0-14Z"/></svg></span>
-          <h3>Customers can&rsquo;t find me</h3>
-          <p>I&rsquo;m not showing up on Google or AI search.</p>
+          <span class="ps-tx"><h3>Customers can&rsquo;t find me</h3>
+          <p>I&rsquo;m not showing up on Google or AI search.</p></span>
           <span class="ps-go">See the fix &rsaquo;</span>
         </a>
         <a class="ps-card" href="#proof" data-path="leads" data-need="AI tools &mdash; chat widget, receptionist, follow-up">
           <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1Z"/></svg></span>
-          <h3>I&rsquo;m losing leads</h3>
-          <p>Missed calls, slow follow-up &mdash; jobs slipping away.</p>
+          <span class="ps-tx"><h3>I&rsquo;m losing leads</h3>
+          <p>Missed calls, slow follow-up &mdash; jobs slipping away.</p></span>
           <span class="ps-go">See the fix &rsaquo;</span>
         </a>
         <a class="ps-card" href="#results" data-path="website" data-need="A new website built">
           <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3Zm2 4v12h14V7Zm3 2h8v2H8Zm0 4h8v2H8Z"/></svg></span>
-          <h3>My site looks dated</h3>
-          <p>It doesn&rsquo;t convert &mdash; or doesn&rsquo;t reflect my work.</p>
+          <span class="ps-tx"><h3>My site looks dated</h3>
+          <p>It doesn&rsquo;t convert &mdash; or doesn&rsquo;t reflect my work.</p></span>
           <span class="ps-go">See the fix &rsaquo;</span>
         </a>
         <a class="ps-card" href="#climb" data-path="everything" data-need="The complete growth system">
           <span class="ps-ic"><svg viewBox="0 0 24 24"><path d="M12 2 2 7l10 5 10-5Zm0 12.2L4.2 10 2 11l10 5 10-5-2.2-1ZM2 16l10 5 10-5-2.2-1L12 18.8 4.2 15Z"/></svg></span>
-          <h3>I want it all handled</h3>
-          <p>Give me the whole growth system, done for me.</p>
+          <span class="ps-tx"><h3>I want it all handled</h3>
+          <p>Give me the whole growth system, done for me.</p></span>
           <span class="ps-go">See the climb &rsaquo;</span>
         </a>
       </div>
