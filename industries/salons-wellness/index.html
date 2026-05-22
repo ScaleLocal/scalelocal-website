@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <title>Salon & Wellness Marketing for Local Businesses | ScaleLocal</title>
   <meta name="description" content="Hair salon, beauty, and wellness marketing strategies. Drive bookings through aesthetic branding, visual social media, and frictionless online scheduling.">
   <link rel="canonical" href="https://www.scalelocal.net/industries/salons-wellness">
+  <link rel="icon" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="ScaleLocal">
   <meta property="og:title" content="Salon & Wellness Marketing for Local Businesses | ScaleLocal">
@@ -18,7 +18,68 @@
   <meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/tier-v2.css">
+  <style>
+  html,body{overflow-x:hidden;max-width:100%}
+  body{background:var(--mist,#eef2f7)}
+  .skip-link{position:absolute;left:-9999px;top:0;z-index:2000;background:var(--brand);color:#fff;padding:12px 20px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;border-radius:0 0 8px 0;text-decoration:none}
+  .skip-link:focus{left:0}
+  main{display:block}
+  /* --- article + content body --- */
+  .article,.content,.blog-wrap{max-width:760px;margin:0 auto;padding:56px 24px 84px;background:var(--white,#fff)}
+  .blog-wrap{max-width:820px}
+  .hero{background:radial-gradient(ellipse at 50% 120%,var(--navy-1,#22375c) 0%,var(--dark,#0e1726) 78%);color:#fff;padding:84px 24px 64px;text-align:center}
+  .hero-eyebrow,.article-eyebrow,.blog-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;color:var(--green,#2ecc71);text-transform:uppercase;letter-spacing:0.15em;font-weight:700;margin-bottom:12px}
+  .hero h1{font-family:'Montserrat',sans-serif;font-weight:700;color:#fff;font-size:clamp(2rem,4vw,2.7rem);line-height:1.18;max-width:760px;margin:0 auto 18px;letter-spacing:-0.02em}
+  .hero p{font-family:'Inter',sans-serif;font-size:1.06rem;color:rgba(255,255,255,.8);max-width:620px;margin:0 auto;line-height:1.65}
+  .article h1,.blog-header h1{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:clamp(1.9rem,3.4vw,2.5rem);line-height:1.18;margin-bottom:18px;letter-spacing:-0.02em}
+  .article-meta{font-family:'Inter',sans-serif;font-size:0.82rem;color:var(--muted,#6b7a8d);margin-bottom:36px;padding-bottom:18px;border-bottom:1px solid var(--line,#e2e8f0)}
+  .article h2,.content h2,.blog-header+*  {}
+  .article h2,.content h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.42rem;line-height:1.3;margin:40px 0 16px;letter-spacing:-0.01em}
+  .article h3,.content h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--brand,#2E75B6);font-size:1.14rem;margin:30px 0 12px}
+  .article p,.content p,.blog-header p{font-family:'Inter',sans-serif;font-size:1.02rem;color:var(--muted,#4a5a6e);line-height:1.78;margin-bottom:20px}
+  .article ul,.article ol,.content ul,.content ol{margin:0 0 20px 24px;color:var(--muted,#4a5a6e)}
+  .article li,.content li{margin-bottom:8px;line-height:1.7}
+  .article strong,.content strong{color:var(--dark,#1a2e4a)}
+  .article a,.content a{color:var(--brand,#2E75B6);text-decoration:underline}
+  .article blockquote{border-left:4px solid var(--green,#2ecc71);padding:16px 24px;margin:24px 0;background:var(--mist,#f0f4f8);border-radius:0 8px 8px 0}
+  .article blockquote p{color:var(--dark,#1a2e4a);font-weight:500;margin-bottom:0}
+  .blog-header{margin-bottom:44px}
+  .cta-box{background:var(--dark,#1a2e4a);border-radius:14px;padding:34px;margin:48px 0;text-align:center}
+  .cta-box h3{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.25rem;margin:0 0 12px}
+  .cta-box p{color:rgba(255,255,255,.78);font-family:'Inter',sans-serif;font-size:0.95rem;margin-bottom:20px}
+  .cta-btn,.cta-button{display:inline-flex;align-items:center;padding:14px 32px;background:var(--green,#2ecc71);color:var(--dark,#1a2e4a);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;border-radius:8px;text-decoration:none}
+  .cta-btn:hover,.cta-button:hover{filter:brightness(1.06)}
+  .related,.industry-links{margin-top:48px;padding-top:32px;border-top:1px solid var(--line,#e2e8f0)}
+  .related h3,.industry-links h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1rem;margin-bottom:14px}
+  .related a{display:block;font-family:'Inter',sans-serif;font-size:0.94rem;color:var(--brand,#2E75B6);text-decoration:none;padding:8px 0;border-bottom:1px solid var(--mist,#f0f4f8)}
+  .post-card{background:var(--white,#fff);border-radius:12px;padding:26px;border:1px solid var(--line,#e2e8f0);margin-bottom:14px;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s}
+  .post-card:hover{border-color:var(--brand,#2E75B6);box-shadow:0 6px 18px rgba(8,14,26,.08)}
+  .post-card h2{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.2rem;line-height:1.3;margin-bottom:8px}
+  .post-card p{font-family:'Inter',sans-serif;font-size:0.93rem;color:var(--muted,#6b7a8d);line-height:1.6;margin-bottom:8px}
+  .post-card .meta{font-family:'Inter',sans-serif;font-size:0.78rem;color:#9aa5b4}
+  .tier-card{background:var(--mist,#f5f8fb);border:1px solid var(--line,#e2e8f0);border-radius:12px;padding:24px;margin-bottom:16px}
+  .tier-card h3{margin-top:0;color:var(--dark,#1a2e4a)}
+  .tier-label{font-family:'Montserrat',sans-serif;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:var(--green,#2ecc71);margin-bottom:4px}
+  .tier-expect{font-family:'Inter',sans-serif;font-size:0.86rem;color:var(--brand,#2E75B6);font-weight:600;margin-bottom:12px;line-height:1.6}
+  .tier-description{color:var(--muted,#4a5a6e);margin-bottom:0}
+  .qa-box,.economics-section{background:var(--mist,#f5f8fb);border-left:4px solid var(--brand,#2E75B6);padding:20px 24px;border-radius:0 8px 8px 0;margin:28px 0}
+  .qa-box h3{color:var(--dark,#1a2e4a);margin-top:0;font-size:1rem}
+  .qa-box ol,.qa-box ul{margin:12px 0 0 24px;color:var(--muted,#4a5a6e)}
+  .industry-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:24px 0}
+  .industry-card{background:var(--white,#fff);border:1px solid var(--line,#e2e8f0);border-radius:12px;padding:20px;text-decoration:none;display:block;transition:border-color .2s,box-shadow .2s}
+  .industry-card:hover{border-color:var(--brand,#2E75B6);box-shadow:0 6px 18px rgba(8,14,26,.08)}
+  .industry-card h3{font-family:'Montserrat',sans-serif;font-weight:700;color:var(--dark,#1a2e4a);font-size:1.02rem;margin-bottom:6px}
+  .industry-card p{font-size:0.88rem;color:var(--muted,#6b7a8d);line-height:1.55;margin-bottom:10px}
+  .industry-card-link{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;color:var(--brand,#2E75B6)}
+  .industry-links-grid{display:flex;flex-wrap:wrap;gap:8px}
+  .industry-links-grid a{display:inline-block;padding:6px 14px;background:var(--mist,#f5f8fb);border:1px solid var(--line,#e2e8f0);border-radius:6px;font-size:0.8rem;color:var(--brand,#2E75B6);text-decoration:none}
+  .cta-section{background:var(--dark,#1a2e4a);border-radius:14px;padding:40px 32px;margin:48px 0 0;text-align:center}
+  .cta-section h2{color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;margin:0 0 12px}
+  .cta-section p{color:rgba(255,255,255,.78);max-width:54ch;margin:0 auto 22px}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--brand,#2E75B6);outline-offset:2px}
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -29,95 +90,25 @@
     "areaServed": [{"@type": "State", "name": "Massachusetts"}, {"@type": "State", "name": "New Hampshire"}, {"@type": "State", "name": "Rhode Island"}]
   }
   </script>
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{-webkit-font-smoothing:antialiased}
-    body{font-family:'Inter',sans-serif;font-size:1rem;line-height:1.7;color:#1a1a2e;background:#f0f4f8}
-    body.menu-open{overflow:hidden}
-    .site-nav{position:fixed;top:0;left:0;width:100%;height:60px;background:#1a2e4a;border-bottom:1px solid rgba(255,255,255,0.08);z-index:1000;display:flex;align-items:center;transition:box-shadow 0.3s ease}
-    .site-nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,0.4)}
-    .nav-inner{width:100%;max-width:1140px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
-    .nav-logo{text-decoration:none;display:flex;align-items:center;flex-shrink:0}
-    .logo-scale{font-family:'Montserrat',sans-serif;font-weight:700;font-size:22px;color:#fff;line-height:1}
-    .logo-local{font-family:'Montserrat',sans-serif;font-weight:400;font-size:22px;color:#2E75B6;line-height:1}
-    .nav-links{display:none;list-style:none;gap:20px;align-items:center}
-    .nav-links a{color:#fff;text-decoration:none;font-family:'Inter',sans-serif;font-size:0.875rem;font-weight:500;transition:color 0.2s}
-    .nav-links a:hover,.nav-links a.active{color:#2E75B6}
-    .nav-cta-desktop{display:none;align-items:center;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-size:0.875rem;font-weight:700;padding:10px 16px;border-radius:6px;text-decoration:none;transition:all 0.2s;flex-shrink:0}
-    .nav-cta-desktop:hover{filter:brightness(1.1);box-shadow:0 4px 12px rgba(46,204,113,0.3)}
-    .hamburger{display:flex;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:12px;min-width:44px;min-height:44px;align-items:center;justify-content:center}
-    .hamburger span{display:block;width:22px;height:2px;background:#fff;border-radius:1px}
-    .mobile-menu{position:fixed;top:0;right:0;width:100%;height:100%;background:#1a2e4a;z-index:1001;display:flex;flex-direction:column;padding:80px 24px 32px;transform:translateX(100%);transition:transform 0.3s ease}
-    .mobile-menu.open{transform:translateX(0)}
-    .mobile-menu-close{position:absolute;top:16px;right:24px;background:none;border:none;color:#fff;font-size:28px;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center}
-    .mobile-menu nav{display:flex;flex-direction:column;flex:1}
-    .mobile-menu a{color:#fff;text-decoration:none;font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:500;min-height:48px;display:flex;align-items:center}
-    .mobile-menu .mobile-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;background:#2ecc71;color:#1a2e4a;height:56px;width:100%;font-family:'Montserrat',sans-serif;font-size:1.0625rem;font-weight:700;border:none;border-radius:8px;text-decoration:none}
-    @media(min-width:768px){.site-nav{height:72px}.nav-links{display:flex}.nav-cta-desktop{display:inline-flex}.hamburger{display:none}}
-    .hero{background:#1a2e4a;padding:100px 24px 64px;text-align:center}
-    .hero-eyebrow{font-family:'Inter',sans-serif;font-size:0.75rem;color:#2ecc71;text-transform:uppercase;letter-spacing:0.15em;font-weight:600;margin-bottom:12px}
-    .hero h1{font-family:'Montserrat',sans-serif;font-weight:800;color:#fff;font-size:2rem;line-height:1.2;max-width:700px;margin:0 auto 20px}
-    @media(min-width:768px){.hero h1{font-size:2.5rem}}
-    .hero p{font-family:'Inter',sans-serif;font-size:1.0625rem;color:#a8b8cc;max-width:600px;margin:0 auto 28px;line-height:1.7}
-    .content{max-width:720px;margin:0 auto;padding:48px 24px 80px}
-    .content h2{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1.375rem;margin:40px 0 16px}
-    .content h3{font-family:'Montserrat',sans-serif;font-weight:700;color:#2E75B6;font-size:1.125rem;margin:28px 0 12px}
-    .content p{color:#4a5a6e;margin-bottom:20px}
-    .content ul{margin:0 0 20px 24px;color:#4a5a6e}
-    .content li{margin-bottom:8px}
-    .content strong{color:#1a2e4a}
-    .content a{color:#2E75B6;text-decoration:none;border-bottom:1px solid #2E75B6}
-    .content a:hover{opacity:0.8}
-    .tier-card{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:24px;margin-bottom:16px}
-    .tier-card h3{margin-top:0;color:#1a2e4a}
-    .tier-label{font-family:'Montserrat',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#2ecc71;margin-bottom:4px}
-    .tier-price{font-family:'Montserrat',sans-serif;font-size:1.125rem;font-weight:700;color:#1a2e4a;margin-bottom:8px}
-    .tier-expect{font-family:'Inter',sans-serif;font-size:0.875rem;color:#2E75B6;font-weight:600;margin-bottom:12px;line-height:1.6}
-    .tier-description{color:#4a5a6e;margin-bottom:0}
-    .qa-box{background:#f8fafc;border-left:4px solid #2E75B6;padding:20px 24px;border-radius:0 8px 8px 0;margin:28px 0}
-    .qa-box h3{color:#1a2e4a;margin-top:0;font-size:1rem}
-    .qa-box ol{margin:12px 0 0 24px;padding:0;color:#4a5a6e}
-    .qa-box ol li{margin-bottom:12px}
-    .industry-links{margin-top:48px;padding-top:32px;border-top:1px solid #e2e8f0}
-    .industry-links h3{font-family:'Montserrat',sans-serif;font-weight:700;color:#1a2e4a;font-size:1rem;margin-bottom:12px}
-    .industry-links-grid{display:flex;flex-wrap:wrap;gap:8px}
-    .industry-links-grid a{display:inline-block;padding:6px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:6px;font-family:'Inter',sans-serif;font-size:0.8125rem;color:#2E75B6;text-decoration:none}
-    .industry-links-grid a:hover{border-color:#2E75B6}
-    .cta-button{display:inline-flex;padding:14px 32px;background:#2ecc71;color:#1a2e4a;font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;border-radius:8px;text-decoration:none;margin:24px 0}
-    .cta-button:hover{opacity:0.9}
-    footer{background:#1a2e4a;color:#8a9bb0;text-align:center;padding:24px 20px;font-family:Inter,sans-serif;font-size:0.8125rem;margin-top:60px}
-    footer a{color:#8a9bb0;text-decoration:none;border-bottom:1px solid #3a4a5c}
-    footer a:hover{opacity:0.8}
-  </style>
 </head>
 <body>
-  <header class="site-nav" id="site-nav">
-    <div class="nav-inner">
-      <a href="/" class="nav-logo"><span class="logo-scale">Scale</span><span class="logo-local">Local</span><sup style="font-size:0.5em;vertical-align:super;margin-left:1px;opacity:0.75;" aria-hidden="true">&trade;</sup></a>
-      <nav class="nav-links">
-        <a href="/#growth-system">How We Help</a>
-        <a href="/pricing">Pricing</a>
-        <a href="/demos">AI Demos</a>
-        <a href="/#founder">About</a>
-      </nav>
-      <a href="/snapshot" class="nav-cta-desktop">Get Your Free Digital Audit &rarr;</a>
-      <button class="hamburger" id="hamburger-btn" aria-label="Menu"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-
-  <div class="mobile-menu" id="mobile-menu">
-    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close">&times;</button>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/#growth-system">How We Help</a>
-      <a href="/pricing">Pricing</a>
-      <a href="/demos">AI Demos</a>
-      <a href="/#founder">About</a>
-      <a href="/snapshot" class="mobile-cta">Get Your Free Digital Audit &rarr;</a>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/">Demos</a>
+      <a href="/get-started/">Get Started</a>
     </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
   </div>
-
-  <div class="hero">
+</header>
+<main id="main">
+<div class="hero">
     <div class="hero-eyebrow">SALON & WELLNESS MARKETING</div>
     <h1>Beautiful work deserves to be seen. Make sure your next client finds you before your competitor.</h1>
     <p>The salon and wellness industry is visual, recurring, and booking-dependent. Seamless online booking integrated with local search is mandatory.</p>
@@ -128,26 +119,29 @@
     <p>Salon clients search visually first, then book. Your marketing needs to showcase stunning work and eliminate friction between discovery and booking.</p>
 
     <div class="tier-card">
-      <div class="tier-label">Foundation</div>
-      <h3>Foundation — $497/month</h3>
-      <div class="tier-expect">Expected leads: 3-6 new appointments/month</div>
-      <p class="tier-description">GBP ranking in map pack with booking software integration (Mindbody, Vagaro). Establishes online booking as the default way customers find and schedule with you. Expectation: 3-6 new appointments/month.</p>
+      <div class="tier-label">Basecamp</div>
+      <h3>Basecamp — $249/month</h3>
+      <div class="tier-expect">$249/mo &middot; setup $497 (setup fee waived on a 6 or 12-month commitment)</div>
+      <p class="tier-description">GBP ranking in the map pack with booking-software integration (Mindbody, Vagaro). Makes online booking the default way customers find and schedule with you.</p>
     </div>
-
     <div class="tier-card">
-      <div class="tier-label">Momentum</div>
-      <h3>Momentum — $1,297/month</h3>
-      <div class="tier-expect">Expected leads: 8-25 new appointments/month</div>
-      <p class="tier-description">Treatment-specific SEO (rank for specific services, not just "salon"), active visual portfolio management. Targets customers looking for specific services and stylists. Expectation: 8-25 new appointments/month.</p>
+      <div class="tier-label">Ascent</div>
+      <h3>Ascent — $597/month</h3>
+      <div class="tier-expect">$597/mo &middot; setup $797 (setup fee waived on a 6 or 12-month commitment)</div>
+      <p class="tier-description">Treatment-specific SEO (rank for specific services, not just “salon”) plus active visual portfolio management that targets customers looking for specific services and stylists.</p>
     </div>
-
     <div class="tier-card">
-      <div class="tier-label">Authority</div>
-      <h3>Authority — $1,997/month</h3>
-      <div class="tier-expect">Expected leads: 15-50 new high-value bookings/month</div>
-      <p class="tier-description">Aggressive Instagram/TikTok advertising, influencer partnerships, SEO for high-ticket treatments (Balayage, Medical Spa). Captures affluent clients seeking premium services. Expectation: 15-50 new high-value bookings/month.</p>
+      <div class="tier-label">Summit</div>
+      <h3>Summit — $997/month</h3>
+      <div class="tier-expect">$997/mo &middot; setup $1,497 (setup fee waived on a 6 or 12-month commitment)</div>
+      <p class="tier-description">Deeper search optimization, conversion-focused website work, and call/message capture so high-value bookings convert and rebook.</p>
     </div>
-
+    <div class="tier-card">
+      <div class="tier-label">Apex</div>
+      <h3>Apex — $1,497/month</h3>
+      <div class="tier-expect">$1,497/mo &middot; setup $1,997 (setup fee waived on a 6 or 12-month commitment)</div>
+      <p class="tier-description">The full system — SEO, AI booking and follow-up, review automation, and reporting — built to grow appointment value and retention.</p>
+    </div>
     <div class="qa-box">
       <h3>Questions You Should Ask Any Agency</h3>
       <ol>
@@ -157,37 +151,47 @@
       </ol>
     </div>
 
-    <a href="/pricing" class="cta-button">See Our Plans</a>
+    <a href="/pricing/" class="cta-button">See Our Plans</a>
 
     <div class="industry-links">
       <h3>Other Industries</h3>
       <div class="industry-links-grid">
-        <a href="/industries/landscaping">Landscaping & Lawn Care</a>
-        <a href="/industries/hvac-plumbing">HVAC & Plumbing</a>
-        <a href="/industries/dental-medical">Dental & Medical</a>
-        <a href="/industries/contractors">Contractors</a>
-        <a href="/industries/auto-services">Auto Services</a>
-        <a href="/industries/legal-financial">Legal & Financial</a>
-        <a href="/industries/restaurants">Restaurants</a>
-        <a href="/industries/home-services">Home Services</a>
+        <a href="/industries/landscaping/">Landscaping & Lawn Care</a>
+        <a href="/industries/hvac-plumbing/">HVAC & Plumbing</a>
+        <a href="/industries/dental-medical/">Dental & Medical</a>
+        <a href="/industries/contractors/">Contractors</a>
+        <a href="/industries/auto-services/">Auto Services</a>
+        <a href="/industries/legal-financial/">Legal & Financial</a>
+        <a href="/industries/restaurants/">Restaurants</a>
+        <a href="/industries/home-services/">Home Services</a>
       </div>
     </div>
   </div>
-
-  <footer>
-    <p style="margin:0;">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA &middot; MA Business Certificate BC-26-28 &middot; Serving Rhode Island, Massachusetts &amp; New Hampshire &middot; All rights reserved. <a href="/industries">Industries</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/privacy">Privacy</a></p>
-  </footer>
-<script>
-(function(){
-  var btn=document.getElementById('hamburger-btn'),menu=document.getElementById('mobile-menu'),cls=document.getElementById('mobile-menu-close');
-  if(btn&&menu&&cls){
-    btn.addEventListener('click',function(){menu.classList.add('open');document.body.classList.add('menu-open');});
-    cls.addEventListener('click',function(){menu.classList.remove('open');document.body.classList.remove('menu-open');});
-    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('open');document.body.classList.remove('menu-open');});});
-  }
-  var nav=document.getElementById('site-nav');
-  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>10);});}
-})();
-</script>
+</main>
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>The Climb</h4>
+        <a href="/basecamp/">Basecamp &mdash; $249/mo</a>
+        <a href="/ascent/">Ascent &mdash; $597/mo</a>
+        <a href="/summit/">Summit &mdash; $997/mo</a>
+        <a href="/apex/">Apex &mdash; $1,497/mo</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/about/">About</a>
+        <a href="/pricing/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; ScaleLocal&trade; &middot; Tewksbury, MA &middot; Serving Massachusetts, New Hampshire &amp; Rhode Island</div>
+  </div>
+</footer>
 </body>
 </html>
