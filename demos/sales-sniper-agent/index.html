@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>Sales Sniper Agent — Live Demo | ScaleLocal</title>
+<meta name="description" content="Try the ScaleLocal Sales Sniper Agent live — an AI trained to qualify hard, handle every objection, and close. Play the lead and watch it work you.">
+<link rel="canonical" href="https://www.scalelocal.net/demos/sales-sniper-agent/">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sales Sniper Agent — Live Demo | ScaleLocal">
+<meta property="og:description" content="Try the ScaleLocal Sales Sniper Agent live — an AI trained to qualify hard, handle every objection, and close. Play the lead and watch it work you.">
+<meta property="og:url" content="https://www.scalelocal.net/demos/sales-sniper-agent/">
+<meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sales Sniper Agent — Live Demo | ScaleLocal">
+<meta name="twitter:description" content="Try the ScaleLocal Sales Sniper Agent live — an AI trained to qualify hard, handle every objection, and close. Play the lead and watch it work you.">
+<meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.08s;} .rise.d2{transition-delay:.16s;} .rise.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.demo-hero { background:radial-gradient(ellipse at 50% 120%, #2a1f3d 0%, var(--dark) 74%); color:#fff; text-align:center; padding:72px 0 56px; }
+.demo-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.demo-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--accent-warm);animation:lpulse 2s infinite; }
+@keyframes lpulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.demo-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 16px; max-width:18ch; }
+.demo-hero h1 em { font-style:normal; color:var(--accent-warm); }
+.demo-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto; line-height:1.6; }
+
+/* the deal-room chat */
+.deal-stage { max-width:600px; margin:42px auto 0; padding:0 24px; }
+.deal-shell { background:#fff; border-radius:18px; box-shadow:0 40px 90px rgba(8,14,26,.6); overflow:hidden; }
+.deal-top { background:linear-gradient(135deg,#2a1f3d,#1a2e4a); color:#fff; padding:18px 22px; display:flex; align-items:center; gap:13px; }
+.deal-top .da { width:46px;height:46px;border-radius:12px;flex:none;background:linear-gradient(140deg,var(--accent-warm),var(--accent));display:flex;align-items:center;justify-content:center; }
+.deal-top .da svg { width:24px;height:24px;fill:#fff; }
+.deal-top .dt h3 { font-family:Montserrat;font-weight:700;font-size:1.02rem;color:#fff; }
+.deal-top .dt .ds { display:flex;align-items:center;gap:6px;font-size:0.74rem;color:rgba(255,255,255,.6);margin-top:2px; }
+.deal-top .dt .ds .sd { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 1.8s infinite; }
+.deal-thread { padding:22px 18px; min-height:230px; max-height:440px; overflow-y:auto; display:flex; flex-direction:column; gap:12px; background:#f6f7fb; }
+.dmsg { display:flex; gap:9px; max-width:88%; opacity:0; transform:translateY(10px); animation:din .35s var(--ease) forwards; }
+@keyframes din { to{opacity:1;transform:translateY(0);} }
+.dmsg.ai { align-self:flex-start; }
+.dmsg.you { align-self:flex-end; flex-direction:row-reverse; }
+.dmsg .av { width:28px;height:28px;border-radius:8px;flex:none;display:flex;align-items:center;justify-content:center;font-family:Montserrat;font-weight:700;font-size:0.6rem;color:#fff; }
+.dmsg.ai .av { background:linear-gradient(140deg,var(--accent-warm),var(--accent)); }
+.dmsg.you .av { background:var(--muted); }
+.dmsg .txt { padding:11px 14px; border-radius:13px; font-size:0.9rem; line-height:1.5; }
+.dmsg.ai .txt { background:#fff; color:var(--text); border:1px solid var(--line); border-bottom-left-radius:4px; }
+.dmsg.you .txt { background:var(--brand); color:#fff; border-bottom-right-radius:4px; }
+.dmsg .typing { display:flex;gap:4px;padding:13px; }
+.dmsg .typing span { width:6px;height:6px;border-radius:50%;background:var(--muted-light);animation:tdot 1.2s infinite; }
+.dmsg .typing span:nth-child(2){animation-delay:.18s;} .dmsg .typing span:nth-child(3){animation-delay:.36s;}
+@keyframes tdot { 0%,80%,100%{transform:scale(.6);opacity:.4;} 40%{transform:scale(1);opacity:1;} }
+/* reply options — visitor drives the conversation */
+.deal-foot { padding:14px 16px 18px; background:#fff; border-top:1px solid var(--line); }
+.deal-foot .prompt { font-family:Inter; font-size:0.76rem; font-weight:600; color:var(--muted); margin-bottom:9px; letter-spacing:.02em; }
+.opt-row { display:flex; flex-direction:column; gap:8px; }
+.opt { text-align:left; border:1.5px solid var(--line); background:var(--paper); cursor:pointer; font-family:Inter; font-size:0.88rem; color:var(--dark); padding:11px 14px; border-radius:10px; transition:border-color .15s ease, background .15s ease; }
+.opt:hover { border-color:var(--accent-warm); background:#fff; }
+.deal-close { display:none; padding:16px; background:linear-gradient(135deg,rgba(46,204,113,.12),rgba(46,117,182,.08)); border:1px solid rgba(46,204,113,.3); border-radius:12px; }
+.deal-close.show { display:block; }
+.deal-close h4 { font-family:Montserrat;font-weight:700;font-size:0.96rem;color:var(--green-deep);display:flex;align-items:center;gap:7px; }
+.deal-close p { font-size:0.84rem;color:var(--text);margin-top:6px;line-height:1.5; }
+.deal-restart { margin-top:10px;width:100%;background:var(--mist);border:none;cursor:pointer;font-family:Inter;font-weight:600;font-size:0.85rem;color:var(--dark);padding:11px;border-radius:9px; }
+
+/* feature strip */
+.feat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.feat .fi { width:44px;height:44px;border-radius:11px;background:rgba(230,126,34,.12);display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+.feat .fi svg { width:22px;height:22px;fill:var(--accent); }
+.feat h3 { font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:7px; }
+.feat p { font-size:0.93rem;color:var(--muted);line-height:1.58; }
+@media(max-width:880px){ .feat-row { grid-template-columns:1fr; } }
+
+/* ===== accessibility: visible keyboard focus + skip link ===== */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--brand);
+  outline-offset:2px;
+  border-radius:3px;
+}
+.skip-link {
+  position:absolute; left:-9999px; top:0; z-index:2000;
+  background:var(--brand); color:#fff; padding:12px 20px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  border-radius:0 0 8px 0; text-decoration:none;
+}
+.skip-link:focus { left:0; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.scalelocal.net/#organization",
+      "name": "ScaleLocal",
+      "legalName": "ScaleLocal™",
+      "url": "https://www.scalelocal.net/",
+      "logo": "https://www.scalelocal.net/og-image.png",
+      "email": "hello@scalelocal.net",
+      "telephone": "+1-978-662-7580",
+      "areaServed": "Massachusetts and New England",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.scalelocal.net/demos/sales-sniper-agent/#webpage",
+      "url": "https://www.scalelocal.net/demos/sales-sniper-agent/",
+      "name": "Sales Sniper Agent — Live Demo | ScaleLocal",
+      "description": "Try the ScaleLocal Sales Sniper Agent live — an AI trained to qualify hard, handle every objection, and close. Play the lead and watch it work you.",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo" aria-label="ScaleLocal home"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav" aria-label="Primary">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/" class="active">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="demo-hero">
+  <div class="wrap">
+    <span class="tag rise"><span class="d"></span> Live demo &mdash; Apex tier</span>
+    <h1 class="rise d1">It doesn't just answer leads. <em>It closes them.</em></h1>
+    <p class="rise d2">The Sales Sniper Agent is the AI built for one job: turning interested leads into booked, paying customers. It qualifies hard, handles every objection, and asks for the sale &mdash; with the patience and precision your best closer wishes they had. You play the lead. Watch it work you.</p>
+  </div>
+  <div class="deal-stage rise d2">
+    <div class="deal-shell">
+      <div class="deal-top">
+        <div class="da"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 7v6c0 5.1 3.5 9.4 8 10.5 4.5-1.1 8-5.4 8-10.5V7Zm0 4.5 1.6 3.4 3.7.4-2.8 2.5.8 3.6L12 18.4 8.7 20.4l.8-3.6-2.8-2.5 3.7-.4Z"/></svg></div>
+        <div class="dt">
+          <h3>Sales Sniper Agent</h3>
+          <div class="ds"><span class="sd"></span> Working a lead &mdash; live</div>
+        </div>
+      </div>
+      <div class="deal-thread" id="thread"></div>
+      <div class="deal-foot">
+        <div class="deal-close" id="dealClose">
+          <h4><svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> Deal closed.</h4>
+          <p>That's the Sales Sniper. It read the hesitation, handled the objection without pressure, anchored the value, and asked for the close at the right moment &mdash; a lead that might have gone cold is now a booked customer.</p>
+          <button class="deal-restart" id="restart">↺ Run another lead</button>
+        </div>
+        <div id="footLive">
+          <div class="prompt" id="prompt">You're the lead. Pick how you respond:</div>
+          <div class="opt-row" id="opts"></div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:0.82rem;color:rgba(255,255,255,.5);margin-top:16px;">You're playing a hesitant lead. <b style="color:rgba(255,255,255,.8);font-weight:600;">Choose your replies</b> and watch the agent close.</p>
+  </div>
+</section>
+
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center rise" style="margin:0 auto 8px;">
+      <div class="kicker">Trained to close, not just chat</div>
+      <h2>The difference between a lead and a customer.</h2>
+    </div>
+    <div class="feat-row">
+      <div class="feat rise d1">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 15-5-5 1.4-1.4L12 14.2l3.6-3.6L17 12Z"/></svg></div>
+        <h3>Qualifies hard, fast</h3>
+        <p>It separates real buyers from tire-kickers in the first 60 seconds &mdash; budget, timeline, decision-maker &mdash; so your time goes only to leads that can actually close.</p>
+      </div>
+      <div class="feat rise d2">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-7 12h-2v-2h2Zm0-4h-2V6h2Z"/></svg></div>
+        <h3>Handles every objection</h3>
+        <p>"Too expensive," "need to think about it," "checking other quotes" &mdash; it has a calm, trained answer for each, and it never gets flustered or pushy.</p>
+      </div>
+      <div class="feat rise d3">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h2v8H3Zm6-4h2v12H9Zm6-6h2v18h-2Zm6 9h2v9h-2Z"/></svg></div>
+        <h3>Asks for the close &mdash; every time</h3>
+        <p>Most leads die because nobody actually asked for the sale. The Sales Sniper always does, at the right moment, in the right way &mdash; and books it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-tight s-dark" style="text-align:center;">
+  <div class="wrap measure" style="margin:0 auto;">
+    <h2 style="font-size:clamp(1.7rem,3vw,2.5rem);">Put a closer on every lead.</h2>
+    <p style="color:var(--muted-light);margin:12px 0 26px;font-size:1.0625rem;">The Sales Sniper Agent is part of Apex &mdash; the flagship level of the ScaleLocal climb.</p>
+    <div class="hero-cta-row" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="/apex/" class="btn btn-primary btn-lg" data-cta="demo-sniper-apex">See the Apex tier</a>
+      <a href="tel:+19786627580" class="btn btn-line-light btn-lg" data-cta="book-call-demo-sniper">Talk to ScaleLocal</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Demos</h4>
+        <a href="/ai-chat-widget/">AI Chat Widget</a>
+        <a href="/ai-receptionist/">AI Receptionist</a>
+        <a href="/sales-sniper-agent/">Sales Sniper Agent</a>
+        <a href="/booking-calendar/">Booking Calendar</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA 01876 &middot; MA Business Certificate BC-26-28 &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+<script>
+(function(){
+  /* ---- scroll reveal ---- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  var vh=window.innerHeight||800;
+  document.querySelectorAll('.rise').forEach(function(el){
+    if(el.getBoundingClientRect().top<vh*0.92){ el.classList.add('in'); } else { io.observe(el); }
+  });
+
+  /* ---- branching deal conversation ----
+     Each node: ai message(s), then options the LEAD (visitor) can pick.
+     Every path is engineered to land on the close — different objections,
+     same trained outcome. No fabricated claims; this is a product demo. */
+  var nodes={
+    start:{
+      ai:["Hi — I saw you requested a quote for the kitchen remodel. I've got a few quick questions so I can get you an accurate number and the soonest available start date. Sound good?"],
+      opts:[
+        {t:"Sure, go ahead.", go:"qualify"},
+        {t:"I'm really just price-shopping right now.", go:"shopping"}
+      ]
+    },
+    shopping:{
+      ai:["Totally fair — most people start there. Quick thing though: a price only means something once it's tied to scope and a real timeline. Give me 60 seconds and I'll get you a number you can actually compare. What's the timeline you're hoping for?"],
+      opts:[
+        {t:"Ideally in the next month or two.", go:"qualify"},
+        {t:"No rush, just exploring.", go:"nourry"}
+      ]
+    },
+    nourry:{
+      ai:["Got it — exploring is smart. Here's the one thing worth knowing: our calendar for the next quarter is filling, and the quote we lock today holds even if you start later. So there's no downside to getting the real number now. Want me to pull it together?"],
+      opts:[
+        {t:"Okay, that makes sense — let's do it.", go:"qualify"},
+        {t:"What's it going to cost, ballpark?", go:"price"}
+      ]
+    },
+    qualify:{
+      ai:["Perfect. Two quick ones: roughly what size is the kitchen, and are you the homeowner making the final call, or is there a partner in on the decision?"],
+      opts:[
+        {t:"Mid-size kitchen, and it's me and my spouse deciding.", go:"price"},
+        {t:"It's a big kitchen — and honestly the budget worries me.", go:"price"}
+      ]
+    },
+    price:{
+      ai:["Thanks — that helps. For a project like yours, most homeowners land between a clear range I can walk you through, and we can scope it to fit your budget rather than the other way around. Before I do: what's making you hesitate a little? I'd rather address it head-on than dodge it."],
+      opts:[
+        {t:"It's the price — that's more than I planned.", go:"obj_price"},
+        {t:"I want to think it over / check other quotes.", go:"obj_think"}
+      ]
+    },
+    obj_price:{
+      ai:["I hear that a lot, and it's the right thing to push on. Two things: first, we can phase the work so it fits your budget without cutting quality. Second — the cheapest quote almost always gets expensive later, in change orders and rework. What I can do is lock today's price and hold it, so you're protected either way. If the number works, want me to put you on the schedule?"],
+      opts:[
+        {t:"If you can phase it, then yes — let's book it.", go:"close"},
+        {t:"I still want to compare one other quote first.", go:"obj_think"}
+      ]
+    },
+    obj_think:{
+      ai:["Smart — you should compare. Here's how to make that comparison fair: get every quote in writing with the same scope and the same materials grade, or you're comparing apples to oranges. I'll send you ours in that exact format so it's easy. And I'll hold a start slot for 48 hours, no obligation — so thinking it over doesn't cost you the timeline. Fair?"],
+      opts:[
+        {t:"That's fair — hold the slot and send it over.", go:"close"},
+        {t:"Actually, you've answered everything — let's just book it.", go:"close"}
+      ]
+    },
+    close:{
+      ai:["Excellent decision. I've got you penciled in and I'm sending the written scope and quote now — you'll have it in a few minutes. A real person from the team will confirm the start date with you today. You made the smart call getting ahead of the calendar."],
+      opts:[],
+      close:true
+    }
+  };
+
+  var thread=document.getElementById('thread');
+  var optsBox=document.getElementById('opts');
+  var prompt=document.getElementById('prompt');
+  var footLive=document.getElementById('footLive');
+  var dealClose=document.getElementById('dealClose');
+  var restart=document.getElementById('restart');
+
+  function bubble(side, text, cb){
+    var row=document.createElement('div'); row.className='dmsg '+side;
+    var av=document.createElement('div'); av.className='av'; av.textContent=side==='ai'?'SS':'YOU';
+    var txt=document.createElement('div'); txt.className='txt';
+    if(side==='ai'){ txt.innerHTML='<div class="typing"><span></span><span></span><span></span></div>'; }
+    else { txt.textContent=text; }
+    row.appendChild(av); row.appendChild(txt);
+    thread.appendChild(row); thread.scrollTop=thread.scrollHeight;
+    if(side==='ai'){
+      setTimeout(function(){
+        txt.textContent=text; thread.scrollTop=thread.scrollHeight; cb&&cb();
+      }, 750+Math.min(text.length*14,1500));
+    } else { cb&&cb(); }
+  }
+  function showNode(key){
+    var n=nodes[key];
+    optsBox.innerHTML=''; prompt.textContent='';
+    var i=0;
+    (function nextAi(){
+      if(i<n.ai.length){ bubble('ai', n.ai[i++], function(){ setTimeout(nextAi,300); }); return; }
+      if(n.close){
+        footLive.style.display='none';
+        dealClose.classList.add('show');
+        thread.scrollTop=thread.scrollHeight;
+        return;
+      }
+      prompt.textContent='You’re the lead. Pick how you respond:';
+      n.opts.forEach(function(o){
+        var b=document.createElement('button'); b.className='opt'; b.textContent=o.t;
+        b.addEventListener('click', function(){
+          optsBox.innerHTML=''; prompt.textContent='';
+          bubble('you', o.t, function(){ setTimeout(function(){ showNode(o.go); }, 380); });
+        });
+        optsBox.appendChild(b);
+      });
+    })();
+  }
+  function reset(){
+    thread.innerHTML=''; dealClose.classList.remove('show');
+    footLive.style.display=''; showNode('start');
+  }
+  restart.addEventListener('click', reset);
+  reset();
+})();
+</script>
+</body>
+</html>
