@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>AI Booking Calendar — Live Demo | ScaleLocal</title>
+<meta name="description" content="Try the ScaleLocal booking calendar live — customers pick an open 30-minute slot and book the job themselves in seconds, 24/7. No phone tag.">
+<link rel="canonical" href="https://www.scalelocal.net/demos/booking-calendar/">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Booking Calendar — Live Demo | ScaleLocal">
+<meta property="og:description" content="Try the ScaleLocal booking calendar live — customers pick an open 30-minute slot and book the job themselves in seconds, 24/7. No phone tag.">
+<meta property="og:url" content="https://www.scalelocal.net/demos/booking-calendar/">
+<meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Booking Calendar — Live Demo | ScaleLocal">
+<meta name="twitter:description" content="Try the ScaleLocal booking calendar live — customers pick an open 30-minute slot and book the job themselves in seconds, 24/7. No phone tag.">
+<meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.08s;} .rise.d2{transition-delay:.16s;} .rise.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.demo-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:72px 0 56px; }
+.demo-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.demo-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 2s infinite; }
+@keyframes lpulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.demo-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 16px; max-width:19ch; }
+.demo-hero h1 em { font-style:normal; color:var(--brand); }
+.demo-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto; line-height:1.6; }
+
+/* ===== the booking card ===== */
+.book-wrap { max-width:760px; margin:44px auto 0; padding:0 24px; }
+.book-card { background:#fff; border-radius:18px; box-shadow:0 40px 90px rgba(8,14,26,.5); overflow:hidden; }
+.book-head { background:linear-gradient(135deg,var(--dark),var(--brand) 135%); color:#fff; padding:22px 26px; display:flex; align-items:center; gap:14px; }
+.book-head .bh-ic { width:46px;height:46px;border-radius:12px;flex:none;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center; }
+.book-head .bh-ic svg { width:24px;height:24px;fill:#fff; }
+.book-head h3 { font-family:Montserrat;font-weight:700;font-size:1.08rem; }
+.book-head .bh-sub { display:flex;align-items:center;gap:7px;font-size:0.8rem;color:rgba(255,255,255,.72);margin-top:2px; }
+.book-head .bh-sub .sd { width:7px;height:7px;border-radius:50%;background:var(--green); }
+.book-body { display:grid; grid-template-columns:1fr 1fr; }
+.book-body > div { padding:24px 26px; }
+.book-cal { border-right:1px solid var(--line); }
+/* month nav */
+.cal-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; }
+.cal-nav h4 { font-family:Montserrat; font-weight:700; font-size:0.98rem; color:var(--dark); }
+.cal-nav button { width:32px;height:32px;border:1px solid var(--line);background:#fff;border-radius:8px;cursor:pointer;font-size:1rem;color:var(--brand);display:flex;align-items:center;justify-content:center;transition:background .15s; }
+.cal-nav button:hover { background:var(--mist); }
+.cal-nav button:disabled { opacity:.32; cursor:not-allowed; }
+/* day grid */
+.cal-dow { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; margin-bottom:6px; }
+.cal-dow span { text-align:center; font-family:Inter; font-size:0.66rem; font-weight:700; color:var(--muted-light); text-transform:uppercase; letter-spacing:.04em; }
+.cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:4px; }
+.cal-day {
+  aspect-ratio:1; border:none; background:none; border-radius:9px; cursor:pointer;
+  font-family:Inter; font-size:0.86rem; font-weight:600; color:var(--text);
+  display:flex; align-items:center; justify-content:center; position:relative;
+  transition:background .15s var(--ease), color .15s var(--ease);
+}
+.cal-day:hover:not(:disabled):not(.sel) { background:var(--mist); }
+.cal-day:disabled { color:var(--line); cursor:not-allowed; }
+.cal-day.muted { color:var(--line); pointer-events:none; }
+.cal-day.today { box-shadow:inset 0 0 0 1.5px var(--brand); }
+.cal-day.sel { background:var(--brand); color:#fff; }
+.cal-day .availdot { position:absolute; bottom:5px; width:4px;height:4px;border-radius:50%;background:var(--green); }
+.cal-day.sel .availdot, .cal-day:disabled .availdot { display:none; }
+.cal-legend { display:flex; gap:16px; margin-top:14px; font-size:0.72rem; color:var(--muted); }
+.cal-legend span { display:flex; align-items:center; gap:5px; }
+.cal-legend .lg-dot { width:6px;height:6px;border-radius:50%; }
+
+/* ---- right pane: slots / form / confirm ---- */
+.book-side { display:flex; flex-direction:column; min-height:380px; }
+.side-head { font-family:Inter; font-size:0.78rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.05em; margin-bottom:4px; }
+.side-sub { font-family:Inter; font-size:0.82rem; color:var(--muted-light); margin-bottom:16px; }
+.side-date { font-family:'Montserrat',sans-serif; font-size:1.05rem; font-weight:700; color:var(--text); margin-bottom:2px; }
+
+/* slot list */
+.slot-list { display:grid; grid-template-columns:1fr 1fr; gap:8px; align-content:start; }
+.slot {
+  border:1.5px solid var(--line); background:#fff; border-radius:10px;
+  padding:11px 8px; font-family:Inter; font-size:0.86rem; font-weight:600; color:var(--text);
+  cursor:pointer; transition:border-color .15s var(--ease), background .15s var(--ease), color .15s var(--ease), transform .1s var(--ease);
+  text-align:center;
+}
+.slot:hover:not(:disabled) { border-color:var(--brand); transform:translateY(-1px); }
+.slot.sel { background:var(--brand); border-color:var(--brand); color:#fff; }
+.slot:disabled {
+  background:var(--mist); color:var(--line); cursor:not-allowed;
+  text-decoration:line-through; border-color:transparent;
+}
+.slot-empty {
+  grid-column:1/-1; text-align:center; padding:40px 16px;
+  font-family:Inter; font-size:0.86rem; color:var(--muted-light);
+}
+.slot-empty svg { display:block; margin:0 auto 10px; opacity:.4; }
+
+/* booking form */
+.bk-form { display:flex; flex-direction:column; gap:11px; }
+.bk-pick {
+  background:var(--mist); border-radius:10px; padding:11px 14px;
+  display:flex; align-items:center; gap:10px; margin-bottom:3px;
+}
+.bk-pick svg { flex:none; color:var(--brand); }
+.bk-pick b { font-family:'Montserrat',sans-serif; font-size:0.9rem; color:var(--text); }
+.bk-pick span { font-family:Inter; font-size:0.82rem; color:var(--muted); }
+.bk-field label { display:block; font-family:Inter; font-size:0.74rem; font-weight:700; color:var(--muted); margin-bottom:4px; text-transform:uppercase; letter-spacing:.04em; }
+.bk-field input, .bk-field select {
+  width:100%; border:1.5px solid var(--line); border-radius:9px;
+  padding:10px 12px; font-family:Inter; font-size:0.9rem; color:var(--text);
+  background:#fff; transition:border-color .15s var(--ease);
+}
+.bk-field input:focus, .bk-field select:focus { outline:none; border-color:var(--brand); }
+.bk-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.bk-actions { display:flex; gap:10px; margin-top:4px; }
+.bk-btn {
+  flex:1; border:none; border-radius:10px; padding:12px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  cursor:pointer; transition:transform .1s var(--ease), box-shadow .2s var(--ease), background .15s var(--ease);
+}
+.bk-btn.primary { background:var(--brand); color:#fff; box-shadow:0 6px 18px -6px var(--brand); }
+.bk-btn.primary:hover { transform:translateY(-1px); box-shadow:0 10px 24px -6px var(--brand); }
+.bk-btn.ghost { background:none; border:1.5px solid var(--line); color:var(--muted); flex:0 0 auto; padding:12px 18px; }
+.bk-btn.ghost:hover { border-color:var(--muted-light); }
+
+/* confirmation */
+.bk-confirm { text-align:center; padding:24px 12px; }
+.bk-check {
+  width:64px;height:64px;border-radius:50%;
+  background:var(--green); display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px; box-shadow:0 10px 30px -8px var(--green);
+  animation:pop .4s var(--ease);
+}
+@keyframes pop { 0%{transform:scale(.4);opacity:0;} 60%{transform:scale(1.08);} 100%{transform:scale(1);opacity:1;} }
+.bk-confirm h3 { font-family:'Montserrat',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:6px; }
+.bk-confirm p { font-family:Inter; font-size:0.88rem; color:var(--muted); margin-bottom:20px; }
+.bk-summary {
+  text-align:left; background:var(--mist); border-radius:12px; padding:16px 18px;
+  display:flex; flex-direction:column; gap:9px; margin-bottom:18px;
+}
+.bk-summary .bs-row { display:flex; align-items:center; gap:10px; }
+.bk-summary .bs-row svg { flex:none; color:var(--brand); }
+.bk-summary .bs-row span { font-family:Inter; font-size:0.86rem; color:var(--text); }
+.bk-summary .bs-row b { font-family:'Montserrat',sans-serif; }
+.bk-again {
+  background:none; border:1.5px solid var(--line); border-radius:10px;
+  padding:10px 22px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.85rem;
+  color:var(--muted); cursor:pointer; transition:border-color .15s var(--ease);
+}
+.bk-again:hover { border-color:var(--brand); color:var(--brand); }
+
+/* footer note */
+.demo-note {
+  max-width:760px; margin:34px auto 0; padding:16px 20px;
+  background:var(--mist); border-radius:12px; border:1px solid var(--line);
+  font-family:Inter; font-size:0.8rem; color:var(--muted); text-align:center;
+}
+
+@media (max-width:780px){
+  .book-body { grid-template-columns:1fr; }
+  .book-cal { border-right:none; border-bottom:1px solid var(--line); }
+  .slot-list { grid-template-columns:1fr 1fr 1fr; }
+}
+
+/* ===== accessibility: visible keyboard focus + skip link ===== */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--brand);
+  outline-offset:2px;
+  border-radius:3px;
+}
+.skip-link {
+  position:absolute; left:-9999px; top:0; z-index:2000;
+  background:var(--brand); color:#fff; padding:12px 20px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  border-radius:0 0 8px 0; text-decoration:none;
+}
+.skip-link:focus { left:0; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.scalelocal.net/#organization",
+      "name": "ScaleLocal",
+      "legalName": "ScaleLocal™",
+      "url": "https://www.scalelocal.net/",
+      "logo": "https://www.scalelocal.net/og-image.png",
+      "email": "hello@scalelocal.net",
+      "telephone": "+1-978-662-7580",
+      "areaServed": "Massachusetts and New England",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.scalelocal.net/demos/booking-calendar/#webpage",
+      "url": "https://www.scalelocal.net/demos/booking-calendar/",
+      "name": "AI Booking Calendar — Live Demo | ScaleLocal",
+      "description": "Try the ScaleLocal booking calendar live — customers pick an open 30-minute slot and book the job themselves in seconds, 24/7. No phone tag.",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ===== HEADER ===== -->
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo" aria-label="ScaleLocal home"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav" aria-label="Primary">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/" class="active">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===== HERO ===== -->
+<section class="demo-hero">
+  <div class="container">
+    <span class="tag rise"><span class="d"></span> Live Demo · Booking Calendar</span>
+    <h1 class="rise d1">Customers book the job <em>themselves</em> — day or night.</h1>
+    <p class="rise d2">Open slots, no phone tag. This is the same self-service scheduler ScaleLocal wires into your site, your AI receptionist, and your chat widget. Try it — pick a day and grab a time.</p>
+  </div>
+</section>
+
+<!-- ===== BOOKING CARD ===== -->
+<div class="book-wrap rise">
+  <div class="book-card">
+    <div class="book-head">
+      <div class="bh-ic">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 16H5V10h14v10zM5 8V6h14v2H5zm7 3.5l1.4 2.9 3.1.4-2.3 2.1.6 3.1-2.8-1.5-2.8 1.5.6-3.1L9.5 14.8l3.1-.4L12 11.5z"/></svg>
+      </div>
+      <div>
+        <h3>Book a Service Call</h3>
+        <div class="bh-sub"><span class="sd"></span> Real-time availability · 30-minute slots</div>
+      </div>
+    </div>
+    <div class="book-body">
+      <!-- LEFT: calendar -->
+      <div class="book-cal">
+        <div class="cal-nav">
+          <button id="calPrev" aria-label="Previous month">&#8249;</button>
+          <h4 id="calTitle">Month</h4>
+          <button id="calNext" aria-label="Next month">&#8250;</button>
+        </div>
+        <div class="cal-dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="cal-legend">
+          <span><span class="lg-dot" style="background:var(--green)"></span> Slots open</span>
+          <span><span class="lg-dot" style="box-shadow:inset 0 0 0 1.5px var(--brand)"></span> Today</span>
+        </div>
+      </div>
+      <!-- RIGHT: slots / form / confirm -->
+      <div class="book-side" id="bookSide">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </div>
+  <div class="demo-note">
+    This is an interactive demo. Bookings here aren't sent anywhere — on a live ScaleLocal install, each booking drops straight into your calendar and texts the customer a confirmation.
+  </div>
+</div>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Demos</h4>
+        <a href="/ai-chat-widget/">AI Chat Widget</a>
+        <a href="/ai-receptionist/">AI Receptionist</a>
+        <a href="/sales-sniper-agent/">Sales Sniper Agent</a>
+        <a href="/booking-calendar/">Booking Calendar</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA 01876 &middot; MA Business Certificate BC-26-28 &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---------- scroll reveal ---------- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+  /* ---------- booking calendar ---------- */
+  var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  var DOW=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  var SLOTS=['8:00 AM','8:30 AM','9:00 AM','9:30 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM',
+             '1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM'];
+
+  var today=new Date(); today.setHours(0,0,0,0);
+  var viewY=today.getFullYear(), viewM=today.getMonth();
+  var selDate=null, selSlot=null;
+
+  /* deterministic pseudo-random so the calendar looks the same each load */
+  function seedRand(n){ var x=Math.sin(n*99.71)*43758.5453; return x-Math.floor(x); }
+  function keyOf(d){ return d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate(); }
+
+  /* booked appointments: map of dateKey -> array of taken slot-strings.
+     Seeded so weekdays look busy — like a real service business calendar. */
+  var booked={};
+  (function seedBookings(){
+    var d=new Date(today);
+    for(var i=0;i<70;i++){
+      var dow=d.getDay();
+      if(dow!==0 && dow!==6){               /* Mon–Fri only */
+        var n=d.getFullYear()*372 + d.getMonth()*31 + d.getDate();
+        /* 4 to 11 of the 16 slots already taken */
+        var count=4 + Math.floor(seedRand(n)*8);
+        var taken=[], pool=SLOTS.slice();
+        for(var j=0;j<count && pool.length;j++){
+          var idx=Math.floor(seedRand(n+j*7.3)*pool.length);
+          taken.push(pool.splice(idx,1)[0]);
+        }
+        booked[keyOf(d)]=taken;
+      }
+      d.setDate(d.getDate()+1);
+    }
+  })();
+
+  function openSlotsFor(d){
+    var dow=d.getDay();
+    if(dow===0||dow===6) return [];      /* closed weekends */
+    var taken=booked[keyOf(d)]||[];
+    return SLOTS.filter(function(s){ return taken.indexOf(s)===-1; });
+  }
+  function hasAvail(d){
+    if(d<today) return false;
+    return openSlotsFor(d).length>0;
+  }
+
+  var grid=document.getElementById('calGrid'),
+      title=document.getElementById('calTitle'),
+      side=document.getElementById('bookSide'),
+      prevBtn=document.getElementById('calPrev'),
+      nextBtn=document.getElementById('calNext');
+
+  function renderCal(){
+    title.textContent=MONTHS[viewM]+' '+viewY;
+    grid.innerHTML='';
+    var first=new Date(viewY,viewM,1).getDay();
+    var days=new Date(viewY,viewM+1,0).getDate();
+    for(var p=0;p<first;p++){
+      var sp=document.createElement('span'); sp.className='cal-day muted'; grid.appendChild(sp);
+    }
+    for(var dt=1;dt<=days;dt++){
+      var d=new Date(viewY,viewM,dt);
+      var btn=document.createElement('button');
+      btn.className='cal-day'; btn.textContent=dt;
+      var isToday=d.getTime()===today.getTime();
+      if(isToday) btn.classList.add('today');
+      if(d<today || !hasAvail(d)){
+        btn.disabled=true;
+      } else {
+        var dot=document.createElement('span'); dot.className='availdot'; btn.appendChild(dot);
+        (function(dd,b){
+          b.addEventListener('click',function(){
+            selDate=dd; selSlot=null;
+            grid.querySelectorAll('.cal-day.sel').forEach(function(x){x.classList.remove('sel');});
+            b.classList.add('sel');
+            renderSlots();
+          });
+        })(d,btn);
+      }
+      if(selDate && d.getTime()===selDate.getTime()) btn.classList.add('sel');
+      grid.appendChild(btn);
+    }
+    /* disable prev when at current month */
+    prevBtn.disabled=(viewY===today.getFullYear() && viewM===today.getMonth());
+  }
+
+  function fmtDate(d){
+    return DOW[d.getDay()]+', '+MONTHS[d.getMonth()]+' '+d.getDate();
+  }
+
+  function renderSlots(){
+    if(!selDate){
+      side.innerHTML='<div class="side-head">Pick a day</div>'+
+        '<div class="side-sub">Select an available date on the calendar to see open 30-minute slots.</div>'+
+        '<div class="slot-empty">'+
+        '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>'+
+        'No day selected yet</div>';
+      return;
+    }
+    var open=openSlotsFor(selDate);
+    var total=SLOTS.length, takenCount=total-open.length;
+    var html='<div class="side-date">'+fmtDate(selDate)+'</div>'+
+      '<div class="side-sub">'+open.length+' of '+total+' slots open &middot; '+takenCount+' already booked</div>'+
+      '<div class="slot-list">';
+    SLOTS.forEach(function(s){
+      var isOpen=open.indexOf(s)!==-1;
+      html+='<button class="slot'+(s===selSlot?' sel':'')+'" data-slot="'+s+'"'+(isOpen?'':' disabled')+'>'+s+'</button>';
+    });
+    html+='</div>';
+    side.innerHTML=html;
+    side.querySelectorAll('.slot:not([disabled])').forEach(function(b){
+      b.addEventListener('click',function(){
+        selSlot=b.getAttribute('data-slot');
+        renderForm();
+      });
+    });
+  }
+
+  function renderForm(){
+    side.innerHTML=
+      '<div class="side-head">Confirm your details</div>'+
+      '<div class="bk-pick">'+
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>'+
+        '<div><b>'+fmtDate(selDate)+'</b><br><span>'+selSlot+' &middot; 30 minutes</span></div>'+
+      '</div>'+
+      '<form class="bk-form" id="bkForm">'+
+        '<div class="bk-field"><label>Full name</label><input type="text" id="fName" required placeholder="Jordan Avery"></div>'+
+        '<div class="bk-row">'+
+          '<div class="bk-field"><label>Phone</label><input type="tel" id="fPhone" required placeholder="(978) 555-0142"></div>'+
+          '<div class="bk-field"><label>Email</label><input type="email" id="fEmail" required placeholder="you@email.com"></div>'+
+        '</div>'+
+        '<div class="bk-field"><label>What do you need?</label><select id="fService">'+
+          '<option>Estimate / quote visit</option>'+
+          '<option>Service or repair call</option>'+
+          '<option>Maintenance appointment</option>'+
+          '<option>Emergency / urgent</option>'+
+          '<option>Something else</option>'+
+        '</select></div>'+
+        '<div class="bk-actions">'+
+          '<button type="button" class="bk-btn ghost" id="bkBack">Back</button>'+
+          '<button type="submit" class="bk-btn primary">Confirm Booking</button>'+
+        '</div>'+
+      '</form>';
+    document.getElementById('bkBack').addEventListener('click',function(){ selSlot=null; renderSlots(); });
+    document.getElementById('bkForm').addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var name=document.getElementById('fName').value.trim()||'You';
+      var svc=document.getElementById('fService').value;
+      renderConfirm(name,svc);
+    });
+  }
+
+  function renderConfirm(name,svc){
+    /* mark the slot as taken so the calendar updates live */
+    var k=keyOf(selDate);
+    if(!booked[k]) booked[k]=[];
+    if(booked[k].indexOf(selSlot)===-1) booked[k].push(selSlot);
+    side.innerHTML=
+      '<div class="bk-confirm">'+
+        '<div class="bk-check"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg></div>'+
+        '<h3>You\'re booked, '+name.split(' ')[0]+'.</h3>'+
+        '<p>A confirmation text would land on your phone within seconds.</p>'+
+        '<div class="bk-summary">'+
+          '<div class="bs-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span><b>'+fmtDate(selDate)+'</b> at <b>'+selSlot+'</b></span></div>'+
+          '<div class="bs-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span>30-minute slot</span></div>'+
+          '<div class="bs-row"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M20 7L9 18l-5-5"/></svg><span>'+svc+'</span></div>'+
+        '</div>'+
+        '<button class="bk-again" id="bkAgain">Book another</button>'+
+      '</div>';
+    document.getElementById('bkAgain').addEventListener('click',function(){
+      selSlot=null;
+      renderCal();   /* refresh dots — the slot we just took may close a day */
+      renderSlots();
+    });
+    renderCal();
+  }
+
+  prevBtn.addEventListener('click',function(){
+    if(prevBtn.disabled) return;
+    viewM--; if(viewM<0){viewM=11;viewY--;} renderCal();
+  });
+  nextBtn.addEventListener('click',function(){
+    viewM++; if(viewM>11){viewM=0;viewY++;} renderCal();
+  });
+
+  renderCal();
+  renderSlots();
+})();
+</script>
+</body>
+</html>
