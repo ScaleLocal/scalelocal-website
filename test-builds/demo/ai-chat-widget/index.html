@@ -265,21 +265,11 @@ html, body { overflow-x:hidden; max-width:100%; }
   .slcw-foot { padding:10px 16px; text-align:center; font-size:0.72rem; color:var(--muted-light); background:#fff; border-top:1px solid var(--line); }
   .slcw-foot b { color:var(--brand); font-weight:600; }
   /* ===== GHL widget control (TNJ method) =====
-     GHL's <chat-widget> renders its own UI. We keep our custom action-menu as the
-     face; tapping "Chat with Us" opens GHL's chat panel via its public API
-     (window.leadConnector.chatWidget.openWidget). GHL's panel renders bottom-right
-     — the same corner as our menu — so it naturally COVERS the menu: one seamless
-     flow. We only suppress GHL's own launcher bubble so it never double-stacks. */
-  chat-widget::part(launcher),
-  chat-widget::part(bubble),
-  .lc_text-widget--bubble,
-  [id^="lc_text-widget"] [class*="bubble"] {
-    display:none !important; visibility:hidden !important; opacity:0 !important;
-  }
-  /* the GHL host: hidden until the visitor opens chat, then it sits on top */
-  chat-widget { z-index:9994 !important; }
-  html:not([data-sl-chat-open]) chat-widget { opacity:0 !important; pointer-events:none !important; }
-  html[data-sl-chat-open] chat-widget { opacity:1 !important; pointer-events:auto !important; }
+     GHL's <chat-widget> renders its own UI natively. We do NOT restyle the host —
+     doing so broke its rendering. We keep our custom action-menu as the face;
+     tapping "Chat with Us" opens GHL's chat panel via its public API. The only
+     thing we suppress is GHL's own launcher BUBBLE (handled in JS, inside the
+     shadow DOM, via killGhlBubble) so it never double-stacks with our launcher. */
 </style>
 
 <div class="slcw-panel" id="slcwPanel">
@@ -416,3 +406,4 @@ html, body { overflow-x:hidden; max-width:100%; }
 </script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
