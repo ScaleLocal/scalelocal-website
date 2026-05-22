@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>Services — The Four ScaleLocal Plans, $249–$1,497/mo | ScaleLocal</title>
+<meta name="description" content="ScaleLocal's four growth plans for local service businesses — Basecamp, Ascent, Summit, Apex. Each level builds on the last. Start where you are and climb when ready.">
+<link rel="canonical" href="https://www.scalelocal.net/services/">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Services — The Four ScaleLocal Plans, $249–$1,497/mo | ScaleLocal">
+<meta property="og:description" content="ScaleLocal's four growth plans for local service businesses — Basecamp, Ascent, Summit, Apex. Each level builds on the last. Start where you are and climb when ready.">
+<meta property="og:url" content="https://www.scalelocal.net/services/">
+<meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Services — The Four ScaleLocal Plans, $249–$1,497/mo | ScaleLocal">
+<meta name="twitter:description" content="ScaleLocal's four growth plans for local service businesses — Basecamp, Ascent, Summit, Apex. Each level builds on the last. Start where you are and climb when ready.">
+<meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.mtn-hero { background:radial-gradient(ellipse at 50% 130%, var(--navy-1) 0%, var(--dark) 78%); color:#fff; text-align:center; padding:72px 0 40px; }
+.mtn-hero h1 {
+  letter-spacing:-0.02em; line-height:1.08;
+  font-size:clamp(2rem,3.6vw,3rem); margin:16px 0 16px;
+}
+/* line 1 — the metaphor: white, semibold */
+.mtn-hero h1 .l1 { display:block; color:#fff; font-weight:600; }
+/* line 2 — the promise: blue accent, bold, the line that closes */
+.mtn-hero h1 .l2 { display:block; color:var(--brand); font-weight:700; margin-top:2px; }
+.mtn-hero p { color:rgba(255,255,255,.80); font-size:1.0625rem; max-width:56ch; margin:0 auto; }
+
+/* ===== PINNED SCROLL-JACK CLIMB ===== */
+/* .climb is a tall runway; .climb-pin is JS-locked via position:fixed
+   so it truly stays on screen for the whole climb (sticky can't do this). */
+.climb { background:var(--dark); position:relative; height:500vh; }
+.climb-pin {
+  width:100%; height:calc(100vh - 60px);
+  overflow:hidden; display:flex; align-items:center;
+  /* default state = pinned to viewport */
+  position:fixed; top:60px; left:0; right:0;
+}
+/* before the runway: rest at the top of the section */
+.climb-pin.is-before { position:absolute; top:0; }
+/* after the runway: rest at the bottom of the section */
+.climb-pin.is-after  { position:absolute; top:auto; bottom:0; }
+.climb-grid {
+  width:100%; max-width:1280px; margin:0 auto; padding:0 40px;
+  display:grid; grid-template-columns:1.1fr .9fr; gap:56px; align-items:center;
+}
+
+/* mountain side */
+.mtn-stage { display:flex; align-items:center; justify-content:center; }
+.mtn-svg-wrap { width:100%; max-width:540px; }
+.mtn-svg { width:100%; height:auto; display:block; overflow:visible; }
+.mtn-hint { text-align:center; margin-top:14px; color:rgba(255,255,255,.46); font-size:0.82rem; }
+#climber { transition:transform .15s linear; }
+#climber .pulse { animation:cpulse 2.6s ease-in-out infinite; transform-origin:center; }
+@keyframes cpulse { 0%,100%{ opacity:.35; } 50%{ opacity:0; } }
+#trailFill { transition:stroke-dasharray .15s linear; }
+.flag { cursor:pointer; }
+.flag-dot { transition:r .35s ease, fill .35s ease; }
+.flag-glow { transition:opacity .45s ease; }
+.flag-hit { fill:transparent; cursor:pointer; }
+.flag-lbl { pointer-events:none; transition:fill .35s ease; }
+
+/* card side — all 4 cards stacked, only one visible at a time.
+   height = whatever fits, capped to the pinned stage so nothing clips. */
+.card-stage { position:relative; width:100%; height:100%; display:flex; align-items:center; }
+.tp-card {
+  position:absolute; top:50%; left:0; right:0;
+  transform:translateY(calc(-50% + 40px));
+  max-height:100%;
+  display:flex; flex-direction:column;
+  background:#fff; border-radius:var(--radius-lg);
+  border:1px solid var(--line); box-shadow:0 30px 70px rgba(8,14,26,.5);
+  padding:26px 30px 24px;
+  opacity:0; pointer-events:none;
+  transition:opacity .45s var(--ease), transform .45s var(--ease);
+  overflow-wrap:break-word;
+}
+.tp-card.is-active { opacity:1; transform:translateY(-50%); pointer-events:auto; }
+.tp-card.is-past   { opacity:0; transform:translateY(calc(-50% - 40px)); }
+.tp-num { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:700; font-size:0.72rem; text-transform:uppercase; letter-spacing:.14em; color:var(--brand); margin-bottom:10px; }
+.tp-num .dot { width:6px;height:6px;border-radius:50%;background:var(--brand); }
+.tp-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+.tp-head > div { min-width:0; }
+.tp-name { font-family:Montserrat; font-weight:700; color:var(--dark); font-size:clamp(1.7rem,2.6vw,2.3rem); letter-spacing:-0.02em; line-height:1.08; }
+.tp-pricebox { text-align:right; flex:none; }
+.tp-pricebox .amt { font-family:Montserrat;font-weight:700;font-size:1.7rem;color:var(--dark);line-height:1; }
+.tp-pricebox .per { font-family:Inter;font-size:0.8rem;font-weight:600;color:var(--muted); }
+.tp-pricebox .setup { display:block; font-size:0.72rem; font-weight:500; color:var(--muted-light); margin-top:5px; }
+.tp-badge { display:inline-block; font-family:Inter; font-weight:700; font-size:0.66rem; letter-spacing:.1em; text-transform:uppercase; color:#fff; background:var(--accent); padding:4px 10px; border-radius:999px; margin-top:8px; }
+.tp-tag { font-size:0.93rem;color:var(--text);margin:10px 0 12px;line-height:1.5; }
+.tp-offer {
+  display:flex; align-items:center; gap:11px;
+  background:linear-gradient(135deg, rgba(46,204,113,.10), rgba(46,117,182,.08));
+  border:1px solid rgba(46,204,113,.30); border-radius:var(--radius-sm);
+  padding:10px 12px; margin-bottom:12px;
+}
+.tp-offer .of-ic { width:28px;height:28px;border-radius:8px;flex:none;background:var(--green);display:flex;align-items:center;justify-content:center; }
+.tp-offer .of-ic svg { width:15px;height:15px;fill:#fff; }
+.tp-offer .of-tx { font-size:0.83rem; line-height:1.38; color:var(--text); }
+.tp-offer .of-tx b { font-family:Montserrat; font-weight:700; color:var(--green-deep); }
+.tp-offer .of-tx .of-sub { display:block; font-size:0.74rem; color:var(--muted); margin-top:1px; }
+.tp-prev { display:flex;align-items:center;gap:9px;font-size:0.82rem;color:var(--muted);font-weight:600;padding:9px 13px;background:var(--mist);border-radius:var(--radius-sm);margin-bottom:10px; }
+.tp-prev .chk { width:17px;height:17px;border-radius:50%;flex:none;background:var(--brand);display:flex;align-items:center;justify-content:center; }
+.tp-prev .chk svg { width:9px;height:9px;fill:#fff; }
+.tp-adds { display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;margin-bottom:16px; }
+.tp-add { display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:var(--text);background:#fff;padding:9px 12px;line-height:1.38;min-width:0;overflow-wrap:break-word; }
+.tp-add .ad { width:19px;height:19px;border-radius:5px;flex:none;margin-top:1px;background:rgba(46,117,182,.12);display:flex;align-items:center;justify-content:center; }
+.tp-add .ad svg { width:10px;height:10px;fill:var(--brand); }
+.tp-cta { display:flex;gap:12px;flex-wrap:wrap;margin-top:auto; }
+
+/* progress dots — bottom-left, clear of both the mountain labels and the card */
+.climb-dots { position:absolute; left:0; bottom:14px; width:54%; display:flex; justify-content:center; gap:16px; z-index:6; }
+.climb-dots .cd { display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer; }
+.climb-dots .cd .ci { width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.4);transition:all .3s ease; }
+.climb-dots .cd.on .ci { background:var(--green);border-color:var(--green);transform:scale(1.4); }
+.climb-dots .cd .cl { font-family:Inter;font-size:0.62rem;font-weight:600;color:rgba(255,255,255,.4);transition:color .3s ease; }
+.climb-dots .cd.on .cl { color:var(--green); }
+
+/* compare strip */
+.cmp { display:grid;grid-template-columns:repeat(4,1fr);gap:16px; }
+.cmp-card { background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;text-align:center;transition:transform .2s ease,box-shadow .2s ease; }
+.cmp-card:hover { transform:translateY(-4px);box-shadow:0 14px 34px rgba(8,14,26,.14); }
+.cmp-card .cn { font-family:Montserrat;font-weight:700;font-size:1.05rem;color:var(--dark); }
+.cmp-card .cp { font-family:Montserrat;font-weight:700;font-size:1.5rem;color:var(--brand);margin:6px 0 4px; }
+.cmp-card .cs { font-size:0.8rem;color:var(--muted);margin-bottom:14px;line-height:1.4; }
+.cmp-card .cl { display:inline-flex;align-items:center;gap:6px;font-size:0.8rem;color:var(--brand);font-weight:600; }
+
+/* ===== MOBILE: compact mountain on top, full card below ===== */
+@media(max-width:920px){
+  /* dvh excludes the phone browser bar so content never hides behind it */
+  .climb-pin { top:56px; height:calc(100vh - 56px); height:calc(100dvh - 56px); padding:8px 0 10px; }
+  .climb-grid {
+    display:flex; flex-direction:column; gap:0;
+    max-width:100%; padding:0 12px; height:100%;
+  }
+  /* mountain — compact, leaves the card plenty of room */
+  .mtn-stage { flex:0 0 auto; }
+  .mtn-svg-wrap { max-width:none; width:auto; height:26vh; height:26dvh; }
+  .mtn-svg { width:auto; height:100%; margin:0 auto; }
+  .mtn-hint { display:none; }
+  /* card area — takes ALL remaining height; card fills it exactly */
+  .card-stage { flex:1 1 auto; min-height:0; position:relative; display:block; margin-top:6px; }
+  .tp-card {
+    position:absolute; top:0; left:0; right:0; bottom:0;
+    height:100%; max-height:100%;
+    display:flex; flex-direction:column;
+    transform:translateY(18px);
+    padding:16px 16px 14px; box-shadow:0 16px 36px rgba(8,14,26,.4);
+  }
+  .tp-card.is-active { transform:translateY(0); }
+  .tp-card.is-past   { transform:translateY(-18px); }
+  /* tight mobile spacing so all 4 features + button fit */
+  .tp-num { margin-bottom:5px; font-size:0.62rem; }
+  .tp-head { gap:8px; }
+  .tp-name { font-size:1.3rem; }
+  .tp-badge { font-size:0.6rem; padding:3px 8px; margin-top:5px; }
+  .tp-pricebox { text-align:right; }
+  .tp-pricebox .amt { font-size:1.35rem; }
+  .tp-pricebox .per { font-size:0.74rem; }
+  .tp-pricebox .setup { font-size:0.66rem; margin-top:3px; }
+  .tp-tag { font-size:0.82rem; margin:7px 0 8px; line-height:1.4; }
+  .tp-offer { padding:7px 9px; margin-bottom:8px; gap:9px; }
+  .tp-offer .of-ic { width:24px; height:24px; }
+  .tp-offer .of-tx { font-size:0.78rem; }
+  .tp-offer .of-tx .of-sub { font-size:0.7rem; }
+  .tp-prev { padding:6px 10px; margin-bottom:7px; font-size:0.78rem; }
+  .tp-adds { margin-bottom:10px; }
+  .tp-add { padding:6px 9px; font-size:0.78rem; line-height:1.32; }
+  .tp-cta { margin-top:auto; }
+  .tp-cta .btn { padding:11px 20px; font-size:0.88rem; width:100%; }
+  .cmp { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:560px){
+  .cmp{ grid-template-columns:1fr; }
+  .mtn-svg-wrap { height:23vh; height:23dvh; }
+}
+/* very short screens (landscape phones) — shrink mountain further */
+@media(max-width:920px) and (max-height:620px){
+  .mtn-svg-wrap { height:20vh; height:20dvh; }
+  .tp-tag { display:none; }
+}
+
+/* ===== accessibility: visible keyboard focus + skip link ===== */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--brand);
+  outline-offset:2px;
+  border-radius:3px;
+}
+.skip-link {
+  position:absolute; left:-9999px; top:0; z-index:2000;
+  background:var(--brand); color:#fff; padding:12px 20px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  border-radius:0 0 8px 0; text-decoration:none;
+}
+.skip-link:focus { left:0; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.scalelocal.net/#organization",
+      "name": "ScaleLocal",
+      "legalName": "ScaleLocal™",
+      "url": "https://www.scalelocal.net/",
+      "logo": "https://www.scalelocal.net/og-image.png",
+      "email": "hello@scalelocal.net",
+      "telephone": "+1-978-662-7580",
+      "areaServed": "Massachusetts and New England",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.scalelocal.net/#localbusiness",
+      "name": "ScaleLocal",
+      "url": "https://www.scalelocal.net/",
+      "telephone": "+1-978-662-7580",
+      "email": "hello@scalelocal.net",
+      "priceRange": "$249–$1,497/mo",
+      "image": "https://www.scalelocal.net/og-image.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Tewksbury" },
+        { "@type": "AdministrativeArea", "name": "Massachusetts" },
+        { "@type": "Place", "name": "New England" }
+      ],
+      "description": "SEO web design and AI growth systems for local service businesses in Massachusetts and New England."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.scalelocal.net/services/#webpage",
+      "url": "https://www.scalelocal.net/services/",
+      "name": "Services — The Four ScaleLocal Plans, $249–$1,497/mo | ScaleLocal",
+      "description": "ScaleLocal's four growth plans for local service businesses — Basecamp, Ascent, Summit, Apex. Each level builds on the last. Start where you are and climb when ready.",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo" aria-label="ScaleLocal home"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav" aria-label="Primary">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/" class="active">Pricing</a>
+      <a href="/demos/">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+<main id="main">
+<section class="mtn-hero">
+  <div class="wrap">
+    <div class="kicker on-dark">The ScaleLocal Climb</div>
+    <h1><span class="l1">Scaling a business is a climb.</span><span class="l2">We give you the gear.</span></h1>
+    <p>Four levels. Each one builds on the last. Start at Basecamp and ascend at your own pace &mdash; with the tools, the AI, and the partnership to reach whatever summit you're after.</p>
+  </div>
+</section>
+
+<section class="climb" id="climb">
+  <div class="climb-pin">
+    <div class="climb-grid">
+      <div class="mtn-stage">
+        <div class="mtn-svg-wrap">
+          <svg class="mtn-svg" viewBox="0 0 540 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="rock" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#46659a"/><stop offset="1" stop-color="#1c2f4f"/></linearGradient>
+              <linearGradient id="rockShade" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#14233c"/><stop offset="1" stop-color="#22375c"/></linearGradient>
+              <linearGradient id="snowG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#c7daef"/></linearGradient>
+              <radialGradient id="peakGlow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#2ecc71" stop-opacity="0.4"/><stop offset="1" stop-color="#2ecc71" stop-opacity="0"/></radialGradient>
+              <linearGradient id="ridgeBack" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c456c"/><stop offset="1" stop-color="#1a2c49"/></linearGradient>
+            </defs>
+            <rect x="0" y="0" width="540" height="600" fill="#1a2e4a"/>
+            <ellipse cx="270" cy="540" rx="360" ry="200" fill="#22375c" opacity=".6"/>
+            <circle cx="64" cy="58" r="1.4" fill="#fff" opacity=".5"/>
+            <circle cx="446" cy="44" r="1.4" fill="#fff" opacity=".4"/>
+            <circle cx="372" cy="92" r="1" fill="#fff" opacity=".55"/>
+            <circle cx="118" cy="120" r="1" fill="#fff" opacity=".35"/>
+            <circle cx="484" cy="140" r="1.5" fill="#fff" opacity=".4"/>
+            <circle cx="210" cy="70" r="1" fill="#fff" opacity=".3"/>
+            <path d="M0,470 L110,300 L210,400 L330,250 L430,360 L540,290 L540,600 L0,600 Z" fill="#243a5e" opacity=".5"/>
+            <path d="M0,500 L150,360 L260,440 L400,320 L540,420 L540,600 L0,600 Z" fill="url(#ridgeBack)" opacity=".7"/>
+            <circle cx="278" cy="78" r="78" fill="url(#peakGlow)"/>
+            <path d="M278,46 L500,556 L60,556 Z" fill="url(#rock)"/>
+            <path d="M278,46 L500,556 L278,556 Z" fill="url(#rockShade)" opacity=".55"/>
+            <path d="M278,46 L332,178 L304,160 L278,196 L252,160 L224,178 Z" fill="url(#snowG)"/>
+            <path d="M278,196 L268,250 L286,250 Z" fill="#dce8f5" opacity=".5"/>
+            <path d="M252,160 L240,210 L260,205 Z" fill="#dce8f5" opacity=".35"/>
+            <path d="M278,46 L500,556" stroke="#5b7da8" stroke-width="1.5" opacity=".4" fill="none"/>
+            <path id="trail" d="M148,524 C198,486 178,452 240,432 C306,410 262,372 312,344 C366,314 312,272 326,224 C334,196 296,150 278,96" fill="none" stroke="rgba(255,255,255,.30)" stroke-width="3" stroke-dasharray="1 9" stroke-linecap="round"/>
+            <path id="trailFill" d="M148,524 C198,486 178,452 240,432 C306,410 262,372 312,344 C366,314 312,272 326,224 C334,196 296,150 278,96" fill="none" stroke="#2ecc71" stroke-width="3" stroke-linecap="round" stroke-dasharray="0 9999"/>
+            <g class="flag" id="flag-0" data-go="0">
+              <circle class="flag-glow" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
+              <circle class="flag-dot" cx="0" cy="0" r="9" fill="#2ecc71" stroke="#fff" stroke-width="2.5"/>
+              <text class="flag-lbl" x="0" y="0" text-anchor="middle" fill="#fff" font-family="Montserrat,sans-serif" font-weight="700" font-size="13">Basecamp</text>
+              <circle class="flag-hit" cx="0" cy="0" r="26"/>
+            </g>
+            <g class="flag" id="flag-1" data-go="1">
+              <circle class="flag-glow" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
+              <circle class="flag-dot" cx="0" cy="0" r="7" fill="#3a5680" stroke="#fff" stroke-width="2.5"/>
+              <text class="flag-lbl" x="0" y="0" text-anchor="middle" fill="#fff" font-family="Montserrat,sans-serif" font-weight="700" font-size="13">Ascent</text>
+              <circle class="flag-hit" cx="0" cy="0" r="26"/>
+            </g>
+            <g class="flag" id="flag-2" data-go="2">
+              <circle class="flag-glow" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
+              <circle class="flag-dot" cx="0" cy="0" r="7" fill="#3a5680" stroke="#fff" stroke-width="2.5"/>
+              <text class="flag-lbl" x="0" y="0" text-anchor="middle" fill="#fff" font-family="Montserrat,sans-serif" font-weight="700" font-size="13">Summit</text>
+              <circle class="flag-hit" cx="0" cy="0" r="26"/>
+            </g>
+            <g class="flag" id="flag-3" data-go="3">
+              <circle class="flag-glow" cx="0" cy="0" r="22" fill="#2ecc71" opacity="0"/>
+              <circle class="flag-dot" cx="0" cy="0" r="7" fill="#3a5680" stroke="#fff" stroke-width="2.5"/>
+              <text class="flag-lbl" x="0" y="0" text-anchor="middle" fill="#fff" font-family="Montserrat,sans-serif" font-weight="700" font-size="14">Apex</text>
+              <circle class="flag-hit" cx="0" cy="0" r="26"/>
+            </g>
+            <g id="climber">
+              <circle class="pulse" cx="0" cy="0" r="20" fill="#2ecc71" opacity="0"/>
+              <circle cx="0" cy="0" r="16" fill="#2E75B6" stroke="#fff" stroke-width="2.5"/>
+              <path d="M0,-8 a3.2,3.2 0 1,0 0.1,0 M-4.5,8 L0,-1 L4.5,8 M-5.5,1.5 L5.5,1.5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="card-stage">
+        <article class="tp-card" id="card-0">
+          <div class="tp-num"><span class="dot"></span> Level 1 &middot; Where the climb begins</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Basecamp</div></div>
+            <div class="tp-pricebox"><span class="amt">$249</span><span class="per">/mo</span><span class="setup">$497 one-time setup</span></div>
+          </div>
+          <div class="tp-tag">Get discovered and capture every visitor. A modern web presence and an always-on AI capture layer &mdash; so no lead who finds you is ever lost.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $941.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Modern Website, Built &amp; Managed</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Chat Widget &mdash; Text + Voice</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Tracked Phone Number + Missed-Call Alerts</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Lead Capture Into Your CRM</div>
+          </div>
+          <div class="tp-cta"><a href="/basecamp/" class="btn btn-primary" data-cta="services-card-basecamp">Explore Basecamp</a></div>
+        </article>
+        <article class="tp-card" id="card-1">
+          <div class="tp-num"><span class="dot"></span> Level 2 &middot; The growth engine</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Ascent</div><span class="tp-badge">Most Popular</span></div>
+            <div class="tp-pricebox"><span class="amt">$597</span><span class="per">/mo</span><span class="setup">$797 one-time setup</span></div>
+          </div>
+          <div class="tp-tag">Own the search results and convert visitors into booked appointments &mdash; across Google and every AI engine.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $1,877.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, plus:</div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Search Positioning Across Every AI Engine</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Google Business Profile Management</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Local SEO Foundation &amp; Calendar Booking</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine + Quarterly Diagnostic Report</div>
+          </div>
+          <div class="tp-cta"><a href="/ascent/" class="btn btn-primary" data-cta="services-card-ascent">Explore Ascent</a></div>
+        </article>
+        <article class="tp-card" id="card-2">
+          <div class="tp-num"><span class="dot"></span> Level 3 &middot; The AI conversion layer</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Summit</div></div>
+            <div class="tp-pricebox"><span class="amt">$997</span><span class="per">/mo</span><span class="setup">$1,497 one-time setup</span></div>
+          </div>
+          <div class="tp-tag">Answer every call and close every lead. A full AI Receptionist on every call, 24/7 &mdash; booking the job before the caller hangs up.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $3,297.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp &amp; Ascent, plus:</div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Receptionist &mdash; Full Voice, Answers &amp; Books 24/7</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Review Engine (Full) &mdash; AI-Drafted Responses</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Follow-Up Engine &mdash; Recovers Stalled Leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Priority Support</div>
+          </div>
+          <div class="tp-cta"><a href="/summit/" class="btn btn-primary" data-cta="services-card-summit">Explore Summit</a></div>
+        </article>
+        <article class="tp-card" id="card-3">
+          <div class="tp-num"><span class="dot"></span> Level 4 &middot; The peak. The flagship.</div>
+          <div class="tp-head">
+            <div><div class="tp-name">Apex</div><span class="tp-badge">The Flagship</span></div>
+            <div class="tp-pricebox"><span class="amt">$1,497</span><span class="per">/mo</span><span class="setup">$1,997 one-time setup</span></div>
+          </div>
+          <div class="tp-tag">The complete growth engine &mdash; in your pocket. Every lead, call, review, job and payment, run from your own branded mobile app.</div>
+          <div class="tp-offer">
+            <span class="of-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.4 9.7 8 11 4.6-1.3 8-6 8-11V6l-8-4Zm-1.2 13.8-3.5-3.5 1.4-1.4 2.1 2.1 4.9-4.9 1.4 1.4-6.3 6.3Z"/></svg></span>
+            <span class="of-tx"><b>Commit &amp; Save Up to $4,697.</b><span class="of-sub">Setup waived + up to 15% off with a 6 or 12-month partnership.</span></span>
+          </div>
+          <div class="tp-prev"><span class="chk"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Everything in Basecamp, Ascent &amp; Summit, plus:</div>
+          <div class="tp-adds">
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>Your Own Branded Mobile App</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Sales Agent &mdash; Qualifies &amp; Closes Leads</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>AI Re-Engagement &amp; Referral Engine</div>
+            <div class="tp-add"><span class="ad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg></span>24/7 AI Customer Support + Monthly Reporting</div>
+          </div>
+          <div class="tp-cta"><a href="/apex/" class="btn btn-primary" data-cta="services-card-apex">Explore Apex</a></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center" style="margin-bottom:40px;">
+      <div class="kicker">The four levels at a glance</div>
+      <h2>Pick where you are. Climb when you're ready.</h2>
+    </div>
+    <div class="cmp">
+      <div class="cmp-card"><div class="cn">Basecamp</div><div class="cp">$249<span style="font-size:0.8rem;color:var(--muted);font-weight:400;">/mo</span></div><div class="cs">Get discovered &amp; capture every visitor.</div><a href="/basecamp/" class="cl">Explore Basecamp &rarr;</a></div>
+      <div class="cmp-card"><div class="cn">Ascent</div><div class="cp">$597<span style="font-size:0.8rem;color:var(--muted);font-weight:400;">/mo</span></div><div class="cs">Own the search results. Most popular.</div><a href="/ascent/" class="cl">Explore Ascent &rarr;</a></div>
+      <div class="cmp-card"><div class="cn">Summit</div><div class="cp">$997<span style="font-size:0.8rem;color:var(--muted);font-weight:400;">/mo</span></div><div class="cs">Answer every call. Close every lead.</div><a href="/summit/" class="cl">Explore Summit &rarr;</a></div>
+      <div class="cmp-card"><div class="cn">Apex</div><div class="cp">$1,497<span style="font-size:0.8rem;color:var(--muted);font-weight:400;">/mo</span></div><div class="cs">The full engine, in your pocket.</div><a href="/apex/" class="cl">Explore Apex &rarr;</a></div>
+    </div>
+  </div>
+</section>
+<section class="s-tight s-dark" style="text-align:center;">
+  <div class="wrap measure" style="margin:0 auto;">
+    <h2 style="font-size:clamp(1.8rem,3vw,2.6rem);">Not sure which level fits? Let's figure it out together.</h2>
+    <p style="color:var(--muted-light);margin:12px 0 26px;font-size:1.0625rem;">Every climb starts with a conversation. Commit to a 6 or 12-month partnership and we waive your setup fee &mdash; up to $1,997 &mdash; plus up to 15% off every month.</p>
+    <div class="hero-cta-row" style="justify-content:center;">
+      <a href="tel:+19786627580" class="btn btn-primary btn-lg" data-cta="book-call-services-cta">Talk to ScaleLocal</a>
+      <a href="/basecamp/" class="btn btn-line-light btn-lg" data-cta="services-final-basecamp">Start at Basecamp</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>AI-powered growth infrastructure for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>The Four Tiers</h4>
+        <a href="/basecamp/">Basecamp &mdash; $249/mo</a>
+        <a href="/ascent/">Ascent &mdash; $597/mo</a>
+        <a href="/summit/">Summit &mdash; $997/mo</a>
+        <a href="/apex/">Apex &mdash; $1,497/mo</a>
+      </div>
+      <div class="ft-col">
+        <h4>Contact</h4>
+        <a href="tel:+16173948707">617.394.8707</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA 01876 &middot; MA Business Certificate BC-26-28 &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+<script>
+(function(){
+  var climb=document.getElementById('climb');
+  var trail=document.getElementById('trail');
+  var trailFill=document.getElementById('trailFill');
+  var climber=document.getElementById('climber');
+  if(!climb||!trail||!climber) return;
+  var cards=[0,1,2,3].map(function(i){return document.getElementById('card-'+i);});
+  var flags=[0,1,2,3].map(function(i){return document.getElementById('flag-'+i);});
+  var dots=Array.prototype.slice.call(document.querySelectorAll('.cd'));
+  var len=trail.getTotalLength();
+  var N=4;
+
+  // place each flag along the trail (evenly spaced 0,1/3,2/3,1)
+  var flagFrac=[0, 1/3, 2/3, 1];
+  var lblOff=[[0,30],[-46,4],[52,4],[0,-56]];
+  flags.forEach(function(f,i){
+    var p=trail.getPointAtLength(flagFrac[i]*len);
+    ['.flag-dot','.flag-glow','.flag-hit'].forEach(function(sel){
+      var el=f.querySelector(sel); el.setAttribute('cx',p.x); el.setAttribute('cy',p.y);
+    });
+    var lbl=f.querySelector('.flag-lbl');
+    lbl.setAttribute('x',p.x+lblOff[i][0]);
+    lbl.setAttribute('y',p.y+lblOff[i][1]);
+  });
+
+  function placeClimber(frac){
+    frac=Math.max(0,Math.min(1,frac));
+    var pt=trail.getPointAtLength(frac*len);
+    climber.setAttribute('transform','translate('+pt.x+','+pt.y+')');
+    trailFill.setAttribute('stroke-dasharray',(frac*len)+' 9999');
+  }
+
+  var activeTier=-1;
+  function setTier(idx){
+    if(idx===activeTier) return;
+    activeTier=idx;
+    flags.forEach(function(f,i){
+      var dot=f.querySelector('.flag-dot'), glow=f.querySelector('.flag-glow'), lbl=f.querySelector('.flag-lbl');
+      if(i<idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','8');glow.setAttribute('opacity','0');lbl.setAttribute('fill','#fff'); }
+      else if(i===idx){ dot.setAttribute('fill','#2ecc71');dot.setAttribute('r','10');glow.setAttribute('opacity','0.2');lbl.setAttribute('fill','#2ecc71'); }
+      else { dot.setAttribute('fill','#3a5680');dot.setAttribute('r','7');glow.setAttribute('opacity','0');lbl.setAttribute('fill','rgba(255,255,255,.78)'); }
+    });
+    dots.forEach(function(d,i){ d.classList.toggle('on',i===idx); });
+  }
+
+  // card crossfade/slide: each tier owns a slice of progress.
+  // within a slice, near the boundary we hand off to the next card.
+  function updateCards(prog){
+    // prog 0..N-1 fractional tier position
+    var idx=Math.round(prog);
+    if(idx<0)idx=0; if(idx>N-1)idx=N-1;
+    cards.forEach(function(c,i){
+      c.classList.remove('is-active','is-past');
+      if(i===idx) c.classList.add('is-active');
+      else if(i<idx) c.classList.add('is-past');
+    });
+  }
+
+  function vH(){ return window.innerHeight||document.documentElement.clientHeight||800; }
+
+  var pin=climb.querySelector('.climb-pin');
+  var HEADER=60; // sticky header height the pin sits below
+
+  // Explicitly size the runway in pixels. Total section height =
+  // pinned-stage height + header + (scroll travel for all tiers).
+  // Each tier transition gets ~1.0 screen of scroll.
+  function sizeRunway(){
+    var vh=vH();
+    var pinH=vh-HEADER;
+    var runway=pinH*(N-1)*1.05;        // travel: 3 transitions, ~1 screen each
+    climb.style.height=Math.round(pinH + HEADER + runway)+'px';
+  }
+
+  var raf=0;
+  function render(){
+    raf=0;
+    var rect=climb.getBoundingClientRect();
+    var vh=vH();
+    var pinH=vh-HEADER;                       // pinned stage height
+    // runway = the scroll distance over which the pin stays fixed
+    var total=climb.offsetHeight - pinH - HEADER;
+    var scrolled=HEADER - rect.top;           // how far we are into the runway
+
+
+    // ---- pin state machine ----
+    if(scrolled<=0){
+      pin.classList.add('is-before');
+      pin.classList.remove('is-after');
+    } else if(scrolled>=total){
+      pin.classList.remove('is-before');
+      pin.classList.add('is-after');
+    } else {
+      pin.classList.remove('is-before','is-after');
+    }
+
+    var p=total>0 ? scrolled/total : 0;
+    p=Math.max(0,Math.min(1,p));              // 0..1 across the runway
+    var prog=p*(N-1);                         // 0..3 fractional tier
+    placeClimber(prog/(N-1));
+    setTier(Math.round(prog));
+    updateCards(prog);
+  }
+  function onScroll(){ if(!raf) raf=requestAnimationFrame(render); }
+
+  function jumpTo(i){
+    var vh=vH();
+    var target=climb.offsetTop + (i/(N-1))*total;
+    window.scrollTo({top:target, behavior:'smooth'});
+  }
+  flags.forEach(function(f){ f.addEventListener('click',function(){ jumpTo(parseInt(f.getAttribute('data-go'),10)); }); });
+  dots.forEach(function(d){ d.addEventListener('click',function(){ jumpTo(parseInt(d.getAttribute('data-go'),10)); }); });
+  window.addEventListener('scroll',onScroll,{passive:true});
+  window.addEventListener('resize',function(){ sizeRunway(); onScroll(); });
+  sizeRunway();
+  placeClimber(0); setTier(0); updateCards(0); render();
+})();
+</script>
+</body>
+</html>
