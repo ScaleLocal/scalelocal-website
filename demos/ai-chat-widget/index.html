@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>AI Chat Widget — Live Demo | ScaleLocal</title>
+<meta name="description" content="Try the ScaleLocal AI chat widget live. A real AI that answers visitor questions, captures leads, and books jobs on your website 24/7.">
+<link rel="canonical" href="https://www.scalelocal.net/demos/ai-chat-widget/">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AI Chat Widget — Live Demo | ScaleLocal">
+<meta property="og:description" content="Try the ScaleLocal AI chat widget live. A real AI that answers visitor questions, captures leads, and books jobs on your website 24/7.">
+<meta property="og:url" content="https://www.scalelocal.net/demos/ai-chat-widget/">
+<meta property="og:image" content="https://www.scalelocal.net/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Chat Widget — Live Demo | ScaleLocal">
+<meta name="twitter:description" content="Try the ScaleLocal AI chat widget live. A real AI that answers visitor questions, captures leads, and books jobs on your website 24/7.">
+<meta name="twitter:image" content="https://www.scalelocal.net/og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(28px); transition:opacity .65s var(--ease), transform .65s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.08s;} .rise.d2{transition-delay:.16s;} .rise.d3{transition-delay:.24s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+/* hero */
+.demo-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:72px 0 56px; position:relative; overflow:hidden; }
+.demo-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.demo-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green);animation:lpulse 2s infinite; }
+@keyframes lpulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.demo-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,3rem); margin:20px auto 16px; max-width:20ch; }
+.demo-hero h1 em { font-style:normal; color:var(--brand); }
+.demo-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto; line-height:1.6; }
+
+/* the live stage: a browser frame with the widget */
+.stage-wrap { max-width:1080px; margin:46px auto 0; padding:0 28px; }
+.bizframe { background:#fff; border-radius:14px; box-shadow:0 40px 90px rgba(8,14,26,.5); overflow:hidden; border:1px solid rgba(255,255,255,.06); }
+.bizbar { background:#e9eef4; padding:11px 16px; display:flex; align-items:center; gap:8px; }
+.bizbar .dot { width:11px;height:11px;border-radius:50%; }
+.bizbar .r{background:#ff5f57;} .bizbar .y{background:#febc2e;} .bizbar .g{background:#28c840;}
+.bizbar .url { margin-left:12px; background:#fff; border-radius:6px; padding:5px 16px; font-size:0.76rem; color:var(--muted); font-family:Inter; flex:1; max-width:340px; }
+/* a mock "customer website" behind the widget so the demo has context */
+.bizbody { position:relative; min-height:480px; background:linear-gradient(180deg,#f4f7fb,#e8eef5); padding:0; }
+.mocksite { padding:38px 44px 60px; }
+.mocksite .mh { display:flex; align-items:center; justify-content:space-between; padding-bottom:24px; border-bottom:1px solid #dce4ee; }
+.mocksite .mlogo { font-family:Montserrat; font-weight:700; font-size:1.15rem; color:#1a2e4a; }
+.mocksite .mnav { display:flex; gap:22px; }
+.mocksite .mnav span { font-family:Inter; font-size:0.82rem; color:#6b7a8d; font-weight:500; }
+.mocksite .mhero { padding:46px 0 30px; max-width:62%; }
+.mocksite .mhero .mk { font-family:Inter; font-weight:700; font-size:0.68rem; letter-spacing:.12em; text-transform:uppercase; color:#2E75B6; }
+.mocksite .mhero h3 { font-family:Montserrat; font-weight:700; font-size:1.85rem; color:#1a2e4a; line-height:1.15; margin:10px 0 12px; }
+.mocksite .mhero p { font-size:0.92rem; color:#6b7a8d; line-height:1.55; }
+.mocksite .mbtn { display:inline-block; margin-top:18px; background:#2E75B6; color:#fff; font-family:Inter; font-weight:600; font-size:0.85rem; padding:11px 22px; border-radius:7px; }
+.mocksite .mrow { display:flex; gap:16px; margin-top:34px; }
+.mocksite .mcard { flex:1; background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:20px; }
+.mocksite .mcard .mi { width:34px;height:34px;border-radius:8px;background:#eef4fb;margin-bottom:12px; }
+.mocksite .mcard h4 { font-family:Montserrat;font-weight:700;font-size:0.92rem;color:#1a2e4a; }
+.mocksite .mcard p { font-size:0.8rem;color:#6b7a8d;margin-top:5px;line-height:1.5; }
+.demo-note { text-align:center; font-size:0.84rem; color:rgba(255,255,255,.5); margin-top:18px; }
+.demo-note b { color:rgba(255,255,255,.8); font-weight:600; }
+
+/* explainer strip */
+.feat-row { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.feat { text-align:left; }
+.feat .fi { width:44px;height:44px;border-radius:11px;background:rgba(46,117,182,.10);display:flex;align-items:center;justify-content:center;margin-bottom:14px; }
+.feat .fi svg { width:22px;height:22px;fill:var(--brand); }
+.feat h3 { font-size:1.08rem;font-weight:700;color:var(--dark);margin-bottom:7px; }
+.feat p { font-size:0.93rem;color:var(--muted);line-height:1.58; }
+
+@media(max-width:880px){
+  .feat-row { grid-template-columns:1fr; }
+  .mocksite .mhero { max-width:100%; }
+  .mocksite .mrow { flex-direction:column; }
+  .mocksite { padding:26px 22px 48px; }
+  .bizbody { min-height:420px; }
+}
+
+/* ===== accessibility: visible keyboard focus + skip link ===== */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
+  outline:3px solid var(--brand);
+  outline-offset:2px;
+  border-radius:3px;
+}
+.skip-link {
+  position:absolute; left:-9999px; top:0; z-index:2000;
+  background:var(--brand); color:#fff; padding:12px 20px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem;
+  border-radius:0 0 8px 0; text-decoration:none;
+}
+.skip-link:focus { left:0; }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.scalelocal.net/#organization",
+      "name": "ScaleLocal",
+      "legalName": "ScaleLocal™",
+      "url": "https://www.scalelocal.net/",
+      "logo": "https://www.scalelocal.net/og-image.png",
+      "email": "hello@scalelocal.net",
+      "telephone": "+1-978-662-7580",
+      "areaServed": "Massachusetts and New England",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.scalelocal.net/demos/ai-chat-widget/#webpage",
+      "url": "https://www.scalelocal.net/demos/ai-chat-widget/",
+      "name": "AI Chat Widget — Live Demo | ScaleLocal",
+      "description": "Try the ScaleLocal AI chat widget live. A real AI that answers visitor questions, captures leads, and books jobs on your website 24/7.",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN"
+height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="sl-header">
+  <div class="wrap">
+    <a href="/" class="sl-logo" aria-label="ScaleLocal home"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav" aria-label="Primary">
+      <a href="/about/">About</a>
+      <a href="/web-solutions/">Web Solutions</a>
+      <a href="/ai-solutions/">AI Solutions</a>
+      <a href="/pricing/">Pricing</a>
+      <a href="/demos/" class="active">Demos</a>
+      <a href="/get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="demo-hero">
+  <div class="wrap">
+    <span class="tag rise"><span class="d"></span> Live demo &mdash; this AI is real</span>
+    <h1 class="rise d1">Every visitor gets answered. <em>Even at 11pm on a Sunday.</em></h1>
+    <p class="rise d2">This is the ScaleLocal AI Chat Widget &mdash; the same one we put on your website. Ask it anything a real customer would. It answers, it captures the lead, and it can book the job. Try it right now.</p>
+  </div>
+  <div class="stage-wrap rise d2">
+    <div class="bizframe">
+      <div class="bizbar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="url">yourbusiness.com</span>
+      </div>
+      <div class="bizbody">
+        <div class="mocksite">
+          <div class="mh">
+            <div class="mlogo">Riverside Plumbing Co.</div>
+            <div class="mnav"><span>Services</span><span>About</span><span>Reviews</span><span>Contact</span></div>
+          </div>
+          <div class="mhero">
+            <div class="mk">Licensed &middot; Insured &middot; Local</div>
+            <h3>Fast, reliable plumbing &mdash; done right the first time.</h3>
+            <p>Serving homeowners across the region with honest pricing and same-week scheduling. From a leaky faucet to a full repipe, we handle it.</p>
+            <span class="mbtn">Get a Free Estimate</span>
+          </div>
+          <div class="mrow">
+            <div class="mcard"><div class="mi"></div><h4>Emergency Repairs</h4><p>Burst pipes and leaks handled fast, any day of the week.</p></div>
+            <div class="mcard"><div class="mi"></div><h4>Water Heaters</h4><p>Repair, replacement, and tankless upgrades.</p></div>
+            <div class="mcard"><div class="mi"></div><h4>Drain &amp; Sewer</h4><p>Clogs cleared and sewer lines restored.</p></div>
+          </div>
+        </div>
+        <!-- The real ScaleLocal GHL chat widget loads here, bottom-right -->
+      </div>
+    </div>
+    <p class="demo-note">This is a <b>sample customer website</b> &mdash; tap the chat bubble in the corner to see the <b>ScaleLocal widget</b>: text us, book a job, chat with the live AI, or call.</p>
+  </div>
+</section>
+
+<section class="s s-paper">
+  <div class="wrap">
+    <div class="s-head center rise" style="margin:0 auto 8px;">
+      <div class="kicker">What it's doing while you sleep</div>
+      <h2>Not a chatbot. A capture-and-book layer.</h2>
+    </div>
+    <div class="feat-row">
+      <div class="feat rise d1">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8 8 0 0 1-6-2.7c0-2.7 4-4.1 6-4.1s6 1.4 6 4.1A8 8 0 0 1 12 20Z"/></svg></div>
+        <h3>Answers like your best employee</h3>
+        <p>It knows your services, your hours, your service area and your pricing approach &mdash; and answers every visitor instantly, in your business's voice.</p>
+      </div>
+      <div class="feat rise d2">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5Z"/></svg></div>
+        <h3>Captures the lead automatically</h3>
+        <p>Name, number, what they need &mdash; it collects the details and drops a new lead straight into your CRM. Nothing slips through.</p>
+      </div>
+      <div class="feat rise d3">
+        <div class="fi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14Zm-7-7 4.2 4.2-1.4 1.4L12 15.8 9.2 18.6 7.8 17.2 12 13Z"/></svg></div>
+        <h3>Books the job on the spot</h3>
+        <p>When the visitor's ready, it puts a real appointment on your calendar &mdash; while their interest is highest, not three days later.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s-tight s-dark" style="text-align:center;">
+  <div class="wrap measure" style="margin:0 auto;">
+    <h2 style="font-size:clamp(1.7rem,3vw,2.5rem);">Want this AI on your website?</h2>
+    <p style="color:var(--muted-light);margin:12px 0 26px;font-size:1.0625rem;">The AI Chat Widget is included from Basecamp &mdash; the first level of the ScaleLocal climb.</p>
+    <div class="hero-cta-row" style="justify-content:center;display:flex;gap:14px;flex-wrap:wrap;">
+      <a href="/services/" class="btn btn-primary btn-lg" data-cta="demo-chatwidget-pricing">See pricing &amp; tiers</a>
+      <a href="tel:+19786627580" class="btn btn-line-light btn-lg" data-cta="book-call-demo-chatwidget">Talk to ScaleLocal</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Demos</h4>
+        <a href="/ai-chat-widget/">AI Chat Widget</a>
+        <a href="/ai-receptionist/">AI Receptionist</a>
+        <a href="/sales-sniper-agent/">Sales Sniper Agent</a>
+        <a href="/booking-calendar/">Booking Calendar</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="/services/">Pricing</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Tewksbury, MA 01876 &middot; MA Business Certificate BC-26-28 &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  var rises=document.querySelectorAll('.rise');
+  var vh=window.innerHeight||800;
+  rises.forEach(function(el){
+    if(el.getBoundingClientRect().top<vh*0.92){ el.classList.add('in'); } else { io.observe(el); }
+  });
+})();
+</script>
+
+<!-- ===== ScaleLocal custom action-menu chat widget ===== -->
+<style>
+  .slcw-launcher {
+    position:fixed; bottom:24px; right:24px; z-index:9990;
+    width:62px; height:62px; border-radius:50%;
+    background:var(--brand); border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 28px rgba(46,117,182,.5);
+    transition:transform .2s var(--ease), box-shadow .2s var(--ease);
+    animation:slcw-pulse 2.6s ease-out 1.2s 3;
+  }
+  .slcw-launcher:hover { transform:scale(1.06); box-shadow:0 12px 36px rgba(46,117,182,.6); }
+  .slcw-launcher svg { width:28px; height:28px; fill:#fff; }
+  .slcw-launcher .slcw-x { display:none; }
+  .slcw-launcher.open .slcw-chat { display:none; }
+  .slcw-launcher.open .slcw-x { display:block; }
+  .slcw-launcher .slcw-dot {
+    position:fixed; bottom:68px; right:26px;
+    width:13px; height:13px; background:var(--green);
+    border-radius:50%; border:2.5px solid #fff; z-index:9991;
+  }
+  @keyframes slcw-pulse {
+    0% { box-shadow:0 8px 28px rgba(46,117,182,.5), 0 0 0 0 rgba(46,117,182,.5); }
+    70%{ box-shadow:0 8px 28px rgba(46,117,182,.5), 0 0 0 20px rgba(46,117,182,0); }
+    100%{ box-shadow:0 8px 28px rgba(46,117,182,.5), 0 0 0 0 rgba(46,117,182,0); }
+  }
+  .slcw-panel {
+    position:fixed; bottom:100px; right:24px; z-index:9991;
+    width:344px; max-width:calc(100vw - 32px);
+    background:#fff; border-radius:18px; overflow:hidden;
+    box-shadow:0 26px 70px rgba(8,14,26,.42);
+    display:none; flex-direction:column;
+    transform-origin:bottom right;
+  }
+  .slcw-panel.open { display:flex; animation:slcw-pop .24s var(--ease); }
+  @keyframes slcw-pop { from{ transform:scale(.85) translateY(20px); opacity:0; } to{ transform:scale(1) translateY(0); opacity:1; } }
+  .slcw-head {
+    background:linear-gradient(135deg, var(--dark) 0%, var(--brand) 130%);
+    color:#fff; padding:20px 20px 22px;
+  }
+  .slcw-head .slcw-brand { display:flex; align-items:center; gap:11px; }
+  .slcw-head .slcw-logo {
+    width:42px; height:42px; border-radius:11px; flex:none;
+    background:rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center;
+  }
+  .slcw-head .slcw-logo span { font-family:Montserrat; font-weight:700; font-size:19px; color:#fff; }
+  .slcw-head .slcw-logo span em { font-style:normal; color:#7fb3df; }
+  .slcw-head h4 { font-family:Montserrat; font-weight:700; font-size:1.02rem; }
+  .slcw-head .slcw-stat { display:flex; align-items:center; gap:6px; font-size:0.76rem; color:rgba(255,255,255,.7); margin-top:2px; }
+  .slcw-head .slcw-stat .sd { width:7px;height:7px;border-radius:50%;background:var(--green); }
+  .slcw-head .slcw-line { font-size:0.92rem; color:rgba(255,255,255,.82); line-height:1.5; margin-top:14px; }
+  .slcw-body { padding:14px; display:flex; flex-direction:column; gap:9px; background:var(--paper); }
+  .slcw-row {
+    display:flex; align-items:center; gap:13px; text-decoration:none;
+    background:#fff; border:1px solid var(--line); border-radius:13px;
+    padding:13px 15px; cursor:pointer;
+    transition:transform .15s var(--ease), box-shadow .15s var(--ease), border-color .15s var(--ease);
+  }
+  .slcw-row:hover { transform:translateX(3px); box-shadow:0 10px 24px rgba(8,14,26,.10); border-color:var(--brand); }
+  .slcw-row .ri { width:42px;height:42px;border-radius:11px;flex:none;display:flex;align-items:center;justify-content:center; }
+  .slcw-row .ri svg { width:21px;height:21px;fill:#fff; }
+  .slcw-row .ri.urgent { background:var(--accent); }
+  .slcw-row .ri.book   { background:var(--brand); }
+  .slcw-row .ri.chat   { background:var(--green); }
+  .slcw-row .ri.call   { background:var(--dark); }
+  .slcw-row .rt { flex:1; min-width:0; }
+  .slcw-row .rt h5 { font-family:Montserrat; font-weight:700; font-size:0.94rem; color:var(--dark); }
+  .slcw-row .rt p { font-size:0.78rem; color:var(--muted); margin-top:1px; }
+  .slcw-row .rc { color:var(--muted-light); font-size:1.1rem; flex:none; }
+  .slcw-foot { padding:10px 16px; text-align:center; font-size:0.72rem; color:var(--muted-light); background:#fff; border-top:1px solid var(--line); }
+  .slcw-foot b { color:var(--brand); font-weight:600; }
+  /* ===== GHL widget control (TNJ method) =====
+     GHL's <chat-widget> renders its own UI natively. We do NOT restyle the host —
+     doing so broke its rendering. We keep our custom action-menu as the face;
+     tapping "Chat with Us" opens GHL's chat panel via its public API. The only
+     thing we suppress is GHL's own launcher BUBBLE (handled in JS, inside the
+     shadow DOM, via killGhlBubble) so it never double-stacks with our launcher. */
+</style>
+
+<div class="slcw-panel" id="slcwPanel">
+  <div class="slcw-head">
+    <div class="slcw-brand">
+      <div class="slcw-logo"><span>S<em>L</em></span></div>
+      <div>
+        <h4>ScaleLocal</h4>
+        <div class="slcw-stat"><span class="sd"></span> We typically reply in minutes</div>
+      </div>
+    </div>
+    <div class="slcw-line">Hi there &mdash; how can we help? Pick the fastest way to reach us.</div>
+  </div>
+  <div class="slcw-body">
+    <a class="slcw-row" href="sms:+19786627580?&body=Hi%20ScaleLocal%20-%20I%20have%20an%20urgent%20question">
+      <span class="ri urgent"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
+      <span class="rt"><h5>Emergency Text</h5><p>Need us fast? Text us now.</p></span>
+      <span class="rc">&rsaquo;</span>
+    </a>
+    <a class="slcw-row" href="/booking-calendar/" data-cta="book-call-chatwidget-menu">
+      <span class="ri book"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 16H5V10h14Zm-7-7 4.2 4.2-1.4 1.4L12 15.8 9.2 18.6 7.8 17.2 12 13Z"/></svg></span>
+      <span class="rt"><h5>Book an Appointment</h5><p>Grab a time that works for you.</p></span>
+      <span class="rc">&rsaquo;</span>
+    </a>
+    <a class="slcw-row" id="slcwChatRow" href="javascript:void(0)">
+      <span class="ri chat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-3 9H7V9h10Zm0-3H7V6h10Z"/></svg></span>
+      <span class="rt"><h5>Chat with Us</h5><p>Message our team &mdash; or our AI.</p></span>
+      <span class="rc">&rsaquo;</span>
+    </a>
+    <a class="slcw-row" href="tel:+19786627580">
+      <span class="ri call"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.5a12.5 12.5 0 0 1-3.9-.6 1 1 0 0 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6L8.5 8.5a1 1 0 0 0 .2-1A12.5 12.5 0 0 1 8.1 3.6 1 1 0 0 0 7.1 3H4a1 1 0 0 0-1 1A17 17 0 0 0 20 21a1 1 0 0 0 1-1v-3.1a1 1 0 0 0-1-1.4Z"/></svg></span>
+      <span class="rt"><h5>Call Our Office</h5><p>978.662.7580 &mdash; talk to us now.</p></span>
+      <span class="rc">&rsaquo;</span>
+    </a>
+  </div>
+  <div class="slcw-foot">Powered by <b>ScaleLocal</b></div>
+</div>
+
+<button class="slcw-launcher" id="slcwLauncher" aria-label="Open chat">
+  <span class="slcw-dot"></span>
+  <svg class="slcw-chat" viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/></svg>
+  <svg class="slcw-x" viewBox="0 0 24 24"><path d="M19 6.4 17.6 5 12 10.6 6.4 5 5 6.4 10.6 12 5 17.6 6.4 19 12 13.4 17.6 19 19 17.6 13.4 12Z"/></svg>
+</button>
+
+<!-- The real GHL AI chat — opened by "Chat with Us". Method copied verbatim
+     from the working TNJ Landscape build (_partials.js): the GHL bubble is
+     hidden by injecting a <style> INTO the chat-widget shadow root; the host
+     element is left untouched so the chat panel renders normally. -->
+<script>
+(function(){
+  var GHL_WIDGET_ID='69c34fd013ad14bdd250aace';
+
+  /* fresh start: clear stale GHL history so every visitor sees a fresh greeting */
+  try{
+    var nuke=[];
+    for(var i=0;i<localStorage.length;i++){
+      var k=localStorage.key(i);
+      if(k&&(k.indexOf('lc_')===0||k.indexOf('leadconnector')!==-1||k.indexOf('msgsndr')!==-1||k.indexOf('chat_')===0||k.indexOf('widget_')===0||k.indexOf('conversation')!==-1||k.indexOf('contact_id')!==-1||k.indexOf('session')!==-1)){ nuke.push(k); }
+    }
+    nuke.forEach(function(k){ localStorage.removeItem(k); });
+  }catch(e){}
+
+  /* ---- custom launcher toggle ---- */
+  var launcher=document.getElementById('slcwLauncher');
+  var panel=document.getElementById('slcwPanel');
+  var dot=launcher.querySelector('.slcw-dot');
+  function toggle(open){
+    launcher.classList.toggle('open',open);
+    panel.classList.toggle('open',open);
+    dot.style.display=open?'none':'block';
+  }
+  launcher.addEventListener('click',function(){ toggle(!panel.classList.contains('open')); });
+  document.addEventListener('click',function(e){
+    if(!launcher.contains(e.target) && !panel.contains(e.target)) toggle(false);
+  });
+
+  /* ===== GHL widget — TNJ verbatim method =====
+     Hide the GHL bubble by injecting a <style> INTO the shadow root.
+     Outer/page CSS cannot reach shadow DOM — this is the only thing that works. */
+  var SHADOW_HIDE_CSS=''
+    + '#lc_text-widget--btn,'
+    + '.lc_text-widget--bubble,'
+    + '.lc_chat-bubble,'
+    + '.lc_chat-prompt,'
+    + '.lc_chat-prompt--container,'
+    + '[class*="bubble"]:not([class*="message"]):not([class*="agent"]):not([class*="visitor"]),'
+    + '[id*="bubble"]'
+    + '{display:none !important;visibility:hidden !important;opacity:0 !important;pointer-events:none !important;width:0 !important;height:0 !important;}';
+
+  function injectShadowCSS(){
+    var cw=document.querySelector('chat-widget');
+    if(!cw||!cw.shadowRoot){ return false; }
+    if(cw.shadowRoot.querySelector('#sl-shadow-hide')){ return true; }
+    var s=document.createElement('style');
+    s.id='sl-shadow-hide';
+    s.textContent=SHADOW_HIDE_CSS;
+    cw.shadowRoot.appendChild(s);
+    return true;
+  }
+  function startShadowCSSWatcher(){
+    var attempts=0;
+    var watch=setInterval(function(){
+      attempts++;
+      injectShadowCSS();
+      if(attempts>60){ clearInterval(watch); }
+    },250);
+    setInterval(injectShadowCSS,3000); /* long-lived re-inject sentinel */
+  }
+
+  var ghlLoaded=false;
+  function injectGHLWidget(){
+    if(ghlLoaded) return; ghlLoaded=true;
+    var s=document.createElement('script');
+    s.src='https://beta.leadconnectorhq.com/loader.js';
+    s.setAttribute('data-resources-url','https://beta.leadconnectorhq.com/chat-widget/loader.js');
+    s.setAttribute('data-widget-id',GHL_WIDGET_ID);
+    document.body.appendChild(s);
+    startShadowCSSWatcher();
+  }
+
+  /* open the GHL chat panel via its public API */
+  function openGHLChat(retries){
+    retries=(retries==null)?40:retries;  /* ~8s */
+    var cw=window.leadConnector && window.leadConnector.chatWidget;
+    if(cw && typeof cw.openWidget==='function' && cw.isLoaded){
+      injectShadowCSS();
+      try{ cw.openWidget(); }catch(e){}
+      return;
+    }
+    if(retries<=0){ return; }
+    setTimeout(function(){ openGHLChat(retries-1); }, 200);
+  }
+
+  /* "Chat with Us" -> close our menu, load + open the GHL chat */
+  var chatRow=document.getElementById('slcwChatRow');
+  chatRow.addEventListener('click',function(){
+    toggle(false);
+    injectGHLWidget();
+    openGHLChat();
+  });
+})();
+</script>
+</body>
+</html>
