@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Compare the Four ScaleLocal Plans</title>
+<meta name="description" content="Compare ScaleLocal's four plans side by side — Basecamp, Ascent, Summit, Apex. Collapse columns and categories, or compare any two plans to see exactly what changes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tier-pages/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(24px); transition:opacity .55s var(--ease), transform .55s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.pr-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:70px 0 56px; }
+.pr-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.pr-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green); }
+.pr-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.6vw,2.9rem); margin:18px auto 12px; max-width:20ch; }
+.pr-hero p { font-size:1.03rem; color:rgba(255,255,255,.8); max-width:58ch; margin:0 auto; line-height:1.6; }
+
+.pr-wrap { max-width:1140px; margin:0 auto; padding:0 20px; }
+
+/* control bar */
+.pr-controls {
+  display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+  margin:-28px auto 22px; position:relative; z-index:5;
+  background:#fff; border:1px solid var(--line); border-radius:14px;
+  box-shadow:0 18px 44px rgba(8,14,26,.13); padding:14px 18px;
+}
+.toggle { display:inline-flex; align-items:center; gap:9px; cursor:pointer; user-select:none; }
+.toggle input { display:none; }
+.toggle .tg-track { width:42px; height:24px; border-radius:999px; background:var(--line); position:relative; transition:background .18s var(--ease); flex:none; }
+.toggle .tg-track::after { content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.3); transition:transform .2s var(--ease); }
+.toggle input:checked + .tg-track { background:var(--brand); }
+.toggle input:checked + .tg-track::after { transform:translateX(18px); }
+.toggle .tg-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.86rem; color:var(--text); }
+.pc-sep { width:1px; height:26px; background:var(--line); }
+.pc-lbl { font-family:Inter; font-weight:700; font-size:0.74rem; letter-spacing:.04em; text-transform:uppercase; color:var(--muted-light); }
+.cmp-btns { display:flex; gap:6px; flex-wrap:wrap; }
+.cmp-btn {
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.78rem;
+  border:1.5px solid var(--line); background:#fff; color:var(--muted);
+  border-radius:8px; padding:7px 12px; cursor:pointer;
+  transition:border-color .15s var(--ease), color .15s var(--ease), background .15s var(--ease), transform .1s var(--ease);
+}
+.cmp-btn:hover { border-color:var(--brand); color:var(--brand); }
+.cmp-btn.sel { background:var(--brand); border-color:var(--brand); color:#fff; }
+.pc-reset { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--brand); background:none; border:none; cursor:pointer; margin-left:auto; }
+.pc-reset:hover { text-decoration:underline; }
+
+/* the matrix */
+.matrix { border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; box-shadow:0 20px 50px rgba(8,14,26,.08); }
+.mx-table { width:100%; border-collapse:collapse; table-layout:fixed; }
+.mx-table col.col-feat { width:31%; transition:width .35s var(--ease); }
+.mx-table col.col-tier { width:17.25%; transition:width .35s var(--ease); }
+.mx-table col.col-tier.collapsed { width:48px; }
+.mx-table col.col-tier.hidden-col { width:0; }
+
+/* tier header */
+.mx-head th { padding:0; vertical-align:top; border-left:1px solid var(--line); }
+.mx-head th.feat-h { border-left:none; background:var(--mist); }
+.tier-hd { padding:22px 16px 18px; text-align:center; position:relative; transition:background .25s var(--ease), transform .25s var(--ease); }
+.tier-hd.flag { background:linear-gradient(180deg,rgba(43,108,176,.08),transparent); }
+.tier-hd .th-badge { font-family:Inter; font-weight:700; font-size:0.62rem; letter-spacing:.07em; text-transform:uppercase; color:var(--brand); }
+.tier-hd .th-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.18rem; color:var(--text); margin:3px 0 2px; }
+.tier-hd .th-price { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.55rem; color:var(--text); line-height:1; }
+.tier-hd .th-price .cur { font-size:0.95rem; vertical-align:6px; }
+.tier-hd .th-price .per { font-size:0.74rem; font-weight:600; color:var(--muted); }
+.tier-hd .th-setup { font-family:Inter; font-size:0.72rem; color:var(--muted-light); margin-top:5px; }
+.tier-hd .th-cta { display:inline-block; margin-top:13px; background:var(--brand); color:#fff; text-decoration:none; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.78rem; padding:9px 17px; border-radius:8px; transition:transform .12s var(--ease), box-shadow .2s var(--ease); }
+.tier-hd .th-cta:hover { transform:translateY(-1px); box-shadow:0 8px 18px -6px var(--brand); }
+.tier-hd .th-collapse {
+  position:absolute; top:9px; right:9px; width:22px; height:22px; border-radius:6px;
+  border:1px solid var(--line); background:#fff; cursor:pointer; color:var(--muted);
+  font-size:0.82rem; line-height:1; display:flex; align-items:center; justify-content:center;
+  transition:background .12s var(--ease);
+}
+.tier-hd .th-collapse:hover { background:var(--mist); color:var(--text); }
+
+/* collapsed tier column */
+.tier-hd.is-collapsed { padding:14px 4px; }
+.tier-hd.is-collapsed .th-inner { writing-mode:vertical-rl; transform:rotate(180deg); min-height:130px; display:flex; align-items:center; justify-content:center; }
+.tier-hd.is-collapsed .th-badge, .tier-hd.is-collapsed .th-price, .tier-hd.is-collapsed .th-setup, .tier-hd.is-collapsed .th-cta { display:none; }
+.tier-hd.is-collapsed .th-name { font-size:0.92rem; margin:0; }
+.tier-hd.is-collapsed .th-collapse { writing-mode:horizontal-tb; transform:none; top:auto; bottom:8px; right:50%; margin-right:-11px; }
+
+/* hidden column (compare-two mode) */
+col.col-tier.hidden-col { width:0; }
+th.hidden-col, td.hidden-col { width:0; max-width:0; padding:0 !important; border:none !important; overflow:hidden; }
+th.hidden-col *, td.hidden-col * { display:none !important; }
+
+/* spotlight: dim non-hovered columns */
+.matrix.spot .tier-hd { opacity:.5; }
+.matrix.spot .feat-row td.cell { opacity:.4; }
+.matrix.spot th.spot-on .tier-hd,
+.matrix.spot td.cell.spot-on { opacity:1; }
+.matrix.spot th.spot-on .tier-hd { transform:translateY(-3px); }
+.tier-hd, .feat-row td.cell { transition:opacity .18s var(--ease), transform .18s var(--ease); }
+
+/* category rows */
+.cat-row td { background:var(--dark); padding:0; }
+.cat-row .cat-btn {
+  width:100%; text-align:left; background:none; border:none; cursor:pointer;
+  padding:13px 18px; display:flex; align-items:center; gap:10px;
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.88rem; color:#fff;
+}
+.cat-row .cat-btn .cat-caret { transition:transform .22s var(--ease); font-size:0.7rem; color:var(--green); }
+.cat-row.collapsed .cat-btn .cat-caret { transform:rotate(-90deg); }
+.cat-row .cat-btn .cat-count { margin-left:auto; font-family:Inter; font-weight:600; font-size:0.74rem; color:rgba(255,255,255,.55); }
+
+/* feature rows */
+.feat-row td { border-top:1px solid var(--line); border-left:1px solid var(--line); padding:12px 14px; vertical-align:middle; }
+.feat-row td.feat-name { border-left:none; font-family:Inter; font-size:0.88rem; color:var(--text); }
+.feat-row td.feat-name .fn-sub { display:block; font-size:0.76rem; color:var(--muted-light); margin-top:1px; }
+.feat-row td.cell { text-align:center; }
+.feat-row.zebra td { background:#fcfdfe; }
+.feat-row.diff-hi td.feat-name { box-shadow:inset 3px 0 0 var(--green); }
+.cell .ck { width:23px;height:23px;border-radius:50%;background:rgba(46,204,113,.15);display:inline-flex;align-items:center;justify-content:center;
+  opacity:0; transform:scale(.3); }
+.cell .ck.lit { opacity:1; transform:scale(1); transition:opacity .26s var(--ease), transform .32s cubic-bezier(.34,1.56,.64,1); }
+.cell .ck svg { width:13px;height:13px;fill:var(--green); }
+.cell .dash { color:var(--line); font-weight:700; }
+.cell .val-tx { font-family:Inter; font-size:0.8rem; font-weight:600; color:var(--text); }
+.cell.collapsed-cell .ck { width:11px;height:11px;background:var(--green); }
+.cell.collapsed-cell .ck svg { display:none; }
+.cell.collapsed-cell .val-tx { font-size:0; }
+.cell.collapsed-cell .val-tx::after { content:"\2022"; font-size:0.85rem; color:var(--brand); }
+.cell.diff-cell { background:rgba(46,204,113,.07); }
+.cell.diff-cell.pulse { animation:cellpulse .9s var(--ease) 1; }
+@keyframes cellpulse { 0%,100%{ background:rgba(46,204,113,.07); } 45%{ background:rgba(46,204,113,.28); } }
+
+/* row collapse animation */
+.feat-row { transition:opacity .22s var(--ease); }
+.feat-row.hidden-row, .cat-row.hidden-row { display:none; }
+
+/* note + cta */
+.pr-note { max-width:780px; margin:22px auto 0; font-family:Inter; font-size:0.82rem; color:var(--muted-light); text-align:center; line-height:1.55; }
+.pr-cta { background:linear-gradient(135deg,var(--dark),var(--navy-1)); border-radius:18px; padding:38px 30px; text-align:center; color:#fff; margin:46px auto 0; max-width:1140px; }
+.pr-cta h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.45rem; color:#fff; margin-bottom:8px; }
+.pr-cta p { font-family:Inter; font-size:0.96rem; color:rgba(255,255,255,.78); margin-bottom:18px; }
+.pr-cta .btn-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.pcta-btn { border-radius:11px; padding:13px 26px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; text-decoration:none; transition:transform .12s var(--ease); }
+.pcta-btn.primary { background:var(--brand); color:#fff; }
+.pcta-btn.primary:hover { transform:translateY(-2px); }
+.pcta-btn.ghost { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.2); }
+
+.pr-section { padding:30px 0 60px; }
+
+@media (max-width:760px){
+  .mx-table col.col-feat { width:38%; }
+  .mx-table col.col-tier { width:20.6%; }
+  .tier-hd .th-price { font-size:1.1rem; }
+  .tier-hd .th-name { font-size:0.9rem; }
+  .tier-hd .th-cta { font-size:0.66rem; padding:7px 8px; }
+  .feat-row td { padding:9px 7px; }
+  .feat-row td.feat-name { font-size:0.8rem; }
+  .pr-controls { gap:10px; }
+  .pc-sep { display:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sl-header">
+  <div class="wrap">
+    <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="../about/">About</a>
+      <a href="../web-solutions/">Web Solutions</a>
+      <a href="../ai-solutions/">AI Solutions</a>
+      <a href="../pricing/" class="active">Pricing</a>
+      <a href="../demo/">Demos</a>
+      <a href="../get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="pr-hero">
+  <div class="container">
+    <span class="tag rise"><span class="d"></span> Pricing</span>
+    <h1 class="rise">Four plans. Compare them on your own terms.</h1>
+    <p class="rise">Collapse a column to focus, collapse a category to skim, flip on &ldquo;differences only,&rdquo; or pick any two plans to see exactly what the step up buys.</p>
+  </div>
+</section>
+
+<div class="pr-section">
+  <div class="pr-wrap">
+
+    <!-- CONTROL BAR -->
+    <div class="pr-controls rise">
+      <label class="toggle">
+        <input type="checkbox" id="diffToggle">
+        <span class="tg-track"></span>
+        <span class="tg-text">Differences only</span>
+      </label>
+      <span class="pc-sep"></span>
+      <span class="pc-lbl">Compare two</span>
+      <div class="cmp-btns" id="cmpBtns">
+        <button class="cmp-btn" data-tier="0">Basecamp</button>
+        <button class="cmp-btn" data-tier="1">Ascent</button>
+        <button class="cmp-btn" data-tier="2">Summit</button>
+        <button class="cmp-btn" data-tier="3">Apex</button>
+      </div>
+      <button class="pc-reset" id="resetBtn">Reset view</button>
+    </div>
+
+    <!-- MATRIX -->
+    <div class="matrix rise" id="matrix">
+      <table class="mx-table">
+        <colgroup>
+          <col class="col-feat">
+          <col class="col-tier" data-tier="0">
+          <col class="col-tier" data-tier="1">
+          <col class="col-tier" data-tier="2">
+          <col class="col-tier" data-tier="3">
+        </colgroup>
+        <thead class="mx-head">
+          <tr>
+            <th class="feat-h"></th>
+            <th data-tier="0">
+              <div class="tier-hd"><div class="th-inner">
+                <button class="th-collapse" data-tier="0" aria-label="Collapse Basecamp">&minus;</button>
+                <div class="th-badge">Level 1</div>
+                <div class="th-name">Basecamp</div>
+                <div class="th-price"><span class="cur">$</span><span class="num" data-to="249">0</span><span class="per">/mo</span></div>
+                <div class="th-setup">$497 setup &middot; waived on 6&ndash;12mo</div>
+                <a class="th-cta" href="../get-started/">Get started</a>
+              </div></div>
+            </th>
+            <th data-tier="1">
+              <div class="tier-hd"><div class="th-inner">
+                <button class="th-collapse" data-tier="1" aria-label="Collapse Ascent">&minus;</button>
+                <div class="th-badge">Level 2</div>
+                <div class="th-name">Ascent</div>
+                <div class="th-price"><span class="cur">$</span><span class="num" data-to="597">0</span><span class="per">/mo</span></div>
+                <div class="th-setup">$797 setup &middot; waived on 6&ndash;12mo</div>
+                <a class="th-cta" href="../get-started/">Get started</a>
+              </div></div>
+            </th>
+            <th data-tier="2">
+              <div class="tier-hd flag"><div class="th-inner">
+                <button class="th-collapse" data-tier="2" aria-label="Collapse Summit">&minus;</button>
+                <div class="th-badge">Level 3 &middot; Most chosen</div>
+                <div class="th-name">Summit</div>
+                <div class="th-price"><span class="cur">$</span><span class="num" data-to="997">0</span><span class="per">/mo</span></div>
+                <div class="th-setup">$1,497 setup &middot; waived on 6&ndash;12mo</div>
+                <a class="th-cta" href="../get-started/">Get started</a>
+              </div></div>
+            </th>
+            <th data-tier="3">
+              <div class="tier-hd"><div class="th-inner">
+                <button class="th-collapse" data-tier="3" aria-label="Collapse Apex">&minus;</button>
+                <div class="th-badge">Level 4</div>
+                <div class="th-name">Apex</div>
+                <div class="th-price"><span class="cur">$</span><span class="num" data-to="1497">0</span><span class="per">/mo</span></div>
+                <div class="th-setup">$1,997 setup &middot; waived on 6&ndash;12mo</div>
+                <a class="th-cta" href="../get-started/">Get started</a>
+              </div></div>
+            </th>
+          </tr>
+        </thead>
+        <tbody id="matrixBody"></tbody>
+      </table>
+    </div>
+
+    <p class="pr-note rise">
+      Every plan includes a one-time setup fee, fully <b>waived</b> on a 6 or 12-month partnership &mdash;
+      which also takes 10&ndash;15% off the monthly. Each level includes everything in the level below it.
+    </p>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="pr-cta rise">
+    <h2>Not sure which level fits?</h2>
+    <p>Tell us about your business &mdash; we&rsquo;ll recommend the right plan and show you why, no pressure.</p>
+    <div class="btn-row">
+      <a class="pcta-btn primary" href="../get-started/">Get your custom plan</a>
+      <a class="pcta-btn ghost" href="tel:+19786627580">Call 978.662.7580</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Solutions</h4>
+        <a href="../web-solutions/">Web Solutions</a>
+        <a href="../ai-solutions/">AI Solutions</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../demo/">Live Demos</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="../about/">About</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  /* ---- reveal ---- */
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.1});
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+  /* ---- count-up prices on first scroll-in ---- */
+  var priced=false;
+  var matrixEl=document.getElementById('matrix');
+  var priceIO=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !priced){
+        priced=true;
+        document.querySelectorAll('.th-price .num').forEach(function(el){
+          var to=+el.getAttribute('data-to'), t0=null, dur=900;
+          function step(ts){
+            if(!t0) t0=ts;
+            var p=Math.min((ts-t0)/dur,1);
+            var eased=1-Math.pow(1-p,3);
+            el.textContent=Math.round(to*eased).toLocaleString();
+            if(p<1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        });
+        priceIO.disconnect();
+      }
+    });
+  },{threshold:.3});
+  priceIO.observe(matrixEl);
+
+  /* ---- feature matrix data (cumulative; tiers 0-3 = Basecamp/Ascent/Summit/Apex) ---- */
+  var CATS=[
+    { name:'Website & Foundation', rows:[
+      { f:'Modern website — built, hosted & managed', v:[true,true,true,true] },
+      { f:'Tracked phone number', s:'recording, transcripts, missed-call alerts', v:[true,true,true,true] },
+      { f:'Lead capture + CRM integration', v:[true,true,true,true] },
+      { f:'Branded mobile app', s:'your name & logo — every lead, call & job in your pocket', v:[false,false,false,true] },
+    ]},
+    { name:'Search & Visibility', rows:[
+      { f:'Monthly visibility report', v:[true,true,true,true] },
+      { f:'Local SEO foundation', s:'citations, schema, on-page', v:[false,true,true,true] },
+      { f:'Google Business Profile management', v:[false,true,true,true] },
+      { f:'AI Search positioning', s:'ChatGPT, Perplexity, Gemini, AI Overviews', v:[false,true,true,true] },
+      { f:'Quarterly strategy review', v:[false,true,true,false] },
+      { f:'Monthly strategy + priority support', s:'4-hour SLA', v:[false,false,false,true] },
+    ]},
+    { name:'AI & Automation', rows:[
+      { f:'AI Chat Widget', s:'text + voice, FAQ + lead capture', v:[true,true,true,true] },
+      { f:'AI chat with direct calendar booking', v:[false,true,true,true] },
+      { f:'Web-based estimate scheduling page', v:[false,true,true,true] },
+      { f:'AI Review Engine', v:['Dash','Basic','Full','Full'] },
+      { f:'AI Receptionist', s:'full voice, 24/7 call answering + booking', v:[false,false,true,true] },
+      { f:'AI Follow-Up Engine', s:'recovers leads that didn’t convert first touch', v:[false,false,true,true] },
+      { f:'AI Sales Agent', s:'lead qualification + objection handling', v:[false,false,false,true] },
+      { f:'AI Re-Engagement & Referral Engine', v:[false,false,false,true] },
+    ]},
+    { name:'Plan & Pricing', rows:[
+      { f:'Monthly price', v:['$249/mo','$597/mo','$997/mo','$1,497/mo'] },
+      { f:'One-time setup fee', s:'waived on a 6 or 12-month partnership', v:['$497','$797','$1,497','$1,997'] },
+      { f:'Save with a 12-month partnership', v:['up to $941','up to $1,877','up to $3,297','up to $4,697'] },
+    ]},
+  ];
+
+  var TIERS=4;
+  var collapsed=[false,false,false,false];
+  var hidden=[false,false,false,false];   /* compare-two: true = column hidden */
+  var diffOnly=false;
+  var catOpen=CATS.map(function(){ return true; });
+  var cmpSel=[];   /* tiers chosen for compare-two */
+
+  var body=document.getElementById('matrixBody');
+
+  function ckSVG(){ return '<svg viewBox="0 0 24 24"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4Z"/></svg>'; }
+  function isCheck(val){ return val===true; }
+  function cellInner(val){
+    if(val===true) return '<span class="ck">'+ckSVG()+'</span>';
+    if(val===false||val==='Dash') return '<span class="dash">&mdash;</span>';
+    return '<span class="val-tx">'+val+'</span>';
+  }
+  function rowIsSame(v){
+    var vis=[];
+    for(var t=0;t<TIERS;t++){ if(!hidden[t]) vis.push(JSON.stringify(v[t])); }
+    return vis.every(function(x){ return x===vis[0]; });
+  }
+
+  function render(){
+    body.innerHTML='';
+    CATS.forEach(function(cat,ci){
+      var visRows=cat.rows.filter(function(r){ return !(diffOnly && rowIsSame(r.v)); });
+      var catTr=document.createElement('tr');
+      catTr.className='cat-row'+(catOpen[ci]?'':' collapsed')+(visRows.length===0?' hidden-row':'');
+      catTr.innerHTML='<td colspan="'+(TIERS+1)+'">'+
+        '<button class="cat-btn" data-cat="'+ci+'">'+
+        '<span class="cat-caret">&#9660;</span>'+cat.name+
+        '<span class="cat-count">'+visRows.length+' '+(visRows.length===1?'feature':'features')+'</span>'+
+        '</button></td>';
+      body.appendChild(catTr);
+
+      var zeb=0;
+      cat.rows.forEach(function(r){
+        var same=rowIsSame(r.v);
+        var rowHidden=(!catOpen[ci]) || (diffOnly && same);
+        var tr=document.createElement('tr');
+        tr.className='feat-row'+(rowHidden?' hidden-row':'')+((!rowHidden&&(zeb++%2))?' zebra':'')+
+          ((cmpSel.length===2 && !same)?' diff-hi':'');
+        var html='<td class="feat-name">'+r.f+(r.s?'<span class="fn-sub">'+r.s+'</span>':'')+'</td>';
+        for(var t=0;t<TIERS;t++){
+          var cls='cell';
+          if(collapsed[t]) cls+=' collapsed-cell';
+          if(hidden[t]) cls+=' hidden-col';
+          if(cmpSel.length===2 && !same && !hidden[t]) cls+=' diff-cell';
+          html+='<td class="'+cls+'" data-tier="'+t+'">'+cellInner(r.v[t])+'</td>';
+        }
+        tr.innerHTML=html;
+        body.appendChild(tr);
+      });
+    });
+    applyCols();
+    cascadeChecks();
+  }
+
+  function cascadeChecks(){
+    var checks=body.querySelectorAll('.feat-row:not(.hidden-row) .ck');
+    checks.forEach(function(ck,i){
+      ck.classList.remove('lit');
+      setTimeout(function(){ ck.classList.add('lit'); }, 40+i*22);
+    });
+  }
+
+  function applyCols(){
+    document.querySelectorAll('col.col-tier').forEach(function(col){
+      var t=+col.getAttribute('data-tier');
+      col.classList.toggle('collapsed',collapsed[t] && !hidden[t]);
+      col.classList.toggle('hidden-col',hidden[t]);
+    });
+    document.querySelectorAll('th[data-tier]').forEach(function(th){
+      var t=+th.getAttribute('data-tier');
+      th.classList.toggle('hidden-col',hidden[t]);
+      var hd=th.querySelector('.tier-hd');
+      hd.classList.toggle('is-collapsed',collapsed[t] && !hidden[t]);
+      var btn=th.querySelector('.th-collapse');
+      btn.innerHTML=collapsed[t]?'+':'&minus;';
+    });
+  }
+
+  document.querySelectorAll('.th-collapse').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var t=+btn.getAttribute('data-tier');
+      var expanded=collapsed.filter(function(c,i){ return !c && !hidden[i]; }).length;
+      if(!collapsed[t] && expanded<=2) return;
+      collapsed[t]=!collapsed[t];
+      render();
+    });
+  });
+
+  body.addEventListener('click',function(e){
+    var b=e.target.closest('.cat-btn');
+    if(!b) return;
+    var ci=+b.getAttribute('data-cat');
+    catOpen[ci]=!catOpen[ci];
+    render();
+  });
+
+  document.getElementById('diffToggle').addEventListener('change',function(e){
+    diffOnly=e.target.checked;
+    render();
+  });
+
+  var cmpBtns=document.getElementById('cmpBtns');
+  cmpBtns.addEventListener('click',function(e){
+    var b=e.target.closest('.cmp-btn');
+    if(!b) return;
+    var t=+b.getAttribute('data-tier');
+    var idx=cmpSel.indexOf(t);
+    if(idx>-1){ cmpSel.splice(idx,1); }
+    else {
+      cmpSel.push(t);
+      if(cmpSel.length>2) cmpSel.shift();
+    }
+    cmpBtns.querySelectorAll('.cmp-btn').forEach(function(btn){
+      btn.classList.toggle('sel', cmpSel.indexOf(+btn.getAttribute('data-tier'))>-1);
+    });
+    if(cmpSel.length===2){
+      for(var t2=0;t2<TIERS;t2++){ hidden[t2]=(cmpSel.indexOf(t2)===-1); collapsed[t2]=false; }
+      diffOnly=true;
+      document.getElementById('diffToggle').checked=true;
+      render();
+      setTimeout(function(){
+        body.querySelectorAll('.diff-cell').forEach(function(c){
+          c.classList.add('pulse');
+          setTimeout(function(){ c.classList.remove('pulse'); },950);
+        });
+      },360);
+    } else {
+      for(var t3=0;t3<TIERS;t3++){ hidden[t3]=false; }
+      render();
+    }
+  });
+
+  function spot(tier){
+    matrixEl.classList.toggle('spot', tier!==null);
+    document.querySelectorAll('th[data-tier]').forEach(function(th){
+      th.classList.toggle('spot-on', +th.getAttribute('data-tier')===tier);
+    });
+    body.querySelectorAll('td.cell').forEach(function(td){
+      td.classList.toggle('spot-on', +td.getAttribute('data-tier')===tier);
+    });
+  }
+  document.querySelectorAll('th[data-tier]').forEach(function(th){
+    var t=+th.getAttribute('data-tier');
+    th.addEventListener('mouseenter',function(){ if(!hidden[t]&&!collapsed[t]) spot(t); });
+    th.addEventListener('mouseleave',function(){ spot(null); });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    collapsed=[false,false,false,false];
+    hidden=[false,false,false,false];
+    diffOnly=false; cmpSel=[];
+    catOpen=CATS.map(function(){ return true; });
+    document.getElementById('diffToggle').checked=false;
+    cmpBtns.querySelectorAll('.cmp-btn').forEach(function(b){ b.classList.remove('sel'); });
+    spot(null);
+    render();
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
