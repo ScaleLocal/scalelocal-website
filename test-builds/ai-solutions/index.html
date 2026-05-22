@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Solutions — Automation That Captures Every Lead · ScaleLocal</title>
+<meta name="description" content="ScaleLocal's AI and automation layer for local service businesses — AI chat, voice receptionist, review engine, follow-up and sales agents. See which plan includes each.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../tier-pages/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(26px); transition:opacity .6s var(--ease), transform .6s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.07s;} .rise.d2{transition-delay:.14s;} .rise.d3{transition-delay:.21s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.sol-hero { background:radial-gradient(ellipse at 50% 120%, var(--navy-1) 0%, var(--dark) 76%); color:#fff; text-align:center; padding:74px 0 58px; }
+.sol-hero .tag { display:inline-flex; align-items:center; gap:8px; font-family:Inter; font-weight:600; font-size:0.74rem; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.72); border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px; }
+.sol-hero .tag .d { width:6px;height:6px;border-radius:50%;background:var(--green); }
+.sol-hero h1 { color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.1; font-size:clamp(2rem,3.7vw,3rem); margin:20px auto 14px; max-width:20ch; }
+.sol-hero h1 em { font-style:normal; color:var(--brand); }
+.sol-hero p { font-size:1.0625rem; color:rgba(255,255,255,.8); max-width:60ch; margin:0 auto; line-height:1.6; }
+
+.sol-wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
+.sol-sec { padding:64px 0; }
+.sol-sec.alt { background:var(--mist); }
+.sol-lead { text-align:center; max-width:680px; margin:0 auto 44px; }
+.sol-lead .kick { font-family:Inter; font-weight:700; font-size:0.74rem; letter-spacing:.12em; text-transform:uppercase; color:var(--brand); }
+.sol-lead h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:clamp(1.6rem,2.6vw,2.2rem); color:var(--text); letter-spacing:-0.02em; margin:10px 0 10px; }
+.sol-lead p { font-family:Inter; font-size:1rem; color:var(--muted); line-height:1.6; }
+
+/* product cards */
+.prod-grid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.prod {
+  background:#fff; border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  display:flex; flex-direction:column;
+  box-shadow:0 18px 44px rgba(8,14,26,.07);
+}
+.prod-top { padding:24px 26px 0; display:flex; align-items:flex-start; gap:14px; }
+.prod-ic { width:46px;height:46px;border-radius:12px;flex:none;background:rgba(43,108,176,.12);display:flex;align-items:center;justify-content:center; }
+.prod-ic svg { width:23px;height:23px;fill:var(--brand); }
+.prod-top h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.12rem; color:var(--text); line-height:1.25; }
+.prod-top .pre { font-family:Inter; font-size:0.7rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--muted-light); margin-bottom:3px; }
+.prod-body { padding:14px 26px 18px; flex:1; }
+.prod-body p { font-family:Inter; font-size:0.93rem; color:var(--muted); line-height:1.62; }
+.prod-foot { padding:14px 26px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.prod-tier { font-family:Inter; font-size:0.8rem; color:var(--muted); }
+.prod-tier b { font-family:'Montserrat',sans-serif; color:var(--text); }
+.prod-tier .tdot { display:inline-block; width:6px;height:6px;border-radius:50%;background:var(--green);margin-right:5px;vertical-align:middle; }
+.prod-demo {
+  font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.82rem; color:var(--brand);
+  text-decoration:none; display:inline-flex; align-items:center; gap:5px;
+}
+.prod-demo:hover { text-decoration:underline; }
+.prod-demo.none { color:var(--muted-light); font-weight:600; font-size:0.78rem; }
+
+/* tier ladder strip */
+.ladder { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px; }
+.ladder-card { background:#fff; border:1px solid var(--line); border-radius:13px; padding:20px 18px; text-align:center; }
+.ladder-card .lc-n { font-family:Inter; font-weight:700; font-size:0.7rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted-light); }
+.ladder-card h4 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.05rem; color:var(--text); margin:4px 0 2px; }
+.ladder-card .lc-pr { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.05rem; color:var(--brand); }
+.ladder-card p { font-family:Inter; font-size:0.82rem; color:var(--muted); line-height:1.5; margin-top:8px; }
+.ladder-card.flag { border-color:var(--brand); box-shadow:0 14px 34px -10px var(--brand); }
+
+/* cta */
+.sol-cta { background:linear-gradient(135deg,var(--dark),var(--navy-1)); border-radius:18px; padding:40px 32px; text-align:center; color:#fff; margin:8px auto 0; }
+.sol-cta h2 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.5rem; color:#fff; margin-bottom:8px; }
+.sol-cta p { font-family:Inter; font-size:0.98rem; color:rgba(255,255,255,.78); margin-bottom:20px; }
+.sol-cta .btn-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.scta-btn { border-radius:11px; padding:13px 26px; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.92rem; text-decoration:none; transition:transform .12s var(--ease); }
+.scta-btn.primary { background:var(--brand); color:#fff; }
+.scta-btn.primary:hover { transform:translateY(-2px); }
+.scta-btn.ghost { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.2); }
+.scta-btn.ghost:hover { background:rgba(255,255,255,.14); }
+
+@media (max-width:780px){
+  .prod-grid { grid-template-columns:1fr; }
+  .ladder { grid-template-columns:1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="sl-header">
+  <div class="wrap">
+    <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span><sup>&trade;</sup></a>
+    <nav class="sl-nav">
+      <a href="../about/">About</a>
+      <a href="../web-solutions/">Web Solutions</a>
+      <a href="../ai-solutions/" class="active">AI Solutions</a>
+      <a href="../pricing/">Pricing</a>
+      <a href="../demo/">Demos</a>
+      <a href="../get-started/">Get Started</a>
+    </nav>
+    <a href="tel:+19786627580" class="header-phone">978.662.7580</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="sol-hero">
+  <div class="container">
+    <span class="tag rise"><span class="d"></span> AI Solutions</span>
+    <h1 class="rise d1">The automation layer that <em>catches every lead</em> while you work.</h1>
+    <p class="rise d2">A missed call, a 9pm message, a quote that never got followed up &mdash; that&rsquo;s where jobs leak out. ScaleLocal layers AI onto your business that answers, captures, and books, around the clock, in your business&rsquo;s voice.</p>
+  </div>
+</section>
+
+<!-- ===== THE PRODUCTS ===== -->
+<section class="sol-sec">
+  <div class="sol-wrap">
+    <div class="sol-lead rise">
+      <div class="kick">What the AI does</div>
+      <h2>Six ways the system works while you&rsquo;re on the job</h2>
+      <p>Each of these is a real, configured tool &mdash; not a chatbot bolted on. Which ones you get depends on your plan; the tier is listed on every card.</p>
+    </div>
+
+    <div class="prod-grid">
+
+      <div class="prod rise d1">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M20 2H4a2 2 0 0 0-2 2v18l4-4h14a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-3 9H7V9h10Zm0-3H7V6h10Z"/></svg></span>
+          <div><div class="pre">Website</div><h3>AI Chat Widget</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>A branded chat agent on your site that answers questions, captures the lead, and &mdash; on Ascent and up &mdash; books the appointment straight onto your calendar. Text and voice, 24/7.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Included from <b>Basecamp</b></span>
+          <a class="prod-demo" href="../demo/ai-chat-widget/">Live demo &rsaquo;</a>
+        </div>
+      </div>
+
+      <div class="prod rise d2">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1Z"/></svg></span>
+          <div><div class="pre">Phone</div><h3>AI Receptionist</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>A full voice agent that answers every call 24/7, talks like a member of your team, qualifies the caller, and books the job. The call you would have missed becomes a booked appointment.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Included from <b>Summit</b></span>
+          <a class="prod-demo" href="../demo/ai-receptionist/">Live demo &rsaquo;</a>
+        </div>
+      </div>
+
+      <div class="prod rise d1">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M20 15.5a12.5 12.5 0 0 1-3.9-.6 1 1 0 0 0-1 .2l-2.2 2.2a15 15 0 0 1-6.6-6.6L8.5 8.5a1 1 0 0 0 .2-1A12.5 12.5 0 0 1 8.1 3.6 1 1 0 0 0 7.1 3H4a1 1 0 0 0-1 1A17 17 0 0 0 20 21a1 1 0 0 0 1-1v-3.1Zm-7-9.5 1.4 2.9 3.1.4-2.3 2.1.6 3.1L13 13.4l-2.8 1.5.6-3.1-2.3-2.1 3.1-.4Z"/></svg></span>
+          <div><div class="pre">Phone</div><h3>Missed-Call Recovery</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>Your tracked ScaleLocal number records and transcribes every call and flags every missed one instantly &mdash; so a call that goes unanswered never quietly becomes a lost customer.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Included from <b>Basecamp</b></span>
+          <span class="prod-demo none">No demo</span>
+        </div>
+      </div>
+
+      <div class="prod rise d2">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M12 17.27 18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21Z"/></svg></span>
+          <div><div class="pre">Reputation</div><h3>AI Review Engine</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>Automatically requests reviews from happy customers and monitors what comes in. On Summit and up, the AI drafts a thoughtful response to every review &mdash; so your reputation is managed without you watching it.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Basic from <b>Ascent</b> &middot; Full from <b>Summit</b></span>
+          <span class="prod-demo none">No demo</span>
+        </div>
+      </div>
+
+      <div class="prod rise d1">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M13 3a9 9 0 0 0-9 9H1l4 4 4-4H6a7 7 0 1 1 2 4.9l-1.5 1.5A9 9 0 1 0 13 3Zm-1 5v5l4 2 .75-1.23-3.25-1.92V8Z"/></svg></span>
+          <div><div class="pre">Conversion</div><h3>AI Follow-Up Engine</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>Recovers the leads that didn&rsquo;t convert on the first touch &mdash; the form fill that went quiet, the quote that stalled. The AI keeps working them so good leads don&rsquo;t go cold in an inbox.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Included from <b>Summit</b></span>
+          <span class="prod-demo none">No demo</span>
+        </div>
+      </div>
+
+      <div class="prod rise d2">
+        <div class="prod-top">
+          <span class="prod-ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 16a6 6 0 1 1 6-6 6 6 0 0 1-6 6Zm0-9a3 3 0 1 0 3 3 3 3 0 0 0-3-3Z"/></svg></span>
+          <div><div class="pre">Conversion</div><h3>AI Sales Agent</h3></div>
+        </div>
+        <div class="prod-body">
+          <p>The flagship agent: qualifies leads, works them through objections, and pins down the next step &mdash; the kind of follow-through a busy owner rarely has time for. Paired with the Re-Engagement &amp; Referral Engine that works your past customers every month.</p>
+        </div>
+        <div class="prod-foot">
+          <span class="prod-tier"><span class="tdot"></span>Included from <b>Apex</b></span>
+          <a class="prod-demo" href="../demo/sales-sniper-agent/">Live demo &rsaquo;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIER LADDER ===== -->
+<section class="sol-sec alt">
+  <div class="sol-wrap">
+    <div class="sol-lead rise">
+      <div class="kick">How it&rsquo;s packaged</div>
+      <h2>The AI grows with you, level by level</h2>
+      <p>Each ScaleLocal plan adds more of the automation layer. Start where you are &mdash; everything you already have carries up.</p>
+    </div>
+    <div class="ladder rise d1">
+      <div class="ladder-card">
+        <div class="lc-n">Level 1</div>
+        <h4>Basecamp</h4>
+        <div class="lc-pr">$249/mo</div>
+        <p>AI Chat Widget &amp; missed-call recovery.</p>
+      </div>
+      <div class="ladder-card">
+        <div class="lc-n">Level 2</div>
+        <h4>Ascent</h4>
+        <div class="lc-pr">$597/mo</div>
+        <p>+ Calendar booking in chat &amp; the basic Review Engine.</p>
+      </div>
+      <div class="ladder-card flag">
+        <div class="lc-n">Level 3</div>
+        <h4>Summit</h4>
+        <div class="lc-pr">$997/mo</div>
+        <p>+ AI Receptionist, full Review Engine &amp; Follow-Up Engine.</p>
+      </div>
+      <div class="ladder-card">
+        <div class="lc-n">Level 4</div>
+        <h4>Apex</h4>
+        <div class="lc-pr">$1,497/mo</div>
+        <p>+ AI Sales Agent, Re-Engagement &amp; Referral Engine.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="sol-sec">
+  <div class="sol-wrap">
+    <div class="sol-cta rise">
+      <h2>Not sure which automations you actually need?</h2>
+      <p>Tell us how leads reach you today &mdash; we&rsquo;ll show you exactly where they&rsquo;re leaking and which tools plug it.</p>
+      <div class="btn-row">
+        <a class="scta-btn primary" href="../get-started/">Get your custom plan</a>
+        <a class="scta-btn ghost" href="../pricing/">Compare all plans</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="sl-footer">
+  <div class="wrap">
+    <div class="ft-top">
+      <div class="ft-brand">
+        <a href="../home/" class="sl-logo"><span class="lg-scale">Scale</span><span class="lg-local">Local</span></a>
+        <p>SEO web design and AI growth systems for local service businesses.</p>
+      </div>
+      <div class="ft-col">
+        <h4>Solutions</h4>
+        <a href="../web-solutions/">Web Solutions</a>
+        <a href="../ai-solutions/">AI Solutions</a>
+        <a href="../pricing/">Pricing</a>
+        <a href="../demo/">Live Demos</a>
+      </div>
+      <div class="ft-col">
+        <h4>Company</h4>
+        <a href="../about/">About</a>
+        <a href="tel:+19786627580">978.662.7580</a>
+        <a href="mailto:hello@scalelocal.net">hello@scalelocal.net</a>
+      </div>
+    </div>
+    <div class="ft-bottom">&copy; 2026 ScaleLocal&trade; &middot; Boston, MA &middot; This is a QA preview page.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12});
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
