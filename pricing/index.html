@@ -54,7 +54,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 .toggle input { display:none; }
 .toggle .tg-track { width:42px; height:24px; border-radius:999px; background:var(--line); position:relative; transition:background .18s var(--ease); flex:none; }
 .toggle .tg-track::after { content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.3); transition:transform .2s var(--ease); }
-.toggle input:checked + .tg-track { background:var(--brand); }
+.toggle input:checked + .tg-track { background:var(--green); }
 .toggle input:checked + .tg-track::after { transform:translateX(18px); }
 .toggle .tg-text { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.86rem; color:var(--text); }
 .pc-sep { width:1px; height:26px; background:var(--line); }
@@ -66,9 +66,9 @@ html, body { overflow-x:hidden; max-width:100%; }
   border-radius:8px; padding:7px 12px; cursor:pointer;
   transition:border-color .15s var(--ease), color .15s var(--ease), background .15s var(--ease), transform .1s var(--ease);
 }
-.cmp-btn:hover { border-color:var(--brand); color:var(--brand); }
-.cmp-btn.sel { background:var(--brand); border-color:var(--brand); color:#fff; }
-.pc-reset { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--brand); background:none; border:none; cursor:pointer; margin-left:auto; }
+.cmp-btn:hover { border-color:var(--dark); color:var(--dark); }
+.cmp-btn.sel { background:var(--dark); border-color:var(--dark); color:#fff; }
+.pc-reset { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem; color:var(--muted); background:none; border:none; cursor:pointer; margin-left:auto; }
 .pc-reset:hover { text-decoration:underline; }
 
 /* commitment term toggle */
@@ -111,7 +111,7 @@ html, body { overflow-x:hidden; max-width:100%; }
 .mx-head th { padding:0; vertical-align:top; border-left:1px solid var(--line); }
 .mx-head th.feat-h { border-left:none; background:var(--mist); }
 .tier-hd { padding:22px 16px 18px; text-align:center; position:relative; transition:background .25s var(--ease), transform .25s var(--ease); }
-.tier-hd.flag { background:linear-gradient(180deg,rgba(43,108,176,.08),transparent); }
+.tier-hd.flag { background:transparent; }
 .tier-hd .th-badge { font-family:Inter; font-weight:700; font-size:0.62rem; letter-spacing:.07em; text-transform:uppercase; color:var(--brand); }
 .tier-hd .th-name { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.18rem; color:var(--text); margin:3px 0 2px; }
 .tier-hd .th-price { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.55rem; color:var(--text); line-height:1; }
@@ -159,7 +159,7 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 .feat-row td.feat-name .fn-sub { display:block; font-size:0.76rem; color:var(--muted-light); margin-top:1px; }
 .feat-row td.cell { text-align:center; }
 .feat-row.zebra td { background:#fcfdfe; }
-.feat-row.diff-hi td.feat-name { box-shadow:inset 3px 0 0 var(--green); }
+.feat-row.diff-hi td.feat-name { box-shadow:inset 3px 0 0 var(--line); }
 .cell .ck { width:24px;height:24px;border-radius:50%;background:var(--green);display:inline-flex;align-items:center;justify-content:center;
   box-shadow:0 2px 6px -1px rgba(46,160,90,.5); opacity:0; transform:scale(.3); }
 .cell .ck.lit { opacity:1; transform:scale(1); transition:opacity .26s var(--ease), transform .32s cubic-bezier(.34,1.56,.64,1); }
@@ -170,7 +170,7 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 .cell.collapsed-cell .ck svg { display:none; }
 .cell.collapsed-cell .val-tx { font-size:0; }
 .cell.collapsed-cell .val-tx::after { content:"\2022"; font-size:0.85rem; color:var(--brand); }
-.cell.diff-cell { background:rgba(46,204,113,.07); }
+.cell.diff-cell { background:transparent; box-shadow:inset 2px 0 0 var(--dark), inset -2px 0 0 var(--dark); }
 .cell.diff-cell.pulse { animation:cellpulse .9s var(--ease) 1; }
 @keyframes cellpulse { 0%,100%{ background:rgba(46,204,113,.07); } 45%{ background:rgba(46,204,113,.28); } }
 
@@ -195,7 +195,9 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   /* MOBILE: compact comparison grid — tier headers shrink to NAME ONLY (price
      lives in the 'Monthly price' row of the table). Table body / checkmarks
      unchanged. Billing-term toggle compacted to match. */
-  .matrix { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  /* keep the matrix's rounded-corner clip; the rotated header text is
+     kept inside its column by the centered transform-origin below */
+  .matrix { overflow:hidden; }
   .mx-table { table-layout:fixed; min-width:0; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
@@ -206,7 +208,7 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
      slanted tier names. gridlines start at the data rows below. */
   .mx-head th { vertical-align:bottom; border-left:none !important; }
   .mx-head th.feat-h { border-left:none !important; }
-  .tier-hd { padding:0; height:96px; position:relative; overflow:visible; }
+  .tier-hd { padding:0; height:104px; position:relative; overflow:visible; }
   .th-badge,
   .th-setup,
   .th-collapse,
@@ -217,15 +219,15 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
     display:block; height:100%; position:relative;
   }
   .th-name {
-    position:absolute; left:50%; bottom:10px;
-    transform-origin:left bottom;
-    transform:translateX(-2px) rotate(-42deg);
+    position:absolute; left:50%; bottom:8px;
+    transform-origin:center bottom;
+    transform:translateX(-50%) rotate(-40deg);
     white-space:nowrap;
-    font-size:0.78rem; font-weight:700; line-height:1; margin:0;
+    font-size:0.72rem; font-weight:700; line-height:1; margin:0;
     color:var(--text);
   }
-  /* the flagged (most-popular) tier name picks up the brand color */
-  .tier-hd.flag .th-name { color:var(--brand); }
+  /* flagged tier name uses the normal text color — no blue */
+  .tier-hd.flag .th-name { color:var(--text); }
 
   /* --- compact billing-term toggle --- */
   .term-bar { margin:0 auto 12px; padding:0 16px; gap:8px; }
