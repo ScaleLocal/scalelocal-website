@@ -210,41 +210,45 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
 
-  /* tier header: text rotated -45deg. 11px/600. deterministic geometry:
-     'Basecamp' ~52px text -> rotated box ~47x47px. header height 64px and
-     the rotated label is positioned to sit fully inside it, uncut. */
-  .mx-head th { vertical-align:bottom; border-left:none !important;
-    padding:0; }
+  /* ====================================================================
+     FLAT tier-name headers. No rotation — rotation clipped 6x. Plain
+     horizontal text, centered in each column, wraps to 2 lines if needed.
+     Cannot clip by construction.
+     NOTE: the live override was a SPECIFICITY bug — `.tier-hd .th-name`
+     (0,2,0) was beating any plain `.th-name` rule (0,1,0), so every
+     font-size set this session was silently ignored. Below uses
+     `.mx-head .tier-hd .th-name` + !important to definitively win.
+     ==================================================================== */
+  .mx-head th { vertical-align:middle; border-left:none !important; padding:0; }
   .mx-head th.feat-h { border-left:none !important; }
-  /* end columns get side breathing room so the first/last rotated label
-     does not run past the table's left/right edge */
-  .mx-head th:first-child { padding-left:6px; }
-  .mx-head th:last-child  { padding-right:30px; }
-  .tier-hd { padding:0; height:64px; position:relative; overflow:visible; }
+  .tier-hd { padding:6px 2px; height:auto; position:static; }
   .th-badge,
   .th-setup,
   .th-collapse,
   .th-cta,
   .th-price { display:none !important; }
   .th-inner {
-    writing-mode:horizontal-tb; transform:none; min-height:0;
-    display:block; height:100%; width:100%; position:relative;
-    overflow:visible;
+    writing-mode:horizontal-tb !important; transform:none !important;
+    min-height:0; display:flex; align-items:center; justify-content:center;
+    height:auto; width:100%; padding:0;
   }
-  .th-name {
-    /* centered on its column, rotated -45deg. centered origin keeps the
-       label visually over its own column; the parent chain is
-       overflow:visible so the diagonal box is never clipped top/side. */
-    position:absolute; left:50%; bottom:6px;
-    transform-origin:center bottom;
-    transform:translateX(-50%) rotate(-45deg);
-    white-space:nowrap; overflow:visible;
-    font-family:'Montserrat',sans-serif; font-weight:600;
-    font-size:11px; letter-spacing:0;
-    line-height:1; margin:0; color:var(--text);
+  /* high-specificity + !important so it beats `.tier-hd .th-name { 1.18rem }` */
+  .mx-head .tier-hd .th-name {
+    writing-mode:horizontal-tb !important;
+    transform:none !important;
+    position:static !important;
+    font-family:'Montserrat',sans-serif !important;
+    font-weight:600 !important;
+    font-size:10px !important;
+    line-height:1.15 !important;
+    letter-spacing:0 !important;
+    color:var(--text) !important;
+    margin:0 !important;
+    text-align:center;
+    white-space:normal;        /* allow wrap as a safety net */
+    word-break:break-word;
   }
-  /* flagged tier name uses the normal text color — no blue */
-  .tier-hd.flag .th-name { color:var(--text); }
+  .tier-hd.flag .th-name { color:var(--text) !important; }
 
   /* --- compact billing-term toggle --- */
   .term-bar { margin:0 auto 12px; padding:0 16px; gap:8px; }
