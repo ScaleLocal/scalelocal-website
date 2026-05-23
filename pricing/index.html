@@ -192,33 +192,37 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 .pr-section { padding:30px 0 60px; }
 
 @media (max-width:760px){
-  /* keep the comparison GRID on mobile — just shrink the tier headers so 4
-     columns fit. headers show name + price only; badge / setup line / collapse
-     button / per-column CTA are hidden (the shared CTA sits below the grid). */
+  /* MOBILE: compact comparison grid — tier headers shrink to NAME ONLY (price
+     lives in the 'Monthly price' row of the table). Table body / checkmarks
+     unchanged. Billing-term toggle compacted to match. */
   .matrix { overflow-x:auto; -webkit-overflow-scrolling:touch; }
   .mx-table { table-layout:fixed; min-width:0; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
 
-  .tier-hd { padding:12px 4px 12px; }
+  /* --- tiny tier header: just the name --- */
+  .tier-hd { padding:9px 3px; }
   .th-inner { writing-mode:horizontal-tb; transform:none; min-height:0;
-    display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
+    display:flex; flex-direction:column; align-items:center; justify-content:center; }
   .th-badge,
   .th-setup,
   .th-collapse,
-  .th-cta { display:none; }
-  .th-name { font-size:0.78rem; line-height:1.15; margin:0 0 3px; }
-  .th-price { font-size:0.92rem; white-space:nowrap; }
-  .th-price .cur { font-size:0.7rem; }
-  .th-price .per { font-size:0.6rem; }
-  .th-price.term-strike .num-was { display:none; }  /* no room for strike-through on mobile */
+  .th-cta,
+  .th-price { display:none !important; }
+  .th-name { font-size:0.74rem; font-weight:700; line-height:1.1; margin:0; }
 
-  /* feature rows — tighter, smaller, but checkmarks stay legible */
+  /* --- compact billing-term toggle --- */
+  .term-bar { margin:0 auto 12px; padding:0 16px; gap:8px; }
+  .term-seg { padding:3px; border-radius:9px; }
+  .term-seg button {
+    font-size:0.7rem; padding:6px 9px; border-radius:6px; line-height:1.1;
+  }
+  .term-save { font-size:0.74rem; }
+
+  /* --- table body: tighter density, checkmarks left as-is --- */
   .feat-row td { padding:8px 3px; }
   .feat-row td.feat-name { font-size:0.76rem; padding-left:8px; line-height:1.3; }
   .feat-name .fn-sub { font-size:0.68rem; }
-  .cell .ck { width:19px; height:19px; }
-  .cell .ck svg { width:11px; height:11px; }
   .cell .dash { font-size:0.85rem; }
   .cell .val-tx { font-size:0.68rem; }
   .cat-row td { font-size:0.8rem; }
