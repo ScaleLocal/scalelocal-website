@@ -200,16 +200,29 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
 
-  /* --- tiny tier header: just the name --- */
-  .tier-hd { padding:9px 3px; }
-  .th-inner { writing-mode:horizontal-tb; transform:none; min-height:0;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; }
+  /* --- tier header: name only, rotated on a diagonal so 4 names fit
+         narrow columns without colliding --- */
+  .mx-head th { vertical-align:bottom; }
+  .tier-hd { padding:0; height:96px; position:relative; overflow:visible; }
   .th-badge,
   .th-setup,
   .th-collapse,
   .th-cta,
   .th-price { display:none !important; }
-  .th-name { font-size:0.74rem; font-weight:700; line-height:1.1; margin:0; }
+  .th-inner {
+    writing-mode:horizontal-tb; transform:none; min-height:0;
+    display:block; height:100%; position:relative;
+  }
+  .th-name {
+    position:absolute; left:50%; bottom:10px;
+    transform-origin:left bottom;
+    transform:translateX(-2px) rotate(-42deg);
+    white-space:nowrap;
+    font-size:0.78rem; font-weight:700; line-height:1; margin:0;
+    color:var(--text);
+  }
+  /* the flagged (most-popular) tier name picks up the brand color */
+  .tier-hd.flag .th-name { color:var(--brand); }
 
   /* --- compact billing-term toggle --- */
   .term-bar { margin:0 auto 12px; padding:0 16px; gap:8px; }
