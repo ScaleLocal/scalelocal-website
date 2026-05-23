@@ -195,20 +195,32 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   /* MOBILE: compact comparison grid — tier headers shrink to NAME ONLY (price
      lives in the 'Monthly price' row of the table). Table body / checkmarks
      unchanged. Billing-term toggle compacted to match. */
-  /* keep the matrix's rounded-corner clip; the rotated header text is
-     kept inside its column by the centered transform-origin below */
-  .matrix { overflow:hidden; }
-  .mx-table { table-layout:fixed; min-width:0; }
+  /* ====================================================================
+     ROOT-CAUSE FIX: the tier names were being clipped by `.matrix
+     { overflow:hidden }` — that wrapper clips its rounded corners and
+     also clips any header text that extends above the table's top edge.
+     No font-size or angle change could ever fix that. Fix = make the
+     ENTIRE ancestor chain of the rotated label overflow:visible, and
+     drop the matrix corner-radius on mobile (square corners are fine on
+     mobile, and there's then nothing to clip).
+     ==================================================================== */
+  .matrix { overflow:visible !important; border-radius:0; }
+  .mx-table { table-layout:fixed; min-width:0; overflow:visible; }
+  .mx-head, .mx-head tr, .mx-head th { overflow:visible !important; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
 
-  /* --- tier header: VERTICAL text. reads bottom-to-top straight up inside
-         each column. contained by definition — no diagonal overhang, nothing
-         can clip at the left/right table edge. (matches the design system —
-         the table's collapsed-column state already uses vertical-rl text.) --- */
-  .mx-head th { vertical-align:bottom; border-left:none !important; }
+  /* tier header: text rotated -45deg. 11px/600. deterministic geometry:
+     'Basecamp' ~52px text -> rotated box ~47x47px. header height 64px and
+     the rotated label is positioned to sit fully inside it, uncut. */
+  .mx-head th { vertical-align:bottom; border-left:none !important;
+    padding:0; }
   .mx-head th.feat-h { border-left:none !important; }
-  .tier-hd { padding:0; height:88px; position:relative; }
+  /* end columns get side breathing room so the first/last rotated label
+     does not run past the table's left/right edge */
+  .mx-head th:first-child { padding-left:6px; }
+  .mx-head th:last-child  { padding-right:30px; }
+  .tier-hd { padding:0; height:64px; position:relative; overflow:visible; }
   .th-badge,
   .th-setup,
   .th-collapse,
@@ -216,14 +228,19 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   .th-price { display:none !important; }
   .th-inner {
     writing-mode:horizontal-tb; transform:none; min-height:0;
-    display:flex; align-items:center; justify-content:center;
-    height:100%; width:100%; padding:8px 0;
+    display:block; height:100%; width:100%; position:relative;
+    overflow:visible;
   }
   .th-name {
-    writing-mode:vertical-rl; transform:rotate(180deg);
-    white-space:nowrap;
-    font-family:'Montserrat',sans-serif; font-weight:700;
-    font-size:0.74rem; letter-spacing:0.01em;
+    /* centered on its column, rotated -45deg. centered origin keeps the
+       label visually over its own column; the parent chain is
+       overflow:visible so the diagonal box is never clipped top/side. */
+    position:absolute; left:50%; bottom:6px;
+    transform-origin:center bottom;
+    transform:translateX(-50%) rotate(-45deg);
+    white-space:nowrap; overflow:visible;
+    font-family:'Montserrat',sans-serif; font-weight:600;
+    font-size:11px; letter-spacing:0;
     line-height:1; margin:0; color:var(--text);
   }
   /* flagged tier name uses the normal text color — no blue */
