@@ -202,7 +202,10 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 
   /* --- tier header: name only, rotated on a diagonal so 4 names fit
          narrow columns without colliding --- */
-  .mx-head th { vertical-align:bottom; }
+  /* no vertical dividers in the header band — they'd cut through the
+     slanted tier names. gridlines start at the data rows below. */
+  .mx-head th { vertical-align:bottom; border-left:none !important; }
+  .mx-head th.feat-h { border-left:none !important; }
   .tier-hd { padding:0; height:96px; position:relative; overflow:visible; }
   .th-badge,
   .th-setup,
