@@ -191,62 +191,37 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
 
 .pr-section { padding:30px 0 60px; }
 
-/* mobile plan cards — hidden on desktop, the matrix table is shown instead */
-.pr-mobile-cards { display:none; }
-
 @media (max-width:760px){
-  /* the 4-column comparison table cannot fit a phone — swap it for stacked cards */
-  .matrix { display:none; }
-  .pr-mobile-cards { display:flex; flex-direction:column; gap:18px; }
+  /* keep the comparison GRID on mobile — just shrink the tier headers so 4
+     columns fit. headers show name + price only; badge / setup line / collapse
+     button / per-column CTA are hidden (the shared CTA sits below the grid). */
+  .matrix { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+  .mx-table { table-layout:fixed; min-width:0; }
+  .mx-table col.col-feat { width:34%; }
+  .mx-table col.col-tier { width:16.5%; }
 
-  .pm-card {
-    background:#fff; border:1px solid var(--line); border-radius:16px;
-    box-shadow:0 14px 40px rgba(8,14,26,.10); overflow:hidden;
-  }
-  .pm-card.is-flag { border-color:var(--brand); box-shadow:0 18px 48px rgba(46,117,182,.20); }
-  .pm-head { padding:22px 22px 20px; background:var(--dark); color:#fff; position:relative; }
-  .pm-card.is-flag .pm-head { background:linear-gradient(135deg,var(--navy-1),var(--brand)); }
-  .pm-badge {
-    display:inline-block; font-family:Inter; font-weight:700; font-size:0.66rem;
-    letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.66);
-  }
-  .pm-flag-badge {
-    display:inline-block; font-family:Inter; font-weight:700; font-size:0.62rem;
-    letter-spacing:.1em; text-transform:uppercase; color:var(--dark);
-    background:var(--green); border-radius:999px; padding:3px 10px; float:right;
-  }
-  .pm-name { font-family:Montserrat; font-weight:700; font-size:1.5rem; margin:6px 0 2px; }
-  .pm-price { font-family:Montserrat; font-weight:700; font-size:2rem; line-height:1.1; }
-  .pm-price .pm-per { font-family:Inter; font-size:0.9rem; font-weight:600; color:rgba(255,255,255,.7); }
-  .pm-setup { font-family:Inter; font-size:0.8rem; color:rgba(255,255,255,.7); margin-top:5px; }
-  .pm-setup.is-waived { color:var(--green); font-weight:700; }
-  .pm-cta {
-    display:block; text-align:center; margin-top:16px; padding:13px;
-    background:var(--brand); color:#fff; border-radius:10px; text-decoration:none;
-    font-family:Montserrat; font-weight:700; font-size:0.95rem;
-  }
-  .pm-card.is-flag .pm-cta { background:var(--green); color:var(--dark); }
-  .pm-feats { list-style:none; margin:0; padding:14px 22px 20px; }
-  .pm-feats li {
-    display:flex; gap:10px; align-items:flex-start;
-    font-family:Inter; font-size:0.9rem; color:var(--text);
-    padding:8px 0; border-bottom:1px solid var(--line);
-  }
-  .pm-feats li:last-child { border-bottom:none; }
-  .pm-feats li .pm-ck {
-    width:20px; height:20px; flex:none; border-radius:50%; background:var(--green);
-    display:inline-flex; align-items:center; justify-content:center; margin-top:1px;
-  }
-  .pm-feats li .pm-ck svg { width:12px; height:12px; fill:#fff; }
-  .pm-feats li .pm-val {
-    width:20px; flex:none; text-align:center; font-weight:700; color:var(--brand); font-size:0.78rem;
-  }
-  .pm-feats li .pm-fx { line-height:1.4; }
-  .pm-feats li .pm-fx .pm-sub {
-    display:block; font-size:0.78rem; color:var(--muted); margin-top:1px;
-  }
-  .pm-feats li.is-off { opacity:0.4; }
-  .pm-feats li.is-off .pm-ck { background:var(--line); }
+  .tier-hd { padding:12px 4px 12px; }
+  .th-inner { writing-mode:horizontal-tb; transform:none; min-height:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
+  .th-badge,
+  .th-setup,
+  .th-collapse,
+  .th-cta { display:none; }
+  .th-name { font-size:0.78rem; line-height:1.15; margin:0 0 3px; }
+  .th-price { font-size:0.92rem; white-space:nowrap; }
+  .th-price .cur { font-size:0.7rem; }
+  .th-price .per { font-size:0.6rem; }
+  .th-price.term-strike .num-was { display:none; }  /* no room for strike-through on mobile */
+
+  /* feature rows — tighter, smaller, but checkmarks stay legible */
+  .feat-row td { padding:8px 3px; }
+  .feat-row td.feat-name { font-size:0.76rem; padding-left:8px; line-height:1.3; }
+  .feat-name .fn-sub { font-size:0.68rem; }
+  .cell .ck { width:19px; height:19px; }
+  .cell .ck svg { width:11px; height:11px; }
+  .cell .dash { font-size:0.85rem; }
+  .cell .val-tx { font-size:0.68rem; }
+  .cat-row td { font-size:0.8rem; }
 
   .pr-controls { gap:10px; }
   .pc-sep { display:none; }
@@ -461,9 +436,6 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       </table>
     </div>
 
-    <!-- MOBILE PLAN CARDS — stacked, shown only <=760px; built from CATS data by JS -->
-    <div class="pr-mobile-cards" id="prMobileCards" aria-label="Plan comparison"></div>
-
     <p class="pr-note rise">
       Every plan includes a one-time setup fee, fully <b>waived</b> on a 6 or 12-month partnership &mdash;
       which also takes 10&ndash;15% off the monthly. Each level includes everything in the level below it.
@@ -610,8 +582,6 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
       var pct=term===2?'15%':'10%';
       saveTx.textContent='Save '+pct+' every month plus your setup fee — $'+lo.toLocaleString()+' to $'+hi.toLocaleString()+' over the term.';
     }
-    /* keep the mobile plan cards in sync with the term toggle */
-    if(typeof renderMobileCards==='function'){ renderMobileCards(); }
   }
 
   function setTerm(t){
@@ -716,58 +686,8 @@ height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Ma
     });
     applyCols();
     cascadeChecks();
-    renderMobileCards();
   }
 
-  /* ---- mobile plan cards — 4 stacked cards built from the same CATS data ---- */
-  var TIER_NAMES=['Basecamp','Ascent','Summit','Apex'];
-  var TIER_BADGES=['Level 1','Level 2','Level 3 · Most chosen','Level 4'];
-  var TIER_FLAG=[false,false,true,false];
-  var TIER_SLUG=['basecamp','ascent','summit','apex'];
-
-  function renderMobileCards(){
-    var host=document.getElementById('prMobileCards');
-    if(!host) return;
-    host.innerHTML='';
-    for(var t=0;t<TIERS;t++){
-      var waived=(term!==0);
-      var setupTxt=waived
-        ? 'Setup waived &middot; '+(term===1?'6':'12')+'-month partnership'
-        : '$'+SETUP[t].toLocaleString()+' one-time setup';
-      var feats='';
-      CATS.forEach(function(cat){
-        cat.rows.forEach(function(r){
-          if(cat.name==='Plan & Pricing') return; /* price/setup shown in the head */
-          var val=r.v[t];
-          var sub=r.s?'<span class="pm-sub">'+r.s+'</span>':'';
-          if(val===true){
-            feats+='<li><span class="pm-ck">'+ckSVG()+'</span>'
-                 +'<span class="pm-fx">'+r.f+sub+'</span></li>';
-          } else if(val===false||val==='Dash'){
-            feats+='<li class="is-off"><span class="pm-ck"></span>'
-                 +'<span class="pm-fx">'+r.f+'</span></li>';
-          } else {
-            feats+='<li><span class="pm-val">'+val+'</span>'
-                 +'<span class="pm-fx">'+r.f+sub+'</span></li>';
-          }
-        });
-      });
-      var flag=TIER_FLAG[t];
-      var card='<div class="pm-card'+(flag?' is-flag':'')+'">'
-        +'<div class="pm-head">'
-        +(flag?'<span class="pm-flag-badge">Most popular</span>':'')
-        +'<span class="pm-badge">'+TIER_BADGES[t]+'</span>'
-        +'<div class="pm-name">'+TIER_NAMES[t]+'</div>'
-        +'<div class="pm-price">$'+effMonthly(t).toLocaleString()
-        +'<span class="pm-per">/mo</span></div>'
-        +'<div class="pm-setup'+(waived?' is-waived':'')+'">'+setupTxt+'</div>'
-        +'<a class="pm-cta" href="/get-started/" data-cta="pricing-'+TIER_SLUG[t]+'-mobile">Get started</a>'
-        +'</div>'
-        +'<ul class="pm-feats">'+feats+'</ul>'
-        +'</div>';
-      host.insertAdjacentHTML('beforeend',card);
-    }
-  }
 
   function cascadeChecks(){
     var checks=body.querySelectorAll('.feat-row:not(.hidden-row) .ck');
