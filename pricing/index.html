@@ -202,13 +202,13 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   .mx-table col.col-feat { width:34%; }
   .mx-table col.col-tier { width:16.5%; }
 
-  /* --- tier header: name only, rotated on a diagonal so 4 names fit
-         narrow columns without colliding --- */
-  /* no vertical dividers in the header band — they'd cut through the
-     slanted tier names. gridlines start at the data rows below. */
+  /* --- tier header: VERTICAL text. reads bottom-to-top straight up inside
+         each column. contained by definition — no diagonal overhang, nothing
+         can clip at the left/right table edge. (matches the design system —
+         the table's collapsed-column state already uses vertical-rl text.) --- */
   .mx-head th { vertical-align:bottom; border-left:none !important; }
   .mx-head th.feat-h { border-left:none !important; }
-  .tier-hd { padding:0; height:62px; position:relative; overflow:hidden; }
+  .tier-hd { padding:0; height:88px; position:relative; }
   .th-badge,
   .th-setup,
   .th-collapse,
@@ -216,17 +216,14 @@ th.hidden-col *, td.hidden-col * { display:none !important; }
   .th-price { display:none !important; }
   .th-inner {
     writing-mode:horizontal-tb; transform:none; min-height:0;
-    display:block; height:100%; width:100%; position:relative;
+    display:flex; align-items:center; justify-content:center;
+    height:100%; width:100%; padding:8px 0;
   }
   .th-name {
-    /* rotated label, centered in its column and vertically centered in the
-       header band. font 10px @ 35deg -> ~45px horizontal footprint, fits the
-       ~58px column with margin on both sides (no left/right clip). */
-    position:absolute; left:50%; top:50%;
-    transform-origin:center center;
-    transform:translate(-50%,-50%) rotate(-35deg);
+    writing-mode:vertical-rl; transform:rotate(180deg);
     white-space:nowrap;
-    font-size:0.625rem; font-weight:700; letter-spacing:-0.01em;
+    font-family:'Montserrat',sans-serif; font-weight:700;
+    font-size:0.74rem; letter-spacing:0.01em;
     line-height:1; margin:0; color:var(--text);
   }
   /* flagged tier name uses the normal text color — no blue */
