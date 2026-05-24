@@ -115,7 +115,7 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       "@type": "Organization",
       "@id": "https://www.scalelocal.net/#organization",
       "name": "ScaleLocal",
-      "legalName": "ScaleLocal™",
+      "legalName": "ScaleLocal\u2122",
       "url": "https://www.scalelocal.net/",
       "logo": "https://www.scalelocal.net/og-image.png",
       "email": "hello@scalelocal.net",
@@ -130,12 +130,40 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       }
     },
     {
+      "@type": "Service",
+      "@id": "https://www.scalelocal.net/web-solutions/#service",
+      "name": "Website Design, Redesign & SEO Overhaul",
+      "description": "Website design, website redesign, and full SEO overhaul for local service businesses \u2014 modern, fast sites engineered to rank on Google, Bing, and AI search.",
+      "provider": { "@id": "https://www.scalelocal.net/#organization" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Massachusetts" },
+        { "@type": "AdministrativeArea", "name": "New Hampshire" },
+        { "@type": "AdministrativeArea", "name": "Rhode Island" }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Local service businesses"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.scalelocal.net/web-solutions/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.scalelocal.net/" },
+        { "@type": "ListItem", "position": 2, "name": "Web Solutions", "item": "https://www.scalelocal.net/web-solutions/" }
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://www.scalelocal.net/web-solutions/#webpage",
       "url": "https://www.scalelocal.net/web-solutions/",
-      "name": "Web Solutions — Websites Engineered to Get Found | ScaleLocal",
-      "description": "ScaleLocal web solutions for local service businesses — website redesign, full SEO overhaul, and ground-up builds engineered to rank on Google and AI search.",
-      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+      "name": "Web Solutions \u2014 Websites Engineered to Get Found | ScaleLocal",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" },
+      "about": { "@id": "https://www.scalelocal.net/web-solutions/#service" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lede"]
+      }
     }
   ]
 }
