@@ -298,26 +298,21 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       "legalName": "ScaleLocal™",
       "url": "https://www.scalelocal.net/",
       "logo": "https://www.scalelocal.net/og-image.png",
+      "image": "https://www.scalelocal.net/og-image.png",
       "email": "hello@scalelocal.net",
       "telephone": "+1-978-662-7580",
       "areaServed": "Massachusetts and New England",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Tewksbury",
-        "addressRegion": "MA",
-        "postalCode": "01876",
-        "addressCountry": "US"
-      }
-    },
-    {
-      "@type": "ProfessionalService",
-      "@id": "https://www.scalelocal.net/#localbusiness",
-      "name": "ScaleLocal",
-      "url": "https://www.scalelocal.net/",
-      "telephone": "+1-978-662-7580",
-      "email": "hello@scalelocal.net",
-      "priceRange": "$249–$1,497/mo",
-      "image": "https://www.scalelocal.net/og-image.png",
+      "knowsAbout": [
+        "Local SEO",
+        "Web Design",
+        "Website Redesign",
+        "Search Engine Optimization",
+        "AI Automation",
+        "AI Receptionist",
+        "Google Business Profile Optimization",
+        "Local Business Marketing",
+        "AI Search Optimization"
+      ],
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Tewksbury",
@@ -325,6 +320,40 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
         "postalCode": "01876",
         "addressCountry": "US"
       },
+      "sameAs": [
+        "https://www.bing.com/maps?q=ScaleLocal+Tewksbury+MA"
+      ]
+    },
+    {
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "@id": "https://www.scalelocal.net/#localbusiness",
+      "name": "ScaleLocal",
+      "url": "https://www.scalelocal.net/",
+      "telephone": "+1-978-662-7580",
+      "email": "hello@scalelocal.net",
+      "priceRange": "$249–$1,497/mo",
+      "image": "https://www.scalelocal.net/og-image.png",
+      "parentOrganization": { "@id": "https://www.scalelocal.net/#organization" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tewksbury",
+        "addressRegion": "MA",
+        "postalCode": "01876",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.6109,
+        "longitude": -71.2342
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        }
+      ],
       "areaServed": [
         { "@type": "City", "name": "Tewksbury" },
         { "@type": "City", "name": "Lowell" },
@@ -337,8 +366,40 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
         { "@type": "City", "name": "North Reading" },
         { "@type": "City", "name": "Reading" },
         { "@type": "AdministrativeArea", "name": "Massachusetts" },
+        { "@type": "AdministrativeArea", "name": "New Hampshire" },
+        { "@type": "AdministrativeArea", "name": "Rhode Island" },
         { "@type": "Place", "name": "New England" }
       ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Web Design, SEO & AI Growth Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website Design & Redesign",
+              "description": "Modern, fast, mobile-optimized websites built to get local service businesses found and convert visitors into leads."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Local SEO & Search Optimization",
+              "description": "Search optimization for Google, Bing, and AI search engines so local businesses get found by customers actively searching."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "AI Automation Tools",
+              "description": "AI receptionist, chat, and follow-up tools that capture every lead and respond instantly, day or night."
+            }
+          }
+        ]
+      },
       "description": "SEO web design and AI growth systems for local service businesses in Massachusetts and New England."
     },
     {
@@ -347,25 +408,67 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       "url": "https://www.scalelocal.net/",
       "name": "SEO Web Design + AI Growth Systems for Local Service Businesses | ScaleLocal",
       "description": "ScaleLocal builds Massachusetts local service businesses a website that gets found on Google and AI search, then adds AI that captures every lead and books jobs.",
-      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" },
+      "about": { "@id": "https://www.scalelocal.net/#localbusiness" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lede"]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.scalelocal.net/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What does ScaleLocal do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScaleLocal is a web design, SEO, and AI growth agency in Tewksbury, Massachusetts. We build local service businesses a modern website, optimize it to get found on Google, Bing, and AI search, and add AI tools that capture every lead."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas does ScaleLocal serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScaleLocal is based in Tewksbury, Massachusetts and serves local service businesses across Massachusetts, New Hampshire, and Rhode Island, including Lowell, Andover, Billerica, Chelmsford, Nashua, Manchester, and Providence."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does ScaleLocal cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScaleLocal plans range from $249 to $1,497 per month depending on the level of web design, SEO, and AI automation a business needs. Pricing is transparent with no hidden fees."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast can ScaleLocal build my website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ScaleLocal can build a free website demo within 48 hours so you can see your new site before committing."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.scalelocal.net/#website",
+      "name": "ScaleLocal",
+      "url": "https://www.scalelocal.net/",
+      "publisher": { "@id": "https://www.scalelocal.net/#organization" },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.scalelocal.net/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
     }
   ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "ScaleLocal",
-  "url": "https://www.scalelocal.net/",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": "https://www.scalelocal.net/?q={search_term_string}"
-    },
-    "query-input": "required name=search_term_string"
-  }
 }
 </script>
 </head>
