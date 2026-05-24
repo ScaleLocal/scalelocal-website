@@ -124,7 +124,7 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       "@type": "Organization",
       "@id": "https://www.scalelocal.net/#organization",
       "name": "ScaleLocal",
-      "legalName": "ScaleLocal™",
+      "legalName": "ScaleLocal\u2122",
       "url": "https://www.scalelocal.net/",
       "logo": "https://www.scalelocal.net/og-image.png",
       "email": "hello@scalelocal.net",
@@ -139,12 +139,40 @@ textarea:focus-visible, select:focus-visible, [tabindex]:focus-visible {
       }
     },
     {
+      "@type": "Service",
+      "@id": "https://www.scalelocal.net/ai-solutions/#service",
+      "name": "AI Automation Tools for Local Business",
+      "description": "AI chat, voice receptionist, review engine, and follow-up automation for local service businesses \u2014 tools that capture every lead and respond instantly.",
+      "provider": { "@id": "https://www.scalelocal.net/#organization" },
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "Massachusetts" },
+        { "@type": "AdministrativeArea", "name": "New Hampshire" },
+        { "@type": "AdministrativeArea", "name": "Rhode Island" }
+      ],
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "Local service businesses"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.scalelocal.net/ai-solutions/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.scalelocal.net/" },
+        { "@type": "ListItem", "position": 2, "name": "AI Solutions", "item": "https://www.scalelocal.net/ai-solutions/" }
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://www.scalelocal.net/ai-solutions/#webpage",
       "url": "https://www.scalelocal.net/ai-solutions/",
-      "name": "AI Solutions — Automation That Captures Every Lead | ScaleLocal",
-      "description": "ScaleLocal's AI automation layer for local service businesses — AI chat, voice receptionist, review engine, follow-up and sales agents that capture every lead.",
-      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" }
+      "name": "AI Solutions \u2014 Automation That Captures Every Lead | ScaleLocal",
+      "isPartOf": { "@id": "https://www.scalelocal.net/#organization" },
+      "about": { "@id": "https://www.scalelocal.net/ai-solutions/#service" },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".lede"]
+      }
     }
   ]
 }
