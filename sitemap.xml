@@ -82,4 +82,9 @@
   <url><loc>https://www.scalelocal.net/local/westford-ma/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.scalelocal.net/local/wilmington-ma/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+  <url><loc>https://www.scalelocal.net/website-design/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.scalelocal.net/website-redesign/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.scalelocal.net/local-seo/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.scalelocal.net/ai-automation/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.scalelocal.net/faq/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
