@@ -42,6 +42,91 @@
       "permanent": true
     },
     {
+      "source": "/quiz",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/quiz/(.*)",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/snapshot",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/snapshot/(.*)",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/start",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/grow",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/free-website",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/recommendation",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/audit",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/audit/(.*)",
+      "destination": "/get-started",
+      "permanent": true
+    },
+    {
+      "source": "/websites",
+      "destination": "/web-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/receptionist",
+      "destination": "/ai-solutions",
+      "permanent": true
+    },
+    {
+      "source": "/plans",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/reactivation",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/welcome",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/checkout",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/sniper.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/(.*)",
       "has": [
         {
