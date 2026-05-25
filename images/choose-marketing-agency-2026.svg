@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" role="img" aria-labelledby="ig3t ig3d" font-family="Inter, Arial, sans-serif">
+  <title id="ig3t">How to choose a marketing agency — 7 things to evaluate</title>
+  <desc id="ig3d">The seven criteria for evaluating a marketing agency: relevant experience, proof of results, clear scope, transparent pricing, communication, reporting, and the right size fit.</desc>
+  <rect width="760" height="880" fill="#0f2240"/>
+  <rect x="0" y="0" width="760" height="112" fill="#0b1a30"/>
+  <text x="380" y="46" fill="#2ecc71" font-size="14" font-weight="700" letter-spacing="2" text-anchor="middle">SCALELOCAL GUIDE</text>
+  <text x="380" y="80" fill="#ffffff" font-size="25" font-weight="700" text-anchor="middle">How to choose a marketing agency</text>
+  <text x="380" y="102" fill="#9fb3c8" font-size="13" text-anchor="middle">The seven things to evaluate before you sign</text>
+
+  <g font-size="15">
+    <g><circle cx="70" cy="166" r="20" fill="#2b6cb0"/><text x="70" y="172" fill="#fff" font-weight="700" text-anchor="middle">1</text>
+    <text x="108" y="162" fill="#ffffff" font-weight="700">Relevant experience</text>
+    <text x="108" y="184" fill="#9fb3c8" font-size="13">Have they worked with businesses like yours?</text></g>
+
+    <g><circle cx="70" cy="248" r="20" fill="#2b6cb0"/><text x="70" y="254" fill="#fff" font-weight="700" text-anchor="middle">2</text>
+    <text x="108" y="244" fill="#ffffff" font-weight="700">Proof, not claims</text>
+    <text x="108" y="266" fill="#9fb3c8" font-size="13">Ask for specifics — real examples, real context.</text></g>
+
+    <g><circle cx="70" cy="330" r="20" fill="#2b6cb0"/><text x="70" y="336" fill="#fff" font-weight="700" text-anchor="middle">3</text>
+    <text x="108" y="326" fill="#ffffff" font-weight="700">A clear scope</text>
+    <text x="108" y="348" fill="#9fb3c8" font-size="13">Exactly what you get — vague deliverables go wrong.</text></g>
+
+    <g><circle cx="70" cy="412" r="20" fill="#2b6cb0"/><text x="70" y="418" fill="#fff" font-weight="700" text-anchor="middle">4</text>
+    <text x="108" y="408" fill="#ffffff" font-weight="700">Transparent pricing</text>
+    <text x="108" y="430" fill="#9fb3c8" font-size="13">You understand what you pay and what it buys.</text></g>
+
+    <g><circle cx="70" cy="494" r="20" fill="#2b6cb0"/><text x="70" y="500" fill="#fff" font-weight="700" text-anchor="middle">5</text>
+    <text x="108" y="490" fill="#ffffff" font-weight="700">How they communicate</text>
+    <text x="108" y="512" fill="#9fb3c8" font-size="13">A good agency asks a lot of questions first.</text></g>
+
+    <g><circle cx="70" cy="576" r="20" fill="#2b6cb0"/><text x="70" y="582" fill="#fff" font-weight="700" text-anchor="middle">6</text>
+    <text x="108" y="572" fill="#ffffff" font-weight="700">Reporting</text>
+    <text x="108" y="594" fill="#9fb3c8" font-size="13">See what is done and what it produced.</text></g>
+
+    <g><circle cx="70" cy="658" r="20" fill="#2b6cb0"/><text x="70" y="664" fill="#fff" font-weight="700" text-anchor="middle">7</text>
+    <text x="108" y="654" fill="#ffffff" font-weight="700">Size and fit</text>
+    <text x="108" y="676" fill="#9fb3c8" font-size="13">Large = more resources; small = more attention.</text></g>
+  </g>
+
+  <!-- red flags -->
+  <rect x="40" y="710" width="680" height="108" rx="12" fill="#3a1f24" stroke="#c0463e" stroke-width="1.5"/>
+  <text x="64" y="740" fill="#e8746b" font-size="13" font-weight="700" letter-spacing="1.5">RED FLAGS — WALK AWAY</text>
+  <text x="64" y="766" fill="#ffffff" font-size="13">• A guarantee of a specific Google ranking position</text>
+  <text x="64" y="788" fill="#ffffff" font-size="13">• Pressure to sign immediately, or no clear process</text>
+  <text x="64" y="810" fill="#ffffff" font-size="13">• No reporting and no accountability</text>
+
+  <text x="380" y="856" fill="#7f93a8" font-size="12" text-anchor="middle">ScaleLocal — Web design, SEO &amp; AI growth for local service businesses · scalelocal.net</text>
+</svg>
