@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>ScaleLocal — Funnel</title>
+<style>
+  :root{color-scheme:light;--navy:#0D1B2A;--blue:#1B4965;--teal:#5FA8D3;--bg:#F4F4F0;
+        --gold:#E8B86D;--green:#5DAE5D;--amber:#E89C3E;--red:#C94F4F;--gray:#6E6E6E;}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--navy);}
+  header{background:var(--navy);color:#fff;padding:16px 20px;display:flex;
+         justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+  header b{color:var(--teal)}
+  .updated{font-size:12px;color:#9fb6c9}
+  .wrap{max-width:1100px;margin:0 auto;padding:16px 20px 60px}
+  h2{font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--gray);
+     margin:26px 0 10px}
+  /* funnel chips */
+  .funnel{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+  .chip{background:#fff;border:1px solid #dfe4e8;border-radius:10px;padding:10px 14px;
+        min-width:120px;flex:1}
+  .chip .n{font-size:26px;font-weight:800;color:var(--blue)}
+  .chip .l{font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:.03em}
+  .chip.hot{border-color:var(--teal);box-shadow:0 0 0 2px rgba(95,168,211,.15)}
+  /* cards */
+  .card{background:#fff;border:1px solid #dfe4e8;border-radius:12px;padding:14px 16px;
+        margin-bottom:10px}
+  .row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+  .co{font-weight:700;font-size:16px}
+  .meta{font-size:13px;color:var(--gray)}
+  .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 9px;border-radius:20px;
+         color:#fff;text-transform:uppercase;letter-spacing:.03em}
+  .b-WON{background:var(--green)} .b-AUDIT_VIEWED{background:#2a9c68}
+  .b-AUDIT_SENT{background:var(--teal)} .b-REPLIED_YES{background:var(--blue)}
+  .b-REPLIED_INFO{background:var(--gold);color:var(--navy)}
+  .b-REPLIED_OTHER{background:#b0b8be} .b-EMAILED{background:#cfd6db;color:var(--navy)}
+  .b-ENROLLED{background:#e2e7ea;color:var(--gray)}
+  .quote{background:var(--bg);border-left:3px solid var(--teal);padding:8px 12px;
+         margin-top:8px;font-size:14px;border-radius:0 6px 6px 0}
+  .plan{font-size:13px;color:var(--blue);font-weight:600}
+  a.audit{color:var(--teal);font-weight:600;text-decoration:none;font-size:13px}
+  .empty{color:var(--gray);font-style:italic;padding:20px;text-align:center}
+  .health{font-size:12px;color:var(--gray);margin-top:30px;border-top:1px solid #dfe4e8;padding-top:12px}
+  .err{background:#F8D7DA;color:#822;padding:14px;border-radius:8px}
+</style>
+</head>
+<body>
+<header>
+  <div><b>ScaleLocal</b> Funnel — responders &amp; revenue</div>
+  <div class="updated" id="updated">loading…</div>
+</header>
+<div class="wrap">
+  <div id="content"><p class="empty">Loading funnel…</p></div>
+  <div class="health" id="health"></div>
+</div>
+
+<script>
+const STAGE_LABEL = {
+  WON:"Won", AUDIT_VIEWED:"Viewed audit", AUDIT_SENT:"Audit sent",
+  REPLIED_YES:"Said yes", REPLIED_INFO:"Wants info", REPLIED_OTHER:"Replied",
+  EMAILED:"In sequence", ENROLLED:"Queued"
+};
+const MONEY_STAGES = ["WON","AUDIT_VIEWED","AUDIT_SENT","REPLIED_YES","REPLIED_INFO","REPLIED_OTHER"];
+
+function esc(s){return (s==null?"":String(s)).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+
+function card(p){
+  const stage = p.stage||"ENROLLED";
+  let h = '<div class="card">';
+  h += '<div class="row"><div>';
+  h += '<div class="co">'+esc(p.company)+' <span class="meta">'+esc(p.city||"")+'</span></div>';
+  if(p.recommended_plan) h+='<div class="plan">→ '+esc(p.recommended_plan)+' '+esc(p.plan_price||"")+'</div>';
+  h += '</div><div style="text-align:right">';
+  h += '<span class="badge b-'+stage+'">'+(STAGE_LABEL[stage]||stage)+'</span>';
+  if(p.score!=null && p.score!=="") h+='<div class="meta" style="margin-top:4px">score '+esc(p.score)+'</div>';
+  h += '</div></div>';
+  if(p.reply_excerpt) h+='<div class="quote">"'+esc(p.reply_excerpt)+'" <span class="meta">— '+esc(p.reply_channel||"")+'</span></div>';
+  if(p.audit_url) h+='<div style="margin-top:8px"><a class="audit" href="'+esc(p.audit_url)+'" target="_blank">audit page →</a>'+(p.audit_page_live?' <span class="meta">(live)</span>':' <span class="meta">(staged)</span>')+'</div>';
+  h += '</div>';
+  return h;
+}
+
+function render(d){
+  document.getElementById("updated").textContent =
+    "updated " + new Date(d.generated_at).toLocaleString();
+  const c = d.counts||{};
+  let html = '<div class="funnel">';
+  (d.stage_order||Object.keys(c)).forEach(s=>{
+    const hot = MONEY_STAGES.indexOf(s)>=0 && (c[s]||0)>0;
+    html += '<div class="chip'+(hot?' hot':'')+'"><div class="n">'+(c[s]||0)+'</div>'+
+            '<div class="l">'+(STAGE_LABEL[s]||s)+'</div></div>';
+  });
+  html += '</div>';
+
+  html += '<h2>Responders — closest to the money</h2>';
+  const resp = d.responders||[];
+  if(resp.length===0) html+='<p class="empty">No responders yet. They\'ll appear here the moment someone replies.</p>';
+  else resp.forEach(p=>html+=card(p));
+
+  const cold = (d.all_prospects||[]).filter(p=>MONEY_STAGES.indexOf(p.stage)<0);
+  html += '<h2>In the pipeline ('+cold.length+')</h2>';
+  if(cold.length===0) html+='<p class="empty">No cold prospects in the system.</p>';
+  else {
+    html+='<div class="card"><div class="meta">';
+    const byStage={};
+    cold.forEach(p=>byStage[p.stage]=(byStage[p.stage]||0)+1);
+    html += Object.entries(byStage).map(([s,n])=>(STAGE_LABEL[s]||s)+': '+n).join(' &nbsp;·&nbsp; ');
+    html+='</div></div>';
+  }
+  document.getElementById("content").innerHTML = html;
+
+  const h=d.health||{};
+  document.getElementById("health").innerHTML =
+    'Known prospects: '+(h.total_known||0)+' &nbsp;·&nbsp; Latest discovery CSV: '+
+    esc(h.latest_prospect_csv||"—")+' &nbsp;·&nbsp; Audit deliveries: '+(h.audit_manifest_rows||0)+
+    ' &nbsp;·&nbsp; State DB: '+(h.state_db_found?'connected':'MISSING');
+}
+
+function load(){
+  fetch('funnel_state.json?t='+Date.now())
+    .then(r=>{if(!r.ok)throw new Error('funnel_state.json '+r.status);return r.json();})
+    .then(render)
+    .catch(e=>{document.getElementById("content").innerHTML=
+      '<div class="err">Could not load funnel data: '+esc(e.message)+'</div>';});
+}
+load();
+setInterval(load, 60000); // re-pull the json every minute; file itself refreshes server-side every 15
+</script>
+</body>
+</html>
