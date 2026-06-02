@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Your ScaleLocal Audit — RT Northeastern Painting</title>
+<style>
+  :root { color-scheme: light; }
+  body { margin:0; font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+         background:#F4F4F0; color:#0D1B2A; }
+  header { background:#0D1B2A; color:#fff; padding:22px 24px; }
+  header b { color:#5FA8D3; }
+  .wrap { max-width:900px; margin:0 auto; padding:24px; }
+  .score { font-size:48px; font-weight:800; color:#1B4965; }
+  .btn { display:inline-block; background:#5FA8D3; color:#fff; text-decoration:none;
+          padding:12px 22px; border-radius:8px; font-weight:700; margin:8px 8px 8px 0; }
+  .btn.alt { background:#1B4965; }
+  iframe { width:100%; height:80vh; border:1px solid #ccc; border-radius:8px; margin-top:16px; }
+  footer { color:#6E6E6E; font-size:13px; padding:24px; text-align:center; }
+</style></head>
+<body>
+<header><div class="wrap" style="padding:0"><b>ScaleLocal</b> — Website &amp; Visibility Audit</div></header>
+<div class="wrap">
+  <h1>RT Northeastern Painting</h1>
+  <p>Here is your full audit. Your overall score:</p>
+  <div class="score">60<span style="font-size:22px;color:#6E6E6E">/100 (C)</span></div>
+  <p>
+    <a class="btn" href="audit.pdf" target="_blank" id="viewbtn">View the full audit</a>
+    <a class="btn alt" href="audit.pdf" download id="dlbtn">Download PDF</a>
+  </p>
+  <iframe src="audit.pdf" title="Audit PDF"></iframe>
+</div>
+<footer>Prepared by ScaleLocal · scalelocal.net · Questions? Just reply to our email.</footer>
+<script>
+  var T="qQV4pnasqhkD";
+  function beacon(ev){ try{ navigator.sendBeacon("/api/audit-track?token="+T+"&event="+ev); }catch(e){} }
+  beacon("view");
+  document.getElementById("dlbtn").addEventListener("click",function(){beacon("download");});
+</script>
+</body></html>

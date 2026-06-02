@@ -44,15 +44,18 @@
   a.audit{color:var(--teal);font-weight:600;text-decoration:none;font-size:13px}
   .empty{color:var(--gray);font-style:italic;padding:20px;text-align:center}
   .health{font-size:12px;color:var(--gray);margin-top:30px;border-top:1px solid #dfe4e8;padding-top:12px}
-  .err{background:#F8D7DA;color:#822;padding:14px;border-radius:8px}
+  .err{background:#F8D7DA;color:#822;padding:14px;border-radius:8px;margin-bottom:12px}
+  .synced{font-size:13px;color:#9fb6c9;white-space:nowrap}
+  .synced b{color:#fff;font-weight:600}
 </style>
 </head>
 <body>
 <header>
   <div><b>ScaleLocal</b> Funnel — responders &amp; revenue</div>
-  <div class="updated" id="updated">loading…</div>
+  <div class="synced" id="synced">Last synced: <b>—</b></div>
 </header>
 <div class="wrap">
+  <div id="err"></div>
   <div id="content"><p class="empty">Loading funnel…</p></div>
   <div class="health" id="health"></div>
 </div>
@@ -84,8 +87,9 @@ function card(p){
 }
 
 function render(d){
-  document.getElementById("updated").textContent =
-    "updated " + new Date(d.generated_at).toLocaleString();
+  document.getElementById("synced").innerHTML =
+    "Last synced: <b>" + new Date(d.generated_at).toLocaleString() + "</b>";
+  document.getElementById("err").innerHTML = "";
   const c = d.counts||{};
   let html = '<div class="funnel">';
   (d.stage_order||Object.keys(c)).forEach(s=>{
@@ -97,7 +101,7 @@ function render(d){
 
   html += '<h2>Responders — closest to the money</h2>';
   const resp = d.responders||[];
-  if(resp.length===0) html+='<p class="empty">No responders yet. They\'ll appear here the moment someone replies.</p>';
+  if(resp.length===0) html+='<p class="empty">No responders yet — the system is live and watching. Anyone who replies YES appears here automatically, ranked by how close they are to closing.</p>';
   else resp.forEach(p=>html+=card(p));
 
   const cold = (d.all_prospects||[]).filter(p=>MONEY_STAGES.indexOf(p.stage)<0);
@@ -123,8 +127,17 @@ function load(){
   fetch('funnel_state.json?t='+Date.now())
     .then(r=>{if(!r.ok)throw new Error('funnel_state.json '+r.status);return r.json();})
     .then(render)
-    .catch(e=>{document.getElementById("content").innerHTML=
-      '<div class="err">Could not load funnel data: '+esc(e.message)+'</div>';});
+    .catch(e=>{
+      // Keep whatever was last rendered (incl. the last sync time) and show a
+      // non-destructive banner. On first load (nothing yet) show a friendly note.
+      var msg = (e.message.indexOf('404')>=0)
+        ? 'Waiting for the first sync to publish data (funnel_state.json not found yet).'
+        : 'Could not refresh funnel data: '+esc(e.message)+'. Showing last known state.';
+      document.getElementById("err").innerHTML = '<div class="err">'+msg+'</div>';
+      if(document.getElementById("content").querySelector('.empty'))
+        document.getElementById("content").innerHTML =
+          '<p class="empty">Dashboard is live. Data appears after the next 15-minute sync.</p>';
+    });
 }
 load();
 setInterval(load, 60000); // re-pull the json every minute; file itself refreshes server-side every 15
