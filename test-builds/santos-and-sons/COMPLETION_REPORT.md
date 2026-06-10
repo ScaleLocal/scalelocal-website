@@ -48,3 +48,13 @@ Brand: hunter green + antique gold sampled from their crest sign; Playfair Displ
 
 ## Definition-of-done check
 Every photo is theirs (FB-mined, full-res). Every service is from their own yard sign + FB category. The only named town is the one they're registered in. Colors are sampled from their crest. Voice matches their plain, proud, family-run posts. Widget placeholder is labeled and swap-ready. Demo is cold-send ready pending the GBP eyeball check above.
+
+## Revision — 2026-06-10 (afternoon)
+Matt's feedback: homepage read fence-only and undersold a multi-million-dollar, multi-truck operation; overlay text needed more pop.
+- Hero slide 1 now leads with their own tagline ("Big Or Small, We Do It All") naming all four service lines; remaining slides reframed around whole-property capability.
+- Added a persistent four-chip service strip inside the hero (Fencing / Hardscapes / Dumpster Rental / Property Maintenance), visible on every slide, desktop + mobile, each chip deep-linking to its services section (new #maintenance anchor added).
+- Homepage pillar grid expanded 3 → 4 to mirror the four service lines.
+- Overlay legibility: dual-gradient scrim (left vignette + bottom fade) + stronger text shadows on hero headline/copy.
+- Copy elevated from "small crew" to "family-run, fully equipped" — own crews/fleet/equipment, residential + commercial — per Matt's direction (qualitative only; no headcount/revenue/truck-count claims). Index title/description, footer, services lead, about page updated to name all four lines.
+- GHL setup pack bot/voice knowledge updated to match the scale framing.
+Commits: `41f7747` (reposition) + this revision. Screenshots in `screenshots/` refreshed.
