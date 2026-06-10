@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 142" role="img" aria-label="LawnWize - Cut Sharp. Look Smart.">
+  <g font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-style="italic" font-weight="900">
+    <text x="14" y="44" font-size="44" letter-spacing="1" fill="#1B8E20">LAWN</text>
+    <text x="36" y="110" font-size="52" letter-spacing="2" fill="#161918">WIZE</text>
+  </g>
+  <path d="M10 52 C 105 62, 210 56, 306 26 C 214 64, 110 66, 12 58 Z" fill="#1B8E20"/>
+  <text x="38" y="134" font-family="'Inter','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="13" letter-spacing="2.6" fill="#161918">CUT SHARP. LOOK SMART.</text>
+</svg>

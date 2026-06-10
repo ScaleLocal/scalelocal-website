@@ -154,6 +154,31 @@
       ],
       "destination": "https://www.scalelocal.net/$1",
       "permanent": true
+    },
+    {
+      "source": "/test-builds/lawnwize",
+      "destination": "/test-builds/lawnwize/",
+      "permanent": true
+    },
+    {
+      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(lawnwize|LawnWize|Lawnwize|LAWNWIZE|lawnWize)",
+      "destination": "/test-builds/lawnwize/",
+      "permanent": true
+    },
+    {
+      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(lawnwize|LawnWize|Lawnwize|LAWNWIZE|lawnWize)/",
+      "destination": "/test-builds/lawnwize/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/(LawnWize|Lawnwize|LAWNWIZE|lawnWize)",
+      "destination": "/test-builds/lawnwize/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/(LawnWize|Lawnwize|LAWNWIZE|lawnWize)/",
+      "destination": "/test-builds/lawnwize/",
+      "permanent": true
     }
   ],
   "headers": [
