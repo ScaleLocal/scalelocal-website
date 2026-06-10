@@ -1,8 +1,14 @@
 # LawnWize Test Build — Completion Report
 
-**Date:** 2026-06-10
+**Date:** 2026-06-10 (rev 2 — same day)
 **Live URL:** https://www.scalelocal.net/test-builds/lawnwize/
 **Status:** Live and verified. Awaiting Matt's review. Zip package NOT created (gated on explicit clear).
+
+## Revision 2 (same day, per Matt)
+
+Design pass from screenshot audit: brand green deepened `#1B8E20 → #15741C` (white-on-green now passes WCAG AA, 5.9:1), green trust bar removed (was redundant with hero badges and stacked a third saturated band under the hero), hero overlay neutralized (green cast removed, stronger text-side scrim), busy flower-cottage hero slide swapped for calmer estate-lawn shot, hero badges condensed to a single translucent pill, stat numerals switched to white with green accent marks, "coming soon" chips bumped to readable gray.
+
+Contact launcher added at Matt's explicit request (supersedes the original brief's no-widget scope): floating button on all 6 pages, badge "3", panel headed "The LawnWize Team", three static actions — text (sms:), free estimate (contact.html), call (tel:). No live-chat row, no GHL, no third-party scripts — fully static, ships in the handoff zip as-is.
 
 ## What Was Built
 
@@ -27,19 +33,4 @@ Five-page static rebuild of lawnwize.com plus 404, styled to the Highline Tree r
 - Zero broken images and zero console errors on all pages (headless audit)
 - Mobile 390px: no horizontal scroll (scrollWidth 390), nav collapses to hamburger and opens correctly, hero CTAs stack full-width
 - No emoji anywhere (Unicode-range scan of all HTML/CSS/JS)
-- No chat widget, no GTM/GA4/tracking, no schema/sitemap/robots/canonical/OG meta — by design
-- No testimonials or review stars anywhere (none fabricated)
-- Phone (810) 224-1089 and Livingston County service area present and consistent on every page
-- Opens locally by double-clicking `index.html` (all asset paths relative; verified via local render before deploy)
-
-## Screenshots
-
-- `live-desktop-1440.png` — full homepage at 1440px (live URL)
-- `live-mobile-390.png` — full homepage at 390px (live URL)
-
-## Open Items
-
-1. **Matt review** → then explicit "clear to zip" before the handoff package is created
-2. Form provider: static mailto compose in place; Evan picks a provider later (swap point documented in contact.html + README)
-3. "Holiday Lighting (Govee)" rendered brand-generic; re-add "Govee" if Evan wants it
-4. Service-area towns shown (Howell, Fowlerville, Brighton, Pinckney, Hartland, Hamburg Twp) inferred from their service-area map + county; confirm exact list with Evan if he wants town-level claims
+- No GTM/GA4/tracking, no schema/sitemap/robots/canonical/OG meta — by design; no live

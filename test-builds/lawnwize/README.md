@@ -27,6 +27,7 @@ lawnwize/
 - **Photos:** replace files in `images/` keeping the same filenames (`hero-1.jpg` through `hero-4.jpg` for the homepage carousel, `gallery-01.jpg` onward for the gallery, `service-*.jpg` for the four service images). Recommended sizes: heroes ~1920px wide, gallery ~1100px wide.
 - **Logo:** `images/logo-lawnwize.svg` is the standalone logo file. The header and footer logos are drawn inline inside each HTML file (search for `aria-label="LawnWize"`).
 - **Estimate form:** the contact form currently opens a pre-filled email to info@lawnwize.com in the visitor's mail app. To connect a real form provider (Formspree, Basin, Netlify Forms, or a CRM), see the comment block inside `contact.html` above the form, and remove the form handler section in `js/site.js`.
+- **Contact launcher:** the floating button in the bottom-right corner (on every page) opens a panel with three actions: text, free estimate, and call. It is fully static — no live chat, no third-party scripts. Edit the panel text by searching any `.html` file for `lw-launcher`.
 
 ## Hosting
 
@@ -40,7 +41,4 @@ Any static host works — the whole site is plain HTML/CSS/JS:
 
 This is a clean handoff build. The following were intentionally left out and can be added whenever you're ready:
 
-- No analytics or tracking (Google Analytics, Tag Manager, etc.)
-- No chat widget
-- No SEO scaffolding (schema markup, sitemap.xml, robots.txt, canonical/social-share tags) — pages have standard titles and meta descriptions only
-- No form backend — see the estimate-form note above
+- No

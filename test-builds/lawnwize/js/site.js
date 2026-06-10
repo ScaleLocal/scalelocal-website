@@ -100,4 +100,23 @@
     /* ---- Footer year ---- */
     var yearEl = document.getElementById('footerYear');
     if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }
+
+    /* ---- Contact launcher (static — text / estimate / call) ---- */
+    var launcher = document.querySelector('.lw-launcher');
+    if (launcher) {
+        var lbtn = launcher.querySelector('.lw-launcher-btn');
+        if (lbtn) {
+            lbtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                var open = launcher.classList.toggle('open');
+                lbtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            });
+        }
+        document.addEventListener('click', function (e) {
+            if (!launcher.contains(e.target)) { launcher.classList.remove('open'); }
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') { launcher.classList.remove('open'); }
+        });
+    }
 })();
