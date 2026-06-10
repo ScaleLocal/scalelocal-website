@@ -51,3 +51,13 @@ All 13 site photos are HVAC Pro Beast's own GBP uploads (attribution verified "H
 
 ## Definition-of-done check
 Every photo is theirs (GBP uploads). Every service is from their own banner/card (ice machines, walk-ins, exhaust fans, heat+AC, mini-splits, 24/7). Every town is from Matt's confirmed list. Voice matches the shop: direct, confident, family-owned, "beast" energy without the emojis. Cold-send ready pending widget embed.
+
+## v2 addendum — Beast branding pass (2026-06-10, same session)
+Per Matt's direction after first ship:
+- **Beast mascot vectorized in-house** (original PNG never survived chat upload; recreation explicitly authorized). Hand-built SVG matching their first-party art: blue yeti, white beard, orange HVAC BEAST cap, red/blue refrigerant gauges, YETI-branded condenser. 4 design iterations (fierce eyes, connected grin, gauge z-order). Strict-XML validated (first deploy hit an unbalanced tag that broke <img> rendering — fixed).
+- **Stacked logo lockup** (beast above HVAC PRO BEAST / FAST · RELIABLE · LOCAL) in header + footer, per Matt's mock.
+- Beast placements: hero (above trust bar), all inner-page sub-heroes, CTA bands, 404, OG card, favicon set (16/32/180/512 from beast head), beast-head-512.png ready as chat-widget avatar.
+- **Rating badge redesigned**: white card, 5.0 in display italic + five SVG stars + "Google rating · 11 reviews · verified June 2026".
+- **Full 5-page audit @1440+390**: fixed services-page mobile horizontal overflow (quick-link grid now responsive); zero broken images; zero horizontal scroll on all 10 page/viewport combos; all content-types correct.
+- Note: rebased over a concurrent LawnWize test-build push to main during deploy.
+- Remaining nice-to-have: swap vector beast for the original raster art if Matt drops the PNG into the Claude folder (file-drop, not chat paste).
