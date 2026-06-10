@@ -292,3 +292,16 @@ footer a:hover{color:#fff}
 /* hero beast stands above the trust bar */
 .hero-beast{bottom:62px;height:66%}
 @media(max-width:1024px){.hero-beast{bottom:120px}}
+
+.rc-g{display:flex;align-items:center;justify-content:center;width:46px;height:46px;background:#fff;border:1px solid var(--frost-100);border-radius:50%;box-shadow:var(--shadow-sm)}
+.rc-g svg{width:28px;height:28px}
+
+/* audit tweaks 2026-06-10 */
+.svc-flex{display:grid;grid-template-columns:430px 1fr;gap:52px;align-items:start}
+.svc-flex .svc-media{aspect-ratio:4/3;border-radius:8px;background-size:cover;background-position:center;box-shadow:var(--shadow-md);position:sticky;top:140px}
+.svc-flex.rev .svc-media{order:2}
+.svc-flex .svc-text h2:first-of-type{margin-top:10px}
+@media(max-width:1024px){.svc-flex,.svc-flex.rev{grid-template-columns:1fr;gap:28px}.svc-flex .svc-media{position:static}.svc-flex.rev .svc-media{order:0}}
+.gallery{grid-auto-flow:dense}
+.rv-grid .rv-card:last-child:nth-child(odd){grid-column:1/-1;max-width:660px;margin:0 auto;width:100%}
+@media(max-width:480px){.brand .brand-tag{display:none}.brand .beast-mark{height:52px}section.s{padding:56px 0}.choose-card{padding:24px 22px}}

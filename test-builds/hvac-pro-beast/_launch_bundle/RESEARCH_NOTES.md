@@ -40,7 +40,7 @@
 real-gbp-1.jpg owner selfie at rooftop condenser (About page) · real-gbp-2..6,8,9.jpg rooftop RTUs, compressor/condenser work, control panel wiring, refrigeration lines · real-gbp-7.jpg business card (source doc; do not publish as photo — use facts from it)
 
 ## NOT verified (do NOT ship without source)
-- Specific town service list beyond Woburn (+ South Boston, Tewksbury via reviews) — NEED Matt or FB posts
+- Town list per Matt directive 2026-06-10: Woburn, Melrose, Medford, Somerville, Boston, Charlestown, Stoneham (+ Everett added later same day)
 - Years in business as a company (banner says "20+ years experience" — phrase as experience, not company age)
 - NATE/EPA certs, brand authorizations (Trane/Carrier etc.) — not seen anywhere first-party
 - Owner full name "Tom Pejic" — inferred from email; confirm before printing surname

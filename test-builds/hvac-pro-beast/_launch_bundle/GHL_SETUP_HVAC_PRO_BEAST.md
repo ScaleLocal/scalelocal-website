@@ -11,7 +11,7 @@ Alternative: dedicated sub-account (the pattern used for High Line / Opus / Exet
 | phone | (781) 350-8141 |
 | email | tompejic@hvacprobeast.com |
 | city_state | Woburn, MA 01801 |
-| service_area | Woburn, Melrose, Medford, Somerville, Boston, Charlestown, Stoneham (Greater Boston) |
+| service_area | Woburn, Melrose, Medford, Somerville, Boston, Charlestown, Stoneham, Everett (Greater Boston) |
 | services | Ice machines; walk-in coolers/freezers; commercial heating and AC; mini-splits (specialist); exhaust fans; maintenance plans; 24/7 emergency service |
 | audience | Commercial: restaurants, convenience stores, laundromats, auto shops, gyms/clubs, offices |
 | license | MA Refrigeration Technician RT-173575 |
@@ -40,7 +40,7 @@ Answer questions about HVAC Pro Beast's services, service area, hours, and crede
 
 **Additional Information:**
 - Services: ice machine service/cleaning/replacement; walk-in cooler and freezer repair, rebuilds, installs; commercial heating and air conditioning; mini-split systems (Tom is a mini-split specialist); exhaust fan repair/replacement; preventive maintenance plans; 24/7 emergency response.
-- Service area: Woburn (home base), Melrose, Medford, Somerville, Boston, Charlestown, Stoneham.
+- Service area: Woburn (home base), Melrose, Medford, Somerville, Boston, Charlestown, Stoneham, Everett.
 - Credentials: MA Refrigeration Technician License RT-173575. Family-owned. 20+ years experience. 5.0-star Google rating across 11 reviews.
 - Hours: open 24 hours a day, 7 days a week.
 - Never invent pricing. If asked for pricing, say estimates are free and Tom will give a straight number after seeing the equipment.
@@ -57,7 +57,7 @@ Style: Direct, warm, confident. Short answers — one to three sentences. No fil
 Knowledge:
 - Owner: Tom. Family-owned. 20+ years experience. License RT-173575 (MA Refrigeration Technician).
 - Services: ice machines (service, cleaning, replacement); walk-in coolers and freezers (repair, rebuild, install); commercial heating and air conditioning; mini-splits (specialty); exhaust fans; preventive maintenance plans.
-- Service area: Woburn, Melrose, Medford, Somerville, Boston, Charlestown, Stoneham.
+- Service area: Woburn, Melrose, Medford, Somerville, Boston, Charlestown, Stoneham, Everett.
 - Hours: open 24/7, every day, including emergencies.
 - Rating: 5.0 stars on Google across 11 reviews.
 
