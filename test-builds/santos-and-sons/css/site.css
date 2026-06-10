@@ -72,6 +72,7 @@ nav.primary a.active { color: var(--green-900); border-bottom-color: var(--gold-
 .hero-content p { color: #E9EDE9; max-width: 56ch; margin-top: 16px; font-size: 1.1rem; }
 .hero-cta { display: flex; gap: 14px; margin-top: 28px; flex-wrap: wrap; }
 .btn { display: inline-flex; align-items: center; gap: 9px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 1rem; border: 0; cursor: pointer; transition: transform .15s, background .2s; }
+.btn svg { width: 18px; height: 18px; flex: 0 0 auto; }
 .btn:hover { transform: translateY(-1px); }
 .btn-gold { background: var(--gold-500); color: #fff; }
 .btn-gold:hover { background: #A8854B; }
@@ -225,6 +226,9 @@ chat-widget { z-index: 9999 !important; }
   .trustbar .container { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 720px) {
+  /* backdrop-filter on the sticky header would trap the fixed-position
+     menu overlay inside the header box — disable it on mobile */
+  header.site { backdrop-filter: none; background: #fff; }
   nav.primary ul { position: fixed; inset: 0; background: rgba(22,39,28,.98); display: none; flex-direction: column; align-items: center; justify-content: center; gap: 30px; z-index: 700; }
   nav.primary ul.open { display: flex; }
   nav.primary a { color: #fff; font-size: 1.3rem; font-family: var(--serif); }
@@ -243,9 +247,4 @@ chat-widget { z-index: 9999 !important; }
   .form-row { grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; justify-content: center; }
   .trustbar .container { grid-template-columns: 1fr; padding-top: 14px; padding-bottom: 14px; }
-  .tb-item { justify-content: flex-start; }
-  .topbar .container { justify-content: center; text-align: center; }
-  .ss-launcher { right: 14px; bottom: 14px; }
-  .ss-launcher-panel { width: calc(100vw - 28px); }
-  .f-grid { grid-template-columns: 1fr; gap: 30px; }
-}
+  .tb-item {
