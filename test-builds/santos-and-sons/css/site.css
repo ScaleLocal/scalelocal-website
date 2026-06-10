@@ -247,4 +247,9 @@ chat-widget { z-index: 9999 !important; }
   .form-row { grid-template-columns: 1fr; }
   .hero-cta .btn { width: 100%; justify-content: center; }
   .trustbar .container { grid-template-columns: 1fr; padding-top: 14px; padding-bottom: 14px; }
-  .tb-item {
+  .tb-item { justify-content: flex-start; }
+  .topbar .container { justify-content: center; text-align: center; }
+  .ss-launcher { right: 14px; bottom: 14px; }
+  .ss-launcher-panel { width: calc(100vw - 28px); max-width: 322px; }
+  .f-grid { grid-template-columns: 1fr; gap: 30px; }
+}
