@@ -244,10 +244,9 @@ footer a:hover{color:#fff}
   .hm-item{border-bottom:1px solid rgba(255,255,255,.08)}
 }
 @media(max-width:920px){
-  nav{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(11,13,20,.97);display:none;z-index:90;padding:90px 32px}
-  nav ul#navmenu.open{display:flex}
-  nav ul{display:none;flex-direction:column;gap:8px;align-items:flex-start}
-  nav ul.open{display:flex}
+  nav{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(11,13,20,.97);display:none;z-index:90;padding:120px 32px 40px;margin:0}
+  header.nav-open nav{display:block}
+  nav ul{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
   nav a{color:#fff;font-size:22px;font-family:'Archivo Black',sans-serif;font-style:italic;padding:10px 0}
   .menu-toggle{display:flex;z-index:99}
   .nav-cta{display:none}
@@ -305,3 +304,8 @@ footer a:hover{color:#fff}
 .gallery{grid-auto-flow:dense}
 .rv-grid .rv-card:last-child:nth-child(odd){grid-column:1/-1;max-width:660px;margin:0 auto;width:100%}
 @media(max-width:480px){.brand .brand-tag{display:none}.brand .beast-mark{height:52px}section.s{padding:56px 0}.choose-card{padding:24px 22px}}
+
+header.nav-open .menu-toggle span{background:transparent}
+header.nav-open .menu-toggle span::before{transform:rotate(45deg);top:0}
+header.nav-open .menu-toggle span::after{transform:rotate(-45deg);top:0}
+.menu-toggle span::before,.menu-toggle span::after{transition:transform .2s,top .2s}
