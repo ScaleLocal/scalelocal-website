@@ -54,28 +54,23 @@ html, body { overflow-x:hidden; max-width:100%; }
 .lc-name { font-family:Inter; font-weight:600; color:var(--green); }
 
 /* The diagonal arrow pointing to the bottom-right corner widget */
+/* Arrow sits off to the side of the corner widget — points TOWARD it, never on top.
+   Widget area in bottom-right is ~80x80; arrow box ends ~100px shy of the corner. */
 .call-arrow {
-  position:absolute; bottom:18px; right:18px; width:240px; height:240px;
+  position:absolute; bottom:110px; right:110px; width:220px; height:220px;
   pointer-events:none; z-index:3;
   animation:bob 1.8s ease-in-out infinite alternate;
 }
 @keyframes bob {
-  from { transform:translate(-6px,-6px); }
-  to   { transform:translate(8px,8px); }
+  from { transform:translate(-5px,-5px); }
+  to   { transform:translate(6px,6px); }
 }
 .call-arrow svg { width:100%; height:100%; display:block; }
 @media (max-width:640px){
-  .call-arrow { width:170px; height:170px; bottom:8px; right:8px; }
+  .call-arrow { width:150px; height:150px; bottom:88px; right:88px; }
 }
 
-/* Fallback if widget never appears */
-.lc-fallback { display:none; margin-top:26px; }
-.lc-fallback.show { display:block; }
-.lc-fallback a {
-  display:inline-block; background:var(--green); color:#fff; text-decoration:none;
-  border-radius:12px; padding:14px 22px; font-family:Montserrat; font-weight:700;
-  font-size:1.02rem; box-shadow:0 10px 26px -8px var(--green);
-}
+
 
 /* Reassurance band */
 .lc-band { background:#fff; padding:54px 24px; }
@@ -107,10 +102,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     <h1 class="rise d1">Tap below &mdash; <em>Alex picks up live.</em></h1>
     <p class="lc-lede rise d2" id="lcLede">We just connected the AI Receptionist for your demo. Tap the green call button in the bottom-right corner to start the conversation. Alex answers in real time, in her own voice.</p>
     <p class="lc-fine rise d3">Your browser will ask for microphone access &mdash; tap <b>Allow</b>.</p>
-    <div class="lc-fallback" id="lcFallback">
-      <p style="font-size:0.92rem;color:rgba(255,255,255,.7);margin-bottom:14px;">Widget taking a moment to load &mdash; you can also call us directly:</p>
-      <a href="tel:+19786627580">Call 978.662.7580</a>
-    </div>
+
   </div>
 
   <!-- diagonal arrow pointing to the widget in the bottom-right -->
@@ -147,7 +139,7 @@ html, body { overflow-x:hidden; max-width:100%; }
     </div>
     <div class="lc-cta-row">
       <a class="primary" href="/pricing/">See AI Receptionist pricing</a>
-      <a class="ghost" href="tel:+19786627580">Call 978.662.7580</a>
+      <a class="ghost" href="/demos/">Try another AI demo</a>
     </div>
   </div>
 </section>
@@ -173,31 +165,11 @@ html, body { overflow-x:hidden; max-width:100%; }
   }, { threshold: .1 });
   document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
 
-  // Try to auto-open the GHL voice widget panel.
-  // The widget script (loaded below) exposes either window.leadConnector.voiceWidget,
-  // window.leadConnector.chatWidget, or a custom <chat-widget> element. We poll until
-  // we find an openable handle, then call it.
-  var tries = 0, MAX = 100; // ~25s
-  var timer = setInterval(function(){
-    tries++;
-    var lc = window.leadConnector;
-    var opened = false;
-    if (lc) {
-      var w = lc.voiceWidget || lc.callWidget || lc.chatWidget;
-      if (w && typeof w.openWidget === 'function') { try { w.openWidget(); opened = true; } catch(e){} }
-    }
-    // Fallback: look for the floating button GHL renders and click it programmatically.
-    if (!opened) {
-      var btn = document.querySelector('chat-widget') || document.querySelector('[class*="lc_text-widget--btn"]') || document.querySelector('[class*="bubble"]');
-      if (btn && typeof btn.click === 'function') { try { btn.click(); opened = true; } catch(e){} }
-    }
-    if (opened) { clearInterval(timer); return; }
-    if (tries >= MAX) {
-      clearInterval(timer);
-      var fb = document.getElementById('lcFallback');
-      if (fb) fb.classList.add('show');
-    }
-  }, 250);
+  // The GHL voice widget loads in the bottom-right corner on its own.
+  // The arrow above points to it. We deliberately do NOT auto-open the panel
+  // (it took too long to come up) and we do NOT promote the office phone number
+  // here — our line isn't currently routed to the AI receptionist, so directing
+  // visitors to it would land them somewhere they don't expect.
 })();
 </script>
 
