@@ -25,6 +25,14 @@
       "destination": "/test-builds/hvac-pro-beast/index.html"
     },
     {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/(.*)",
+      "destination": "/test-builds/santos-and-sons/$3"
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
+      "destination": "/test-builds/santos-and-sons/index.html"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
@@ -52,6 +60,31 @@
     {
       "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(hvac-pro-beast|HVAC-Pro-Beast|HVAC-PRO-BEAST|Hvac-Pro-Beast|hvac-Pro-Beast)",
       "destination": "/test-builds/hvac-pro-beast/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/santos-and-sons",
+      "destination": "/test-builds/santos-and-sons/",
+      "permanent": true
+    },
+    {
+      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
+      "destination": "/test-builds/santos-and-sons/",
+      "permanent": true
+    },
+    {
+      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/",
+      "destination": "/test-builds/santos-and-sons/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/(Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
+      "destination": "/test-builds/santos-and-sons/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/(Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/",
+      "destination": "/test-builds/santos-and-sons/",
       "permanent": true
     },
     {
