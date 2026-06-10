@@ -244,7 +244,7 @@ footer a:hover{color:#fff}
   .hm-item{border-bottom:1px solid rgba(255,255,255,.08)}
 }
 @media(max-width:920px){
-  nav{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(11,13,20,.97);display:none;z-index:90;padding:120px 32px 40px;margin:0}
+  nav{position:fixed;top:0;left:0;right:0;bottom:0;background:#0B0D14;display:none;z-index:90;padding:120px 32px 40px;margin:0}
   header.nav-open nav{display:block}
   nav ul{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
   nav a{color:#fff;font-size:22px;font-family:'Archivo Black',sans-serif;font-style:italic;padding:10px 0}
