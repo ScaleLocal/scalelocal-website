@@ -309,3 +309,13 @@ header.nav-open .menu-toggle span{background:transparent}
 header.nav-open .menu-toggle span::before{transform:rotate(45deg);top:0}
 header.nav-open .menu-toggle span::after{transform:rotate(-45deg);top:0}
 .menu-toggle span::before,.menu-toggle span::after{transition:transform .2s,top .2s}
+
+/* sliding mobile call bar */
+.mobile-call-bar{display:none}
+@media(max-width:720px){
+  .mobile-call-bar{display:flex;align-items:center;justify-content:center;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:8900;background:var(--beast-red);color:#fff !important;font-weight:700;font-size:15px;padding:15px 84px 15px 16px;box-shadow:0 -8px 24px rgba(11,13,20,.25);transform:translateY(110%);transition:transform .3s ease}
+  .mobile-call-bar.show{transform:none}
+  .mobile-call-bar svg{flex-shrink:0}
+  .hpb-launcher{bottom:78px;right:16px}
+  footer{padding-bottom:96px}
+}
