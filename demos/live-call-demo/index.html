@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TP8LXQFN');</script>
+<!-- End Google Tag Manager -->
+<title>Live Call with Alex — AI Receptionist Demo | ScaleLocal</title>
+<meta name="description" content="Talk to the ScaleLocal AI Receptionist live right now. Tap the green call button to start a real voice conversation with Alex.">
+<link rel="icon" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/tier-v2.css">
+<style>
+html, body { overflow-x:hidden; max-width:100%; }
+.rise { opacity:0; transform:translateY(20px); transition:opacity .55s var(--ease), transform .55s var(--ease); }
+.rise.in { opacity:1; transform:translateY(0); }
+.rise.d1{transition-delay:.07s;} .rise.d2{transition-delay:.14s;} .rise.d3{transition-delay:.21s;}
+@media (prefers-reduced-motion:reduce){ .rise{opacity:1;transform:none;transition:none;} }
+
+.lc-hero {
+  position:relative; min-height:88vh;
+  background:radial-gradient(ellipse at 50% 30%, var(--navy-1) 0%, var(--dark) 76%);
+  color:#fff; padding:60px 24px 80px;
+  display:flex; align-items:center; justify-content:center; text-align:center;
+}
+.lc-inner { max-width:720px; position:relative; z-index:2; }
+.lc-eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:Inter; font-weight:700; font-size:0.74rem; letter-spacing:.14em;
+  text-transform:uppercase; color:rgba(255,255,255,.72);
+  border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:7px 15px;
+}
+.lc-eyebrow .d { width:6px;height:6px;border-radius:50%;background:var(--green); animation:pls 1.8s infinite; }
+@keyframes pls { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+.lc-hero h1 {
+  color:#fff; font-weight:700; letter-spacing:-0.025em; line-height:1.05;
+  font-size:clamp(2.1rem,5vw,3.6rem); margin:20px auto 14px; max-width:18ch;
+}
+.lc-hero h1 em { font-style:normal; color:var(--green); }
+.lc-hero .lc-lede { font-size:clamp(1rem,1.6vw,1.16rem); line-height:1.6;
+  color:rgba(255,255,255,.82); max-width:42ch; margin:0 auto 18px; }
+.lc-hero .lc-fine { font-size:0.86rem; color:rgba(255,255,255,.55); margin-top:18px; }
+
+.lc-name { font-family:Inter; font-weight:600; color:var(--green); }
+
+/* The diagonal arrow pointing to the bottom-right corner widget */
+.call-arrow {
+  position:absolute; bottom:18px; right:18px; width:240px; height:240px;
+  pointer-events:none; z-index:3;
+  animation:bob 1.8s ease-in-out infinite alternate;
+}
+@keyframes bob {
+  from { transform:translate(-6px,-6px); }
+  to   { transform:translate(8px,8px); }
+}
+.call-arrow svg { width:100%; height:100%; display:block; }
+@media (max-width:640px){
+  .call-arrow { width:170px; height:170px; bottom:8px; right:8px; }
+}
+
+/* Fallback if widget never appears */
+.lc-fallback { display:none; margin-top:26px; }
+.lc-fallback.show { display:block; }
+.lc-fallback a {
+  display:inline-block; background:var(--green); color:#fff; text-decoration:none;
+  border-radius:12px; padding:14px 22px; font-family:Montserrat; font-weight:700;
+  font-size:1.02rem; box-shadow:0 10px 26px -8px var(--green);
+}
+
+/* Reassurance band */
+.lc-band { background:#fff; padding:54px 24px; }
+.lc-band-inner { max-width:980px; margin:0 auto; }
+.lc-band-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.lc-card { background:var(--mist,#f4f7fb); border-radius:14px; padding:24px; }
+.lc-card h3 { font-family:Montserrat; font-weight:700; font-size:1.04rem; color:var(--text,#0e1626); margin-bottom:8px; }
+.lc-card p { font-family:Inter; font-size:0.93rem; color:var(--muted,#4a5567); line-height:1.55; }
+@media (max-width:760px){ .lc-band-grid { grid-template-columns:1fr; } }
+
+.lc-cta-row { text-align:center; margin-top:36px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.lc-cta-row a {
+  font-family:Montserrat; font-weight:700; font-size:0.94rem;
+  border-radius:11px; padding:13px 24px; text-decoration:none;
+  transition:transform .12s var(--ease);
+}
+.lc-cta-row a.primary { background:var(--brand); color:#fff; }
+.lc-cta-row a.primary:hover { transform:translateY(-2px); }
+.lc-cta-row a.ghost { background:transparent; color:var(--text); border:1.5px solid var(--line,#dfe5ee); }
+</style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TP8LXQFN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<section class="lc-hero">
+  <div class="lc-inner">
+    <span class="lc-eyebrow rise"><span class="d"></span> You're connected</span>
+    <h1 class="rise d1">Tap below &mdash; <em>Alex picks up live.</em></h1>
+    <p class="lc-lede rise d2" id="lcLede">We just connected the AI Receptionist for your demo. Tap the green call button in the bottom-right corner to start the conversation. Alex answers in real time, in her own voice.</p>
+    <p class="lc-fine rise d3">Your browser will ask for microphone access &mdash; tap <b>Allow</b>.</p>
+    <div class="lc-fallback" id="lcFallback">
+      <p style="font-size:0.92rem;color:rgba(255,255,255,.7);margin-bottom:14px;">Widget taking a moment to load &mdash; you can also call us directly:</p>
+      <a href="tel:+19786627580">Call 978.662.7580</a>
+    </div>
+  </div>
+
+  <!-- diagonal arrow pointing to the widget in the bottom-right -->
+  <div class="call-arrow" aria-hidden="true">
+    <svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="lcAH" viewBox="0 0 12 12" refX="9" refY="6" markerWidth="10" markerHeight="10" orient="auto">
+          <path d="M0,0 L12,6 L0,12 Z" fill="#2ecc71"/>
+        </marker>
+      </defs>
+      <path d="M30,30 C 90,80 70,150 200,210"
+            fill="none" stroke="#2ecc71" stroke-width="4"
+            stroke-linecap="round" stroke-dasharray="6 10"
+            marker-end="url(#lcAH)" opacity="0.92"/>
+    </svg>
+  </div>
+</section>
+
+<section class="lc-band">
+  <div class="lc-band-inner">
+    <div class="lc-band-grid">
+      <div class="lc-card">
+        <h3>This is the real thing.</h3>
+        <p>Alex is the same voice agent that answers for ScaleLocal Summit and Apex clients &mdash; not a demo recording.</p>
+      </div>
+      <div class="lc-card">
+        <h3>You'll get a transcript.</h3>
+        <p>A written summary and full transcript of your call will be emailed to the address you provided.</p>
+      </div>
+      <div class="lc-card">
+        <h3>Talk as long as you want.</h3>
+        <p>Try to book an appointment, ask about pricing, throw a curveball &mdash; see how she handles it.</p>
+      </div>
+    </div>
+    <div class="lc-cta-row">
+      <a class="primary" href="/pricing/">See AI Receptionist pricing</a>
+      <a class="ghost" href="tel:+19786627580">Call 978.662.7580</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  // Read visitor name/email from URL so we can use them downstream if needed.
+  var qs = new URLSearchParams(location.search);
+  var name  = (qs.get('n') || '').trim();
+  var email = (qs.get('e') || '').trim();
+  if (name) {
+    try {
+      var lede = document.getElementById('lcLede');
+      lede.innerHTML = 'We just connected the AI Receptionist for <span class="lc-name">' + name.replace(/[<>&"']/g, '') + '</span>. Tap the green call button in the bottom-right corner to start the conversation. Alex answers in real time, in her own voice.';
+    } catch(e){}
+  }
+  // Stash for any downstream widget API that may consume it.
+  try { window.__slLead = { name: name, email: email, ts: Date.now() }; } catch(e){}
+
+  // Reveal-on-scroll
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }});
+  }, { threshold: .1 });
+  document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
+
+  // Try to auto-open the GHL voice widget panel.
+  // The widget script (loaded below) exposes either window.leadConnector.voiceWidget,
+  // window.leadConnector.chatWidget, or a custom <chat-widget> element. We poll until
+  // we find an openable handle, then call it.
+  var tries = 0, MAX = 100; // ~25s
+  var timer = setInterval(function(){
+    tries++;
+    var lc = window.leadConnector;
+    var opened = false;
+    if (lc) {
+      var w = lc.voiceWidget || lc.callWidget || lc.chatWidget;
+      if (w && typeof w.openWidget === 'function') { try { w.openWidget(); opened = true; } catch(e){} }
+    }
+    // Fallback: look for the floating button GHL renders and click it programmatically.
+    if (!opened) {
+      var btn = document.querySelector('chat-widget') || document.querySelector('[class*="lc_text-widget--btn"]') || document.querySelector('[class*="bubble"]');
+      if (btn && typeof btn.click === 'function') { try { btn.click(); opened = true; } catch(e){} }
+    }
+    if (opened) { clearInterval(timer); return; }
+    if (tries >= MAX) {
+      clearInterval(timer);
+      var fb = document.getElementById('lcFallback');
+      if (fb) fb.classList.add('show');
+    }
+  }, 250);
+})();
+</script>
+
+<!-- ===== Real ScaleLocal AI Receptionist voice widget (live GHL widget) ===== -->
+<script
+  src="https://widgets.leadconnectorhq.com/loader.js"
+  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+  data-widget-id="69cdcf4d34c04489825322a1">
+</script>
+</body>
+</html>
