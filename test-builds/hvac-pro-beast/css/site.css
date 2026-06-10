@@ -283,3 +283,12 @@ footer a:hover{color:#fff}
 .subhero-beast{position:absolute;right:4vw;bottom:-14px;height:82%;z-index:2;filter:drop-shadow(0 14px 34px rgba(11,13,20,.45))}
 @media(max-width:900px){.subhero-beast{height:58%;right:2vw}}
 @media(max-width:720px){.subhero-beast{display:none}}
+
+.qlinks{grid-template-columns:repeat(4,1fr)}
+.town-card{min-width:0}
+.town-card h3{overflow-wrap:break-word}
+@media(max-width:900px){.qlinks{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.qlinks{grid-template-columns:1fr 1fr}}
+/* hero beast stands above the trust bar */
+.hero-beast{bottom:62px;height:66%}
+@media(max-width:1024px){.hero-beast{bottom:120px}}
