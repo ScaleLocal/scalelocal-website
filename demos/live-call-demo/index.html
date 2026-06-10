@@ -72,6 +72,10 @@ html, body { overflow-x:hidden; max-width:100%; }
 
 
 
+/* Fallback when GHL widget doesn't load (currently: id returns 404) */
+.lc-fallback { display:none; margin-top:26px; }
+.lc-fallback.show { display:block; }
+
 /* Reassurance band */
 .lc-band { background:#fff; padding:54px 24px; }
 .lc-band-inner { max-width:980px; margin:0 auto; }
@@ -102,6 +106,13 @@ html, body { overflow-x:hidden; max-width:100%; }
     <h1 class="rise d1">Tap below &mdash; <em>Alex picks up live.</em></h1>
     <p class="lc-lede rise d2" id="lcLede">We just connected the AI Receptionist for your demo. Tap the green call button in the bottom-right corner to start the conversation. Alex answers in real time, in her own voice.</p>
     <p class="lc-fine rise d3">Your browser will ask for microphone access &mdash; tap <b>Allow</b>.</p>
+    <div class="lc-fallback" id="lcFallback">
+      <p style="font-size:0.95rem;color:rgba(255,255,255,.85);margin-bottom:14px;max-width:42ch;margin-left:auto;margin-right:auto;">Alex is briefly offline. We just got your details &mdash; a ScaleLocal specialist will reach out within one business day to set up your live demo.</p>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;">
+        <a href="/get-started/" style="display:inline-block;background:var(--green);color:#fff;text-decoration:none;border-radius:11px;padding:13px 22px;font-family:Montserrat;font-weight:700;font-size:0.96rem;">Get your custom plan instead</a>
+        <a href="/demos/" style="display:inline-block;background:rgba(255,255,255,.08);color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.22);border-radius:11px;padding:13px 22px;font-family:Montserrat;font-weight:700;font-size:0.96rem;">See the other demos</a>
+      </div>
+    </div>
 
   </div>
 
@@ -165,11 +176,29 @@ html, body { overflow-x:hidden; max-width:100%; }
   }, { threshold: .1 });
   document.querySelectorAll('.rise').forEach(function(el){ io.observe(el); });
 
-  // The GHL voice widget loads in the bottom-right corner on its own.
-  // The arrow above points to it. We deliberately do NOT auto-open the panel
-  // (it took too long to come up) and we do NOT promote the office phone number
-  // here — our line isn't currently routed to the AI receptionist, so directing
-  // visitors to it would land them somewhere they don't expect.
+  // Watch for the GHL widget to appear. If it doesn't show up within 8s
+  // (which currently happens because the widget id returns 404 from GHL),
+  // hide the arrow and surface a clear fallback so visitors aren't stranded.
+  var arrow = document.querySelector('.call-arrow');
+  var fallback = document.getElementById('lcFallback');
+  function widgetRendered() {
+    return !!(document.querySelector('chat-widget') ||
+              document.querySelector('[class*="lc_text-widget--btn"]') ||
+              (window.leadConnector && (window.leadConnector.chatWidget || window.leadConnector.voiceWidget || window.leadConnector.callWidget)));
+  }
+  var tries = 0;
+  var watcher = setInterval(function(){
+    tries++;
+    if (widgetRendered()) {
+      clearInterval(watcher);
+      return; // widget is up; arrow already points to it
+    }
+    if (tries >= 32) { // ~8s
+      clearInterval(watcher);
+      if (arrow) arrow.style.display = 'none';
+      if (fallback) fallback.classList.add('show');
+    }
+  }, 250);
 })();
 </script>
 
