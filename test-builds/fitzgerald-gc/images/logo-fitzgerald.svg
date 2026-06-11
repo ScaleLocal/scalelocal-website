@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 88" role="img" aria-label="Fitzgerald General Contracting">
+  <g fill="none" stroke="none">
+    <!-- Mark: stylized roof + F -->
+    <rect x="6" y="10" width="68" height="68" rx="10" fill="#14202B"/>
+    <path d="M16 44 L40 24 L64 44" stroke="#C9A24B" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M28 44 v22 h8 v-13 h8 v13 h8 v-22" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <text x="88" y="40" font-family="Playfair Display, Georgia, serif" font-size="29" font-weight="600" fill="#14202B" letter-spacing="-0.4">Fitzgerald</text>
+  <text x="88" y="64" font-family="Inter, Arial, sans-serif" font-size="12.5" font-weight="600" fill="#2F6B3C" letter-spacing="3.4">GENERAL CONTRACTING</text>
+</svg>

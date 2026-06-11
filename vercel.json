@@ -33,6 +33,14 @@
       "destination": "/test-builds/santos-and-sons/index.html"
     },
     {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(fitzgerald-gc|Fitzgerald-GC|FITZGERALD-GC|fitzgerald-GC|Fitzgerald-gc|Fitzgerald-Gc)/(.*)",
+      "destination": "/test-builds/fitzgerald-gc/$3"
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(fitzgerald-gc|Fitzgerald-GC|FITZGERALD-GC|fitzgerald-GC|Fitzgerald-gc|Fitzgerald-Gc)",
+      "destination": "/test-builds/fitzgerald-gc/index.html"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
@@ -85,6 +93,16 @@
     {
       "source": "/test-builds/(Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/",
       "destination": "/test-builds/santos-and-sons/",
+      "permanent": true
+    },
+    {
+      "source": "/test-builds/fitzgerald-gc",
+      "destination": "/test-builds/fitzgerald-gc/",
+      "permanent": true
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(Fitzgerald-GC|FITZGERALD-GC|fitzgerald-GC|Fitzgerald-gc|Fitzgerald-Gc)",
+      "destination": "/test-builds/fitzgerald-gc/",
       "permanent": true
     },
     {
