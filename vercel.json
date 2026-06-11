@@ -17,36 +17,12 @@
       "destination": "/test-builds/tnj-landscape/index.html"
     },
     {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(hvac-pro-beast|HVAC-Pro-Beast|HVAC-PRO-BEAST|Hvac-Pro-Beast|hvac-Pro-Beast|HVAC-pro-beast)/(.*)",
-      "destination": "/test-builds/hvac-pro-beast/$3"
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(hvac-pro-beast|HVAC-Pro-Beast|HVAC-PRO-BEAST|Hvac-Pro-Beast|hvac-Pro-Beast|HVAC-pro-beast)",
-      "destination": "/test-builds/hvac-pro-beast/index.html"
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/(.*)",
-      "destination": "/test-builds/santos-and-sons/$3"
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
-      "destination": "/test-builds/santos-and-sons/index.html"
-    },
-    {
       "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(fitzgerald-gc|Fitzgerald-GC|FITZGERALD-GC|fitzgerald-GC|Fitzgerald-gc|Fitzgerald-Gc)/(.*)",
       "destination": "/test-builds/fitzgerald-gc/$3"
     },
     {
       "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(fitzgerald-gc|Fitzgerald-GC|FITZGERALD-GC|fitzgerald-GC|Fitzgerald-gc|Fitzgerald-Gc)",
       "destination": "/test-builds/fitzgerald-gc/index.html"
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(ns-builders|NS-Builders|NS-BUILDERS|Ns-Builders|ns-Builders|Ns-builders)/(.*)",
-      "destination": "/test-builds/ns-builders/$3"
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(ns-builders|NS-Builders|NS-BUILDERS|Ns-Builders|ns-Builders|Ns-builders)",
-      "destination": "/test-builds/ns-builders/index.html"
     },
     {
       "source": "/api/(.*)",
@@ -66,41 +42,6 @@
     {
       "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(tnj-landscape|TNJ-Landscape|TNJ-LANDSCAPE|tnj-Landscape|Tnj-Landscape)",
       "destination": "/test-builds/tnj-landscape/",
-      "permanent": true
-    },
-    {
-      "source": "/test-builds/hvac-pro-beast",
-      "destination": "/test-builds/hvac-pro-beast/",
-      "permanent": true
-    },
-    {
-      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(hvac-pro-beast|HVAC-Pro-Beast|HVAC-PRO-BEAST|Hvac-Pro-Beast|hvac-Pro-Beast)",
-      "destination": "/test-builds/hvac-pro-beast/",
-      "permanent": true
-    },
-    {
-      "source": "/test-builds/santos-and-sons",
-      "destination": "/test-builds/santos-and-sons/",
-      "permanent": true
-    },
-    {
-      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
-      "destination": "/test-builds/santos-and-sons/",
-      "permanent": true
-    },
-    {
-      "source": "/(Test-builds|Test-Builds|TEST-BUILDS|test-Builds|TEST-builds)/(santos-and-sons|Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/",
-      "destination": "/test-builds/santos-and-sons/",
-      "permanent": true
-    },
-    {
-      "source": "/test-builds/(Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)",
-      "destination": "/test-builds/santos-and-sons/",
-      "permanent": true
-    },
-    {
-      "source": "/test-builds/(Santos-And-Sons|SANTOS-AND-SONS|Santos-and-Sons|Santos-and-sons|santos-And-Sons)/",
-      "destination": "/test-builds/santos-and-sons/",
       "permanent": true
     },
     {
