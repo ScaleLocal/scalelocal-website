@@ -90,3 +90,18 @@ NOT claimed anywhere verifiable: snow removal, lawn mowing programs, irrigation 
 - https://reviews.birdeye.com/santos-and-sons-property-maintenance-165062243635801
 - https://www.chamberofcommerce.com/business-directory/massachusetts/dracut/landscaper/2017004159-santos-and-sons-property-maintenance (via search snippet)
 - https://santos-and-sons-property-maintenance.wheree.com/ (used ONLY for Google Maps embed ID + hours cross-check; its AI-generated review summary was not treated as fact)
+
+## 8. Addendum — 2026-06-11 GBP photo mirror + trailer services (sources verified)
+
+**New photo source:** Wheree business listing mirrors GBP-uploaded photos (static.where-e.com, fetched 2026-06-11). 7 files; 5 usable at 1000px:
+| File | Content | Site use |
+|---|---|---|
+| fe94d…45d8 | Finished paver patio w/ stone border | service-hardscape.jpg, gallery-09 |
+| 0b6d6…c267 | Patio base install between fence + deck | gallery-10 |
+| 75a6a…7737 | Patio install from deck | gallery-11 |
+| 553f5…3afb | **Enclosed trailer, full crest wrap, "PROPERTY MAINTENANCE DIVISION" + phone + tagline + services list** | service-maintenance.jpg, gallery-12, about page, crest/logo/favicon source |
+| 3d0bc…78e2 | Long vinyl privacy run, open lawn | gallery-13 |
+
+**Trailer wrap services list (their own fleet advertising, verbatim):** MOWING SERVICES · LANDSCAPE DESIGN · CLEAN UPS · HARDSCAPE · TREE SERVICE · DUMP SERVICE · FENCING · SNOW PLOWING — added to the services page maintenance section. Also confirms "Property Maintenance Division" branding and (per Matt) multi-truck fleet scale.
+
+**Brand assets built:** real crest (perspective-eased crop from trailer wrap) → site logo `logo-crest.png`, `apple-touch-icon.png`, `favicon-32/16.png`. OG/Twitter preview `og-image.jpg` (1200×630) built typographically in their sign language (green/gold, 5.0 stars, services line, tagline, phone). **Upgrade path:** swap crest from Matt's clean sign-art file when provided (drop into Documents\Claude).

@@ -58,3 +58,13 @@ Matt's feedback: homepage read fence-only and undersold a multi-million-dollar, 
 - Copy elevated from "small crew" to "family-run, fully equipped" — own crews/fleet/equipment, residential + commercial — per Matt's direction (qualitative only; no headcount/revenue/truck-count claims). Index title/description, footer, services lead, about page updated to name all four lines.
 - GHL setup pack bot/voice knowledge updated to match the scale framing.
 Commits: `41f7747` (reposition) + this revision. Screenshots in `screenshots/` refreshed.
+
+## Revision — 2026-06-11 (brand pass + image-caption audit fix)
+Matt flagged that 3 of 4 homepage service cards used fence photos as stand-ins, and requested branded link previews (FB/Twitter/iOS) + the real crest as the site logo.
+- **Image-caption audit resolved:** Hardscapes card/section now uses a real finished paver patio; Property Maintenance card + about page use their crested "Property Maintenance Division" trailer; Dumpster Rental card is icon-led (honest — still no dumpster photo); Fencing keeps the true gate photo. Source: GBP photos mirrored on Wheree (full URLs in RESEARCH_NOTES §8).
+- **Gallery 8 → 13 photos**, all captions subject-accurate (3 hardscape, fleet trailer, vinyl run added).
+- **Link previews:** og:title/description/image + twitter:card on all 6 pages; og-image.jpg is a 1200×630 sign-style card (SANTOS & SONS · Property Maintenance · 5.0 stars · Local & Family-Run · Dracut, MA · Fencing/Hardscapes/Cleanouts/Dumpster Rentals · tagline + phone). iOS: apple-touch-icon 180px; favicons 32/16 from the real crest.
+- **Logo:** real crest (from trailer wrap photo) in header + footer; placeholder SVG retired. Crest v2 upgrade pending Matt's clean sign-art file.
+- **Services page:** maintenance section now lists trailer-verified offerings (mowing, cleanups, tree service, snow plowing, landscape design).
+- Open: real dumpster photo + GBP review quotes still blocked on browser permissions (sticky deny on facebook.com network reads); fbid list + method documented for a 10-min finish.
+Commit: `3d1b628`.
