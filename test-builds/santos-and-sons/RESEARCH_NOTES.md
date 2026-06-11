@@ -50,7 +50,7 @@ Evidenced by photos on their FB:
 - Hardscape: block retaining walls around above-ground pools, gravel base/site grading work
 - Post June 6, 2026: "Rustic has been the popular go to this season…" (rustic/wood styles trending)
 
-NOT claimed anywhere verifiable: snow removal, lawn mowing programs, irrigation → **left off the demo.**
+~~NOT claimed anywhere verifiable: snow removal, lawn mowing programs, irrigation~~ **Superseded 2026-06-11: trailer wrap (§8) verifies mowing, cleanups, tree service, snow plowing, landscape design — now on services page.** Irrigation remains unverified/off-site.
 
 ## 4. Brand / visual
 
