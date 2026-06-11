@@ -31,7 +31,82 @@
 <div class="demo-banner"><div class="container"><span>Demo website built for Santos &amp; Sons by <a href="https://www.scalelocal.net">ScaleLocal</a> — for preview purposes only.</span></div></div>
 <div class="topbar"><div class="container"><span><a href="tel:9788884638">(978) 888-4638</a> &nbsp;·&nbsp; Dracut, MA</span><span>Mon–Sat · 8a–5p &nbsp;·&nbsp; Free estimates</span></div></div>
 <header class="site"><div class="header-inner">
-<a href="index.html" class="brand" aria-label="Santos and Sons home"><img src="images/logo-crest.png" alt="Santos and Sons crest" class="brand-crest"><span class="brand-text">SANTOS <em>&amp; SONS</em><small>Property Maintenance &middot; Dracut, MA</small></span></a>
+<a href="index.html" class="brand" aria-label="Santos and Sons home"><svg class="crest" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 484" >
+<defs>
+  <linearGradient id="silverh" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#D8DCDE"/><stop offset=".45" stop-color="#AEB5B9"/><stop offset="1" stop-color="#8E969B"/>
+  </linearGradient>
+  <linearGradient id="goldh" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EAD49A"/><stop offset=".35" stop-color="#C9A45A"/><stop offset=".65" stop-color="#9A7A3E"/><stop offset="1" stop-color="#D9BC7E"/>
+  </linearGradient>
+  <linearGradient id="goldTexth" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EFD9A0"/><stop offset=".55" stop-color="#C9A45A"/><stop offset="1" stop-color="#A8854B"/>
+  </linearGradient>
+  <linearGradient id="fieldh" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#16301F"/><stop offset=".6" stop-color="#0F2316"/><stop offset="1" stop-color="#0A1A10"/>
+  </linearGradient>
+  <linearGradient id="cloudh" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#D7DCDE"/><stop offset="1" stop-color="#A9B1B5"/>
+  </linearGradient>
+  <clipPath id="fieldCliph">
+    <path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,304 Q288,358 180,422 Q72,358 72,304 L72,84 L88,84 L88,66 L108,66 L108,52 Z"/>
+  </clipPath>
+</defs>
+
+<!-- outer silver plaque -->
+<path d="M180,18 L262,18 L262,36 L284,36 L284,56 L302,56 L302,308 Q302,372 180,444 Q58,372 58,308 L58,56 L76,56 L76,36 L98,36 L98,18 Z"
+      fill="url(#silverh)" stroke="#6E767B" stroke-width="2"/>
+<!-- gold band -->
+<path d="M180,34 L256,34 L256,50 L276,50 L276,69 L294,69 L294,306 Q294,364 180,432 Q66,364 66,306 L66,69 L84,69 L84,50 L104,50 L104,34 Z"
+      fill="url(#goldh)"/>
+<!-- green field -->
+<path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,304 Q288,358 180,422 Q72,358 72,304 L72,84 L88,84 L88,66 L108,66 L108,52 Z"
+      fill="url(#fieldh)"/>
+
+<g clip-path="url(#fieldCliph)">
+  <!-- gold arch rings -->
+  <circle cx="180" cy="158" r="84" fill="none" stroke="url(#goldh)" stroke-width="7"/>
+  <circle cx="180" cy="158" r="74" fill="none" stroke="url(#goldh)" stroke-width="2" opacity=".8"/>
+  <!-- clouds -->
+  <g fill="url(#cloudh)">
+    <path d="M118,118 q8,-18 28,-14 q6,-14 24,-10 q16,2 18,16 q14,0 14,14 q0,12 -16,12 l-58,0 q-14,-4 -10,-18 z"/>
+    <path d="M206,96 q10,-14 26,-10 q8,-10 22,-6 q12,4 12,14 q12,2 10,12 q-2,10 -14,10 l-48,0 q-12,-4 -8,-20 z" opacity=".9"/>
+  </g>
+  <!-- windmill -->
+  <g>
+    <path d="M171,142 L189,142 L197,236 L163,236 Z" fill="url(#goldTexth)"/>
+    <path d="M170,142 q10,-10 20,0 z" fill="url(#goldTexth)"/>
+    <g stroke="url(#goldTexth)" stroke-width="6.5" stroke-linecap="round">
+      <line x1="180" y1="138" x2="142" y2="100"/>
+      <line x1="180" y1="138" x2="218" y2="100"/>
+      <line x1="180" y1="138" x2="142" y2="176"/>
+      <line x1="180" y1="138" x2="218" y2="176"/>
+    </g>
+    <circle cx="180" cy="138" r="5" fill="#EAD49A"/>
+    <rect x="158" y="188" width="44" height="5" rx="2" fill="url(#goldTexth)"/>
+  </g>
+  <!-- shoreline -->
+  <path d="M96,238 Q140,226 180,234 Q224,242 268,232 L268,244 Q220,252 180,246 Q136,240 96,248 Z" fill="url(#goldTexth)"/>
+  <!-- reflection -->
+  <g stroke="#C9A45A" stroke-width="3" stroke-linecap="round" opacity=".75">
+    <path d="M140,258 q20,4 44,1 q22,-2 36,1" fill="none"/>
+    <path d="M152,268 q18,4 34,1 q16,-2 26,1" fill="none" opacity=".7"/>
+    <path d="M164,278 q12,3 22,1 q10,-2 16,1" fill="none" opacity=".5"/>
+  </g>
+  <!-- SANTOS -->
+  <text x="180" y="312" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="44" letter-spacing="5" fill="url(#goldTexth)">SANTOS</text>
+  <!-- rules + & SONS -->
+  <line x1="104" y1="330" x2="148" y2="340" stroke="#B9C0C3" stroke-width="1.6"/>
+  <line x1="212" y1="330" x2="256" y2="340" stroke="#B9C0C3" stroke-width="1.6"/>
+  <text x="180" y="336" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="600" font-size="14" letter-spacing="5" fill="#C9CFD2">&amp; SONS</text>
+  <!-- PROPERTY MAINTENANCE -->
+  <text x="180" y="360" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" letter-spacing="2.6" fill="#EDE8DC">PROPERTY</text>
+  <text x="180" y="379" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="12.5" letter-spacing="1.8" fill="#EDE8DC">MAINTENANCE</text>
+  <!-- flourish -->
+  
+</g>
+</svg>
+<span class="brand-text">SANTOS <em>&amp; SONS</em><small>Property Maintenance &middot; Dracut, MA</small></span></a>
 <nav class="primary"><ul id="navmenu"><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html" class="active">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <a href="contact.html#estimate" class="nav-cta">Get a Free Estimate</a>
 <button class="menu-toggle" aria-label="Toggle menu"><span></span></button>
@@ -84,7 +159,82 @@
 
 <footer class="site"><div class="container">
 <div class="f-grid">
-<div class="f-brand"><div class="f-crest"><img src="images/logo-crest.png" alt="Santos and Sons crest"></div><p>Family-run property maintenance, fencing, hardscapes, and dumpster rental. Serving Dracut, MA & the Merrimack Valley since 2010.</p></div>
+<div class="f-brand"><svg class="crest" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 484" >
+<defs>
+  <linearGradient id="silverf" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#D8DCDE"/><stop offset=".45" stop-color="#AEB5B9"/><stop offset="1" stop-color="#8E969B"/>
+  </linearGradient>
+  <linearGradient id="goldf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EAD49A"/><stop offset=".35" stop-color="#C9A45A"/><stop offset=".65" stop-color="#9A7A3E"/><stop offset="1" stop-color="#D9BC7E"/>
+  </linearGradient>
+  <linearGradient id="goldTextf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EFD9A0"/><stop offset=".55" stop-color="#C9A45A"/><stop offset="1" stop-color="#A8854B"/>
+  </linearGradient>
+  <linearGradient id="fieldf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#16301F"/><stop offset=".6" stop-color="#0F2316"/><stop offset="1" stop-color="#0A1A10"/>
+  </linearGradient>
+  <linearGradient id="cloudf" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#D7DCDE"/><stop offset="1" stop-color="#A9B1B5"/>
+  </linearGradient>
+  <clipPath id="fieldClipf">
+    <path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,304 Q288,358 180,422 Q72,358 72,304 L72,84 L88,84 L88,66 L108,66 L108,52 Z"/>
+  </clipPath>
+</defs>
+
+<!-- outer silver plaque -->
+<path d="M180,18 L262,18 L262,36 L284,36 L284,56 L302,56 L302,308 Q302,372 180,444 Q58,372 58,308 L58,56 L76,56 L76,36 L98,36 L98,18 Z"
+      fill="url(#silverf)" stroke="#6E767B" stroke-width="2"/>
+<!-- gold band -->
+<path d="M180,34 L256,34 L256,50 L276,50 L276,69 L294,69 L294,306 Q294,364 180,432 Q66,364 66,306 L66,69 L84,69 L84,50 L104,50 L104,34 Z"
+      fill="url(#goldf)"/>
+<!-- green field -->
+<path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,304 Q288,358 180,422 Q72,358 72,304 L72,84 L88,84 L88,66 L108,66 L108,52 Z"
+      fill="url(#fieldf)"/>
+
+<g clip-path="url(#fieldClipf)">
+  <!-- gold arch rings -->
+  <circle cx="180" cy="158" r="84" fill="none" stroke="url(#goldf)" stroke-width="7"/>
+  <circle cx="180" cy="158" r="74" fill="none" stroke="url(#goldf)" stroke-width="2" opacity=".8"/>
+  <!-- clouds -->
+  <g fill="url(#cloudf)">
+    <path d="M118,118 q8,-18 28,-14 q6,-14 24,-10 q16,2 18,16 q14,0 14,14 q0,12 -16,12 l-58,0 q-14,-4 -10,-18 z"/>
+    <path d="M206,96 q10,-14 26,-10 q8,-10 22,-6 q12,4 12,14 q12,2 10,12 q-2,10 -14,10 l-48,0 q-12,-4 -8,-20 z" opacity=".9"/>
+  </g>
+  <!-- windmill -->
+  <g>
+    <path d="M171,142 L189,142 L197,236 L163,236 Z" fill="url(#goldTextf)"/>
+    <path d="M170,142 q10,-10 20,0 z" fill="url(#goldTextf)"/>
+    <g stroke="url(#goldTextf)" stroke-width="6.5" stroke-linecap="round">
+      <line x1="180" y1="138" x2="142" y2="100"/>
+      <line x1="180" y1="138" x2="218" y2="100"/>
+      <line x1="180" y1="138" x2="142" y2="176"/>
+      <line x1="180" y1="138" x2="218" y2="176"/>
+    </g>
+    <circle cx="180" cy="138" r="5" fill="#EAD49A"/>
+    <rect x="158" y="188" width="44" height="5" rx="2" fill="url(#goldTextf)"/>
+  </g>
+  <!-- shoreline -->
+  <path d="M96,238 Q140,226 180,234 Q224,242 268,232 L268,244 Q220,252 180,246 Q136,240 96,248 Z" fill="url(#goldTextf)"/>
+  <!-- reflection -->
+  <g stroke="#C9A45A" stroke-width="3" stroke-linecap="round" opacity=".75">
+    <path d="M140,258 q20,4 44,1 q22,-2 36,1" fill="none"/>
+    <path d="M152,268 q18,4 34,1 q16,-2 26,1" fill="none" opacity=".7"/>
+    <path d="M164,278 q12,3 22,1 q10,-2 16,1" fill="none" opacity=".5"/>
+  </g>
+  <!-- SANTOS -->
+  <text x="180" y="312" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="700" font-size="44" letter-spacing="5" fill="url(#goldTextf)">SANTOS</text>
+  <!-- rules + & SONS -->
+  <line x1="104" y1="330" x2="148" y2="340" stroke="#B9C0C3" stroke-width="1.6"/>
+  <line x1="212" y1="330" x2="256" y2="340" stroke="#B9C0C3" stroke-width="1.6"/>
+  <text x="180" y="336" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-weight="600" font-size="14" letter-spacing="5" fill="#C9CFD2">&amp; SONS</text>
+  <!-- PROPERTY MAINTENANCE -->
+  <text x="180" y="360" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="13" letter-spacing="2.6" fill="#EDE8DC">PROPERTY</text>
+  <text x="180" y="379" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="12.5" letter-spacing="1.8" fill="#EDE8DC">MAINTENANCE</text>
+  <!-- flourish -->
+  
+</g>
+</svg>
+<p>Family-run property maintenance, fencing, hardscapes, and dumpster rental. Serving Dracut, MA & the Merrimack Valley since 2010.</p></div>
 <div><h4>Explore</h4><ul><li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li><li><a href="about.html">About</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="contact.html">Contact</a></li></ul></div>
 <div><h4>Services</h4><ul><li><a href="services.html#install">Fence Installation</a></li><li><a href="services.html#repair">Fence Repair</a></li><li><a href="services.html#hardscape">Hardscape</a></li><li><a href="services.html#dumpster">Dumpster Service</a></li></ul></div>
 <div><h4>Contact</h4><ul><li><a href="tel:9788884638" class="f-phone">(978) 888-4638</a></li><li><a href="mailto:dsantossr@gmail.com">dsantossr@gmail.com</a></li><li>Dracut, MA 01826</li><li>Mon–Sat · 8a–5p · Sun closed</li></ul></div>
