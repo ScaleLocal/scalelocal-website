@@ -282,6 +282,6 @@ chat-widget { z-index: 9999 !important; }
 }
 
 /* crest-svg */
-.brand svg.crest { height: 120px; width: 107px; display: block; filter: drop-shadow(0 1px 3px rgba(22,39,28,.22)); }
-footer.site svg.crest { height: 215px; width: 192px; display: block; margin-bottom: 18px; }
-@media (max-width: 720px) { .brand svg.crest { height: 86px; width: 77px; } }
+.brand svg.crest { height: 120px; width: 134px; display: block; filter: drop-shadow(0 1px 3px rgba(22,39,28,.22)); }
+footer.site svg.crest { height: 215px; width: 240px; display: block; margin-bottom: 18px; }
+@media (max-width: 720px) { .brand svg.crest { height: 86px; width: 96px; } }
