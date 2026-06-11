@@ -68,3 +68,6 @@ Matt flagged that 3 of 4 homepage service cards used fence photos as stand-ins, 
 - **Services page:** maintenance section now lists trailer-verified offerings (mowing, cleanups, tree service, snow plowing, landscape design).
 - Open: real dumpster photo + GBP review quotes still blocked on browser permissions (sticky deny on facebook.com network reads); fbid list + method documented for a 10-min finish.
 Commit: `3d1b628`.
+
+## Revision — 2026-06-11 (crest v2: vector recreation)
+Matt flagged the photo-cropped trailer crest looked bad at header size. Replaced with a faithful vector SVG recreation of their crest (stepped silver/gold shield, arch, windmill-over-water scene, SANTOS & SONS, PROPERTY MAINTENANCE) drawn from their sign/trailer artwork. Inlined in header + footer (inherits Playfair), regenerated favicons/apple-touch-icon from it, and rebuilt og-image.jpg with crest left + full text stack right. Reads cleanly from 16px favicon to 500px OG. Swap-ready for Derek's original artwork file whenever provided (single source: images/logo-crest.svg). Commit: ca0b281.
