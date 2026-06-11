@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 376" width="360" height="376">
+<defs>
+  <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#D8DCDE"/><stop offset=".45" stop-color="#AEB5B9"/><stop offset="1" stop-color="#8E969B"/>
+  </linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EAD49A"/><stop offset=".35" stop-color="#C9A45A"/><stop offset=".65" stop-color="#9A7A3E"/><stop offset="1" stop-color="#D9BC7E"/>
+  </linearGradient>
+  <linearGradient id="goldText" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#EFD9A0"/><stop offset=".55" stop-color="#C9A45A"/><stop offset="1" stop-color="#A8854B"/>
+  </linearGradient>
+  <linearGradient id="field" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#16301F"/><stop offset=".6" stop-color="#0F2316"/><stop offset="1" stop-color="#0A1A10"/>
+  </linearGradient>
+  <linearGradient id="cloud" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#D7DCDE"/><stop offset="1" stop-color="#A9B1B5"/>
+  </linearGradient>
+  <clipPath id="fieldClip">
+    <path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,236 Q288,286 180,342 Q72,286 72,236 L72,84 L88,84 L88,66 L108,66 L108,52 Z"/>
+  </clipPath>
+</defs>
+
+<!-- outer silver plaque -->
+<path d="M180,18 L262,18 L262,36 L284,36 L284,56 L302,56 L302,240 Q302,302 180,366 Q58,302 58,240 L58,56 L76,56 L76,36 L98,36 L98,18 Z"
+      fill="url(#silver)" stroke="#6E767B" stroke-width="2"/>
+<!-- gold band -->
+<path d="M180,34 L256,34 L256,50 L276,50 L276,69 L294,69 L294,238 Q294,294 180,354 Q66,294 66,238 L66,69 L84,69 L84,50 L104,50 L104,34 Z"
+      fill="url(#gold)"/>
+<!-- green field -->
+<path d="M180,52 L252,52 L252,66 L272,66 L272,84 L288,84 L288,236 Q288,286 180,342 Q72,286 72,236 L72,84 L88,84 L88,66 L108,66 L108,52 Z"
+      fill="url(#field)"/>
+
+<g clip-path="url(#fieldClip)">
+  <!-- gold arch rings -->
+  <circle cx="180" cy="158" r="84" fill="none" stroke="url(#gold)" stroke-width="7"/>
+  <circle cx="180" cy="158" r="74" fill="none" stroke="url(#gold)" stroke-width="2" opacity=".8"/>
+  <!-- clouds -->
+  <g fill="url(#cloud)">
+    <path d="M118,118 q8,-18 28,-14 q6,-14 24,-10 q16,2 18,16 q14,0 14,14 q0,12 -16,12 l-58,0 q-14,-4 -10,-18 z"/>
+    <path d="M206,96 q10,-14 26,-10 q8,-10 22,-6 q12,4 12,14 q12,2 10,12 q-2,10 -14,10 l-48,0 q-12,-4 -8,-20 z" opacity=".9"/>
+  </g>
+  <!-- windmill -->
+  <g>
+    <path d="M171,142 L189,142 L197,236 L163,236 Z" fill="url(#goldText)"/>
+    <path d="M170,142 q10,-10 20,0 z" fill="url(#goldText)"/>
+    <g stroke="url(#goldText)" stroke-width="6.5" stroke-linecap="round">
+      <line x1="180" y1="138" x2="142" y2="100"/>
+      <line x1="180" y1="138" x2="218" y2="100"/>
+      <line x1="180" y1="138" x2="142" y2="176"/>
+      <line x1="180" y1="138" x2="218" y2="176"/>
+    </g>
+    <circle cx="180" cy="138" r="5" fill="#EAD49A"/>
+    <rect x="158" y="188" width="44" height="5" rx="2" fill="url(#goldText)"/>
+  </g>
+  <!-- shoreline -->
+  <path d="M96,238 Q140,226 180,234 Q224,242 268,232 L268,244 Q220,252 180,246 Q136,240 96,248 Z" fill="url(#goldText)"/>
+  <!-- reflection -->
+  <g stroke="#C9A45A" stroke-width="3" stroke-linecap="round" opacity=".75">
+    <path d="M140,258 q20,4 44,1 q22,-2 36,1" fill="none"/>
+    <path d="M152,268 q18,4 34,1 q16,-2 26,1" fill="none" opacity=".7"/>
+    <path d="M164,278 q12,3 22,1 q10,-2 16,1" fill="none" opacity=".5"/>
+  </g>
+  <!-- SANTOS -->
+  
+  <!-- rules + & SONS -->
+  
+  <line x1="212" y1="330" x2="256" y2="340" stroke="#B9C0C3" stroke-width="1.6"/>
+  
+  <!-- PROPERTY MAINTENANCE -->
+  
+  
+  <!-- flourish -->
+  
+</g>
+</svg>
