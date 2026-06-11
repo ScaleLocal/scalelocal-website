@@ -265,3 +265,18 @@ chat-widget { z-index: 9999 !important; }
   .ss-launcher-panel { width: calc(100vw - 28px); max-width: 322px; }
   .f-grid { grid-template-columns: 1fr; gap: 30px; }
 }
+
+/* brand-pass */
+.brand-crest { height: 58px; width: auto; display: block; }
+.brand-text { display: block; font-family: var(--serif); font-size: 1.32rem; font-weight: 700; letter-spacing: .05em; color: var(--green-950); line-height: 1.05; }
+.brand-text em { font-style: normal; color: var(--gold-500); }
+.brand-text small { display: block; font-family: var(--sans); font-size: .6rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); margin-top: 4px; }
+.f-crest { background: var(--cream); border-radius: 12px; padding: 12px 14px; display: inline-block; margin-bottom: 4px; }
+.f-crest img { height: 92px; width: auto; display: block; }
+.pillar-icon { height: 118px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--green-950), var(--green-700)); }
+.pillar-icon svg { width: 46px; height: 46px; stroke: var(--gold-300); }
+@media (max-width: 720px) {
+  .brand-crest { height: 48px; }
+  .brand-text { font-size: 1.12rem; }
+  .brand-text small { display: none; }
+}
