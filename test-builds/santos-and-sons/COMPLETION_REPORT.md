@@ -71,3 +71,6 @@ Commit: `3d1b628`.
 
 ## Revision — 2026-06-11 (crest v2: vector recreation)
 Matt flagged the photo-cropped trailer crest looked bad at header size. Replaced with a faithful vector SVG recreation of their crest (stepped silver/gold shield, arch, windmill-over-water scene, SANTOS & SONS, PROPERTY MAINTENANCE) drawn from their sign/trailer artwork. Inlined in header + footer (inherits Playfair), regenerated favicons/apple-touch-icon from it, and rebuilt og-image.jpg with crest left + full text stack right. Reads cleanly from 16px favicon to 500px OG. Swap-ready for Derek's original artwork file whenever provided (single source: images/logo-crest.svg). Commit: ca0b281.
+
+## Revision — 2026-06-11 (logo sizing: badge variant)
+Matt flagged the header/footer crest as too small and thin — micro-text illegible. Split the mark into two variants like a real brand system: images/logo-crest-badge.svg (stocky shield + windmill scene, no text) at 78px in the header beside an enlarged wordmark, and the full text crest at 215px in the footer where it has room to read. Favicons + apple-touch-icon regenerated from the badge (cleaner at 16-180px). Commit: e9069f0.
