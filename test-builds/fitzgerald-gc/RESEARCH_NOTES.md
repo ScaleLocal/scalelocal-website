@@ -141,3 +141,25 @@ HIC / CSL numbers and we'll add them.
 - Yelp (GC): https://www.yelp.com/biz/fitzgerald-general-contracting-billerica  (not readable this session)
 - Google Maps (CID): https://maps.google.com/?cid=12295876953231336373
 - ScaleLocal first-party enrichment: Prospects/pipeline_v2_discovery_2026-04-21.csv, TUESDAY_ENROLLMENT.csv, Reporting/Audits/place_ChIJqQhTt9OVCwsRtSNET_G6o6o.json
+
+---
+
+## UPDATE (2026-06-12) — real photos + official logo obtained
+
+Two of the gaps flagged above are now CLOSED:
+
+- **Photos (§8):** Fitzgerald's Google Business Profile now has **10 real photos** (the earlier
+  enrichment showing 0 was stale). Pulled at full resolution via the **Google Places API** using
+  place_id `ChIJqQhTt9OVCwsRtSNET_G6o6o`. These are genuine Fitzgerald projects — siding, roofing,
+  decks, additions, a shed, and house exteriors — and now fill every image slot on the site. **No
+  stock placeholders remain.** Source: Google Places API (Place Details `photos` field).
+- **Logo / brand colors (§7):** Matt supplied the **official Fitzgerald logo** (`IMG_1126.jpeg`) —
+  chrome "FITZGERALD" wordmark with orange outline over a green four-leaf shamrock, LICENSED/INSURED
+  badges, green→orange tricolor bar, "GENERAL CONTRACTING," and the phone 978-408-9390. Used as-is
+  (not vectorized) at `images/logo-fitzgerald.png`. This confirms the brand palette is **Irish green
+  + orange/gold + chrome/silver + white**, which the site's rebrand now matches.
+- **Rating:** the live GBP/Places API now shows **5.0★ across 23 reviews** (was 21 in the April
+  enrichment) — site updated to 23.
+
+Still unverified (unchanged): exact founding year, full service-area town list, license numbers,
+exact hours. The site uses conservative language for all of these — Matt to confirm with Eric/"Fitzy".
