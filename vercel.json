@@ -41,6 +41,14 @@
       "destination": "/test-builds/fitzgerald-gc/index.html"
     },
     {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(ns-builders|NS-Builders|NS-BUILDERS|Ns-Builders|ns-Builders|Ns-builders)/(.*)",
+      "destination": "/test-builds/ns-builders/$3"
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(ns-builders|NS-Builders|NS-BUILDERS|Ns-Builders|ns-Builders|Ns-builders)",
+      "destination": "/test-builds/ns-builders/index.html"
+    },
+    {
       "source": "/api/(.*)",
       "destination": "/api/$1"
     },
@@ -230,6 +238,16 @@
       "source": "/test-builds/(LawnWize|Lawnwize|LAWNWIZE|lawnWize)/",
       "destination": "/test-builds/lawnwize/",
       "permanent": true
+    },
+    {
+      "source": "/test-builds/ns-builders",
+      "destination": "/test-builds/ns-builders/",
+      "permanent": true
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(NS-Builders|NS-BUILDERS|Ns-Builders|ns-Builders|Ns-builders)",
+      "destination": "/test-builds/ns-builders/",
+      "permanent": true
     }
   ],
   "headers": [
@@ -247,6 +265,15 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/test-builds/ns-builders/(.*)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }
