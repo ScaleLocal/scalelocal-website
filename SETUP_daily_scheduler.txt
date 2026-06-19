@@ -1,0 +1,37 @@
+============================================================
+ ONE-TIME SETUP: Schedule the daily auto-publisher
+============================================================
+
+This makes Windows run daily_publish.bat every morning automatically,
+even waking the PC from sleep. Publishes 1 queued article/day, hands-free.
+
+STEP 1 — Open an ADMIN Command Prompt:
+  Press Windows key, type:  cmd
+  RIGHT-CLICK "Command Prompt" -> "Run as administrator"
+
+STEP 2 — Paste this ONE command and press Enter
+  (it creates a task named "ScaleLocal Daily Article" that runs at 9:00 AM daily):
+
+schtasks /Create /TN "ScaleLocal Daily Article" /TR "\"C:\Users\matty\Documents\Claude\ScaleLocalCode\scalelocal-website\daily_publish.bat\"" /SC DAILY /ST 09:00 /RL HIGHEST /F
+
+STEP 3 (recommended) — let it wake the PC + run if a scheduled time was missed.
+  Open Task Scheduler (Windows key -> "Task Scheduler"), find
+  "ScaleLocal Daily Article" -> right-click -> Properties:
+    * Conditions tab: check "Wake the computer to run this task"
+    * Settings tab: check "Run task as soon as possible after a scheduled start is missed"
+  Click OK.
+
+TO TEST IT NOW (publishes the next queued article immediately):
+  schtasks /Run /TN "ScaleLocal Daily Article"
+
+TO PAUSE IT (e.g. while restocking the queue):
+  schtasks /Change /TN "ScaleLocal Daily Article" /DISABLE
+TO RESUME:
+  schtasks /Change /TN "ScaleLocal Daily Article" /ENABLE
+TO REMOVE:
+  schtasks /Delete /TN "ScaleLocal Daily Article" /F
+
+Logs are written to:
+  _published_log\runner.log   (scheduler runs)
+  _published_log\publish.log  (what got published)
+============================================================

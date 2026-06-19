@@ -1,0 +1,31 @@
+# ── ScaleLocal website .gitignore ──
+# Conservative: ignores only OS/editor/secret/build junk that is NOT already
+# tracked. Does not touch any committed site content, demos, logs, or tier-pages.
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Secrets — real .env files (NOT .env.example, which is tracked on purpose)
+/.env
+/.env.local
+/.env.production
+
+# Node / build artifacts (none tracked today; guard against future)
+node_modules/
+.vercel/
+dist/
+.parcel-cache/
+
+# Python tooling caches
+__pycache__/
+*.pyc
+.venv/
+
+# Daily auto-publisher runtime logs (keep the queue + scripts, ignore the noise)
+_published_log/
