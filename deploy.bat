@@ -56,7 +56,7 @@ if errorlevel 1 (
 echo.
 echo ============================================================
 echo  SUCCESS - pushed to GitHub. Vercel auto-deploys in ~1-2 min.
-echo  Live at: https://www.scalelocal.net
+echo  Live at: https:^/^/www.scalelocal.net
 echo ============================================================
 echo.
 pause

@@ -32,3 +32,10 @@ _published_log/
 
 # article hopper scratch sources
 _batch*.py
+
+# scratch / test files (never deploy)
+_mountwrite_test.py
+_synctest.txt
+_synctest2.txt
+_vfinal.py
+_batch*.py
