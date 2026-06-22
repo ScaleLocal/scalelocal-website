@@ -120,6 +120,36 @@
       "permanent": true
     },
     {
+      "source": "/plans/foundation",
+      "destination": "/basecamp",
+      "permanent": true
+    },
+    {
+      "source": "/plans/foundation/",
+      "destination": "/basecamp/",
+      "permanent": true
+    },
+    {
+      "source": "/plans/momentum",
+      "destination": "/summit",
+      "permanent": true
+    },
+    {
+      "source": "/plans/momentum/",
+      "destination": "/summit/",
+      "permanent": true
+    },
+    {
+      "source": "/plans/authority",
+      "destination": "/apex",
+      "permanent": true
+    },
+    {
+      "source": "/plans/authority/",
+      "destination": "/apex/",
+      "permanent": true
+    },
+    {
       "source": "/plans",
       "destination": "/pricing",
       "permanent": true
