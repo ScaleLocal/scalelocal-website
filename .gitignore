@@ -29,3 +29,6 @@ __pycache__/
 
 # Daily auto-publisher runtime logs (keep the queue + scripts, ignore the noise)
 _published_log/
+
+# article hopper scratch sources
+_batch*.py
