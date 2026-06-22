@@ -3,7 +3,8 @@
 ScaleLocal daily article publisher.
 Runs once/day (via Windows Task Scheduler). Takes the OLDEST queued article from
 _article_queue/, installs it into /blog/<slug>/index.html, adds it to the blog
-index + sitemap.xml, then git commit + push (Vercel auto-deploys).
+index + sitemap.xml, then git commit + push (Vercel auto-deploys). After pushing,
+it nudges search engines to re-crawl the fresh sitemap (best-effort).
 
 A queued article is a single .json file in _article_queue/ shaped like:
 {
@@ -14,6 +15,7 @@ A queued article is a single .json file in _article_queue/ shaped like:
 Zero-touch: needs no internet from the user, only the PC on + online at run time.
 """
 import os, sys, json, glob, subprocess, datetime, re
+import urllib.request, urllib.parse
 
 REPO = os.path.dirname(os.path.abspath(__file__))
 os.chdir(REPO)
@@ -22,6 +24,7 @@ LOGDIR = os.path.join(REPO, "_published_log")
 os.makedirs(LOGDIR, exist_ok=True)
 LOG = os.path.join(LOGDIR, "publish.log")
 SITE = "https://www.scalelocal.net"
+SITEMAP = SITE + "/sitemap.xml"
 
 def log(msg):
     line = f"[{datetime.datetime.now().isoformat(timespec='seconds')}] {msg}"
@@ -35,6 +38,41 @@ def run(cmd, check=True):
     if r.returncode != 0 and r.stderr.strip(): log("    ! " + r.stderr.strip().replace("\n","\n    "))
     if check and r.returncode != 0: raise SystemExit(f"command failed: {' '.join(cmd)}")
     return r
+
+def ping_search_engines(slug):
+    """Tell search engines a new URL + the sitemap are fresh. All best-effort:
+    any failure is logged and ignored so it never blocks a publish.
+    NOTE: Google deprecated its sitemap-ping endpoint in 2023, so we no longer
+    call it (it would be dead weight). Google still discovers via the sitemap it
+    already re-reads on its own crawl schedule; the IndexNow ping below covers
+    Bing + Yandex, which DO honor instant pings, and Google increasingly reads
+    IndexNow signals too. We also warm our own sitemap URL so Vercel serves the
+    freshest copy when crawlers arrive."""
+    new_url = f"{SITE}/blog/{slug}/"
+    def _get(url, timeout=12):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "ScaleLocal-Publisher/1.0"})
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return r.status
+        except Exception as e:
+            return f"err:{type(e).__name__}"
+
+    # a) Warm our own sitemap (forces Vercel edge to cache the freshest version)
+    log(f"  ping: sitemap warm -> {_get(SITEMAP)}")
+    # b) IndexNow (Bing + Yandex honor this instantly; key is a public token file
+    #    that must exist at SITE/<key>.txt -- we only ping if that file is present).
+    key_file = os.path.join(REPO, "indexnow-key.txt")
+    if os.path.exists(key_file):
+        try:
+            key = open(key_file, encoding="utf-8").read().strip()
+            endpoint = ("https://api.indexnow.org/indexnow?url="
+                        f"{urllib.parse.quote(new_url, safe='')}&key={key}"
+                        f"&keyLocation={SITE}/{key}.txt")
+            log(f"  ping: IndexNow -> {_get(endpoint)}")
+        except Exception as e:
+            log(f"  ping: IndexNow skipped ({type(e).__name__})")
+    else:
+        log("  ping: IndexNow skipped (no indexnow-key.txt yet)")
 
 def main():
     # 1) pick oldest queued article
@@ -71,7 +109,7 @@ def main():
         open(sm_path, "w", encoding="utf-8").write(sm)
         log("  added to sitemap.xml")
 
-    # 4) add a card to blog/index.html (after the first <a ... class="post-card"> block start area)
+    # 4) add a card to blog/index.html (before the first existing post-card link)
     bi_path = os.path.join(REPO, "blog", "index.html")
     bi = open(bi_path, encoding="utf-8").read()
     if f'/blog/{slug}/' not in bi:
@@ -80,7 +118,6 @@ def main():
                 f'      <p>{art.get("card_blurb","")}</p>\n'
                 f'      <span class="meta">{datetime.date.today().strftime("%B %-d, %Y") if os.name!="nt" else datetime.date.today().strftime("%B %d, %Y")}</span>\n'
                 f'    </a>\n')
-        # insert right before the first existing post-card link
         m = re.search(r'(\n\s*<a href="/blog/[^"]+" class="post-card">)', bi)
         if m:
             bi = bi[:m.start()] + "\n" + card + bi[m.start():]
@@ -100,6 +137,12 @@ def main():
     run(["git", "pull", "--rebase", "-X", "theirs"], check=False)
     run(["git", "push"])
     log(f"  DONE — https://www.scalelocal.net/blog/{slug}/ will be live after Vercel build (~1-2 min).")
+
+    # 6) Nudge search engines to re-crawl the fresh sitemap. Best-effort, never fatal.
+    try:
+        ping_search_engines(slug)
+    except Exception as e:
+        log(f"  ping: skipped ({type(e).__name__})")
 
 if __name__ == "__main__":
     try:
