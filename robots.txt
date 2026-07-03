@@ -13,6 +13,18 @@ Disallow: /templates/
 Disallow: /test-builds/
 Disallow: /api/
 
+# .html duplicates of clean URLs — not for indexing.
+# Vercel serves /path/index.html at 200 (identical content to /path/); each
+# page carries <link rel="canonical" href="/path/">, so GSC files these as
+# "Alternate page with proper canonical tag" noise. Blocking here removes
+# them from Googlebot's crawl queue entirely.
+Disallow: /index.html
+Disallow: /*/index.html
+Disallow: /*.html$
+
+# Canonical host hint (www is canonical; apex 307-redirects to www).
+Host: www.scalelocal.net
+
 # AI search crawlers — explicitly welcomed (ScaleLocal sells AI-search visibility)
 User-agent: GPTBot
 Allow: /
