@@ -43,3 +43,13 @@ No fabricated reviews, testimonials, or stats. All claims trace to their
 own site or Houzz profile. They have 5 GBP reviews — we deliberately did
 NOT quote or invent review content; a reviews section can be added with
 their permission using real review text.
+
+## Mobile sign-off gate (added 2026-07-17 after the mobile miss)
+
+No demo build ships without a REAL 375px-width screenshot check verifying:
+- [ ] Logo present and legible in the header
+- [ ] Nav collapsed to hamburger (breakpoint 860px)
+- [ ] Hero text padded, readable over a gradient scrim (never raw over photo)
+- [ ] CTAs stacked full-width, primary on top
+- [ ] Stats/metrics in their own band below the hero, never overlaid
+- [ ] Floating widget is a compact icon that obscures no content
