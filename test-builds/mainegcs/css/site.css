@@ -38,7 +38,7 @@ h3{font-size:1.25rem;}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px;}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink);}
 .brand-mark{width:44px;height:44px;flex:0 0 44px;}
-.brand-logo{height:48px;width:auto;flex:0 0 auto;}
+.brand-logo{height:54px;width:auto;flex:0 0 auto;background:#fff;padding:5px 10px;border-radius:6px;border:1px solid var(--line);}
 .brand-name{font-family:var(--serif);font-size:1.22rem;line-height:1.1;}
 .brand-name small{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--cedar-deep);margin-top:3px;}
 .site-nav{display:flex;align-items:center;gap:30px;}
