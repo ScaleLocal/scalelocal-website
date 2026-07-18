@@ -206,9 +206,13 @@ textarea{min-height:130px;resize:vertical;}
   .hero-actions .btn{text-align:center;width:100%;}
   .stats-band .wrap{grid-template-columns:1fr 1fr;gap:16px;}
   .brand-logo{height:42px;padding:4px 8px;}
-  .mgc-launcher{right:14px;bottom:14px;}
-  .mgc-launcher-btn{padding:14px;border-radius:50%;}
+  .topbar .wrap{justify-content:center;}
+  .topbar span{display:none;}
+  .topbar a{font-size:.95rem;letter-spacing:.02em;}
+  .mgc-launcher{right:16px;bottom:16px;}
+  .mgc-launcher-btn{padding:19px;border-radius:50%;box-shadow:0 10px 28px rgba(32,38,31,.45);}
+  .mgc-launcher-btn svg{width:26px;height:26px;}
   .mgc-launcher-btn .lbl{display:none;}
-  .mgc-panel{width:min(300px,calc(100vw - 28px));}
+  .mgc-panel{width:min(320px,calc(100vw - 32px));bottom:82px;}
   .quote-band{padding:64px 0;}
 }
