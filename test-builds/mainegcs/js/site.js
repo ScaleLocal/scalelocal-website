@@ -105,6 +105,40 @@
         });
     }
 
+    /* ---- Review carousels (mobile): dots auto-generated for every
+       .rev-grid. On desktop the grids stay grids and dots stay hidden;
+       on <=860px CSS turns the grid into a scroll-snap carousel and
+       these dots track/control it. */
+    document.querySelectorAll('.rev-grid').forEach(function (grid) {
+        var cards = grid.querySelectorAll('.rev-card');
+        if (cards.length < 2) { return; }
+        var dots = document.createElement('div');
+        dots.className = 'rev-dots';
+        cards.forEach(function (_, i) {
+            var d = document.createElement('button');
+            d.type = 'button';
+            d.className = 'rev-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', 'Review ' + (i + 1));
+            d.addEventListener('click', function () {
+                grid.scrollTo({ left: cards[i].offsetLeft - grid.offsetLeft, behavior: 'smooth' });
+            });
+            dots.appendChild(d);
+        });
+        grid.parentNode.insertBefore(dots, grid.nextSibling);
+        var ticking = false;
+        grid.addEventListener('scroll', function () {
+            if (ticking) { return; }
+            ticking = true;
+            requestAnimationFrame(function () {
+                ticking = false;
+                var idx = Math.round(grid.scrollLeft / Math.max(1, cards[0].offsetWidth + 16));
+                dots.querySelectorAll('.rev-dot').forEach(function (d, i) {
+                    d.classList.toggle('active', i === Math.min(idx, cards.length - 1));
+                });
+            });
+        }, { passive: true });
+    });
+
     /* ---- Footer year ---- */
     var yearEl = document.getElementById('footerYear');
     if (yearEl) { yearEl.textContent = String(new Date().getFullYear()); }

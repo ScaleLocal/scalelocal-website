@@ -53,3 +53,6 @@ No demo build ships without a REAL 375px-width screenshot check verifying:
 - [ ] CTAs stacked full-width, primary on top
 - [ ] Stats/metrics in their own band below the hero, never overlaid
 - [ ] Floating widget is a compact icon that obscures no content
+- [ ] Reviews section on mobile: swipe carousel with pagination dots —
+      one full-width card per view, NO multi-column compression at <=860px
+- [ ] Real-device iOS Safari swipe check (owner verifies on phone)
