@@ -12,9 +12,9 @@ All facts below are sourced. Nothing on the build may claim anything not listed 
 | Entity | LLC — CPA firm | both sites |
 | Office 1 (HQ) | 1400 Opus Place, Suite 100, Downers Grove, IL 60515 (GBP adds: Floor 1 · Regus – Downers Grove – Executive Towers West) | kpwcpa.com footer; kpwcpachicago.com/contact.php; Google Maps |
 | Office 1 phone / fax | (630) 390-1140 / (630) 390-1150 | kpwcpa.com; kpwcpachicago.com/contact.php; GBP |
-| Office 2 | 954 W Washington Blvd, Suite 320, Chicago, IL 60607 (West Loop) | kpwcpachicago.com/contact.php |
-| Office 2 phone / fax | (312) 421-5780 / (312) 421-5794 | kpwcpachicago.com/contact.php |
-| Emails | info@kpwcpa.com (main); Chicago@kpwcpa.com (Chicago); kpeterson@kpwcpa.com; meckel@kpwcpa.com | both sites |
+| ~~Office 2 (Chicago)~~ | **CLOSED — removed from the build 2026-07-30 on Matt's instruction.** Formerly 954 W Washington Blvd, Suite 320, Chicago IL 60607. **Their own kpwcpachicago.com still advertises it**, which is a live problem for them: prospects and Google are being pointed at an office that no longer exists. Worth raising with the client. | kpwcpachicago.com/contact.php (stale) |
+| ~~Office 2 phone / fax~~ | (312) 421-5780 / (312) 421-5794 — **retired**. `qa.py` now fails the build if either renders. | stale |
+| Emails | info@kpwcpa.com (main); kpeterson@kpwcpa.com; meckel@kpwcpa.com. ~~Chicago@kpwcpa.com~~ retired with the office. | both sites |
 | Hours | Mon–Fri 9:00 AM–5:00 PM; Sat–Sun closed | kpwcpa.com; GBP ("Open · Closes 5 PM") |
 | Memberships | AICPA + Illinois CPA Society | both sites, team bios |
 | Peer review | Enrolled in AICPA peer-review (practice-monitoring) program; independent review of A&A practice every 3 years, conducted under Illinois CPA Society auspices; successfully completed | kpwcpachicago.com/quality-control.php; kpwcpa.com "Quality Control" page ("Our most recent peer review") |

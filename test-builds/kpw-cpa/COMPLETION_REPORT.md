@@ -6,7 +6,7 @@
 
 ## 1. What was built
 
-**35 pages** — exceeds the 25+ page target in §1/§11.
+**34 pages** — exceeds the 25+ page target in §1/§11. (Was 35; the Chicago location page was deleted when that office closed.)
 
 | Section | Count | Pages |
 |---|---|---|
@@ -14,7 +14,7 @@
 | Services | 13 | Hub + tax planning & preparation, audit & assurance, financial statements, accounting services, business advisory, business valuation, estate & trust planning, litigation support, mergers & acquisitions, asset protection, business management (entertainment/sports), employee benefit plans |
 | Industries | 5 | Hub + privately held businesses, government & non-profit, entertainment & sports, real estate & construction |
 | Team | 7 | Hub + 6 individual professional bios |
-| Locations | 2 | Downers Grove, Chicago (West Loop) |
+| Location | 1 | Downers Grove (Chicago office closed — removed 2026-07-30) |
 | Guides (AEO layer) | 3 | What a CPA costs a small business · Audit vs. review vs. compilation · How to choose a CPA firm in Illinois |
 
 Total build: 1.2 MB, self-contained (one shared `css/site.css`, no external dependencies beyond Google Fonts).
@@ -142,6 +142,8 @@ The engine takes `BASE` as a single constant — the URL rewrite is a one-line c
 
 - **No photographs.** They have none on either site and none on the GBP. The build uses the designed gradient hero + line-art glyph fallback rather than stock imagery implying their offices or staff (guardrail #9). **Real photos of the partners and both offices would materially improve this site** — headshots especially, since the team pages are the strongest asset here.
 - **Logo is a PROPOSAL, not their existing mark.** Their real identity is a photographed door plaque (circular K/P/W badges, purple on brushed metal) — unusable on the web. Matt directed a designed alternative. The build ships the "Ruled Lettermark": KPW between two hairlines, the typographic language of a certificate or audit opinion. No container shape, no gradient, one-colour safe, with a simplified single-letter "K" variant for favicon sizes where three letters turn to mush. **The demo must not be presented as their current logo.**
+- **Chicago office removed 2026-07-30.** The firm no longer has a Chicago location. Every trace was stripped: the location page deleted, the address/phone/fax/email retired, header, footer, chat widget, CTA buttons, JSON-LD `location` array, nav label, hero trust strip, page titles and meta, and the West Loop framing on the litigation-support and business-management pages. `qa.py` now hard-fails on `954 W Washington`, `(312) 421`, `West Loop`, `Chicago office`, `two offices`, `both offices`, `either office` and the retired phone numbers, and `ALLOWED_PHONES` is narrowed to the two Downers Grove numbers. **Deliberately kept:** "University of Chicago" and "Chicago Circle" (real partner education) and "Chicagoland"/"Chicago metropolitan area" (accurate service area). **Flag for the client:** their kpwcpachicago.com site still advertises the closed office.
+- **Interactive Google Map added 2026-07-30.** On the home, contact and location pages. Uses the keyless `maps.google.com/?output=embed` endpoint — fully interactive (pan, zoom, Street View, Directions) with no API key and no billing account, so nothing to configure at cutover. Lazy-loaded, 16:9 on desktop and 4:3 on mobile, with a descriptive `title` for screen readers; `qa.py` now fails any iframe missing one. `hasMap` and `geo` coordinates added to the LocalBusiness JSON-LD.
 - **Their own strongest claims added 2026-07-30.** Two sourced lines were found during verification but initially left out: the Quality-pillar guarantee ("We won't stop until you're 100% satisfied – that's a guarantee") and the home-page availability claim ("We guarantee fast and discrete handling of all your accounting needs. Our team of highly qualified CPA's can be available day and night"). Both are verbatim theirs and are now on the home, about, and contact pages plus the hero trust strip. The hedge "can be available" is preserved.
 - **Chat launcher restyled 2026-07-30.** It was navy on a navy hero and disappeared. Now bright gold `#E8B33F` with navy text: 7.58:1 for the label, 6.69:1 against the hero backdrop, both well past AA. Hover lifts to `#F5C453` (8.93:1). Panel border matches so the open widget reads as one object.
 - **Book button is a stub.** Call and text work as `tel:`/`sms:`; the Book action only reveals a "call or email to arrange one" note. Nothing on the site implies it schedules anything (guardrail #5).

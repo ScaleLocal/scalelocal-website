@@ -139,6 +139,10 @@ a.tcard:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:rgba
 table.plain{width:100%;border-collapse:collapse;margin:20px 0;font-size:.95rem}
 table.plain th{text-align:left;font-family:var(--serif);font-weight:600;padding:12px 14px;background:var(--cream);border:1px solid var(--line)}
 table.plain td{padding:12px 14px;border:1px solid var(--line);color:#3c4038;vertical-align:top}
+.mapwrap{position:relative;border-radius:18px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh1);aspect-ratio:16/9;background:var(--cream)}
+.mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.mapcap{font-size:.86rem;color:var(--muted);margin-top:12px}
+@media(max-width:560px){.mapwrap{aspect-ratio:4/3}}
 .cta{background:linear-gradient(150deg,var(--ink),var(--ink2));color:#fff;text-align:center;padding:84px 0;position:relative;overflow:hidden}
 .cta::before{content:"";position:absolute;left:50%;top:-150px;transform:translateX(-50%);width:560px;height:360px;background:radial-gradient(circle,rgba(var(--accrgb),.3),transparent 66%)}
 .cta .wrap{position:relative;z-index:2}
