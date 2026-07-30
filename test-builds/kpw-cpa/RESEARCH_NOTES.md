@@ -86,6 +86,11 @@ Under "Our Philosophy", three pillars. Quoted exactly:
 
 Home page also states: "providing quality services at a reasonable fee, and being proactive in providing services to clients"; "We guarantee fast and discrete handling of all your accounting needs. Our team of highly qualified CPA's can be available day and night."
 
+**NOW USED ON THE BUILD (added 2026-07-30):**
+- Quality guarantee -> about.html ("we do not stop until you are one hundred percent satisfied. That is a guarantee")
+- "fast and discreet handling of all your accounting needs" + "our CPAs can be available day and night" -> index.html, contact.html, hero trust strip. Their hedge ("can be available") is deliberately preserved rather than hardened to "we are available".
+- Their site spells it "discrete"; corrected to "discreet" on the build (their typo, not a change of meaning).
+
 **USABLE:** the pricing *philosophy* — "fair and transparent prices with no hidden fees or extra charges."
 **NOT USABLE:** anything about **when** a fee is quoted. Their site says nothing about quoting before work begins, engagement letters, or fee estimates at intake.
 

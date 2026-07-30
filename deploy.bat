@@ -30,7 +30,7 @@ echo.
 echo [2/4] Committing...
 git commit -m "!MSG!"
 if errorlevel 1 (
-  echo  (Nothing new to commit, or commit failed - continuing to sync anyway.)
+  echo   Nothing new to commit, or commit failed - continuing to sync anyway.
 )
 
 echo.
@@ -48,7 +48,7 @@ echo [4/4] Pushing to GitHub...
 git push
 if errorlevel 1 (
   echo.
-  echo  !! Push failed - scroll up for the reason (often a one-time login). Send it to Claude.
+  echo  !! Push failed - scroll up for the reason - often a one-time login -. Send it to Claude.
   pause
   exit /b 1
 )
