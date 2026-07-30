@@ -101,6 +101,8 @@ a.card:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:rgba(
 .prose .callout{background:var(--cream);border-left:3px solid var(--acc);border-radius:0 12px 12px 0;padding:20px 24px;margin:26px 0}
 .prose .callout p:last-child{margin-bottom:0}
 .split{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:56px;align-items:start}
+.split>*{min-width:0}
+.prose{min-width:0}
 .aside{position:sticky;top:96px;display:grid;gap:18px}
 .acard{background:var(--ink);border-radius:18px;padding:30px;color:#e9e5db;box-shadow:var(--sh2)}
 .acard .t{font-family:var(--serif);font-size:1.2rem;color:#fff;margin-bottom:14px}
@@ -136,6 +138,8 @@ a.tcard:hover{transform:translateY(-6px);box-shadow:var(--sh2);border-color:rgba
 .office ul{list-style:none;display:grid;gap:9px;font-size:.96rem;color:#3c4038}
 .office a{color:var(--ink);text-decoration:none;font-weight:500}.office a:hover{color:var(--accd)}
 .office .acts{margin-top:22px}
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:20px 0;max-width:100%}
+.tscroll table.plain{margin:0;min-width:520px}
 table.plain{width:100%;border-collapse:collapse;margin:20px 0;font-size:.95rem}
 table.plain th{text-align:left;font-family:var(--serif);font-weight:600;padding:12px 14px;background:var(--cream);border:1px solid var(--line)}
 table.plain td{padding:12px 14px;border:1px solid var(--line);color:#3c4038;vertical-align:top}
@@ -173,7 +177,7 @@ table.plain td{padding:12px 14px;border:1px solid var(--line);color:#3c4038;vert
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.75,.25,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{scroll-behavior:auto}}
-@media(max-width:980px){.split{grid-template-columns:1fr}.aside{position:static}.fgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:980px){.split{grid-template-columns:minmax(0,1fr)}.aside{position:static}.fgrid{grid-template-columns:1fr 1fr}}
 @media(max-width:920px){.strip .wrap{grid-template-columns:repeat(2,1fr);gap:24px 10px}.strip .cell:nth-child(2){border-right:none}.tgrid,.cards{grid-template-columns:repeat(2,1fr)}.offices{grid-template-columns:1fr}}
 @media(max-width:860px){
  nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;gap:2px;padding:14px 26px 20px;box-shadow:0 16px 26px rgba(0,0,0,.1);align-items:stretch}
