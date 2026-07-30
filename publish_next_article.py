@@ -144,7 +144,10 @@ def main():
     run(["git", "add", "-A", "--", f"blog/{slug}/index.html", "sitemap.xml", "blog/index.html", qrel])
     run(["git", "commit", "-m", f"blog: publish '{slug}' (auto daily)"], check=False)
     # pull-rebase to stay in sync (auto-resolve unrelated conflicts to remote), then push
-    _pull = run(["git", "pull", "--rebase", "-X", "theirs"], check=False)
+    # --autostash: `git pull --rebase` aborts on ANY unstaged file anywhere in the
+    # repo, which is far too fragile for an unattended job. Autostash shelves
+    # unrelated dirt, rebases, then restores it. (Fixed 2026-07-30.)
+    _pull = run(["git", "pull", "--rebase", "--autostash", "-X", "theirs"], check=False)
     if _pull.returncode != 0:
         log("  !! WARNING: `git pull --rebase` FAILED. The push below may be rejected, and")
         log("  !! local/remote can drift. Do not ignore this line — check `git status`.")

@@ -39,3 +39,6 @@ _synctest.txt
 _synctest2.txt
 _vfinal.py
 _batch*.py
+
+# Auto-deploy watcher trigger (written by Claude, consumed by autodeploy.bat)
+_deploy_request.txt

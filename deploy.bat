@@ -35,7 +35,7 @@ if errorlevel 1 (
 
 echo.
 echo [3/4] Syncing with GitHub (rebase, auto-resolve unrelated conflicts to remote)...
-git pull --rebase -X theirs
+git pull --rebase --autostash -X theirs
 if errorlevel 1 (
   echo.
   echo  !! Sync hit a snag. Send the messages above to Claude. Stopping so nothing breaks.
