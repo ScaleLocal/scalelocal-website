@@ -9,9 +9,9 @@ REM  Windows, where unlink works, and commits+pushes on Claude's behalf.
 REM
 REM  SAFETY - it does NOT touch anything you are mid-edit on:
 REM    * Idle unless _deploy_request.txt exists.
-REM    * Stages ONLY the paths listed in that file. Never "git add -A".
+REM    * Stages ONLY the paths listed in that file. Never stages everything.
 REM    * Refuses to run if no paths are listed.
-REM    * Unrelated dirty files are shelved by --autostash and put straight back.
+REM    * Files you are editing are shelved by --autostash and put straight back.
 REM
 REM  REQUEST FILE FORMAT
 REM    line 1  = commit message
@@ -31,49 +31,51 @@ set /a NPATHS=0
 
 for /f "usebackq delims=" %%L in ("%REQ%") do call :handleline "%%L"
 
-if not defined MSG (
-  call :log "** request file had no commit message - ignoring, left in place"
-  goto :eof
-)
-if %NPATHS%==0 (
-  call :log "** request listed NO paths - refusing to deploy. Left in place."
-  call :log "   Add one repo-relative path per line after the commit message."
-  goto :eof
-)
+if not defined MSG goto :nomsg
+if %NPATHS%==0 goto :nopaths
 
 call :log "======== autodeploy start ========"
 call :log "message: !MSG!"
 call :log "paths staged: %NPATHS%"
 
 git diff --cached --quiet
-if not errorlevel 1 (
-  call :log "nothing staged from those paths - clearing request, no commit"
-  del "%REQ%"
-  goto :eof
-)
+if not errorlevel 1 goto :nocommit
 
 git commit -m "!MSG!" >>"%LOG%" 2>&1
-if errorlevel 1 (
-  call :log "** COMMIT FAILED - request left in place for retry"
-  goto :eof
-)
+if errorlevel 1 goto :commitfail
+goto :sync
 
+:nocommit
+call :log "no new changes in the listed paths - will still sync any pending commits"
+
+:sync
 REM --autostash so files you are mid-edit on can never block the rebase
 git pull --rebase --autostash -X theirs >>"%LOG%" 2>&1
-if errorlevel 1 (
-  call :log "** PULL FAILED - refusing to push. Investigate."
-  goto :eof
-)
+if errorlevel 1 goto :pullfail
 
 git push >>"%LOG%" 2>&1
-if errorlevel 1 (
-  call :log "** PUSH FAILED - request left in place for retry"
-  goto :eof
-)
+if errorlevel 1 goto :pushfail
 
 del "%REQ%"
-call :log "OK - pushed. Vercel builds in about 1-2 minutes."
+call :log "OK - synced and pushed. Vercel builds in about 1-2 minutes."
 call :log "======== autodeploy end ========"
+goto :eof
+
+:nomsg
+call :log "** request file had no commit message - ignoring, left in place"
+goto :eof
+:nopaths
+call :log "** request listed NO paths - refusing to deploy. Left in place."
+call :log "   Add one repo-relative path per line after the commit message."
+goto :eof
+:commitfail
+call :log "** COMMIT FAILED - request left in place for retry"
+goto :eof
+:pullfail
+call :log "** PULL FAILED - refusing to push. Investigate."
+goto :eof
+:pushfail
+call :log "** PUSH FAILED - request left in place for retry"
 goto :eof
 
 :handleline
