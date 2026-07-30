@@ -1,0 +1,28 @@
+# ── ScaleLocal website .gitattributes ──
+# Fixes the recurring "cannot pull with rebase: You have unstaged changes" error.
+#
+# Cause: Git for Windows defaults to core.autocrlf=true. Scripts (the daily blog
+# publisher, generators, Claude) write files with LF endings; git then expects
+# CRLF in the working tree and reports every such file as permanently unstaged.
+# That breaks `git pull --rebase` for the publisher and for manual deploys.
+#
+# `text=auto` makes git normalize line endings when COMPARING, so a file is never
+# spuriously "modified" regardless of which tool wrote it or which OS checked it out.
+
+* text=auto
+
+# Binary assets — never touch these
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.webp binary
+*.pdf  binary
+*.zip  binary
+*.woff binary
+*.woff2 binary
+*.ttf  binary
+*.eot  binary
+*.mp4  binary
+*.webm binary

@@ -89,7 +89,12 @@ def main():
     outdir = os.path.join(REPO, "blog", slug)
     if os.path.exists(os.path.join(outdir, "index.html")):
         log(f"  !! /blog/{slug}/ already exists — skipping this item, removing from queue.")
-        os.remove(qfile); return
+        qrel_skip = os.path.relpath(qfile, REPO).replace("\\", "/")
+        os.remove(qfile)
+        # stage + commit the dequeue, else it lingers unstaged and breaks pull --rebase
+        run(["git", "add", "-A", "--", qrel_skip], check=False)
+        run(["git", "commit", "-m", f"blog: dequeue duplicate '{slug}' (auto daily)"], check=False)
+        return
     os.makedirs(outdir, exist_ok=True)
     html = art["html"]
     # sanity: must be a full page
@@ -128,13 +133,21 @@ def main():
 
     # 5) archive the queue item, then git publish
     done_dir = os.path.join(LOGDIR, "published_items"); os.makedirs(done_dir, exist_ok=True)
+    qrel = os.path.relpath(qfile, REPO).replace("\\", "/")
     os.replace(qfile, os.path.join(done_dir, os.path.basename(qfile)))
 
     log("  syncing + pushing...")
-    run(["git", "add", f"blog/{slug}/index.html", "sitemap.xml", "blog/index.html"])
+    # NOTE: the queue .json is TRACKED, and the os.replace above deletes it from
+    # _article_queue/. That deletion must be staged here. Without "-A" and qrel it
+    # stayed unstaged forever, and every later `git pull --rebase` died with
+    # "cannot pull with rebase: You have unstaged changes." (Fixed 2026-07-30.)
+    run(["git", "add", "-A", "--", f"blog/{slug}/index.html", "sitemap.xml", "blog/index.html", qrel])
     run(["git", "commit", "-m", f"blog: publish '{slug}' (auto daily)"], check=False)
     # pull-rebase to stay in sync (auto-resolve unrelated conflicts to remote), then push
-    run(["git", "pull", "--rebase", "-X", "theirs"], check=False)
+    _pull = run(["git", "pull", "--rebase", "-X", "theirs"], check=False)
+    if _pull.returncode != 0:
+        log("  !! WARNING: `git pull --rebase` FAILED. The push below may be rejected, and")
+        log("  !! local/remote can drift. Do not ignore this line — check `git status`.")
     run(["git", "push"])
     log(f"  DONE — https://www.scalelocal.net/blog/{slug}/ will be live after Vercel build (~1-2 min).")
 
