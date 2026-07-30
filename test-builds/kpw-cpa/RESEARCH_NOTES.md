@@ -76,6 +76,19 @@ Home · Services hub · 12 service pages (tax-planning-preparation, audit-assura
 
 Schema: LocalBusiness/AccountingService (site-wide, two-location), Service, FAQPage, Person (×6), BreadcrumbList, Organization. **No AggregateRating/Review markup** (see §2 decision).
 
+## 7a. VERBATIM pricing source (verified 2026-07-30, kpwcpa.com/services)
+
+Under "Our Philosophy", three pillars. Quoted exactly:
+
+- **Quality** — "Everything we do centers on providing services of the highest level of quality. We won't stop until you're 100% satisfied – that's a guarantee."
+- **Efficiency** — "We pride ourselves on our efficient procedures and solutions, but we continually strive for improvement in order to deliver results more effectively."
+- **Fair Prices** — "Satisfying customers is our top priority. That's why we believe in offering fair and transparent prices with no hidden fees or extra charges."
+
+Home page also states: "providing quality services at a reasonable fee, and being proactive in providing services to clients"; "We guarantee fast and discrete handling of all your accounting needs. Our team of highly qualified CPA's can be available day and night."
+
+**USABLE:** the pricing *philosophy* — "fair and transparent prices with no hidden fees or extra charges."
+**NOT USABLE:** anything about **when** a fee is quoted. Their site says nothing about quoting before work begins, engagement letters, or fee estimates at intake.
+
 ## 8a. Claims deliberately EXCLUDED from the build (adversarial QA, 2026-07-29)
 
 An independent QA pass checked every assertion on the built site against this file. The following were removed or rewritten because they were unsupported, stale, or technically risky:
@@ -85,7 +98,8 @@ An independent QA pass checked every assertion on the built site against this fi
 - **AICPA "more than 330,000 members"** — verbatim from their 2015 site but stale (membership has since exceeded 400,000). Number removed entirely.
 - **"average tenure at a firm is measured in single-digit years"; "thousands of engagements"; "roughly a century and a half of combined practice"; "two recessions since 1974"** — all invented or arithmetically wrong. Removed.
 - **"2,000+ clients over the life of the practice" / "since opening in 1974"** — source states a present client count, not a 52-year cumulative. Time qualifier removed.
-- **"our position has been the same for decades" (fee policy)** — the transparent-pricing language is sourced; its decades-long provenance is not. Provenance dropped. **CLIENT-CONFIRM.**
+- **"we quote before we begin" / "quoted before it starts" / "fees quoted before work begins"** — **REMOVED 2026-07-30, ~20 instances across the site.** This was the single worst claim in the build. Their site states a pricing *philosophy* (§7a) but says nothing about *when* a fee is quoted. I extrapolated an operational practice from a philosophy statement — a specific, testable commitment a prospect would disprove on the first call. All instances replaced with their own sourced wording. A QA gate in `qa.py` now fails the build if any quoting-timing phrasing reappears.
+- **"our position has been the same for decades" (fee policy)** — the transparent-pricing language is sourced; its decades-long provenance is not. Provenance dropped.
 - **"publishes monthly newsletters, offers a regular series of tax seminars, maintains an extensive tax library"** — verbatim from the 2015 site; advertising a possibly-defunct program invites requests the firm cannot fill. Removed. **CLIENT-CONFIRM before restoring.**
 - **"Help with controlling inventory" as audit scope** — verbatim from their site, but describes a management function that would impair auditor independence under the AICPA Code. Rewritten as inventory *observation*, with advisory items moved to a separately-engaged advisory paragraph.
 - **"newly released auditing standards require a more detailed assessment of risk"** — quarantined dated claim (§3); the standards are ~20 years old. Removed from both the audit page and the Eckel bio.

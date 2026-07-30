@@ -19,6 +19,8 @@
 
 Total build: 1.2 MB, self-contained (one shared `css/site.css`, no external dependencies beyond Google Fonts).
 
+**Typeface (revised 2026-07-30):** headings are **Source Serif 4**, body **Inter**. The original build used Fraunces, a deliberately wonky soft-serif whose irregular letterforms Matt rejected; Source Serif 4 is a straight, screen-optimised text serif. Heading weight moved 500 -> 600 and hero measure widened to 21ch to suit the wider face.
+
 ## 2. Engine — the P0 build-out, started
 
 Per the **engine-split default (§8.1/§13)**, `gen_sites.py` was **not touched**. This build runs on a **new, separate multi-page engine** at `WebsiteDemos/generator/multipage/`:
@@ -31,8 +33,9 @@ Per the **engine-split default (§8.1/§13)**, `gen_sites.py` was **not touched*
 | `contrast.py` | WCAG AA audit, 34 foreground/background pairs |
 | `shots.py` | 390px mobile + 1440px desktop capture with horizontal-overflow assertion |
 | `render_assets.py` | og.png (1200×630) + apple-touch-icon.png (180×180) via headless Chromium |
+| `../../logo/marks.py`, `sheet.py` | The four identity concepts explored, and the comparison sheet that stress-tested each at header / 32px / 16px / reversed / one-colour |
 
-The engine **inherits** the `gen_sites.py` design system rather than forking it: same Fraunces/Inter typography, same token names (`--ink/--ink2/--acc/--accd/--accrgb/--cream`), same card/hero/strip/CTA/footer/widget components, same breakpoints (920/860/560), same `prefers-reduced-motion` handling. New theme (navy `#142A44` / bronze `#B98D43`) added for professional services — the existing six trade themes are unchanged.
+The engine **inherits** the `gen_sites.py` design system rather than forking it: same component and token architecture, same token names (`--ink/--ink2/--acc/--accd/--accrgb/--cream`), same card/hero/strip/CTA/footer/widget components, same breakpoints (920/860/560), same `prefers-reduced-motion` handling. New theme (navy `#142A44` / bronze `#B98D43`) and the Source Serif 4 heading face are local to this build — `gen_sites.py` and its six trade themes are untouched, so the single-page hook tool still ships Fraunces unless you want that changed too (say the word and I'll swap it there as well).
 
 Re-runnable for the next build: swap the content modules, keep the engine.
 
@@ -83,7 +86,7 @@ An independent adversarial reviewer checked every factual claim against the rese
 
 ### Three items need the client's confirmation before launch
 1. **Monthly newsletters and the tax seminar series.** Sourced verbatim — from the **2015** site. Advertising a programme that may have ended a decade ago generates inbound requests they cannot fill. Currently removed from the build.
-2. **The published fee policy.** "Transparent prices, no hidden fees" is on their current site and is retained. The claim that this has been their position *for decades* was mine and has been removed. It is also a commercial promise they will be held to.
+2. **The published fee policy — RESOLVED 2026-07-30.** Verified verbatim on kpwcpa.com/services ("Fair Prices" pillar): *"we believe in offering fair and transparent prices with no hidden fees or extra charges."* That wording is theirs and is used as-is. Separately, ~20 instances of **"we quote before the work starts"** were removed — their site says nothing about quoting timing, and I had extrapolated an operational practice from a pricing philosophy. `qa.py` now fails the build on any quoting-timing phrasing.
 3. **Depth of the real estate & construction practice.** Both appear in the source only as *M&A transaction* industries. That page now leads with the sourced basis (facilities taxation, leasing, M&A experience) and presents bonding/job-costing as industry considerations rather than claimed service lines. If they do run a contractor practice, the page can be strengthened considerably.
 
 ## 6. Technical SEO / AEO shipped (§6)
@@ -138,6 +141,7 @@ The engine takes `BASE` as a single constant — the URL rewrite is a one-line c
 ## 10. Known limitations
 
 - **No photographs.** They have none on either site and none on the GBP. The build uses the designed gradient hero + line-art glyph fallback rather than stock imagery implying their offices or staff (guardrail #9). **Real photos of the partners and both offices would materially improve this site** — headshots especially, since the team pages are the strongest asset here.
-- **No logo.** None found. The build uses the serif "KPW" monogram (guardrail #2 — never invent a logo). Swap in a real mark if they have one.
+- **Logo is a PROPOSAL, not their existing mark.** Their real identity is a photographed door plaque (circular K/P/W badges, purple on brushed metal) — unusable on the web. Matt directed a designed alternative. The build ships the "Ruled Lettermark": KPW between two hairlines, the typographic language of a certificate or audit opinion. No container shape, no gradient, one-colour safe, with a simplified single-letter "K" variant for favicon sizes where three letters turn to mush. **The demo must not be presented as their current logo.**
+- **Chat launcher restyled 2026-07-30.** It was navy on a navy hero and disappeared. Now bright gold `#E8B33F` with navy text: 7.58:1 for the label, 6.69:1 against the hero backdrop, both well past AA. Hover lifts to `#F5C453` (8.93:1). Panel border matches so the open widget reads as one object.
 - **Book button is a stub.** Call and text work as `tel:`/`sms:`; the Book action only reveals a "call or email to arrange one" note. Nothing on the site implies it schedules anything (guardrail #5).
 - **No client testimonials.** Neither site carries any, and Google reviews are not being surfaced per §3. If they can supply attributable client quotes, there is a natural place for them on the home page and the industry pages.
