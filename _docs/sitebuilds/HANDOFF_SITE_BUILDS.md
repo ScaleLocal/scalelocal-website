@@ -408,7 +408,32 @@ Touch 2's claims about `kpwcpachicago.com` were **re-verified true on 2026-07-31
 Washington Blvd Suite 320 and 312.421.5780 still published; the Downers Grove listing
 still routes to `Chicago@kpwcpa.com`; HTTPS still fails outright; footer still © 2015.
 
-**Six more campaigns drafted, nothing staged, nothing sent** — `CAMPAIGNS_SIX_FIRMS.md`
+**ALL SEVEN CAMPAIGNS ARE LIVE** as of 2026-07-31. Campaign IDs and first-send dates:
+
+| Campaign | ID | First send |
+|---|---|---|
+| KPW_DownersGrove | 3744204 | next Tue window (7 leads) |
+| Hickey_Tewksbury | 3748518 | Tue 11 Aug |
+| Carella_NorthBillerica | 3748521 | Wed 12 Aug |
+| MillCity_Lowell | 3748522 | Thu 13 Aug |
+| FitzpatrickGoguen_Billerica | 3748523 | Tue 18 Aug |
+| Dorfman_Wilmington | 3748524 | Wed 19 Aug |
+| MassTaxPros_Wilmington | 3748529 | Wed 9 Sep |
+
+Staggered deliberately: one inbox (`matt@hi.scalelocal.net`) warming at 15/day, and the
+**two Wilmington firms are three weeks apart** because they are a mile from each other.
+All six MA campaigns: Tue/Wed/Thu 09:00-11:00 America/New_York, one lead each (every one
+of these firms publishes exactly one address — do not guess patterns).
+
+Goguen's address was settled as **office@bgoguen.com**, confirmed by reading their live
+contact page through a renderer after Cloudflare 403'd direct fetches.
+
+Pre-flight check run on all 24 rendered emails before starting: postal address present,
+opt-out line present, demo link present and pointing at the right slug, no British
+spellings, no unresolved merge tags, page-count word matching the real build. Zero
+problems. **Re-run that check after any site rebuild.**
+
+The original drafts, hooks and evidence are in `CAMPAIGNS_SIX_FIRMS.md` — `CAMPAIGNS_SIX_FIRMS.md`
 holds the full copy, verified recipients and per-firm hooks, all re-verified live
 2026-07-31. The hooks:
 
@@ -439,9 +464,9 @@ Other outreach facts:
 
 ## 15. Open items
 
-1. **Six campaigns drafted but not staged** — `CAMPAIGNS_SIX_FIRMS.md` awaits Matt's OK.
-2. Confirm Goguen's real inbox (`info@` vs `office@`) by eye before sending.
-3. Comms-widget panel construction is still one component in six skins (§7).
+1. **All seven campaigns are live** — watch the inbox. Reply-stop behavior may be
+   per-lead rather than per-domain; if a firm replies, pause by hand.
+2. Comms-widget panel construction is still one component in six skins (§7).
 4. Class-name vocabulary (`.btn`, `.hero`, `.foot`) still recurs across six sites (§2.2).
 5. `vercel.json` — bare directory URLs 404; only `/index.html` resolves.
 6. Delete the duplicate/stale GitHub PAT entry in `API_KEYS.md`.
