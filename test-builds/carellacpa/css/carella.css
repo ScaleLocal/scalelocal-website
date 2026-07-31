@@ -334,9 +334,11 @@ table.plain td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
   .calc{grid-template-columns:minmax(0,1fr) 260px;gap:36px}
   .band{grid-template-columns:120px minmax(0,1fr);gap:28px}
 }
-/* The bar carries a six-item nav, the number and an action. Below this it stops
-   fitting honestly, so it becomes a disclosure list rather than being squeezed. */
-@media (max-width:1180px){
+/* The bar carries brand, a six-item nav, the number and an action. Measured, it
+   stops fitting at about 1350px — which put 1280, one of the commonest laptop
+   widths there is, inside a band that overflowed horizontally. It becomes a
+   disclosure list well before that now. */
+@media (max-width:1360px){
   .topnav,.barcall{display:none}
   .mnav{display:block}
   .topbar .wrap{height:70px;gap:16px}
@@ -364,6 +366,8 @@ table.plain td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
 }
 @media (max-width:620px){
   .barcta{display:none}
+  /* the launcher is fixed; keep it off the headline on first paint */
+  .hero .wrap{padding-bottom:104px}
   .connect{right:14px;bottom:14px}
   .connect .panel{width:min(300px,calc(100vw - 28px))}
 }

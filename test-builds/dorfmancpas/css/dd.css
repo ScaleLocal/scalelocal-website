@@ -76,6 +76,8 @@ strong,b{font-weight:600;color:var(--ink)}
 .connect .foot-note{padding:11px 16px;border-top:1px solid var(--rule);
   font-family:var(--label);font-size:14px;color:var(--note);line-height:1.45}
 @media (max-width:520px){
+  /* the launcher is fixed; keep it clear of the headline on first paint */
+  .hero .gut{padding-bottom:100px}
   .connect{right:14px;bottom:14px}
   .connect .panel{width:min(292px,calc(100vw - 28px))}
 }
