@@ -44,6 +44,9 @@ strong,b{font-weight:700}
 .shell{max-width:1440px;margin:0 auto;padding:0 40px;
   display:grid;grid-template-columns:240px minmax(0,1fr);gap:88px;
   align-items:start}
+@media (min-width:1180px){
+  .shell{grid-template-columns:216px minmax(0,1fr) 268px;gap:44px}
+}
 @media (min-width:1400px){
   .shell{grid-template-columns:240px minmax(0,1fr) 292px;gap:60px}
 }
@@ -106,7 +109,7 @@ strong,b{font-weight:700}
    1180px it becomes a fixed bar across the foot of the screen. No script, no
    network call, no third party. */
 .deskcard{display:none}
-@media (min-width:1400px){
+@media (min-width:1180px){
   .deskcard{display:block;position:sticky;top:52px;align-self:start;
     background:var(--paper);border:1px solid var(--rule2);border-top:3px solid var(--pine);
     box-shadow:0 10px 30px rgba(19,21,17,.07)}
@@ -245,7 +248,7 @@ table.plain td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
 /* ------------------------------------------------------------- calculator */
 .calc{margin-top:8px;display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:48px;
   align-items:start}
-@media (min-width:1400px) and (max-width:1560px){
+@media (min-width:1180px) and (max-width:1560px){
   .calc{grid-template-columns:minmax(0,1fr);gap:0}
   .calcout{position:static;margin-top:32px}
 }
@@ -331,7 +334,7 @@ table.plain td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
   .parts .r{grid-template-columns:120px minmax(0,1fr);gap:16px}
   .foot{margin-top:56px}
 }
-@media (max-width:1399px){
+@media (max-width:1179px){
   .reachbar{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:50;
     grid-template-columns:repeat(3,1fr);background:var(--paper);
     border-top:3px solid var(--pine);box-shadow:0 -8px 22px rgba(19,21,17,.10);
@@ -342,7 +345,7 @@ table.plain td.n{font-variant-numeric:tabular-nums;white-space:nowrap}
   .reachbar a:first-child{border-left:0}
   .reachbar a:hover{background:var(--panel)}
   .reachbar .t{display:block;font-size:13px;font-weight:700;letter-spacing:-.01em}
-  .reachbar .v{display:block;font-size:10px;color:var(--faint);margin-top:2px;
+  .reachbar .v{display:block;font-size:11px;color:var(--faint);margin-top:2px;
     font-variant-numeric:tabular-nums;line-height:1.3}
   .foot .fine{padding-bottom:104px}
 }
