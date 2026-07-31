@@ -408,22 +408,33 @@ Touch 2's claims about `kpwcpachicago.com` were **re-verified true on 2026-07-31
 Washington Blvd Suite 320 and 312.421.5780 still published; the Downers Grove listing
 still routes to `Chicago@kpwcpa.com`; HTTPS still fails outright; footer still © 2015.
 
-**ALL SEVEN CAMPAIGNS ARE LIVE** as of 2026-07-31. Campaign IDs and first-send dates:
+**ALL SEVEN CAMPAIGNS ARE LIVE**, and all seven send on **Tuesday 4 August 2026** —
+Matt's call, made after the stagger below was proposed.
 
-| Campaign | ID | First send |
+| Campaign | ID | Leads |
 |---|---|---|
-| KPW_DownersGrove | 3744204 | next Tue window (7 leads) |
-| Hickey_Tewksbury | 3748518 | Tue 11 Aug |
-| Carella_NorthBillerica | 3748521 | Wed 12 Aug |
-| MillCity_Lowell | 3748522 | Thu 13 Aug |
-| FitzpatrickGoguen_Billerica | 3748523 | Tue 18 Aug |
-| Dorfman_Wilmington | 3748524 | Wed 19 Aug |
-| MassTaxPros_Wilmington | 3748529 | Wed 9 Sep |
+| KPW_DownersGrove | 3744204 | 7 |
+| Hickey_Tewksbury | 3748518 | 1 |
+| Carella_NorthBillerica | 3748521 | 1 |
+| MillCity_Lowell | 3748522 | 1 |
+| FitzpatrickGoguen_Billerica | 3748523 | 1 |
+| Dorfman_Wilmington | 3748524 | 1 |
+| MassTaxPros_Wilmington | 3748529 | 1 |
 
-Staggered deliberately: one inbox (`matt@hi.scalelocal.net`) warming at 15/day, and the
-**two Wilmington firms are three weeks apart** because they are a mile from each other.
-All six MA campaigns: Tue/Wed/Thu 09:00-11:00 America/New_York, one lead each (every one
-of these firms publishes exactly one address — do not guess patterns).
+All Tue/Wed/Thu 09:00-11:00, `min_time_btw_emails` 15. KPW runs America/Chicago, the six
+MA firms America/New_York. Delays `[0,5,7,28]` throughout, so the whole batch moves in
+lockstep: touch 1 Tue 4 Aug, touch 2 Tue 11 Aug, touch 3 Tue 18 Aug, touch 4 Tue 15 Sep.
+
+**Volume: 13 emails per send day against a 15/day inbox cap** on the single warming inbox
+`matt@hi.scalelocal.net`. It fits, with two to spare. If a firm is added, raise the inbox
+cap first — do not let a campaign silently defer.
+
+**A stagger was proposed and overridden.** The original plan spread the six MA firms over
+two weeks and put the two Wilmington firms three weeks apart, because Dorfman and Mass Tax
+Pros are a mile from each other. They now land the same morning. That is a real
+adjacency risk, and it is materially reduced by the fact that the two sites share zero
+sentences and zero layout after this session's work — but if either firm mentions the
+other, that is why.
 
 Goguen's address was settled as **office@bgoguen.com**, confirmed by reading their live
 contact page through a renderer after Cloudflare 403'd direct fetches.
