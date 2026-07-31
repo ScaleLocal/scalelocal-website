@@ -33,7 +33,7 @@ strong,b{font-weight:600;color:var(--ink)}
 .skip{position:absolute;left:-9999px;background:var(--slate);color:#fff;padding:10px 16px;
   z-index:99;font-family:var(--label);font-weight:600}
 .skip:focus{left:10px;top:10px}
-.gut{max-width:1160px;margin:0 auto;padding:0 32px}
+.gut{max-width:1200px;margin:0 auto;padding:0 30px}
 
 .demo{background:var(--dark);color:#C6CCD2;font-family:var(--label);font-size:14px;
   line-height:1.5;padding:8px 0;text-align:center}
@@ -45,15 +45,50 @@ strong,b{font-weight:600;color:var(--ink)}
    sites, and it satisfies the requirement without inventing a new paradigm.
    Call, email and request an appointment, always visible, no script, no
    network call, no third party. */
-.util{background:var(--tint);border-bottom:1px solid var(--rule)}
-.util .gut{display:flex;justify-content:flex-end;gap:0;flex-wrap:wrap}
-.util a{display:flex;align-items:baseline;gap:8px;padding:9px 18px;text-decoration:none;
-  color:var(--body);font-family:var(--label);font-size:16px;letter-spacing:.02em;
-  border-left:1px solid var(--rule)}
-.util a:first-child{border-left:0}
-.util a b{font-weight:600;color:var(--ink)}
-.util a:hover{background:var(--sheet);color:var(--slate-dk)}
-.util a:hover b{color:var(--slate-dk)}
+/* ========================= THE COMMS WIDGET ================================
+   A floating launcher, bottom right, on every page of every site. Click it and
+   it opens click-to-dial, click-to-email and click-to-book.
+   Built on <details>/<summary>: works with JavaScript off, keyboard operable
+   for free, and it announces its own open/closed state. No script, no network
+   call, nothing third-party. Function and position are identical across every
+   site in this batch; the styling is this firm's alone. */
+.connect{position:fixed;right:22px;bottom:22px;z-index:80}
+.connect > summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;
+  gap:10px;background:var(--slate);color:#fff;font-family:var(--label);font-size:17px;
+  font-weight:600;letter-spacing:.03em;padding:13px 22px;border:2px solid var(--slate);
+  box-shadow:0 6px 20px rgba(21,24,27,.22)}
+.connect > summary::-webkit-details-marker{display:none}
+.connect > summary:hover{background:var(--slate-dk);border-color:var(--slate-dk)}
+.connect > summary .ic{width:19px;height:19px;flex:0 0 19px;display:block}
+.connect > summary .ic svg{width:100%;height:100%;display:block}
+.connect > summary .x{display:none}
+.connect[open] > summary{background:var(--sheet);color:var(--slate-dk)}
+.connect[open] > summary .lbl{display:none}
+.connect[open] > summary .x{display:inline}
+.connect .panel{position:absolute;right:0;bottom:calc(100% + 10px);width:292px;
+  background:var(--sheet);border:2px solid var(--slate);
+  box-shadow:0 14px 40px rgba(21,24,27,.24)}
+.connect .ph{background:var(--slate);color:#fff;font-family:var(--label);font-size:14.5px;
+  font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:8px 16px}
+.connect .panel a{display:block;padding:13px 16px;text-decoration:none;color:var(--ink);
+  border-top:1px solid var(--rule)}
+.connect .panel a:first-of-type{border-top:0}
+.connect .panel a .t{display:block;font-family:var(--serif);font-size:17px;font-weight:600;
+  line-height:1.25}
+.connect .panel a .v{display:block;font-family:var(--label);font-size:15px;color:var(--note);
+  margin-top:1px}
+.connect .panel a:hover{background:var(--tint)}
+.connect .panel a:hover .t{color:var(--slate-dk)}
+.connect .foot-note{padding:11px 16px;border-top:1px solid var(--rule);
+  font-family:var(--label);font-size:14px;color:var(--note);line-height:1.45}
+@media (max-width:520px){
+  .connect{right:14px;bottom:14px}
+  .connect .panel{width:min(292px,calc(100vw - 28px))}
+}
+.barcall{font-family:var(--label);font-size:16px;font-weight:600;color:var(--ink);
+  text-decoration:none;white-space:nowrap;padding:7px 8px}
+.barcall:hover{color:var(--slate-dk)}
+.util-removed{display:none}
 
 /* ---------------------------------------------- conventional top navigation */
 .bar{background:var(--page);border-bottom:1px solid var(--rule);position:sticky;top:0;
@@ -70,13 +105,14 @@ strong,b{font-weight:600;color:var(--ink)}
   white-space:nowrap}
 .mark:hover .nm{color:var(--slate-dk)}
 .links{display:flex;align-items:center;gap:2px;flex-wrap:wrap;justify-content:flex-end}
-.links a{font-family:var(--label);font-size:16px;font-weight:500;letter-spacing:.02em;
-  color:var(--body);text-decoration:none;padding:7px 10px;white-space:nowrap}
+.links a{font-family:var(--label);font-size:15.5px;font-weight:500;letter-spacing:.01em;
+  color:var(--body);text-decoration:none;padding:7px 8px;white-space:nowrap}
 .links a:hover{color:var(--ink)}
 .links a[aria-current]{color:var(--slate-dk);font-weight:600}
-.links a.cta{background:var(--slate);color:#fff;font-weight:600;padding:9px 16px;
-  margin-left:6px}
-.links a.cta:hover{background:var(--slate-dk);color:#fff}
+.cta{background:var(--slate);color:#fff;font-weight:600;padding:10px 16px;
+  font-family:var(--label);font-size:16px;letter-spacing:.03em;text-decoration:none;
+  white-space:nowrap}
+.cta:hover{background:var(--slate-dk);color:#fff}
 
 /* ============================== THE HERO ==================================
    A plain promise, room to breathe, and one obvious thing to do next. */
@@ -287,13 +323,10 @@ table.reg2 td.q{font-family:var(--label);font-weight:600;color:var(--ink);white-
   .bar .gut{flex-wrap:wrap;gap:12px}
   .links{gap:0}
   .links a{padding:7px 9px;font-size:16px}
-  .util .gut{justify-content:center}
-  .util a{padding:8px 12px;font-size:15px}
 }
 @media (max-width:520px){
   .reg a,.reg .r{grid-template-columns:26px minmax(0,1fr)}
   .reg .x{grid-column:2;text-align:left}
   .res .rv{font-size:36px}
-  .util a b{display:none}
 }
-@media print{.demo,.bar,.util,.map,.close-cta{display:none}}
+@media print{.demo,.bar,.connect,.map,.close-cta{display:none}}
