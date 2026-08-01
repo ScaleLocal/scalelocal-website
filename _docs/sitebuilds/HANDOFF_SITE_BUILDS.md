@@ -5,6 +5,21 @@ as of **2026-07-31**, verified live, not remembered.
 
 ---
 
+## 0. READ `_docs/sitebuilds/SOURCE_STATE.md` FIRST
+
+On 2026-07-31 the sandbox rolled back several hours of build-source work. The
+deployed sites were unaffected and are correct; the `site_*.py` builders were
+not. `site_masstaxpros.py` and `site_kpw.py` are missing entirely;
+`site_carella.py` and `site_goguen.py` are stale and would undo real work if
+rebuilt from.
+
+**`test-builds/` in the website repo is the source of truth for what is
+shipped.** Diff any builder's output against it before trusting the builder.
+And commit the source tree to the repo at the end of every session — it now
+lives at `_docs/sitebuilds/src/`.
+
+---
+
 ## 1. The mission
 
 Matt (ScaleLocal, Tewksbury/Abington MA) sells completed websites to small accounting
