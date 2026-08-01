@@ -200,10 +200,15 @@ h3{font-size:19px;letter-spacing:-.006em}
 .person:hover{box-shadow:var(--shadow-lift);transform:translateY(-2px)}
 .person{transition:box-shadow .18s ease,transform .18s ease}
 @media (prefers-reduced-motion:reduce){.person{transition:none}.person:hover{transform:none}}
-.person .mono{width:52px;height:52px;border-radius:50%;background:var(--indigo);color:#fff;
-  display:flex;align-items:center;justify-content:center;font-family:var(--disp);
-  font-size:19px;font-weight:600;letter-spacing:.01em;margin-bottom:14px}
-.person .mono.alt{background:var(--sand-2);color:var(--ink)}
+.person .face{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:50% 22%;
+  display:block;margin-bottom:14px;background:var(--sand-2);
+  box-shadow:0 0 0 3px var(--card),0 0 0 5px var(--sand-2)}
+.person:hover .face{box-shadow:0 0 0 3px var(--card),0 0 0 5px var(--indigo)}
+.mem{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));
+  gap:14px;margin-top:20px}
+.mem li{background:var(--sand);border-radius:var(--rad);padding:15px 17px}
+.mem b{display:block;font-family:var(--disp);font-size:17px;font-weight:600;color:var(--indigo)}
+.mem span{display:block;margin-top:4px;font-size:13.5px;color:var(--muted);line-height:1.45}
 .person .nm{font-family:var(--disp);font-size:19px;font-weight:600;color:var(--ink);
   line-height:1.2}
 .person .cr{display:block;margin-top:5px;font-size:12.5px;font-weight:700;
