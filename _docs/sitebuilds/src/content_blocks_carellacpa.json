@@ -1,0 +1,2101 @@
+{
+ "about.html": {
+  "title": "About the Practice | Charles M. Carella, CPA",
+  "desc": "What this CPA office does, how an engagement runs from first call to filing, and exactly what to gather before an appointment. North Billerica, Massachusetts.",
+  "h1": "About the work.",
+  "sub": "A short account of what this office does, how an engagement actually runs, and what to have ready before it starts.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "A short account of what this office does, how an engagement actually runs, and what to have ready before it starts.",
+    "text": "A short account of what this office does, how an engagement actually runs, and what to have ready before it starts."
+   },
+   {
+    "tag": "p",
+    "html": "Charles M. Carella, CPA is a Certified Public Accountant\u2019s office at 330 Boston Road, Suite 12, in North Billerica, Massachusetts. The work is tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting, for individuals and for small businesses.",
+    "text": "Charles M. Carella, CPA is a Certified Public Accountant\u2019s office at 330 Boston Road, Suite 12, in North Billerica, Massachusetts. The work is tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting, for individuals and for small businesses."
+   },
+   {
+    "tag": "p",
+    "html": "That is a deliberately plain description, and this page is going to stay plain. What follows is about the work: what the license behind it means, how an engagement runs, and what to bring.",
+    "text": "That is a deliberately plain description, and this page is going to stay plain. What follows is about the work: what the license behind it means, how an engagement runs, and what to bring."
+   },
+   {
+    "tag": "h2",
+    "html": "What the credential is",
+    "text": "What the credential is"
+   },
+   {
+    "tag": "p",
+    "html": "Anybody may prepare a tax return for payment provided they hold a preparer tax identification number. The bar for calling yourself an accountant is lower still: there is not one.",
+    "text": "Anybody may prepare a tax return for payment provided they hold a preparer tax identification number. The bar for calling yourself an accountant is lower still: there is not one."
+   },
+   {
+    "tag": "p",
+    "html": "A Certified Public Accountant is licensed by a state board. The license requires passing the Uniform CPA Examination, meeting education and experience requirements, and then continuing to meet annual professional education requirements to keep it. It carries a code of professional conduct with a disciplinary process attached, and it can be revoked.",
+    "text": "A Certified Public Accountant is licensed by a state board. The license requires passing the Uniform CPA Examination, meeting education and experience requirements, and then continuing to meet annual professional education requirements to keep it. It carries a code of professional conduct with a disciplinary process attached, and it can be revoked."
+   },
+   {
+    "tag": "p",
+    "html": "Two consequences matter to a client. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most paid preparers do not. And the same license covers the work either side of the return: the books it is built from, the statements a lender asks for, and the structural questions that decide what next year\u2019s return will look like.",
+    "text": "Two consequences matter to a client. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most paid preparers do not. And the same license covers the work either side of the return: the books it is built from, the statements a lender asks for, and the structural questions that decide what next year\u2019s return will look like."
+   },
+   {
+    "tag": "h2",
+    "html": "How an engagement runs",
+    "text": "How an engagement runs"
+   },
+   {
+    "tag": "p",
+    "html": "Accounting work has a shape, and it is worth knowing before you start.",
+    "text": "Accounting work has a shape, and it is worth knowing before you start."
+   },
+   {
+    "tag": "h3",
+    "html": "The first conversation",
+    "text": "The first conversation"
+   },
+   {
+    "tag": "p",
+    "html": "Short, and mostly diagnostic: what kind of return or engagement this is, roughly what the year looked like, whether there is a business and how it is organized, and what deadline is driving the question. Ten minutes normally settles whether the work is a tax matter, an accounting matter, or both, and what it involves.",
+    "text": "Short, and mostly diagnostic: what kind of return or engagement this is, roughly what the year looked like, whether there is a business and how it is organized, and what deadline is driving the question. Ten minutes normally settles whether the work is a tax matter, an accounting matter, or both, and what it involves."
+   },
+   {
+    "tag": "p",
+    "html": "The most useful thing you can do in that conversation is describe the awkward part. Unfiled years, a notice sitting on the desk, books that stopped reconciling in June, a partner who left \u2014 none of those are unusual, and all of them change the order of the work. Discovered at the start they are a plan. Discovered at the end they are a problem.",
+    "text": "The most useful thing you can do in that conversation is describe the awkward part. Unfiled years, a notice sitting on the desk, books that stopped reconciling in June, a partner who left \u2014 none of those are unusual, and all of them change the order of the work. Discovered at the start they are a plan. Discovered at the end they are a problem."
+   },
+   {
+    "tag": "h3",
+    "html": "Gathering",
+    "text": "Gathering"
+   },
+   {
+    "tag": "p",
+    "html": "Then the records. Completeness here decides most of what follows: a complete file produces fewer questions, a shorter engagement and a lower chance of an amended return later. The list is below.",
+    "text": "Then the records. Completeness here decides most of what follows: a complete file produces fewer questions, a shorter engagement and a lower chance of an amended return later. The list is below."
+   },
+   {
+    "tag": "h3",
+    "html": "The work",
+    "text": "The work"
+   },
+   {
+    "tag": "p",
+    "html": "Preparation, and then the questions that come out of it. Anything unusual in your year is a reason to ask rather than to assume, and the questions are better delivered in one batch than as a trickle over three weeks.",
+    "text": "Preparation, and then the questions that come out of it. Anything unusual in your year is a reason to ask rather than to assume, and the questions are better delivered in one batch than as a trickle over three weeks."
+   },
+   {
+    "tag": "h3",
+    "html": "Review and filing",
+    "text": "Review and filing"
+   },
+   {
+    "tag": "p",
+    "html": "Nothing is transmitted before you have seen it, and that is a rule rather than a courtesy: a return filed electronically requires the taxpayer\u2019s signed authorization first. A paid preparer signs the return as well and must give you a complete copy of it. Keep the copy. It is the starting point for next year, for a lender, and for anything that surfaces afterwards.",
+    "text": "Nothing is transmitted before you have seen it, and that is a rule rather than a courtesy: a return filed electronically requires the taxpayer\u2019s signed authorization first. A paid preparer signs the return as well and must give you a complete copy of it. Keep the copy. It is the starting point for next year, for a lender, and for anything that surfaces afterwards."
+   },
+   {
+    "tag": "h3",
+    "html": "The year that is still open",
+    "text": "The year that is still open"
+   },
+   {
+    "tag": "p",
+    "html": "Filing closes a year that has already happened. Almost every decision that changes a tax bill belongs to the year that has not finished yet \u2014 how the business is organized, what the owner takes as wages against distributions, when equipment is bought, whether a retirement plan contribution gets made, how a sale is structured. Which is why an autumn conversation is generally worth more than an April one.",
+    "text": "Filing closes a year that has already happened. Almost every decision that changes a tax bill belongs to the year that has not finished yet \u2014 how the business is organized, what the owner takes as wages against distributions, when equipment is bought, whether a retirement plan contribution gets made, how a sale is structured. Which is why an autumn conversation is generally worth more than an April one."
+   },
+   {
+    "tag": "h2",
+    "html": "What to bring",
+    "text": "What to bring"
+   },
+   {
+    "tag": "p",
+    "html": "More is better than less, and a gap is worth mentioning rather than working around.",
+    "text": "More is better than less, and a gap is worth mentioning rather than working around."
+   },
+   {
+    "tag": "h3",
+    "html": "Everyone",
+    "text": "Everyone"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>Last year\u2019s federal and state returns, complete, including the schedules</li><li>Names, dates of birth and Social Security numbers for everyone on the return</li><li>Bank details if a refund is to be deposited directly</li><li>Any notice received from the IRS or the Massachusetts Department of Revenue, with its envelope</li>",
+    "text": "Last year\u2019s federal and state returns, complete, including the schedules Names, dates of birth and Social Security numbers for everyone on the return Bank details if a refund is to be deposited directly Any notice received from the IRS or the Massachusetts Department of Revenue, with its envelope"
+   },
+   {
+    "tag": "h3",
+    "html": "Income",
+    "text": "Income"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>W-2 forms, and the 1099 forms \u2014 interest, dividends, retirement distributions, brokerage proceeds, contract income, state refunds</li><li>Brokerage statements showing cost basis for anything sold, not just the proceeds</li><li>K-1 forms from a partnership, an S corporation, a trust or an estate</li><li>Rental income and the expenses against it</li><li>Records of any income that arrived without a form attached to it</li>",
+    "text": "W-2 forms, and the 1099 forms \u2014 interest, dividends, retirement distributions, brokerage proceeds, contract income, state refunds Brokerage statements showing cost basis for anything sold, not just the proceeds K-1 forms from a partnership, an S corporation, a trust or an estate Rental income and the expenses against it Records of any income that arrived without a form attached to it"
+   },
+   {
+    "tag": "h3",
+    "html": "Deductions, credits and payments",
+    "text": "Deductions, credits and payments"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>Mortgage interest and property tax statements</li><li>Tuition statements, student loan interest, and childcare paid, with the provider\u2019s identification number</li><li>Retirement and health savings account contributions made outside payroll</li><li>Charitable receipts, and written acknowledgement for anything substantial</li><li>Health coverage forms</li><li>Estimated tax payments made during the year, with the dates and amounts</li>",
+    "text": "Mortgage interest and property tax statements Tuition statements, student loan interest, and childcare paid, with the provider\u2019s identification number Retirement and health savings account contributions made outside payroll Charitable receipts, and written acknowledgement for anything substantial Health coverage forms Estimated tax payments made during the year, with the dates and amounts"
+   },
+   {
+    "tag": "h3",
+    "html": "If there is a business",
+    "text": "If there is a business"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>The books for the year, or the bank and card statements if there are no books</li><li>A depreciation schedule, and details of anything bought or sold during the year</li><li>Payroll reports and any 1099 forms issued to contractors</li><li>Loan statements showing the year-end balance and the interest paid</li><li>The entity\u2019s formation documents and any election filed \u2014 especially an S election \u2014 if this is a first engagement</li>",
+    "text": "The books for the year, or the bank and card statements if there are no books A depreciation schedule, and details of anything bought or sold during the year Payroll reports and any 1099 forms issued to contractors Loan statements showing the year-end balance and the interest paid The entity\u2019s formation documents and any election filed \u2014 especially an S election \u2014 if this is a first engagement"
+   },
+   {
+    "tag": "h3",
+    "html": "Anything that changed",
+    "text": "Anything that changed"
+   },
+   {
+    "tag": "p",
+    "html": "A marriage or a divorce, a birth, a death, a house bought or sold, a move to or from another state, a business started or closed, a large gift given or received, an inheritance, a retirement, a first year of self-employment. Each of these changes the return, and each is easier to handle when it is mentioned at the start.",
+    "text": "A marriage or a divorce, a birth, a death, a house bought or sold, a move to or from another state, a business started or closed, a large gift given or received, an inheritance, a retirement, a first year of self-employment. Each of these changes the return, and each is easier to handle when it is mentioned at the start."
+   },
+   {
+    "tag": "p",
+    "html": "<strong>On scope and fees.</strong> This site describes the services offered and what the work generally involves. What your own engagement covers, how long it takes and what it costs are settled in conversation with the office \u2014 there is no published fee schedule, because the work is not uniform.",
+    "text": "On scope and fees. This site describes the services offered and what the work generally involves. What your own engagement covers, how long it takes and what it costs are settled in conversation with the office \u2014 there is no published fee schedule, because the work is not uniform."
+   },
+   {
+    "tag": "h2",
+    "html": "Confidentiality",
+    "text": "Confidentiality"
+   },
+   {
+    "tag": "p",
+    "html": "Client information is confidential. For a CPA that is a professional obligation with enforcement behind it rather than an internal policy, and it covers the fact of the engagement as well as its contents. Federal law adds a further restriction specific to tax work: information supplied for the preparation of a return may not be used for another purpose or disclosed to anybody else without the taxpayer\u2019s written consent.",
+    "text": "Client information is confidential. For a CPA that is a professional obligation with enforcement behind it rather than an internal policy, and it covers the fact of the engagement as well as its contents. Federal law adds a further restriction specific to tax work: information supplied for the preparation of a return may not be used for another purpose or disclosed to anybody else without the taxpayer\u2019s written consent."
+   },
+   {
+    "tag": "h2",
+    "html": "Where to go next",
+    "text": "Where to go next"
+   },
+   {
+    "tag": "p",
+    "html": "The <a href=\"services/index.html\">services section</a> covers the four practice areas in detail. The <a href=\"faq.html\">questions page</a> answers the things people ask before they call. The <a href=\"calculators/index.html\">calculators</a> are there for sizing a question before you raise it. Or call <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a>.",
+    "text": "The services section covers the four practice areas in detail. The questions page answers the things people ask before they call. The calculators are there for sizing a question before you raise it. Or call (978) 663-6419 ext. 11 ."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Common questions"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax Preparation &amp; Planning</a></li><li><a href=\"services/accounting-bookkeeping.html\"><span class=\"ck\">\u2192</span> Accounting &amp; Bookkeeping</a></li><li><a href=\"services/financial-statements.html\"><span class=\"ck\">\u2192</span> Financial Statement Preparation</a></li><li><a href=\"services/business-consulting.html\"><span class=\"ck\">\u2192</span> Business Consulting</a></li>",
+    "text": "\u2192 Tax Preparation & Planning \u2192 Accounting & Bookkeeping \u2192 Financial Statement Preparation \u2192 Business Consulting"
+   }
+  ]
+ },
+ "contact.html": {
+  "title": "Contact | Charles M. Carella, CPA | North Billerica, MA",
+  "desc": "Reach the office at 330 Boston Road, Suite 12, North Billerica, Massachusetts. Telephone (978) 663-6419 ext. 11, with a map and directions.",
+  "h1": "Call the office.",
+  "sub": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "h2",
+    "html": "330 Boston Road, Suite 12",
+    "text": "330 Boston Road, Suite 12"
+   },
+   {
+    "tag": "p",
+    "html": "One office, in North Billerica, Massachusetts.",
+    "text": "One office, in North Billerica, Massachusetts."
+   },
+   {
+    "tag": "p",
+    "html": "The map is interactive \u2014 pan, zoom, or open it full screen for directions.",
+    "text": "The map is interactive \u2014 pan, zoom, or open it full screen for directions."
+   },
+   {
+    "tag": "p",
+    "html": "330 Boston Road, Suite 12<br/>North Billerica, MA 01862",
+    "text": "330 Boston Road, Suite 12 North Billerica, MA 01862"
+   },
+   {
+    "tag": "p",
+    "html": "Telephone (978) 663-6419 ext. 11<br/>Facsimile (978) 663-7260<br/>CMCCPA@carellacpa.com",
+    "text": "Telephone (978) 663-6419 ext. 11 Facsimile (978) 663-7260 CMCCPA@carellacpa.com"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"https://www.google.com/maps/search/?api=1&amp;query=Charles+M.+Carella+CPA+330+Boston+Road+Suite+12+North+Billerica+MA+01862\" rel=\"noopener\" target=\"_blank\"><span class=\"ck\">\u2192</span> Directions in Google Maps</a></li><li><a href=\"mailto:CMCCPA@carellacpa.com\"><span class=\"ck\">\u2192</span> CMCCPA@carellacpa.com</a></li><li><a href=\"about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Directions in Google Maps \u2192 CMCCPA@carellacpa.com \u2192 What to bring \u2192 Common questions"
+   },
+   {
+    "tag": "h2",
+    "html": "Dialing the number",
+    "text": "Dialing the number"
+   },
+   {
+    "tag": "p",
+    "html": "The office number is <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a>. The extension is dialled after the call connects \u2014 on a mobile, tapping the link places the call and you enter <strong>11</strong> when prompted. The fax line is (978) 663-7260.",
+    "text": "The office number is (978) 663-6419 ext. 11 . The extension is dialled after the call connects \u2014 on a mobile, tapping the link places the call and you enter 11 when prompted. The fax line is (978) 663-7260."
+   },
+   {
+    "tag": "h2",
+    "html": "What a first call covers",
+    "text": "What a first call covers"
+   },
+   {
+    "tag": "p",
+    "html": "Three things, and it rarely takes longer than ten minutes: what kind of return or engagement this is, roughly what the year looked like, and what deadline is driving the question. If there is a business, how it is organized matters as well \u2014 sole proprietorship, partnership, LLC, S corporation, corporation \u2014 because that decides which return is involved and when it is due.",
+    "text": "Three things, and it rarely takes longer than ten minutes: what kind of return or engagement this is, roughly what the year looked like, and what deadline is driving the question. If there is a business, how it is organized matters as well \u2014 sole proprietorship, partnership, LLC, S corporation, corporation \u2014 because that decides which return is involved and when it is due."
+   },
+   {
+    "tag": "p",
+    "html": "The most useful thing to raise early is whatever is awkward. Years that were never filed, a notice with a date on it, books that stopped reconciling, a business that closed mid-year. None of those are unusual. All of them change the order in which the work is done.",
+    "text": "The most useful thing to raise early is whatever is awkward. Years that were never filed, a notice with a date on it, books that stopped reconciling, a business that closed mid-year. None of those are unusual. All of them change the order in which the work is done."
+   },
+   {
+    "tag": "h2",
+    "html": "What to have in front of you",
+    "text": "What to have in front of you"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>Last year\u2019s return, if you can find it \u2014 not essential for a first call, but useful</li><li>Any notice you have received, so the date on it can be read out</li><li>For a business: how it is organized, and roughly what revenue looks like</li><li>The deadline you are working against, if there is one</li>",
+    "text": "Last year\u2019s return, if you can find it \u2014 not essential for a first call, but useful Any notice you have received, so the date on it can be read out For a business: how it is organized, and roughly what revenue looks like The deadline you are working against, if there is one"
+   },
+   {
+    "tag": "p",
+    "html": "The <a href=\"about.html#bring\">full list of what to gather</a> is for the appointment rather than the call. Missing pieces are not a reason to wait.",
+    "text": "The full list of what to gather is for the appointment rather than the call. Missing pieces are not a reason to wait."
+   },
+   {
+    "tag": "h2",
+    "html": "By post or by fax",
+    "text": "By post or by fax"
+   },
+   {
+    "tag": "p",
+    "html": "Documents can be sent to 330 Boston Road, Suite 12, North Billerica, MA 01862, or to the fax line above. Which route makes sense depends on what you have, so it is worth asking on the call rather than guessing. Never send Social Security numbers or account details in an unencrypted email.",
+    "text": "Documents can be sent to 330 Boston Road, Suite 12, North Billerica, MA 01862, or to the fax line above. Which route makes sense depends on what you have, so it is worth asking on the call rather than guessing. Never send Social Security numbers or account details in an unencrypted email."
+   },
+   {
+    "tag": "h2",
+    "html": "Confidentiality",
+    "text": "Confidentiality"
+   },
+   {
+    "tag": "p",
+    "html": "Everything said in that first conversation is confidential, including the fact that you called. For a CPA that obligation is professional and enforceable rather than a matter of policy.",
+    "text": "Everything said in that first conversation is confidential, including the fact that you called. For a CPA that obligation is professional and enforceable rather than a matter of policy."
+   },
+   {
+    "tag": "p",
+    "html": "Send a note describing the situation and what you are working against.",
+    "text": "Send a note describing the situation and what you are working against."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"services/index.html\"><span class=\"ck\">\u2192</span> The four services</a></li><li><a href=\"calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li>",
+    "text": "\u2192 What to bring \u2192 How an engagement runs \u2192 The four services \u2192 Financial calculators"
+   }
+  ]
+ },
+ "faq.html": {
+  "title": "Common Questions | Charles M. Carella, CPA",
+  "desc": "Straight answers on CPA fees, deadlines and extensions, unfiled returns, IRS notices, Massachusetts part-year filing, record retention, and confidentiality.",
+  "h1": "Questions worth asking before you call.",
+  "sub": "If yours is not here, the answer is a short phone call rather than a form.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "If yours is not here, the answer is a short phone call rather than a form.",
+    "text": "If yours is not here, the answer is a short phone call rather than a form."
+   },
+   {
+    "tag": "h2",
+    "html": "Working with a CPA",
+    "text": "Working with a CPA"
+   },
+   {
+    "tag": "p",
+    "html": "What the credential means, what an engagement involves, and what things cost.",
+    "text": "What the credential means, what an engagement involves, and what things cost."
+   },
+   {
+    "tag": "p",
+    "html": "Anyone with a preparer tax identification number may prepare a return for a fee. A Certified Public Accountant has passed the Uniform CPA Examination and holds an active state license, which carries continuing education requirements and a professional code of conduct with enforcement behind it.",
+    "text": "Anyone with a preparer tax identification number may prepare a return for a fee. A Certified Public Accountant has passed the Uniform CPA Examination and holds an active state license, which carries continuing education requirements and a professional code of conduct with enforcement behind it."
+   },
+   {
+    "tag": "p",
+    "html": "The practical difference shows up in two places. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most preparers do not. And a CPA can work across the whole picture rather than the return alone: the books that feed it, the statements a lender wants, and the structural questions that decide next year\u2019s number.",
+    "text": "The practical difference shows up in two places. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most preparers do not. And a CPA can work across the whole picture rather than the return alone: the books that feed it, the statements a lender wants, and the structural questions that decide next year\u2019s number."
+   },
+   {
+    "tag": "p",
+    "html": "Both. This office prepares returns and plans for individuals and for small businesses, and does the accounting and bookkeeping, financial statement preparation and business consulting behind them. For an owner-operated business that combination is the point: the entity return, the owner\u2019s return and the books are one problem seen from three sides.",
+    "text": "Both. This office prepares returns and plans for individuals and for small businesses, and does the accounting and bookkeeping, financial statement preparation and business consulting behind them. For an owner-operated business that combination is the point: the entity return, the owner\u2019s return and the books are one problem seen from three sides."
+   },
+   {
+    "tag": "p",
+    "html": "There is no published fee schedule, because the work is not uniform. What a return or an engagement takes depends on how many moving parts there are and on the condition of the records it is built from \u2014 which is why the useful first step is a short call describing the situation rather than a price list. Call <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe what you have.",
+    "text": "There is no published fee schedule, because the work is not uniform. What a return or an engagement takes depends on how many moving parts there are and on the condition of the records it is built from \u2014 which is why the useful first step is a short call describing the situation rather than a price list. Call (978) 663-6419 ext. 11 and describe what you have."
+   },
+   {
+    "tag": "p",
+    "html": "Last year\u2019s return, this year\u2019s income documents, and anything that changed. The <a href=\"about.html#bring\">full list is here</a>, but the general rule is that more is better and gaps are worth mentioning rather than working around. If something is missing, say so at the start \u2014 it usually changes the order of the work rather than whether it can be done.",
+    "text": "Last year\u2019s return, this year\u2019s income documents, and anything that changed. The full list is here , but the general rule is that more is better and gaps are worth mentioning rather than working around. If something is missing, say so at the start \u2014 it usually changes the order of the work rather than whether it can be done."
+   },
+   {
+    "tag": "p",
+    "html": "Call the office and ask. Which route makes sense depends on what you have and what form it is in, and it is a two-minute conversation rather than something worth guessing at. The office is at 330 Boston Road, Suite 12, in North Billerica.",
+    "text": "Call the office and ask. Which route makes sense depends on what you have and what form it is in, and it is a two-minute conversation rather than something worth guessing at. The office is at 330 Boston Road, Suite 12, in North Billerica."
+   },
+   {
+    "tag": "h2",
+    "html": "Deadlines, notices and records",
+    "text": "Deadlines, notices and records"
+   },
+   {
+    "tag": "p",
+    "html": "The questions that arrive with a letter, a date, or a year that got away.",
+    "text": "The questions that arrive with a letter, a date, or a year that got away."
+   },
+   {
+    "tag": "p",
+    "html": "It depends what month it is. Before 31 December, most things are still open \u2014 the timing of income and purchases, retirement plan contributions, how a transaction is structured, whether an entity election makes sense. After 31 December the list shortens to a handful of items: certain self-employed retirement contributions, an IRA, and a few accounting method questions. That is the argument for an autumn conversation.",
+    "text": "It depends what month it is. Before 31 December, most things are still open \u2014 the timing of income and purchases, retirement plan contributions, how a transaction is structured, whether an entity election makes sense. After 31 December the list shortens to a handful of items: certain self-employed retirement contributions, an IRA, and a few accounting method questions. That is the argument for an autumn conversation."
+   },
+   {
+    "tag": "p",
+    "html": "It is a more common situation than people assume, and it does not improve while it is left. There is no time limit on assessing a year that was never filed, and the penalties for failing to file are considerably heavier than those for failing to pay. Say it plainly on the first call. Unfiled years change what the work looks like \u2014 usually oldest first, using transcripts to reconstruct what was reported to the agencies \u2014 but not whether it can be done.",
+    "text": "It is a more common situation than people assume, and it does not improve while it is left. There is no time limit on assessing a year that was never filed, and the penalties for failing to file are considerably heavier than those for failing to pay. Say it plainly on the first call. Unfiled years change what the work looks like \u2014 usually oldest first, using transcripts to reconstruct what was reported to the agencies \u2014 but not whether it can be done."
+   },
+   {
+    "tag": "p",
+    "html": "No, but you do need to read the date on it. Most notices are automated, some are simply wrong, and many are resolved with one letter and a document. What turns a notice into a real problem is letting the response window close, because an unanswered proposal becomes an assessment. Send the notice on before responding to it.",
+    "text": "No, but you do need to read the date on it. Most notices are automated, some are simply wrong, and many are resolved with one letter and a document. What turns a notice into a real problem is letting the response window close, because an unanswered proposal becomes an assessment. Send the notice on before responding to it."
+   },
+   {
+    "tag": "p",
+    "html": "CPAs hold unlimited representation rights before the IRS. Whether representation forms part of your engagement is something to agree with the office.",
+    "text": "CPAs hold unlimited representation rights before the IRS. Whether representation forms part of your engagement is something to agree with the office."
+   },
+   {
+    "tag": "p",
+    "html": "A part-year resident files Massachusetts Form 1-NR/PY and reports income earned while resident, plus Massachusetts-source income from the rest of the year. If you also worked in another state, both states may tax the same income, and a credit mechanism is meant to prevent that being paid twice. It is worth getting right; it is one of the more common sources of an amended return.",
+    "text": "A part-year resident files Massachusetts Form 1-NR/PY and reports income earned while resident, plus Massachusetts-source income from the rest of the year. If you also worked in another state, both states may tax the same income, and a credit mechanism is meant to prevent that being paid twice. It is worth getting right; it is one of the more common sources of an amended return."
+   },
+   {
+    "tag": "p",
+    "html": "No. A federal extension moves the filing deadline to October and does nothing about the balance \u2014 interest and penalties run from the original due date. Massachusetts is stricter still: its extension is automatic only if enough of the year\u2019s tax has already been paid, and if that condition is not met the extension is void and a late-filing penalty applies on top.",
+    "text": "No. A federal extension moves the filing deadline to October and does nothing about the balance \u2014 interest and penalties run from the original due date. Massachusetts is stricter still: its extension is automatic only if enough of the year\u2019s tax has already been paid, and if that condition is not met the extension is void and a late-filing penalty applies on top."
+   },
+   {
+    "tag": "p",
+    "html": "Yes. A return that is filed electronically requires a signed authorization from the taxpayer first \u2014 that is a rule, not a courtesy, and it exists so that nothing is transmitted before you have seen it. A paid preparer must also sign the return and give you a complete copy of it. Keep that copy; it is the starting point for next year and for anything that arises later.",
+    "text": "Yes. A return that is filed electronically requires a signed authorization from the taxpayer first \u2014 that is a rule, not a courtesy, and it exists so that nothing is transmitted before you have seen it. A paid preparer must also sign the return and give you a complete copy of it. Keep that copy; it is the starting point for next year and for anything that arises later."
+   },
+   {
+    "tag": "p",
+    "html": "Three years from filing covers the ordinary examination window. Six years is the safer figure where income might have been substantially understated, and there is no limit at all on a year that was never filed. Some records outlive all of that: anything establishing the cost basis of an asset should be kept until the asset is sold and the gain reported, which for a house or a business interest can mean decades.",
+    "text": "Three years from filing covers the ordinary examination window. Six years is the safer figure where income might have been substantially understated, and there is no limit at all on a year that was never filed. Some records outlive all of that: anything establishing the cost basis of an asset should be kept until the asset is sold and the gain reported, which for a house or a business interest can mean decades."
+   },
+   {
+    "tag": "p",
+    "html": "Yes, and many small businesses do exactly that. What determines whether it works is the state of the books rather than who keeps them: accounts that reconcile to outside statements, a chart of accounts that reflects the business, and nothing significant parked in a suspense account. A review of the books at the start of the engagement is usually cheaper than the alternative, which is discovering the problems while a deadline is running.",
+    "text": "Yes, and many small businesses do exactly that. What determines whether it works is the state of the books rather than who keeps them: accounts that reconcile to outside statements, a chart of accounts that reflects the business, and nothing significant parked in a suspense account. A review of the books at the start of the engagement is usually cheaper than the alternative, which is discovering the problems while a deadline is running."
+   },
+   {
+    "tag": "p",
+    "html": "Yes. Confidentiality is a professional obligation for a CPA rather than an internal policy, and it is enforceable as one. Separately, federal law restricts what a tax preparer may do with information supplied for the preparation of a return, including disclosing it to anyone else, without the taxpayer\u2019s written consent.",
+    "text": "Yes. Confidentiality is a professional obligation for a CPA rather than an internal policy, and it is enforceable as one. Separately, federal law restricts what a tax preparer may do with information supplied for the preparation of a return, including disclosing it to anyone else, without the taxpayer\u2019s written consent."
+   },
+   {
+    "tag": "p",
+    "html": "No. They are estimating tools that run entirely in your browser, using assumptions you can see and change. Rates, thresholds and contribution limits change every year, and none of them account for your filing status, your state position or anything else on your return. Use them to size a question and then call about the answer.",
+    "text": "No. They are estimating tools that run entirely in your browser, using assumptions you can see and change. Rates, thresholds and contribution limits change every year, and none of them account for your filing status, your state position or anything else on your return. Use them to size a question and then call about the answer."
+   },
+   {
+    "tag": "h2",
+    "html": "Still deciding?",
+    "text": "Still deciding?"
+   },
+   {
+    "tag": "p",
+    "html": "The <a href=\"about.html#engagement\">engagement page</a> sets out how the work runs from first call to filing, and <a href=\"about.html#bring\">what to bring</a> lists what to gather before an appointment. The <a href=\"services/index.html\">four services</a> are described in full.",
+    "text": "The engagement page sets out how the work runs from first call to filing, and what to bring lists what to gather before an appointment. The four services are described in full."
+   }
+  ]
+ },
+ "index.html": {
+  "title": "Charles M. Carella, CPA | North Billerica, Massachusetts",
+  "desc": "Certified Public Accountant at 330 Boston Road in North Billerica, Massachusetts. Tax preparation and planning, bookkeeping, financial statements and business consulting.",
+  "h1": "Tax and accounting for people and the businesses they run.",
+  "sub": "A CPA office at 330 Boston Road in North Billerica. Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting \u2014 for individuals and for small businesses.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "A CPA office at 330 Boston Road in North Billerica. Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting \u2014 for individuals and for small businesses.",
+    "text": "A CPA office at 330 Boston Road in North Billerica. Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting \u2014 for individuals and for small businesses."
+   },
+   {
+    "tag": "h2",
+    "html": "Four services, and they are the same conversation.",
+    "text": "Four services, and they are the same conversation."
+   },
+   {
+    "tag": "p",
+    "html": "For somebody who owns a small business, the return, the books, the statements a lender asks for and the decision about next year are not separate problems. They are one problem looked at from four directions, which is the argument for handling them in one place.",
+    "text": "For somebody who owns a small business, the return, the books, the statements a lender asks for and the decision about next year are not separate problems. They are one problem looked at from four directions, which is the argument for handling them in one place."
+   },
+   {
+    "tag": "h3",
+    "html": "Tax Preparation &amp; Planning",
+    "text": "Tax Preparation & Planning"
+   },
+   {
+    "tag": "p",
+    "html": "Federal and Massachusetts returns for individuals and small businesses \u2014 and the conversations that have to happen before the year closes.",
+    "text": "Federal and Massachusetts returns for individuals and small businesses \u2014 and the conversations that have to happen before the year closes."
+   },
+   {
+    "tag": "h3",
+    "html": "Accounting &amp; Bookkeeping",
+    "text": "Accounting & Bookkeeping"
+   },
+   {
+    "tag": "p",
+    "html": "The monthly discipline underneath everything else \u2014 a chart of accounts that fits the business, accounts that reconcile, and a set of books that can be relied on.",
+    "text": "The monthly discipline underneath everything else \u2014 a chart of accounts that fits the business, accounts that reconcile, and a set of books that can be relied on."
+   },
+   {
+    "tag": "h3",
+    "html": "Financial Statement Preparation",
+    "text": "Financial Statement Preparation"
+   },
+   {
+    "tag": "p",
+    "html": "Statements a lender, a landlord, a bonding company or an owner can read \u2014 and a clear answer about which level of service the request actually requires.",
+    "text": "Statements a lender, a landlord, a bonding company or an owner can read \u2014 and a clear answer about which level of service the request actually requires."
+   },
+   {
+    "tag": "h3",
+    "html": "Business Consulting",
+    "text": "Business Consulting"
+   },
+   {
+    "tag": "p",
+    "html": "The questions that come up between filings \u2014 how to organize, what a hire really costs, whether to buy the equipment, and what the numbers are actually telling you.",
+    "text": "The questions that come up between filings \u2014 how to organize, what a hire really costs, whether to buy the equipment, and what the numbers are actually telling you."
+   },
+   {
+    "tag": "p",
+    "html": "<a class=\"btn b-ln\" href=\"services/index.html\">All four services <svg aria-hidden=\"true\" class=\"arr\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"></path></svg></a>",
+    "text": "All four services"
+   },
+   {
+    "tag": "h2",
+    "html": "What actually happens, in the order it happens.",
+    "text": "What actually happens, in the order it happens."
+   },
+   {
+    "tag": "p",
+    "html": "There is no mystery to an accounting engagement, and knowing the shape of it in advance removes most of the friction. Four steps, and the first one is short.",
+    "text": "There is no mystery to an accounting engagement, and knowing the shape of it in advance removes most of the friction. Four steps, and the first one is short."
+   },
+   {
+    "tag": "h3",
+    "html": "1. A short call",
+    "text": "1. A short call"
+   },
+   {
+    "tag": "p",
+    "html": "What kind of return or work it is, roughly what the year looked like, and what deadline is driving the question. Ten minutes is usually enough to establish whether this is a tax matter, an accounting matter, or both, and what it will take.",
+    "text": "What kind of return or work it is, roughly what the year looked like, and what deadline is driving the question. Ten minutes is usually enough to establish whether this is a tax matter, an accounting matter, or both, and what it will take."
+   },
+   {
+    "tag": "h3",
+    "html": "2. Gathering",
+    "text": "2. Gathering"
+   },
+   {
+    "tag": "p",
+    "html": "The records come together \u2014 last year\u2019s return, this year\u2019s income documents, the books if there is a business. Completeness at this stage decides most of what follows. <a href=\"about.html#bring\">The list is here.</a>",
+    "text": "The records come together \u2014 last year\u2019s return, this year\u2019s income documents, the books if there is a business. Completeness at this stage decides most of what follows. The list is here."
+   },
+   {
+    "tag": "h3",
+    "html": "3. The work, and the questions",
+    "text": "3. The work, and the questions"
+   },
+   {
+    "tag": "p",
+    "html": "Preparation, then the questions that arise from it, ideally in one batch rather than a trickle. Something unusual in your year is a reason for a conversation, not a reason for an assumption.",
+    "text": "Preparation, then the questions that arise from it, ideally in one batch rather than a trickle. Something unusual in your year is a reason for a conversation, not a reason for an assumption."
+   },
+   {
+    "tag": "h3",
+    "html": "4. Review, signature, filing",
+    "text": "4. Review, signature, filing"
+   },
+   {
+    "tag": "p",
+    "html": "You see the return before it goes anywhere. A return filed electronically cannot be transmitted until the taxpayer has signed the authorization, a paid preparer signs it too, and you are entitled to a complete copy. That copy is the starting point for next year.",
+    "text": "You see the return before it goes anywhere. A return filed electronically cannot be transmitted until the taxpayer has signed the authorization, a paid preparer signs it too, and you are entitled to a complete copy. That copy is the starting point for next year."
+   },
+   {
+    "tag": "h3",
+    "html": "And then the useful part",
+    "text": "And then the useful part"
+   },
+   {
+    "tag": "p",
+    "html": "Filing closes the year that is finished. The conversation worth having is about the one that is still open \u2014 which is why the autumn call tends to be worth more than the April one.",
+    "text": "Filing closes the year that is finished. The conversation worth having is about the one that is still open \u2014 which is why the autumn call tends to be worth more than the April one."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li><li><a href=\"services/index.html\"><span class=\"ck\">\u2192</span> The four services</a></li>",
+    "text": "\u2192 What to bring \u2192 How an engagement runs \u2192 Common questions \u2192 The four services"
+   },
+   {
+    "tag": "h2",
+    "html": "Eight calculators that run on this page.",
+    "text": "Eight calculators that run on this page."
+   },
+   {
+    "tag": "p",
+    "html": "Mortgage and refinance, loans, retirement and college saving, self-employment tax, equipment purchases and break-even. No third-party script, no sign-in, nothing sent anywhere \u2014 the arithmetic happens in your browser and stops there.",
+    "text": "Mortgage and refinance, loans, retirement and college saving, self-employment tax, equipment purchases and break-even. No third-party script, no sign-in, nothing sent anywhere \u2014 the arithmetic happens in your browser and stops there."
+   },
+   {
+    "tag": "h3",
+    "html": "Self-employment tax",
+    "text": "Self-employment tax"
+   },
+   {
+    "tag": "p",
+    "html": "Social Security and Medicare on self-employment profit, the deductible half, and roughly what each quarterly installment comes to.",
+    "text": "Social Security and Medicare on self-employment profit, the deductible half, and roughly what each quarterly installment comes to."
+   },
+   {
+    "tag": "h3",
+    "html": "Break-even point",
+    "text": "Break-even point"
+   },
+   {
+    "tag": "p",
+    "html": "The volume and revenue at which a business covers its fixed costs \u2014 and what it takes to reach a target profit on top.",
+    "text": "The volume and revenue at which a business covers its fixed costs \u2014 and what it takes to reach a target profit on top."
+   },
+   {
+    "tag": "h3",
+    "html": "Mortgage payment",
+    "text": "Mortgage payment"
+   },
+   {
+    "tag": "p",
+    "html": "Principal, interest, taxes and insurance on a fixed-rate loan, with total interest over the term and the loan-to-value ratio.",
+    "text": "Principal, interest, taxes and insurance on a fixed-rate loan, with total interest over the term and the loan-to-value ratio."
+   },
+   {
+    "tag": "p",
+    "html": "<a class=\"btn b-ln\" href=\"calculators/index.html\">All eight calculators <svg aria-hidden=\"true\" class=\"arr\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"></path></svg></a>",
+    "text": "All eight calculators"
+   },
+   {
+    "tag": "h2",
+    "html": "330 Boston Road, North Billerica.",
+    "text": "330 Boston Road, North Billerica."
+   },
+   {
+    "tag": "p",
+    "html": "Suite 12, on Boston Road in North Billerica, Massachusetts.",
+    "text": "Suite 12, on Boston Road in North Billerica, Massachusetts."
+   },
+   {
+    "tag": "p",
+    "html": "Pan, zoom, or open the map full screen for turn-by-turn directions.",
+    "text": "Pan, zoom, or open the map full screen for turn-by-turn directions."
+   },
+   {
+    "tag": "p",
+    "html": "330 Boston Road, Suite 12<br/>North Billerica, MA 01862",
+    "text": "330 Boston Road, Suite 12 North Billerica, MA 01862"
+   },
+   {
+    "tag": "p",
+    "html": "Telephone (978) 663-6419 ext. 11<br/>Facsimile (978) 663-7260<br/>CMCCPA@carellacpa.com",
+    "text": "Telephone (978) 663-6419 ext. 11 Facsimile (978) 663-7260 CMCCPA@carellacpa.com"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"https://www.google.com/maps/search/?api=1&amp;query=Charles+M.+Carella+CPA+330+Boston+Road+Suite+12+North+Billerica+MA+01862\" rel=\"noopener\" target=\"_blank\"><span class=\"ck\">\u2192</span> Open in Google Maps</a></li><li><a href=\"contact.html\"><span class=\"ck\">\u2192</span> Contact the office</a></li><li><a href=\"mailto:CMCCPA@carellacpa.com\"><span class=\"ck\">\u2192</span> CMCCPA@carellacpa.com</a></li>",
+    "text": "\u2192 Open in Google Maps \u2192 Contact the office \u2192 CMCCPA@carellacpa.com"
+   },
+   {
+    "tag": "h2",
+    "html": "Answers before you call.",
+    "text": "Answers before you call."
+   },
+   {
+    "tag": "p",
+    "html": "Anyone with a preparer tax identification number may prepare a return for a fee. A Certified Public Accountant has passed the Uniform CPA Examination and holds an active state license, which carries continuing education requirements and a professional code of conduct with enforcement behind it.",
+    "text": "Anyone with a preparer tax identification number may prepare a return for a fee. A Certified Public Accountant has passed the Uniform CPA Examination and holds an active state license, which carries continuing education requirements and a professional code of conduct with enforcement behind it."
+   },
+   {
+    "tag": "p",
+    "html": "The practical difference shows up in two places. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most preparers do not. And a CPA can work across the whole picture rather than the return alone: the books that feed it, the statements a lender wants, and the structural questions that decide next year\u2019s number.",
+    "text": "The practical difference shows up in two places. A CPA has unlimited rights to represent a taxpayer before the IRS \u2014 in an examination, in collection, on appeal \u2014 which most preparers do not. And a CPA can work across the whole picture rather than the return alone: the books that feed it, the statements a lender wants, and the structural questions that decide next year\u2019s number."
+   },
+   {
+    "tag": "p",
+    "html": "Both. This office prepares returns and plans for individuals and for small businesses, and does the accounting and bookkeeping, financial statement preparation and business consulting behind them. For an owner-operated business that combination is the point: the entity return, the owner\u2019s return and the books are one problem seen from three sides.",
+    "text": "Both. This office prepares returns and plans for individuals and for small businesses, and does the accounting and bookkeeping, financial statement preparation and business consulting behind them. For an owner-operated business that combination is the point: the entity return, the owner\u2019s return and the books are one problem seen from three sides."
+   },
+   {
+    "tag": "p",
+    "html": "There is no published fee schedule, because the work is not uniform. What a return or an engagement takes depends on how many moving parts there are and on the condition of the records it is built from \u2014 which is why the useful first step is a short call describing the situation rather than a price list. Call <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe what you have.",
+    "text": "There is no published fee schedule, because the work is not uniform. What a return or an engagement takes depends on how many moving parts there are and on the condition of the records it is built from \u2014 which is why the useful first step is a short call describing the situation rather than a price list. Call (978) 663-6419 ext. 11 and describe what you have."
+   },
+   {
+    "tag": "p",
+    "html": "Last year\u2019s return, this year\u2019s income documents, and anything that changed. The <a href=\"about.html#bring\">full list is here</a>, but the general rule is that more is better and gaps are worth mentioning rather than working around. If something is missing, say so at the start \u2014 it usually changes the order of the work rather than whether it can be done.",
+    "text": "Last year\u2019s return, this year\u2019s income documents, and anything that changed. The full list is here , but the general rule is that more is better and gaps are worth mentioning rather than working around. If something is missing, say so at the start \u2014 it usually changes the order of the work rather than whether it can be done."
+   },
+   {
+    "tag": "p",
+    "html": "Call the office and ask. Which route makes sense depends on what you have and what form it is in, and it is a two-minute conversation rather than something worth guessing at. The office is at 330 Boston Road, Suite 12, in North Billerica.",
+    "text": "Call the office and ask. Which route makes sense depends on what you have and what form it is in, and it is a two-minute conversation rather than something worth guessing at. The office is at 330 Boston Road, Suite 12, in North Billerica."
+   },
+   {
+    "tag": "p",
+    "html": "<a class=\"btn b-ln\" href=\"faq.html\">More questions answered <svg aria-hidden=\"true\" class=\"arr\" fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" viewbox=\"0 0 24 24\"><path d=\"M5 12h14M13 6l6 6-6 6\"></path></svg></a>",
+    "text": "More questions answered"
+   }
+  ]
+ },
+ "services/accounting-bookkeeping.html": {
+  "title": "Accounting & Bookkeeping | Charles M. Carella, CPA",
+  "desc": "Accounting and bookkeeping for small businesses in Massachusetts: chart of accounts, monthly reconciliation, and books that hold up at tax time. North Billerica, MA.",
+  "h1": "Books that are right cost less than books that get fixed.",
+  "sub": "Accounting and bookkeeping for small businesses \u2014 the monthly work that every other number on this site depends on.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Accounting and bookkeeping for small businesses \u2014 the monthly work that every other number on this site depends on.",
+    "text": "Accounting and bookkeeping for small businesses \u2014 the monthly work that every other number on this site depends on."
+   },
+   {
+    "tag": "h2",
+    "html": "What this covers",
+    "text": "What this covers"
+   },
+   {
+    "tag": "p",
+    "html": "Accounting and bookkeeping for small businesses: setting up or repairing a chart of accounts, recording activity, reconciling accounts, and producing figures at the end of each period that mean what they say.",
+    "text": "Accounting and bookkeeping for small businesses: setting up or repairing a chart of accounts, recording activity, reconciling accounts, and producing figures at the end of each period that mean what they say."
+   },
+   {
+    "tag": "h2",
+    "html": "What bookkeeping actually buys",
+    "text": "What bookkeeping actually buys"
+   },
+   {
+    "tag": "p",
+    "html": "Bookkeeping is usually described as a compliance chore \u2014 something done because the tax return needs it. That is the least valuable thing it does.",
+    "text": "Bookkeeping is usually described as a compliance chore \u2014 something done because the tax return needs it. That is the least valuable thing it does."
+   },
+   {
+    "tag": "p",
+    "html": "A set of books that reconciles every month tells you which jobs make money and which ones only look busy, whether the business is generating cash or borrowing against next month, when receivables are drifting, and what a slow quarter actually costs. None of that is visible from a bank balance. A bank balance tells you what has already happened to the cash; the books tell you what is about to.",
+    "text": "A set of books that reconciles every month tells you which jobs make money and which ones only look busy, whether the business is generating cash or borrowing against next month, when receivables are drifting, and what a slow quarter actually costs. None of that is visible from a bank balance. A bank balance tells you what has already happened to the cash; the books tell you what is about to."
+   },
+   {
+    "tag": "p",
+    "html": "The other thing it buys is optionality. A business with three years of clean books can apply for a loan, take on an investor, price itself for sale, or answer a state notice. A business without them can do none of those quickly, and the cost of reconstructing the history always exceeds the cost of having kept it.",
+    "text": "The other thing it buys is optionality. A business with three years of clean books can apply for a loan, take on an investor, price itself for sale, or answer a state notice. A business without them can do none of those quickly, and the cost of reconstructing the history always exceeds the cost of having kept it."
+   },
+   {
+    "tag": "h2",
+    "html": "The chart of accounts is the whole design",
+    "text": "The chart of accounts is the whole design"
+   },
+   {
+    "tag": "p",
+    "html": "Most bookkeeping problems are really chart-of-accounts problems. The default chart that comes with accounting software is designed to suit everyone, which means it suits nobody: too many accounts in places that do not matter, one undifferentiated bucket where the business actually makes its decisions.",
+    "text": "Most bookkeeping problems are really chart-of-accounts problems. The default chart that comes with accounting software is designed to suit everyone, which means it suits nobody: too many accounts in places that do not matter, one undifferentiated bucket where the business actually makes its decisions."
+   },
+   {
+    "tag": "p",
+    "html": "A chart that fits the business separates the things you would want to compare and combines the things you would not. It puts direct costs where they can be read against revenue instead of scattering them through overhead. It gives the two or three lines you actually manage their own place. Getting it right early is cheap; changing it after four years of history is not, because every comparison to a prior year has to be restated.",
+    "text": "A chart that fits the business separates the things you would want to compare and combines the things you would not. It puts direct costs where they can be read against revenue instead of scattering them through overhead. It gives the two or three lines you actually manage their own place. Getting it right early is cheap; changing it after four years of history is not, because every comparison to a prior year has to be restated."
+   },
+   {
+    "tag": "h2",
+    "html": "The monthly cycle",
+    "text": "The monthly cycle"
+   },
+   {
+    "tag": "p",
+    "html": "The work is not complicated, but it is unforgiving about being skipped:",
+    "text": "The work is not complicated, but it is unforgiving about being skipped:"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><strong>Reconcile every account with an outside statement.</strong> Bank accounts, credit cards, loans, merchant processors, payroll clearing. An account that has not been reconciled is not evidence of anything.</li>\n<li><strong>Code the activity properly rather than plausibly.</strong> Software will suggest a category based on the vendor name. It is right often enough to be dangerous.</li>\n<li><strong>Deal with the awkward items rather than parking them.</strong> An <em>Ask My Accountant</em> account with forty entries in it is a decision that has been deferred twelve times.</li>\n<li><strong>Look at the result.</strong> A profit and loss compared to the prior month and the same month last year takes five minutes to read and catches most errors before they compound.</li>",
+    "text": "Reconcile every account with an outside statement. Bank accounts, credit cards, loans, merchant processors, payroll clearing. An account that has not been reconciled is not evidence of anything. Code the activity properly rather than plausibly. Software will suggest a category based on the vendor name. It is right often enough to be dangerous. Deal with the awkward items rather than parking them. An Ask My Accountant account with forty entries in it is a decision that has been deferred twelve times. Look at the result. A profit and loss compared to the prior month and the same month last year takes five minutes to read and catches most errors before they compound."
+   },
+   {
+    "tag": "h2",
+    "html": "The failures that come up again and again",
+    "text": "The failures that come up again and again"
+   },
+   {
+    "tag": "h3",
+    "html": "Personal and business money in one account",
+    "text": "Personal and business money in one account"
+   },
+   {
+    "tag": "p",
+    "html": "It makes every subsequent step harder, it obscures what the business actually earns, and for a company or LLC it weakens the separation that the entity exists to provide in the first place. A separate account and a separate card cost nothing and solve it permanently.",
+    "text": "It makes every subsequent step harder, it obscures what the business actually earns, and for a company or LLC it weakens the separation that the entity exists to provide in the first place. A separate account and a separate card cost nothing and solve it permanently."
+   },
+   {
+    "tag": "h3",
+    "html": "Owner draws recorded as expenses",
+    "text": "Owner draws recorded as expenses"
+   },
+   {
+    "tag": "p",
+    "html": "Money an owner takes out of a sole proprietorship or a partnership is a draw against equity, not a deductible cost. Recorded as an expense it understates profit, which is pleasant right up to the point a lender, a buyer or an examiner reads the statements.",
+    "text": "Money an owner takes out of a sole proprietorship or a partnership is a draw against equity, not a deductible cost. Recorded as an expense it understates profit, which is pleasant right up to the point a lender, a buyer or an examiner reads the statements."
+   },
+   {
+    "tag": "h3",
+    "html": "Sales tax treated as revenue",
+    "text": "Sales tax treated as revenue"
+   },
+   {
+    "tag": "p",
+    "html": "Massachusetts sales tax collected from a customer never belonged to the business. It is money held on the state\u2019s behalf until it is remitted. Booked as income it inflates revenue and hides a liability that is already accruing.",
+    "text": "Massachusetts sales tax collected from a customer never belonged to the business. It is money held on the state\u2019s behalf until it is remitted. Booked as income it inflates revenue and hides a liability that is already accruing."
+   },
+   {
+    "tag": "h3",
+    "html": "Payroll recorded from the net",
+    "text": "Payroll recorded from the net"
+   },
+   {
+    "tag": "p",
+    "html": "Recording only the amount that left the bank omits the withholding and the employer\u2019s own share. The wage deduction ends up understated and the payroll liability accounts never clear.",
+    "text": "Recording only the amount that left the bank omits the withholding and the employer\u2019s own share. The wage deduction ends up understated and the payroll liability accounts never clear."
+   },
+   {
+    "tag": "h3",
+    "html": "Reconciliations that are forced",
+    "text": "Reconciliations that are forced"
+   },
+   {
+    "tag": "p",
+    "html": "An adjustment entered to make a reconciliation balance does not fix anything; it moves the discrepancy somewhere it will be harder to find. The forced entries are usually what makes a year of books take three days to unpick instead of three hours.",
+    "text": "An adjustment entered to make a reconciliation balance does not fix anything; it moves the discrepancy somewhere it will be harder to find. The forced entries are usually what makes a year of books take three days to unpick instead of three hours."
+   },
+   {
+    "tag": "p",
+    "html": "<strong>Books and the tax return are one job in two parts.</strong> Every hour spent reconstructing a year at filing time is an hour billed at filing time, under a deadline, with worse information. It is the most expensive way to buy bookkeeping.",
+    "text": "Books and the tax return are one job in two parts. Every hour spent reconstructing a year at filing time is an hour billed at filing time, under a deadline, with worse information. It is the most expensive way to buy bookkeeping."
+   },
+   {
+    "tag": "h2",
+    "html": "Records, and how long to keep them",
+    "text": "Records, and how long to keep them"
+   },
+   {
+    "tag": "p",
+    "html": "The general rule is three years from filing, because that is the ordinary window in which a return can be examined. It stretches to six years where income has been substantially understated, and there is no limit at all on a year that was never filed. Employment tax records, property and improvement records, and anything establishing the cost basis of an asset should outlive that schedule \u2014 basis records need to survive until the asset is sold, which can be decades.",
+    "text": "The general rule is three years from filing, because that is the ordinary window in which a return can be examined. It stretches to six years where income has been substantially understated, and there is no limit at all on a year that was never filed. Employment tax records, property and improvement records, and anything establishing the cost basis of an asset should outlive that schedule \u2014 basis records need to survive until the asset is sold, which can be decades."
+   },
+   {
+    "tag": "h2",
+    "html": "Where this leads",
+    "text": "Where this leads"
+   },
+   {
+    "tag": "p",
+    "html": "Reconciled books are the input to <a href=\"financial-statements.html\">financial statement preparation</a> and to <a href=\"tax-preparation-planning.html\">the tax return</a>, and they are the precondition for any <a href=\"business-consulting.html\">useful conversation about the business</a>. Nothing downstream is better than the books it came from.",
+    "text": "Reconciled books are the input to financial statement preparation and to the tax return , and they are the precondition for any useful conversation about the business . Nothing downstream is better than the books it came from."
+   },
+   {
+    "tag": "h2",
+    "html": "Common questions",
+    "text": "Common questions"
+   },
+   {
+    "tag": "p",
+    "html": "Not in itself. Plenty of small businesses keep their own books perfectly well. What matters is whether the accounts reconcile to outside statements every month, whether the chart of accounts reflects how the business actually works, and whether anything unresolved has been parked rather than answered. Those three things are worth a review even if nothing else changes.",
+    "text": "Not in itself. Plenty of small businesses keep their own books perfectly well. What matters is whether the accounts reconcile to outside statements every month, whether the chart of accounts reflects how the business actually works, and whether anything unresolved has been parked rather than answered. Those three things are worth a review even if nothing else changes."
+   },
+   {
+    "tag": "p",
+    "html": "There is no point at which it becomes impossible, only points at which it becomes more expensive. Bank and card statements can be obtained, and a year can be rebuilt from them. What cannot be recovered is the memory of what an unexplained transaction was for, which is why the cost rises with age rather than with volume.",
+    "text": "There is no point at which it becomes impossible, only points at which it becomes more expensive. Bank and card statements can be obtained, and a year can be rebuilt from them. What cannot be recovered is the memory of what an unexplained transaction was for, which is why the cost rises with age rather than with volume."
+   },
+   {
+    "tag": "p",
+    "html": "Almost any of the mainstream small-business packages will do the job. The choice matters far less than the chart of accounts inside it and the discipline of reconciling monthly. Software does not produce good books; it produces fast books, in whatever condition the inputs put them.",
+    "text": "Almost any of the mainstream small-business packages will do the job. The choice matters far less than the chart of accounts inside it and the discipline of reconciling monthly. Software does not produce good books; it produces fast books, in whatever condition the inputs put them."
+   },
+   {
+    "tag": "p",
+    "html": "Bookkeeping is the recording: capturing transactions, coding them, reconciling the accounts. Accounting is what is done with the result \u2014 period-end adjustments, depreciation, accruals, and presenting the figures so they can be read and relied on. The same records support both, which is why the recording standard determines everything above it.",
+    "text": "Bookkeeping is the recording: capturing transactions, coding them, reconciling the accounts. Accounting is what is done with the result \u2014 period-end adjustments, depreciation, accruals, and presenting the figures so they can be read and relied on. The same records support both, which is why the recording standard determines everything above it."
+   },
+   {
+    "tag": "p",
+    "html": "Describe what you are dealing with and you will get a straight answer about what the work involves.",
+    "text": "Describe what you are dealing with and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"financial-statements.html\"><span class=\"ck\">\u2192</span> Financial statements</a></li><li><a href=\"tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"business-consulting.html\"><span class=\"ck\">\u2192</span> Business consulting</a></li><li><a href=\"../calculators/break-even.html\"><span class=\"ck\">\u2192</span> Break-even calculator</a></li>",
+    "text": "\u2192 Financial statements \u2192 Tax preparation & planning \u2192 Business consulting \u2192 Break-even calculator"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"../about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li><li><a href=\"../contact.html\"><span class=\"ck\">\u2192</span> Office &amp; directions</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Financial calculators \u2192 Office & directions"
+   }
+  ]
+ },
+ "services/business-consulting.html": {
+  "title": "Business Consulting | Charles M. Carella, CPA",
+  "desc": "Business consulting for small businesses in Massachusetts: entity choice, pricing and break-even, cash flow, hiring costs, and equipment decisions. North Billerica, MA.",
+  "h1": "The decisions that matter are made between filings.",
+  "sub": "Business consulting for small businesses \u2014 entity choice, pricing, cash flow, hiring, and the purchases that look affordable until you model them.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Business consulting for small businesses \u2014 entity choice, pricing, cash flow, hiring, and the purchases that look affordable until you model them.",
+    "text": "Business consulting for small businesses \u2014 entity choice, pricing, cash flow, hiring, and the purchases that look affordable until you model them."
+   },
+   {
+    "tag": "h2",
+    "html": "What this covers",
+    "text": "What this covers"
+   },
+   {
+    "tag": "p",
+    "html": "Business consulting for small businesses: the operating and structural questions that arise during the year and do not wait for a filing deadline.",
+    "text": "Business consulting for small businesses: the operating and structural questions that arise during the year and do not wait for a filing deadline."
+   },
+   {
+    "tag": "h2",
+    "html": "How the business is organized",
+    "text": "How the business is organized"
+   },
+   {
+    "tag": "p",
+    "html": "Entity choice gets treated as a one-off decision made at the start and never revisited. It should be revisited, because the answer changes as the business does.",
+    "text": "Entity choice gets treated as a one-off decision made at the start and never revisited. It should be revisited, because the answer changes as the business does."
+   },
+   {
+    "tag": "p",
+    "html": "A sole proprietorship is the default and costs nothing to maintain, but every dollar of profit carries self-employment tax and there is no separation between the business and the person. An LLC adds that separation and, in Massachusetts, an annual filing fee that is not trivial for a very small business. Electing S corporation treatment can reduce self-employment tax on the portion of profit taken as a distribution rather than as wages \u2014 but only if the owner is paid reasonable compensation first, only above a certain level of profit, and only against the added cost of payroll, a separate return and more bookkeeping.",
+    "text": "A sole proprietorship is the default and costs nothing to maintain, but every dollar of profit carries self-employment tax and there is no separation between the business and the person. An LLC adds that separation and, in Massachusetts, an annual filing fee that is not trivial for a very small business. Electing S corporation treatment can reduce self-employment tax on the portion of profit taken as a distribution rather than as wages \u2014 but only if the owner is paid reasonable compensation first, only above a certain level of profit, and only against the added cost of payroll, a separate return and more bookkeeping."
+   },
+   {
+    "tag": "p",
+    "html": "The right answer depends on profit, on how many owners there are, on whether outside investment or a sale is plausible, and on how much administration the business can absorb. It is arithmetic, not preference, and it is worth redoing when profit changes materially.",
+    "text": "The right answer depends on profit, on how many owners there are, on whether outside investment or a sale is plausible, and on how much administration the business can absorb. It is arithmetic, not preference, and it is worth redoing when profit changes materially."
+   },
+   {
+    "tag": "h2",
+    "html": "Pricing and break-even",
+    "text": "Pricing and break-even"
+   },
+   {
+    "tag": "p",
+    "html": "Most small businesses under-price, and most of them discover it by working harder without earning more.",
+    "text": "Most small businesses under-price, and most of them discover it by working harder without earning more."
+   },
+   {
+    "tag": "p",
+    "html": "The number that matters is contribution margin: what is left from a sale after the costs that only exist because the sale happened. Fixed costs are then paid out of the accumulated contribution, and the point at which they are covered is break-even. Two consequences follow, and they are not intuitive. A modest price increase moves break-even far more than the same percentage cut in costs, because the whole increase lands in the margin. And a low-margin business needs a great deal more volume to absorb a fixed cost increase \u2014 which is why adding a person or a unit can be safe for one business and fatal for another with the same revenue.",
+    "text": "The number that matters is contribution margin: what is left from a sale after the costs that only exist because the sale happened. Fixed costs are then paid out of the accumulated contribution, and the point at which they are covered is break-even. Two consequences follow, and they are not intuitive. A modest price increase moves break-even far more than the same percentage cut in costs, because the whole increase lands in the margin. And a low-margin business needs a great deal more volume to absorb a fixed cost increase \u2014 which is why adding a person or a unit can be safe for one business and fatal for another with the same revenue."
+   },
+   {
+    "tag": "p",
+    "html": "The <a href=\"../calculators/break-even.html\">break-even calculator</a> on this site does the arithmetic for a single line of business.",
+    "text": "The break-even calculator on this site does the arithmetic for a single line of business."
+   },
+   {
+    "tag": "h2",
+    "html": "Cash, and why profitable businesses run out of it",
+    "text": "Cash, and why profitable businesses run out of it"
+   },
+   {
+    "tag": "p",
+    "html": "Growth consumes cash. Inventory is bought before it is sold, wages are paid before the work is invoiced, and invoices are paid on the customer\u2019s schedule rather than yours. The gap between paying and being paid is a working capital requirement, and it grows in proportion to sales \u2014 so the faster a business grows, the more of it needs funding.",
+    "text": "Growth consumes cash. Inventory is bought before it is sold, wages are paid before the work is invoiced, and invoices are paid on the customer\u2019s schedule rather than yours. The gap between paying and being paid is a working capital requirement, and it grows in proportion to sales \u2014 so the faster a business grows, the more of it needs funding."
+   },
+   {
+    "tag": "p",
+    "html": "The practical levers are deposits and progress billing, invoicing on the day work is finished instead of at month end, terms that are actually enforced, and inventory that is bought against demand rather than against a discount. A short cash projection \u2014 thirteen weeks is the conventional horizon \u2014 converts all of that from an anxiety into a schedule.",
+    "text": "The practical levers are deposits and progress billing, invoicing on the day work is finished instead of at month end, terms that are actually enforced, and inventory that is bought against demand rather than against a discount. A short cash projection \u2014 thirteen weeks is the conventional horizon \u2014 converts all of that from an anxiety into a schedule."
+   },
+   {
+    "tag": "h2",
+    "html": "What a hire really costs",
+    "text": "What a hire really costs"
+   },
+   {
+    "tag": "p",
+    "html": "The wage is roughly two thirds of it. On top sits the employer\u2019s share of Social Security and Medicare, federal and Massachusetts unemployment insurance, workers\u2019 compensation, the Massachusetts paid family and medical leave contribution, any benefits, and the payroll administration itself. Then there is the part that never appears in a budget: the time spent training somebody, and the productivity that is lost while it happens.",
+    "text": "The wage is roughly two thirds of it. On top sits the employer\u2019s share of Social Security and Medicare, federal and Massachusetts unemployment insurance, workers\u2019 compensation, the Massachusetts paid family and medical leave contribution, any benefits, and the payroll administration itself. Then there is the part that never appears in a budget: the time spent training somebody, and the productivity that is lost while it happens."
+   },
+   {
+    "tag": "p",
+    "html": "The other question is whether the role is an employee at all. The distinction between an employee and an independent contractor is not a matter of what the parties agree; Massachusetts applies a strict test of its own, stricter than the federal one, and getting it wrong is expensive in back taxes, penalties and unpaid wage claims. It is worth settling before the first payment, not after.",
+    "text": "The other question is whether the role is an employee at all. The distinction between an employee and an independent contractor is not a matter of what the parties agree; Massachusetts applies a strict test of its own, stricter than the federal one, and getting it wrong is expensive in back taxes, penalties and unpaid wage claims. It is worth settling before the first payment, not after."
+   },
+   {
+    "tag": "h2",
+    "html": "Equipment, vehicles and the purchases that look like tax savings",
+    "text": "Equipment, vehicles and the purchases that look like tax savings"
+   },
+   {
+    "tag": "p",
+    "html": "A deduction is not a rebate. Spending a dollar to save thirty cents of tax leaves you seventy cents down, which is fine if the asset earns its keep and a poor decision if it was bought for the deduction. The order of the questions is: does the business need it, can the cash or the financing be carried, and only then, how is it treated for tax.",
+    "text": "A deduction is not a rebate. Spending a dollar to save thirty cents of tax leaves you seventy cents down, which is fine if the asset earns its keep and a poor decision if it was bought for the deduction. The order of the questions is: does the business need it, can the cash or the financing be carried, and only then, how is it treated for tax."
+   },
+   {
+    "tag": "p",
+    "html": "The treatment itself is worth modeling rather than assuming. Immediate expensing and bonus depreciation are limited by rules that change, a deduction is worth only your marginal rate, an immediate deduction cannot create a loss in some cases, and Massachusetts does not follow the federal bonus-depreciation rules at all. The <a href=\"../calculators/section-179.html\">equipment purchase calculator</a> shows what a deduction is worth against a given rate and what the asset actually costs after it.",
+    "text": "The treatment itself is worth modeling rather than assuming. Immediate expensing and bonus depreciation are limited by rules that change, a deduction is worth only your marginal rate, an immediate deduction cannot create a loss in some cases, and Massachusetts does not follow the federal bonus-depreciation rules at all. The equipment purchase calculator shows what a deduction is worth against a given rate and what the asset actually costs after it."
+   },
+   {
+    "tag": "p",
+    "html": "<strong>The cheapest advice is early advice.</strong> Almost every expensive problem in a small business was cheap at the point it was a question \u2014 the lease that was signed, the contractor who should have been an employee, the covenant nobody read, the equipment bought in December. None of those are fixable afterwards at anything like the cost of asking first.",
+    "text": "The cheapest advice is early advice. Almost every expensive problem in a small business was cheap at the point it was a question \u2014 the lease that was signed, the contractor who should have been an employee, the covenant nobody read, the equipment bought in December. None of those are fixable afterwards at anything like the cost of asking first."
+   },
+   {
+    "tag": "h2",
+    "html": "Reading your own numbers",
+    "text": "Reading your own numbers"
+   },
+   {
+    "tag": "p",
+    "html": "A small business does not need a dashboard. It needs three or four figures that are looked at on a schedule: gross margin against last year, cash and the thirteen-week projection, receivables over sixty days, and whatever the single operational number is that drives the business \u2014 utilization, occupancy, jobs closed, average ticket. Everything else is commentary.",
+    "text": "A small business does not need a dashboard. It needs three or four figures that are looked at on a schedule: gross margin against last year, cash and the thirteen-week projection, receivables over sixty days, and whatever the single operational number is that drives the business \u2014 utilization, occupancy, jobs closed, average ticket. Everything else is commentary."
+   },
+   {
+    "tag": "h2",
+    "html": "Common questions",
+    "text": "Common questions"
+   },
+   {
+    "tag": "p",
+    "html": "It depends on profit, on what reasonable compensation for the owner\u2019s role would be, and on whether the business can carry payroll, a separate return and tighter bookkeeping. Below a certain level of profit the added cost exceeds the saving. Above it the saving can be substantial. It is worth calculating rather than assuming, and worth recalculating when profit changes materially.",
+    "text": "It depends on profit, on what reasonable compensation for the owner\u2019s role would be, and on whether the business can carry payroll, a separate return and tighter bookkeeping. Below a certain level of profit the added cost exceeds the saving. Above it the saving can be substantial. It is worth calculating rather than assuming, and worth recalculating when profit changes materially."
+   },
+   {
+    "tag": "p",
+    "html": "Only if the equipment is needed. A deduction returns your marginal rate, so the purchase still costs most of its price in cash. Buying an asset you would have bought anyway, slightly earlier, is sound. Buying one you would not have bought is spending a dollar to save a fraction of it.",
+    "text": "Only if the equipment is needed. A deduction returns your marginal rate, so the purchase still costs most of its price in cash. Buying an asset you would have bought anyway, slightly earlier, is sound. Buying one you would not have bought is spending a dollar to save a fraction of it."
+   },
+   {
+    "tag": "p",
+    "html": "Start from contribution margin rather than from what competitors charge. A price rise lands entirely in the margin, so a small one moves break-even further than a large cost saving. The real question is usually how much volume you can afford to lose at the new price \u2014 and the answer is often more than expected.",
+    "text": "Start from contribution margin rather than from what competitors charge. A price rise lands entirely in the margin, so a small one moves break-even further than a large cost saving. The real question is usually how much volume you can afford to lose at the new price \u2014 and the answer is often more than expected."
+   },
+   {
+    "tag": "p",
+    "html": "Massachusetts applies its own test and it is strict \u2014 stricter than the federal rules, and it does not care what the written agreement says. Misclassification is corrected with back employment taxes, penalties and potential wage claims. Settle the question before the first payment.",
+    "text": "Massachusetts applies its own test and it is strict \u2014 stricter than the federal rules, and it does not care what the written agreement says. Misclassification is corrected with back employment taxes, penalties and potential wage claims. Settle the question before the first payment."
+   },
+   {
+    "tag": "p",
+    "html": "Describe what you are dealing with and you will get a straight answer about what the work involves.",
+    "text": "Describe what you are dealing with and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"accounting-bookkeeping.html\"><span class=\"ck\">\u2192</span> Accounting &amp; bookkeeping</a></li><li><a href=\"financial-statements.html\"><span class=\"ck\">\u2192</span> Financial statements</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> All calculators</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Accounting & bookkeeping \u2192 Financial statements \u2192 All calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"../about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li><li><a href=\"../contact.html\"><span class=\"ck\">\u2192</span> Office &amp; directions</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Financial calculators \u2192 Office & directions"
+   }
+  ]
+ },
+ "services/financial-statements.html": {
+  "title": "Financial Statement Preparation | Charles M. Carella, CPA",
+  "desc": "Financial statement preparation for small businesses in Massachusetts, plus a plain explanation of the four levels of service and which one a lender is really asking for.",
+  "h1": "Find out which level of service you are being asked for.",
+  "sub": "Financial statement preparation for small businesses \u2014 and the conversation that should happen before you sign anything requiring a particular kind of report.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Financial statement preparation for small businesses \u2014 and the conversation that should happen before you sign anything requiring a particular kind of report.",
+    "text": "Financial statement preparation for small businesses \u2014 and the conversation that should happen before you sign anything requiring a particular kind of report."
+   },
+   {
+    "tag": "h2",
+    "html": "What this covers",
+    "text": "What this covers"
+   },
+   {
+    "tag": "p",
+    "html": "Preparation of financial statements for small businesses: a balance sheet, an income statement, and the supporting detail, built from the books and presented so that somebody outside the business can read them.",
+    "text": "Preparation of financial statements for small businesses: a balance sheet, an income statement, and the supporting detail, built from the books and presented so that somebody outside the business can read them."
+   },
+   {
+    "tag": "h2",
+    "html": "Four different things share one name",
+    "text": "Four different things share one name"
+   },
+   {
+    "tag": "p",
+    "html": "When a lender, a landlord, a bonding company or a buyer asks for \u201cfinancial statements\u201d, they may mean any of four levels of service. They differ enormously in what the accountant does and in what the recipient is entitled to rely on, and it is worth knowing which one is being asked for before agreeing to produce it.",
+    "text": "When a lender, a landlord, a bonding company or a buyer asks for \u201cfinancial statements\u201d, they may mean any of four levels of service. They differ enormously in what the accountant does and in what the recipient is entitled to rely on, and it is worth knowing which one is being asked for before agreeing to produce it."
+   },
+   {
+    "tag": "table",
+    "html": "<tr><th>Level</th><th>What the accountant does</th><th>What the reader gets</th></tr>\n<tr><td><strong>Preparation</strong></td><td>Assembles statements from the client\u2019s records under professional standards.</td><td>Statements, with no report attached and no assurance offered. Each page says so.</td></tr>\n<tr><td><strong>Compilation</strong></td><td>The same assembly, plus a reading of the statements for obvious problems, plus a signed report.</td><td>A report from the accountant. Still no assurance \u2014 the accountant does not verify the figures.</td></tr>\n<tr><td><strong>Review</strong></td><td>Analytical procedures and inquiry of management. Substantially narrower than an audit.</td><td>Limited assurance: nothing came to the accountant\u2019s attention suggesting material misstatement.</td></tr>\n<tr><td><strong>Audit</strong></td><td>Risk assessment, testing, third-party confirmation, evaluation of internal control.</td><td>An opinion. Reasonable assurance that the statements are free of material misstatement.</td></tr>",
+    "text": "Level What the accountant does What the reader gets Preparation Assembles statements from the client\u2019s records under professional standards. Statements, with no report attached and no assurance offered. Each page says so. Compilation The same assembly, plus a reading of the statements for obvious problems, plus a signed report. A report from the accountant. Still no assurance \u2014 the accountant does not verify the figures. Review Analytical procedures and inquiry of management. Substantially narrower than an audit. Limited assurance: nothing came to the accountant\u2019s attention suggesting material misstatement. Audit Risk assessment, testing, third-party confirmation, evaluation of internal control. An opinion. Reasonable assurance that the statements are free of material misstatement."
+   },
+   {
+    "tag": "p",
+    "html": "The cost difference between the top and the bottom of that table is large \u2014 a multiple, not a percentage. So is the difference in what is required from you.",
+    "text": "The cost difference between the top and the bottom of that table is large \u2014 a multiple, not a percentage. So is the difference in what is required from you."
+   },
+   {
+    "tag": "h2",
+    "html": "Who decides which one you need",
+    "text": "Who decides which one you need"
+   },
+   {
+    "tag": "p",
+    "html": "Almost always somebody else. A loan agreement, a line-of-credit covenant, a bonding requirement, a franchise agreement, a lease, a grant, a state licensing body, or a company\u2019s own operating agreement will name a level of service, and that requirement drives the engagement.",
+    "text": "Almost always somebody else. A loan agreement, a line-of-credit covenant, a bonding requirement, a franchise agreement, a lease, a grant, a state licensing body, or a company\u2019s own operating agreement will name a level of service, and that requirement drives the engagement."
+   },
+   {
+    "tag": "p",
+    "html": "Two things are worth doing about that. First, read the clause before signing it: the difference between \u201creviewed\u201d and \u201caudited\u201d in a covenant is a real annual cost for as long as the agreement runs, and it is frequently negotiable at the outset and never afterwards. Second, if the request came verbally, ask which level is meant. Requests for \u201caudited statements\u201d are often satisfied by something considerably less.",
+    "text": "Two things are worth doing about that. First, read the clause before signing it: the difference between \u201creviewed\u201d and \u201caudited\u201d in a covenant is a real annual cost for as long as the agreement runs, and it is frequently negotiable at the outset and never afterwards. Second, if the request came verbally, ask which level is meant. Requests for \u201caudited statements\u201d are often satisfied by something considerably less."
+   },
+   {
+    "tag": "p",
+    "html": "If nothing external requires anything, the honest answer is usually that you need less than you have been told.",
+    "text": "If nothing external requires anything, the honest answer is usually that you need less than you have been told."
+   },
+   {
+    "tag": "p",
+    "html": "<strong>Independence is part of the answer.</strong> Assurance work \u2014 a review or an audit \u2014 must be performed by an accountant who is independent of the business. An accountant who keeps the books ordinarily cannot also provide assurance on them. That constraint sometimes decides who does what, and it is better understood at the start than discovered at the deadline.",
+    "text": "Independence is part of the answer. Assurance work \u2014 a review or an audit \u2014 must be performed by an accountant who is independent of the business. An accountant who keeps the books ordinarily cannot also provide assurance on them. That constraint sometimes decides who does what, and it is better understood at the start than discovered at the deadline."
+   },
+   {
+    "tag": "h2",
+    "html": "What the statements themselves say",
+    "text": "What the statements themselves say"
+   },
+   {
+    "tag": "h3",
+    "html": "The balance sheet",
+    "text": "The balance sheet"
+   },
+   {
+    "tag": "p",
+    "html": "A position at one instant: what the business owns, what it owes, and what is left. Read it for the relationship between current assets and current liabilities, for how much of the business is financed by debt, and for the two accounts that hide the most trouble \u2014 receivables that are ageing and inventory that is not moving.",
+    "text": "A position at one instant: what the business owns, what it owes, and what is left. Read it for the relationship between current assets and current liabilities, for how much of the business is financed by debt, and for the two accounts that hide the most trouble \u2014 receivables that are ageing and inventory that is not moving."
+   },
+   {
+    "tag": "h3",
+    "html": "The income statement",
+    "text": "The income statement"
+   },
+   {
+    "tag": "p",
+    "html": "Performance across a period. The useful reading is never the bottom line on its own but the shape above it: gross margin, and whether it is holding; which costs move with revenue and which do not; and the comparison against the same period last year rather than against the month before.",
+    "text": "Performance across a period. The useful reading is never the bottom line on its own but the shape above it: gross margin, and whether it is holding; which costs move with revenue and which do not; and the comparison against the same period last year rather than against the month before."
+   },
+   {
+    "tag": "h3",
+    "html": "Cash flow",
+    "text": "Cash flow"
+   },
+   {
+    "tag": "p",
+    "html": "Profit is an opinion about timing. Cash is a fact. A growing business is perfectly capable of being profitable and insolvent at the same time, because growth consumes cash before it produces any \u2014 inventory bought, wages paid, invoices outstanding. The statement that reconciles profit to cash movement is the one that explains where the money went.",
+    "text": "Profit is an opinion about timing. Cash is a fact. A growing business is perfectly capable of being profitable and insolvent at the same time, because growth consumes cash before it produces any \u2014 inventory bought, wages paid, invoices outstanding. The statement that reconciles profit to cash movement is the one that explains where the money went."
+   },
+   {
+    "tag": "h2",
+    "html": "What lenders actually look at",
+    "text": "What lenders actually look at"
+   },
+   {
+    "tag": "p",
+    "html": "Not the statements alone. A lender reads them against the debt service they are being asked to support, checks the covenants they intend to impose, compares the figures to the tax returns, and looks at whether the equity account moves in a way the drawings explain. Statements that agree with the returns, and drawings that are recorded as drawings, remove most of the friction from that process before it starts.",
+    "text": "Not the statements alone. A lender reads them against the debt service they are being asked to support, checks the covenants they intend to impose, compares the figures to the tax returns, and looks at whether the equity account moves in a way the drawings explain. Statements that agree with the returns, and drawings that are recorded as drawings, remove most of the friction from that process before it starts."
+   },
+   {
+    "tag": "h2",
+    "html": "What has to be true first",
+    "text": "What has to be true first"
+   },
+   {
+    "tag": "p",
+    "html": "Statements are only as good as the records under them. Reconciled accounts, a chart of accounts that separates what matters, and no unresolved items are the precondition \u2014 see <a href=\"accounting-bookkeeping.html\">accounting and bookkeeping</a>. Statements produced from books that do not reconcile are an expensive way of formatting a guess.",
+    "text": "Statements are only as good as the records under them. Reconciled accounts, a chart of accounts that separates what matters, and no unresolved items are the precondition \u2014 see accounting and bookkeeping . Statements produced from books that do not reconcile are an expensive way of formatting a guess."
+   },
+   {
+    "tag": "h2",
+    "html": "Common questions",
+    "text": "Common questions"
+   },
+   {
+    "tag": "p",
+    "html": "Ask them. The word covers four different levels of service with very different costs, and lenders frequently ask for more than their own policy requires. Get the requirement in writing, ideally from the loan document rather than from the conversation, before anyone starts work.",
+    "text": "Ask them. The word covers four different levels of service with very different costs, and lenders frequently ask for more than their own policy requires. Get the requirement in writing, ideally from the loan document rather than from the conversation, before anyone starts work."
+   },
+   {
+    "tag": "p",
+    "html": "Sometimes, and it is always worth asking. A tax return is prepared under tax rules rather than accounting rules, so the figures legitimately differ \u2014 depreciation is the usual culprit. Many small-business lending decisions are made on returns alone. Where statements are genuinely required, the two should still agree with each other in every place they can.",
+    "text": "Sometimes, and it is always worth asking. A tax return is prepared under tax rules rather than accounting rules, so the figures legitimately differ \u2014 depreciation is the usual culprit. Many small-business lending decisions are made on returns alone. Where statements are genuinely required, the two should still agree with each other in every place they can."
+   },
+   {
+    "tag": "p",
+    "html": "For internal use, monthly, because that is the frequency at which a problem is still small. For outside recipients, whatever the agreement requires \u2014 typically annually, sometimes quarterly for a business under covenants.",
+    "text": "For internal use, monthly, because that is the frequency at which a problem is still small. For outside recipients, whatever the agreement requires \u2014 typically annually, sometimes quarterly for a business under covenants."
+   },
+   {
+    "tag": "p",
+    "html": "That the accountant assembled the statements from records supplied by the business and did not verify them. It is a statement of scope, not a warning about the figures. Statements at that level are entirely appropriate for internal management and for many outside purposes; they are not the same thing as an audited statement and are not priced like one.",
+    "text": "That the accountant assembled the statements from records supplied by the business and did not verify them. It is a statement of scope, not a warning about the figures. Statements at that level are entirely appropriate for internal management and for many outside purposes; they are not the same thing as an audited statement and are not priced like one."
+   },
+   {
+    "tag": "p",
+    "html": "Describe what you are dealing with and you will get a straight answer about what the work involves.",
+    "text": "Describe what you are dealing with and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"accounting-bookkeeping.html\"><span class=\"ck\">\u2192</span> Accounting &amp; bookkeeping</a></li><li><a href=\"business-consulting.html\"><span class=\"ck\">\u2192</span> Business consulting</a></li><li><a href=\"tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../calculators/loan-payment.html\"><span class=\"ck\">\u2192</span> Loan payment calculator</a></li>",
+    "text": "\u2192 Accounting & bookkeeping \u2192 Business consulting \u2192 Tax preparation & planning \u2192 Loan payment calculator"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"../about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li><li><a href=\"../contact.html\"><span class=\"ck\">\u2192</span> Office &amp; directions</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Financial calculators \u2192 Office & directions"
+   }
+  ]
+ },
+ "services/index.html": {
+  "title": "Services | Charles M. Carella, CPA | North Billerica, MA",
+  "desc": "Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting for individuals and small businesses in Massachusetts.",
+  "h1": "Four services, and the connections between them.",
+  "sub": "Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting.",
+    "text": "Tax preparation and planning, accounting and bookkeeping, financial statement preparation, and business consulting."
+   },
+   {
+    "tag": "h2",
+    "html": "What the office does",
+    "text": "What the office does"
+   },
+   {
+    "tag": "p",
+    "html": "A short list, described honestly. Each of these is a real service with real work behind it, and for a small business the four of them tend to arrive together.",
+    "text": "A short list, described honestly. Each of these is a real service with real work behind it, and for a small business the four of them tend to arrive together."
+   },
+   {
+    "tag": "h3",
+    "html": "Tax Preparation &amp; Planning",
+    "text": "Tax Preparation & Planning"
+   },
+   {
+    "tag": "p",
+    "html": "Federal and Massachusetts returns for individuals and small businesses \u2014 and the conversations that have to happen before the year closes.",
+    "text": "Federal and Massachusetts returns for individuals and small businesses \u2014 and the conversations that have to happen before the year closes."
+   },
+   {
+    "tag": "h3",
+    "html": "Accounting &amp; Bookkeeping",
+    "text": "Accounting & Bookkeeping"
+   },
+   {
+    "tag": "p",
+    "html": "The monthly discipline underneath everything else \u2014 a chart of accounts that fits the business, accounts that reconcile, and a set of books that can be relied on.",
+    "text": "The monthly discipline underneath everything else \u2014 a chart of accounts that fits the business, accounts that reconcile, and a set of books that can be relied on."
+   },
+   {
+    "tag": "h3",
+    "html": "Financial Statement Preparation",
+    "text": "Financial Statement Preparation"
+   },
+   {
+    "tag": "p",
+    "html": "Statements a lender, a landlord, a bonding company or an owner can read \u2014 and a clear answer about which level of service the request actually requires.",
+    "text": "Statements a lender, a landlord, a bonding company or an owner can read \u2014 and a clear answer about which level of service the request actually requires."
+   },
+   {
+    "tag": "h3",
+    "html": "Business Consulting",
+    "text": "Business Consulting"
+   },
+   {
+    "tag": "p",
+    "html": "The questions that come up between filings \u2014 how to organize, what a hire really costs, whether to buy the equipment, and what the numbers are actually telling you.",
+    "text": "The questions that come up between filings \u2014 how to organize, what a hire really costs, whether to buy the equipment, and what the numbers are actually telling you."
+   },
+   {
+    "tag": "h2",
+    "html": "Why they belong together",
+    "text": "Why they belong together"
+   },
+   {
+    "tag": "p",
+    "html": "Take a business with a lender asking for statements. The statements come from the books, so the books have to reconcile before anything can be produced. The statements have to agree with the tax return, so whoever prepares them needs to know how the return was filed. The covenant behind the request will constrain distributions, which changes what the owner can take out, which changes the personal return. That is one problem with four names on it.",
+    "text": "Take a business with a lender asking for statements. The statements come from the books, so the books have to reconcile before anything can be produced. The statements have to agree with the tax return, so whoever prepares them needs to know how the return was filed. The covenant behind the request will constrain distributions, which changes what the owner can take out, which changes the personal return. That is one problem with four names on it."
+   },
+   {
+    "tag": "p",
+    "html": "Splitting it across three providers means somebody has to hold the whole picture, and in practice that somebody is the owner, at the exact moment they have least time for it.",
+    "text": "Splitting it across three providers means somebody has to hold the whole picture, and in practice that somebody is the owner, at the exact moment they have least time for it."
+   },
+   {
+    "tag": "h2",
+    "html": "What each one actually is",
+    "text": "What each one actually is"
+   },
+   {
+    "tag": "h3",
+    "html": "Tax preparation and planning",
+    "text": "Tax preparation and planning"
+   },
+   {
+    "tag": "p",
+    "html": "Federal and Massachusetts returns for individuals and small businesses, plus the planning that has to happen before the year closes to be worth anything. <a href=\"tax-preparation-planning.html\">In detail</a>.",
+    "text": "Federal and Massachusetts returns for individuals and small businesses, plus the planning that has to happen before the year closes to be worth anything. In detail ."
+   },
+   {
+    "tag": "h3",
+    "html": "Accounting and bookkeeping",
+    "text": "Accounting and bookkeeping"
+   },
+   {
+    "tag": "p",
+    "html": "A chart of accounts that fits the business, activity recorded properly, accounts reconciled against outside statements, and period-end figures that can be relied on. <a href=\"accounting-bookkeeping.html\">In detail</a>.",
+    "text": "A chart of accounts that fits the business, activity recorded properly, accounts reconciled against outside statements, and period-end figures that can be relied on. In detail ."
+   },
+   {
+    "tag": "h3",
+    "html": "Financial statement preparation",
+    "text": "Financial statement preparation"
+   },
+   {
+    "tag": "p",
+    "html": "Statements assembled from the books for owners, lenders, landlords and buyers \u2014 and a clear answer about which of the four levels of service a given request actually requires, since the difference in cost is a multiple rather than a percentage. <a href=\"financial-statements.html\">In detail</a>.",
+    "text": "Statements assembled from the books for owners, lenders, landlords and buyers \u2014 and a clear answer about which of the four levels of service a given request actually requires, since the difference in cost is a multiple rather than a percentage. In detail ."
+   },
+   {
+    "tag": "h3",
+    "html": "Business consulting",
+    "text": "Business consulting"
+   },
+   {
+    "tag": "p",
+    "html": "The questions that arrive between filings: how the business should be organized, what a hire really costs, whether the equipment purchase makes sense, why a profitable business is short of cash. <a href=\"business-consulting.html\">In detail</a>.",
+    "text": "The questions that arrive between filings: how the business should be organized, what a hire really costs, whether the equipment purchase makes sense, why a profitable business is short of cash. In detail ."
+   },
+   {
+    "tag": "h2",
+    "html": "What is not on this list",
+    "text": "What is not on this list"
+   },
+   {
+    "tag": "p",
+    "html": "Assurance work \u2014 a review or an audit \u2014 is a different engagement with an independence requirement attached, and it is not among the services above. If a lender or a contract is asking for reviewed or audited statements, that is worth establishing early, because the requirement is frequently negotiable when the agreement is signed and never afterwards. The <a href=\"financial-statements.html\">financial statements page</a> explains the four levels and how to tell which one is being asked for.",
+    "text": "Assurance work \u2014 a review or an audit \u2014 is a different engagement with an independence requirement attached, and it is not among the services above. If a lender or a contract is asking for reviewed or audited statements, that is worth establishing early, because the requirement is frequently negotiable when the agreement is signed and never afterwards. The financial statements page explains the four levels and how to tell which one is being asked for."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"../about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Common questions \u2192 Financial calculators"
+   }
+  ]
+ },
+ "services/tax-preparation-planning.html": {
+  "title": "Tax Preparation & Planning | Charles M. Carella, CPA",
+  "desc": "Federal and Massachusetts income tax preparation and planning for individuals and small businesses, from a CPA office at 330 Boston Road in North Billerica.",
+  "h1": "A return is a record. The planning happens earlier.",
+  "sub": "Income tax preparation and planning for individuals and for the small businesses they own, federal and Massachusetts.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Income tax preparation and planning for individuals and for the small businesses they own, federal and Massachusetts.",
+    "text": "Income tax preparation and planning for individuals and for the small businesses they own, federal and Massachusetts."
+   },
+   {
+    "tag": "h2",
+    "html": "What this covers",
+    "text": "What this covers"
+   },
+   {
+    "tag": "p",
+    "html": "Preparation of federal and Massachusetts income tax returns for individuals and small businesses, and the planning work that sits in front of them. Those two halves are usually sold as one service and treated as one job. They are not. Preparation records decisions that have already been made. Planning is the part where the decisions are still open.",
+    "text": "Preparation of federal and Massachusetts income tax returns for individuals and small businesses, and the planning work that sits in front of them. Those two halves are usually sold as one service and treated as one job. They are not. Preparation records decisions that have already been made. Planning is the part where the decisions are still open."
+   },
+   {
+    "tag": "h2",
+    "html": "Why the calendar decides most of it",
+    "text": "Why the calendar decides most of it"
+   },
+   {
+    "tag": "p",
+    "html": "By the time a return is being prepared, the year is closed and the arithmetic is fixed. Nearly everything that moves the number happened months earlier: how the business is organized, what the owner took as wages against distributions, when equipment was bought and how it was paid for, whether a retirement plan contribution was made, how a property sale was structured, which state the work was performed in.",
+    "text": "By the time a return is being prepared, the year is closed and the arithmetic is fixed. Nearly everything that moves the number happened months earlier: how the business is organized, what the owner took as wages against distributions, when equipment was bought and how it was paid for, whether a retirement plan contribution was made, how a property sale was structured, which state the work was performed in."
+   },
+   {
+    "tag": "p",
+    "html": "Some of it can still be adjusted after year end \u2014 a self-employed retirement plan contribution, an IRA, an accounting method question. Most of it cannot. That is the argument for a conversation in the autumn rather than a scramble in April.",
+    "text": "Some of it can still be adjusted after year end \u2014 a self-employed retirement plan contribution, an IRA, an accounting method question. Most of it cannot. That is the argument for a conversation in the autumn rather than a scramble in April."
+   },
+   {
+    "tag": "h2",
+    "html": "Individual returns",
+    "text": "Individual returns"
+   },
+   {
+    "tag": "p",
+    "html": "A straightforward wage return is straightforward. Returns stop being straightforward at fairly predictable points: a first year of self-employment or 1099 income, a house bought or sold, equity compensation, a rental unit, an inheritance, a move across a state line, a year with two states in it, marriage, divorce, a child in college, retirement account withdrawals starting.",
+    "text": "A straightforward wage return is straightforward. Returns stop being straightforward at fairly predictable points: a first year of self-employment or 1099 income, a house bought or sold, equity compensation, a rental unit, an inheritance, a move across a state line, a year with two states in it, marriage, divorce, a child in college, retirement account withdrawals starting."
+   },
+   {
+    "tag": "p",
+    "html": "Each of those changes what has to be reported and what can be claimed, and each of them is a reason to raise the question before the year ends rather than after.",
+    "text": "Each of those changes what has to be reported and what can be claimed, and each of them is a reason to raise the question before the year ends rather than after."
+   },
+   {
+    "tag": "h3",
+    "html": "Massachusetts, specifically",
+    "text": "Massachusetts, specifically"
+   },
+   {
+    "tag": "p",
+    "html": "The state return is not a copy of the federal one, and the differences catch people out:",
+    "text": "The state return is not a copy of the federal one, and the differences catch people out:"
+   },
+   {
+    "tag": "ul",
+    "html": "<li>Massachusetts taxes most income \u2014 wages, interest, dividends, long-term capital gains \u2014 at a flat 5%. Short-term capital gains are taxed at a higher rate of their own.</li>\n<li>A 4% surtax applies to taxable income above a threshold near one million dollars, adjusted annually. It reaches one-off events, so the year you sell a business or a building is the year to check it.</li>\n<li>There is no state standard deduction. Massachusetts uses personal exemptions and its own list of deductions instead, which is why federal and state taxable income rarely match.</li>\n<li>Residents file Form 1; part-year residents and non-residents file Form 1-NR/PY. If you moved during the year, or you live in one state and work in another, the apportionment is the whole exercise.</li>\n<li>Massachusetts does not follow the federal bonus-depreciation rules. A purchase that produces a large federal deduction may produce a much smaller state one, and the two sets of books diverge from that point on.</li>",
+    "text": "Massachusetts taxes most income \u2014 wages, interest, dividends, long-term capital gains \u2014 at a flat 5%. Short-term capital gains are taxed at a higher rate of their own. A 4% surtax applies to taxable income above a threshold near one million dollars, adjusted annually. It reaches one-off events, so the year you sell a business or a building is the year to check it. There is no state standard deduction. Massachusetts uses personal exemptions and its own list of deductions instead, which is why federal and state taxable income rarely match. Residents file Form 1; part-year residents and non-residents file Form 1-NR/PY. If you moved during the year, or you live in one state and work in another, the apportionment is the whole exercise. Massachusetts does not follow the federal bonus-depreciation rules. A purchase that produces a large federal deduction may produce a much smaller state one, and the two sets of books diverge from that point on."
+   },
+   {
+    "tag": "h2",
+    "html": "Small business returns",
+    "text": "Small business returns"
+   },
+   {
+    "tag": "p",
+    "html": "How a business is organized decides which return it files, when it is due, and how the profit reaches the owner\u2019s personal return. A sole proprietorship or single-member LLC reports on Schedule C inside the owner\u2019s Form 1040. A partnership or multi-member LLC files its own return and issues a Schedule K-1 to each partner. An S corporation files its own return, issues K-1s, and adds the question of reasonable compensation for any owner who works in the business. A C corporation is taxed in its own right and owes a Massachusetts corporate excise even in a year it loses money.",
+    "text": "How a business is organized decides which return it files, when it is due, and how the profit reaches the owner\u2019s personal return. A sole proprietorship or single-member LLC reports on Schedule C inside the owner\u2019s Form 1040. A partnership or multi-member LLC files its own return and issues a Schedule K-1 to each partner. An S corporation files its own return, issues K-1s, and adds the question of reasonable compensation for any owner who works in the business. A C corporation is taxed in its own right and owes a Massachusetts corporate excise even in a year it loses money."
+   },
+   {
+    "tag": "p",
+    "html": "Those returns are due on different dates, and the entity return has to be finished before the owner\u2019s personal return can be. A business return filed late is expensive in a way an individual return is not: the penalty is charged per owner, per month.",
+    "text": "Those returns are due on different dates, and the entity return has to be finished before the owner\u2019s personal return can be. A business return filed late is expensive in a way an individual return is not: the penalty is charged per owner, per month."
+   },
+   {
+    "tag": "h2",
+    "html": "Estimated tax",
+    "text": "Estimated tax"
+   },
+   {
+    "tag": "p",
+    "html": "Income that arrives without withholding \u2014 self-employment profit, K-1 income, investment income, a large capital gain \u2014 carries an obligation to pay in quarterly. The federal installments are due in April, June, September and January; Massachusetts uses the same schedule on Form 1-ES.",
+    "text": "Income that arrives without withholding \u2014 self-employment profit, K-1 income, investment income, a large capital gain \u2014 carries an obligation to pay in quarterly. The federal installments are due in April, June, September and January; Massachusetts uses the same schedule on Form 1-ES."
+   },
+   {
+    "tag": "p",
+    "html": "The underpayment penalty is not a fine for owing money at filing. It is interest charged for paying late in the year, and it can be avoided even in a year of unexpected income by paying in at least what last year\u2019s tax was \u2014 a higher percentage of it if your income is above the threshold in the rule. That safe harbor is the single most useful thing to know about estimates, and it is worth checking in the autumn rather than in January.",
+    "text": "The underpayment penalty is not a fine for owing money at filing. It is interest charged for paying late in the year, and it can be avoided even in a year of unexpected income by paying in at least what last year\u2019s tax was \u2014 a higher percentage of it if your income is above the threshold in the rule. That safe harbor is the single most useful thing to know about estimates, and it is worth checking in the autumn rather than in January."
+   },
+   {
+    "tag": "p",
+    "html": "<strong>An extension buys time to file, not time to pay.</strong> The federal extension moves the filing deadline to October and nothing else; interest and penalties run on any unpaid balance from the original due date. Massachusetts grants an automatic extension only if enough of the year\u2019s tax has already been paid \u2014 miss that and the extension is void, with a late-filing penalty on top.",
+    "text": "An extension buys time to file, not time to pay. The federal extension moves the filing deadline to October and nothing else; interest and penalties run on any unpaid balance from the original due date. Massachusetts grants an automatic extension only if enough of the year\u2019s tax has already been paid \u2014 miss that and the extension is void, with a late-filing penalty on top."
+   },
+   {
+    "tag": "h2",
+    "html": "Notices and prior years",
+    "text": "Notices and prior years"
+   },
+   {
+    "tag": "p",
+    "html": "A letter from the IRS or the Massachusetts Department of Revenue is a starting point, not a verdict. Some are wrong. Many are answered with a single letter and a document. Almost all of them have a deadline printed on them, and the deadline is the part that matters \u2014 a notice that is ignored becomes an assessment.",
+    "text": "A letter from the IRS or the Massachusetts Department of Revenue is a starting point, not a verdict. Some are wrong. Many are answered with a single letter and a document. Almost all of them have a deadline printed on them, and the deadline is the part that matters \u2014 a notice that is ignored becomes an assessment."
+   },
+   {
+    "tag": "p",
+    "html": "Unfiled years work the same way. They are more common than most people assume, and the situation only compounds while it is left alone. Say so plainly on the first call; it changes what the work looks like but not whether it can be done.",
+    "text": "Unfiled years work the same way. They are more common than most people assume, and the situation only compounds while it is left alone. Say so plainly on the first call; it changes what the work looks like but not whether it can be done."
+   },
+   {
+    "tag": "h2",
+    "html": "What is on your side of the job",
+    "text": "What is on your side of the job"
+   },
+   {
+    "tag": "p",
+    "html": "The quality of a return is mostly decided by the completeness of what it is built from. Complete records shorten the work, reduce the questions, and lower the chance of an amendment later. The <a href=\"../about.html#bring\">list of what to gather</a> covers the usual case; anything unusual about your year is worth mentioning at the start rather than being discovered at the end.",
+    "text": "The quality of a return is mostly decided by the completeness of what it is built from. Complete records shorten the work, reduce the questions, and lower the chance of an amendment later. The list of what to gather covers the usual case; anything unusual about your year is worth mentioning at the start rather than being discovered at the end."
+   },
+   {
+    "tag": "h2",
+    "html": "Common questions",
+    "text": "Common questions"
+   },
+   {
+    "tag": "p",
+    "html": "Before the year closes, and before the transaction if there is one. Selling a property, buying equipment, changing how the business is organized, taking a large distribution, exercising options \u2014 all of those have a better and a worse version, and the choice closes on 31 December. Planning after year end is limited to a short list: certain retirement contributions, an IRA, and a few accounting method questions.",
+    "text": "Before the year closes, and before the transaction if there is one. Selling a property, buying equipment, changing how the business is organized, taking a large distribution, exercising options \u2014 all of those have a better and a worse version, and the choice closes on 31 December. Planning after year end is limited to a short list: certain retirement contributions, an IRA, and a few accounting method questions."
+   },
+   {
+    "tag": "p",
+    "html": "Tax preparation and planning for individuals and small businesses is what this office does, and for an owner-operated business the two returns are one problem. The entity return produces the K-1 or the Schedule C figure that the personal return depends on, so the entity return has to be finished first.",
+    "text": "Tax preparation and planning for individuals and small businesses is what this office does, and for an owner-operated business the two returns are one problem. The entity return produces the K-1 or the Schedule C figure that the personal return depends on, so the entity return has to be finished first."
+   },
+   {
+    "tag": "p",
+    "html": "Enough to land inside the safe harbor. Paying in at least the amount of last year\u2019s total tax \u2014 a higher percentage of it above an income threshold \u2014 avoids the underpayment penalty regardless of what this year turns out to be. The <a href=\"../calculators/self-employment-tax.html\">self-employment tax calculator</a> gives you the Social Security and Medicare half of the estimate; income tax sits on top of it.",
+    "text": "Enough to land inside the safe harbor. Paying in at least the amount of last year\u2019s total tax \u2014 a higher percentage of it above an income threshold \u2014 avoids the underpayment penalty regardless of what this year turns out to be. The self-employment tax calculator gives you the Social Security and Medicare half of the estimate; income tax sits on top of it."
+   },
+   {
+    "tag": "p",
+    "html": "File anyway. The penalty for filing late is several times the penalty for paying late, so a return filed on time with a partial payment costs far less than a return held back until the money is there. Both the IRS and the Massachusetts Department of Revenue have installment arrangements; both are easier to arrange before the balance is in collection.",
+    "text": "File anyway. The penalty for filing late is several times the penalty for paying late, so a return filed on time with a partial payment costs far less than a return held back until the money is there. Both the IRS and the Massachusetts Department of Revenue have installment arrangements; both are easier to arrange before the balance is in collection."
+   },
+   {
+    "tag": "p",
+    "html": "Describe what you are dealing with and you will get a straight answer about what the work involves.",
+    "text": "Describe what you are dealing with and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"accounting-bookkeeping.html\"><span class=\"ck\">\u2192</span> Accounting &amp; bookkeeping</a></li><li><a href=\"business-consulting.html\"><span class=\"ck\">\u2192</span> Business consulting</a></li><li><a href=\"../calculators/self-employment-tax.html\"><span class=\"ck\">\u2192</span> Self-employment tax calculator</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Accounting & bookkeeping \u2192 Business consulting \u2192 Self-employment tax calculator \u2192 Common questions"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../about.html#engagement\"><span class=\"ck\">\u2192</span> How an engagement runs</a></li><li><a href=\"../about.html#bring\"><span class=\"ck\">\u2192</span> What to bring</a></li><li><a href=\"../calculators/index.html\"><span class=\"ck\">\u2192</span> Financial calculators</a></li><li><a href=\"../contact.html\"><span class=\"ck\">\u2192</span> Office &amp; directions</a></li>",
+    "text": "\u2192 How an engagement runs \u2192 What to bring \u2192 Financial calculators \u2192 Office & directions"
+   }
+  ]
+ },
+ "calculators/break-even.html": {
+  "title": "Break-Even Calculator | Charles M. Carella, CPA",
+  "desc": "Find the unit volume and revenue at which a business covers its fixed costs, and what it takes to reach a target monthly profit on top.",
+  "h1": "Break-even point",
+  "sub": "The revenue and unit volume at which the business stops losing money.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "The revenue and unit volume at which the business stops losing money.",
+    "text": "The revenue and unit volume at which the business stops losing money."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"section-179.html\"><span class=\"ck\">\u2192</span> Equipment purchase</a></li><li><a href=\"loan-payment.html\"><span class=\"ck\">\u2192</span> Loan payment</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Equipment purchase \u2192 Loan payment \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/business-consulting.html\"><span class=\"ck\">\u2192</span> Business consulting</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Business consulting \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/college-savings.html": {
+  "title": "College Savings Calculator | Charles M. Carella, CPA",
+  "desc": "Project the cost of four years of college when your child starts and what you need to set aside each month to close the gap.",
+  "h1": "Saving for college",
+  "sub": "What a four-year education is projected to cost when your child starts, and what you need to put aside monthly.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "What a four-year education is projected to cost when your child starts, and what you need to put aside monthly.",
+    "text": "What a four-year education is projected to cost when your child starts, and what you need to put aside monthly."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"retirement-savings.html\"><span class=\"ck\">\u2192</span> Retirement savings</a></li><li><a href=\"mortgage-payment.html\"><span class=\"ck\">\u2192</span> Mortgage payment</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Retirement savings \u2192 Mortgage payment \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/index.html": {
+  "title": "Financial Calculators | Charles M. Carella, CPA",
+  "desc": "Eight financial calculators covering mortgages, refinancing, loans, retirement, self-employment tax, equipment purchases, break-even and college saving.",
+  "h1": "Eight calculators, running on this page.",
+  "sub": "Mortgage and refinance, loans, retirement and college saving, self-employment tax, equipment purchases, and break-even.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Mortgage and refinance, loans, retirement and college saving, self-employment tax, equipment purchases, and break-even.",
+    "text": "Mortgage and refinance, loans, retirement and college saving, self-employment tax, equipment purchases, and break-even."
+   },
+   {
+    "tag": "h2",
+    "html": "Size the question before you ask it",
+    "text": "Size the question before you ask it"
+   },
+   {
+    "tag": "p",
+    "html": "Each of these takes a handful of assumptions and shows what falls out of them. The point is not the single answer \u2014 it is watching the answer move as you change an assumption, because that is what tells you which variable the decision actually turns on.",
+    "text": "Each of these takes a handful of assumptions and shows what falls out of them. The point is not the single answer \u2014 it is watching the answer move as you change an assumption, because that is what tells you which variable the decision actually turns on."
+   },
+   {
+    "tag": "h3",
+    "html": "Home &amp; mortgage",
+    "text": "Home & mortgage"
+   },
+   {
+    "tag": "h3",
+    "html": "Monthly mortgage payment",
+    "text": "Monthly mortgage payment"
+   },
+   {
+    "tag": "p",
+    "html": "Principal, interest, taxes and insurance on a fixed-rate loan, plus the total interest over the life of the note.",
+    "text": "Principal, interest, taxes and insurance on a fixed-rate loan, plus the total interest over the life of the note."
+   },
+   {
+    "tag": "h3",
+    "html": "Refinance break-even",
+    "text": "Refinance break-even"
+   },
+   {
+    "tag": "p",
+    "html": "How many months of lower payments it takes to earn back what the refinance costs you.",
+    "text": "How many months of lower payments it takes to earn back what the refinance costs you."
+   },
+   {
+    "tag": "h3",
+    "html": "Loans &amp; credit",
+    "text": "Loans & credit"
+   },
+   {
+    "tag": "h3",
+    "html": "Loan payment and payoff",
+    "text": "Loan payment and payoff"
+   },
+   {
+    "tag": "p",
+    "html": "Payment, total interest, and what an extra monthly amount does to the payoff date.",
+    "text": "Payment, total interest, and what an extra monthly amount does to the payoff date."
+   },
+   {
+    "tag": "h3",
+    "html": "Retirement",
+    "text": "Retirement"
+   },
+   {
+    "tag": "h3",
+    "html": "What my retirement account will be worth",
+    "text": "What my retirement account will be worth"
+   },
+   {
+    "tag": "p",
+    "html": "Projected balance from what you have now plus what you and your employer add each year.",
+    "text": "Projected balance from what you have now plus what you and your employer add each year."
+   },
+   {
+    "tag": "h3",
+    "html": "Tax",
+    "text": "Tax"
+   },
+   {
+    "tag": "h3",
+    "html": "Self-employment tax estimate",
+    "text": "Self-employment tax estimate"
+   },
+   {
+    "tag": "p",
+    "html": "Social Security and Medicare on net self-employment earnings, with the deductible half broken out.",
+    "text": "Social Security and Medicare on net self-employment earnings, with the deductible half broken out."
+   },
+   {
+    "tag": "h3",
+    "html": "Business",
+    "text": "Business"
+   },
+   {
+    "tag": "h3",
+    "html": "Equipment purchase tax saving",
+    "text": "Equipment purchase tax saving"
+   },
+   {
+    "tag": "p",
+    "html": "What a Section 179 or bonus-depreciation deduction is worth against your bracket, and the real after-tax cost of the asset.",
+    "text": "What a Section 179 or bonus-depreciation deduction is worth against your bracket, and the real after-tax cost of the asset."
+   },
+   {
+    "tag": "h3",
+    "html": "Break-even point",
+    "text": "Break-even point"
+   },
+   {
+    "tag": "p",
+    "html": "The revenue and unit volume at which the business stops losing money.",
+    "text": "The revenue and unit volume at which the business stops losing money."
+   },
+   {
+    "tag": "h3",
+    "html": "Saving",
+    "text": "Saving"
+   },
+   {
+    "tag": "h3",
+    "html": "Saving for college",
+    "text": "Saving for college"
+   },
+   {
+    "tag": "p",
+    "html": "What a four-year education is projected to cost when your child starts, and what you need to put aside monthly.",
+    "text": "What a four-year education is projected to cost when your child starts, and what you need to put aside monthly."
+   },
+   {
+    "tag": "h2",
+    "html": "How these work",
+    "text": "How these work"
+   },
+   {
+    "tag": "p",
+    "html": "The arithmetic runs in your browser. There is no third-party script, no sign-in, no cookie and no network request: nothing you type is transmitted, stored or seen by anybody. Every assumption is visible in a box you can change, and the working behind each one is described on its page.",
+    "text": "The arithmetic runs in your browser. There is no third-party script, no sign-in, no cookie and no network request: nothing you type is transmitted, stored or seen by anybody. Every assumption is visible in a box you can change, and the working behind each one is described on its page."
+   },
+   {
+    "tag": "p",
+    "html": "The spread is deliberate. Household questions \u2014 a mortgage, a refinance, a loan, saving for retirement or for college \u2014 sit alongside the ones a small business runs into: self-employment tax, what an equipment deduction is worth, where break-even actually falls. Those are the questions that come up in practice, so those are the calculators here.",
+    "text": "The spread is deliberate. Household questions \u2014 a mortgage, a refinance, a loan, saving for retirement or for college \u2014 sit alongside the ones a small business runs into: self-employment tax, what an equipment deduction is worth, where break-even actually falls. Those are the questions that come up in practice, so those are the calculators here."
+   },
+   {
+    "tag": "h2",
+    "html": "What they are not",
+    "text": "What they are not"
+   },
+   {
+    "tag": "p",
+    "html": "They are not advice, and they are not a substitute for a return. Every one of them makes simplifying assumptions that are stated on its page. Tax rates, contribution limits and thresholds change annually, and none of these tools knows your filing status, your other income, your state position or anything else that determines the real answer.",
+    "text": "They are not advice, and they are not a substitute for a return. Every one of them makes simplifying assumptions that are stated on its page. Tax rates, contribution limits and thresholds change annually, and none of these tools knows your filing status, your other income, your state position or anything else that determines the real answer."
+   },
+   {
+    "tag": "p",
+    "html": "Used properly they do one useful thing: they tell you whether a question is worth a phone call. A break-even that lands at twice your current volume, or a self-employment tax estimate several thousand dollars above what you have paid in, is worth raising before the year closes rather than after.",
+    "text": "Used properly they do one useful thing: they tell you whether a question is worth a phone call. A break-even that lands at twice your current volume, or a self-employment tax estimate several thousand dollars above what you have paid in, is worth raising before the year closes rather than after."
+   },
+   {
+    "tag": "h2",
+    "html": "Where each one leads",
+    "text": "Where each one leads"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"self-employment-tax.html\">Self-employment tax</a> and <a href=\"section-179.html\">equipment purchases</a> connect to <a href=\"../services/tax-preparation-planning.html\">tax preparation and planning</a>.</li><li><a href=\"break-even.html\">Break-even</a> connects to <a href=\"../services/business-consulting.html\">business consulting</a>.</li><li><a href=\"loan-payment.html\">Loan payment</a> and <a href=\"refinance-breakeven.html\">refinance break-even</a> tend to arrive alongside <a href=\"../services/financial-statements.html\">financial statement</a> requests from a lender.</li><li><a href=\"retirement-savings.html\">Retirement</a>, <a href=\"college-savings.html\">college saving</a> and <a href=\"mortgage-payment.html\">mortgage payments</a> are personal-side questions that still land on a tax return.</li>",
+    "text": "Self-employment tax and equipment purchases connect to tax preparation and planning . Break-even connects to business consulting . Loan payment and refinance break-even tend to arrive alongside financial statement requests from a lender. Retirement , college saving and mortgage payments are personal-side questions that still land on a tax return."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax Preparation &amp; Planning</a></li><li><a href=\"../services/accounting-bookkeeping.html\"><span class=\"ck\">\u2192</span> Accounting &amp; Bookkeeping</a></li><li><a href=\"../services/financial-statements.html\"><span class=\"ck\">\u2192</span> Financial Statement Preparation</a></li><li><a href=\"../services/business-consulting.html\"><span class=\"ck\">\u2192</span> Business Consulting</a></li>",
+    "text": "\u2192 Tax Preparation & Planning \u2192 Accounting & Bookkeeping \u2192 Financial Statement Preparation \u2192 Business Consulting"
+   }
+  ]
+ },
+ "calculators/loan-payment.html": {
+  "title": "Loan Payment Calculator | Charles M. Carella, CPA",
+  "desc": "Calculate a loan payment and total interest, and see how much sooner the balance clears if you add a fixed amount to every payment.",
+  "h1": "Loan payment and payoff",
+  "sub": "Payment, total interest, and what an extra monthly amount does to the payoff date.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Payment, total interest, and what an extra monthly amount does to the payoff date.",
+    "text": "Payment, total interest, and what an extra monthly amount does to the payoff date."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"break-even.html\"><span class=\"ck\">\u2192</span> Break-even point</a></li><li><a href=\"mortgage-payment.html\"><span class=\"ck\">\u2192</span> Mortgage payment</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Break-even point \u2192 Mortgage payment \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/financial-statements.html\"><span class=\"ck\">\u2192</span> Financial statements</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Financial statements \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/mortgage-payment.html": {
+  "title": "Mortgage Payment Calculator | Charles M. Carella, CPA",
+  "desc": "Estimate a monthly mortgage payment including taxes and insurance, the total interest over the term, and the loan-to-value ratio.",
+  "h1": "Monthly mortgage payment",
+  "sub": "Principal, interest, taxes and insurance on a fixed-rate loan, plus the total interest over the life of the note.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Principal, interest, taxes and insurance on a fixed-rate loan, plus the total interest over the life of the note.",
+    "text": "Principal, interest, taxes and insurance on a fixed-rate loan, plus the total interest over the life of the note."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"refinance-breakeven.html\"><span class=\"ck\">\u2192</span> Refinance break-even</a></li><li><a href=\"loan-payment.html\"><span class=\"ck\">\u2192</span> Loan payment</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Refinance break-even \u2192 Loan payment \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/refinance-breakeven.html": {
+  "title": "Refinance Break-Even Calculator | Charles M. Carella, CPA",
+  "desc": "Work out how many months of lower payments it takes to earn back the cost of refinancing, and compare the lifetime cost of both loans.",
+  "h1": "Refinance break-even",
+  "sub": "How many months of lower payments it takes to earn back what the refinance costs you.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "How many months of lower payments it takes to earn back what the refinance costs you.",
+    "text": "How many months of lower payments it takes to earn back what the refinance costs you."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"mortgage-payment.html\"><span class=\"ck\">\u2192</span> Mortgage payment</a></li><li><a href=\"loan-payment.html\"><span class=\"ck\">\u2192</span> Loan payment</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Mortgage payment \u2192 Loan payment \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/retirement-savings.html": {
+  "title": "Retirement Savings Calculator | Charles M. Carella, CPA",
+  "desc": "Project what a retirement account will be worth from your current balance, your contributions and an employer match over the years remaining.",
+  "h1": "What my retirement account will be worth",
+  "sub": "Projected balance from what you have now plus what you and your employer add each year.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Projected balance from what you have now plus what you and your employer add each year.",
+    "text": "Projected balance from what you have now plus what you and your employer add each year."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"college-savings.html\"><span class=\"ck\">\u2192</span> Saving for college</a></li><li><a href=\"self-employment-tax.html\"><span class=\"ck\">\u2192</span> Self-employment tax</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Saving for college \u2192 Self-employment tax \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/section-179.html": {
+  "title": "Equipment Purchase Tax Calculator | Charles M. Carella, CPA",
+  "desc": "See what an equipment deduction is worth against your combined tax rate and what the purchase actually costs after tax. Massachusetts differs federally.",
+  "h1": "Equipment purchase tax saving",
+  "sub": "What a Section 179 or bonus-depreciation deduction is worth against your bracket, and the real after-tax cost of the asset.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "What a Section 179 or bonus-depreciation deduction is worth against your bracket, and the real after-tax cost of the asset.",
+    "text": "What a Section 179 or bonus-depreciation deduction is worth against your bracket, and the real after-tax cost of the asset."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"break-even.html\"><span class=\"ck\">\u2192</span> Break-even point</a></li><li><a href=\"self-employment-tax.html\"><span class=\"ck\">\u2192</span> Self-employment tax</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Break-even point \u2192 Self-employment tax \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/business-consulting.html\"><span class=\"ck\">\u2192</span> Business consulting</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Business consulting \u2192 Common questions"
+   }
+  ]
+ },
+ "calculators/self-employment-tax.html": {
+  "title": "Self-Employment Tax Calculator | Charles M. Carella, CPA",
+  "desc": "Estimate Social Security and Medicare tax on self-employment profit, the deductible half, and roughly what each quarterly installment should be.",
+  "h1": "Self-employment tax estimate",
+  "sub": "Social Security and Medicare on net self-employment earnings, with the deductible half broken out.",
+  "blocks": [
+   {
+    "tag": "p",
+    "html": "Social Security and Medicare on net self-employment earnings, with the deductible half broken out.",
+    "text": "Social Security and Medicare on net self-employment earnings, with the deductible half broken out."
+   },
+   {
+    "tag": "h2",
+    "html": "How to read the result",
+    "text": "How to read the result"
+   },
+   {
+    "tag": "p",
+    "html": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does.",
+    "text": "Everything above is an estimate built from the assumptions in the boxes on the left. Change one and the figures change with it \u2014 which is the useful part, because the range a number moves through under plausible assumptions tells you more than any single answer does."
+   },
+   {
+    "tag": "p",
+    "html": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position.",
+    "text": "The calculation runs in your browser. Nothing is transmitted, stored or sent anywhere, and no third-party script is involved. Rates, thresholds and limits change from year to year, so check the current figures before relying on any of it, and treat the output as a way of sizing a question rather than as advice about your own position."
+   },
+   {
+    "tag": "p",
+    "html": "When the answer matters, call the office on <a href=\"tel:+19786636419\">(978) 663-6419 ext. 11</a> and describe the actual facts.",
+    "text": "When the answer matters, call the office on (978) 663-6419 ext. 11 and describe the actual facts."
+   },
+   {
+    "tag": "p",
+    "html": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves.",
+    "text": "Describe the situation in a couple of minutes and you will get a straight answer about what the work involves."
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"section-179.html\"><span class=\"ck\">\u2192</span> Equipment purchase</a></li><li><a href=\"break-even.html\"><span class=\"ck\">\u2192</span> Break-even point</a></li><li><a href=\"index.html\"><span class=\"ck\">\u2192</span> All eight calculators</a></li>",
+    "text": "\u2192 Equipment purchase \u2192 Break-even point \u2192 All eight calculators"
+   },
+   {
+    "tag": "ul",
+    "html": "<li><a href=\"../services/tax-preparation-planning.html\"><span class=\"ck\">\u2192</span> Tax preparation &amp; planning</a></li><li><a href=\"../faq.html\"><span class=\"ck\">\u2192</span> Common questions</a></li>",
+    "text": "\u2192 Tax preparation & planning \u2192 Common questions"
+   }
+  ]
+ }
+}
