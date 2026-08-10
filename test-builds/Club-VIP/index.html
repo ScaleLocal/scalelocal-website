@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>The Black Slab — A Private Society for Collectors</title>
+<meta name="description" content="A private society for collectors of consequence. Admission by introduction.">
+<meta name="theme-color" content="#080706">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────────────
+   THE BLACK SLAB — bespoke stylesheet
+   ───────────────────────────────────────────────────────────── */
+:root{
+  --obsidian:#080706;
+  --ink:#100E0C;
+  --ink-2:#171412;
+  --bone:#EDE6D6;
+  --bone-dim:#A79F91;
+  --smoke:#6E6659;
+  --gold-1:#8A6A22;
+  --gold-2:#C9A227;
+  --gold-3:#F2E1AE;
+  --gold-line:rgba(201,162,39,.34);
+  --gold-line-soft:rgba(201,162,39,.14);
+  --serif:'Cormorant Garamond',"Times New Roman",serif;
+  --sans:'Jost',"Helvetica Neue",Arial,sans-serif;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-lux:cubic-bezier(.16,1,.3,1);
+  --gutter:clamp(20px,4.6vw,74px);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--obsidian);color:var(--bone);
+  font-family:var(--sans);font-weight:300;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+}
+body.is-locked{overflow:hidden}
+::selection{background:rgba(201,162,39,.28);color:#fff}
+
+/* ── Atmosphere layers ─────────────────────────────────────── */
+.atmos{position:fixed;inset:0;pointer-events:none;z-index:0}
+.atmos--field{
+  background:
+    radial-gradient(120% 90% at 50% -10%, rgba(201,162,39,.09) 0%, rgba(201,162,39,0) 55%),
+    radial-gradient(90% 70% at 12% 108%, rgba(120,84,20,.16) 0%, rgba(0,0,0,0) 60%),
+    linear-gradient(180deg,#0A0908 0%,#0D0B09 42%,#080706 100%);
+}
+#motes{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.9}
+.atmos--candle{
+  z-index:2;mix-blend-mode:screen;opacity:0;transition:opacity 1.4s var(--ease);
+  background:radial-gradient(340px 340px at var(--mx,50%) var(--my,50%), rgba(201,162,39,.10), rgba(201,162,39,0) 68%);
+}
+body.pointer-fine .atmos--candle{opacity:1}
+.atmos--grain{
+  z-index:3;opacity:.5;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.42'/></svg>");
+}
+.atmos--vignette{
+  z-index:3;
+  background:radial-gradient(130% 100% at 50% 45%, rgba(0,0,0,0) 42%, rgba(0,0,0,.62) 100%);
+}
+
+/* ── The veil (entrance curtain) ───────────────────────────── */
+#veil{position:fixed;inset:0;z-index:120;display:grid;grid-template-columns:1fr 1fr}
+#veil .leaf{background:#050403;will-change:transform}
+#veil .seam{
+  position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-.5px);
+  background:linear-gradient(180deg,transparent,var(--gold-2) 18%,var(--gold-3) 50%,var(--gold-2) 82%,transparent);
+  opacity:0;box-shadow:0 0 18px 2px rgba(201,162,39,.45);
+}
+#veil.done{display:none}
+
+/* ── Chrome ────────────────────────────────────────────────── */
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold-line),transparent);border:0;margin:0}
+
+.masthead{
+  position:relative;z-index:8;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:clamp(18px,2.4vw,30px) var(--gutter);
+}
+.crest{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.crest svg{display:block;width:34px;height:44px;overflow:visible}
+.crest .crest__txt{display:flex;flex-direction:column;line-height:1}
+.crest .crest__name{
+  font-family:var(--serif);font-size:15px;letter-spacing:.44em;text-transform:uppercase;
+  color:var(--bone);padding-left:.44em;
+}
+.crest .crest__sub{
+  margin-top:6px;font-size:8.5px;letter-spacing:.42em;text-transform:uppercase;
+  color:var(--smoke);padding-left:.42em;
+}
+.masthead__meta{
+  font-size:9.5px;letter-spacing:.42em;text-transform:uppercase;color:var(--smoke);
+  text-align:right;
+}
+.masthead__meta em{font-style:normal;color:var(--gold-2)}
+
+/* ── Stage: the three-column architecture ──────────────────── */
+.stage{
+  position:relative;z-index:6;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(0,.9fr) minmax(0,1.05fr);
+  align-items:center;gap:clamp(24px,3.4vw,60px);
+  padding:clamp(24px,4vw,58px) var(--gutter) clamp(48px,6vw,86px);
+  min-height:calc(100svh - 120px);
+}
+
+/* ── I. The address ────────────────────────────────────────── */
+.address{min-width:0}
+.eyebrow{
+  display:flex;align-items:center;gap:14px;
+  font-size:9.5px;letter-spacing:.46em;text-transform:uppercase;color:var(--gold-2);
+  margin:0 0 clamp(18px,2vw,26px);
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-line),transparent)}
+.address h1{
+  font-family:var(--serif);font-weight:300;
+  font-size:clamp(38px,4.3vw,60px);line-height:1.02;letter-spacing:-.012em;
+  margin:0;color:var(--bone);
+}
+.address h1 .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.06em}
+.address h1 .line > span{display:block;white-space:nowrap;will-change:transform,opacity}
+.address h1 em{
+  font-style:italic;
+  background:linear-gradient(96deg,var(--gold-1) 0%,var(--gold-3) 42%,var(--gold-2) 70%,var(--gold-1) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.address .lede{
+  margin:clamp(22px,2.6vw,32px) 0 0;max-width:34ch;
+  font-size:clamp(13.5px,1.05vw,15.5px);line-height:1.85;color:var(--bone-dim);font-weight:300;
+}
+.ledger{
+  margin:clamp(28px,3vw,40px) 0 0;padding:0;list-style:none;
+  border-top:1px solid var(--gold-line-soft);
+}
+.ledger li{
+  display:flex;align-items:baseline;gap:16px;
+  padding:13px 0;border-bottom:1px solid var(--gold-line-soft);
+  font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);line-height:1.5;
+}
+.ledger li b{
+  font-family:var(--serif);font-weight:400;font-size:19px;letter-spacing:.06em;
+  color:var(--gold-2);min-width:3.4ch;
+}
+
+/* ── II. The slab ──────────────────────────────────────────── */
+.relic{display:flex;align-items:center;justify-content:center;perspective:1400px}
+.relic__tilt{
+  position:relative;width:min(300px,64vw);aspect-ratio:5/7;
+  transform-style:preserve-3d;will-change:transform;
+  transition:transform .9s var(--ease-lux);
+}
+.slab{
+  position:absolute;inset:0;border-radius:10px;transform-style:preserve-3d;
+  background:
+    linear-gradient(150deg, rgba(255,255,255,.10) 0%, rgba(255,255,255,.015) 26%, rgba(255,255,255,0) 52%),
+    linear-gradient(180deg,#191614 0%,#0D0B0A 55%,#141110 100%);
+  border:1px solid rgba(201,162,39,.26);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.10) inset,
+    0 0 0 1px rgba(0,0,0,.6),
+    0 46px 90px -28px rgba(0,0,0,.92),
+    0 0 90px -22px rgba(201,162,39,.30);
+}
+.slab__sheen{
+  position:absolute;inset:0;border-radius:10px;overflow:hidden;pointer-events:none;
+}
+.slab__sheen::before{
+  content:"";position:absolute;top:-60%;left:-140%;width:64%;height:220%;
+  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,247,220,.20),rgba(255,255,255,0));
+  transform:rotate(18deg);filter:blur(6px);
+  animation:sweep 7.2s var(--ease-lux) infinite;
+}
+@keyframes sweep{0%,62%{left:-140%}100%{left:180%}}
+
+.slab__label{
+  position:absolute;left:11px;right:11px;top:11px;height:19%;
+  border:1px solid var(--gold-line);border-radius:4px;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:0 11px;
+  background:linear-gradient(180deg,rgba(201,162,39,.10),rgba(201,162,39,.02));
+}
+.slab__label .t{font-size:7.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--bone-dim);line-height:1.9}
+.slab__label .t b{display:block;color:var(--bone);letter-spacing:.28em;font-weight:400}
+.slab__grade{
+  font-family:var(--serif);font-size:30px;line-height:1;color:var(--gold-3);
+  text-shadow:0 0 22px rgba(201,162,39,.55);
+}
+.slab__well{
+  position:absolute;left:11px;right:11px;top:calc(19% + 20px);bottom:11px;
+  border:1px solid rgba(201,162,39,.16);border-radius:5px;overflow:hidden;
+  background:
+    radial-gradient(90% 70% at 50% 22%, rgba(201,162,39,.14), rgba(0,0,0,0) 66%),
+    repeating-linear-gradient(45deg, rgba(201,162,39,.05) 0 1px, rgba(0,0,0,0) 1px 9px),
+    linear-gradient(180deg,#0F0D0B,#060504);
+  display:grid;place-items:center;
+}
+.slab__mono{width:52%;max-width:120px;height:auto;opacity:.94}
+.slab__seal{
+  position:absolute;left:50%;bottom:9%;transform:translateX(-50%);
+  font-size:6.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--smoke);white-space:nowrap;
+}
+.relic__shadow{
+  position:absolute;left:50%;bottom:-9%;width:74%;height:34px;transform:translateX(-50%);
+  background:radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,.85), rgba(0,0,0,0) 72%);
+  filter:blur(9px);
+}
+
+/* ── III. The gate ─────────────────────────────────────────── */
+.gate{justify-self:end;width:min(400px,100%)}
+.card{
+  position:relative;padding:clamp(28px,2.6vw,40px) clamp(24px,2.4vw,38px) clamp(26px,2.4vw,34px);
+  border:1px solid var(--gold-line-soft);border-radius:3px;
+  background:linear-gradient(180deg, rgba(23,20,18,.78), rgba(12,10,9,.86));
+  -webkit-backdrop-filter:blur(16px) saturate(120%);backdrop-filter:blur(16px) saturate(120%);
+  box-shadow:0 40px 80px -40px rgba(0,0,0,.95), 0 1px 0 rgba(255,255,255,.05) inset;
+  overflow:hidden;
+}
+.card::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold-2),transparent);opacity:.6;
+}
+.card__corner{position:absolute;width:14px;height:14px;border:1px solid var(--gold-line);opacity:.7}
+.card__corner.tl{top:9px;left:9px;border-right:0;border-bottom:0}
+.card__corner.br{bottom:9px;right:9px;border-left:0;border-top:0}
+
+.gate__title{
+  font-family:var(--serif);font-weight:400;font-size:clamp(23px,1.9vw,28px);letter-spacing:.02em;
+  margin:0 0 6px;color:var(--bone);
+}
+.gate__kicker{
+  font-size:9px;letter-spacing:.44em;text-transform:uppercase;color:var(--gold-2);margin:0 0 18px;
+}
+
+.field{position:relative;margin:0 0 22px}
+.field input{
+  width:100%;padding:16px 2px 9px;border:0;border-bottom:1px solid rgba(237,230,214,.16);
+  background:transparent;color:var(--bone);font-family:var(--sans);font-size:15px;font-weight:300;
+  letter-spacing:.03em;outline:0;border-radius:0;
+}
+.field input::placeholder{color:transparent}
+.field label{
+  position:absolute;left:2px;top:16px;pointer-events:none;
+  font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--smoke);
+  transition:transform .42s var(--ease-lux), color .42s var(--ease-lux), font-size .42s var(--ease-lux);
+  transform-origin:left top;
+}
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label{
+  transform:translateY(-17px) scale(.72);color:var(--gold-2);
+}
+.field .underline{
+  position:absolute;left:0;bottom:0;height:1px;width:100%;transform:scaleX(0);transform-origin:left;
+  background:linear-gradient(90deg,var(--gold-2),var(--gold-3));
+  transition:transform .6s var(--ease-lux);
+}
+.field input:focus ~ .underline{transform:scaleX(1)}
+.field input:-webkit-autofill{-webkit-text-fill-color:var(--bone);transition:background-color 9999s}
+
+.gate__row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-4px 0 24px}
+.check{display:inline-flex;align-items:center;gap:9px;cursor:pointer;user-select:none}
+.check input{position:absolute;opacity:0;width:0;height:0}
+.check .box{
+  width:13px;height:13px;border:1px solid rgba(201,162,39,.42);display:grid;place-items:center;
+  transition:background .3s var(--ease);
+}
+.check .box::after{
+  content:"";width:5px;height:5px;background:var(--gold-3);transform:scale(0);
+  transition:transform .32s var(--ease-lux);
+}
+.check input:checked + .box::after{transform:scale(1)}
+.check input:focus-visible + .box{outline:1px solid var(--gold-2);outline-offset:3px}
+.check span.lbl,
+.gate__row a{font-size:9.5px;letter-spacing:.28em;text-transform:uppercase;color:var(--smoke)}
+.gate__row a{text-decoration:none;border-bottom:1px solid transparent;transition:color .3s,border-color .3s}
+.gate__row a:hover{color:var(--gold-2);border-color:var(--gold-line)}
+
+.key{
+  position:relative;display:block;width:100%;cursor:pointer;overflow:hidden;
+  padding:17px 20px;border:1px solid var(--gold-line);border-radius:2px;
+  background:linear-gradient(180deg, rgba(201,162,39,.13), rgba(201,162,39,.05));
+  color:var(--gold-3);font-family:var(--sans);font-weight:400;
+  font-size:10.5px;letter-spacing:.44em;text-transform:uppercase;
+  transition:color .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
+}
+.key span{position:relative;z-index:2;display:block;transition:transform .5s var(--ease-lux)}
+.key::before{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:linear-gradient(100deg,var(--gold-1),var(--gold-3) 48%,var(--gold-2));
+  transform:translateY(101%);transition:transform .62s var(--ease-lux);
+}
+.key:hover{color:#120F0A;border-color:var(--gold-2);box-shadow:0 14px 44px -18px rgba(201,162,39,.7)}
+.key:hover::before{transform:translateY(0)}
+.key:focus-visible{outline:1px solid var(--gold-3);outline-offset:4px}
+.key[disabled]{cursor:progress;opacity:.85}
+
+/* the enticement */
+.whisper{
+  margin:20px 0 0;text-align:center;
+  font-family:var(--serif);font-style:italic;font-weight:300;
+  font-size:clamp(14.5px,1.15vw,17px);line-height:1.6;color:var(--bone-dim);
+}
+.whisper .glint{
+  background:linear-gradient(100deg,var(--gold-1),var(--gold-3) 45%,var(--gold-2));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.aside{
+  margin:22px 0 0;padding-top:18px;border-top:1px solid var(--gold-line-soft);
+  text-align:center;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--smoke);line-height:2.2;
+}
+.aside a{display:inline-block;margin-top:6px;color:var(--gold-2);text-decoration:none;border-bottom:1px solid var(--gold-line);padding-bottom:2px;transition:opacity .3s}
+.aside a:hover{opacity:.72}
+
+.status{
+  margin:16px 0 0;min-height:16px;text-align:center;
+  font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold-2);opacity:0;transition:opacity .5s var(--ease);
+}
+.status.show{opacity:1}
+.status.err{color:#C98A6A}
+
+/* ── The privileges ────────────────────────────────────────── */
+.privileges{position:relative;z-index:6;padding:clamp(56px,7vw,110px) var(--gutter) clamp(40px,5vw,70px)}
+.privileges__head{
+  display:flex;align-items:baseline;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  margin:0 0 clamp(30px,3.6vw,52px);
+}
+.privileges__head h2{
+  font-family:var(--serif);font-weight:300;font-size:clamp(26px,3vw,42px);margin:0;letter-spacing:.01em;
+}
+.privileges__head p{margin:0;max-width:42ch;font-size:12.5px;line-height:1.9;color:var(--smoke)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--gold-line-soft)}
+.priv{
+  padding:clamp(26px,2.6vw,38px) clamp(20px,2.2vw,34px);
+  border-bottom:1px solid var(--gold-line-soft);border-right:1px solid var(--gold-line-soft);
+  position:relative;overflow:hidden;transition:background .7s var(--ease);
+}
+.priv:last-child{border-right:0}
+.priv::after{
+  content:"";position:absolute;left:0;bottom:-1px;height:1px;width:100%;
+  background:linear-gradient(90deg,var(--gold-2),transparent);
+  transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease-lux);
+}
+.priv:hover{background:linear-gradient(180deg,rgba(201,162,39,.05),transparent)}
+.priv:hover::after{transform:scaleX(1)}
+.priv .num{
+  font-family:var(--serif);font-size:12px;letter-spacing:.3em;color:var(--gold-2);display:block;margin:0 0 18px;
+}
+.priv h3{font-family:var(--serif);font-weight:400;font-size:clamp(20px,1.7vw,26px);margin:0 0 12px;letter-spacing:.01em}
+.priv p{margin:0;font-size:13px;line-height:1.9;color:var(--bone-dim);max-width:34ch}
+
+.colophon{
+  position:relative;z-index:6;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:26px var(--gutter) 40px;
+  font-size:9px;letter-spacing:.34em;text-transform:uppercase;color:#4E483F;
+}
+.colophon a{color:inherit;text-decoration:none;transition:color .3s}
+.colophon a:hover{color:var(--gold-2)}
+
+/* ── Introduction dialog ───────────────────────────────────── */
+dialog.intro{
+  border:1px solid var(--gold-line);border-radius:3px;padding:0;max-width:min(430px,92vw);width:100%;
+  background:linear-gradient(180deg,#171412,#0C0A09);color:var(--bone);
+  box-shadow:0 60px 120px -40px rgba(0,0,0,.96);
+}
+dialog.intro::backdrop{background:rgba(3,3,2,.82);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+dialog.intro .in{padding:clamp(26px,3vw,38px)}
+dialog.intro h3{font-family:var(--serif);font-weight:400;font-size:26px;margin:0 0 8px}
+dialog.intro p.sub{margin:0 0 24px;font-size:12.5px;line-height:1.85;color:var(--smoke)}
+dialog.intro .close{
+  position:absolute;top:12px;right:14px;background:0;border:0;color:var(--smoke);cursor:pointer;
+  font-size:16px;line-height:1;padding:6px;transition:color .3s}
+dialog.intro .close:hover{color:var(--gold-2)}
+
+/* ── Reveal choreography ───────────────────────────────────── */
+.rise{opacity:0;transform:translateY(22px)}
+.no-anim .rise,.is-in .rise{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important}
+  .rise{opacity:1 !important;transform:none !important}
+  #veil{display:none}
+}
+
+/* ── Responsive architecture ───────────────────────────────── */
+@media (max-width:1120px){
+  .stage{grid-template-columns:1fr 1fr;grid-template-areas:"addr gate" "relic gate";row-gap:clamp(28px,4vw,48px)}
+  .address{grid-area:addr}
+  .relic{grid-area:relic;justify-content:flex-start}
+  .gate{grid-area:gate;align-self:center}
+  .relic__tilt{width:min(230px,42vw)}
+}
+@media (max-width:820px){
+  .stage{
+    grid-template-columns:1fr;grid-template-areas:"relic" "addr" "gate";
+    text-align:center;padding-top:clamp(18px,4vw,34px);
+  }
+  .address{margin:0 auto}
+  .address h1 .line > span{white-space:normal}
+  .address .lede{margin-left:auto;margin-right:auto}
+  .eyebrow{justify-content:center}
+  .eyebrow::after{display:none}
+  .eyebrow::before{content:"";flex:0 0 34px;height:1px;background:var(--gold-line)}
+  .relic{justify-content:center}
+  .relic__tilt{width:min(216px,52vw)}
+  .ledger li{justify-content:center}
+  .gate{justify-self:center}
+  .grid{grid-template-columns:1fr}
+  .priv{border-right:0}
+  .masthead__meta{display:none}
+}
+@media (max-width:420px){
+  .crest .crest__name{font-size:13px;letter-spacing:.34em}
+}
+</style>
+</head>
+<body>
+
+<!-- entrance veil -->
+<div id="veil" aria-hidden="true">
+  <div class="leaf" data-leaf="l"></div>
+  <div class="leaf" data-leaf="r"></div>
+  <div class="seam"></div>
+</div>
+
+<div class="atmos atmos--field"></div>
+<canvas id="motes" aria-hidden="true"></canvas>
+<div class="atmos atmos--candle" aria-hidden="true"></div>
+<div class="atmos atmos--vignette" aria-hidden="true"></div>
+<div class="atmos atmos--grain" aria-hidden="true"></div>
+
+<header class="masthead">
+  <a class="crest" href="#" aria-label="The Black Slab, home">
+    <svg viewBox="0 0 34 44" fill="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#8A6A22"/><stop offset=".48" stop-color="#F2E1AE"/><stop offset="1" stop-color="#C9A227"/>
+        </linearGradient>
+      </defs>
+      <rect x=".7" y=".7" width="32.6" height="42.6" rx="3" stroke="url(#g1)" stroke-width="1.1"/>
+      <rect x="4.4" y="4.4" width="25.2" height="35.2" rx="1.6" stroke="url(#g1)" stroke-width=".5" opacity=".5"/>
+      <path d="M17 11.6 22.6 22 17 32.4 11.4 22Z" stroke="url(#g1)" stroke-width="1"/>
+      <path d="M17 16.8 20 22l-3 5.2L14 22Z" fill="url(#g1)" opacity=".9"/>
+    </svg>
+    <span class="crest__txt">
+      <span class="crest__name">Black Slab</span>
+      <span class="crest__sub">Society of Collectors</span>
+    </span>
+  </a>
+  <div class="masthead__meta">Instituted <em>MMXXVI</em> &nbsp;·&nbsp; Members <em>311</em></div>
+</header>
+<hr class="rule">
+
+<main class="stage" id="stage">
+
+  <!-- I. The address -->
+  <section class="address">
+    <p class="eyebrow">By Introduction Only</p>
+    <h1>
+      <span class="line"><span>The finest</span></span>
+      <span class="line"><span>cards are</span></span>
+      <span class="line"><span><em>never listed.</em></span></span>
+    </h1>
+    <p class="lede">
+      A private house for collectors of consequence. What passes through these rooms
+      is offered quietly, to a short list, and to no one else.
+    </p>
+    <ul class="ledger">
+      <li><b>311</b> Members, worldwide</li>
+      <li><b>04</b> Private allocations each season</li>
+      <li><b>01</b> Way in</li>
+    </ul>
+  </section>
+
+  <!-- II. The relic -->
+  <section class="relic" aria-hidden="true">
+    <div class="relic__tilt" id="tilt">
+      <div class="slab">
+        <div class="slab__label">
+          <span class="t">The Black Slab<b>Member Certificate</b></span>
+          <span class="slab__grade">X</span>
+        </div>
+        <div class="slab__well">
+          <svg class="slab__mono" viewBox="0 0 120 120" fill="none" aria-hidden="true">
+            <circle cx="60" cy="60" r="47" stroke="url(#g1)" stroke-width=".7" opacity=".55"/>
+            <circle cx="60" cy="60" r="40" stroke="url(#g1)" stroke-width=".4" opacity=".35"/>
+            <path d="M60 26 84 60 60 94 36 60Z" stroke="url(#g1)" stroke-width="1"/>
+            <path d="M60 40 73 60 60 80 47 60Z" fill="url(#g1)" opacity=".78"/>
+            <path d="M60 52 66 60 60 68 54 60Z" fill="#0A0908"/>
+          </svg>
+        </div>
+        <span class="slab__seal">Non-Transferable</span>
+        <div class="slab__sheen"></div>
+      </div>
+      <div class="relic__shadow"></div>
+    </div>
+  </section>
+
+  <!-- III. The gate -->
+  <section class="gate">
+    <div class="card">
+      <span class="card__corner tl"></span><span class="card__corner br"></span>
+      <p class="gate__kicker">Members</p>
+      <h2 class="gate__title">Enter the house</h2>
+
+      <form id="gateForm" novalidate autocomplete="on">
+        <div class="field">
+          <input type="email" id="member" name="member" placeholder=" " autocomplete="username" required>
+          <label for="member">Member Address</label>
+          <span class="underline"></span>
+        </div>
+        <div class="field">
+          <input type="password" id="key" name="key" placeholder=" " autocomplete="current-password" required>
+          <label for="key">Private Key</label>
+          <span class="underline"></span>
+        </div>
+
+        <div class="gate__row">
+          <label class="check">
+            <input type="checkbox" id="remember" checked>
+            <span class="box" aria-hidden="true"></span>
+            <span class="lbl">Remember me</span>
+          </label>
+          <a href="#" id="mislaid">Mislaid your key?</a>
+        </div>
+
+        <button class="key" type="submit" id="submitBtn"><span>Unlock the Doors</span></button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <p class="whisper">Some rooms are not locked to keep people out.<br><span class="glint">They are locked to keep them wondering.</span></p>
+
+      <p class="aside">Not yet a member? <a href="#" id="askIntro">Request an introduction</a></p>
+    </div>
+  </section>
+</main>
+
+<hr class="rule">
+
+<!-- The privileges -->
+<section class="privileges" id="privileges">
+  <div class="privileges__head">
+    <h2 class="rise">What waits on the other side</h2>
+    <p class="rise">Three standing privileges, unchanged since the house was instituted.
+      They are not advertised elsewhere, and they are not extended to guests.</p>
+  </div>
+  <div class="grid">
+    <article class="priv rise">
+      <span class="num">I</span>
+      <h3>First Refusal</h3>
+      <p>Every consignment of consequence is shown to the membership before it is shown to a market.
+        You see it first, at the number the house paid, or you never see it listed at all.</p>
+    </article>
+    <article class="priv rise">
+      <span class="num">II</span>
+      <h3>The Allotment</h3>
+      <p>Four times a season, a sealed allocation arrives without invoice — a case break held back,
+        a one-of-one released from a private cabinet. Nothing is asked in return.</p>
+    </article>
+    <article class="priv rise">
+      <span class="num">III</span>
+      <h3>The Table</h3>
+      <p>One evening each year, in a room that is not named on the invitation. Grading on the spot,
+        trades settled by handshake, and the only guest list that has ever mattered.</p>
+    </article>
+  </div>
+</section>
+
+<footer class="colophon">
+  <span>The Black Slab &nbsp;·&nbsp; Society of Collectors</span>
+  <span><a href="#">Discretion</a> &nbsp;·&nbsp; <a href="#">Terms of Membership</a> &nbsp;·&nbsp; <a href="#">Contact the Secretary</a></span>
+</footer>
+
+<!-- Introduction dialog -->
+<dialog class="intro" id="introDlg" aria-labelledby="introTitle">
+  <button class="close" id="introClose" aria-label="Close">&#10005;</button>
+  <div class="in">
+    <h3 id="introTitle">Request an introduction</h3>
+    <p class="sub">Membership is not sold. Leave your address and the name of the member who sent you;
+      the Secretary replies to every letter, eventually.</p>
+    <form id="introForm" novalidate>
+      <div class="field">
+        <input type="email" id="iEmail" placeholder=" " required>
+        <label for="iEmail">Your Address</label><span class="underline"></span>
+      </div>
+      <div class="field">
+        <input type="text" id="iRef" placeholder=" ">
+        <label for="iRef">Referred By</label><span class="underline"></span>
+      </div>
+      <button class="key" type="submit"><span>Send the Letter</span></button>
+      <p class="status" id="introStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</dialog>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script>
+(function(){
+  'use strict';
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fine   = window.matchMedia('(pointer: fine)').matches;
+  if (fine) document.body.classList.add('pointer-fine');
+
+  /* ── Gold motes ────────────────────────────────────────── */
+  (function motes(){
+    const c = document.getElementById('motes');
+    if(!c || reduce) { if(c) c.style.display='none'; return; }
+    const ctx = c.getContext('2d');
+    let w, h, dpr, parts = [];
+    const COUNT = window.innerWidth < 760 ? 26 : 58;
+    function size(){
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = c.width  = Math.floor(innerWidth  * dpr);
+      h = c.height = Math.floor(innerHeight * dpr);
+      c.style.width = innerWidth + 'px'; c.style.height = innerHeight + 'px';
+      parts = Array.from({length: COUNT}, () => ({
+        x: Math.random()*w, y: Math.random()*h,
+        r: (Math.random()*1.5 + .35) * dpr,
+        vx:(Math.random()-.5)*.10*dpr, vy:-(Math.random()*.16+.03)*dpr,
+        a: Math.random()*.5 + .12, p: Math.random()*Math.PI*2
+      }));
+    }
+    function frame(t){
+      ctx.clearRect(0,0,w,h);
+      for(const m of parts){
+        m.x += m.vx + Math.sin((t/2600) + m.p) * .10 * dpr;
+        m.y += m.vy;
+        if(m.y < -12){ m.y = h + 12; m.x = Math.random()*w; }
+        const tw = m.a * (0.62 + 0.38*Math.sin(t/900 + m.p));
+        const g = ctx.createRadialGradient(m.x,m.y,0,m.x,m.y,m.r*5);
+        g.addColorStop(0,'rgba(242,225,174,'+tw+')');
+        g.addColorStop(1,'rgba(201,162,39,0)');
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(m.x,m.y,m.r*5,0,Math.PI*2); ctx.fill();
+      }
+      requestAnimationFrame(frame);
+    }
+    size(); addEventListener('resize', size, {passive:true}); requestAnimationFrame(frame);
+  })();
+
+  /* ── Candlelight cursor ────────────────────────────────── */
+  if (fine && !reduce){
+    const glow = document.querySelector('.atmos--candle');
+    let tx=innerWidth/2, ty=innerHeight/2, cx=tx, cy=ty, raf=0;
+    addEventListener('pointermove', e => { tx=e.clientX; ty=e.clientY; if(!raf) raf=requestAnimationFrame(loop); }, {passive:true});
+    function loop(){
+      cx += (tx-cx)*.085; cy += (ty-cy)*.085;
+      glow.style.setProperty('--mx', cx+'px');
+      glow.style.setProperty('--my', cy+'px');
+      raf = (Math.abs(tx-cx)>.4 || Math.abs(ty-cy)>.4) ? requestAnimationFrame(loop) : 0;
+    }
+  }
+
+  /* ── Slab parallax ─────────────────────────────────────── */
+  (function tilt(){
+    const el = document.getElementById('tilt');
+    if(!el || reduce) return;
+    const home = 'rotateX(0deg) rotateY(0deg) translateZ(0)';
+    el.style.transform = home;
+    if(fine){
+      addEventListener('pointermove', e => {
+        const nx = (e.clientX / innerWidth  - .5);
+        const ny = (e.clientY / innerHeight - .5);
+        el.style.transition = 'transform .18s linear';
+        el.style.transform = 'rotateY(' + (nx*17).toFixed(2) + 'deg) rotateX(' + (-ny*13).toFixed(2) + 'deg) translateZ(14px)';
+      }, {passive:true});
+      addEventListener('pointerleave', () => { el.style.transition=''; el.style.transform = home; });
+    } else if (window.DeviceOrientationEvent){
+      addEventListener('deviceorientation', e => {
+        const g = Math.max(-24, Math.min(24, e.gamma||0)), b = Math.max(-24, Math.min(24, (e.beta||0)-40));
+        el.style.transform = 'rotateY(' + (g*.5).toFixed(2) + 'deg) rotateX(' + (-b*.35).toFixed(2) + 'deg)';
+      }, {passive:true});
+    }
+  })();
+
+  /* ── The overture ──────────────────────────────────────── */
+  function overture(){
+    const veil = document.getElementById('veil');
+    const done = () => { if(veil) veil.classList.add('done'); document.body.classList.remove('is-locked'); };
+    const g = window.gsap;
+
+    if(reduce || !g){
+      document.documentElement.classList.add('no-anim');
+      document.querySelectorAll('.address h1 .line > span').forEach(s => { s.style.opacity=1; s.style.transform='none'; });
+      done(); return;
+    }
+
+    document.body.classList.add('is-locked');
+    g.registerPlugin(window.ScrollTrigger || {});
+
+    const tl = g.timeline({ defaults:{ ease:'expo.out' }, onComplete: done });
+    tl.set('#veil .seam', { opacity:0 })
+      .to('#veil .seam', { opacity:1, duration:.55, ease:'power2.out' }, .18)
+      .to('#veil [data-leaf="l"]', { xPercent:-100, duration:1.55, ease:'expo.inOut' }, .68)
+      .to('#veil [data-leaf="r"]', { xPercent: 100, duration:1.55, ease:'expo.inOut' }, .68)
+      .to('#veil .seam', { opacity:0, duration:.7 }, .95)
+      .from('.masthead', { yPercent:-40, opacity:0, duration:1.1 }, 1.15)
+      .from('.address h1 .line > span', {
+        yPercent:118, opacity:0, filter:'blur(9px)', duration:1.5, stagger:.11
+      }, 1.2)
+      .from('.eyebrow', { opacity:0, x:-16, duration:1 }, 1.35)
+      .from('.address .lede', { opacity:0, y:18, duration:1.1 }, 1.75)
+      .from('.ledger li', { opacity:0, y:14, duration:.9, stagger:.09 }, 1.9)
+      .from('.relic__tilt', {
+        opacity:0, y:56, scale:.9, rotationY:-22, filter:'blur(12px)', duration:1.9, ease:'expo.out'
+      }, 1.25)
+      .from('.gate .card', { opacity:0, y:34, duration:1.4 }, 1.55)
+      .from('.gate .field, .gate__row, .key, .whisper, .aside', {
+        opacity:0, y:16, duration:1, stagger:.085
+      }, 1.85);
+
+    if(window.ScrollTrigger){
+      g.utils.toArray('.privileges .rise').forEach((el,i) => {
+        g.to(el, {
+          opacity:1, y:0, duration:1.15, ease:'expo.out', delay:i*0.07,
+          scrollTrigger:{ trigger:el, start:'top 88%', once:true }
+        });
+      });
+    } else {
+      document.querySelectorAll('.rise').forEach(e => e.classList.add('is-in'));
+    }
+  }
+  if(document.readyState === 'complete') overture();
+  else addEventListener('load', overture);
+  // safety net — never leave the veil closed
+  setTimeout(() => {
+    const v = document.getElementById('veil');
+    if(v && !v.classList.contains('done')){ v.classList.add('done'); document.body.classList.remove('is-locked'); }
+    document.querySelectorAll('.rise').forEach(e => e.classList.add('is-in'));
+  }, 6000);
+
+  /* ── The gate ──────────────────────────────────────────── */
+  const form = document.getElementById('gateForm');
+  const btn  = document.getElementById('submitBtn');
+  const stat = document.getElementById('status');
+  const say  = (node, msg, err) => {
+    node.textContent = msg;
+    node.classList.toggle('err', !!err);
+    node.classList.add('show');
+  };
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const email = document.getElementById('member').value.trim();
+    const pass  = document.getElementById('key').value;
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) return say(stat,'A valid member address is required', true);
+    if(pass.length < 6) return say(stat,'Your private key is incomplete', true);
+
+    btn.disabled = true;
+    btn.querySelector('span').textContent = 'Verifying…';
+    say(stat, 'Consulting the register');
+
+    // Front-end demonstration only — no credentials leave this page.
+    setTimeout(() => {
+      say(stat, 'This is a demonstration gate — no register is connected yet');
+      btn.disabled = false;
+      btn.querySelector('span').textContent = 'Unlock the Doors';
+      if(window.gsap && !reduce){
+        gsap.fromTo('.gate .card', { boxShadow:'0 0 0 0 rgba(201,162,39,0)' },
+          { boxShadow:'0 0 70px -10px rgba(201,162,39,.45)', duration:.7, yoyo:true, repeat:1, ease:'sine.inOut' });
+      }
+    }, 1500);
+  });
+
+  document.getElementById('mislaid').addEventListener('click', e => {
+    e.preventDefault();
+    say(stat, 'The Secretary has been notified. Watch your post.');
+  });
+
+  /* ── Introduction ──────────────────────────────────────── */
+  const dlg = document.getElementById('introDlg');
+  document.getElementById('askIntro').addEventListener('click', e => {
+    e.preventDefault();
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  });
+  document.getElementById('introClose').addEventListener('click', () => dlg.close());
+  dlg.addEventListener('click', e => { if(e.target === dlg) dlg.close(); });
+  document.getElementById('introForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const em = document.getElementById('iEmail').value.trim();
+    const st = document.getElementById('introStatus');
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em)) return say(st,'A valid address is required', true);
+    say(st, 'Your letter is with the Secretary. Demonstration only — nothing was sent.');
+  });
+})();
+</script>
+</body>
+</html>

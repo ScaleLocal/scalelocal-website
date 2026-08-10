@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(Club-VIP|club-vip|CLUB-VIP|Club-vip|club-VIP)/(.*)",
+      "destination": "/test-builds/Club-VIP/$3"
+    },
+    {
+      "source": "/(test-builds|Test-Builds|TEST-BUILDS|test-Builds|Test-builds)/(Club-VIP|club-vip|CLUB-VIP|Club-vip|club-VIP)",
+      "destination": "/test-builds/Club-VIP/index.html"
+    },
+    {
       "source": "/sniper",
       "destination": "/sniper.html"
     },
@@ -34,6 +42,11 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/test-builds/Club-VIP",
+      "destination": "/test-builds/Club-VIP/",
+      "permanent": true
+    },
     {
       "source": "/test-builds/tnj-landscape",
       "destination": "/test-builds/tnj-landscape/",
@@ -250,6 +263,15 @@
     },
     {
       "source": "/(.*)\\.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/test-builds/Club-VIP/(.*)",
       "headers": [
         {
           "key": "X-Robots-Tag",
