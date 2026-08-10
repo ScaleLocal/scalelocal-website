@@ -1,8 +1,0 @@
-Six new CPA demo builds (Hickey, Carella, Mill City, Fitzpatrick & Goguen, Dorfman, Mass Tax Pros) + KPW OG image fix
-test-builds/hickeycpa
-test-builds/carellacpa
-test-builds/millcityaccounting
-test-builds/bgoguen
-test-builds/dorfmancpas
-test-builds/masstaxpros
-test-builds/kpw-cpa
