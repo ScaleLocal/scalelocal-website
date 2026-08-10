@@ -42,3 +42,11 @@ _batch*.py
 
 # Auto-deploy watcher trigger (written by Claude, consumed by autodeploy.bat)
 _deploy_request.txt
+
+# Staging area for files awaiting manual deletion. deploy.bat runs `git add -A`,
+# which swept 282 of these into the repo on 2026-08-10 — hence this rule.
+_to_delete/
+
+# Local staging/backup scratch, never part of the site
+_stage_sb/
+_backups/
