@@ -468,74 +468,7 @@
             .hero h1 { font-size: 24px; }
             .demo-banner { font-size: 10px; padding: 4px 8px; }
         }
-
-        /* ===== MOBILE STICKY BOTTOM BAR ===== */
-        @media (max-width: 768px) {
-            .mobile-bottom-bar {
-                display: flex;
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                z-index: 9999;
-                background: var(--charcoal-dark);
-                padding: 0;
-                box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
-                justify-content: center;
-            }
-            .mobile-bottom-bar a {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 6px;
-                padding: 12px 24px;
-                font-family: 'Montserrat', sans-serif;
-                font-size: 12px;
-                font-weight: 800;
-                text-transform: uppercase;
-                letter-spacing: 0.03em;
-                text-decoration: none;
-                transition: background 0.2s;
-            }
-            .mobile-bottom-bar a svg { width: 16px; height: 16px; flex-shrink: 0; }
-            .mobile-bottom-bar .mbb-call {
-                background: var(--gold);
-                color: var(--charcoal-dark);
-            }
-            .mobile-bottom-bar .mbb-call:active { background: var(--gold-dark); }
-            .mobile-bottom-bar .mbb-text {
-                display: none;
-            }
-            /* Mobile header emergency button */
-            .mobile-header-emergency {
-                display: flex;
-                align-items: center;
-                gap: 4px;
-                padding: 6px 12px;
-                background: #CC0000;
-                color: var(--white);
-                font-family: 'Montserrat', sans-serif;
-                font-size: 10px;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 0.02em;
-                text-decoration: none;
-                border-radius: var(--radius);
-                transition: background 0.2s;
-                white-space: nowrap;
-            }
-            .mobile-header-emergency:active { background: #990000; }
-            .mobile-header-emergency svg { width: 14px; height: 14px; flex-shrink: 0; }
-            body { padding-bottom: 52px; }
-            /* When chat is open, unstick header so it doesn't cover the chat window */
-            header.chat-open {
-                position: relative !important;
-                z-index: 1 !important;
-            }
-        }
-        @media (min-width: 769px) {
-            .mobile-bottom-bar { display: none; }
-        }
+}
     </style>
 </head>
 <body>
@@ -808,49 +741,89 @@
         </div>
     </div>
 </footer>
+<!-- SCALELOCAL CONTACT WIDGET — Opus Plumbing & Heating -->
+<style>
+.sl-contact-fab{position:fixed;bottom:24px;right:24px;z-index:9999;font-family:'Open Sans','Montserrat',system-ui,sans-serif}
+.sl-contact-fab *{box-sizing:border-box;margin:0;padding:0}
+.sl-fab-btn{width:56px;height:56px;border-radius:50%;background:#005C26;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.25);transition:transform .2s,background .2s;position:relative}
+.sl-fab-btn:hover{transform:scale(1.08);background:#007A33}
+.sl-fab-btn svg{width:26px;height:26px;fill:#fff;transition:opacity .2s,transform .3s}
+.sl-fab-btn .sl-fab-close{position:absolute;opacity:0;transform:rotate(-90deg)}
+.sl-contact-fab.sl-open .sl-fab-btn .sl-fab-open{opacity:0;transform:rotate(90deg)}
+.sl-contact-fab.sl-open .sl-fab-btn .sl-fab-close{opacity:1;transform:rotate(0deg)}
+.sl-fab-dot{position:absolute;top:0;right:0;width:12px;height:12px;background:#FCB514;border-radius:50%;border:2px solid #005C26}
+.sl-contact-fab.sl-open .sl-fab-dot{display:none}
+.sl-contact-panel{position:absolute;bottom:72px;right:0;width:340px;background:#fff;border-radius:16px;box-shadow:0 12px 48px rgba(0,0,0,0.18);overflow:hidden;opacity:0;transform:translateY(16px) scale(0.95);pointer-events:none;transition:opacity .25s,transform .25s}
+.sl-contact-fab.sl-open .sl-contact-panel{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.sl-panel-header{background:#005C26;padding:22px 24px 18px;position:relative;overflow:hidden}
+.sl-panel-header h3{color:#fff;font-size:20px;font-weight:700;margin-bottom:4px;font-family:'Montserrat','Open Sans',system-ui,sans-serif}
+.sl-panel-header p{color:rgba(255,255,255,0.8);font-size:13.5px;font-weight:400;line-height:1.4}
+.sl-panel-sun{position:absolute;top:12px;right:16px;width:40px;height:40px;opacity:0.35}
+.sl-panel-sun svg{width:100%;height:100%;fill:#FCB514}
+.sl-panel-options{padding:8px 12px 4px}
+.sl-panel-option{display:flex;align-items:center;gap:14px;padding:14px 12px;border-radius:10px;text-decoration:none;color:#1A1A1A;transition:background .15s}
+.sl-panel-option:hover{background:#f3f5f4}
+.sl-panel-option-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sl-panel-option-icon svg{width:20px;height:20px}
+.sl-panel-option-text strong{display:block;font-size:15px;font-weight:600;color:#1A1A1A;line-height:1.3}
+.sl-panel-option-text span{font-size:12.5px;color:#6b7280;line-height:1.3}
+.sl-opt-urgent .sl-panel-option-icon{background:#FEF2E6}
+.sl-opt-urgent .sl-panel-option-icon svg{fill:#E07A1B}
+.sl-opt-chat .sl-panel-option-icon{background:#E8F5ED}
+.sl-opt-chat .sl-panel-option-icon svg{fill:#007A33}
+.sl-opt-book .sl-panel-option-icon{background:#FFF8E6}
+.sl-opt-book .sl-panel-option-icon svg{fill:#9A7B1A}
+.sl-opt-call .sl-panel-option-icon{background:#E8F5ED}
+.sl-opt-call .sl-panel-option-icon svg{fill:#007A33}
+.sl-panel-footer{text-align:center;padding:10px 12px 14px}
+.sl-panel-footer a{font-size:12px;color:#007A33;text-decoration:none;font-weight:500;letter-spacing:0.02em;opacity:0.7;transition:opacity .15s}
+.sl-panel-footer a:hover{opacity:1}
+.sl-panel-divider{height:1px;background:#e9ecf0;margin:0 16px}
+@media(max-width:480px){
+.sl-contact-panel{width:calc(100vw - 32px);right:-8px;bottom:68px;border-radius:14px}
+.sl-fab-btn{width:52px;height:52px}
+.sl-contact-fab{bottom:20px;right:20px}
+}
+</style>
 
-<!-- CHAT WIDGET -- Preview Slot 2 -->
-<script src="https://widgets.leadconnectorhq.com/loader.js"
-    data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-    data-widget-id="69d9496fc41f60a7fa93719d"></script>
-
-<script>
-// Mobile: hide bottom bar and unstick header when chat widget opens
-(function() {
-    if (window.innerWidth > 768) return;
-    function init() {
-        var widget = document.querySelector('chat-widget');
-        if (!widget || !widget.shadowRoot) { setTimeout(init, 500); return; }
-        var sr = widget.shadowRoot;
-        var widgetEl = sr.querySelector('#lc_text-widget');
-        if (!widgetEl) { setTimeout(init, 500); return; }
-        var header = document.querySelector('header');
-        var bottomBar = document.querySelector('.mobile-bottom-bar');
-        var observer = new MutationObserver(function() {
-            var isOpen = widgetEl.classList.contains('lc_text-widget--active');
-            if (isOpen) {
-                header.classList.add('chat-open');
-                if (bottomBar) bottomBar.style.display = 'none';
-                document.body.style.paddingBottom = '0';
-            } else {
-                header.classList.remove('chat-open');
-                if (bottomBar) bottomBar.style.display = '';
-                document.body.style.paddingBottom = '';
-            }
-        });
-        observer.observe(widgetEl, { attributes: true, attributeFilter: ['class'] });
-    }
-    setTimeout(init, 1500);
-})();
-</script>
-
-<!-- MOBILE STICKY BOTTOM BAR -->
-<div class="mobile-bottom-bar">
-    <a href="tel:7818792922" class="mbb-call">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg>
-        Call Now
-    </a>
+<div class="sl-contact-fab" id="slContactFab">
+    <div class="sl-contact-panel">
+        <div class="sl-panel-header">
+            <h3>How can we help?</h3>
+            <p>Rick answers personally &mdash; usually the same day.</p>
+            <div class="sl-panel-sun"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M20 8l1.8 5.2H28l-5 3.6 1.8 5.6L20 19l-4.6 3.4 1.8-5.6-5-3.6h6.2L20 8z"/><line x1="20" y1="0" x2="20" y2="4" stroke="#FCB514" stroke-width="2"/><line x1="20" y1="36" x2="20" y2="40" stroke="#FCB514" stroke-width="2"/><line x1="0" y1="20" x2="4" y2="20" stroke="#FCB514" stroke-width="2"/><line x1="36" y1="20" x2="40" y2="20" stroke="#FCB514" stroke-width="2"/><line x1="5.9" y1="5.9" x2="8.7" y2="8.7" stroke="#FCB514" stroke-width="2"/><line x1="31.3" y1="31.3" x2="34.1" y2="34.1" stroke="#FCB514" stroke-width="2"/><line x1="5.9" y1="34.1" x2="8.7" y2="31.3" stroke="#FCB514" stroke-width="2"/><line x1="31.3" y1="8.7" x2="34.1" y2="5.9" stroke="#FCB514" stroke-width="2"/></svg></div>
+        </div>
+        <div class="sl-panel-options">
+            <a href="sms:7818792922" class="sl-panel-option sl-opt-urgent">
+                <div class="sl-panel-option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg></div>
+                <div class="sl-panel-option-text"><strong>Urgent &mdash; text Rick</strong><span>Straight to the owner's phone</span></div>
+            </a>
+            <div class="sl-panel-divider"></div>
+            <a href="sms:7818792922?body=Hi%20Rick%2C%20I%20have%20a%20quick%20question%20about%20your%20plumbing%20services." class="sl-panel-option sl-opt-chat">
+                <div class="sl-panel-option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg></div>
+                <div class="sl-panel-option-text"><strong>Chat with us</strong><span>Quick answers about our work</span></div>
+            </a>
+            <div class="sl-panel-divider"></div>
+            <a href="contact.html" class="sl-panel-option sl-opt-book">
+                <div class="sl-panel-option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg></div>
+                <div class="sl-panel-option-text"><strong>Book a free estimate</strong><span>Tell us about your project</span></div>
+            </a>
+            <div class="sl-panel-divider"></div>
+            <a href="tel:7818792922" class="sl-panel-option sl-opt-call">
+                <div class="sl-panel-option-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.55.57 1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.55 1 1 0 01-.25 1.02l-2.2 2.22z"/></svg></div>
+                <div class="sl-panel-option-text"><strong>(781) 879-2922</strong><span>Mon&ndash;Fri &middot; 9a&ndash;5p</span></div>
+            </a>
+        </div>
+        <div class="sl-panel-footer"><a href="https://scalelocal.net" target="_blank" rel="noopener">Powered by ScaleLocal</a></div>
+    </div>
+    <button class="sl-fab-btn" aria-label="Contact us" onclick="document.getElementById('slContactFab').classList.toggle('sl-open')">
+        <span class="sl-fab-dot"></span>
+        <svg class="sl-fab-open" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+        <svg class="sl-fab-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
 </div>
+<script>document.addEventListener('click',function(e){var fab=document.getElementById('slContactFab');if(fab.classList.contains('sl-open')&&!fab.contains(e.target))fab.classList.remove('sl-open')});</script>
+<!-- END SCALELOCAL CONTACT WIDGET -->
 
 </body>
 </html>
